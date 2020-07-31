@@ -70,11 +70,11 @@ en:
               blank: You must select a buiding type or describe your own
             external_area:
               blank: External area must be a number between 0 and 999,999,999
-              combined_area: One or other of the internal area and external area must be greater than 0
+              combined_area: Please enter a value greater than zero for either the internal or external area - both cannot be zero.
               not_an_integer: Enter a whole number for the size of internal area of this building
             gia:
-              blank: Building size must be a number between 0 and 999,999,999
-              combined_area: One or other of the internal area and external area must be greater than 0
+              blank: Internal area must be a number between 0 and 999,999,999
+              combined_area: Please enter a value greater than zero for either the internal or external area - both cannot be zero.
               not_an_integer: Enter a whole number for the size of internal area of this building
             other_building_type:
               blank: You must enter your description of a building type
@@ -256,6 +256,9 @@ en:
               invalid: Enter a UK telephone number, for example 020 7946 0000
         facilities_management/procurement_building:
           attributes:
+            building:
+              external_area_too_small: You have a service in ‘%{building_name}’ building that requires external area, please go to 'Manage buildings' to update the building external area size
+              gia_too_small: You have a service in ‘%{building_name}’ building that requires internal area, please go to 'Manage buildings' to update the building internal area size
             service_codes:
               at_least_one: You must select at least one service for ‘%{building_name}’ building
               invalid: Select at least one service for each building
@@ -505,9 +508,9 @@ en:
         zero_address_found: 0 addresses found
         zero_regions_found: 0 regions found
       gia:
-        description_html: Gross internal area (GIA) is the area of a building measured to the internal face of the perimeter walls at each floor level.<br/>For example, 18000 square metres.
-        external_area_description_html: External area is the area outside a building measured in square metres.<br/>For example, 18000 square metres.
-        external_area_header: What’s the size of the external area of this building?
+        description_html: Gross internal area (GIA) is the area of a building measured to the internal face of the perimeter walls at each floor level.<br/>For example, 1800 square metres.
+        external_area_description_html: An external area can be the grounds surrounding a building, or an area without any building for example a park, and is measured in square metres.<br/> For example 18000 square metres.
+        external_area_header: What's the size of the external area?
         further_info_html: 'For further information on GIA <a aria-label="Read the Valuation Office Agency advice on the Code of measuring practice" title="Code of measuring practice: definitions for rating purposes" target="_blank" href="https://www.gov.uk/government/publications/measuring-practice-for-voa-property-valuations/code-of-measuring-practice-definitions-for-rating-purposes#gross-internal-area">follow this link</a>.'
         gia_header: What’s the size of the internal area of this building?
         guidance: Please enter your building's internal and external area sizes below. These are used to calculate service pricing, where necessary. If your building does not have an internal or external area, please enter '0' in the relevant field.
@@ -574,18 +577,19 @@ en:
         view_more: View more building types
     buyer_account:
       buyer_account:
-        about_the_buyer_description: Edit your account details such as your name or organisation name
-        about_the_buyer_title: About your account
-        buildings_title: Buildings
         buyer_account_dashboard: Buyer account dashboard
         buyer_account_title: Your account
-        link_text: Manage your details
-        manage_buildings: Manage buildings
-        manage_buildings_desc: Create and manage your buildings used in your procurements
-        manage_procurements_link: Procurements dashboard
-        new_procurement_desc: Quick search for suppliers or create a new procurement
-        procurement_dashboard_desc: See a list of your search results and procurements
-        procurements: Procurements
+        manage_account_desc: Update and edit your contact details
+        manage_account_link: Manage my account
+        manage_buildings: Manage my buildings
+        manage_buildings_desc: Set up and manage your buildings for use in procurements
+        manage_procurements_desc: Open your procurements dashboard to view<br/> and continue existing saved procurements<br />
+        manage_procurements_link: Continue a procurement
+        new_procurement_desc: Quickly view suppliers who can provide services to your locations
+        quick_view: Quick view suppliers
+        return_to_page: To return to this page at any time, just click on 'My account' in the top right hand corner of your screen.
+        start_procurement_desc: See shortlisted suppliers, estimated contract costs, and explore direct award or further competition options
+        start_procurement_link: Start a procurement
     buyer_details:
       edit:
         buyer_details: Manage your details
@@ -778,7 +782,7 @@ en:
         personnel_subtitle: How many personnel do you require for this service?
         save_and_return_to_service_information: Save and return to service requirements
         service_hours_description_1: The calculation will assume 52 weeks x 7 days in one year.
-        service_hours_subtitle: Please input below the hours you require this service to be delivered in a standard
+        service_hours_subtitle: Please input below the hours you require this service to be delivered in a standard week
         there_is_a_problem: There is a problem
       show:
         back_to_service_information: Back to service requirements
@@ -1179,7 +1183,6 @@ en:
         sent_offers:
           no_sent: You do not have any sent offers
       detailed_search_summary:
-        delete_message: Are you sure you want to delete this search result? This action cannot be un-done.
         detailed_search_description: Once you have answered all of the questions below, you will be provided with an estimated cost and shortlist of suppliers in the recommended sub-lot.
         detailed_search_summary_title: Detailed search summary
       edit:
@@ -1200,13 +1203,10 @@ en:
           services_caption: You must have at least one service selected for each building.
           sub_heading: What facilities management services do you need for each building?
           there_is_a_problem: There is a problem
-        cancel: Cancel
         cancel_and_return: Cancel, and return to the manage procurements page
-        confirm_delete: Yes, delete this search result
         contract_name:
           contract_name_info: This will help you to refer to your contracts when talking to suppliers.
           contract_name_question: What do you want to call your contract?
-        delete_message: Are you sure you want to delete this search result?  This action cannot be undone.
         detailed_search: Detailed search
         estimated_annual_cost:
           caption: Detailed search
@@ -1271,11 +1271,18 @@ en:
           name_text: Pension fund name
           percentage_text: Percentage of pensionable pay
         quick_search: Quick search
+        regions:
+          location_selected: Region selected
+          locations_selected: Regions selected
+          no_locations_selected: No Regions selected
+          question: Where are your buildings located?
+          remove_all: Remove all
+          subtitle: Choose one or more regions, based on building’s location where you require facilities management services.
         return_to_detailed_search_summary: Return to detailed search summary
         save_and_continue: Save and continue
         save_and_return_to_detailed_summary: Save and return to detailed search summary
         save_for_later: Save for later
-        search_result_body_html: Here are the suppliers that can provide your services to your buildings.<br/>We are showing you potential suppliers from all three sub-lots, however your procurement will fall into only one sub-lot dependent on your potential total contract value (excludes billable works, optional extension periods and VAT).
+        search_result_body_html: Here are the suppliers that can provide your services to your buildings. We are showing you potential suppliers from all three sub-lots, however, your procurement will fall into only one sub-lot dependent on your potential total contract value (which excludes billable works, optional extension periods and VAT).
         security_policy_document:
           document:
             guidance: Supported file types are DOC, DOCX and PDF. Maximum file size is 10MB.
@@ -1296,6 +1303,8 @@ en:
           question: Select the facilities management services you need
           service_specification_doc: Read the service specification document
           subtitle_html: Select all of the facilities management services required within your estate.<br> You will then be able to match up each building with the services it requires.
+          subtitle_quick_search: Choose all facilities management services required within your estate, even if you want services in just one building.
+          title: All services
         tupe:
           body_text_html: When a supplier changes, the original service provider’s workers may be protected under TUPE.</br> For example, a new supplier is awarded the contract to provide cleaning services to a building.</br> The cleaners, who are employed by the current service provider, may be protected under TUPE.
           first_question: Do you believe that Transfer of Undertakings (TUPE) Regulations applies to your contract?
@@ -1310,10 +1319,17 @@ en:
         change_add_region: Change
         change_add_service: Change
         hide_requirements: Hide requirements
+        lot_1a: Sub-lot 1a
+        lot_1b: Sub-lot 1b
+        lot_1c: Sub-lot 1c
+        lot_title_1a_html: up to<br/> £7m
+        lot_title_1b_html: between<br/> £7m-50m
+        lot_title_1c_html: over<br/> £50m
         regions: Regions
         requirements: Requirements
         services: Services
         show_requirements: Show requirements
+        total_contract_value: Total contract value
       further_competition:
         further_competition_partial:
           awarding_the_contract: Awarding the contract
@@ -1344,6 +1360,7 @@ en:
           more_information_5: bid pack guidance documents
           publishing_invitation: Publishing your ITT
           publishing_invitation_1: inviting your shortlisted suppliers to bid by issuing the ITT, requirements document and draft contract
+          save_as_fc_instructions: Click the 'Save as further competition' button below to save your results and access your procurement summary, which details your buildings and service requirements, ready for your tender pack.
           summary_header: Download your procurement summary
           supplier_brief: Supplier brief
           supplier_brief_1: used to communicate to the supplier’s high level details of your requirements, timescales etc, and receive feedback
@@ -1355,9 +1372,11 @@ en:
           tender_period_3: evaluate suppliers’ responses
           what_happens_next_description: 'Running a further competition allows you to ask your shortlisted framework suppliers to bid for your business, based on your particular requirements. This allows you to get a competitive price for a solution that meets your specific needs. The key stages of the process are:'
           what_happens_next_title: What happens next
+        return_to_dashboard: Return to procurements dashboard
       index:
         closed_title: Closed
         contracts_title: Contracts
+        deleted: Your item was deleted
         direct_award_title: Direct award
         further_competition: Further competition
         in-draft-title: In draft
@@ -1368,25 +1387,22 @@ en:
       mobilisation_period:
         description: This is the period in which the supplier gets ready to start providing the services. A mobilisation period of between 3 to 6 months is recommended depending on the complexity of services and buildings. A shorter term can be entered if required, however enough time should be allowed for suitable mobilisation ready for service delivery.
       new:
-        cancel_text: Cancel, and return to the procurements dashboard
-        quick_search: Quick search
-        save_and_continue: Save and continue
-        save_for_later: Save for later
-        search_result_body_html: Here are the suppliers that can provide your services to your buildings.<br/>We are showing you potential suppliers from all three sub-lots, however your procurement will fall into only one sub-lot dependent on your potential total contract value (excludes billable works, optional extension periods and VAT).
-        search_results: Results
+        cancel_text: Return to your account
+        quick_view_results: Quick view results
+        save_and_continue: Save and continue to procurement
+        save_for_later: Save and return to procurements dashboard
+        search_result_body_html: Here are the suppliers that can provide your services to your buildings. We are showing you potential suppliers from all three sub-lots, however, your procurement will fall into only one sub-lot dependent on your potential total contract value (which excludes billable works, optional extension periods and VAT).
+      quick_search:
+        cancel_text: Return to your account
+        quick_view_results: Quick view results
+        save_and_continue: Continue to procurement
+        save_for_later: Return to procurements dashboard
+        save_text: To be placed compliantly into a sub-lot, and receive your own supplier shortlist, an estimated contract cost and your procurement options, please continue to a procurement below.
+        search_result_body_html: Here are the suppliers that can provide your services to your buildings. We are showing you potential suppliers from all three sub-lots, however, your procurement will fall into only one sub-lot dependent on your potential total contract value (which excludes billable works, optional extension periods and VAT).
       quick_search_form:
-        continue_headline: Continue to procurement
-        continue_text: Next, you need to provide additional information on your contract requirements, buildings and services. Once completed, you will be provided with an estimated cost, recommended sub-lot, shortlist of potential suppliers, and options for your next steps.
-        new_name_label: Enter a name for the search
-        save_headline: Save a new search
-        save_text: Name your search. A reference number or short description of what you want to buy makes a good name.
-      regions:
-        location_selected: Region selected
-        locations_selected: Regions selected
-        no_locations_selected: No Regions selected
-        question: Where are your buildings located?
-        remove_all: Remove all
-        subtitle: Choose one or more regions, based on building’s location where you require facilities management services.
+        new_name_label: Enter a name or reference to save this search.
+        save_headline: Save your search
+        save_text: To be placed compliantly into a sub-lot, and receive your own supplier shortlist, an estimated contract cost and your procurement options, please continue to a procurement below.
       results:
         any_changes: If you wish to change your requirements, click the 'Change requirements’ button below. Any changes may result in a different outcome.
         any_changes_chosen: If you wish to change the contract value that you selected or your requirements, click the 'Return to estimated contract cost’ button below. Any changes may result in a different outcome.
@@ -1415,10 +1431,39 @@ en:
         who_are: who can provide the services you require in your location(s)
       service_codes_checkboxes:
         learn_more: Learn more (opens in a new tab)
-      services:
-        question: Select the facilities management services that you need
-        service_specification_doc: Read the service specification document
-        subtitle: Choose all facilities management services required within your estate, even if you want services in just one building.
+      what_happens_next:
+        cancel: Cancel and return to procurements dashboard
+        continue: Continue
+        heading: What happens next
+        return: Return to your account
+      what_happens_next_body:
+        first_information: We will first ask you for some information including
+        step_1_content_1: 'basic contract information such as: '
+        step_1_content_1_list_1: your current annual cost (if known)
+        step_1_content_1_list_2: any TUPE involvement
+        step_1_content_1_list_3: your required contract length, start date, optional extension periods
+        step_1_content_2: your buildings and service requirements
+        step_1_content_2_list_1: where your buildings are located, their size and what they're used for
+        step_1_content_2_list_2: which services you want to have provided, and in which of your buildings
+        step_1_content_3: 'You will be given the option of completing your building and service requirements either: '
+        step_1_content_3_list_1: within this portal with us guiding you through the questions
+        step_1_content_3_list_2: using a spreadsheet template, which you can download, fill out the information, then upload back into this portal.
+        step_1_content_4: We recommend that the first option is more suited to simpler procurements with a fewer number of buildings and services needed, and the spreadsheet option is more suited to more complex procurements with a larger number of buildings and services, however it is also down to your own preferred way of working.
+        step_1_title: Your requirements
+        step_2_content_1: 'You will be shown: '
+        step_2_content_1_list_1: your estimated contract cost
+        step_2_content_1_list_2: a compliant sub-lot, and a shortlist of potential suppliers
+        step_2_content_1_list_3: the options available for your next steps if you want to proceed into a procurement - this may include a direct award or further competition
+        step_2_title: Results
+        step_3_content_1: 'If direct award is an option you select, you will then be guided through further steps online, including: '
+        step_3_content_1_list_1: reviewing direct award pricing
+        step_3_content_1_list_2: building a contract online
+        step_3_content_1_list_3: sending a contract offer to the supplier
+        step_3_content_2: 'If further competition is selected, you will be presented with: '
+        step_3_content_2_list_1: guidance on what to do next
+        step_3_content_2_list_2: a download of your procurement requirements
+        step_3_title: Routes to market
+        steps: The steps shown below outline the process that you'll follow within this portal.
     registrations:
       domain_not_on_safelist:
         heading: You must use a public sector email address

@@ -29,17 +29,29 @@ RSpec.describe FacilitiesManagement::ProcurementsController, type: :controller d
 
     describe 'GET show' do
       context 'with a procurement in the quick search state' do
-        it 'redirects to the edit path' do
+        it 'renders the show page' do
           get :show, params: { id: procurement.id }
 
-          expect(response).to redirect_to edit_facilities_management_procurement_path(procurement.id)
+          expect(response).to render_template('show')
         end
 
         context 'when the user deletes the quick search' do
-          it 'redirects to the edit path' do
-            get :show, params: { id: procurement.id, delete: true }
+          it 'renders the show page' do
+            get :show, params: { id: procurement.id, delete: 'y' }
 
-            expect(response).to redirect_to edit_facilities_management_procurement_url(procurement.id, delete: true)
+            expect(response).to render_template('show')
+          end
+        end
+
+        context 'when the user continues from quick search' do
+          before { get :show, params: { id: procurement.id, 'what_happens_next': true } }
+
+          it 'renders the show page' do
+            expect(response).to render_template('show')
+          end
+
+          it 'will have a view name of what_happens_next' do
+            expect(assigns(:view_name)).to eq 'what_happens_next'
           end
         end
       end
@@ -94,7 +106,7 @@ RSpec.describe FacilitiesManagement::ProcurementsController, type: :controller d
           expect(assigns(:view_name)).to eq 'results'
         end
 
-        context 'when lot number is sleceted by customer' do
+        context 'when lot number is selected by customer' do
           before { procurement.update(lot_number_selected_by_customer: true) }
 
           it 'the secondary button is named change_the_contract_value' do
@@ -104,7 +116,7 @@ RSpec.describe FacilitiesManagement::ProcurementsController, type: :controller d
           end
         end
 
-        context 'when lot number is not sleceted by customer' do
+        context 'when lot number is not selected by customer' do
           before { procurement.update(lot_number_selected_by_customer: false) }
 
           it 'the secondary button is named change_requirements' do
@@ -115,19 +127,45 @@ RSpec.describe FacilitiesManagement::ProcurementsController, type: :controller d
         end
       end
 
-      context 'when the procurement is in a further competition state' do
-        before { procurement.update(aasm_state: 'further_competition') }
+      context 'when a procurement in the results state with competition state chosen' do
+        render_views
+
+        before do
+          procurement.update(aasm_state: 'results')
+          get :show, params: { id: procurement.id, fc_chosen: 'true' }
+        end
 
         it 'renders the show template' do
-          get :show, params: { id: procurement.id }
-
           expect(response).to render_template('show')
         end
 
-        it 'sets the view name to choose_contract_value' do
-          get :show, params: { id: procurement.id }
-
+        it 'sets the view name to further_competition' do
           expect(assigns(:view_name)).to eq 'further_competition'
+        end
+
+        it 'displays Save as further competition button' do
+          expect(response.body).to match(/Save as further competition/)
+        end
+      end
+
+      context 'when the procurement is in a further competition state' do
+        render_views
+
+        before do
+          procurement.update(aasm_state: 'further_competition')
+          get :show, params: { id: procurement.id }
+        end
+
+        it 'renders the show template' do
+          expect(response).to render_template('show')
+        end
+
+        it 'sets the view name to further_competition' do
+          expect(assigns(:view_name)).to eq 'further_competition'
+        end
+
+        it 'displays Make a copy button' do
+          expect(response.body).to match(/Make a copy/)
         end
       end
 
@@ -295,13 +333,23 @@ RSpec.describe FacilitiesManagement::ProcurementsController, type: :controller d
       end
     end
 
+    describe 'GET what happens next' do
+      context 'when on the dashboard' do
+        it 'would render the what_happens_next' do
+          get :what_happens_next
+
+          expect(response).to render_template('what_happens_next')
+        end
+      end
+    end
+
     describe 'POST create' do
       context 'with a valid record' do
         context 'when Save and continue is selected' do
           it 'redirects to edit path for the new record' do
             post :create, params: { facilities_management_procurement: { contract_name: 'New procurement' } }
             new_procurement = FacilitiesManagement::Procurement.all.order(created_at: :asc).first
-            expect(response).to redirect_to edit_facilities_management_procurement_path(new_procurement.id)
+            expect(response).to redirect_to facilities_management_procurement_path(new_procurement.id, 'what_happens_next': true)
           end
         end
 
@@ -497,7 +545,7 @@ RSpec.describe FacilitiesManagement::ProcurementsController, type: :controller d
           end
 
           it 'will redirect to facilities_management_procurement_path' do
-            expect(response).to redirect_to facilities_management_procurement_path(procurement)
+            expect(response).to redirect_to facilities_management_procurement_path(procurement, fc_chosen: 'false')
           end
 
           it 'will change the state to da_draft' do
@@ -506,18 +554,33 @@ RSpec.describe FacilitiesManagement::ProcurementsController, type: :controller d
           end
         end
 
-        context 'when the selection is valid and further competition is chosen' do
+        context 'when the selection is valid and saving as further competition' do
           before do
             patch :update, params: { id: procurement.id, set_route_to_market: 'Continue', facilities_management_procurement: { route_to_market: 'further_competition' } }
           end
 
           it 'will redirect to facilities_management_procurement_path' do
-            expect(response).to redirect_to facilities_management_procurement_path(procurement)
+            expect(response).to redirect_to facilities_management_procurement_path(procurement, fc_chosen: 'false')
           end
 
           it 'will change the state to further_competition' do
             procurement.reload
             expect(procurement.aasm_state).to eq('further_competition')
+          end
+        end
+
+        context 'when the selection is valid and further competition is chosen' do
+          before do
+            patch :update, params: { id: procurement.id, set_route_to_market: 'Continue', facilities_management_procurement: { route_to_market: 'further_competition_chosen' } }
+          end
+
+          it 'will redirect to facilities_management_procurement_path' do
+            expect(response).to redirect_to facilities_management_procurement_path(procurement, fc_chosen: 'true')
+          end
+
+          it 'will not change the state to further_competition' do
+            procurement.reload
+            expect(procurement.aasm_state).to eq('results')
           end
         end
       end
@@ -1185,7 +1248,7 @@ RSpec.describe FacilitiesManagement::ProcurementsController, type: :controller d
         end
 
         it 'redirects to edit_facilities_management_procurement_path' do
-          expect(response).to redirect_to edit_facilities_management_procurement_path(id: procurement.id)
+          expect(response).to redirect_to facilities_management_procurement_path(id: procurement.id)
         end
 
         it 'updates the regions in the procurement' do
@@ -1205,7 +1268,7 @@ RSpec.describe FacilitiesManagement::ProcurementsController, type: :controller d
             end
 
             it 'redirects to edit_facilities_management_procurement_path' do
-              expect(response).to redirect_to edit_facilities_management_procurement_path(id: procurement.id)
+              expect(response).to redirect_to facilities_management_procurement_path(id: procurement.id)
             end
 
             it 'updates the service codes' do
@@ -1234,7 +1297,7 @@ RSpec.describe FacilitiesManagement::ProcurementsController, type: :controller d
             end
 
             it 'redirects to edit_facilities_management_procurement_path' do
-              expect(response).to redirect_to edit_facilities_management_procurement_path(id: procurement.id)
+              expect(response).to redirect_to facilities_management_procurement_path(id: procurement.id)
             end
 
             it 'updates the region codes' do

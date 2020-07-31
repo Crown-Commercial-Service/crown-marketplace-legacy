@@ -20,17 +20,11 @@ module FacilitiesManagement
     end
 
     def show
-      if @procurement.quick_search?
-        if @delete
-          redirect_to edit_facilities_management_procurement_url(id: @procurement.id, delete: @delete)
-        elsif !@delete
-          redirect_to edit_facilities_management_procurement_url(id: @procurement.id)
-        end
-      end
+      params[:delete] = 'y' if @delete
 
       redirect_to facilities_management_procurements_path if @procurement.da_journey_state == 'sent'
 
-      @view_name = set_view_data unless @procurement.quick_search?
+      @view_name = set_view_data
       reset_security_policy_document_page
     end
 
@@ -46,7 +40,7 @@ module FacilitiesManagement
         if params[:save_for_later].present?
           redirect_to facilities_management_procurements_path
         else
-          redirect_to edit_facilities_management_procurement_url(id: @procurement.id)
+          redirect_to facilities_management_procurement_path(@procurement, 'what_happens_next': true)
         end
       else
         @errors = @procurement.errors
@@ -58,17 +52,11 @@ module FacilitiesManagement
 
     # rubocop:disable Metrics/AbcSize
     def edit
-      if @procurement.quick_search?
-        render :edit
-      else
-        @back_link = FacilitiesManagement::ProcurementRouter.new(id: @procurement.id, procurement_state: @procurement.aasm_state, step: nil).back_link
+      redirect_to facilities_management_procurement_path(@procurement) if params[:step].nil?
 
-        unless FacilitiesManagement::ProcurementRouter::STEPS.include?(params[:step]) && @procurement.aasm_state == 'da_draft'
-          # da journey follows
-          @view_name = set_view_data
-          render @view_da && return
-        end
-      end
+      @back_link = FacilitiesManagement::ProcurementRouter.new(id: @procurement.id, procurement_state: @procurement.aasm_state, step: nil).back_link
+
+      set_view_data && (render @view_da && return) unless FacilitiesManagement::ProcurementRouter::STEPS.include?(params[:step]) && @procurement.aasm_state == 'da_draft'
     end
 
     # rubocop:disable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
@@ -112,13 +100,11 @@ module FacilitiesManagement
     # DELETE /procurements/1
     # DELETE /procurements/1.json
     def destroy
-      @procurement.destroy
-
-      respond_to do |format|
-        format.html { redirect_to facilities_management_procurements_url(deleted: @procurement.contract_name) }
-        format.json { head :no_content }
-      end
+      FacilitiesManagement::DeleteProcurement.delete_procurement(@procurement)
+      redirect_to facilities_management_procurements_url(deleted: @procurement.contract_name)
     end
+
+    def what_happens_next; end
 
     def further_competition_spreadsheet
       init
@@ -159,17 +145,15 @@ module FacilitiesManagement
       end
     end
 
-    # rubocop:disable Metrics/AbcSize
+    # rubocop:disable Metrics/CyclomaticComplexity
     def set_view_data
       set_current_step
-      view_name = if !params[:step].nil? && FacilitiesManagement::ProcurementRouter::DA_JOURNEY_STATES_TO_VIEWS.include?(params[:step].to_sym)
-                    'edit'
-                  else
-                    FacilitiesManagement::ProcurementRouter.new(id: @procurement.id, procurement_state: @procurement.aasm_state, step: params[:step]).view
-                  end
-      build_page_details(view_name.to_sym)
+      build_page_details(params[:fc_chosen] == 'true' ? :further_competition_chosen : view_name.to_sym)
 
       case view_name
+      when 'quick_search'
+        @page_data[:model_object] = @procurement
+        return 'what_happens_next' if params[:what_happens_next]
       when 'results'
         set_results_page_data
         @procurement[:route_to_market] = @procurement.aasm_state
@@ -185,6 +169,18 @@ module FacilitiesManagement
       contract_value_page_details if @procurement.aasm_state == 'choose_contract_value'
 
       view_name
+    end
+    # rubocop:enable Metrics/CyclomaticComplexity
+
+    def view_name
+      @view_name ||= if !params[:step].nil? && FacilitiesManagement::ProcurementRouter::DA_JOURNEY_STATES_TO_VIEWS.include?(params[:step].to_sym)
+                       'edit'
+                     else
+                       FacilitiesManagement::ProcurementRouter.new(id: @procurement.id,
+                                                                   procurement_state: @procurement.aasm_state,
+                                                                   step: params[:step],
+                                                                   further_competition_chosen: params[:fc_chosen] == 'true').view
+                     end
     end
 
     def update_procurement
@@ -205,7 +201,6 @@ module FacilitiesManagement
         render :edit
       end
     end
-    # rubocop:enable Metrics/AbcSize
 
     def remove_invalid_security_policy_document_file
       # This is so that activestorage destroys invalid files. Proper validations will come with Rails 6, but
@@ -250,7 +245,7 @@ module FacilitiesManagement
 
     def continue_to_results
       if procurement_valid?
-        @procurement.set_state_to_results_if_possible!
+        @procurement.set_state_to_results_if_possible! unless @procurement.results?
         redirect_to facilities_management_procurement_path(@procurement)
       else
         redirect_to facilities_management_procurement_path(@procurement, validate: true)
@@ -327,7 +322,7 @@ module FacilitiesManagement
       @procurement.assign_attributes(service_codes: procurement_params[:service_codes])
       if @procurement.save(context: :service_codes)
         if @procurement.quick_search?
-          redirect_to edit_facilities_management_procurement_path(id: @procurement.id)
+          redirect_to facilities_management_procurement_path(id: @procurement.id)
         else
           redirect_to edit_facilities_management_procurement_path(id: @procurement.id, step: :building_services) && return if params['next_step'].present?
           redirect_to facilities_management_procurement_path(@procurement)
@@ -341,7 +336,7 @@ module FacilitiesManagement
     def update_region_codes
       @procurement.assign_attributes(region_codes: procurement_params[:region_codes])
       if @procurement.save(context: :region_codes)
-        redirect_to edit_facilities_management_procurement_path(id: @procurement.id)
+        redirect_to facilities_management_procurement_path(id: @procurement.id)
       else
         params[:step] = 'regions'
         render :edit
@@ -446,7 +441,8 @@ module FacilitiesManagement
       @procurement.start_further_competition if @procurement[:route_to_market] == 'further_competition'
       @procurement.save
 
-      redirect_to facilities_management_procurement_path(@procurement)
+      redirect_to facilities_management_procurement_path(@procurement,
+                                                         fc_chosen: @procurement[:route_to_market] == 'further_competition_chosen')
     end
 
     def set_results_page_data
@@ -920,6 +916,10 @@ module FacilitiesManagement
           back_text: 'Back',
           back_url: facilities_management_procurements_path
         },
+        quick_search: {
+          caption1: @procurement[:contract_name],
+          page_title: 'What happens next'
+        },
         choose_contract_value: {
           page_title: 'Estimated contract cost',
           primary_name: 'continue_from_change_contract_value'
@@ -933,6 +933,12 @@ module FacilitiesManagement
           secondary_name: 'continue_to_results',
           primary_name: 'continue_da',
           secondary_url: facilities_management_procurements_path,
+        },
+        further_competition_chosen: {
+          page_title: 'Further competition',
+          secondary_name: 'continue_to_results',
+          secondary_text: 'Return to results',
+          continuation_text: 'Save as further competition'
         },
         further_competition: {
           page_title: 'Further competition',
