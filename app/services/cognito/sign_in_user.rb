@@ -27,10 +27,10 @@ module Cognito
       errors.add(:base, e.message)
       @needs_confirmation = true
     rescue Aws::CognitoIdentityProvider::Errors::UserNotFoundException
-      @error = I18n.t('facilities_management.users.sign_in_error')
+      @error = I18n.t('users.sign_in_error')
       errors.add(:base, @error)
     rescue Aws::CognitoIdentityProvider::Errors::ServiceError
-      @error = I18n.t('facilities_management.users.sign_in_error')
+      @error = I18n.t('users.sign_in_error')
       errors.add(:base, @error)
     end
 
