@@ -42,7 +42,6 @@ module Cognito
           roles: roles
         )
       end
-      update_supplier_details if @user.has_roles?('supplier', 'fm_access')
     end
 
     def cognito_attribute(attr)

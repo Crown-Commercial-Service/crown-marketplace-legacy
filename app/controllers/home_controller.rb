@@ -1,8 +1,10 @@
 class HomeController < ApplicationController
-  before_action :authenticate_user!, except: %i[status index cookies landing_page accessibility_statement_fm not_permitted]
+  before_action :authenticate_user!, except: %i[status index cookies landing_page accessibility_statement_mc accessibility_statement_ls not_permitted]
 
   def index
     redirect_to ccs_homepage_url
+
+    params[:service] = 'management_consultancy' if params[:service].nil?
   end
 
   def status
@@ -13,12 +15,12 @@ class HomeController < ApplicationController
 
   def landing_page; end
 
-  def accessibility_statement_fm
-    params[:service] = 'facilities_management' if params[:service].nil?
-  end
-
   def accessibility_statement_mc
     params[:service] = 'management_consultancy' if params[:service].nil?
+  end
+
+  def accessibility_statement_ls
+    params[:service] = 'legal_services' if params[:service].nil?
   end
 
   def not_permitted
