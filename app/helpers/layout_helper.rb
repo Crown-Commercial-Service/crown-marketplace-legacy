@@ -1,7 +1,5 @@
 # rubocop:disable Metrics/ModuleLength
 module LayoutHelper
-  include ErrorsHelper
-
   # Module to render page elements
   # field-sets and input groups
   # errors
