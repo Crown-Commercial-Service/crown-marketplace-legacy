@@ -4,7 +4,6 @@ module ApplicationHelper
 
   ADMIN_CONTROLLERS = ['supply_teachers/admin', 'management_consultancy/admin', 'legal_services/admin'].freeze
   PLATFORM_LANDINGPAGES = ['', 'legal_services/home', 'supply_teachers/home', 'management_consultancy/home'].freeze
-  FACILITIES_MANAGEMENT_LANDINGPAGES = ['facilities_management/home'].freeze
 
   def miles_to_metres(miles)
     DistanceConverter.miles_to_metres(miles)
@@ -19,9 +18,7 @@ module ApplicationHelper
 
     return link_to(t('common.feedback'), 'https://www.smartsurvey.co.uk/s/BGBL4/', target: '_blank', rel: 'noopener', class: 'govuk-link') if controller.class.try(:parent_name) == 'LegalServices'
 
-    return link_to(t('common.feedback'), 'https://www.smartsurvey.co.uk/s/MIIJB/', target: '_blank', rel: 'noopener', class: 'govuk-link') if controller.class.try(:parent_name) == 'ManagementConsultancy'
-
-    link_to(t('common.feedback'), 'https://www.smartsurvey.co.uk/s/J1VQQI/', target: '_blank', rel: 'noopener', class: 'govuk-link')
+    link_to(t('common.feedback'), 'https://www.smartsurvey.co.uk/s/MIIJB/', target: '_blank', rel: 'noopener', class: 'govuk-link')
   end
 
   def support_email_link(label)
@@ -42,29 +39,6 @@ module ApplicationHelper
 
   def govuk_email_link(email_address, aria_label, css_class: 'govuk-link')
     mail_to(email_address, t('layouts.application.feedback'), class: css_class, 'aria-label': aria_label)
-  end
-
-  # rubocop:disable Metrics/ParameterLists
-  def govuk_form_field(model_object, attribute, form_object_name, label_text, readable_property_name, top_level_data_options)
-    css_classes = %w[govuk-!-margin-top-3]
-    form_group_css = ['govuk-form-group']
-    form_group_css += ['govuk-form-group--error'] if model_object.errors[attribute].any?
-    label_for_id = form_object_name
-    id_for_label = "#{form_object_name}_#{attribute}-info"
-    label_for_id += "_#{attribute}" if form_object_name.exclude?(attribute.to_s)
-
-    content_tag :div, class: css_classes, data: { propertyname: readable_property_name } do
-      content_tag :div, class: form_group_css, data: top_level_data_options do
-        concat display_label(attribute, label_text, label_for_id, id_for_label) if label_text.present?
-        concat display_potential_errors(model_object, attribute, "#{form_object_name}_#{attribute}")
-        yield
-      end
-    end
-  end
-  # rubocop:enable Metrics/ParameterLists
-
-  def display_label(_attribute, text, form_object_name, _id_for_label)
-    content_tag :label, text, class: 'govuk-label', for: form_object_name
   end
 
   def govuk_form_group_with_optional_error(journey, *attributes)
@@ -89,38 +63,10 @@ module ApplicationHelper
     end
   end
 
-  def list_potential_errors(model_object, attribute, form_object_name, error_lookup = nil, error_position = nil)
-    collection = validation_messages(model_object.class.name.underscore.downcase.to_sym, attribute)
-
-    collection.each do |key, val|
-      concat(govuk_validation_error({ model_object: model_object, attribute: attribute, error_type: key, text: val, form_object_name: form_object_name }, error_lookup, error_position))
-    end
-  end
-
   def property_name(section_name, attributes)
     return "#{section_name}_#{attributes.is_a?(Array) ? attributes.last : attributes}" unless section_name.nil?
 
     (attributes.is_a?(Array) ? attributes.last : attributes).to_s
-  end
-
-  def display_potential_errors(model_object, attributes, form_object_name, section_name = nil)
-    collection = validation_messages(model_object.class.name.underscore.downcase.to_sym, attributes)
-    return if collection.empty?
-
-    content_tag :div, class: 'error-collection potenital-error', property_name: property_name(section_name, attributes) do
-      multiple_validation_errors(model_object, attributes, form_object_name, collection)
-    end
-  end
-
-  def model_attribute_has_error(model_object, *attributes)
-    result = false
-    attributes.any? { |a| result |= model_object.errors[a]&.any? }
-  end
-
-  def model_has_error?(model_object, error_type, *attributes)
-    result = false
-    attributes.each { |a| result |= (model_object&.errors&.details&.dig(a, 0)&.fetch(:error, nil)) == error_type }
-    result
   end
 
   def display_errors(journey, *attributes)
@@ -156,39 +102,6 @@ module ApplicationHelper
     return ERROR_TYPES[errors.details[attribute].first[:error]] if ERROR_TYPES.key?(errors.details[attribute].try(:first)[:error])
 
     errors.details[attribute].first[:error].to_sym unless ERROR_TYPES.key?(errors.details[attribute].first[:error])
-  end
-
-  def get_client_side_error_type_from_model(model, attribute)
-    return ERROR_TYPES[model.errors.details[attribute].first[:error]] if ERROR_TYPES.key?(model.errors.details[attribute].first[:error])
-
-    model.errors.details[attribute].first[:error].to_sym unless ERROR_TYPES.key?(model.errors.details[attribute].first[:error])
-  end
-
-  def display_error_label(model, attribute, label_text, target)
-    error = model.errors[attribute].first
-    return if error.blank?
-
-    content_tag :label, data: { validation: get_client_side_error_type_from_model(model, attribute).to_s }, for: target, id: error_id(attribute), class: 'govuk-error-message' do
-      "#{label_text} #{error}"
-    end
-  end
-
-  def display_error_no_attr(object, attribute)
-    error = object.errors[attribute].first
-    return if error.blank?
-
-    content_tag :span, id: error_id(attribute.to_s), class: 'govuk-error-message govuk-!-margin-top-3' do
-      error.to_s
-    end
-  end
-
-  def display_error_nested_models(object, attribute)
-    error = object.errors[attribute].first
-    return if error.blank?
-
-    content_tag :span, id: error_id(object.id), class: 'govuk-error-message govuk-!-margin-top-3' do
-      error.to_s
-    end
   end
 
   def css_classes_for_input(journey, attribute, extra_classes = [])
@@ -249,30 +162,6 @@ module ApplicationHelper
     (PLATFORM_LANDINGPAGES.include?(controller.class.controller_path) && controller.action_name == 'index') || controller.action_name == 'landing_page' || ADMIN_CONTROLLERS.include?(controller.class.parent_name.try(:underscore))
   end
 
-  def fm_landing_page
-    (FACILITIES_MANAGEMENT_LANDINGPAGES.include?(controller.class.controller_path) && controller.action_name == 'index')
-  end
-
-  def fm_buyer_landing_page
-    request.path_info.include? 'buyer-account'
-  end
-
-  def fm_activate_account_landing_page
-    controller.controller_name == 'users' && controller.action_name == 'confirm_new'
-  end
-
-  def fm_supplier_landing_page
-    request.path_info.include? 'supplier'
-  end
-
-  def fm_supplier_login_page
-    controller.controller_name == 'sessions' && controller.action_name == 'new'
-  end
-
-  def fm_back_to_start_page
-    [FacilitiesManagement::BuyerAccountController, FacilitiesManagement::GatewayController, FacilitiesManagement::SessionsController, FacilitiesManagement::RegistrationsController, FacilitiesManagement::PasswordsController].include? controller.class
-  end
-
   def passwords_page
     controller.controller_name == 'passwords'
   end
@@ -287,6 +176,10 @@ module ApplicationHelper
 
   def accessibility_statement_mc_page
     controller.action_name == 'accessibility_statement_mc'
+  end
+
+  def accessibility_statement_ls_page
+    controller.action_name == 'accessibility_statement_ls'
   end
 
   def not_permitted_page
@@ -307,23 +200,6 @@ module ApplicationHelper
 
   def format_money(cost, precision = 2)
     number_to_currency(cost, precision: precision, unit: '£')
-  end
-
-  def link_to_add_row(name, form, association, **args)
-    new_object = form.object.send(association).klass.new
-    id = new_object.object_id
-    fields = form.fields_for(association, new_object, child_index: id) do |builder|
-      render("facilities_management/procurements/edit/#{association.to_s.singularize}", ff: builder)
-    end
-    link_to(name, '#', class: 'add-pension-fields ' + args[:class], data: { id: id, fields: fields.gsub('\n', '') })
-  end
-
-  def determine_rate_card_service_price_text(service_type, work_pckg_code, supplier_data_ratecard_prices, supplier_data_ratecard_discounts)
-    if service_type == 'Direct Award Discount (%)'
-      supplier_data_ratecard_discounts.values[0][work_pckg_code].nil? ? '' : supplier_data_ratecard_discounts.values[0][work_pckg_code]['Disc %']
-    else
-      supplier_data_ratecard_prices.values[0][work_pckg_code].nil? ? '' : supplier_data_ratecard_prices.values[0][work_pckg_code][service_type.remove(' (%)').remove(' (£)')]
-    end
   end
 
   def service_name_param
