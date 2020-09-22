@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/cookies', to: 'home#cookies'
   get '/management-consultancy/accessibility-statement', to: 'home#accessibility_statement_mc'
   get '/legal-services/accessibility-statement', to: 'home#accessibility_statement_ls'
+  get '/supply-teachers/accessibility-statement', to: 'home#accessibility_statement_st'
   get '/landing-page', to: 'home#landing_page'
   get '/not-permitted', to: 'home#not_permitted'
 
