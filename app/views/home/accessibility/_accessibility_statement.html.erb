@@ -8,7 +8,9 @@
   </p>
   <ul>
     <li> <%= t('.list_1_change_colours') %> </li>
-    <li> <%= t('.list_1_zoom') %> </li>
+    <% if zoom_required %>
+      <li> <%= t('.list_1_zoom') %> </li>
+    <% end %>
     <li> <%= t('.list_1_keyboard') %> </li>
     <li> <%= t('.list_1_speech') %> </li>
     <li> <%= t('.list_1_listen') %> </li>
