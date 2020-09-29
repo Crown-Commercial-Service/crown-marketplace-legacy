@@ -60,20 +60,6 @@ RSpec.feature 'Managed service providers', type: :feature do
     expect(page).to have_checked_field(I18n.t('supply_teachers.journey.looking_for.answer_managed_service_provider'))
   end
 
-  scenario 'Buyer changes mind about hiring a neutral vendor managed service' do
-    visit_supply_teachers_start
-
-    choose I18n.t('supply_teachers.journey.looking_for.answer_managed_service_provider')
-    click_on I18n.t('common.submit')
-
-    choose 'Neutral vendor'
-    click_on I18n.t('common.submit')
-
-    click_on I18n.t('layouts.application.back')
-
-    expect(page).to have_checked_field('Neutral vendor')
-  end
-
   private
 
   def have_rates(job_type:, percentages:, amount: nil)
