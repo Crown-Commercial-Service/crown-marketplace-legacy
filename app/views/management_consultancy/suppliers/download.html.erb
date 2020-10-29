@@ -14,7 +14,7 @@
 
     <ul class="govuk-list govuk-!-margin-top-6 govuk-section-break--visible">
       <li class="govuk-!-margin-bottom-3">
-        <a href="<%= eoi_document_link %>" class="supplier-record__file-download" name="Expression of interest" type="<%= t('common.type_doc') %>" download>
+        <a href="<%= eoi_document_link(params[:lot]) %>" class="supplier-record__file-download" name="Expression of interest" type="<%= t('common.type_doc') %>" download>
           <%= t('.expression_of_interest_template') %> <span class="govuk-visually-hidden"><%= t('common.doc_html') %></span>
         </a>
       </li>
