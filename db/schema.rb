@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_02_110615) do
+ActiveRecord::Schema.define(version: 2020_07_16_152434) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -59,11 +59,12 @@ ActiveRecord::Schema.define(version: 2020_06_02_110615) do
     t.uuid "user_id"
     t.string "other_building_type"
     t.string "other_security_type"
+    t.bigint "external_area"
     t.index "((building_json -> 'services'::text))", name: "idx_buildings_service", using: :gin
     t.index ["building_json"], name: "idx_buildings_gin", using: :gin
     t.index ["building_json"], name: "idx_buildings_ginp", opclass: :jsonb_path_ops, using: :gin
     t.index ["id"], name: "index_facilities_management_buildings_on_id", unique: true
-    t.index ["user_id"], name: "idx_buildings_user_id"
+    t.index ["user_email"], name: "idx_buildings_user_id"
   end
 
   create_table "facilities_management_buyer_details", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -121,6 +122,7 @@ ActiveRecord::Schema.define(version: 2020_06_02_110615) do
     t.text "building_name"
     t.jsonb "building_json"
     t.text "description"
+    t.bigint "external_area"
     t.index ["facilities_management_procurement_id"], name: "index_fm_procurements_on_fm_procurement_id"
   end
 
@@ -351,7 +353,7 @@ ActiveRecord::Schema.define(version: 2020_06_02_110615) do
   end
 
   create_table "fm_static_data", id: false, force: :cascade do |t|
-    t.string "key", null: false
+    t.text "key", null: false
     t.jsonb "value"
     t.index ["key"], name: "fm_static_data_key_idx"
   end
@@ -367,12 +369,12 @@ ActiveRecord::Schema.define(version: 2020_06_02_110615) do
 
   create_table "fm_units_of_measurement", id: false, force: :cascade do |t|
     t.serial "id", null: false
-    t.string "title_text", null: false
-    t.string "example_text"
-    t.string "unit_text"
-    t.string "data_type"
-    t.string "spreadsheet_label"
-    t.string "unit_measure_label"
+    t.text "title_text", null: false
+    t.text "example_text"
+    t.text "unit_text"
+    t.text "data_type"
+    t.text "spreadsheet_label"
+    t.text "unit_measure_label"
     t.text "service_usage", array: true
   end
 
@@ -592,16 +594,6 @@ ActiveRecord::Schema.define(version: 2020_06_02_110615) do
     t.string "alt_language"
     t.index ["postcode"], name: "idx_postcode"
     t.index ["postcode_locator"], name: "index_os_address_on_postcode_locator"
-  end
-
-  create_table "os_address_admin_uploads", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.string "filename", limit: 255
-    t.integer "size"
-    t.string "etag", limit: 255
-    t.text "fail_reason"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["filename"], name: "os_address_admin_uploads_filename_idx", unique: true
   end
 
   create_table "postcodes_nuts_regions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|

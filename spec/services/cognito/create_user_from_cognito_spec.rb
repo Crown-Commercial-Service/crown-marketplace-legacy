@@ -75,11 +75,6 @@ RSpec.describe Cognito::CreateUserFromCognito do
         expect(response.user.has_role?(:fm_access)).to eq false
       end
 
-      it 'returns the newly created resource with no at_access role' do
-        response = described_class.call(username)
-        expect(response.user.has_role?(:at_access)).to eq false
-      end
-
       it 'returns the newly created resource with no ls_access role' do
         response = described_class.call(username)
         expect(response.user.has_role?(:ls_access)).to eq false
@@ -106,7 +101,7 @@ RSpec.describe Cognito::CreateUserFromCognito do
         allow(Aws::CognitoIdentityProvider::Client).to receive(:new).and_return(aws_client)
         allow(aws_client).to receive(:admin_get_user).and_return(cognito_user)
         allow(aws_client).to receive(:admin_list_groups_for_user).and_return(cognito_groups)
-        create(:user, :without_detail, cognito_uuid: '0987', email: email, roles: %i[buyer fm_access])
+        create(:user, cognito_uuid: '0987', email: email, roles: %i[buyer fm_access])
       end
 
       it 'does not create a new user' do
@@ -148,44 +143,6 @@ RSpec.describe Cognito::CreateUserFromCognito do
       it 'returns an error' do
         response = described_class.call(username)
         expect(response.error).to eq 'Oops'
-      end
-    end
-
-    context 'when user is a supplier with fm access' do
-      let(:cognito_groups) do
-        OpenStruct.new(groups: [
-                         OpenStruct.new(group_name: 'supplier'),
-                         OpenStruct.new(group_name: 'fm_access')
-                       ])
-      end
-
-      before do
-        allow(Aws::CognitoIdentityProvider::Client).to receive(:new).and_return(aws_client)
-        allow(aws_client).to receive(:admin_get_user).and_return(cognito_user)
-        allow(aws_client).to receive(:admin_list_groups_for_user).and_return(cognito_groups)
-      end
-
-      context 'when supplier detail exists with the same contact_name' do
-        before do
-          FactoryBot.create(:facilities_management_supplier_detail, contact_email: email)
-          FactoryBot.create(:facilities_management_supplier_detail)
-        end
-
-        it 'matches the right supplier detail to the user record' do
-          response = described_class.call(email)
-          expect(response.user.supplier_detail.contact_email).to eq response.user.email
-        end
-      end
-
-      context 'when supplier detail does not exist with the same contact_name' do
-        before do
-          FactoryBot.create(:facilities_management_supplier_detail)
-        end
-
-        it 'leaves the supplier_detail blank' do
-          response = described_class.call(username)
-          expect(response.user.supplier_detail).to be_nil
-        end
       end
     end
   end

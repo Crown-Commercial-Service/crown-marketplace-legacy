@@ -81,7 +81,7 @@ gem 'down'
 gem 'aasm', '~> 5.0'
 
 # for running background jobs
-gem 'sidekiq', '~> 6.0.0'
+gem 'sidekiq', '~> 6.0.7'
 gem 'sinatra', '~> 2.0.8', '>= 2.0.8.1', require: false
 gem 'slim', '~> 4.0.1'
 
@@ -122,6 +122,11 @@ gem 'caracal-rails', '>= 1.0.1'
 
 # duplicating procurements
 gem 'amoeba', '>= 3.1.0'
+
+# asset sync
+
+gem 'asset_sync'
+gem 'fog-aws'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

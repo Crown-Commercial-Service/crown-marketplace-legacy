@@ -8,6 +8,7 @@ RSpec.describe ManagementConsultancy::SuppliersController, type: :controller do
   let(:region_codes) { Nuts2Region.all.sample(5).map(&:code) }
 
   login_mc_buyer
+
   before do
     allow(ManagementConsultancy::Supplier).to receive(:offering_services_in_regions)
       .with(lot_number, services, region_codes).and_return(suppliers)

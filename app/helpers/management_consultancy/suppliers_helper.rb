@@ -19,4 +19,12 @@ module ManagementConsultancy::SuppliersHelper
 
     "http://#{url}"
   end
+
+  def eoi_document_link(lot)
+    if lot.starts_with? 'MCF1'
+      t('management_consultancy.suppliers.download.expression_of_interest_template_link_1')
+    elsif lot.starts_with? 'MCF2'
+      t('management_consultancy.suppliers.download.expression_of_interest_template_link_2')
+    end
+  end
 end

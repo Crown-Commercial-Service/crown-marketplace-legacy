@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   get '/', to: 'home#index'
   get '/status', to: 'home#status'
   get '/cookies', to: 'home#cookies'
-  get '/facilities-management/accessibility-statement', to: 'home#accessibility_statement_fm'
+  get '/management-consultancy/accessibility-statement', to: 'home#accessibility_statement_mc'
+  get '/legal-services/accessibility-statement', to: 'home#accessibility_statement_ls'
+  get '/supply-teachers/accessibility-statement', to: 'home#accessibility_statement_st'
   get '/landing-page', to: 'home#landing_page'
   get '/not-permitted', to: 'home#not_permitted'
 
@@ -33,23 +35,13 @@ Rails.application.routes.draw do
     concern :registrable do
       get '/sign-up', to: 'registrations#new', as: :new_user_registration
       post '/sign-up', to: 'registrations#create', as: :user_registration
-      get '/domain-not-on-whitelist', to: 'registrations#domain_not_on_whitelist', as: :domain_not_on_whitelist
+      get '/domain-not-on-safelist', to: 'registrations#domain_not_on_safelist', as: :domain_not_on_safelist
     end
 
     delete '/sign-out', to: 'base/sessions#destroy', as: :destroy_user_session
 
     namespace 'supply_teachers', path: 'supply-teachers' do
       concerns :authenticatable
-      namespace :admin do
-        concerns :authenticatable
-      end
-    end
-
-    namespace 'facilities_management', path: 'facilities-management' do
-      concerns %i[authenticatable registrable]
-      namespace :supplier do
-        concerns :authenticatable
-      end
       namespace :admin do
         concerns :authenticatable
       end
@@ -68,10 +60,6 @@ Rails.application.routes.draw do
         concerns :authenticatable
       end
     end
-
-    namespace 'apprenticeships' do
-      concerns %i[authenticatable registrable]
-    end
   end
 
   namespace 'supply_teachers', path: 'supply-teachers' do
@@ -81,7 +69,7 @@ Rails.application.routes.draw do
     get '/temp-to-perm-fee', to: 'home#temp_to_perm_fee'
     get '/fta-to-perm-fee', to: 'home#fta_to_perm_fee'
     get '/master-vendors', to: 'suppliers#master_vendors', as: 'master_vendors'
-    get '/neutral-vendors', to: 'suppliers#neutral_vendors', as: 'neutral_vendors'
+    # get '/neutral-vendors', to: 'suppliers#neutral_vendors', as: 'neutral_vendors'
     get '/all-suppliers', to: 'suppliers#all_suppliers', as: 'all_suppliers'
     get '/agency-payroll-results', to: 'branches#index', slug: 'agency-payroll-results'
     get '/fixed-term-results', to: 'branches#index', slug: 'fixed-term-results', as: 'fixed_term_results'
@@ -97,78 +85,6 @@ Rails.application.routes.draw do
       end
       get '/in_progress', to: 'uploads#in_progress'
     end
-    get '/start', to: 'journey#start', as: 'journey_start'
-    get '/:slug', to: 'journey#question', as: 'journey_question'
-    get '/:slug/answer', to: 'journey#answer', as: 'journey_answer'
-    resources :uploads, only: :create if Marketplace.upload_privileges?
-  end
-
-  namespace 'facilities_management', path: 'facilities-management' do
-    get '/', to: 'buyer_account#buyer_account'
-    get '/start', to: 'home#index'
-    get '/gateway', to: 'gateway#index'
-    get '/gateway/validate/:id', to: 'gateway#validate'
-    get '/buyer_account', to: 'buyer_account#buyer_account'
-    resources :buildings do
-      member do
-        get 'gia'
-        get 'type'
-        get 'security'
-        match 'add_address', via: %i[get post patch]
-      end
-    end
-    match 'select-services', to: 'select_services#select_services', as: 'select_FM_services', via: %i[get post]
-    match '/select-locations', to: 'select_locations#select_location', as: 'select_FM_locations', via: %i[get post]
-    match '/suppliers/long-list', to: 'long_list#long_list', via: %i[get post]
-    match '/summary', to: 'summary#index', via: %i[get post]
-    post '/summary/guidance', to: 'summary#guidance'
-    post '/summary/suppliers', to: 'summary#sorted_suppliers'
-    get 'spreadsheet-test', to: 'spreadsheet_test#index', as: 'spreadsheet_test'
-    get 'spreadsheet-test/dm-spreadsheet-download', to: 'spreadsheet_test#dm_spreadsheet_download', as: 'dm_spreadsheet_download'
-
-    resources :procurements do
-      get 'further_competition_spreadsheet'
-      post 'da_spreadsheets'
-      get '/documents/zip', to: 'procurements/contracts/documents#zip_contracts'
-      get '/download/zip', to: 'procurements/contracts/documents#download_zip_contracts'
-      resources :contracts, only: %i[show edit update], controller: 'procurements/contracts' do
-        resources :sent, only: %i[index], controller: 'procurements/contracts/sent'
-        resources :closed, only: %i[index], controller: 'procurements/contracts/closed'
-        get '/documents/call-off-schedule', to: 'procurements/contracts/documents#call_off_schedule'
-        get '/documents/call-off-schedule-2', to: 'procurements/contracts/documents#call_off_schedule_2'
-      end
-      resources :copy_procurement, only: %i[new create], controller: 'procurements/copy_procurement'
-    end
-    resources :procurement_buildings, only: %i[show edit update]
-    resources :procurement_buildings_services, only: %i[show update]
-    resources :buyer_details, only: %i[show edit update] do
-      get 'edit_address'
-    end
-    namespace :supplier do
-      get '/', to: 'home#index'
-      resources :dashboard, only: :index
-      resources :contracts, only: %i[show edit update], controller: 'contracts' do
-        resources :sent, only: %i[index], controller: 'sent'
-      end
-    end
-    namespace :admin, path: 'admin' do
-      get '/', to: 'admin_account#admin_account'
-      get '/gateway', to: 'gateway#index'
-      get 'call-off-benchmark-rates', to: 'supplier_rates#supplier_benchmark_rates'
-      put 'update-call-off-benchmark-rates', to: 'supplier_rates#update_supplier_benchmark_rates'
-      get 'average-framework-rates', to: 'supplier_rates#supplier_framework_rates'
-      put 'update-average-framework-rates', to: 'supplier_rates#update_supplier_framework_rates'
-      get 'supplier-framework-data', to: 'suppliers_framework_data#index'
-      get 'management-report', to: 'management_report#index'
-      put 'update-management-report', to: 'management_report#update'
-      get 'sublot-regions/:id/:lot_type', to: 'sublot_regions#sublot_region', as: 'get_sublot_regions'
-      put 'sublot-regions/:id/:lot_type', to: 'sublot_regions#update_sublot_regions'
-      get 'sublot-data/:id', to: 'sublot_data_services_prices#index', as: 'get_sublot_data'
-      put 'sublot-data/:id', to: 'sublot_data_services_prices#update_sublot_data_services_prices'
-      get 'sublot-services/:id/:lot', to: 'sublot_services#index', as: 'get_sublot_services'
-      put 'sublot-services/:id/:lot', to: 'sublot_services#update', as: 'update_sublot_services'
-    end
-
     get '/start', to: 'journey#start', as: 'journey_start'
     get '/:slug', to: 'journey#question', as: 'journey_question'
     get '/:slug/answer', to: 'journey#answer', as: 'journey_answer'
@@ -198,47 +114,6 @@ Rails.application.routes.draw do
     get '/:slug', to: 'journey#question', as: 'journey_question'
     get '/:slug/answer', to: 'journey#answer', as: 'journey_answer'
     resources :uploads, only: :create if Marketplace.upload_privileges?
-  end
-
-  namespace 'ccs_patterns', path: 'ccs-patterns' do
-    get '/', to: 'home#index'
-    # get '/metadata', to: 'dbdata#index', as: 'ccsmetadata'
-    # put '/metadata/kill/:id', to: 'dbdata#killpid', as: 'killlockpid'
-    get '/new_layout', to: 'home#new_layout'
-    get '/prototypes', to: 'prototype#index'
-    get '/prototypes/no-response', to: 'prototype#no_response'
-    get '/prototypes/closed', to: 'prototype#closed'
-    get '/prototypes/accepted-not-signed', to: 'prototype#accepted_not_signed'
-    get '/prototypes/declined', to: 'prototype#declined'
-    get '/prototypes/next-supplier', to: 'prototype#next_supplier'
-    get '/prototypes/no-suppliers', to: 'prototype#no_suppliers'
-    get '/prototypes/create-a-copy', to: 'prototype#create_a_copy'
-    get '/dynamic-accordian', to: 'home#dynamic_accordian'
-    get '/supplier-results-v1', to: 'home#supplier_results_v1'
-    get '/supplier-results-v2', to: 'home#supplier_results_v2'
-    get '/small-checkboxes', to: 'home#small_checkboxes'
-    get '/titles-checkboxes', to: 'home#titles_checkboxes'
-    get '/numbered-pagination', to: 'home#numbered_pagination'
-    get '/table-5050', to: 'home#table_5050'
-    get '/supplier-detail', to: 'home#supplier_detail'
-    get '/errors-find-apprentices', to: 'home#errors_find_apprentices'
-    get '/errors-find-apprentices2', to: 'home#errors_find_apprentices2'
-    get '/errors-find-apprentices3', to: 'home#errors_find_apprentices3'
-    get '/errors-find-apprentices4', to: 'home#errors_find_apprentices4'
-    get '/errors-requirements', to: 'home#errors_requirements'
-    get '/start', to: 'home#start'
-    get '/select', to: 'home#select'
-    get '/cog-sign-in', to: 'home#cog_sign_in'
-    get '/cog-sign-in-password-prompt-change', to: 'home#cog_sign_in_password_prompt_change'
-    get '/cog-register', to: 'home#cog_register'
-    get '/cog-register-enter-confirmation-code', to: 'home#cog_register_enter_confirmation_code'
-    get '/cog-email', to: 'home#cog_email'
-    get '/cog-email2', to: 'home#cog_email2'
-    get '/cog-register-domain-not-on-whitelist', to: 'home#cog_register_domain_not_on_whitelist'
-    get '/cog-forgot-password-request', to: 'home#cog_forgot_password_request'
-    get '/cog-forgot-password-reset', to: 'home#cog_forgot_password_reset'
-    get '/cog-forgot-password-reset2', to: 'home#cog_forgot_password_reset2'
-    get '/cog-forgot-password-confirmation', to: 'home#cog_forgot_password_confirmation'
   end
 
   namespace 'legal_services', path: 'legal-services' do
@@ -273,16 +148,6 @@ Rails.application.routes.draw do
   if Marketplace.dfe_signin_enabled?
     get '/auth/dfe', as: :dfe_sign_in
     get '/auth/dfe/callback' => 'auth#callback'
-  end
-
-  namespace :api, defaults: { format: :json } do
-    namespace :v2 do
-      resources :postcodes, only: :show
-      get '/search-postcode/:postcode', to: 'nuts#show_post_code'
-      get '/search-nuts-code/:code', to: 'nuts#show_nuts_code'
-      get '/find-region/:postcode', to: 'nuts#find_region_query'
-      get '/find-region-postcode/:postcode', to: 'nuts#find_region_query_by_postcode'
-    end
   end
 
   get '/:journey/start', to: 'journey#start', as: 'journey_start'

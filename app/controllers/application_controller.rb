@@ -23,20 +23,9 @@ class ApplicationController < ActionController::Base
       st_gateway_path
     when 'management_consultancy'
       management_consultancy_gateway_url
-    when 'facilities_management'
-      session[:return_to] = request.fullpath
-      facilities_management_url_for_user_type
-    when 'legal_services'
-      legal_services_gateway_url
     else
-      facilities_management_url
+      legal_services_gateway_url
     end
-  end
-
-  def facilities_management_url_for_user_type
-    return facilities_management_supplier_new_user_session_url if controller_path.split('/')[1] == 'supplier' && controller_path.split('/')[2] == 'contracts'
-
-    facilities_management_gateway_url
   end
 
   delegate :ccs_homepage_url, to: Marketplace
