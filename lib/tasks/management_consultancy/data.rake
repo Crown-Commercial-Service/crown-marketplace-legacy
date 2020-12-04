@@ -34,6 +34,27 @@ namespace :mc do
     end
   end
 
+  task anonymise: :environment do
+    supplier_data = JSON File.read(get_mc_output_file_path('data.json'))
+
+    supplier_data.each do |supplier|
+      supplier['name'] = Faker::Company.unique.name
+      supplier['contact_email'] = Faker::Internet.email(name: supplier['name'])
+      supplier['telephone_number'] = Faker::PhoneNumber.phone_number
+      supplier['website'] = Faker::Internet.url
+      supplier['address'] = Faker::Address.full_address
+      supplier['sme'] = rand < 0.5
+      supplier['duns'] = Faker::Company.duns_number.delete('-').to_f
+      supplier['rate_cards'].each do |rate_card|
+        rate_card['contact_name'] = Faker::Company.unique.name
+        rate_card['email'] = Faker::Internet.email(name: rate_card['name'])
+        rate_card['telephone_number'] = Faker::PhoneNumber.phone_number
+      end
+    end
+
+    write_output_file('anonymous_supplier_data.json', supplier_data)
+  end
+
   def run_script(script)
     File.open(get_mc_output_file_path('errors.out'), 'a') do
       script.to_s
