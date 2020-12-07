@@ -51,6 +51,13 @@ namespace :ls do
       supplier['lot_2_prospectus_link'] = lot_prospectus_link
       supplier['lot_3_prospectus_link'] = lot_prospectus_link
       supplier['lot_4_prospectus_link'] = lot_prospectus_link
+      supplier['rate_cards'].each do |rate_card|
+        next unless rate_card['lot'] == '1'
+
+        rate_card['managing'].each do |time, rate|
+          rate_card['managing'][time] = (rate * 101/100).to_i
+        end
+      end
     end
 
     write_ls_output_file('anonymous_supplier_data.json', supplier_data)

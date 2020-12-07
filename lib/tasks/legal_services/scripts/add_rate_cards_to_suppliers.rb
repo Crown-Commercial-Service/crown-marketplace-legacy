@@ -54,7 +54,7 @@ def extract_duns(supplier_name)
 end
 
 def convert_price_to_pence(price)
-  price.to_i * 100
+  (price * 100).to_i
 end
 
 def rate_cards_file_path
