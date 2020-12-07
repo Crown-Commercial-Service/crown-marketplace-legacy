@@ -47,7 +47,7 @@ namespace :ls do
       supplier['address'] = Faker::Address.full_address
       supplier['sme'] = rand < 0.5
       supplier['duns'] = Faker::Company.duns_number.delete('-').to_f
-      supplier['lot_1_prospectus_link'] = lot_prospectus_link
+      supplier['lot_1_prospectus_link'] = 'N/A'
       supplier['lot_2_prospectus_link'] = lot_prospectus_link
       supplier['lot_3_prospectus_link'] = lot_prospectus_link
       supplier['lot_4_prospectus_link'] = lot_prospectus_link
@@ -90,10 +90,8 @@ namespace :ls do
     n = rand
 
     if n < 0.25
-      'N/A'
-    elsif n < 0.5
       Faker::Internet.url
-    elsif n < 0.75
+    elsif n < 0.5
       Faker::Company.catch_phrase
     end
   end
