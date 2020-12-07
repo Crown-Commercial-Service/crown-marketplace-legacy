@@ -88,4 +88,32 @@ RSpec.describe LegalServices::SuppliersHelper, type: :helper do
       end
     end
   end
+
+  describe '#display_rate' do
+    before { @rate_card = { 'solicitor': { 'hourly': hourly, 'daily': daily, 'monthly': monthly } }.deep_stringify_keys }
+
+    context 'when the rate has no pence' do
+      let(:hourly) { Faker::Number.number(digits: 3) * 100 }
+      let(:daily) { Faker::Number.number(digits: 4) * 100 }
+      let(:monthly) { Faker::Number.number(digits: 5) * 100 }
+
+      it 'displays the rate with pounds and pence' do
+        expect(helper.display_rate('solicitor', 'hourly')).to eq "£#{(hourly / 100).to_s(:delimited)}.00"
+        expect(helper.display_rate('solicitor', 'daily')).to eq "£#{(daily / 100).to_s(:delimited)}.00"
+        expect(helper.display_rate('solicitor', 'monthly')).to eq "£#{(monthly / 100).to_s(:delimited)}.00"
+      end
+    end
+
+    context 'when the rate has pounds and pence' do
+      let(:hourly) { (Faker::Number.decimal(l_digits: 3) * 100).to_i }
+      let(:daily) { (Faker::Number.decimal(l_digits: 5) * 100).to_i }
+      let(:monthly) { (Faker::Number.decimal(l_digits: 7) * 100).to_i }
+
+      it 'displays the rate with pounds and pence' do
+        expect(helper.display_rate('solicitor', 'hourly')).to eq "£#{(hourly / 100.0).to_s(:delimited)}"
+        expect(helper.display_rate('solicitor', 'daily')).to eq "£#{(daily / 100.0).to_s(:delimited)}"
+        expect(helper.display_rate('solicitor', 'monthly')).to eq "£#{(monthly / 100.0).to_s(:delimited)}"
+      end
+    end
+  end
 end
