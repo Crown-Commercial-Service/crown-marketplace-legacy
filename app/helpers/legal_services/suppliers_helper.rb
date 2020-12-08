@@ -21,4 +21,12 @@ module LegalServices::SuppliersHelper
   def prospectus_link
     @prospectus_link ||= @supplier.send(:"lot_#{params[:lot]}_prospectus_link")
   end
+
+  def positions
+    %w[managing senior solicitor junior trainee]
+  end
+
+  def display_rate(position, time)
+    number_to_currency(@rate_card[position][time] / 100.0, precision: 2)
+  end
 end
