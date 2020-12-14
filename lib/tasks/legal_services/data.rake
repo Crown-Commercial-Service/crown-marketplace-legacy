@@ -36,6 +36,33 @@ namespace :ls do
     end
   end
 
+  task anonymise: :environment do
+    supplier_data = JSON File.read(get_ls_output_file_path('data.json'))
+
+    supplier_data.each do |supplier|
+      supplier['name'] = Faker::Company.unique.name
+      supplier['email'] = Faker::Internet.email(name: supplier['name'])
+      supplier['phone_number'] = Faker::PhoneNumber.phone_number
+      supplier['website'] = Faker::Internet.url
+      supplier['address'] = Faker::Address.full_address
+      supplier['sme'] = rand < 0.5
+      supplier['duns'] = Faker::Company.duns_number.delete('-').to_f
+      supplier['lot_1_prospectus_link'] = 'N/A'
+      supplier['lot_2_prospectus_link'] = lot_prospectus_link
+      supplier['lot_3_prospectus_link'] = lot_prospectus_link
+      supplier['lot_4_prospectus_link'] = lot_prospectus_link
+      supplier['rate_cards'].each do |rate_card|
+        next unless rate_card['lot'] == '1'
+
+        rate_card['managing'].each do |time, rate|
+          rate_card['managing'][time] = (rate * 101/100).to_i
+        end
+      end
+    end
+
+    write_ls_output_file('anonymous_supplier_data.json', supplier_data)
+  end
+
   def run_script(script)
     File.open(get_ls_output_file_path('errors.out'), 'a') do
       script.to_s
@@ -63,6 +90,16 @@ namespace :ls do
     file_path = get_ls_output_file_path(file_name)
     File.open(file_path, 'w') do |f|
       f.puts JSON.pretty_generate(json_output)
+    end
+  end
+
+  def lot_prospectus_link
+    n = rand
+
+    if n < 0.25
+      Faker::Internet.url
+    elsif n < 0.5
+      Faker::Company.catch_phrase
     end
   end
 end
