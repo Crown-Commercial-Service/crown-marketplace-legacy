@@ -1,7 +1,7 @@
 module LegalServices
   class DataScriptWorker
     include Sidekiq::Worker
-    sidekiq_options queue: 'default'
+    sidekiq_options queue: 'ls'
 
     def perform(upload_id)
       LegalServices::DataTransformationService.new(upload_id).run

@@ -110,6 +110,11 @@ ENV RAILS_LOG_TO_STDOUT=true
 # Compile assets
 RUN GOOGLE_GEOCODING_API_KEY=dummy SECRET_KEY_BASE=dummy APP_RUN_PRECOMPILE_ASSETS="FALSE" bundle exec rails assets:precompile
 
+# Add ngnx
+RUN apk add nginx
+RUN mkdir -p /run/nginx
+COPY default.conf /etc/nginx/conf.d/default.conf
+
 # Run the web app on port 8080
 ENV PORT=8080
 EXPOSE 8080
