@@ -144,17 +144,12 @@ module ApplicationHelper
   end
 
   def service_header_banner
-    if params[:service]
-      render partial: "#{params[:service]}/header-banner"
+    if service_name_param && lookup_context.template_exists?("#{service_name_param}/_header-banner")
+      render partial: "#{service_name_param}/header-banner"
+    elsif service_name_param&.include? 'admin'
+      render partial: 'layouts/admin/header-banner'
     else
-      service_name = controller.class.parent_name&.underscore
-      if service_name&.include? 'admin'
-        render partial: 'layouts/admin/header-banner'
-      elsif service_name && lookup_context.template_exists?("#{service_name}/_header-banner")
-        render partial: "#{service_name}/header-banner"
-      else
-        render partial: 'layouts/header-banner'
-      end
+      render partial: 'layouts/header-banner'
     end
   end
 
@@ -168,22 +163,6 @@ module ApplicationHelper
 
   def cookies_page
     controller.action_name == 'cookies'
-  end
-
-  def accessibility_statement_fm_page
-    controller.action_name == 'accessibility_statement_fm'
-  end
-
-  def accessibility_statement_mc_page
-    controller.action_name == 'accessibility_statement_mc'
-  end
-
-  def accessibility_statement_ls_page
-    controller.action_name == 'accessibility_statement_ls'
-  end
-
-  def accessibility_statement_st_page
-    controller.action_name == 'accessibility_statement_st'
   end
 
   def not_permitted_page
@@ -207,7 +186,27 @@ module ApplicationHelper
   end
 
   def service_name_param
-    params[:service].nil? ? request&.controller_class&.parent_name&.underscore : params[:service]
+    @service_name_param ||= params[:service].nil? ? request&.controller_class&.parent_name&.underscore : params[:service]
+  end
+
+  def cookies_path
+    @cookies_path ||= if service_name_param&.include? 'legal_services'
+                        legal_services_cookies_path(service: service_name_param)
+                      elsif service_name_param&.include? 'management_consultancy'
+                        management_consultancy_cookies_path(service: service_name_param)
+                      elsif service_name_param&.include? 'supply_teachers'
+                        supply_teachers_cookies_path(service: service_name_param)
+                      end
+  end
+
+  def accessibility_statement_path
+    if service_name_param&.include? 'legal_services'
+      legal_services_accessibility_statement_path(service: service_name_param)
+    elsif service_name_param&.include? 'management_consultancy'
+      management_consultancy_accessibility_statement_path(service: service_name_param)
+    elsif service_name_param&.include? 'supply_teachers'
+      supply_teachers_accessibility_statement_path(service: service_name_param)
+    end
   end
 end
 # rubocop:enable Metrics/ModuleLength

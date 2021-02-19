@@ -84,7 +84,7 @@ RSpec.feature 'Authentication', type: :feature do
 
     visit '/management-consultancy/start'
 
-    expect(page).to have_text(I18n.t('shared.not_permitted.management_consultancy.title'))
+    expect(page).to have_text(I18n.t('home.not_permitted.title'))
   end
 
   scenario 'DfE users cannot see school pages if they are from a for-profit school' do
@@ -116,7 +116,7 @@ RSpec.feature 'Authentication', type: :feature do
 
     click_on 'Sign in with DfE Sign-in'
 
-    expect(page).to have_text(I18n.t('shared.not_permitted.supply_teachers.title'))
+    expect(page).to have_text(I18n.t('home.not_permitted.title'))
     OmniAuth.config.mock_auth[:dfe] = nil
   end
 
@@ -130,6 +130,6 @@ RSpec.feature 'Authentication', type: :feature do
     visit '/supply-teachers/start'
     click_on 'Sign in with DfE Sign-in'
 
-    expect(page).to have_text(I18n.t('shared.not_permitted.supply_teachers.title'))
+    expect(page).to have_text(I18n.t('home.not_permitted.title'))
   end
 end
