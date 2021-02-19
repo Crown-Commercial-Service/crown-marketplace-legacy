@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe LegalServices::HomeController, type: :controller do
-  login_ls_buyer
+RSpec.describe ManagementConsultancy::HomeController, type: :controller do
+  login_mc_buyer
 
   describe 'GET index' do
     it 'renders the index template' do
@@ -25,7 +25,7 @@ RSpec.describe LegalServices::HomeController, type: :controller do
     end
 
     context 'when from an admin page' do
-      before { get :accessibility_statement, params: { service: 'legal_services/admin' } }
+      before { get :accessibility_statement, params: { service: 'management_consultancy/admin' } }
 
       render_views
 
@@ -34,7 +34,7 @@ RSpec.describe LegalServices::HomeController, type: :controller do
       end
 
       it 'renders the correct header banner' do
-        expect(response).to render_template(partial: 'legal_services/admin/_header-banner')
+        expect(response).to render_template(partial: 'management_consultancy/admin/_header-banner')
       end
     end
   end
@@ -46,7 +46,7 @@ RSpec.describe LegalServices::HomeController, type: :controller do
     end
 
     context 'when from an admin page' do
-      before { get :cookies, params: { service: 'legal_services/admin' } }
+      before { get :cookies, params: { service: 'management_consultancy/admin' } }
 
       render_views
 
@@ -55,7 +55,7 @@ RSpec.describe LegalServices::HomeController, type: :controller do
       end
 
       it 'renders the correct header banner' do
-        expect(response).to render_template(partial: 'legal_services/admin/_header-banner')
+        expect(response).to render_template(partial: 'management_consultancy/admin/_header-banner')
       end
     end
   end
