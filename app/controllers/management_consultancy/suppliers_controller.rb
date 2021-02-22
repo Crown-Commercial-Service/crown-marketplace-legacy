@@ -31,10 +31,9 @@ module ManagementConsultancy
     private
 
     def fetch_suppliers
-      @all_suppliers = Supplier.offering_services_in_regions(
+      @all_suppliers = Supplier.offering_services(
         params[:lot],
         params[:services],
-        params[:region_codes]
       ).order(:name)
     end
 

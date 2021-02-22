@@ -14,7 +14,7 @@ module ManagementConsultancy
     end
 
     def next_step_class
-      Journey::ChooseRegions
+      Journey::Suppliers
     end
   end
 end
