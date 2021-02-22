@@ -1,6 +1,7 @@
 module ManagementConsultancy
   class SuppliersController < ManagementConsultancy::FrameworkController
     helper :telephone_number
+    before_action :redirect_if_wrong_lot
     before_action :fetch_suppliers, only: %i[index download]
     before_action :set_back_path
 
@@ -30,12 +31,27 @@ module ManagementConsultancy
 
     private
 
+    def redirect_if_wrong_lot
+      if Marketplace.mcf3_live?
+        redirect_to management_consultancy_path unless params[:lot].starts_with?('MCF3')
+      elsif ['MCF1', 'MCF2'].none? { |lot| params[:lot].starts_with?(lot) }
+        redirect_to management_consultancy_path
+      end
+    end
+
     def fetch_suppliers
-      @all_suppliers = Supplier.offering_services_in_regions(
-        params[:lot],
-        params[:services],
-        params[:region_codes]
-      ).order(:name)
+      @all_suppliers = if Marketplace.mcf3_live?
+                         Supplier.offering_services(
+                           params[:lot],
+                           params[:services],
+                         ).order(:name)
+                       else
+                         Supplier.offering_services_in_regions(
+                           params[:lot],
+                           params[:services],
+                           params[:region_codes]
+                         ).order(:name)
+                       end
     end
 
     def set_back_path

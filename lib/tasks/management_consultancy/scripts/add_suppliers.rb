@@ -25,6 +25,10 @@ def add_suppliers
 
   suppliers += mcf2_sheet.parse(headers)
 
+  mcf3_sheet = suppliers_workbook.sheet(2)
+
+  suppliers += mcf3_sheet.parse(headers)
+
   suppliers.delete_if { |supplier| supplier[:duns].nil? }
 
   suppliers.uniq! { |supplier| supplier[:duns] }
