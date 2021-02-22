@@ -123,6 +123,8 @@ ignore_unused:
   - home.index.supply_teachers_link
   - home.index.management_consultancy_link
   - home.index.legal_services_link
+  - management_consultancy.admin.uploads.failed.error_details.*
+  - common.type_*
 # - 'activerecord.attributes.*'
 # - '{devise,kaminari,will_paginate}.*'
   - 'devise.*'

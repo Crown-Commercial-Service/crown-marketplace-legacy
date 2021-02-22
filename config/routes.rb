@@ -110,11 +110,8 @@ Rails.application.routes.draw do
     get '/suppliers/:id', to: 'suppliers#show', as: 'supplier'
     namespace :admin, defaults: { service: 'management_consultancy/admin' } do
       resources :uploads, only: %i[index new create show] do
-        get 'approve'
-        get 'reject'
-        get 'uploading'
+        get '/progress', action: :progress
       end
-      get '/in_progress', to: 'uploads#in_progress'
       concerns :shared_admin_pages
     end
     get '/start', to: 'journey#start', as: 'journey_start'

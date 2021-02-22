@@ -222,6 +222,32 @@ en:
   activerecord:
     errors:
       models:
+        management_consultancy/admin/upload:
+          attributes:
+            supplier_details_file:
+              malicious: The 'Supplier details' file contains a virus
+              not_attached: Select the 'Supplier details' file
+              too_large: The 'Supplier details' file must be smaller than 10mb
+              wrong_content_type: The 'Supplier details' file does not contain the expected content type
+              wrong_extension: The 'Supplier details' file must be an XLSX
+            supplier_rate_cards_file:
+              malicious: The 'Supplier rate cards' file contains a virus
+              not_attached: Select the 'Supplier rate cards' file
+              too_large: The 'Supplier rate cards' file must be smaller than 10mb
+              wrong_content_type: The 'Supplier rate cards' file does not contain the expected content type
+              wrong_extension: The 'Supplier rate cards' file must be an XLSX
+            supplier_regional_offerings_file:
+              malicious: The 'Supplier regional offerings' file contains a virus
+              not_attached: Select the 'Supplier regional offerings' file
+              too_large: The 'Supplier regional offerings' file must be smaller than 10mb
+              wrong_content_type: The 'Supplier regional offerings' file does not contain the expected content type
+              wrong_extension: The 'Supplier regional offerings' file must be an XLSX
+            supplier_service_offerings_file:
+              malicious: The 'Supplier service offerings' file contains a virus
+              not_attached: Select the 'Supplier service offerings' file
+              too_large: The 'Supplier service offerings' file must be smaller than 10mb
+              wrong_content_type: The 'Supplier service offerings' file does not contain the expected content type
+              wrong_extension: The 'Supplier service offerings' file must be an XLSX
         supply_teachers/admin/upload:
           attributes:
             base:
@@ -254,6 +280,7 @@ en:
     submit: Continue
     type_doc: application/msword
     type_xlsx: application/msexcel
+    type_zip: application/zip
     xlsx_html: <abbr title="Microsoft Excel">XLSX</abbr>
   companies:
     unit:
@@ -678,34 +705,111 @@ en:
         new:
           email_hint_html: Enter the email address you used to set up your account.
       uploads:
+        failed:
+          below_is_a_list: Below is a list of the issues that have occurred with the file upload and details on how they might be fixed.
+          common_causes: 'Common causes of these issues may include:'
+          common_causes_1: Suppliers having the incorrect DUNS number
+          common_causes_2: Sheets have a blank row
+          details: Details
+          error_details:
+            file_check_failed: Something went wrong when checking the files, please try uploading the files again
+            file_process_failed: Something went wrong when processing the files, please try uploading the files again
+            file_publish_failed: Something went wrong when publishing the files, please try uploading the files again
+            mcf3_live:
+              file_check_failed: Something went wrong when checking the files, please try uploading the files again
+              file_process_failed: Something went wrong when processing the files, please try uploading the files again
+              file_publish_failed: Something went wrong when publishing the files, please try uploading the files again
+              supplier_details_missing_sheets: 'The ''Supplier details'' file should have 1 sheet with the following name: ''MCF3'''
+              supplier_rate_cards_missing_sheets: 'The ''Supplier rate cards'' file should have 9 sheets with the following names: ''MCF3 Lot 1'', ''MCF3 Lot 2'', ''MCF3 Lot 3'', ''MCF3 Lot 4'', ''MCF3 Lot 5'', ''MCF3 Lot 6'', ''MCF3 Lot 7'', ''MCF3 Lot 8'', ''MCF3 Lot 9'''
+              supplier_regional_offerings_missing_sheets: No longer occurs
+              supplier_service_offerings_missing_sheets: 'The ''Supplier service offerings'' file should have 9 sheets with the following names: ''MCF3 Lot 1'', ''MCF3 Lot 2'', ''MCF3 Lot 3'', ''MCF3 Lot 4'', ''MCF3 Lot 5'', ''MCF3 Lot 6'', ''MCF3 Lot 7'', ''MCF3 Lot 8'', ''MCF3 Lot 9'''
+              upload_failed: Something went wrong with the file upload, please try uploading the files again
+            supplier_details_headers_incorrect_html: 'The following sheets have incorrect headers: %{list} Make sure all sheets for ''Supplier details'' have the following headers: ''Supplier name'', ''Email address'', ''Phone number'', ''Website URL'', ''Postal address'', ''Is an SME?'', ''DUNS Number'''
+            supplier_details_missing_sheets: 'The ''Supplier details'' file should have 3 sheets with the following names: ''MCF'', ''MCF2'', ''MCF3'''
+            supplier_missing_lots_html: 'The following suppliers do not offer any lots: %{list} Make sure all the suppliers have the correct name and DUNS number'
+            supplier_missing_rate_cards_html: 'The following suppliers do not have any rate cards: %{list} Make sure all the suppliers have the correct name and DUNS number'
+            supplier_rate_cards_missing_column_html: 'The following sheets are missing columns: %{list} Make sure all sheets for ''Supplier rate cards'' have the 10 expected columns'
+            supplier_rate_cards_missing_sheets: 'The ''Supplier rate cards'' file should have 20 sheets with the following names: ''MCF Lot 2'', ''MCF Lot 3'', ''MCF Lot 4'', ''MCF Lot 5'', ''MCF Lot 6'', ''MCF Lot 7'', ''MCF Lot 8'', ''MCF2 Lot 1'', ''MCF2 Lot 2'', ''MCF2 Lot 3'', ''MCF2 Lot 4'', ''MCF3 Lot 1'', ''MCF3 Lot 2'', ''MCF3 Lot 3'', ''MCF3 Lot 4'', ''MCF3 Lot 5'', ''MCF3 Lot 6'', ''MCF3 Lot 7'', ''MCF3 Lot 8'', ''MCF3 Lot 9'''
+            supplier_regional_offerings_headers_incorrect_html: 'The following sheets have incorrect headers: %{list} Make sure all sheets for ''Supplier regional offerings'' have the correct regions'
+            supplier_regional_offerings_missing_sheets: 'The ''Supplier regional offerings'' file should have 11 sheets with the following names: ''MCF Lot 2'', ''MCF Lot 3'', ''MCF Lot 4'', ''MCF Lot 5'', ''MCF Lot 6'', ''MCF Lot 7'', ''MCF Lot 8'', ''MCF2 Lot 1'', ''MCF2 Lot 2'', ''MCF2 Lot 3'', ''MCF2 Lot 4'''
+            supplier_service_offering_missing_rows_html: 'The following sheets have incorrect column headers: %{list} Make sure all sheets for ''Supplier regional offerings'' have the correct services for their lot'
+            supplier_service_offerings_missing_sheets: 'The ''Supplier service offerings'' file should have 20 sheets with the following names: ''MCF Lot 2'', ''MCF Lot 3'', ''MCF Lot 4'', ''MCF Lot 5'', ''MCF Lot 6'', ''MCF Lot 7'', ''MCF Lot 8'', ''MCF2 Lot 1'', ''MCF2 Lot 2'', ''MCF2 Lot 3'', ''MCF2 Lot 4'', ''MCF3 Lot 1'', ''MCF3 Lot 2'', ''MCF3 Lot 3'', ''MCF3 Lot 4'', ''MCF3 Lot 5'', ''MCF3 Lot 6'', ''MCF3 Lot 7'', ''MCF3 Lot 8'', ''MCF3 Lot 9'''
+            upload_failed: Something went wrong with the file upload, please try uploading the files again
+          error_name:
+            file_check_failed: File check failed
+            file_process_failed: File processing failed
+            file_publish_failed: File publishing failed
+            supplier_details_headers_incorrect: There are sheets in 'Supplier details' with incorrect headers
+            supplier_details_missing_sheets: The 'Supplier details' file is missing sheets
+            supplier_missing_lots: There are suppliers without any lots
+            supplier_missing_rate_cards: There are suppliers without any rate cards
+            supplier_rate_cards_missing_column: There are sheets in 'Supplier rate cards' with incorrect headers
+            supplier_rate_cards_missing_sheets: The 'Supplier rate cards' file is missing sheets
+            supplier_regional_offerings_headers_incorrect: There are sheets in 'Supplier regional offerings' with incorrect headers
+            supplier_regional_offerings_missing_sheets: The 'Supplier regional offerings' file is missing sheets
+            supplier_service_offering_missing_rows: There are sheets in 'Supplier service offerings' with incorrect services
+            supplier_service_offerings_missing_sheets: The 'Supplier service offerings' file is missing sheets
+            upload_failed: Upload failed
+          errors_with_upload: Errors with the upload
+          issue: Issue
+          warning_description: This upload occurred before MCF3 went live, this means some of the error details will no longer be correct.
+          warning_text: Errors out of date
         in_progress:
-          content: The data have been uploaded and are now being processed.
-          heading: Upload successful
+          checking_files: Checking files
+          complete: Complete
+          files_uploaded: Files uploaded
+          processing_data: Processing data
+          publishing_data: Publishing data
+          upload_progress: Upload progress
         index:
-          caption: Manage supplier data
+          caption: Management Consultancy
           create_new: Create a new data upload
+          current_data: Current published data
           date: Date
-          heading: Management Consultancy
+          download: Download
+          file_name:
+            supplier_details_file: Supplier details
+            supplier_rate_cards_file: Supplier rate cards
+            supplier_regional_offerings_file: Supplier regional offerings
+            supplier_service_offerings_file: Supplier service offerings
+          heading: Manage supplier data
           name: Name
           status: Status
           table_caption: Previous uploads
         new:
           caption: Management Consultancy
+          download_templates: Download file templates
+          file_label:
+            supplier_details_file: Supplier details
+            supplier_rate_cards_file: Supplier rate cards
+            supplier_regional_offerings_file: Supplier regional offerings
+            supplier_service_offerings_file: Supplier service offerings
           heading: New data upload
-          upload_caption: Supported file format is JSON Maximum file size is 10mb.
-          upload_title: Upload the complete supplier data
+          include_mcf3: Except for 'Supplier regional offerings', all files should include the sheets for MCF3. If the data for MCF3 is not available, keep the headings or columns but leave the fields blank.
+          return: Return to 'Manage supplier data'
+          template_file_mcf3_path: management_consultancy/mcf3/Supplier spreadsheet templates.zip
+          template_file_name: Download spreadsheet templates
+          template_file_path: management_consultancy/Supplier spreadsheet templates.zip
+          upload_caption: Supported file format is .xlsx and maximum file size is 10mb
+          upload_data: Upload data
+          upload_title: Upload the supplier data
+          you_can_download: You can download a zip file containing an empty template for each of the spreadsheets
         show:
           caption: Management consultancy
-          datetime: 'Date/time:'
+          datetime: 'Date of file upload:'
           download: Download
-          file: File
-          files: Files
+          file_name:
+            supplier_details_file: Supplier details
+            supplier_rate_cards_file: Supplier rate cards
+            supplier_regional_offerings_file: Supplier regional offerings
+            supplier_service_offerings_file: Supplier service offerings
+          files: Uploaded files
           heading: 'Upload session #%{number}'
+          name: File name
+          return: Return to 'Manage supplier data'
           status: 'Status:'
-          suppliers_data: Suppliers data
-        uploading:
-          content_html: 'The data from <strong>''Upload session #%{session_no}''</strong> is currently in progress to be published to the <strong>''Agency supply teachers and agency workers''</strong> service.'
-          heading: Data upload in progress
+        upload:
+          upload_name: 'Upload session #%{number}'
     home:
       accessibility_statement:
         compliance: No known accessibility non compliance issues.

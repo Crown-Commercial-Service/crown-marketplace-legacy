@@ -17,5 +17,6 @@
 //= require cookie_banner
 //= require supplier_markup_calculator
 //= require legal_services/ls_form_validation.js
+//= require management_consultancy/upload_progress.js
 //= require cp/cp-sign-in.js
 //= require global/global.js
