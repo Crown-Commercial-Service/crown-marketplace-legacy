@@ -21,14 +21,13 @@ RSpec.feature 'Authentication', type: :feature do
     OmniAuth.config.test_mode = false
     visit '/management-consultancy/start'
 
-    expect(page).to have_text('Sign in with Cognito')
+    expect(page).to have_text('Sign in to your management consultancy buyer account')
   end
 
   scenario 'Users can sign in using AWS Cognito' do
     OmniAuth.config.test_mode = false
     user = create(:user, roles: %i[buyer mc_access])
     visit '/management-consultancy/start'
-    click_on 'Sign in with Cognito'
     fill_in 'Email', with: user.email
     fill_in 'Password', with: 'ValidPassword!'
     click_button 'Sign in'
@@ -39,7 +38,6 @@ RSpec.feature 'Authentication', type: :feature do
   scenario 'Users can sign in using AWS Cognito with capitals in email' do
     user = create(:user, roles: %i[buyer mc_access])
     visit '/management-consultancy/start'
-    click_on 'Sign in with Cognito'
     fill_in 'Email', with: user.email.upcase
     fill_in 'Password', with: 'ValidPassword!'
     click_button 'Sign in'
@@ -50,14 +48,13 @@ RSpec.feature 'Authentication', type: :feature do
   scenario 'Users signed in using AWS Cognito can sign out' do
     user = create(:user, roles: %i[buyer mc_access])
     visit '/management-consultancy/start'
-    click_on 'Sign in with Cognito'
     fill_in 'Email', with: user.email
     fill_in 'Password', with: 'ValidPassword!'
     click_button 'Sign in'
     click_on 'Sign out'
 
     visit '/management-consultancy/start'
-    expect(page).to have_text('Sign in with Cognito')
+    expect(page).to have_text('Sign in to your management consultancy buyer account')
   end
 
   scenario 'Users can sign in using DfE sign-in', dfe: true do

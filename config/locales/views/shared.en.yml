@@ -9,9 +9,6 @@ en:
     index:
       admin_link: Managing framework and supplier data
   shared:
-    gateway:
-      index:
-        heading: CCS Marketplace
     passwords:
       edit:
         confirm_new_password: Confirm new password

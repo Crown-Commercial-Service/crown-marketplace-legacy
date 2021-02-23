@@ -93,7 +93,6 @@ Rails.application.routes.draw do
 
   namespace 'management_consultancy', path: 'management-consultancy' do
     get '/', to: 'home#index'
-    get '/gateway', to: 'gateway#index'
     get '/suppliers', to: 'suppliers#index'
     get '/suppliers/download', to: 'suppliers#download', as: 'suppliers_download'
     get '/suppliers/:id', to: 'suppliers#show', as: 'supplier'
@@ -117,8 +116,6 @@ Rails.application.routes.draw do
   end
 
   namespace 'legal_services', path: 'legal-services' do
-    get '/cognito', to: 'gateway#index', cognito_enabled: true
-    get '/gateway', to: 'gateway#index'
     get '/', to: 'home#index'
     get '/service-not-suitable', to: 'home#service_not_suitable'
     get '/suppliers/download', to: 'suppliers#download'

@@ -16,7 +16,6 @@
 //= require cookie_banner
 //= require supplier_markup_calculator
 //= require common/common.js
-//= require common/protection.js
 //= require common/step-by-step-nav.js
 //= require_tree ./facilities_management
 //= require legal_services/ls_form_validation.js
