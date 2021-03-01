@@ -4,6 +4,8 @@ RSpec.describe 'layouts/application.html.erb' do
   before do
     view.extend(ApplicationHelper)
     allow(view).to receive(:user_signed_in?).and_return(false)
+    allow(view).to receive(:cookies_path).and_return('/action_view/cookies')
+    allow(view).to receive(:accessibility_statement_path).and_return('/action_view/accessibility_statement')
     controller.singleton_class.class_eval do
       def ccs_homepage_url
         'https://CCSHOMEPAGE'
