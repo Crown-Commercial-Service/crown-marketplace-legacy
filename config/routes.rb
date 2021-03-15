@@ -98,11 +98,6 @@ Rails.application.routes.draw do
     get '/suppliers', to: 'suppliers#index'
     get '/suppliers/download', to: 'suppliers#download', as: 'suppliers_download'
     get '/suppliers/:id', to: 'suppliers#show', as: 'supplier'
-    get '/html/select-lot', to: 'html#select_lot'
-    get '/html/select-services', to: 'html#select_services'
-    get '/html/select-location', to: 'html#select_location'
-    get '/html/supplier-detail', to: 'html#supplier_detail'
-    get '/html/download-the-supplier-list', to: 'html#download_the_supplier_list'
     namespace :admin do
       resources :uploads, only: %i[index new create show] do
         get 'approve'

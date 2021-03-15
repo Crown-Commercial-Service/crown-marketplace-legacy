@@ -32,12 +32,14 @@
           name: 'Download the supplier list'
         ) %>
       <br>
-      <section class="govuk-grid-column-two-thirds ccs-search-results">
-        <ul class="ccs-results-list">
-          <%= render partial: 'supplier', collection: @suppliers %>
-        </ul>
-        <%= paginate @suppliers, views_prefix: 'shared', window: 2, outer_window: 1 %>
-      </section>
+      <div class="govuk-grid-row">
+        <section class="govuk-grid-column-two-thirds ccs-search-results">
+          <ul class="ccs-results-list">
+            <%= render partial: 'supplier', collection: @suppliers %>
+          </ul>
+          <%= paginate @suppliers, views_prefix: 'shared', window: 2, outer_window: 1 %>
+        </section>
+      </div>
     <% end %>
   </div>
 </div>

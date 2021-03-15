@@ -19,7 +19,7 @@
             <p><%= link_to(t('.view_locations'), asset_path('NUTS1map.pdf'), target: '_blank') %></p>
             <%= display_error(@journey, :region_codes) %>
           </legend>
-          <div id="accordion-default">
+          <div id="selection-checkboxes">
             <div class="govuk-form-group">
               <div class="govuk-checkboxes">
                 <% Nuts1Region.all.each do |region| %>
@@ -56,14 +56,7 @@
       <% end %>
     </div>
     <div class="govuk-grid-column-one-third govuk-!-margin-top-9">
-      <div id="css-list-basket">
-        <%= submit_tag t('common.submit'), class: "govuk-button", name: 'Continue' %>
-        <div>
-          <h2 class="govuk-heading-m" data-txt01="<%= t('.regions_selected') %>" data-txt02="<%= t('.no_regions_selected') %>"><span></span> <span></span></h2>
-          <a role="button" href="#" class="ccs-remove govuk-link--no-visited-state ccs-no-print" id="removeAll" name="Remove all"><%= t('.remove_all') %></a>
-          <ul class="govuk-list"></ul>
-        </div>
-      </div>
+      <%= render partial: 'shared/basket', locals: { data_text_1:  t('.regions_selected'), data_text_2: t('.no_regions_selected'), data_text_3: t('.region_selected') } %>
     </div>
   <% end %>
 </div>
