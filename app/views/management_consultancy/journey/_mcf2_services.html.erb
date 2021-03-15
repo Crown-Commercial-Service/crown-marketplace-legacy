@@ -1,14 +1,7 @@
-<div class="govuk-accordion" data-module="accordion" id="accordion-default">
-  <% services.each do |service| %>
-    <div class="govuk-accordion__section">
-      <div class="govuk-accordion__section-header">
-        <h2 class="govuk-accordion__section-heading">
-          <span class="govuk-accordion__section-button" id="accordion-default-heading-<%= service.code %>" name="MCF2 Services">
-            <%= service.name %>
-          </span>
-        </h2>
-      </div>
-      <div class="govuk-accordion__section-content">
+<div id="selection-checkboxes">
+  <%= govuk_accordion("#{@journey.params['lot']}-services") do %>
+    <% services.each_with_index do |service, index| %>
+      <%= govuk_accordion_add_section(index, service.name) do %>
         <div class="govuk-form-group" data-service="<%= service.name if service.subservices.size.positive? %>" >
           <fieldset class="govuk-fieldset">
             <div class="govuk-checkboxes">
@@ -52,7 +45,7 @@
             </div>
           </fieldset>
         </div>
-      </div>
-    </div>
+      <% end %>
+    <% end %>
   <% end %>
 </div>

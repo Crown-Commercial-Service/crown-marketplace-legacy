@@ -1,104 +1,104 @@
 .supplier-record {
-    padding-bottom: 20px;
+  padding-bottom: 20px;
 }
 
 .supplier-record__supplier-name {
-    margin-bottom: 5px;
+  margin-bottom: 5px;
 }
 
 .supplier-record__branch {
-  margin-bottom: 0;
+margin-bottom: 0;
 }
 
 .supplier-record__branch-name {
-  font-weight: $govuk-font-weight-regular;
+font-weight: $govuk-font-weight-regular;
 }
 
 .supplier-record__header-group {
-    margin-bottom: 20px
+  margin-bottom: 20px
 }
 
 .supplier-record__markup-rate,
 .supplier-record__distance {
-    font-weight: $govuk-font-weight-semi-bold;;
-    margin-bottom: 0;
+  font-weight: $govuk-font-weight-semi-bold;;
+  margin-bottom: 0;
 }
 
 .supplier-record__file-download {
-  display: inline-block;
-  position: relative;
-  min-height: 33px;
-  min-width: 50px;
-  padding-left: 70px;
+display: inline-block;
+position: relative;
+min-height: 33px;
+min-width: 50px;
+padding-left: 70px;
 }
 
 .supplier-record__file-download:before {
-    position: absolute;
-    left: 0px;
-    top: -6px;
-    display: inline-block;
-    width: auto;
-    height: auto;
-    background: #777777 image-url('corner-curl.png') 100% -1px no-repeat;
-    color: #FFF;
-    background-size: 9px;
-    font-size: 13px;
-    text-align: center;
-    line-height: 2.45;
-    text-transform: uppercase;
-    font-weight: $govuk-font-weight-semi-bold;
-    content: "";
-    padding-left: 5px;
-    padding-right: 5px;
+  position: absolute;
+  left: 0px;
+  top: -6px;
+  display: inline-block;
+  width: auto;
+  height: auto;
+  background: #777777 image-url('corner-curl.png') 100% -1px no-repeat;
+  color: #FFF;
+  background-size: 9px;
+  font-size: 13px;
+  text-align: center;
+  line-height: 2.45;
+  text-transform: uppercase;
+  font-weight: $govuk-font-weight-semi-bold;
+  content: "";
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 .supplier-record__file-download[href*='format=xlsx']:before {
-    background-color: #007831;
-    content: ".XLSX";
+  background-color: #007831;
+  content: ".XLSX";
 }
 
 .supplier-record__file-download[href*='format=csv']:before {
-    background-color: #007831;
-    content: ".CSV";
+  background-color: #007831;
+  content: ".CSV";
 }
 
 .supplier-record__file-download[href*='format=doc']:before {
-    background-color: #0d0da0;
-    content: ".DOC";
-}
-
-.supplier-record__file-download-doc:before {
-  background-color: #0C5FAE;
+  background-color: #0d0da0;
   content: ".DOC";
 }
 
+.supplier-record__file-download-doc:before {
+background-color: #0C5FAE;
+content: ".DOC";
+}
+
 .supplier-record__file-download[href*='format=pdf']:before {
-    background-color: #df1a1a;
-    content: ".PDF";
+  background-color: #df1a1a;
+  content: ".PDF";
 }
 
 .supplier-record__print-option {
-    min-height: 35px;
+  min-height: 35px;
 }
 
 .supplier-record__calculator {
-  margin: 0;
-  background: govuk-colour("grey-4");
+margin: 0;
+background: ccs-colour("grey-4");
 }
 
 .supplier-record__calculator--muted p {
-  color: govuk-colour("grey-2");
+color: ccs-colour("grey-2");
 }
 
 .supplier-record__worker-cost,
 .supplier-record__agency-fee
 {
-  margin: 10px 0 0 0;
-  font-size: 24px;
+margin: 10px 0 0 0;
+font-size: 24px;
 }
 
 strong.supplier-record__finders-fee-percentage {
-  line-height: 1 !important;
+line-height: 1 !important;
 }
 
 @media print {

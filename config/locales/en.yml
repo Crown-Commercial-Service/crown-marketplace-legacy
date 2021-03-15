@@ -240,7 +240,6 @@ en:
     confirm_and_continue: Confirm and continue
     continue: Continue
     create_account: Create account
-    csv_html: <abbr title="Comma-separated values">CSV</abbr>
     doc_html: <abbr title="Microsoft Word">DOC</abbr>
     error_summary_title: There is a problem
     feedback: feedback
@@ -253,7 +252,6 @@ en:
     send_reset_email: Send reset email
     sign_in: Sign in
     submit: Continue
-    type_csv: text/csv
     type_doc: application/msword
     type_xlsx: application/msexcel
     xlsx_html: <abbr title="Microsoft Excel">XLSX</abbr>
@@ -288,6 +286,9 @@ en:
       - Ltd
       - plc
       - LLP
+  header_navigation_links_helper:
+    back_to_start: Back to start
+    sign_out: Sign out
   home:
     accessibility:
       accessibility_statement:
@@ -339,6 +340,7 @@ en:
         we_are_always_looking: We're always looking to improve the accessibility of this website. If you find any problems not listed on this page or think we're not meeting accessibility requirements, contact
         well_consider: We'll consider your request and get back to you in five working days.
     index:
+      admin: Crown Marketplace
       legal_services_link: Find legal service for the wider public sector
       management_consultancy_link: Find management consultancy services
       supply_teachers_link: Find supply teachers and agency workers
@@ -381,6 +383,8 @@ en:
       support_html: Email %{link} or call %{phone} for support.
       support_link_aria_label: Email us for support with this service
       title: Crown Commercial Service
+    logotype:
+      ccs_logo_title: Crown Commercial Service logo
   legal_services:
     admin:
       passwords:
@@ -495,8 +499,8 @@ en:
         no_regions_selected: No regions selected
         or: or
         question: Select the regions where you need legal services
-        regions_selected: Regions selected
-        remove_all: Remove all
+        region_selected: region selected
+        regions_selected: regions selected
         view_locations: View locations (PDF 266 KB)
       choose_services:
         ccs_support_link_text: Contact CCS Support
@@ -505,7 +509,7 @@ en:
         general_legal_advice_services_link_text: General Legal Advice Services (RM3786)
         no_services_selected: No services selected
         question: Select the legal services you need
-        remove_all: Remove all
+        service_selected: service selected
         services_selected: services selected
       select_lot:
         heading: Select the lot you need
@@ -646,39 +650,6 @@ en:
         heading: Find management consultants
         use_this_service: Use this service to download a shortlist of suppliers that provide the management consultancy services you need.
         using_this_service: Using this service means you're following the public sector procurement procedures.
-    html:
-      download_the_supplier_list:
-        button_start_new_search: Start new search
-        download_supplier_shortlist: Download supplier shortlist
-        expression_of_interest_template: Expression of interest template
-        heading: Download the supplier shortlist
-        lead_text: The list is valid for 2 days as we frequently update supplier contact details
-        other_documents: Other documents
-        the_spreadsheet_text: The spreadsheet includes the selections you made, for your records and audit trail.
-      select_location:
-        heading: Where do you want the consultants to work?
-        no_regions_selected: No regions selected
-        remove_all: Remove all
-        services_selected: regions selected
-        sub_txt: Suppliers have said where they'll provide consultants.
-      select_lot:
-        heading: Which area of your organisation needs advice?
-      select_services:
-        heading: Select the business consultancy services you need
-        no_services_selected: No services selected
-        remove_all: Remove all
-        services_selected: services selected
-      supplier_detail:
-        address: Address
-        contact_details: Contact details
-        day_rates: Day rates
-        email: Email
-        max_day_rate: Max day rate
-        person: Person
-        phone_number: Phone number
-        position: Position
-        sub_title: Supplier details
-        website: Website
     job_titles:
       mcf1:
         lot_2:
@@ -785,13 +756,13 @@ en:
       choose_regions:
         no_regions_selected: No regions selected
         question: Select the regions you want the consultants to work
-        regions_selected: Regions selected
-        remove_all: Remove all
+        region_selected: region selected
+        regions_selected: regions selected
         subtitle: Suppliers have said where they’ll provide consultants
       choose_services:
         no_services_selected: No services selected
         question: Select the services you need
-        remove_all: Remove all
+        service_selected: service selected
         services_selected: services selected
     passwords:
       forgot_password_confirmation:
@@ -900,8 +871,14 @@ en:
       other: results
   scotland: Scotland
   shared:
+    basket:
+      remove_all: Remove all
     error_summary:
       there_is_a_problem: There is a problem
+    gateway:
+      sign_in_with_cognito: Sign in with Cognito
+      sign_in_with_dfe: Sign in with DfE Sign-in
+      start_now: Start now
     registrations:
       new:
         confirm_password: Confirm your password
@@ -1130,8 +1107,6 @@ en:
         keep_the_information_confidential: keep the information confidential and not share it in any way unless you have permission from Crown Commercial Service (CCS) in writing
         make_sure_the_confidential_information: make sure the confidential information is stored securely and that only people using the service to buy under the framework have access to it
         only_use_the_information: only use the information for buying services under the CCS framework agreement for supply teachers and temporary staff
-        start_finding_supply_teachers: Start finding supply teachers and agency workers
-        start_now: Start now
         supported_by: 'Supported by:'
         tell_ccs_if_suspect: tell CCS if you suspect unauthorised access, copying, use or disclosure of the confidential information
         this_service_contains_pricing_information_html: This service contains pricing information for agencies on the <a href="%{url}" aria-label="Deal for schools hiring supply teachers and agency workers">supply teachers deal</a>. This is confidential and can be considered commercially sensitive.
