@@ -299,17 +299,5 @@ module LayoutHelper
   def govuk_prevent_submission(_builder, value)
     content_tag :input, nil, name: 'preventsubmission', value: value, type: 'hidden'
   end
-
-  def navigation_link_supplier_and_buyer
-    html = []
-    html << content_tag(:li, class: 'govuk-header__navigation-item', role: 'navigation') do
-      if current_user&.has_role?(:supplier)
-        link_to 'My dashboard', facilities_management_supplier_dashboard_index_path, class: 'govuk-header__link' if user_signed_in?
-      elsif current_user&.has_role?(:buyer)
-        link_to 'My Account', facilities_management_path, class: 'govuk-header__link' if user_signed_in?
-      end
-    end
-    safe_join(html)
-  end
 end
 # rubocop:enable Metrics/ModuleLength

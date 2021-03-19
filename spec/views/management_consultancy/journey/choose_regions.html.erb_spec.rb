@@ -18,6 +18,7 @@ RSpec.describe 'management_consultancy/journey/choose_regions.html.erb' do
     assign(:form_path, '/')
     params[:services] = []
     params[:lot] = 'MCF1.2'
+    allow(journey).to receive(:params).and_return(params)
   end
 
   it 'does not include aria-describedby attribute' do
