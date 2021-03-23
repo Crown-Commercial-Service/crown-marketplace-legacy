@@ -7,8 +7,8 @@ if [ "$APP_RUN_PRECOMPILE_ASSETS" = 'TRUE' ]; then
 fi
 
 if [ "$APP_RUN_SIDEKIQ" = 'FALSE' ]; then
-  if [ "$APP_RUN_STATIC_TASK" = 'TRUE' ]; then
-    bundle exec rails db:static
+  if [ "$APP_RUN_RAKE_TASKS" = 'TRUE' ]; then
+    bundle exec rails command:run
   fi
 
   bundle exec rails server
