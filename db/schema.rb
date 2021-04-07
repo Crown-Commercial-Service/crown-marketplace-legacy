@@ -2,11 +2,11 @@
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
 #
-# Note that this schema.rb definition is the authoritative source for your
-# database schema. If you need to create the application database on another
-# system, you should be using db:schema:load, not running all the migrations
-# from scratch. The latter is a flawed and unsustainable approach (the more migrations
-# you'll amass, the slower it'll run and the greater likelihood for issues).
+# This file is the source Rails uses to define your schema when running `rails
+# db:schema:load`. When creating a new database, `rails db:schema:load` tends to
+# be faster and is potentially less error prone than running all of your
+# migrations from scratch. Old migrations may fail to apply correctly if those
+# migrations use external dependencies or application code.
 #
 # It's strongly recommended that you check this file into your version control system.
 
@@ -410,6 +410,7 @@ ActiveRecord::Schema.define(version: 2020_07_16_152434) do
     t.datetime "updated_at", null: false
     t.string "service_code"
     t.index ["legal_services_supplier_id"], name: "index_ls_regional_availabilities_on_ls_supplier_id"
+    t.index ["service_code", "region_code", "legal_services_supplier_id"], name: "index_service_on_region_and_ls_supplier_id", unique: true
   end
 
   create_table "legal_services_service_offerings", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -419,6 +420,7 @@ ActiveRecord::Schema.define(version: 2020_07_16_152434) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["legal_services_supplier_id"], name: "index_ls_service_offerings_on_ls_supplier_id"
+    t.index ["service_code", "lot_number", "legal_services_supplier_id"], name: "index_service_on_lot_number_and_ls_supplier_id", unique: true
   end
 
   create_table "legal_services_suppliers", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -477,6 +479,7 @@ ActiveRecord::Schema.define(version: 2020_07_16_152434) do
     t.datetime "updated_at", null: false
     t.boolean "expenses_required", null: false
     t.index ["management_consultancy_supplier_id"], name: "index_mc_regional_availabilities_on_mc_supplier_id"
+    t.index ["region_code", "lot_number", "management_consultancy_supplier_id"], name: "index_region_on_lot_number_and_mc_supplier_id", unique: true
   end
 
   create_table "management_consultancy_service_offerings", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -486,6 +489,7 @@ ActiveRecord::Schema.define(version: 2020_07_16_152434) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["management_consultancy_supplier_id"], name: "index_mc_service_offerings_on_mc_supplier_id"
+    t.index ["service_code", "lot_number", "management_consultancy_supplier_id"], name: "index_service_on_lot_number_and_mc_supplier_id", unique: true
   end
 
   create_table "management_consultancy_suppliers", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -661,6 +665,7 @@ ActiveRecord::Schema.define(version: 2020_07_16_152434) do
     t.text "term"
     t.integer "lot_number", default: 1, null: false
     t.money "daily_fee", scale: 2
+    t.index ["lot_number", "term", "job_type", "supply_teachers_supplier_id"], name: "index_lot_number_on_term_and_job_type_and_st_supplier_id", unique: true
     t.index ["supply_teachers_supplier_id"], name: "index_supply_teachers_rates_on_supply_teachers_supplier_id"
   end
 

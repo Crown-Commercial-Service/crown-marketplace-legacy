@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :management_consultancy_supplier, class: ManagementConsultancy::Supplier do
+  factory :management_consultancy_supplier, class: 'ManagementConsultancy::Supplier' do
     name { Faker::Name.unique.name }
     contact_name { Faker::Name.unique.name }
     contact_email { Faker::Internet.unique.email }

@@ -225,6 +225,6 @@ function initCustomFnc() {
   }
 }
 
-jQuery(document).ready(() => {
+$(document).ready(() => {
   initCustomFnc();
 });

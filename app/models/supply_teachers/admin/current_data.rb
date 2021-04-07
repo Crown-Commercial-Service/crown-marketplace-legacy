@@ -20,7 +20,7 @@ module SupplyTeachers
       private
 
       def only_one_record
-        errors.add(:base, 'You can only have one Current Data.') if CurrentData.all.count >= 1
+        errors.add(:base, 'You can only have one Current Data.') if CurrentData.unscoped.all.count >= 1
       end
     end
   end

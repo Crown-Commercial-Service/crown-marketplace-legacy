@@ -157,6 +157,7 @@ RSpec.feature 'Workers on school payroll', type: :feature, supply_teachers: true
 
     expect(costlier_branch).to have_css('.supplier-record__finders-fee', text: '£8,750.0')
   end
+
   scenario 'Buyer finds suppliers within search range with correct finders fee when contract length is 4.5 months' do
     holborn = create(:supply_teachers_supplier, name: 'holborn')
     create(

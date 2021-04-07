@@ -1,3 +1,3 @@
 module SupplyTeachers::HomeHelper
-  include TempToPermCalculatorHelper
+  include SupplyTeachers::TempToPermCalculatorHelper
 end

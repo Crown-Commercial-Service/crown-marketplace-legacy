@@ -37,7 +37,7 @@ RSpec.describe LegalServices::Upload, type: :model do
       it 'creates record of successful upload' do
         expect do
           described_class.upload!(suppliers)
-        end.to change(LegalServices::Upload, :count).by(1)
+        end.to change(described_class, :count).by(1)
       end
 
       it 'creates supplier' do
@@ -189,7 +189,7 @@ RSpec.describe LegalServices::Upload, type: :model do
             ignoring_exception(ActiveRecord::RecordInvalid) do
               described_class.upload!(suppliers)
             end
-          end.to change(LegalServices::Upload, :count).by(0)
+          end.to change(described_class, :count).by(0)
         end
 
         it 'leaves existing data intact' do
@@ -264,11 +264,9 @@ RSpec.describe LegalServices::Upload, type: :model do
 
   private
 
-  # rubocop:disable Naming/UncommunicativeMethodParamName
-  def ignoring_exception(e)
+  def ignoring_exception(exception)
     yield
-  rescue e
+  rescue exception
     nil
   end
-  # rubocop:enable Naming/UncommunicativeMethodParamName
 end

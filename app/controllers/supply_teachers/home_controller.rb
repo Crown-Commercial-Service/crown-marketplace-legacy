@@ -9,7 +9,7 @@ module SupplyTeachers
     def not_permitted; end
 
     def accessibility_statement
-      @links = ['sign-in', 'forgot-password', 'fixed-term-results', 'master-vendors', 'temp-to-perm-calculator?looking_for=calculate_temp_to_perm_fee', 'branches/3d-recruit'].map { |link| 'https://marketplace.service.crowncommercial.gov.uk/supply-teachers/' + link }
+      @links = ['sign-in', 'forgot-password', 'fixed-term-results', 'master-vendors', 'temp-to-perm-calculator?looking_for=calculate_temp_to_perm_fee', 'branches/3d-recruit'].map { |link| "https://marketplace.service.crowncommercial.gov.uk/supply-teachers/#{link}" }
     end
 
     def cookies; end
