@@ -85,7 +85,7 @@ RSpec.describe SupplyTeachers::Supplier, type: :model do
       end
     end
 
-    let(:suppliers) { SupplyTeachers::Supplier.with_master_vendor_rates }
+    let(:suppliers) { described_class.with_master_vendor_rates }
 
     it 'returns suppliers with master vendor rates' do
       expect(suppliers).to include(supplier_with_master_vendor_rate)
@@ -137,7 +137,7 @@ RSpec.describe SupplyTeachers::Supplier, type: :model do
       end
     end
 
-    let(:suppliers) { SupplyTeachers::Supplier.with_neutral_vendor_rates }
+    let(:suppliers) { described_class.with_neutral_vendor_rates }
 
     it 'returns suppliers with neutral vendor rates' do
       expect(suppliers).to include(supplier_with_neutral_vendor_rate)

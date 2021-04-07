@@ -13,7 +13,7 @@ RSpec.describe SupplyTeachers::DownloadsController, type: :controller do
       it 'responds to requests for xlsx files' do
         get :index, params: { format: 'xlsx' }
 
-        expect(response.content_type)
+        expect(response.media_type)
           .to eq 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
       end
     end

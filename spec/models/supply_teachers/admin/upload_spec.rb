@@ -22,6 +22,7 @@ RSpec.describe SupplyTeachers::Admin::Upload, type: :model do
       it 'has state in progress' do
         expect(admin_upload).to have_state(:in_progress)
       end
+
       it 'does not cleanup files' do
         expect(admin_upload).not_to have_received(:cleanup_input_files)
       end
@@ -33,6 +34,7 @@ RSpec.describe SupplyTeachers::Admin::Upload, type: :model do
       it 'has state in review' do
         expect(admin_upload).to have_state(:in_review)
       end
+
       it 'does not cleanup files' do
         expect(admin_upload).not_to have_received(:cleanup_input_files)
       end
@@ -45,6 +47,7 @@ RSpec.describe SupplyTeachers::Admin::Upload, type: :model do
         it 'has state failed' do
           expect(admin_upload).to have_state(:failed)
         end
+
         it 'does cleanup files' do
           expect(admin_upload).to have_received(:cleanup_input_files)
         end
@@ -59,6 +62,7 @@ RSpec.describe SupplyTeachers::Admin::Upload, type: :model do
         it 'has state failed' do
           expect(admin_upload).to have_state(:failed)
         end
+
         it 'does cleanup files' do
           expect(admin_upload).to have_received(:cleanup_input_files)
         end
@@ -74,6 +78,7 @@ RSpec.describe SupplyTeachers::Admin::Upload, type: :model do
       it 'has state uploading' do
         expect(admin_upload).to have_state(:uploading)
       end
+
       it 'does not cleanup files' do
         expect(admin_upload).not_to have_received(:cleanup_input_files)
       end
@@ -88,6 +93,7 @@ RSpec.describe SupplyTeachers::Admin::Upload, type: :model do
       it 'has state approved' do
         expect(admin_upload).to have_state(:approved)
       end
+
       it 'does not cleanup files' do
         expect(admin_upload).not_to have_received(:cleanup_input_files)
       end
@@ -102,6 +108,7 @@ RSpec.describe SupplyTeachers::Admin::Upload, type: :model do
       it 'has state rejected' do
         expect(admin_upload).to have_state(:rejected)
       end
+
       it 'does cleanup files' do
         expect(admin_upload).to have_received(:cleanup_input_files)
       end
@@ -117,6 +124,7 @@ RSpec.describe SupplyTeachers::Admin::Upload, type: :model do
         it 'has state canceled' do
           expect(admin_upload).to have_state(:canceled)
         end
+
         it 'does cleanup files' do
           expect(admin_upload).to have_received(:cleanup_input_files)
         end
@@ -131,6 +139,7 @@ RSpec.describe SupplyTeachers::Admin::Upload, type: :model do
         it 'has state canceled' do
           expect(admin_upload).to have_state(:canceled)
         end
+
         it 'does cleanup files' do
           expect(admin_upload).to have_received(:cleanup_input_files)
         end
@@ -276,6 +285,7 @@ RSpec.describe SupplyTeachers::Admin::Upload, type: :model do
       it 'creates a CurrentData object' do
         expect { create(:supply_teachers_admin_upload) }.to change(SupplyTeachers::Admin::CurrentData, :count).by(+1)
       end
+
       it 'updates all CurrentData files to match the Upload object' do
         admin_upload
         expect(SupplyTeachers::Admin::CurrentData.first.supplier_lookup.file.read).to eq admin_upload.supplier_lookup.file.read
@@ -290,6 +300,7 @@ RSpec.describe SupplyTeachers::Admin::Upload, type: :model do
       it 'does not create a new CurrentData object' do
         expect { create(:supply_teachers_admin_upload) }.not_to change(SupplyTeachers::Admin::CurrentData, :count)
       end
+
       it 'updates the existing CurrentData object' do
         expect(SupplyTeachers::Admin::CurrentData.first.supplier_lookup.read).to eq admin_upload.supplier_lookup.read
       end

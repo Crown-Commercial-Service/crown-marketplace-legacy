@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.5.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.5'
+gem 'rails', '~> 6.0.3', '>= 6.0.3.6'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
@@ -139,6 +139,7 @@ group :development, :test do
   gem 'shoulda-matchers', '>= 4.2.0'
   gem 'rubocop'
   gem 'rubocop-rspec'
+  gem 'rubocop-rails', require: false
   gem 'rubyXL', '>= 3.4.6'
   gem 'i18n-tasks', '>= 0.9.31'
   gem 'poltergeist', '>= 1.18.1'
