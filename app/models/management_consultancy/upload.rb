@@ -23,6 +23,7 @@ module ManagementConsultancy
       error
     end
 
+    # rubocop:disable Metrics/AbcSize
     def self.create_supplier!(data)
       supplier = Supplier.create!(
         id: data['supplier_id'],
@@ -61,5 +62,6 @@ module ManagementConsultancy
         supplier.rate_cards.create!(rate_card)
       end
     end
+    # rubocop:enable Metrics/AbcSize
   end
 end

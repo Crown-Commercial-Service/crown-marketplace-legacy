@@ -8,7 +8,7 @@ module SupplyTeachers
 
     def perform(upload_id)
       upload = SupplyTeachers::Admin::Upload.find(upload_id)
-      suppliers = JSON.parse(File.read(URI.open(data_file_path(SupplyTeachers::Admin::CurrentData.first.data))))
+      suppliers = JSON.parse(File.read(File.open(data_file_path(SupplyTeachers::Admin::CurrentData.first.data))))
 
       SupplyTeachers::Upload.upload!(suppliers)
 

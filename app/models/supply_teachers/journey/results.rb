@@ -51,6 +51,7 @@ module SupplyTeachers
       salary.is_a?(String) ? salary : salary.fetch(branch_id, nil)
     end
 
+    # rubocop:disable Metrics/AbcSize
     def search_result_attributes(branch, point, daily_rates, fixed_term_length, salary)
       search_result_for(branch).tap do |result|
         result.rate = rate(branch)
@@ -61,5 +62,6 @@ module SupplyTeachers
         result.finders_fee = supplier_finders_fee(fixed_term_length, branch_salary(salary, branch.id), result.rate)
       end
     end
+    # rubocop:enable Metrics/AbcSize
   end
 end

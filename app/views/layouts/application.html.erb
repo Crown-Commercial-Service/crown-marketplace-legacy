@@ -21,7 +21,7 @@
 
     <%= render partial: '/shared/google_analytics' %>
   </head>
-  <body class="govuk-template__body" validation_id="<%= session.id %>">
+  <body class="govuk-template__body">
     <script>
       document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');
     </script>
@@ -30,7 +30,7 @@
       <%= render partial: '/layouts/cookie-banner' %>
       <%= service_header_banner %>
 
-      <main class="govuk-width-container govuk-!-margin-bottom-6" role="main" style="visibility:<%= 'visible' if request.fullpath.include?('facilities-management') && !(['gateway', 'start', 'sign-in'].any? { |word| request.fullpath.include?(word) })%>">
+      <main class="govuk-width-container govuk-!-margin-bottom-6" role="main">
         <% if @end_of_journey.present? %>
           <%= render partial: '/layouts/phase-banner-end-of-journey'%>
         <% else %>

@@ -15,11 +15,6 @@
 //= require google_analytics
 //= require cookie_banner
 //= require supplier_markup_calculator
-//= require common/common.js
-//= require common/protection.js
-//= require_tree ./facilities_management
 //= require legal_services/ls_form_validation.js
 //= require cp/cp-sign-in.js
 //= require global/global.js
-//= require_tree ./ccs_character-count
-//= require_tree ./address-lookup

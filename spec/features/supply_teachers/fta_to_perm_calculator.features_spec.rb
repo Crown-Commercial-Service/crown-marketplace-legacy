@@ -101,7 +101,7 @@ RSpec.feature 'FTA to Perm fee calculator', type: :feature, supply_teachers: tru
     fill_in 'fixed_term_fee', with: '12000'
     click_on I18n.t('common.submit')
 
-    expect_fee_text I18n.t('.supply_teachers.home.fta_to_perm_fee.header') + ' ' + number_to_currency(12000 / difference_in_months(date_13_months_ago, date_5_months_ago).to_f * 12 - 12000)
+    expect_fee_text "#{I18n.t('.supply_teachers.home.fta_to_perm_fee.header')} #{number_to_currency(12000 / difference_in_months(date_13_months_ago, date_5_months_ago).to_f * 12 - 12000)}"
   end
 
   scenario 'Worker contract length is 5 months - 1.day, fixed term fee is 2500 and hire date is less than 6 months' do
@@ -117,7 +117,7 @@ RSpec.feature 'FTA to Perm fee calculator', type: :feature, supply_teachers: tru
     fill_in 'fixed_term_fee', with: '2500'
     click_on I18n.t('common.submit')
 
-    expect_fee_text I18n.t('.supply_teachers.home.fta_to_perm_fee.header') + ' ' + number_to_currency(2500 / difference_in_months(date_6_months_ago, date_1_month_ago - 1.day) * 12 - 2500)
+    expect_fee_text "#{I18n.t('.supply_teachers.home.fta_to_perm_fee.header')} #{number_to_currency(2500 / difference_in_months(date_6_months_ago, date_1_month_ago - 1.day) * 12 - 2500)}"
   end
 
   scenario 'Worker contract length is 5 + 1/2 months, fixed term fee is 2500 and hire date is less than 6 months' do
@@ -133,7 +133,7 @@ RSpec.feature 'FTA to Perm fee calculator', type: :feature, supply_teachers: tru
     fill_in 'fixed_term_fee', with: '2500'
     click_on I18n.t('common.submit')
 
-    expect_fee_text I18n.t('.supply_teachers.home.fta_to_perm_fee.header') + ' ' + number_to_currency(2500 / difference_in_months(date_6_months_ago, date_1_month_ago - 12.days) * 12 - 2500)
+    expect_fee_text "#{I18n.t('.supply_teachers.home.fta_to_perm_fee.header')} #{number_to_currency(2500 / difference_in_months(date_6_months_ago, date_1_month_ago - 12.days) * 12 - 2500)}"
   end
 
   private

@@ -71,7 +71,7 @@ RSpec.describe SupplyTeachers::JourneyController, type: :controller do
       end
     end
 
-    context 'when looking to hire a worker via an agency' do
+    context 'when looking at all suppliers' do
       let(:looking_for) { 'all_suppliers' }
 
       it 'redirects to worker-type question' do

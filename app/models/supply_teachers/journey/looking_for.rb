@@ -11,7 +11,6 @@ module SupplyTeachers
       calculate_fta_to_perm_fee
       all_suppliers
     ]
-    # rubocop:disable Metrics/CyclomaticComplexity
     def next_step_class
       case looking_for
       when 'worker'
@@ -29,6 +28,5 @@ module SupplyTeachers
         Journey::AllSuppliers
       end
     end
-    # rubocop:enable Metrics/CyclomaticComplexity
   end
 end
