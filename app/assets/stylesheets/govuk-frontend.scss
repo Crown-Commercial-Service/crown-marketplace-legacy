@@ -84,3 +84,13 @@ body.js-enabled #ccs-accordion-with-basket {
     display : block;
   }
 }
+
+.error-box {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.error-content {
+  flex: 1 0 auto;
+}
