@@ -139,10 +139,10 @@ Rails.application.routes.draw do
     resources :uploads, only: :create if Marketplace.upload_privileges?
   end
 
-  get '/errors/404'
-  get '/errors/422'
-  get '/errors/500'
-  get '/errors/maintenance'
+  get '/404', to: 'errors#not_found'
+  get '/422', to: 'errors#unacceptable'
+  get '/500', to: 'errors#internal_error'
+  get '/503', to: 'errors#service_unavailable'
 
   if Marketplace.dfe_signin_enabled?
     get '/auth/dfe', as: :dfe_sign_in

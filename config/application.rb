@@ -57,6 +57,8 @@ module Marketplace
 
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
 
+    config.exceptions_app = routes
+
     # do not add field-with-error div anymore
     ActionView::Base.field_error_proc = proc do |html_tag, _instance|
       html_tag
