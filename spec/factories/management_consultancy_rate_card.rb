@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :management_consultancy_rate_card, class: ManagementConsultancy::RateCard do
+  factory :management_consultancy_rate_card, class: 'ManagementConsultancy::RateCard' do
     association :supplier, factory: :management_consultancy_supplier
     lot { 'MCF2.1' }
     contact_name { Faker::Name.unique.name }

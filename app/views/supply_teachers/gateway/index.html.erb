@@ -9,10 +9,7 @@
           <%= t('.dfe_signin.instructions') %>
         </p>
 
-        <%= link_to('Sign in with DfE Sign-in',
-                    dfe_sign_in_path,
-                    role: 'button',
-                    class: 'govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-8 ga-auth-dfe') %>
+        <%= govuk_button_start(t('shared.gateway.sign_in_with_dfe'), dfe_sign_in_path, class: 'govuk-!-margin-top-2 govuk-!-margin-bottom-8 ga-auth-dfe', aria: { label: t('shared.gateway.sign_in_with_dfe') }) %>
 
         <h2 class="govuk-heading-l"><%= t(".subheading") %></h2>
 
@@ -33,10 +30,8 @@
                 url: dfe_account_request_url) %>
         </p>
       <% end %>
-        <%= link_to('Sign in with Cognito',
-                    supply_teachers_new_user_session_path,
-                    role: 'button',
-                    class: 'govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-8 ga-auth-cognito') %>
+
+      <%= govuk_button_start(t('shared.gateway.sign_in_with_cognito'), supply_teachers_new_user_session_path, class: 'govuk-!-margin-top-2 govuk-!-margin-bottom-8 ga-auth-cognito', aria: { label: t('shared.gateway.sign_in_with_cognito') }) %>
     </div>
   </div>
 </div>

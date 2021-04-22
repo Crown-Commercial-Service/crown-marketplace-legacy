@@ -70,7 +70,7 @@ RSpec.describe SupplyTeachers::BranchesController, type: :controller do
       end
 
       it 'responds to html' do
-        expect(response.content_type).to eq 'text/html'
+        expect(response.media_type).to eq 'text/html'
       end
 
       it 'responds to requests for spreadsheets' do
@@ -80,7 +80,7 @@ RSpec.describe SupplyTeachers::BranchesController, type: :controller do
 
         get :index, params: params.merge(format: 'xlsx')
 
-        expect(response.content_type)
+        expect(response.media_type)
           .to eq 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
       end
 
@@ -90,7 +90,7 @@ RSpec.describe SupplyTeachers::BranchesController, type: :controller do
         let(:daily_rate) { '500' }
 
         it 'responds with the correct content type' do
-          expect(response.content_type).to eq 'text/javascript'
+          expect(response.media_type).to eq 'text/javascript'
         end
 
         it 'returns the first matching branch' do

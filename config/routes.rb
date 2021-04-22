@@ -3,11 +3,6 @@ require 'sidekiq/web'
 Rails.application.routes.draw do
   get '/', to: 'home#index'
   get '/status', to: 'home#status'
-  get '/cookies', to: 'home#cookies'
-  get '/management-consultancy/accessibility-statement', to: 'home#accessibility_statement_mc'
-  get '/legal-services/accessibility-statement', to: 'home#accessibility_statement_ls'
-  get '/supply-teachers/accessibility-statement', to: 'home#accessibility_statement_st'
-  get '/landing-page', to: 'home#landing_page'
   get '/not-permitted', to: 'home#not_permitted'
 
   authenticate :user, ->(u) { u.has_role? :ccs_employee } do
@@ -64,6 +59,9 @@ Rails.application.routes.draw do
 
   namespace 'supply_teachers', path: 'supply-teachers' do
     get '/', to: 'home#index'
+    get '/not-permitted', to: 'home#not_permitted'
+    get '/accessibility-statement', to: 'home#accessibility_statement'
+    get '/cookies', to: 'home#cookies'
     get '/cognito', to: 'gateway#index', cognito_enabled: true
     get '/gateway', to: 'gateway#index'
     get '/temp-to-perm-fee', to: 'home#temp_to_perm_fee'
@@ -93,15 +91,13 @@ Rails.application.routes.draw do
 
   namespace 'management_consultancy', path: 'management-consultancy' do
     get '/', to: 'home#index'
+    get '/not-permitted', to: 'home#not_permitted'
+    get '/accessibility-statement', to: 'home#accessibility_statement'
+    get '/cookies', to: 'home#cookies'
     get '/gateway', to: 'gateway#index'
     get '/suppliers', to: 'suppliers#index'
     get '/suppliers/download', to: 'suppliers#download', as: 'suppliers_download'
     get '/suppliers/:id', to: 'suppliers#show', as: 'supplier'
-    get '/html/select-lot', to: 'html#select_lot'
-    get '/html/select-services', to: 'html#select_services'
-    get '/html/select-location', to: 'html#select_location'
-    get '/html/supplier-detail', to: 'html#supplier_detail'
-    get '/html/download-the-supplier-list', to: 'html#download_the_supplier_list'
     namespace :admin do
       resources :uploads, only: %i[index new create show] do
         get 'approve'
@@ -120,6 +116,9 @@ Rails.application.routes.draw do
     get '/cognito', to: 'gateway#index', cognito_enabled: true
     get '/gateway', to: 'gateway#index'
     get '/', to: 'home#index'
+    get '/not-permitted', to: 'home#not_permitted'
+    get '/accessibility-statement', to: 'home#accessibility_statement'
+    get '/cookies', to: 'home#cookies'
     get '/service-not-suitable', to: 'home#service_not_suitable'
     get '/suppliers/download', to: 'suppliers#download'
     get '/suppliers/no-suppliers-found', to: 'suppliers#no_suppliers_found'
@@ -140,10 +139,10 @@ Rails.application.routes.draw do
     resources :uploads, only: :create if Marketplace.upload_privileges?
   end
 
-  get '/errors/404'
-  get '/errors/422'
-  get '/errors/500'
-  get '/errors/maintenance'
+  get '/404', to: 'errors#not_found'
+  get '/422', to: 'errors#unacceptable'
+  get '/500', to: 'errors#internal_error'
+  get '/503', to: 'errors#service_unavailable'
 
   if Marketplace.dfe_signin_enabled?
     get '/auth/dfe', as: :dfe_sign_in

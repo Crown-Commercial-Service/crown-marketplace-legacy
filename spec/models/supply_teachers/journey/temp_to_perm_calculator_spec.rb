@@ -712,17 +712,6 @@ RSpec.describe SupplyTeachers::Journey::TempToPermCalculator, type: :model do
     end
   end
 
-  context 'when holiday_1_end_date is present and later than holiday_1_start_date' do
-    let(:holiday_1_start_date_day) { 1 }
-    let(:holiday_1_start_date_month) { 12 }
-    let(:holiday_1_start_date_year) { 2018 }
-    let(:holiday_1_end_date_day) { 2 }
-    let(:holiday_1_end_date_month) { 12 }
-    let(:holiday_1_end_date_year) { 2018 }
-
-    it { is_expected.to be_valid }
-  end
-
   context 'when holiday_1_end_date is present and holiday_1_start_date is missing' do
     let(:holiday_1_start_date_day) { nil }
     let(:holiday_1_start_date_month) { nil }
@@ -832,17 +821,6 @@ RSpec.describe SupplyTeachers::Journey::TempToPermCalculator, type: :model do
         I18n.t("#{model_key}.attributes.holiday_2_end_date.blank")
       )
     end
-  end
-
-  context 'when holiday_2_end_date is present and later than the start date' do
-    let(:holiday_2_start_date_day) { 1 }
-    let(:holiday_2_start_date_month) { 12 }
-    let(:holiday_2_start_date_year) { 2018 }
-    let(:holiday_2_end_date_day) { 2 }
-    let(:holiday_2_end_date_month) { 12 }
-    let(:holiday_2_end_date_year) { 2018 }
-
-    it { is_expected.to be_valid }
   end
 
   context 'when holiday_2_end_date is present and holiday_2_start_date is missing' do

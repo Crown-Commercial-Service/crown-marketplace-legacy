@@ -45,7 +45,7 @@ module SupplyTeachers
       def cleanup_input_files
         current_data = CurrentData.first_or_create
         ATTRIBUTES.each do |attr|
-          current_data.send(attr.to_s + '=', Upload.previous_uploaded_file(attr.to_sym)) if available_for_cp(attr.to_sym)
+          current_data.send("#{attr}=", Upload.previous_uploaded_file(attr.to_sym)) if available_for_cp(attr.to_sym)
         end
         current_data.save!
       end
@@ -67,7 +67,7 @@ module SupplyTeachers
       end
 
       def self.previous_uploaded_file_url(attr_name)
-        previous_uploaded_file_object(attr_name).try(:send, attr_name.to_s + '_url')
+        previous_uploaded_file_object(attr_name).try(:send, "#{attr_name}_url")
       end
 
       def self.previous_uploaded_file_object(attr_name)
@@ -103,7 +103,7 @@ module SupplyTeachers
       def copy_files_to_current_data
         current_data = CurrentData.first_or_create
         ATTRIBUTES.each do |attr|
-          current_data.send(attr.to_s + '=', send(attr.to_sym)) if send((attr.to_s + '_changed?').to_sym)
+          current_data.send("#{attr}=", send(attr.to_sym)) if send("#{attr}_changed?".to_sym)
         end
         current_data.save!
       end
