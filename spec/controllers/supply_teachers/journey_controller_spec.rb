@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe SupplyTeachers::JourneyController, type: :controller do
+  let(:default_params) { { service: 'supply_teachers' } }
+
   describe 'GET #start' do
     login_st_buyer
     it 'redirects to the first step in the journey' do

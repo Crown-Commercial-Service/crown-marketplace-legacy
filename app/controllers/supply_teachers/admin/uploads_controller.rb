@@ -60,6 +60,14 @@ module SupplyTeachers
         end
       end
 
+      def accessibility_statement
+        render 'supply_teachers/home/accessibility_statement'
+      end
+
+      def cookies
+        render 'supply_teachers/home/cookies'
+      end
+
       private
 
       def set_back_path

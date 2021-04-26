@@ -3,6 +3,7 @@ module Base
     skip_forgery_protection
     before_action :authenticate_user!, except: %i[new create destroy]
     before_action :authorize_user, except: %i[new create destroy]
+    before_action :validate_service, except: :destroy
 
     def new
       @result = Cognito::SignInUser.new(nil, nil, nil)

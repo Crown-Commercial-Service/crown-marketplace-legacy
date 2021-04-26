@@ -1,10 +1,14 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   protect_from_forgery with: :exception
-  before_action :authenticate_user!
+  before_action :authenticate_user!, :validate_service
 
   rescue_from CanCan::AccessDenied do
     redirect_to not_permitted_path(service: request.path_parameters[:controller].split('/').first)
+  end
+
+  rescue_from ActionController::UnknownFormat do
+    raise ActionController::RoutingError, 'Not Found'
   end
 
   def gateway_url
@@ -65,4 +69,10 @@ class ApplicationController < ActionController::Base
       supply_teachers_gateway_url
     end
   end
+
+  def validate_service
+    redirect_to errors_404_path unless VALID_SERVICE_NAMES.include? params[:service]
+  end
+
+  VALID_SERVICE_NAMES = %w[supply_teachers supply_teachers/admin auth management_consultancy management_consultancy/admin legal_services legal_services/admin].freeze
 end

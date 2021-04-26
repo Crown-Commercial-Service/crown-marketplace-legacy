@@ -57,6 +57,14 @@ module LegalServices
         end
       end
 
+      def accessibility_statement
+        render 'legal_services/home/accessibility_statement'
+      end
+
+      def cookies
+        render 'legal_services/home/cookies'
+      end
+
       private
 
       def upload_params
