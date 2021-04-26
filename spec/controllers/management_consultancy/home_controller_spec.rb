@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe ManagementConsultancy::HomeController, type: :controller do
+  let(:default_params) { { service: 'management_consultancy' } }
+
   login_mc_buyer
 
   describe 'GET index' do
@@ -18,44 +20,21 @@ RSpec.describe ManagementConsultancy::HomeController, type: :controller do
     end
   end
 
-  describe 'GET accessibility_statement' do
-    it 'renders the accessibility_statement page' do
-      get :accessibility_statement
-      expect(response).to render_template(:accessibility_statement)
-    end
-
-    context 'when from an admin page' do
-      before { get :accessibility_statement, params: { service: 'management_consultancy/admin' } }
-
-      render_views
-
-      it 'renders the accessibility_statement page' do
-        expect(response).to render_template(:accessibility_statement)
-      end
-
-      it 'renders the correct header banner' do
-        expect(response).to render_template(partial: 'management_consultancy/admin/_header-banner')
-      end
-    end
-  end
-
   describe 'GET cookies' do
-    it 'renders the index page' do
+    it 'renders the cookies page' do
       get :cookies
       expect(response).to render_template(:cookies)
     end
+  end
 
-    context 'when from an admin page' do
-      before { get :cookies, params: { service: 'management_consultancy/admin' } }
+  describe 'validate service' do
+    context 'when the service is not a valid service' do
+      let(:default_params) { { service: 'apprenticeships' } }
 
-      render_views
+      it 'renders the erros_not_found page' do
+        get :index
 
-      it 'renders the cookies page' do
-        expect(response).to render_template(:cookies)
-      end
-
-      it 'renders the correct header banner' do
-        expect(response).to render_template(partial: 'management_consultancy/admin/_header-banner')
+        expect(response).to redirect_to errors_404_path
       end
     end
   end

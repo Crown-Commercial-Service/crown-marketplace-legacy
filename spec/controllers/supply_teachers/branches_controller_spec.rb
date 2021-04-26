@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe SupplyTeachers::BranchesController, type: :controller do
+  let(:default_params) { { service: 'supply_teachers' } }
+
   describe 'GET index' do
     let(:first_branch) { create(:supply_teachers_branch) }
     let(:second_branch) { create(:supply_teachers_branch) }

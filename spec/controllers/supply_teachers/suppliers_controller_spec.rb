@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe SupplyTeachers::SuppliersController, type: :controller do
+  let(:default_params) { { service: 'supply_teachers' } }
+
   login_st_buyer
 
   describe 'GET master_vendors' do
