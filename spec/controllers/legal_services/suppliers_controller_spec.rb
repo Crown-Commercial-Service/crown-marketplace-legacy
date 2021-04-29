@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe LegalServices::SuppliersController, type: :controller do
+  let(:default_params) { { service: 'legal_services' } }
   let(:supplier) { create(:legal_services_supplier) }
   let(:suppliers) { LegalServices::Supplier.where(id: supplier.id) }
   let(:lot) { LegalServices::Lot.find_by(number: lot_number) }

@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe SupplyTeachers::UploadsController, type: :controller do
+  let(:default_params) { { service: 'supply_teachers' } }
+
   describe 'POST create' do
     let(:suppliers) { [] }
 

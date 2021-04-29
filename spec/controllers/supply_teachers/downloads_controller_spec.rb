@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe SupplyTeachers::DownloadsController, type: :controller do
+  let(:default_params) { { service: 'supply_teachers' } }
+
   describe 'GET index' do
     context 'when not logged in' do
       it 'redirects to gateway page' do

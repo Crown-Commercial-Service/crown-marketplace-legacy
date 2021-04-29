@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe ManagementConsultancy::SuppliersController, type: :controller do
+  let(:default_params) { { service: 'management_consultancy' } }
   let(:supplier) { create(:management_consultancy_supplier) }
   let(:suppliers) { ManagementConsultancy::Supplier.where(id: supplier.id) }
   let(:lot) { ManagementConsultancy::Lot.find_by(number: lot_number) }
