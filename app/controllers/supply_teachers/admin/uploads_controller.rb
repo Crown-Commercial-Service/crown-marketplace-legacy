@@ -64,8 +64,12 @@ module SupplyTeachers
         render 'supply_teachers/home/accessibility_statement'
       end
 
-      def cookies
-        render 'supply_teachers/home/cookies'
+      def cookie_policy
+        render 'home/cookie_policy'
+      end
+
+      def cookie_settings
+        render 'home/cookie_settings'
       end
 
       private

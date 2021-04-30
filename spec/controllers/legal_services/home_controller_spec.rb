@@ -27,10 +27,17 @@ RSpec.describe LegalServices::HomeController, type: :controller do
     end
   end
 
-  describe 'GET cookies' do
-    it 'renders the cookies page' do
-      get :cookies
-      expect(response).to render_template(:cookies)
+  describe 'GET cookie_policy' do
+    it 'renders the cookie policy page' do
+      get :cookie_policy
+      expect(response).to render_template('home/cookie_policy')
+    end
+  end
+
+  describe 'GET cookie_settings' do
+    it 'renders the cookie settings page' do
+      get :cookie_settings
+      expect(response).to render_template('home/cookie_settings')
     end
   end
 
