@@ -513,9 +513,6 @@ en:
           spreadsheet: Spreadsheet
           status: 'Status:'
           suppliers_data: Suppliers data
-    gateway:
-      index:
-        heading: CCS Marketplace
     home:
       accessibility_statement:
         compliance: No known accessibility non compliance issues.
@@ -709,9 +706,6 @@ en:
         uploading:
           content_html: 'The data from <strong>''Upload session #%{session_no}''</strong> is currently in progress to be published to the <strong>''Agency supply teachers and agency workers''</strong> service.'
           heading: Data upload in progress
-    gateway:
-      index:
-        heading: CCS Marketplace
     home:
       accessibility_statement:
         compliance: No known accessibility non compliance issues.

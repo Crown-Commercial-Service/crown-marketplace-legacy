@@ -5,9 +5,9 @@ RSpec.describe LegalServices::Admin::UploadsController, type: :controller do
 
   describe 'GET index' do
     context 'when not logged in' do
-      it 'redirects to the gateway' do
+      it 'redirects to the sign-in' do
         get :index
-        expect(response).to redirect_to legal_services_gateway_path
+        expect(response).to redirect_to legal_services_new_user_session_path
       end
     end
 
