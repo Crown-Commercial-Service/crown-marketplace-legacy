@@ -5,9 +5,9 @@ RSpec.describe ManagementConsultancy::Admin::UploadsController, type: :controlle
 
   describe 'GET index' do
     context 'when not logged in' do
-      it 'redirects to the gateway' do
+      it 'redirects to the sign-in' do
         get :index
-        expect(response).to redirect_to management_consultancy_gateway_path
+        expect(response).to redirect_to management_consultancy_new_user_session_path
       end
     end
 
