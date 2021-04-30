@@ -103,7 +103,6 @@ Rails.application.routes.draw do
     concerns :shared_pages
     get '/', to: 'home#index'
     get '/not-permitted', to: 'home#not_permitted'
-    get '/gateway', to: 'gateway#index'
     get '/suppliers', to: 'suppliers#index'
     get '/suppliers/download', to: 'suppliers#download', as: 'suppliers_download'
     get '/suppliers/:id', to: 'suppliers#show', as: 'supplier'
@@ -124,8 +123,6 @@ Rails.application.routes.draw do
 
   namespace 'legal_services', path: 'legal-services', defaults: { service: 'legal_services' } do
     concerns :shared_pages
-    get '/cognito', to: 'gateway#index', cognito_enabled: true
-    get '/gateway', to: 'gateway#index'
     get '/', to: 'home#index'
     get '/not-permitted', to: 'home#not_permitted'
     get '/service-not-suitable', to: 'home#service_not_suitable'

@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   end
 
   def gateway_url
-    determine_non_admin_gateway_url
+    determine_gateway_url
   end
 
   def handle_unverified_request
@@ -21,14 +21,14 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def determine_non_admin_gateway_url
+  def determine_gateway_url
     case controller_path.split('/').first
     when 'supply_teachers'
       st_gateway_path
     when 'management_consultancy'
-      management_consultancy_gateway_url
+      request.headers['REQUEST_PATH']&.include?('/management-consultancy/admin') ? management_consultancy_admin_new_user_session_path : management_consultancy_new_user_session_path
     else
-      legal_services_gateway_url
+      request.headers['REQUEST_PATH']&.include?('/legal-services/admin') ? legal_services_admin_new_user_session_path : legal_services_new_user_session_path
     end
   end
 
