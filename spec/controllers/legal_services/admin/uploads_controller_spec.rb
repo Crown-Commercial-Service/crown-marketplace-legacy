@@ -39,12 +39,21 @@ RSpec.describe LegalServices::Admin::UploadsController, type: :controller do
     end
   end
 
-  describe 'GET cookies' do
+  describe 'GET cookie_policy' do
     login_ls_admin
 
-    it 'renders the cookies page' do
-      get :cookies
-      expect(response).to render_template('legal_services/home/cookies')
+    it 'renders the cookie policy page' do
+      get :cookie_policy
+      expect(response).to render_template('home/cookie_policy')
+    end
+  end
+
+  describe 'GET cookie_settings' do
+    login_ls_admin
+
+    it 'renders the cookie settings page' do
+      get :cookie_settings
+      expect(response).to render_template('home/cookie_settings')
     end
   end
 

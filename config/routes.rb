@@ -59,12 +59,14 @@ Rails.application.routes.draw do
 
   concern :shared_pages do
     get '/accessibility-statement', to: 'home#accessibility_statement'
-    get '/cookies', to: 'home#cookies'
+    get '/cookie-policy', to: 'home#cookie_policy'
+    get '/cookie-settings', to: 'home#cookie_settings'
   end
 
   concern :shared_admin_pages do
     get '/accessibility-statement', to: 'uploads#accessibility_statement'
-    get '/cookies', to: 'uploads#cookies'
+    get '/cookie-policy', to: 'uploads#cookie_policy'
+    get '/cookie-settings', to: 'uploads#cookie_settings'
   end
 
   namespace 'supply_teachers', path: 'supply-teachers', defaults: { service: 'supply_teachers' } do

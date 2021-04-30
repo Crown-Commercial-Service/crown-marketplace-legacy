@@ -157,7 +157,7 @@ module ApplicationHelper
   end
 
   def cookies_page
-    controller.action_name == 'cookies'
+    controller.action_name == 'cookie_policy' || controller.action_name == 'cookie_settings'
   end
 
   def not_permitted_page
@@ -180,8 +180,12 @@ module ApplicationHelper
     number_to_currency(cost, precision: precision, unit: '£')
   end
 
-  def cookies_path(service)
-    "/#{service.gsub('_', '-')}/cookies"
+  def cookie_policy_path(service)
+    "/#{service.gsub('_', '-')}/cookie-policy"
+  end
+
+  def cookie_settings_path(service)
+    "/#{service.gsub('_', '-')}/cookie-settings"
   end
 
   def accessibility_statement_path(service)

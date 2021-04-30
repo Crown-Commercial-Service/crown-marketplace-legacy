@@ -1,7 +1,6 @@
 module SupplyTeachers
   class HomeController < SupplyTeachers::FrameworkController
-    before_action :authenticate_user!, except: %i[index not_permitted accessibility_statement cookies]
-    before_action :authorize_user, except: %i[index not_permitted accessibility_statement cookies]
+    before_action :authenticate_user!, :authorize_user, except: %i[index not_permitted accessibility_statement cookie_policy cookie_settings]
     before_action :set_end_of_journey, only: %i[temp_to_perm_fee fta_to_perm_fee]
 
     def index; end
@@ -10,7 +9,13 @@ module SupplyTeachers
 
     def accessibility_statement; end
 
-    def cookies; end
+    def cookie_policy
+      render 'home/cookie_policy'
+    end
+
+    def cookie_settings
+      render 'home/cookie_settings'
+    end
 
     def temp_to_perm_fee
       journey = Journey.new(params[:slug], params)

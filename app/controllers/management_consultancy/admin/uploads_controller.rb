@@ -54,8 +54,12 @@ module ManagementConsultancy
         render 'management_consultancy/home/accessibility_statement'
       end
 
-      def cookies
-        render 'management_consultancy/home/cookies'
+      def cookie_policy
+        render 'home/cookie_policy'
+      end
+
+      def cookie_settings
+        render 'home/cookie_settings'
       end
 
       private
