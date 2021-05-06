@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.5.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.0.3', '>= 6.0.3.6'
+gem 'rails', '~> 6.0.3', '>= 6.0.3.7'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
@@ -51,7 +51,7 @@ gem 'omniauth_openid_connect', git: 'https://github.com/iceraluk/omniauth_openid
 gem 'json-jwt', '>= 1.11.0'
 
 # for authentication
-gem 'devise', '~> 4.7.1'
+gem 'devise', '~> 4.7.3'
 # for cognito
 gem 'aws-sdk-cognitoidentityprovider', '~> 1.23.0'
 
@@ -111,13 +111,13 @@ gem 'date_validator', '>= 0.9.0'
 gem 'ratonvirus', '>= 0.1.1'
 gem 'ratonvirus-clamby', '>= 0.1.0'
 # for active storage validation
-gem 'active_storage_validations', '>= 0.8.9'
+gem 'active_storage_validations', '>= 0.9.2'
 # gem for  bulk inserts
 gem 'activerecord-import', '~> 0.15.0'
 # gov notify
 gem 'notifications-ruby-client'
 # DOCX generation
-gem 'caracal-rails', '>= 1.0.1'
+gem 'caracal-rails', '>= 1.0.2'
 
 # duplicating procurements
 gem 'amoeba', '>= 3.1.0'
@@ -130,18 +130,18 @@ gem 'fog-aws'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
-  gem 'dotenv-rails', '>= 2.7.5'
-  gem 'factory_bot_rails', '>= 5.2.0'
+  gem 'dotenv-rails', '>= 2.7.6'
+  gem 'factory_bot_rails', '>= 6.1.0'
   gem 'launchy'
   gem 'pry-rails'
-  gem 'rails-controller-testing', '>= 1.0.4'
-  gem 'rspec-rails', '>= 4.0.1'
+  gem 'rails-controller-testing', '>= 1.0.5'
+  gem 'rspec-rails', '>= 5.0.1'
   gem 'shoulda-matchers', '>= 4.2.0'
   gem 'rubocop'
   gem 'rubocop-rspec'
   gem 'rubocop-rails', require: false
   gem 'rubyXL', '>= 3.4.6'
-  gem 'i18n-tasks', '>= 0.9.31'
+  gem 'i18n-tasks', '>= 0.9.34'
   gem 'poltergeist', '>= 1.18.1'
   gem 'wdm', '>= 0.1.0', platforms: %i[x64_mingw]
   gem 'tzinfo-data', platforms: %i[x64_mingw]
