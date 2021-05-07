@@ -78,15 +78,10 @@ module Cognito
     end
 
     def domain_in_safelist
-      return if safelist.include? domain_name
+      return if AllowedEmailDomain.new(email_domain: domain_name).domain_in_allow_list?
 
       errors.add(:email, :not_on_safelist)
       @not_on_safelist = true
-    end
-
-    def safelist
-      object = Aws::S3::Resource.new(region: ENV['COGNITO_AWS_REGION'])
-      object.bucket(ENV['BUYER_EMAIL_SAFE_LIST_BUCKET']).object(ENV['BUYER_EMAIL_SAFE_LIST_KEY']).get.body.string.split("\n")
     end
 
     def domain_name
