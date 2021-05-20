@@ -1,14 +1,18 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   protect_from_forgery with: :exception
-  before_action :authenticate_user!
+  before_action :authenticate_user!, :validate_service
 
   rescue_from CanCan::AccessDenied do
     redirect_to not_permitted_path(service: request.path_parameters[:controller].split('/').first)
   end
 
+  rescue_from ActionController::UnknownFormat, ActionView::MissingTemplate do
+    raise ActionController::RoutingError, 'Not Found'
+  end
+
   def gateway_url
-    determine_non_admin_gateway_url
+    determine_gateway_url
   end
 
   def handle_unverified_request
@@ -17,14 +21,14 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def determine_non_admin_gateway_url
+  def determine_gateway_url
     case controller_path.split('/').first
     when 'supply_teachers'
       st_gateway_path
     when 'management_consultancy'
-      management_consultancy_gateway_url
+      request.headers['REQUEST_PATH']&.include?('/management-consultancy/admin') ? management_consultancy_admin_new_user_session_path : management_consultancy_new_user_session_path
     else
-      legal_services_gateway_url
+      request.headers['REQUEST_PATH']&.include?('/legal-services/admin') ? legal_services_admin_new_user_session_path : legal_services_new_user_session_path
     end
   end
 
@@ -65,4 +69,10 @@ class ApplicationController < ActionController::Base
       supply_teachers_gateway_url
     end
   end
+
+  def validate_service
+    redirect_to errors_404_path unless VALID_SERVICE_NAMES.include? params[:service]
+  end
+
+  VALID_SERVICE_NAMES = %w[supply_teachers supply_teachers/admin auth management_consultancy management_consultancy/admin legal_services legal_services/admin].freeze
 end

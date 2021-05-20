@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe LegalServices::JourneyController, type: :controller do
+  let(:default_params) { { service: 'legal_services' } }
+
   login_ls_buyer
   describe 'GET #start' do
     it 'redirects to the first step in the journey' do

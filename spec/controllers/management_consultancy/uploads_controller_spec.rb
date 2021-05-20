@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe ManagementConsultancy::UploadsController, type: :controller do
+  let(:default_params) { { service: 'management_consultancy' } }
+
   describe 'POST create' do
     let(:suppliers) { [] }
 

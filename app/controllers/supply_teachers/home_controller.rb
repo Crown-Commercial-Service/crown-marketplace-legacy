@@ -1,18 +1,21 @@
 module SupplyTeachers
   class HomeController < SupplyTeachers::FrameworkController
-    before_action :authenticate_user!, except: %i[index not_permitted accessibility_statement cookies]
-    before_action :authorize_user, except: %i[index not_permitted accessibility_statement cookies]
+    before_action :authenticate_user!, :authorize_user, except: %i[index not_permitted accessibility_statement cookie_policy cookie_settings]
     before_action :set_end_of_journey, only: %i[temp_to_perm_fee fta_to_perm_fee]
 
     def index; end
 
     def not_permitted; end
 
-    def accessibility_statement
-      @links = ['sign-in', 'forgot-password', 'fixed-term-results', 'master-vendors', 'temp-to-perm-calculator?looking_for=calculate_temp_to_perm_fee', 'branches/3d-recruit'].map { |link| "https://marketplace.service.crowncommercial.gov.uk/supply-teachers/#{link}" }
+    def accessibility_statement; end
+
+    def cookie_policy
+      render 'home/cookie_policy'
     end
 
-    def cookies; end
+    def cookie_settings
+      render 'home/cookie_settings'
+    end
 
     def temp_to_perm_fee
       journey = Journey.new(params[:slug], params)

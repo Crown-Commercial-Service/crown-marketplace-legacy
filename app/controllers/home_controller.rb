@@ -1,10 +1,8 @@
 class HomeController < ApplicationController
-  before_action :authenticate_user!, except: %i[status index not_permitted]
+  before_action :authenticate_user!, :validate_service, except: %i[status index not_permitted]
 
   def index
     redirect_to ccs_homepage_url
-
-    params[:service] = 'management_consultancy' if params[:service].nil?
   end
 
   def status
@@ -12,6 +10,6 @@ class HomeController < ApplicationController
   end
 
   def not_permitted
-    @service = params[:service]
+    params[:service] = 'supply_teachers' if params[:service] == 'auth' || params[:service].nil?
   end
 end

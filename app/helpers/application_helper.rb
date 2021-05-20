@@ -141,10 +141,8 @@ module ApplicationHelper
   end
 
   def service_header_banner
-    if service_name_param && lookup_context.template_exists?("#{service_name_param}/_header-banner")
-      render partial: "#{service_name_param}/header-banner"
-    elsif service_name_param&.include? 'admin'
-      render partial: 'layouts/admin/header-banner'
+    if params[:service]
+      render partial: "#{params[:service]}/header-banner"
     else
       render partial: 'layouts/header-banner'
     end
@@ -159,7 +157,7 @@ module ApplicationHelper
   end
 
   def cookies_page
-    controller.action_name == 'cookies'
+    controller.action_name == 'cookie_policy' || controller.action_name == 'cookie_settings'
   end
 
   def not_permitted_page
@@ -182,43 +180,20 @@ module ApplicationHelper
     number_to_currency(cost, precision: precision, unit: '£')
   end
 
-  def service_name_param
-    @service_name_param ||= params[:service].nil? ? request&.controller_class&.module_parent_name&.underscore : params[:service]
+  def cookie_policy_path(service)
+    "/#{service.gsub('_', '-')}/cookie-policy"
   end
 
-  def cookies_path
-    @cookies_path ||=
-      case current_service
-      when :legal_services
-        legal_services_cookies_path(service: service_name_param)
-      when :management_consultancy
-        management_consultancy_cookies_path(service: service_name_param)
-      when :supply_teachers
-        supply_teachers_cookies_path(service: service_name_param)
-      end
+  def cookie_settings_path(service)
+    "/#{service.gsub('_', '-')}/cookie-settings"
   end
 
-  def accessibility_statement_path
-    case current_service
-    when :legal_services
-      legal_services_accessibility_statement_path(service: service_name_param)
-    when :management_consultancy
-      management_consultancy_accessibility_statement_path(service: service_name_param)
-    when :supply_teachers
-      supply_teachers_accessibility_statement_path(service: service_name_param)
-    end
+  def accessibility_statement_path(service)
+    "/#{service.gsub('_', '-')}/accessibility-statement"
   end
 
-  # rubocop:disable Metrics/CyclomaticComplexity,  Metrics/PerceivedComplexity
-  def current_service
-    @current_service ||= if service_name_param&.include? 'legal_services'
-                           :legal_services
-                         elsif service_name_param&.include? 'management_consultancy'
-                           :management_consultancy
-                         elsif service_name_param&.include? 'supply_teachers'
-                           :supply_teachers
-                         end
+  def supply_teachers_accessibility_statement_links
+    ['sign-in', 'forgot-password', 'fixed-term-results', 'master-vendors', 'temp-to-perm-calculator?looking_for=calculate_temp_to_perm_fee', 'branches/3d-recruit'].map { |link| "https://marketplace.service.crowncommercial.gov.uk/supply-teachers/#{link}" }
   end
-  # rubocop:enable Metrics/CyclomaticComplexity,  Metrics/PerceivedComplexity
 end
 # rubocop:enable Metrics/ModuleLength

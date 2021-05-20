@@ -1,0 +1,71 @@
+require 'rails_helper'
+
+RSpec.describe ManagementConsultancy::Admin::UploadsController, type: :controller do
+  let(:default_params) { { service: 'management_consultancy/admin' } }
+
+  describe 'GET index' do
+    context 'when not logged in' do
+      it 'redirects to the sign-in' do
+        get :index
+        expect(response).to redirect_to management_consultancy_new_user_session_path
+      end
+    end
+
+    context 'when logged in as a byer' do
+      login_mc_buyer
+
+      it 'redirects to not permitted' do
+        get :index
+        expect(response).to redirect_to not_permitted_path(service: 'management_consultancy')
+      end
+    end
+
+    context 'when logged in as an admin' do
+      login_mc_admin
+
+      it 'renders the page' do
+        get :index
+        expect(response).to render_template(:index)
+      end
+    end
+  end
+
+  describe 'GET accessibility_statement' do
+    login_mc_admin
+
+    it 'renders the accessibility_statement page' do
+      get :accessibility_statement
+      expect(response).to render_template('management_consultancy/home/accessibility_statement')
+    end
+  end
+
+  describe 'GET cookie_policy' do
+    login_mc_admin
+
+    it 'renders the cookie policy page' do
+      get :cookie_policy
+      expect(response).to render_template('home/cookie_policy')
+    end
+  end
+
+  describe 'GET cookie_settings' do
+    login_mc_admin
+
+    it 'renders the cookie settings page' do
+      get :cookie_settings
+      expect(response).to render_template('home/cookie_settings')
+    end
+  end
+
+  describe 'validate service' do
+    context 'when the service is not a valid service' do
+      let(:default_params) { { service: 'apprenticeships/admin' } }
+
+      it 'renders the erros_not_found page' do
+        get :index
+
+        expect(response).to redirect_to errors_404_path
+      end
+    end
+  end
+end
