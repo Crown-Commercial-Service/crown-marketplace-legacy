@@ -32,11 +32,16 @@ make
 
 ### MacOS
 
-#### Install PostGIS
-$ brew install postgres (this will install the latest (HEAD) version, currently 12.  The server runs 11!)
-$ brew install postgis (this is the latest (HEAD) and has postgres12 as a dependency - problematic)
+#### Check the Ruby version
+##### N.B. The project currently runs on 2.5.8. (May 2021) 
 
-####Look at these pages for building postgis:
+Ensure that a ruby version manager (e.g. rvm or rbenv) is installed and set up properly, using 2.5.8 as the Ruby version before trying anything else. 
+
+#### Install Postgres and PostGIS
+`brew install postgres` (this will install the latest (HEAD) version, currently 12.  The server runs 11!)  
+`brew install postgis` (this is the latest (HEAD) and has postgres12 as a dependency - problematic)
+
+#### Look at these pages for building postgis:  
 * http://www.concept47.com/austin_web_developer_blog/rails/best-way-to-install-postgis-for-postgres-versions-lower-than-9-6-x-from-source/
 
 * https://github.com/petere/pex/issues/8
@@ -53,22 +58,23 @@ They amount to:
 
 Install PhantomJS (for Javascript tests)
 
-$ brew install phantomjs
+`brew install phantomjs`
 
 Install Redis (for Sidekiq background jobs)
 
-$ brew install redis
+`brew install redis`
 
 ## Set up
 
 To install dependencies:
 
-$ yarn install
-$ bundle
+`yarn install`
 
-To create, migrate & seed the database:
+`bundle` (make sure the bundler gem is installed first)
 
-$ rake db:setup
+To create, migrate & seed the database:  
+
+`rake db:setup` 
 
 ### Environment variables
 
@@ -160,9 +166,9 @@ environments:
 Execute the following commands:
 
 ```
-$ redis-server /usr/local/etc/redis.conf
-$ bundle exec sidekiq
-$ rails s
+redis-server /usr/local/etc/redis.conf
+bundle exec sidekiq
+rails s
 ```
 
 Visit [localhost:3000](http://localhost:3000).
@@ -177,9 +183,9 @@ You can upload data for a given framework using the following command where
 environments):
 
 ```
-$ git clone git@github.com:Crown-Commercial-Service/crown-marketplace-data.git
-$ cd crown-marketplace-data/$FRAMEWORK_NAME
-$ curl --user $HTTP_BASIC_AUTH_NAME:$HTTP_BASIC_AUTH_PASSWORD --request POST \
+git clone git@github.com:Crown-Commercial-Service/crown-marketplace-data.git
+cd crown-marketplace-data/$FRAMEWORK_NAME
+curl --user $HTTP_BASIC_AUTH_NAME:$HTTP_BASIC_AUTH_PASSWORD --request POST \
   --header "Content-Type: application/json" --data @output/data.json \
   $SCHEME://$HOST/$FRAMEWORK_NAME/uploads
 ```
@@ -193,20 +199,6 @@ using the Rails console with one of the following commands:
 * `FacilitiesManagement::Upload.order(:created_at).last.created_at`
 * `ManagementConsultancy::Upload.order(:created_at).last.created_at`
 * `SupplyTeachers::Upload.order(:created_at).last.created_at`
-
-## Regenerating error pages
-
-We use the [juice][] npm package to generate HTML error pages from the live
-service, inlining all CSS, images, web fonts, etc. A Rake task makes this
-easier:
-
-```
-$ rake 'error_pages[http://localhost:3000]'
-```
-
-This will pull down `/errors/404.html`, for example, and save an inlined copy in
-`public/404.html`.
-
 ## Development
 
 ### Design & frontend
