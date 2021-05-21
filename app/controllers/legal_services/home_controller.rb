@@ -4,7 +4,9 @@ module LegalServices
 
     def index; end
 
-    def not_permitted; end
+    def not_permitted
+      render 'home/not_permitted', layout: 'error'
+    end
 
     def accessibility_statement; end
 
