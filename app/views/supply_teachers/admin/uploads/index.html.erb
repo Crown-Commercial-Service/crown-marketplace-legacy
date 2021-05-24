@@ -2,11 +2,6 @@
   <div class="govuk-grid-column-full">
     <span class="govuk-caption-xl"><%= t('.caption') %></span>
     <h1 class="govuk-heading-xl"><%= t('.heading') %></h1>
-    <% if flash[:notice] %>
-      <div class="govuk-inset-text cmp-inset-text--success">
-        <p class="govuk-body govuk-body-s"><%= flash[:notice] %></p>
-      </div>
-    <% end %>
   </div>
   <div class="govuk-grid-column-full">
     <table class="govuk-table">
@@ -15,7 +10,8 @@
         <tr class="govuk-table__row">
           <th class="govuk-table__header" scope="col"><%= t('.spreadsheet') %></th>
           <th class="govuk-table__header" scope="col"><%= t('.upload_session') %></th>
-          <th class="govuk-table__header" scope="col"></th>
+          <th class="govuk-table__header" scope="col"><%= t('.date') %></th>
+          <td class="govuk-table__header"></td>
         </tr>
       </thead>
       <tbody class="govuk-table__body">
@@ -30,6 +26,7 @@
       <thead class="govuk-table__head">
         <tr class="govuk-table__row">
           <th class="govuk-table__header" scope="col"><%= t('.name') %></th>
+          <th class="govuk-table__header" scope="col"><%= t('.date') %></th>
           <th class="govuk-table__header" scope="col"><%= t('.no_of_files') %></th>
           <th class="govuk-table__header" scope="col"><%= t('.status') %></th>
         </tr>

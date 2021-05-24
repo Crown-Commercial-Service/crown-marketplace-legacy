@@ -8,11 +8,19 @@ module SupplyTeachers
 
     def perform(upload_id)
       upload = SupplyTeachers::Admin::Upload.find(upload_id)
-      suppliers = JSON.parse(data_file)
+
+      tmpfile = Tempfile.create
+      begin
+        tmpfile.binmode
+        tmpfile.write SupplyTeachers::Admin::CurrentData.first.data.download
+        suppliers = JSON.parse(File.read(tmpfile.path))
+      ensure
+        tmpfile.close
+      end
 
       SupplyTeachers::Upload.upload!(suppliers)
 
-      upload.approve!
+      upload.publish!
     rescue ActiveRecord::RecordInvalid => e
       summary = {
         record: e.record,
@@ -28,14 +36,6 @@ module SupplyTeachers
     def fail_upload(upload, fail_reason)
       upload.fail!
       upload.update(fail_reason: fail_reason)
-    end
-
-    def data_file
-      if Rails.env.production?
-        Net::HTTP.get(URI(SupplyTeachers::Admin::CurrentData.first.data.url))
-      else
-        File.open(SupplyTeachers::Admin::CurrentData.first.data.path).read
-      end
     end
   end
 end

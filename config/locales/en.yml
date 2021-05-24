@@ -251,7 +251,42 @@ en:
         supply_teachers/admin/upload:
           attributes:
             base:
-              none_present: Upload at least one file
+              none_attached: Upload at least one file
+            current_accredited_suppliers:
+              malicious: The 'Current accredited suppliers' file contains a virus
+              too_large: The 'Current accredited suppliers' file must be smaller than 10mb
+              wrong_content_type: The 'Current accredited suppliers' file does not contain the expected content type
+              wrong_extension: The 'Current accredited suppliers' file must be an XLSX
+            geographical_data_all_suppliers:
+              malicious: The 'Geographical data all suppliers' file contains a virus
+              too_large: The 'Geographical data all suppliers' file must be smaller than 10mb
+              wrong_content_type: The 'Geographical data all suppliers' file does not contain the expected content type
+              wrong_extension: The 'Geographical data all suppliers' file must be an XLSX
+            lot_1_and_lot_2_comparisons:
+              malicious: The 'Lot 1 and lot 2 comparisons' file contains a virus
+              too_large: The 'Lot 1 and lot 2 comparisons' file must be smaller than 10mb
+              wrong_content_type: The 'Lot 1 and lot 2 comparisons' file does not contain the expected content type
+              wrong_extension: The 'Lot 1 and lot 2 comparisons' file must be an XLSX
+            master_vendor_contacts:
+              malicious: The 'Master vendor contacts' file contains a virus
+              too_large: The 'Master vendor contacts' file must be smaller than 10mb
+              wrong_content_type: The 'Master vendor contacts' file does not contain the expected content type
+              wrong_extension: The 'Master vendor contacts' file must be a CSV
+            neutral_vendor_contacts:
+              malicious: The 'Neutral vendor contacts' file contains a virus
+              too_large: The 'Neutral vendor contacts' file must be smaller than 10mb
+              wrong_content_type: The 'Neutral vendor contacts' file does not contain the expected content type
+              wrong_extension: The 'Neutral vendor contacts' file must be a CSV
+            pricing_for_tool:
+              malicious: The 'Pricing for tool' file contains a virus
+              not_attached: Select the 'Pricing for tool' file
+              wrong_content_type: The 'Pricing for tool' file does not contain the expected content type
+              wrong_extension: The 'Pricing for tool' file must be an XLSX
+            supplier_lookup:
+              malicious: The 'Supplier lookup' file contains a virus
+              too_large: The 'Supplier lookup' file must be smaller than 10mb
+              wrong_content_type: The 'Supplier lookup' file does not contain the expected content type
+              wrong_extension: The 'Supplier lookup' file must be a CSV
         supply_teachers/branch:
           attributes:
             postcode:
@@ -1117,40 +1152,33 @@ en:
         new:
           email_hint_html: Enter the email address you used to set up your account.
       uploads:
-        in_progress:
-          button: Return to manage supplier data
-          content: We are processing the uploaded spreadsheets.
-          heading: Upload successful
+        current_upload:
+          upload_name: 'Upload session #%{number}'
         index:
-          approved: Published on live
-          canceled: Cancelled session
           caption: Manage supplier data
           create_new: Set up upload session
           current_table_caption: Data currently used
           date: Date and time
-          failed: Failed
           heading: Supply teachers and agency workers
-          in_progress: Processing
-          in_review: Waiting to publish
           name: Name
           no_of_files: Number of files
-          rejected: Cancelled session
           spreadsheet: Spreadsheet
           status: Status
           table_caption: Upload sessions
           upload_session: Upload session
-          uploading: Processing
         new:
           caption: Supply teachers and agency workers
+          extension_type:
+            csv: This file should be a CSV
+            xlsx: This file should be an XLSX
           heading: Set up a new upload session
+          return: Return to manage supplier data
           upload_button: Upload spreadsheets
-          upload_caption: XLS, XLSX and CSV are supported. Maximum file size is 5mb.
+          upload_caption: The maximum file size is 5mb.
           upload_title: Choose one or more spreadsheets to upload
-        reject:
-          content: You can now create a new upload.
-          heading_html: Upload session %{number} has been cancelled
-          index_button: Return to manage supplier data
-          new_button: Set up a new upload session
+          warning: Warning
+          warning_plural: Upload sessions %{sessions} are in %{states} respectively. Uploading new spreadsheets will cancel those sessions
+          warning_singular: Upload session %{session} is in %{state}. Uploading new spreadsheets will cancel that session
         show:
           approve: Publish to live service
           caption: Supply teachers and agency workers
@@ -1167,13 +1195,21 @@ en:
           neutral_vendor_contacts: Neutral vendor contacts
           pricing_for_tool: Pricing for tool
           reject: Cancel session
+          return: Return to manage supplier data
           spreadsheet: Spreadsheet
           status: 'Status:'
           supplier_lookup: Supplier lookup
-        uploading:
-          button: Return to manage supplier data
-          content_html: 'The data from <strong>''Upload session #%{session_no}''</strong> is currently processing and will soon be published to the <strong>''Supply teachers and agency workers''</strong> service.'
-          heading: Data published
+        state:
+          canceled: Cancelled session
+          failed: Faild
+          files_processed: Waiting to publish
+          in_progress: Processing files
+          processing_files: Processing files
+          published: Published on live
+          rejected: Cancelled session
+          uploading: Publishing files
+        upload:
+          upload_name: 'Upload session #%{number}'
     branches:
       branch:
         address: Address
