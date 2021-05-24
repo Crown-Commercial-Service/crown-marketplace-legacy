@@ -1,14 +1,37 @@
 module SupplyTeachers::Admin::UploadsHelper
-  def css_classes_for_file_upload(journey, attribute, extra_classes = [])
-    error = journey.errors[attribute].first
+  def warning_details(uploads)
+    sessions = uploads.map(&:short_uuid).to_sentence
+    states = uploads.map { |upload| t("supply_teachers.admin.uploads.state.#{upload.aasm_state}") }.to_sentence.downcase
 
-    css_classes = ['govuk-file-upload'] + extra_classes
-    css_classes += %w[govuk-input--error govuk-input] if error.present?
-    css_classes
+    if uploads.count > 1
+      t('supply_teachers.admin.uploads.new.warning_plural', sessions: sessions, states: states)
+    else
+      t('supply_teachers.admin.uploads.new.warning_singular', session: sessions, state: states)
+    end
   end
 
-  def warning_details(uploads)
-    uploads_more_than_one = uploads.count > 1
-    "Upload session #{uploads.map(&:datetime).to_sentence} #{uploads_more_than_one ? 'are' : 'is'} #{uploads.map { |u| t("supply_teachers.admin.uploads.index.#{u.aasm_state}") }.to_sentence.downcase}. Uploading new spreadsheets will cancel #{uploads_more_than_one ? 'those sessions' : 'that session'}."
+  def get_file_extension(file)
+    file.filename.extension_without_delimiter.to_sym
+  end
+
+  def upload_status_tag(status)
+    colour = case status
+             when 'published', 'files_processed'
+               :blue
+             when 'failed', 'rejected', 'canceled'
+               :red
+             else
+               :grey
+             end
+
+    [colour, t("supply_teachers.admin.uploads.state.#{status}")]
+  end
+
+  def st_file_link(upload, attachment)
+    "#{rails_blob_path(attachment, disposition: 'attachment', st_upload_id: upload.id)}&format=#{get_file_extension(attachment)}"
+  end
+
+  def expected_file_type(attachment)
+    t("supply_teachers.admin.uploads.new.extension_type.#{SupplyTeachers::Admin::Upload::FILE_TO_EXTENSION[attachment]}")
   end
 end
