@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_12_144916) do
+ActiveRecord::Schema.define(version: 2021_05_24_144315) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -170,7 +170,7 @@ ActiveRecord::Schema.define(version: 2021_05_12_144916) do
     t.index ["code"], name: "nuts_regions_code_key", unique: true
   end
 
-  create_table "supply_teachers_admin_current_data", force: :cascade do |t|
+  create_table "supply_teachers_admin_current_data", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "current_accredited_suppliers", limit: 255
     t.string "geographical_data_all_suppliers", limit: 255
     t.string "lot_1_and_lot_2_comparisons", limit: 255
@@ -185,7 +185,7 @@ ActiveRecord::Schema.define(version: 2021_05_12_144916) do
   end
 
   create_table "supply_teachers_admin_uploads", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.string "aasm_state", limit: 15
+    t.string "aasm_state", limit: 30
     t.string "current_accredited_suppliers", limit: 255
     t.string "geographical_data_all_suppliers", limit: 255
     t.string "lot_1_and_lot_2_comparisons", limit: 255
