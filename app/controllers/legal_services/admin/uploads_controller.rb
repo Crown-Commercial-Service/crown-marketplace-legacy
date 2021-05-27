@@ -1,60 +1,35 @@
 module LegalServices
   module Admin
     class UploadsController < LegalServices::FrameworkController
+      skip_before_action :verify_authenticity_token, only: :create
       before_action :authenticate_user!
       before_action :authorize_user
+      before_action :set_upload, only: %i[show progress]
 
       def index
-        @back_path = :back
-        @uploads = Upload.all.page params[:page]
+        @latest_upload = LegalServices::Admin::Upload.latest_upload
+        @uploads = LegalServices::Admin::Upload.all.page params[:page]
       end
 
-      def show
-        @back_path = :back
-        @upload = Upload.find(params[:id])
-        @attributes = Upload::ATTRIBUTES
-      end
+      def show; end
 
       def new
-        @back_path = :back
-        @upload = Upload.new
-        @uploads_in_progress = Upload.in_review_or_in_progress
+        @upload = LegalServices::Admin::Upload.new
       end
 
       def create
-        @upload = Upload.new(upload_params)
-        @uploads_in_progress = Upload.in_review_or_in_progress
+        @upload = LegalServices::Admin::Upload.new(upload_params)
 
-        if @upload.save
-          LegalServices::DataUploadWorker.perform_async(@upload.id)
-          redirect_to legal_services_admin_uploads_path
+        if @upload.save(context: :upload)
+          @upload.start_upload!
+          redirect_to legal_services_admin_upload_path(@upload)
         else
           render :new
         end
       end
 
-      def approve
-        @upload = Upload.find(params[:upload_id])
-        @upload.approve!
-
-        redirect_to legal_services_admin_uploads_path
-      end
-
-      def reject
-        @upload = Upload.find(params[:upload_id])
-        @upload.reject!
-
-        redirect_to legal_services_admin_uploads_path
-      end
-
-      def destroy
-        upload = Upload.find(params[:upload_id])
-
-        if upload.destroy
-          redirect_to legal_services_admin_uploads_path
-        else
-          redirect_to :back
-        end
+      def progress
+        render json: { import_status: @upload.aasm_state }
       end
 
       def accessibility_statement
@@ -71,16 +46,12 @@ module LegalServices
 
       private
 
+      def set_upload
+        @upload = LegalServices::Admin::Upload.find(params[:id] || params[:upload_id])
+      end
+
       def upload_params
-        params.require(:legal_services_admin_upload).permit(
-          :suppliers,
-          :rate_cards,
-          :supplier_lot_1_service_offerings,
-          :supplier_lot_2_service_offerings,
-          :supplier_lot_3_service_offerings,
-          :supplier_lot_4_service_offerings,
-          :suppliers_data
-        )
+        params.require(:legal_services_admin_upload).permit(:supplier_details_file, :supplier_rate_cards_file, :supplier_lot_1_service_offerings_file, :supplier_lot_2_service_offerings_file, :supplier_lot_3_service_offerings_file, :supplier_lot_4_service_offerings_file) if params[:legal_services_admin_upload].present?
       end
 
       def authorize_user

@@ -143,7 +143,7 @@ RSpec.describe ManagementConsultancy::Admin::UploadsController, type: :controlle
 
       it 'renders the show template and the in_progress partial' do
         expect(response).to render_template(:show)
-        expect(response).to render_template(partial: 'management_consultancy/admin/uploads/_in_progress')
+        expect(response).to render_template(partial: 'shared/admin/_in_progress')
       end
     end
 

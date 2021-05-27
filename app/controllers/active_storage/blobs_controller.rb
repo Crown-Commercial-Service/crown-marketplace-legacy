@@ -21,6 +21,8 @@ class ActiveStorage::BlobsController < ActiveStorage::BaseController
       authorize_supply_teachers_upload_view
     elsif params[:mc_upload_id].present?
       authorize_management_consultancy_upload_view
+    elsif params[:ls_upload_id].present?
+      authorize_legal_services_upload_view
     end
   end
 
@@ -38,5 +40,13 @@ class ActiveStorage::BlobsController < ActiveStorage::BaseController
     raise ActionController::RoutingError, 'not found' if mc_upload.blank?
 
     authorize! :view, mc_upload if mc_upload.present?
+  end
+
+  def authorize_legal_services_upload_view
+    ls_upload = LegalServices::Admin::Upload.find_by(id: params[:ls_upload_id])
+
+    raise ActionController::RoutingError, 'not found' if ls_upload.blank?
+
+    authorize! :view, ls_upload if ls_upload.present?
   end
 end

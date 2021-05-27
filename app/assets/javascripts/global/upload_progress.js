@@ -27,7 +27,7 @@ $(() => {
     },
     publishing_data: {
       progress: 70,
-      wait: 60000,
+      wait: 15000,
       state: 'progress-3',
     },
     published: {
@@ -44,7 +44,7 @@ $(() => {
     },
   };
 
-  const mcFileImport = {
+  const adminFileImport = {
     continue: true,
     currentState: 'in_progress',
 
@@ -57,29 +57,29 @@ $(() => {
     checkImportProgress() {
       $.ajax({
         type: 'GET',
-        url: mcFileImport.url,
+        url: adminFileImport.url,
         data: $(this).serialize(),
         dataType: 'json',
         success(data) {
-          mcFileImport.currentState = data.import_status;
+          adminFileImport.currentState = data.import_status;
         },
         error() {
-          mcFileImport.continue = false;
+          adminFileImport.continue = false;
         },
         complete() {
-          mcFileImport.processImportStatus();
+          adminFileImport.processImportStatus();
         },
       });
     },
 
     processImportStatus() {
       if (this.continue) {
-        $('#mc-import-progress').attr('style', `width: ${stateToProgress[this.currentState].progress}%`);
+        $('#admin-import-progress').attr('style', `width: ${stateToProgress[this.currentState].progress}%`);
         this.updateCurrentState();
         let continueFunction = this.checkImportProgress;
 
         if (this.currentState === 'published' || this.currentState === 'failed') {
-          $('#mc-import-progress').addClass(stateToProgress[this.currentState].colourClass);
+          $('#admin-import-progress').addClass(stateToProgress[this.currentState].colourClass);
           continueFunction = this.processComplete;
         }
 
@@ -108,7 +108,7 @@ $(() => {
     },
   };
 
-  if ($('#mc-import-progress').length) {
-    mcFileImport.init();
+  if ($('#admin-import-progress').length) {
+    adminFileImport.init();
   }
 });

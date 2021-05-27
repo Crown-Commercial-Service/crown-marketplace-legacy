@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_24_144315) do
+ActiveRecord::Schema.define(version: 2021_05_27_080143) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -38,18 +38,16 @@ ActiveRecord::Schema.define(version: 2021_05_24_144315) do
   end
 
   create_table "legal_services_admin_uploads", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.string "aasm_state", limit: 15
-    t.string "suppliers", limit: 255
-    t.string "supplier_lot_1_service_offerings", limit: 255
-    t.string "supplier_lot_2_service_offerings", limit: 255
-    t.string "supplier_lot_3_service_offerings", limit: 255
-    t.string "supplier_lot_4_service_offerings", limit: 255
-    t.string "rate_cards", limit: 255
-    t.jsonb "data"
-    t.text "fail_reason"
+    t.string "aasm_state", limit: 30
+    t.string "supplier_details_file", limit: 255
+    t.string "supplier_lot_1_service_offerings_file", limit: 255
+    t.string "supplier_lot_2_service_offerings_file", limit: 255
+    t.string "supplier_lot_3_service_offerings_file", limit: 255
+    t.string "supplier_lot_4_service_offerings_file", limit: 255
+    t.string "supplier_rate_cards_file", limit: 255
+    t.text "import_errors"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "suppliers_data"
   end
 
   create_table "legal_services_regional_availabilities", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
