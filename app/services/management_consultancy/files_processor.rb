@@ -106,10 +106,6 @@ class ManagementConsultancy::FilesProcessor
   end
   # rubocop:enable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
 
-  def extract_service_number(service_name)
-    service_name.split('[')[1].split(']')[0]
-  end
-
   def zero_number_service_line?(service_name)
     service_number = extract_service_number(service_name)
     /\.0\z/.match? service_number
