@@ -2,10 +2,10 @@ require 'rails_helper'
 
 RSpec.describe ManagementConsultancy::Admin::UploadsHelper, type: :helper do
   describe 'get_error_details' do
-    let(:error_details) { helper.get_error_details(error, details) }
+    let(:error_details) { helper.get_error_details('management_consultancy', error, details) }
 
-    context 'when the error is supplier_details_headers_incorrect' do
-      let(:error) { :supplier_details_headers_incorrect }
+    context 'when the error is supplier_details_has_incorrect_headers' do
+      let(:error) { :supplier_details_has_incorrect_headers }
       let(:details) { ['MCF', 'MCF3'] }
 
       it 'returns the correct error message' do
@@ -31,8 +31,8 @@ RSpec.describe ManagementConsultancy::Admin::UploadsHelper, type: :helper do
       end
     end
 
-    context 'when the error is supplier_rate_cards_missing_column' do
-      let(:error) { :supplier_rate_cards_missing_column }
+    context 'when the error is supplier_rate_cards_has_incorrect_headers' do
+      let(:error) { :supplier_rate_cards_has_incorrect_headers }
       let(:details) { ['MCF Lot 2', 'MCF2 Lot 2', 'MCF3 Lot 3'] }
 
       it 'returns the correct error message' do
@@ -40,8 +40,8 @@ RSpec.describe ManagementConsultancy::Admin::UploadsHelper, type: :helper do
       end
     end
 
-    context 'when the error is supplier_regional_offerings_headers_incorrect' do
-      let(:error) { :supplier_regional_offerings_headers_incorrect }
+    context 'when the error is supplier_regional_offerings_has_incorrect_headers' do
+      let(:error) { :supplier_regional_offerings_has_incorrect_headers }
       let(:details) { ['MCF Lot 3', 'MCF2 Lot 1', 'MCF3 Lot 4'] }
 
       it 'returns the correct error message' do
@@ -49,12 +49,48 @@ RSpec.describe ManagementConsultancy::Admin::UploadsHelper, type: :helper do
       end
     end
 
-    context 'when the error is supplier_service_offering_missing_rows' do
-      let(:error) { :supplier_service_offering_missing_rows }
+    context 'when the error is supplier_service_offerings_has_incorrect_headers' do
+      let(:error) { :supplier_service_offerings_has_incorrect_headers }
       let(:details) { ['MCF Lot 5', 'MCF2 Lot 4', 'MCF3 Lot 9'] }
 
       it 'returns the correct error message' do
-        expect(error_details).to eq "The following sheets have incorrect column headers: <ul class=\"govuk-list govuk-list--bullet\"><li>MCF Lot 5</li><li>MCF2 Lot 4</li><li>MCF3 Lot 9</li></ul> Make sure all sheets for 'Supplier regional offerings' have the correct services for their lot"
+        expect(error_details).to eq "The following sheets have incorrect column headers: <ul class=\"govuk-list govuk-list--bullet\"><li>MCF Lot 5</li><li>MCF2 Lot 4</li><li>MCF3 Lot 9</li></ul> Make sure all sheets for 'Supplier service offerings' have the correct services for their lot"
+      end
+    end
+
+    context 'when the error is supplier_details_has_empty_sheets' do
+      let(:error) { :supplier_details_has_empty_sheets }
+      let(:details) { ['MCF Lot 2', 'MCF2 Lot 4', 'MCF3 Lot 8'] }
+
+      it 'returns the correct error message' do
+        expect(error_details).to eq "The following sheets have no data: <ul class=\"govuk-list govuk-list--bullet\"><li>MCF Lot 2</li><li>MCF2 Lot 4</li><li>MCF3 Lot 8</li></ul> Make sure all sheets for 'Supplier details' have been filled in"
+      end
+    end
+
+    context 'when the error is supplier_rate_cards_has_empty_sheets' do
+      let(:error) { :supplier_rate_cards_has_empty_sheets }
+      let(:details) { ['MCF Lot 3', 'MCF2 Lot 3', 'MCF3 Lot 7'] }
+
+      it 'returns the correct error message' do
+        expect(error_details).to eq "The following sheets have no data: <ul class=\"govuk-list govuk-list--bullet\"><li>MCF Lot 3</li><li>MCF2 Lot 3</li><li>MCF3 Lot 7</li></ul> Make sure all sheets for 'Supplier rate cards' have been filled in"
+      end
+    end
+
+    context 'when the error is supplier_regional_offerings_has_empty_sheets' do
+      let(:error) { :supplier_regional_offerings_has_empty_sheets }
+      let(:details) { ['MCF Lot 4', 'MCF2 Lot 2'] }
+
+      it 'returns the correct error message' do
+        expect(error_details).to eq "The following sheets have no data: <ul class=\"govuk-list govuk-list--bullet\"><li>MCF Lot 4</li><li>MCF2 Lot 2</li></ul> Make sure all sheets for 'Supplier regional offerings' have been filled in"
+      end
+    end
+
+    context 'when the error is supplier_service_offerings_has_empty_sheets' do
+      let(:error) { :supplier_service_offerings_has_empty_sheets }
+      let(:details) { ['MCF Lot 5', 'MCF2 Lot 1', 'MCF3 Lot 5'] }
+
+      it 'returns the correct error message' do
+        expect(error_details).to eq "The following sheets have no data: <ul class=\"govuk-list govuk-list--bullet\"><li>MCF Lot 5</li><li>MCF2 Lot 1</li><li>MCF3 Lot 5</li></ul> Make sure all sheets for 'Supplier service offerings' have been filled in"
       end
     end
   end

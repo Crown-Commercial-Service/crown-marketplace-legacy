@@ -77,12 +77,31 @@ RSpec.describe LegalServices::FilesImporter do
 
       it 'changes the state to failed and has the correct errors' do
         expect(upload).to have_state(:failed)
-        expect(upload.import_errors).to eq [{ error: 'supplier_details_headers_incorrect' },
-                                            { error: 'supplier_rate_cards_missing_column', details: ['1', '2b', '4'] },
-                                            { error: 'supplier_lot_1_service_offerings_missing_row', details: ['nuts_d', 'nuts_e', 'nuts_f'] },
-                                            { error: 'supplier_lot_2_service_offerings_missing_row', details: ['c'] },
-                                            { error: 'supplier_lot_3_service_offerings_missing_row' },
-                                            { error: 'supplier_lot_4_service_offerings_missing_row' }]
+        expect(upload.import_errors).to eq [{ error: 'supplier_details_has_incorrect_headers' },
+                                            { error: 'supplier_rate_cards_has_incorrect_headers', details: ['Lot 1', 'Lot 2b - Scotland', 'Lot 4'] },
+                                            { error: 'supplier_lot_1_service_offerings_has_incorrect_headers', details: ['North West England (NUTS D)', 'Yorkshire & Humberside (NUTS E)', 'East Midlands (NUTS F)'] },
+                                            { error: 'supplier_lot_2_service_offerings_has_incorrect_headers', details: ['Lot 2c - Northern Ireland'] },
+                                            { error: 'supplier_lot_3_service_offerings_has_incorrect_headers' },
+                                            { error: 'supplier_lot_4_service_offerings_has_incorrect_headers' }]
+      end
+    end
+
+    context 'when the files are empty' do
+      let(:supplier_details_file_options) { { empty: true } }
+      let(:supplier_rate_cards_file_options) { { empty: true } }
+      let(:supplier_lot_1_service_offerings_file_options) { { empty: true } }
+      let(:supplier_lot_2_service_offerings_file_options) { { empty: true } }
+      let(:supplier_lot_3_service_offerings_file_options) { { empty: true } }
+      let(:supplier_lot_4_service_offerings_file_options) { { empty: true } }
+
+      it 'changes the state to failed and has the correct errors' do
+        expect(upload).to have_state(:failed)
+        expect(upload.import_errors).to eq [{ error: 'supplier_details_has_empty_sheets' },
+                                            { error: 'supplier_rate_cards_has_empty_sheets', details: ['Lot 1', 'Lot 2a - England & Wales', 'Lot 2b - Scotland', 'Lot 2c - Northern Ireland', 'Lot 3', 'Lot 4'] },
+                                            { error: 'supplier_lot_1_service_offerings_has_empty_sheets', details: ['Full UK Coverage', 'North East England (NUTS C)', 'North West England (NUTS D)', 'Yorkshire & Humberside (NUTS E)', 'East Midlands (NUTS F)', 'West Midlands (NUTS G)', 'East of England (NUTS H)', 'Greater London (NUTS I)', 'South East England (NUTS J)', 'South West England (NUTS K)', 'Wales (NUTS L)', 'Scotland (NUTS M)', 'Northern Ireland (NUTS N)'] },
+                                            { error: 'supplier_lot_2_service_offerings_has_empty_sheets', details: ['Lot 2a - England & Wales', 'Lot 2b - Scotland', 'Lot 2c - Northern Ireland'] },
+                                            { error: 'supplier_lot_3_service_offerings_has_empty_sheets' },
+                                            { error: 'supplier_lot_4_service_offerings_has_empty_sheets' }]
       end
     end
   end

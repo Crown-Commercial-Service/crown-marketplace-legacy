@@ -1,5 +1,13 @@
 module ManagementConsultancy
   class FileImporterHelper
+    def initialize(**options)
+      @package = Axlsx::Package.new
+      @sheets = options[:sheets]
+      @headers = options[:headers]
+      @supplier_duns = options[:supplier_duns] || {}
+      @empty = options[:empty] || false
+    end
+
     def suppliers(lot_number)
       if lot_number.start_with? 'MCF3'
         SUPPLIERS_MCF3
@@ -47,9 +55,10 @@ module ManagementConsultancy
 
   class SupplierDetailsFile < FileImporterHelper
     def initialize(**options)
-      @package = Axlsx::Package.new
-      @sheets = options[:sheets] || self.class::SHEETS
-      @headers = options[:headers] || [HEADERS] * @sheets.count
+      options[:sheets] ||= self.class::SHEETS
+      options[:headers] ||= [HEADERS] * options[:sheets].count
+
+      super(**options)
     end
 
     def build
@@ -70,6 +79,8 @@ module ManagementConsultancy
 
       @package.workbook.add_worksheet(name: sheet_name) do |sheet|
         sheet.add_row header_row
+        next if @empty
+
         supplier_details.each do |supplier_detail|
           sheet.add_row supplier_detail
         end
@@ -83,10 +94,10 @@ module ManagementConsultancy
 
   class SupplierRateCardsFile < FileImporterHelper
     def initialize(**options)
-      @package = Axlsx::Package.new
-      @sheets = options[:sheets] || self.class::SHEETS
-      @headers = options[:headers] || [HEADERS] * @sheets.count
-      @supplier_duns = options[:supplier_duns] || {}
+      options[:sheets] ||= self.class::SHEETS
+      options[:headers] ||= [HEADERS] * options[:sheets].count
+
+      super(**options)
     end
 
     def build
@@ -107,6 +118,8 @@ module ManagementConsultancy
 
       @package.workbook.add_worksheet(name: sheet_name) do |sheet|
         sheet.add_row header_row
+        next if @empty
+
         supplier_details.each do |supplier_detail|
           supplier_name = supplier_detail[0]
           supplier_duns = @supplier_duns[supplier_name.to_sym] || supplier_detail[6]
@@ -123,9 +136,10 @@ module ManagementConsultancy
 
   class Legacy::SupplierRegionalOfferingsFile < FileImporterHelper
     def initialize(**options)
-      @package = Axlsx::Package.new
-      @sheets = options[:sheets] || SHEETS
-      @headers = options[:headers] || [HEADERS] * @sheets.count
+      options[:sheets] ||= SHEETS
+      options[:headers] ||= [HEADERS] * options[:sheets].count
+
+      super(**options)
     end
 
     def build
@@ -146,6 +160,8 @@ module ManagementConsultancy
 
       @package.workbook.add_worksheet(name: sheet_name) do |sheet|
         sheet.add_row header_row
+        next if @empty
+
         supplier_details.each do |supplier_detail|
           supplier_name = supplier_detail[0]
 
@@ -165,10 +181,10 @@ module ManagementConsultancy
 
   class SupplierServiceOfferingsFile < FileImporterHelper
     def initialize(**options)
-      @package = Axlsx::Package.new
-      @sheets = options[:sheets] || self.class::SHEETS
-      @headers = options[:headers] || self.class.create_headers(@sheets)
-      @supplier_duns = options[:supplier_duns] || {}
+      options[:sheets] ||= self.class::SHEETS
+      options[:headers] ||= self.class.create_headers(options[:sheets])
+
+      super(**options)
     end
 
     def build
@@ -219,21 +235,30 @@ module ManagementConsultancy
       supplier_details = suppliers(sheet_name)
 
       @package.workbook.add_worksheet(name: sheet_name) do |sheet|
-        supplier_names = supplier_details.map do |supplier_detail|
-          supplier_name = supplier_detail[0]
-          supplier_duns = @supplier_duns[supplier_name.to_sym] || supplier_detail[6]
+        @empty ? add_blank_sheet(sheet, header_column) : add_sheet_with_data(sheet, header_column, supplier_details)
+      end
+    end
 
-          supplier_heading_name(supplier_name, supplier_duns)
-        end
+    def add_blank_sheet(sheet, header_column)
+      sheet.add_row [nil]
+      header_column.each { |service| sheet.add_row [service] }
+    end
 
-        sheet.add_row [nil] + supplier_names
+    def add_sheet_with_data(sheet, header_column, supplier_details)
+      supplier_names = supplier_details.map do |supplier_detail|
+        supplier_name = supplier_detail[0]
+        supplier_duns = @supplier_duns[supplier_name.to_sym] || supplier_detail[6]
 
-        header_column.each do |service|
-          if service.end_with? '.0]'
-            sheet.add_row [service]
-          else
-            sheet.add_row [service, 'x', 'x', 'x']
-          end
+        supplier_heading_name(supplier_name, supplier_duns)
+      end
+
+      sheet.add_row [nil] + supplier_names
+
+      header_column.each do |service|
+        if service.end_with? '.0]'
+          sheet.add_row [service]
+        else
+          sheet.add_row [service, 'x', 'x', 'x']
         end
       end
     end
