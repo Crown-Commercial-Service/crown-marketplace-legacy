@@ -56,9 +56,22 @@ RSpec.describe ManagementConsultancy::FilesImporter do
 
       it 'changes the state to failed and has the correct errors' do
         expect(upload).to have_state(:failed)
-        expect(upload.import_errors).to eq [{ error: 'supplier_details_headers_incorrect', details: ['MCF3'] },
-                                            { error: 'supplier_rate_cards_missing_column', details: ['MCF3 Lot 3', 'MCF3 Lot 4'] },
-                                            { error: 'supplier_service_offering_missing_rows', details: ['MCF3 Lot 2', 'MCF3 Lot 4', 'MCF3 Lot 8'] }]
+        expect(upload.import_errors).to eq [{ error: 'supplier_details_has_incorrect_headers', details: ['MCF3'] },
+                                            { error: 'supplier_rate_cards_has_incorrect_headers', details: ['MCF3 Lot 3', 'MCF3 Lot 4'] },
+                                            { error: 'supplier_service_offerings_has_incorrect_headers', details: ['MCF3 Lot 2', 'MCF3 Lot 4', 'MCF3 Lot 8'] }]
+      end
+    end
+
+    context 'when the files are empty' do
+      let(:supplier_details_file_options) { { empty: true } }
+      let(:supplier_rate_cards_file_options) { { empty: true } }
+      let(:supplier_service_offerings_file_options) { { empty: true } }
+
+      it 'changes the state to failed and has the correct errors' do
+        expect(upload).to have_state(:failed)
+        expect(upload.import_errors).to eq [{ error: 'supplier_details_has_empty_sheets', details: ['MCF3'] },
+                                            { error: 'supplier_rate_cards_has_empty_sheets', details: ['MCF3 Lot 1', 'MCF3 Lot 2', 'MCF3 Lot 3', 'MCF3 Lot 4', 'MCF3 Lot 5', 'MCF3 Lot 6', 'MCF3 Lot 7', 'MCF3 Lot 8', 'MCF3 Lot 9'] },
+                                            { error: 'supplier_service_offerings_has_empty_sheets', details: ['MCF3 Lot 1', 'MCF3 Lot 2', 'MCF3 Lot 3', 'MCF3 Lot 4', 'MCF3 Lot 5', 'MCF3 Lot 6', 'MCF3 Lot 7', 'MCF3 Lot 8', 'MCF3 Lot 9'] }]
       end
     end
   end
