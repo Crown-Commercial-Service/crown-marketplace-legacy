@@ -7,7 +7,7 @@ def add_service_offerings_per_supplier
 
   service_offerings_workbook = Roo::Spreadsheet.open(service_offerings_workbook_filepath, extension: :xlsx)
 
-  (0..10).each do |sheet_number|
+  (0..19).each do |sheet_number|
     sheet = service_offerings_workbook.sheet(sheet_number)
     service_names = sheet.column(1)
     lot_number = extract_service_number(service_names[1]).match(/MCF\d[.]\d+/).to_s

@@ -11,6 +11,7 @@ RSpec.feature 'Authentication', type: :feature do
   end
 
   before do
+    allow(Marketplace).to receive(:mcf3_live?).and_return(false)
     allow(Aws::CognitoIdentityProvider::Client).to receive(:new).and_return(aws_client)
     allow(aws_client).to receive(:initiate_auth).and_return(OpenStruct.new(session: '1234667'))
     allow(aws_client).to receive(:admin_list_groups_for_user).and_return(cognito_groups)

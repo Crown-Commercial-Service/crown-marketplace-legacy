@@ -8,19 +8,19 @@ def add_region_availability_per_lot_per_supplier
   regional_offerings_workbook = Roo::Spreadsheet.open(regional_offerings_workbook_filepath, extension: :xlsx)
 
   sheet_names = {
-    'MCF Lot 2 (Finance)' => 'MCF1.2',
-    'MCF Lot 3 (Audit)' => 'MCF1.3',
-    'MCF Lot 4 (HR)' => 'MCF1.4',
-    'MCF Lot 5 (Health & Community)' => 'MCF1.5',
-    'MCF Lot 6 (Education)' => 'MCF1.6',
-    'MCF Lot 7 (Infrastructure)' => 'MCF1.7',
-    'MCF Lot 8 (ICT & Digital Servic' => 'MCF1.8',
-    'MCF2 Lot 1 (Business Consultanc' => 'MCF2.1',
-    'MCF2 Lot 2 (Procurement, Supply' => 'MCF2.2',
-    'MCF2 Lot 3 (Complex & Transform' => 'MCF2.3',
-    'MCF2 Lot 4 (Strategic)' => 'MCF2.4'
+    'MCF Lot 2' => 'MCF1.2',
+    'MCF Lot 3' => 'MCF1.3',
+    'MCF Lot 4' => 'MCF1.4',
+    'MCF Lot 5' => 'MCF1.5',
+    'MCF Lot 6' => 'MCF1.6',
+    'MCF Lot 7' => 'MCF1.7',
+    'MCF Lot 8' => 'MCF1.8',
+    'MCF2 Lot 1' => 'MCF2.1',
+    'MCF2 Lot 2' => 'MCF2.2',
+    'MCF2 Lot 3' => 'MCF2.3',
+    'MCF2 Lot 4' => 'MCF2.4'
   }
-
+  
   (0..10).each do |sheet_number|
     sheet = regional_offerings_workbook.sheet(sheet_number)
     region_names = sheet.row(1)
