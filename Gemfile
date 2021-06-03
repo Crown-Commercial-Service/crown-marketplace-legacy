@@ -1,14 +1,14 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.5.3'
+ruby '2.7.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.7'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
-gem 'puma', '~> 4.3', '>= 4.3.5'
+gem 'puma', '~> 4.3', '>= 4.3.8'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.1', '>= 5.1.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -68,7 +68,7 @@ gem 'aws-sdk-s3', '~> 1'
 gem 'carrierwave', '~> 1.3'
 
 # handles spreadsheets
-gem 'roo', '~> 2.8.2'
+gem 'roo', '~> 2.8.3'
 
 # manipulating JSON for anonymisation
 gem 'jsonpath', '~> 0.5.8'
@@ -85,7 +85,7 @@ gem 'sinatra', '~> 2.0.8', '>= 2.0.8.1', require: false
 gem 'slim', '~> 4.0.1'
 
 # for rspec and ST data generation script
-gem 'capybara', '>= 3.32.2'
+gem 'capybara', '>= 3.35.3'
 gem 'show_me_the_cookies', '>= 5.0.1'
 
 gem 'faker', '~> 2.10.2'
@@ -125,7 +125,7 @@ gem 'amoeba', '>= 3.1.0'
 # asset sync
 
 gem 'asset_sync'
-gem 'fog-aws'
+gem 'fog-aws', '>= 3.10.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -140,7 +140,7 @@ group :development, :test do
   gem 'rubocop'
   gem 'rubocop-rspec'
   gem 'rubocop-rails', require: false
-  gem 'rubyXL', '>= 3.4.6'
+  gem 'rubyXL', '>= 3.4.17'
   gem 'i18n-tasks', '>= 0.9.34'
   gem 'poltergeist', '>= 1.18.1'
   gem 'wdm', '>= 0.1.0', platforms: %i[x64_mingw]
