@@ -137,9 +137,9 @@ group :development, :test do
   gem 'rails-controller-testing', '>= 1.0.5'
   gem 'rspec-rails', '>= 5.0.1'
   gem 'shoulda-matchers', '>= 4.2.0'
-  gem 'rubocop'
-  gem 'rubocop-rspec'
-  gem 'rubocop-rails', require: false
+  gem 'rubocop', '>= 1.11.0'
+  gem 'rubocop-rspec', '>= 2.2.0'
+  gem 'rubocop-rails', '>= 2.9.1', require: false
   gem 'rubyXL', '>= 3.4.17'
   gem 'i18n-tasks', '>= 0.9.34'
   gem 'poltergeist', '>= 1.18.1'

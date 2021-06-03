@@ -626,9 +626,9 @@ DEPENDENCIES
   rollbar (~> 2.24.0)
   roo (~> 2.8.3)
   rspec-rails (>= 5.0.1)
-  rubocop
-  rubocop-rails
-  rubocop-rspec
+  rubocop (>= 1.11.0)
+  rubocop-rails (>= 2.9.1)
+  rubocop-rspec (>= 2.2.0)
   rubyXL (>= 3.4.17)
   rubyzip (>= 1.2.1)
   sass-rails (~> 5.1, >= 5.1.0)
