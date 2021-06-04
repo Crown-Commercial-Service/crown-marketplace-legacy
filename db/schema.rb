@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_24_103057) do
+ActiveRecord::Schema.define(version: 2021_05_12_144916) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -96,11 +96,14 @@ ActiveRecord::Schema.define(version: 2021_03_24_103057) do
   end
 
   create_table "management_consultancy_admin_uploads", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.string "aasm_state", limit: 15
-    t.text "fail_reason"
+    t.string "aasm_state", limit: 30
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "suppliers_data"
+    t.string "supplier_details_file", limit: 255
+    t.string "supplier_rate_cards_file", limit: 255
+    t.string "supplier_regional_offerings_file", limit: 255
+    t.string "supplier_service_offerings_file", limit: 255
+    t.text "import_errors"
   end
 
   create_table "management_consultancy_rate_cards", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|

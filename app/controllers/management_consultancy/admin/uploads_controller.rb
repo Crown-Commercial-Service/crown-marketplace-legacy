@@ -4,50 +4,32 @@ module ManagementConsultancy
       skip_before_action :verify_authenticity_token, only: :create
       before_action :authenticate_user!
       before_action :authorize_user
+      before_action :set_upload, only: %i[show progress]
 
       def index
-        @back_path = :back
+        @latest_upload = ManagementConsultancy::Admin::Upload.latest_upload
         @uploads = ManagementConsultancy::Admin::Upload.all.page params[:page]
       end
 
-      def show
-        @back_path = :back
-        @upload = ManagementConsultancy::Admin::Upload.find(params[:id])
-      end
+      def show; end
 
       def new
-        @back_path = :back
         @upload = ManagementConsultancy::Admin::Upload.new
       end
 
       def create
         @upload = ManagementConsultancy::Admin::Upload.new(upload_params)
 
-        if @upload.save
-          ManagementConsultancy::DataUploadWorker.perform_async(@upload.id)
-          redirect_to management_consultancy_admin_in_progress_path
+        if @upload.save(context: :upload)
+          @upload.start_upload!
+          redirect_to management_consultancy_admin_upload_path(@upload)
         else
-          @upload.cleanup_input_files
           render :new
         end
       end
 
-      def approve
-        upload = ManagementConsultancy::Admin::Upload.find(params[:upload_id])
-        upload.upload!
-        redirect_to management_consultancy_admin_upload_uploading_path(upload_id: upload.id)
-      end
-
-      def reject
-        upload = ManagementConsultancy::Admin::Upload.find(params[:upload_id])
-        upload.reject!
-        redirect_to management_consultancy_admin_uploads_path, notice: 'Upload session rejected.'
-      end
-
-      def in_progress; end
-
-      def uploading
-        @upload = ManagementConsultancy::Admin::Upload.find(params[:upload_id])
+      def progress
+        render json: { import_status: @upload.aasm_state }
       end
 
       def accessibility_statement
@@ -64,8 +46,12 @@ module ManagementConsultancy
 
       private
 
+      def set_upload
+        @upload = ManagementConsultancy::Admin::Upload.find(params[:id] || params[:upload_id])
+      end
+
       def upload_params
-        params.require(:management_consultancy_admin_upload).permit(:suppliers_data)
+        params.require(:management_consultancy_admin_upload).permit(:supplier_details_file, :supplier_rate_cards_file, :supplier_regional_offerings_file, :supplier_service_offerings_file) if params[:management_consultancy_admin_upload].present?
       end
 
       def authorize_user

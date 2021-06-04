@@ -1,0 +1,101 @@
+class ManagementConsultancy::FilesChecker
+  include FilesImporterHelper
+
+  def initialize(upload)
+    @upload = upload
+    @errors = []
+  end
+
+  def check_files
+    check_files_and_methods.each do |file, check_method|
+      read_spreadsheet(file) do |workbook|
+        send(check_method, workbook)
+      end
+    end
+
+    @errors
+  end
+
+  private
+
+  def check_supplier_details_spreadsheet(suppliers_workbook)
+    if suppliers_workbook.sheets != supplier_details_sheets
+      @errors << { error: 'supplier_details_missing_sheets' }
+    else
+      sheets_with_errors = []
+
+      number_of_sheets(suppliers_workbook).times do |index|
+        sheets_with_errors << "MCF#{index_to_framework[index]}" if suppliers_workbook.sheet(index).row(1) != ['Supplier name', 'Email address', 'Phone number', 'Website URL', 'Postal address', 'Is an SME?', 'DUNS Number']
+      end
+
+      @errors << { error: 'supplier_details_headers_incorrect', details: sheets_with_errors } if sheets_with_errors.any?
+    end
+  end
+
+  def check_supplier_rate_cards_spreadsheet(rate_cards_workbook)
+    if rate_cards_workbook.sheets != all_sheets
+      @errors << { error: 'supplier_rate_cards_missing_sheets' }
+    else
+      sheets_with_errors = []
+
+      number_of_sheets(rate_cards_workbook).times do |index|
+        sheets_with_errors << index_to_service_code(index) if rate_cards_workbook.sheet(index).last_column != 10
+      end
+
+      @errors << { error: 'supplier_rate_cards_missing_column', details: sheets_with_errors } if sheets_with_errors.any?
+    end
+  end
+
+  def check_supplier_service_offerings_spreadsheet(service_offerings_workbook)
+    if service_offerings_workbook.sheets != all_sheets
+      @errors << { error: 'supplier_service_offerings_missing_sheets' }
+    else
+      sheets_with_errors = []
+
+      number_of_sheets(service_offerings_workbook).times do |index|
+        sheets_with_errors << index_to_service_code(index) if service_offerings_workbook.sheet(index).last_row != sheet_index_to_service_code[index][:rows]
+      end
+
+      @errors << { error: 'supplier_service_offering_missing_rows', details: sheets_with_errors } if sheets_with_errors.any?
+    end
+  end
+
+  def index_to_service_code(index)
+    "MCF#{sheet_index_to_service_code[index][:mcf]} Lot #{sheet_index_to_service_code[index][:code]}"
+  end
+
+  def supplier_details_sheets
+    self.class::SUPPLIER_DETAILS_SHEETS
+  end
+
+  def index_to_framework
+    self.class::INDEX_TO_FRAMEWORK
+  end
+
+  def all_sheets
+    self.class::ALL_SHEETS
+  end
+
+  def supplier_regional_offerings_sheets
+    self.class::SUPPLIER_REGIONAL_OFFERINGS_SHEETS
+  end
+
+  def sheet_index_to_service_code
+    self.class::SHEET_INDEX_TO_SERVICE_CODE
+  end
+
+  def check_files_and_methods
+    self.class::CHECK_FILES_AND_METHODS
+  end
+
+  SUPPLIER_DETAILS_SHEETS = ['MCF3'].freeze
+  INDEX_TO_FRAMEWORK = [3].freeze
+  ALL_SHEETS = ['MCF3 Lot 1', 'MCF3 Lot 2', 'MCF3 Lot 3', 'MCF3 Lot 4', 'MCF3 Lot 5', 'MCF3 Lot 6', 'MCF3 Lot 7', 'MCF3 Lot 8', 'MCF3 Lot 9'].freeze
+  SHEET_INDEX_TO_SERVICE_CODE = [{ mcf: 3, code: 1, rows: 15 }, { mcf: 3, code: 2, rows: 10 }, { mcf: 3, code: 3, rows: 14 }, { mcf: 3, code: 4, rows: 25 }, { mcf: 3, code: 5, rows: 11 }, { mcf: 3, code: 6, rows: 14 }, { mcf: 3, code: 7, rows: 22 }, { mcf: 3, code: 8, rows: 9 }, { mcf: 3, code: 9, rows: 20 }].freeze
+
+  CHECK_FILES_AND_METHODS = {
+    supplier_details_file: :check_supplier_details_spreadsheet,
+    supplier_rate_cards_file: :check_supplier_rate_cards_spreadsheet,
+    supplier_service_offerings_file: :check_supplier_service_offerings_spreadsheet
+  }.freeze
+end

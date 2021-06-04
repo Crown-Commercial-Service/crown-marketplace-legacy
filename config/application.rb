@@ -156,6 +156,6 @@ module Marketplace
   end
 
   def self.mcf3_live?
-    Time.now.in_time_zone('London') >= Time.parse(ENV['MCF3_LIVE_DATE']).in_time_zone('London')
+    @mcf3_live ||= Time.now.in_time_zone('London') >= Time.parse(ENV['MCF3_LIVE_DATE']).in_time_zone('London')
   end
 end
