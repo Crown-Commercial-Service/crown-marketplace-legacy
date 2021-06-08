@@ -17,7 +17,19 @@ class ActiveStorage::BlobsController < ActiveStorage::BaseController
   protected
 
   def authorize_user
-    authorize_management_consultancy_upload_view if params[:mc_upload_id].present?
+    if params[:st_upload_id].present?
+      authorize_supply_teachers_upload_view
+    elsif params[:mc_upload_id].present?
+      authorize_management_consultancy_upload_view
+    end
+  end
+
+  def authorize_supply_teachers_upload_view
+    st_upload = SupplyTeachers::Admin::Upload.find_by(id: params[:st_upload_id])
+
+    raise ActionController::RoutingError, 'not found' if st_upload.blank?
+
+    authorize! :view, st_upload if st_upload.present?
   end
 
   def authorize_management_consultancy_upload_view

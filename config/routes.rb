@@ -86,13 +86,7 @@ Rails.application.routes.draw do
     resources :branches, only: %i[index show]
     resources :downloads, only: :index
     namespace :admin, defaults: { service: 'supply_teachers/admin' } do
-      resources :uploads, only: %i[index new create show destroy] do
-        get 'approve'
-        get 'reject'
-        get 'uploading'
-        delete 'destroy'
-      end
-      get '/in_progress', to: 'uploads#in_progress'
+      resources :uploads, only: %i[index new create show destroy update]
       concerns :shared_admin_pages
     end
     get '/start', to: 'journey#start', as: 'journey_start'
