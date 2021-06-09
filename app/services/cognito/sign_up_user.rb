@@ -3,14 +3,12 @@ module Cognito
     include ActiveModel::Validations
     validates_presence_of :email, :password, :password_confirmation
 
-    validates :password,
-              presence: true,
-              confirmation: { case_sensitive: true },
-              length: { within: 8..200 }
-
+    validates :email, format: { with: /\A[^A-Z]*\z/ }
+    validates :password, presence: true, confirmation: { case_sensitive: true }, length: { within: 8..200 }
     validates_format_of :password, with: /(?=.*[A-Z])/, message: :invalid_no_capitals
     validates_format_of :password, with: /(?=.*\W)/, message: :invalid_no_symbol
-    validate :domain_in_safelist
+    validates_format_of :password, with: /(?=.*\d)/, message: :invalid_no_number
+    validate :domain_in_allow_list, unless: -> { email.blank? }
 
     attr_reader :email, :password, :password_confirmation, :roles
     attr_accessor :user, :not_on_safelist
@@ -77,7 +75,7 @@ module Cognito
       }
     end
 
-    def domain_in_safelist
+    def domain_in_allow_list
       return if AllowedEmailDomain.new(email_domain: domain_name).domain_in_allow_list?
 
       errors.add(:email, :not_on_safelist)
