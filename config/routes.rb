@@ -129,11 +129,8 @@ Rails.application.routes.draw do
     resources :downloads, only: :index
     namespace :admin, defaults: { service: 'legal_services/admin' } do
       resources :uploads, only: %i[index new create show] do
-        get 'approve'
-        get 'reject'
-        get 'uploading'
+        get '/progress', action: :progress
       end
-      get '/in_progress', to: 'uploads#in_progress'
       concerns :shared_admin_pages
     end
     resources :uploads, only: :create if Marketplace.upload_privileges?

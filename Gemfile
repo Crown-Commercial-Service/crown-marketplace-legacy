@@ -63,10 +63,6 @@ gem 'friendly_id', '~> 5.2.5'
 
 # aws s3 bucket access for postcode data
 gem 'aws-sdk-s3', '~> 1'
-
-# for file uploads
-gem 'carrierwave', '~> 1.3'
-
 # handles spreadsheets
 gem 'roo', '~> 2.8.3'
 
@@ -94,9 +90,6 @@ gem 'faker', '~> 2.10.2'
 gem 'cancan', '~> 1.6.10'
 
 gem 'role_model', '~> 0.8.2'
-
-# for S3 storage of files
-gem 'carrierwave-aws', '~> 1.3.0'
 
 gem 'sprockets', '>= 3.7.2'
 gem 'sprockets-bumble_d', '>= 2.2.0'
