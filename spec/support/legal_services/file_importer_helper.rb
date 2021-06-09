@@ -1,5 +1,13 @@
 module LegalServices
   class FileImporterHelper
+    def initialize(**options)
+      @package = Axlsx::Package.new
+      @sheets = options[:sheets]
+      @headers = options[:headers]
+      @supplier_duns = options[:supplier_duns] || {}
+      @empty = options[:empty] || false
+    end
+
     def supplier_heading_name(name, duns)
       "#{name} [#{duns}]"
     end
@@ -43,9 +51,10 @@ module LegalServices
 
   class SupplierDetailsFile < FileImporterHelper
     def initialize(**options)
-      @package = Axlsx::Package.new
-      @sheets = options[:sheets] || SHEETS
-      @headers = options[:headers] || [HEADERS] * @sheets.count
+      options[:sheets] ||= SHEETS
+      options[:headers] ||= [HEADERS] * options[:sheets].count
+
+      super(**options)
     end
 
     def build
@@ -66,6 +75,8 @@ module LegalServices
 
       @package.workbook.add_worksheet(name: sheet_name) do |sheet|
         sheet.add_row header_row
+        next if @empty
+
         supplier_details.each do |supplier_detail|
           sheet.add_row supplier_detail
         end
@@ -75,10 +86,10 @@ module LegalServices
 
   class SupplierRateCardsFile < FileImporterHelper
     def initialize(**options)
-      @package = Axlsx::Package.new
-      @sheets = options[:sheets] || SHEETS
-      @headers = options[:headers] || [HEADERS_1] + [HEADERS] * (@sheets.count - 1)
-      @supplier_duns = options[:supplier_duns] || {}
+      options[:sheets] ||= SHEETS
+      options[:headers] ||= [HEADERS_1] + [HEADERS] * (options[:sheets].count - 1)
+
+      super(**options)
     end
 
     def build
@@ -105,6 +116,8 @@ module LegalServices
       @package.workbook.add_worksheet(name: sheet_name) do |sheet|
         sheet.add_row
         sheet.add_row header_row
+        next if @empty
+
         supplier_details.each do |supplier_detail|
           supplier_name = supplier_detail[0]
           supplier_duns = @supplier_duns[supplier_name.to_sym] || supplier_detail[6]
@@ -137,10 +150,10 @@ module LegalServices
 
   class SupplierLotFile < FileImporterHelper
     def initialize(**options)
-      @package = Axlsx::Package.new
-      @sheets = options[:sheets] || self.class::SHEETS
-      @headers = options[:headers] || [self.class::HEADERS] * @sheets.count
-      @supplier_duns = options[:supplier_duns] || {}
+      options[:sheets] ||= self.class::SHEETS
+      options[:headers] ||= [self.class::HEADERS] * options[:sheets].count
+
+      super(**options)
     end
 
     def build
@@ -160,15 +173,24 @@ module LegalServices
     private
 
     def add_service_offerings_sheet(sheet_name, header_column)
+      @package.workbook.add_worksheet(name: sheet_name) do |sheet|
+        @empty ? add_blank_sheet(sheet, header_column) : add_sheet_with_data(sheet, header_column)
+      end
+    end
+
+    def add_blank_sheet(sheet, header_column)
+      sheet.add_row [nil]
+      header_column.each { |service| sheet.add_row [service] }
+    end
+
+    def add_sheet_with_data(sheet, header_column)
       selection = ['x', nil, 'x']
       supplier_name_headings = supplier_names(self.class::SUPPLIERS)
 
-      @package.workbook.add_worksheet(name: sheet_name) do |sheet|
-        sheet.add_row [nil] + supplier_name_headings
+      sheet.add_row [nil] + supplier_name_headings
 
-        header_column.each do |service|
-          sheet.add_row [service] + selection.rotate!
-        end
+      header_column.each do |service|
+        sheet.add_row [service] + selection.rotate!
       end
     end
 

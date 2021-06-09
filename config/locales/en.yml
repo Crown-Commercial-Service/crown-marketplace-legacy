@@ -594,38 +594,50 @@ en:
             file_check_failed: Something went wrong when checking the files, please try uploading the files again
             file_process_failed: Something went wrong when processing the files, please try uploading the files again
             file_publish_failed: Something went wrong when publishing the files, please try uploading the files again
-            supplier_details_headers_incorrect: 'Make sure the sheet for ''Supplier details'' has the following headers: ''Supplier Name'', ''Email address'', ''Phone number'', ''Website URL'', ''Postal address'', ''Is an SME'', ''DUNS Number'', ''Lot 1: Prospectus Link'', ''Lot 2: Prospectus Link'', ''Lot 3: Prospectus Link'', ''Lot 4: Prospectus Link'', ''About the supplier'''
+            supplier_details_has_empty_sheets: Make sure the sheet for 'Supplier details' have been filled in
+            supplier_details_has_incorrect_headers: 'Make sure the sheet for ''Supplier details'' has the following headers: ''Supplier Name'', ''Email address'', ''Phone number'', ''Website URL'', ''Postal address'', ''Is an SME'', ''DUNS Number'', ''Lot 1: Prospectus Link'', ''Lot 2: Prospectus Link'', ''Lot 3: Prospectus Link'', ''Lot 4: Prospectus Link'', ''About the supplier'''
             supplier_details_missing_sheets: The 'Supplier details' file should have 1 sheet named 'All Suppliers'
-            supplier_lot_1_service_offerings_missing_row_html: 'The following sheets have incorrect column headers: %{list} Make sure all sheets for ''Supplier lot 1 service offerings'' have the 14 expected services'
+            supplier_lot_1_service_offerings_has_empty_sheets_html: 'The following sheets have no data: %{list} Make sure all sheets for ''Supplier lot 1 service offerings'' have been filled in'
+            supplier_lot_1_service_offerings_has_incorrect_headers_html: 'The following sheets have incorrect column headers: %{list} Make sure all sheets for ''Supplier lot 1 service offerings'' have the 14 expected services'
             supplier_lot_1_service_offerings_missing_sheets: 'The ''Supplier lot 1 service offerings'' file should have 13 sheets with the following names: ''Full UK Coverage'', ''North East England (NUTS C)'', ''North West England (NUTS D)'', ''Yorkshire & Humberside (NUTS E)'', ''East Midlands (NUTS F)'', ''West Midlands (NUTS G)'', ''East of England (NUTS H)'', ''Greater London (NUTS I)'', ''South East England (NUTS J)'', ''South West England (NUTS K)'', ''Wales (NUTS L)'', ''Scotland (NUTS M)'', ''Northern Ireland (NUTS N)'''
-            supplier_lot_2_service_offerings_missing_row_html: 'The following sheets have incorrect column  headers: %{list} Make sure all sheets for ''Supplier lot 2 service offerings'' have the 35 expected services'
+            supplier_lot_2_service_offerings_has_empty_sheets_html: 'The following sheets have no data: %{list} Make sure all sheets for ''Supplier lot 2 service offerings'' have been filled in'
+            supplier_lot_2_service_offerings_has_incorrect_headers_html: 'The following sheets have incorrect column  headers: %{list} Make sure all sheets for ''Supplier lot 2 service offerings'' have the 35 expected services'
             supplier_lot_2_service_offerings_missing_sheets: 'The ''Supplier lot 2 service offerings'' file should have 3 sheets with the following names: ''Lot 2a - England & Wales'', ''Lot 2b - Scotland'', ''Lot 2c - Northern Ireland'''
-            supplier_lot_3_service_offerings_missing_row: Make sure the sheet for 'Supplier lot 3 service offerings' only has the single service 'WPSLS.3.1'
+            supplier_lot_3_service_offerings_has_empty_sheets: Make sure the sheet for 'Supplier lot 3 service offerings' have been filled in
+            supplier_lot_3_service_offerings_has_incorrect_headers: Make sure the sheet for 'Supplier lot 3 service offerings' only has the single service 'WPSLS.3.1'
             supplier_lot_3_service_offerings_missing_sheets: The ''Supplier lot 3 service offerings' file should have 1 sheet named 'All regions'
-            supplier_lot_4_service_offerings_missing_row: Make sure the sheet for 'Supplier lot 4 service offerings' only has the single service 'WPSLS.4.1'
+            supplier_lot_4_service_offerings_has_empty_sheets: Make sure the sheet for 'Supplier lot 4 service offerings' have been filled in
+            supplier_lot_4_service_offerings_has_incorrect_headers: Make sure the sheet for 'Supplier lot 4 service offerings' only has the single service 'WPSLS.4.1'
             supplier_lot_4_service_offerings_missing_sheets: The ''Supplier lot 4 service offerings' file should have 1 sheet named 'All regions'
             supplier_missing_lots_html: 'The following suppliers do not offer any lots: %{list} Make sure all the suppliers have the correct name and DUNS number'
             supplier_missing_rate_cards_html: 'The following suppliers do not have any rate cards: %{list} Make sure all the suppliers have the correct name and DUNS number'
-            supplier_rate_cards_missing_column_html: 'The following sheets have incorrect headers: %{list} Make sure all sheets for ''Supplier rate cards'' have the right catagories for the rates'
+            supplier_rate_cards_has_empty_sheets_html: 'The following sheets have no data: %{list} Make sure all sheets for ''Supplier rate cards'' have been filled in'
+            supplier_rate_cards_has_incorrect_headers_html: 'The following sheets have incorrect headers: %{list} Make sure all sheets for ''Supplier rate cards'' have the right catagories for the rates'
             supplier_rate_cards_missing_sheets: 'The ''Supplier rate cards'' file should have 6 sheets with the following names: ''''Lot 1'', ''Lot 2a - England & Wales'', ''Lot 2b - Scotland'', ''Lot 2c - Northern Ireland'', ''Lot 3'', ''Lot 4'''
             upload_failed: Something went wrong with the file upload, please try uploading the files again
           error_name:
             file_check_failed: File check failed
             file_process_failed: File processing failed
             file_publish_failed: File publishing failed
-            supplier_details_headers_incorrect: There are sheets in 'Supplier details' with incorrect headers
+            supplier_details_has_empty_sheets: There are sheets in 'Supplier details' without any data
+            supplier_details_has_incorrect_headers: There are sheets in 'Supplier details' with incorrect headers
             supplier_details_missing_sheets: The 'Supplier details' file is missing sheets
-            supplier_lot_1_service_offerings_missing_row: There are sheets in 'Supplier lot 1 service offerings' with incorrect services
+            supplier_lot_1_service_offerings_has_empty_sheets: There are sheets in 'Supplier lot 1 service offerings' without any data
+            supplier_lot_1_service_offerings_has_incorrect_headers: There are sheets in 'Supplier lot 1 service offerings' with incorrect services
             supplier_lot_1_service_offerings_missing_sheets: The 'Supplier lot 1 service offerings' file is missing sheets
-            supplier_lot_2_service_offerings_missing_row: There are sheets in 'Supplier lot 2 service offerings' with incorrect services
+            supplier_lot_2_service_offerings_has_empty_sheets: There are sheets in 'Supplier lot 2 service offerings' without any data
+            supplier_lot_2_service_offerings_has_incorrect_headers: There are sheets in 'Supplier lot 2 service offerings' with incorrect services
             supplier_lot_2_service_offerings_missing_sheets: The 'Supplier lot 2 service offerings' file is missing sheets
-            supplier_lot_3_service_offerings_missing_row: There are sheets in 'Supplier lot 3 service offerings' with incorrect services
+            supplier_lot_3_service_offerings_has_empty_sheets: There are sheets in 'Supplier lot 3 service offerings' without any data
+            supplier_lot_3_service_offerings_has_incorrect_headers: There are sheets in 'Supplier lot 3 service offerings' with incorrect services
             supplier_lot_3_service_offerings_missing_sheets: The 'Supplier lot 3 service offerings' file is missing sheets
-            supplier_lot_4_service_offerings_missing_row: There are sheets in 'Supplier lot 4 service offerings' with incorrect services
+            supplier_lot_4_service_offerings_has_empty_sheets: There are sheets in 'Supplier lot 4 service offerings' without any data
+            supplier_lot_4_service_offerings_has_incorrect_headers: There are sheets in 'Supplier lot 4 service offerings' with incorrect services
             supplier_lot_4_service_offerings_missing_sheets: The 'Supplier lot 4 service offerings' file is missing sheets
             supplier_missing_lots: There are suppliers without any lots
             supplier_missing_rate_cards: There are suppliers without any rate cards
-            supplier_rate_cards_missing_column: There are sheets in 'Supplier rate cards' with incorrect headers
+            supplier_rate_cards_has_empty_sheets: There are sheets in 'Supplier rate cards' without any data
+            supplier_rate_cards_has_incorrect_headers: There are sheets in 'Supplier rate cards' with incorrect headers
             supplier_rate_cards_missing_sheets: The 'Supplier rate cards' file is missing sheets
             upload_failed: Upload failed
           errors_with_upload: Errors with the upload
@@ -867,30 +879,38 @@ en:
               supplier_regional_offerings_missing_sheets: No longer occurs
               supplier_service_offerings_missing_sheets: 'The ''Supplier service offerings'' file should have 9 sheets with the following names: ''MCF3 Lot 1'', ''MCF3 Lot 2'', ''MCF3 Lot 3'', ''MCF3 Lot 4'', ''MCF3 Lot 5'', ''MCF3 Lot 6'', ''MCF3 Lot 7'', ''MCF3 Lot 8'', ''MCF3 Lot 9'''
               upload_failed: Something went wrong with the file upload, please try uploading the files again
-            supplier_details_headers_incorrect_html: 'The following sheets have incorrect headers: %{list} Make sure all sheets for ''Supplier details'' have the following headers: ''Supplier name'', ''Email address'', ''Phone number'', ''Website URL'', ''Postal address'', ''Is an SME?'', ''DUNS Number'''
+            supplier_details_has_empty_sheets_html: 'The following sheets have no data: %{list} Make sure all sheets for ''Supplier details'' have been filled in'
+            supplier_details_has_incorrect_headers_html: 'The following sheets have incorrect headers: %{list} Make sure all sheets for ''Supplier details'' have the following headers: ''Supplier name'', ''Email address'', ''Phone number'', ''Website URL'', ''Postal address'', ''Is an SME?'', ''DUNS Number'''
             supplier_details_missing_sheets: 'The ''Supplier details'' file should have 3 sheets with the following names: ''MCF'', ''MCF2'', ''MCF3'''
             supplier_missing_lots_html: 'The following suppliers do not offer any lots: %{list} Make sure all the suppliers have the correct name and DUNS number'
             supplier_missing_rate_cards_html: 'The following suppliers do not have any rate cards: %{list} Make sure all the suppliers have the correct name and DUNS number'
-            supplier_rate_cards_missing_column_html: 'The following sheets are missing columns: %{list} Make sure all sheets for ''Supplier rate cards'' have the 10 expected columns'
+            supplier_rate_cards_has_empty_sheets_html: 'The following sheets have no data: %{list} Make sure all sheets for ''Supplier rate cards'' have been filled in'
+            supplier_rate_cards_has_incorrect_headers_html: 'The following sheets are missing columns: %{list} Make sure all sheets for ''Supplier rate cards'' have the 10 expected columns'
             supplier_rate_cards_missing_sheets: 'The ''Supplier rate cards'' file should have 20 sheets with the following names: ''MCF Lot 2'', ''MCF Lot 3'', ''MCF Lot 4'', ''MCF Lot 5'', ''MCF Lot 6'', ''MCF Lot 7'', ''MCF Lot 8'', ''MCF2 Lot 1'', ''MCF2 Lot 2'', ''MCF2 Lot 3'', ''MCF2 Lot 4'', ''MCF3 Lot 1'', ''MCF3 Lot 2'', ''MCF3 Lot 3'', ''MCF3 Lot 4'', ''MCF3 Lot 5'', ''MCF3 Lot 6'', ''MCF3 Lot 7'', ''MCF3 Lot 8'', ''MCF3 Lot 9'''
-            supplier_regional_offerings_headers_incorrect_html: 'The following sheets have incorrect headers: %{list} Make sure all sheets for ''Supplier regional offerings'' have the correct regions'
+            supplier_regional_offerings_has_empty_sheets_html: 'The following sheets have no data: %{list} Make sure all sheets for ''Supplier regional offerings'' have been filled in'
+            supplier_regional_offerings_has_incorrect_headers_html: 'The following sheets have incorrect headers: %{list} Make sure all sheets for ''Supplier regional offerings'' have the correct regions'
             supplier_regional_offerings_missing_sheets: 'The ''Supplier regional offerings'' file should have 11 sheets with the following names: ''MCF Lot 2'', ''MCF Lot 3'', ''MCF Lot 4'', ''MCF Lot 5'', ''MCF Lot 6'', ''MCF Lot 7'', ''MCF Lot 8'', ''MCF2 Lot 1'', ''MCF2 Lot 2'', ''MCF2 Lot 3'', ''MCF2 Lot 4'''
-            supplier_service_offering_missing_rows_html: 'The following sheets have incorrect column headers: %{list} Make sure all sheets for ''Supplier regional offerings'' have the correct services for their lot'
+            supplier_service_offerings_has_empty_sheets_html: 'The following sheets have no data: %{list} Make sure all sheets for ''Supplier service offerings'' have been filled in'
+            supplier_service_offerings_has_incorrect_headers_html: 'The following sheets have incorrect column headers: %{list} Make sure all sheets for ''Supplier service offerings'' have the correct services for their lot'
             supplier_service_offerings_missing_sheets: 'The ''Supplier service offerings'' file should have 20 sheets with the following names: ''MCF Lot 2'', ''MCF Lot 3'', ''MCF Lot 4'', ''MCF Lot 5'', ''MCF Lot 6'', ''MCF Lot 7'', ''MCF Lot 8'', ''MCF2 Lot 1'', ''MCF2 Lot 2'', ''MCF2 Lot 3'', ''MCF2 Lot 4'', ''MCF3 Lot 1'', ''MCF3 Lot 2'', ''MCF3 Lot 3'', ''MCF3 Lot 4'', ''MCF3 Lot 5'', ''MCF3 Lot 6'', ''MCF3 Lot 7'', ''MCF3 Lot 8'', ''MCF3 Lot 9'''
             upload_failed: Something went wrong with the file upload, please try uploading the files again
           error_name:
             file_check_failed: File check failed
             file_process_failed: File processing failed
             file_publish_failed: File publishing failed
-            supplier_details_headers_incorrect: There are sheets in 'Supplier details' with incorrect headers
+            supplier_details_has_empty_sheets: There are sheets in 'Supplier details' without any data
+            supplier_details_has_incorrect_headers: There are sheets in 'Supplier details' with incorrect headers
             supplier_details_missing_sheets: The 'Supplier details' file is missing sheets
             supplier_missing_lots: There are suppliers without any lots
             supplier_missing_rate_cards: There are suppliers without any rate cards
-            supplier_rate_cards_missing_column: There are sheets in 'Supplier rate cards' with incorrect headers
+            supplier_rate_cards_has_empty_sheets: There are sheets in 'Supplier rate cards' without any data
+            supplier_rate_cards_has_incorrect_headers: There are sheets in 'Supplier rate cards' with incorrect headers
             supplier_rate_cards_missing_sheets: The 'Supplier rate cards' file is missing sheets
-            supplier_regional_offerings_headers_incorrect: There are sheets in 'Supplier regional offerings' with incorrect headers
+            supplier_regional_offerings_has_empty_sheets: There are sheets in 'Supplier regional offerings' without any data
+            supplier_regional_offerings_has_incorrect_headers: There are sheets in 'Supplier regional offerings' with incorrect headers
             supplier_regional_offerings_missing_sheets: The 'Supplier regional offerings' file is missing sheets
-            supplier_service_offering_missing_rows: There are sheets in 'Supplier service offerings' with incorrect services
+            supplier_service_offerings_has_empty_sheets: There are sheets in 'Supplier service offerings' without any data
+            supplier_service_offerings_has_incorrect_headers: There are sheets in 'Supplier service offerings' with incorrect services
             supplier_service_offerings_missing_sheets: The 'Supplier service offerings' file is missing sheets
             upload_failed: Upload failed
           errors_with_upload: Errors with the upload

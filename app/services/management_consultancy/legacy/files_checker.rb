@@ -2,16 +2,12 @@ class ManagementConsultancy::Legacy::FilesChecker < ManagementConsultancy::Files
   private
 
   def check_supplier_regional_offerings_spreadsheet(regional_offerings_workbook)
-    if regional_offerings_workbook.sheets != supplier_regional_offerings_sheets
-      @errors << { error: 'supplier_regional_offerings_missing_sheets' }
-    else
-      sheets_with_errors = []
-
-      number_of_sheets(regional_offerings_workbook).times do |index|
-        sheets_with_errors << index_to_service_code(index) if regional_offerings_workbook.sheet(index).row(1)[1..].map { |region_name| extract_region_code(region_name) } != ['UKC', 'UKC1', 'UKC2', 'UKD', 'UKD1', 'UKD3', 'UKD4', 'UKD6', 'UKD7', 'UKE', 'UKE1', 'UKE2', 'UKE3', 'UKE4', 'UKF', 'UKF1', 'UKF2', 'UKF3', 'UKG', 'UKG1', 'UKG2', 'UKG3', 'UKH', 'UKH1', 'UKH2', 'UKH3', 'UKI', 'UKI3', 'UKI4', 'UKI5', 'UKI6', 'UKI7', 'UKJ', 'UKJ1', 'UKJ2', 'UKJ3', 'UKJ4', 'UKK', 'UKK1', 'UKK2', 'UKK3', 'UKK4', 'UKL', 'UKL1', 'UKL2', 'UKM', 'UKM2', 'UKM3', 'UKM5', 'UKM6', 'UKN0']
+    check_sheets(regional_offerings_workbook, supplier_regional_offerings_sheets, 'supplier_regional_offerings') do |sheets_with_errors, empty_sheets, index|
+      if regional_offerings_workbook.sheet(index).row(1)[1..].map { |region_name| extract_region_code(region_name) } != ['UKC', 'UKC1', 'UKC2', 'UKD', 'UKD1', 'UKD3', 'UKD4', 'UKD6', 'UKD7', 'UKE', 'UKE1', 'UKE2', 'UKE3', 'UKE4', 'UKF', 'UKF1', 'UKF2', 'UKF3', 'UKG', 'UKG1', 'UKG2', 'UKG3', 'UKH', 'UKH1', 'UKH2', 'UKH3', 'UKI', 'UKI3', 'UKI4', 'UKI5', 'UKI6', 'UKI7', 'UKJ', 'UKJ1', 'UKJ2', 'UKJ3', 'UKJ4', 'UKK', 'UKK1', 'UKK2', 'UKK3', 'UKK4', 'UKL', 'UKL1', 'UKL2', 'UKM', 'UKM2', 'UKM3', 'UKM5', 'UKM6', 'UKN0']
+        sheets_with_errors << index_to_service_code(index)
+      elsif regional_offerings_workbook.sheet(index).last_row == 1
+        empty_sheets << index_to_service_code(index)
       end
-
-      @errors << { error: 'supplier_regional_offerings_headers_incorrect', details: sheets_with_errors } if sheets_with_errors.any?
     end
   end
 

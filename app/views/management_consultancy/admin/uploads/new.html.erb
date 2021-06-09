@@ -29,7 +29,7 @@
 
     
     <%= form_with model: @upload, url: management_consultancy_admin_uploads_path, method: :post, local: 'false', html: { specialvalidation: true, novalidate: true } do |f| %>
-      <% current_files_for_upload.each do |file| %>
+      <% ManagementConsultancy::Admin::Upload.attributes.each do |file| %>
         <%= govuk_form_group_with_optional_error(f.object, file) do %>
           <%= f.label file, t(".file_label.#{file}"), class: 'govuk-label' %>
           <div class="govuk-!-margin-top-2 govuk-!-width-two-thirds">

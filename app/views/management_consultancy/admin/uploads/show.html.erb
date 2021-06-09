@@ -42,7 +42,7 @@
         </tr>
       </thead>
       <tbody class="govuk-table__body">
-        <% current_files_for_upload.each do |file| %>
+        <% ManagementConsultancy::Admin::Upload.attributes.each do |file| %>
           <% next unless @upload.send(file).attached? %>
           <tr>
             <td class="govuk-table__cell"><%= t(".file_name.#{file}") %></td>

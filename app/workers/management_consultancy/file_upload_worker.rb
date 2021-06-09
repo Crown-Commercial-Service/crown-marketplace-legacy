@@ -4,8 +4,8 @@ module ManagementConsultancy
     sidekiq_options queue: 'mc', retry: false
 
     def perform(id)
-      mc_import = ManagementConsultancy::Admin::Upload.find(id)
-      ManagementConsultancy::FilesImporter.new(mc_import).import_data
+      mc_import = Admin::Upload.find(id)
+      FilesImporter.new(mc_import).import_data
     rescue ActiveRecord::RecordNotFound => e
       logger.error e.message
     end
