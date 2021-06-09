@@ -81,10 +81,10 @@ RSpec.describe ManagementConsultancy::FilesImporter do
 
       it 'changes the state to failed and has the correct errors' do
         expect(upload).to have_state(:failed)
-        expect(upload.import_errors).to eq [{ error: 'supplier_details_has_empty_sheets', details: ['MCF', 'MCF2', 'MCF3'] },
-                                            { error: 'supplier_rate_cards_has_empty_sheets', details: ['MCF Lot 2', 'MCF Lot 3', 'MCF Lot 4', 'MCF Lot 5', 'MCF Lot 6', 'MCF Lot 7', 'MCF Lot 8', 'MCF2 Lot 1', 'MCF2 Lot 2', 'MCF2 Lot 3', 'MCF2 Lot 4', 'MCF3 Lot 1', 'MCF3 Lot 2', 'MCF3 Lot 3', 'MCF3 Lot 4', 'MCF3 Lot 5', 'MCF3 Lot 6', 'MCF3 Lot 7', 'MCF3 Lot 8', 'MCF3 Lot 9'] },
+        expect(upload.import_errors).to eq [{ error: 'supplier_details_has_empty_sheets', details: ['MCF', 'MCF2'] },
+                                            { error: 'supplier_rate_cards_has_empty_sheets', details: ['MCF Lot 2', 'MCF Lot 3', 'MCF Lot 4', 'MCF Lot 5', 'MCF Lot 6', 'MCF Lot 7', 'MCF Lot 8', 'MCF2 Lot 1', 'MCF2 Lot 2', 'MCF2 Lot 3', 'MCF2 Lot 4'] },
                                             { error: 'supplier_regional_offerings_has_empty_sheets', details: ['MCF Lot 2', 'MCF Lot 3', 'MCF Lot 4', 'MCF Lot 5', 'MCF Lot 6', 'MCF Lot 7', 'MCF Lot 8', 'MCF2 Lot 1', 'MCF2 Lot 2', 'MCF2 Lot 3', 'MCF2 Lot 4'] },
-                                            { error: 'supplier_service_offerings_has_empty_sheets', details: ['MCF Lot 2', 'MCF Lot 3', 'MCF Lot 4', 'MCF Lot 5', 'MCF Lot 6', 'MCF Lot 7', 'MCF Lot 8', 'MCF2 Lot 1', 'MCF2 Lot 2', 'MCF2 Lot 3', 'MCF2 Lot 4', 'MCF3 Lot 1', 'MCF3 Lot 2', 'MCF3 Lot 3', 'MCF3 Lot 4', 'MCF3 Lot 5', 'MCF3 Lot 6', 'MCF3 Lot 7', 'MCF3 Lot 8', 'MCF3 Lot 9'] }]
+                                            { error: 'supplier_service_offerings_has_empty_sheets', details: ['MCF Lot 2', 'MCF Lot 3', 'MCF Lot 4', 'MCF Lot 5', 'MCF Lot 6', 'MCF Lot 7', 'MCF Lot 8', 'MCF2 Lot 1', 'MCF2 Lot 2', 'MCF2 Lot 3', 'MCF2 Lot 4'] }]
       end
     end
   end
