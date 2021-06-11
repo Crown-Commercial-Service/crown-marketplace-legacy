@@ -62,11 +62,7 @@ module SupplyTeachers
       end
 
       def files_count
-        count = 0
-        [current_accredited_suppliers, geographical_data_all_suppliers, lot_1_and_lot_2_comparisons, master_vendor_contacts, neutral_vendor_contacts, pricing_for_tool, supplier_lookup].each do |uploaded_file|
-          count += 1 if uploaded_file.attached?
-        end
-        count
+        ATTRIBUTES.count { |uploaded_file| send(uploaded_file).attached? }
       end
 
       def short_uuid

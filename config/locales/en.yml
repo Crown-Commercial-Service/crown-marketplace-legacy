@@ -672,7 +672,7 @@ en:
           heading: New data upload
           return: Return to 'Manage supplier data'
           template_file_name: Download spreadsheet templates
-          template_file_path: legal_services/Supplier spreadsheet templates.zip
+          template_file_path: legal-services/Supplier spreadsheet templates.zip
           upload_caption: Supported file format is .xlsx and maximum file size is 10mb
           upload_data: Upload data
           upload_title: Upload the supplier data
@@ -943,9 +943,9 @@ en:
           heading: New data upload
           include_mcf3: Except for 'Supplier regional offerings', all files should include the sheets for MCF3. If the data for MCF3 is not available, keep the headings or columns but leave the fields blank.
           return: Return to 'Manage supplier data'
-          template_file_mcf3_path: management_consultancy/mcf3/Supplier spreadsheet templates.zip
+          template_file_mcf3_path: management-consultancy/mcf3/Supplier spreadsheet templates.zip
           template_file_name: Download spreadsheet templates
-          template_file_path: management_consultancy/Supplier spreadsheet templates.zip
+          template_file_path: management-consultancy/Supplier spreadsheet templates.zip
           upload_caption: Supported file format is .xlsx and maximum file size is 10mb
           upload_data: Upload data
           upload_title: Upload the supplier data
