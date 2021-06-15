@@ -75,8 +75,12 @@ module Marketplace
     'info@crowncommercial.gov.uk'
   end
 
-  def self.supply_teachers_survey_link
-    'https://www.smartsurvey.co.uk/s/S4MVR/'
+  def self.st_survey_link
+    ENV['ST_SURVEY_LINK']
+  end
+
+  def self.ls_survey_link
+    ENV['LS_SURVEY_LINK']
   end
 
   def self.support_telephone_number
