@@ -19,7 +19,7 @@ module ApplicationHelper
 
     return link_to(t('common.feedback'), Marketplace.ls_survey_link, target: '_blank', rel: 'noopener', class: 'govuk-link') if params[:service].to_s.starts_with? 'legal_services'
 
-    link_to(t('common.feedback'), 'https://www.smartsurvey.co.uk/s/MIIJB/', target: '_blank', rel: 'noopener', class: 'govuk-link')
+    link_to(t('common.feedback'), Marketplace.mc_survey_link, target: '_blank', rel: 'noopener', class: 'govuk-link')
   end
 
   def support_email_link(label)

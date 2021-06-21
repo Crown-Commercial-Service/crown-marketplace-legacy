@@ -83,6 +83,10 @@ module Marketplace
     ENV['LS_SURVEY_LINK']
   end
 
+  def self.mc_survey_link
+    ENV['MC_SURVEY_LINK']
+  end
+
   def self.support_telephone_number
     '0345 410 2222'
   end
