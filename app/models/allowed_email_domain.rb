@@ -4,7 +4,7 @@ class AllowedEmailDomain
   attr_accessor :email_domain
 
   def domain_in_allow_list?
-    allow_list.include? email_domain
+    allow_list.include? email_domain&.downcase
   end
 
   def allow_list
