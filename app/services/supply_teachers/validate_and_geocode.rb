@@ -41,20 +41,24 @@ class SupplyTeachers::ValidateAndGeocode
     end
 
     @suppliers = @suppliers.sort_by { |s| s[:supplier_name] }
+
+    File.open(geocoder_cache_path, 'w') do |file|
+      file.write(YAML.dump(@geocoder_cache))
+    end
   end
   # rubocop:enable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
 
   private
 
   def configure_geocode
-    geocoder_cache = {}
-    geocoder_cache_path = Rails.root.join('storage', 'supply_teachers', 'current_data', '.geocoder-cache.yml')
+    @geocoder_cache = {}
 
     if File.exist?(geocoder_cache_path)
       File.open(geocoder_cache_path) do |file|
-        geocoder_cache = YAML.safe_load(file.read)
+        @geocoder_cache = YAML.safe_load(file.read)
       end
     else
+      FileUtils.mkdir_p(geocoder_cache_path.dirname) unless File.exist?(geocoder_cache_path.dirname)
       FileUtils.touch(geocoder_cache_path)
     end
 
@@ -63,16 +67,16 @@ class SupplyTeachers::ValidateAndGeocode
       api_key: ENV['GOOGLE_GEOCODING_API_KEY'],
       units: :mi,
       distance: :spherical,
-      cache: geocoder_cache
+      cache: @geocoder_cache
     )
-
-    File.open(geocoder_cache_path, 'w') do |file|
-      file.write(YAML.dump(geocoder_cache))
-    end
   end
 
   def geocode(postcode)
     Geocoder.coordinates(postcode, params: { region: 'uk' })
+  end
+
+  def geocoder_cache_path
+    @geocoder_cache_path ||= Rails.root.join('storage', 'supply_teachers', 'current_data', '.geocoder-cache.yml')
   end
 
   def add_error(branch, error)
