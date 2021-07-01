@@ -25,6 +25,8 @@ module ManagementConsultancy::SuppliersHelper
       t('management_consultancy.suppliers.download.expression_of_interest_template_link_1')
     elsif lot.starts_with? 'MCF2'
       t('management_consultancy.suppliers.download.expression_of_interest_template_link_2')
+    elsif lot.starts_with? 'MCF3'
+      t('management_consultancy.suppliers.download.expression_of_interest_template_link_3')
     end
   end
 end

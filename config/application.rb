@@ -25,6 +25,8 @@ module Marketplace
     # config.load_defaults 5.2
     config.load_defaults 6.0
 
+    Rails.autoloaders.main.ignore(Rails.root.join('storage'))
+
     config.autoload_paths += %W[#{config.root}/app/workers #{config.root}/storage]
 
     # Settings in config/environments/* take precedence over those specified here.
@@ -73,8 +75,16 @@ module Marketplace
     'info@crowncommercial.gov.uk'
   end
 
-  def self.supply_teachers_survey_link
-    'https://www.smartsurvey.co.uk/s/S4MVR/'
+  def self.st_survey_link
+    ENV['ST_SURVEY_LINK']
+  end
+
+  def self.ls_survey_link
+    ENV['LS_SURVEY_LINK']
+  end
+
+  def self.mc_survey_link
+    ENV['MC_SURVEY_LINK']
   end
 
   def self.support_telephone_number
@@ -151,5 +161,9 @@ module Marketplace
 
   def self.upload_privileges?
     ENV['APP_HAS_UPLOAD_PRIVILEGES'].present?
+  end
+
+  def self.mcf3_live?
+    @mcf3_live ||= Time.now.in_time_zone('London') >= Time.parse(ENV['MCF3_LIVE_DATE']).in_time_zone('London')
   end
 end
