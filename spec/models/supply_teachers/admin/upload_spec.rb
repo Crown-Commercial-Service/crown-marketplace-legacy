@@ -1,108 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe SupplyTeachers::Admin::Upload, type: :model do
-  let(:blank_upload) { build(:supply_teachers_admin_upload) }
-  let(:valid_xlsx_file) { Tempfile.new(['valid_xlsx_file', '.xlsx']) }
-  let(:valid_csv_file) { Tempfile.new(['valid_csv_file', '.csv']) }
-  let(:invalid_file) { Tempfile.new(['invalid_file', '.xlsx']) }
-  let(:valid_xlsx_file_path) { fixture_file_upload(valid_xlsx_file.path, 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet') }
-  let(:valid_csv_file_path) { fixture_file_upload(valid_csv_file.path, 'text/csv') }
-  let(:invalid_xlsx_file_extension_path) { fixture_file_upload(valid_csv_file.path, 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet') }
-  let(:invalid_csv_file_extension_path) { fixture_file_upload(valid_xlsx_file.path, 'text/csv') }
-  let(:invalid_xlsx_file_content_path) { fixture_file_upload(valid_xlsx_file.path, 'text/csv') }
-  let(:invalid_csv_file_content_path) { fixture_file_upload(valid_csv_file.path, 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet') }
-  let(:invalid_file_path) { fixture_file_upload(invalid_file.path, 'application/pdft') }
+  let(:admin_upload) { create(:supply_teachers_admin_upload) }
 
-  let(:upload) do
-    build(:supply_teachers_admin_upload) do |admin_upload|
-      admin_upload.current_accredited_suppliers = valid_xlsx_file_path
-      admin_upload.supplier_lookup = valid_csv_file_path
-      admin_upload.save
-    end
-  end
-
-  after do
-    valid_xlsx_file.unlink
-    valid_csv_file.unlink
-    invalid_file.unlink
-  end
-
-  describe 'validations' do
-    context 'when considering if the files are attached' do
-      context 'and no files are attached' do
-        it 'is not valid and has the correct error messages' do
-          expect(blank_upload.save).to be false
-          expect(blank_upload.errors.messages.values.flatten).to match ['Upload at least one file']
-        end
-      end
-    end
-
-    context 'when considering the file extension' do
-      context 'and no files have the correct file extension' do
-        before do
-          blank_upload.current_accredited_suppliers = invalid_xlsx_file_extension_path
-          blank_upload.geographical_data_all_suppliers = invalid_xlsx_file_extension_path
-          blank_upload.lot_1_and_lot_2_comparisons = invalid_xlsx_file_extension_path
-          blank_upload.master_vendor_contacts = invalid_csv_file_extension_path
-          blank_upload.neutral_vendor_contacts = invalid_csv_file_extension_path
-          blank_upload.pricing_for_tool = invalid_xlsx_file_extension_path
-          blank_upload.supplier_lookup = invalid_csv_file_extension_path
-        end
-
-        it 'is not valid and has the correct error messages' do
-          expect(blank_upload.save).to be false
-          expect(blank_upload.errors.messages.values.flatten).to match ["The 'Current accredited suppliers' file must be an XLSX", "The 'Geographical data all suppliers' file must be an XLSX", "The 'Lot 1 and lot 2 comparisons' file must be an XLSX", "The 'Master vendor contacts' file must be a CSV", "The 'Neutral vendor contacts' file must be a CSV", "The 'Pricing for tool' file must be an XLSX", "The 'Supplier lookup' file must be a CSV"]
-        end
-      end
-    end
-
-    context 'when considering the file content type' do
-      context 'and no files have the correct content type' do
-        before do
-          blank_upload.current_accredited_suppliers = invalid_xlsx_file_content_path
-          blank_upload.geographical_data_all_suppliers = invalid_xlsx_file_content_path
-          blank_upload.lot_1_and_lot_2_comparisons = invalid_xlsx_file_content_path
-          blank_upload.master_vendor_contacts = invalid_csv_file_content_path
-          blank_upload.neutral_vendor_contacts = invalid_csv_file_content_path
-          blank_upload.pricing_for_tool = invalid_xlsx_file_content_path
-          blank_upload.supplier_lookup = invalid_csv_file_content_path
-        end
-
-        it 'is not valid and has the correct error messages' do
-          expect(blank_upload.save).to be false
-          expect(blank_upload.errors.messages.values.flatten).to match ["The 'Current accredited suppliers' file does not contain the expected content type", "The 'Geographical data all suppliers' file does not contain the expected content type", "The 'Lot 1 and lot 2 comparisons' file does not contain the expected content type", "The 'Master vendor contacts' file does not contain the expected content type", "The 'Neutral vendor contacts' file does not contain the expected content type", "The 'Pricing for tool' file does not contain the expected content type", "The 'Supplier lookup' file does not contain the expected content type"]
-        end
-      end
-    end
-
-    context 'when all uploaded files are valid' do
-      context 'and two files are attached' do
-        before do
-          blank_upload.current_accredited_suppliers = valid_xlsx_file_path
-          blank_upload.supplier_lookup = valid_csv_file_path
-        end
-
-        it 'is valid' do
-          expect(upload.save).to be true
-        end
-      end
-
-      context 'and all 7 files are attached' do
-        before do
-          blank_upload.current_accredited_suppliers = valid_xlsx_file_path
-          blank_upload.geographical_data_all_suppliers = valid_xlsx_file_path
-          blank_upload.lot_1_and_lot_2_comparisons = valid_xlsx_file_path
-          blank_upload.master_vendor_contacts = valid_csv_file_path
-          blank_upload.neutral_vendor_contacts = valid_csv_file_path
-          blank_upload.pricing_for_tool = valid_xlsx_file_path
-          blank_upload.supplier_lookup = valid_csv_file_path
-        end
-
-        it 'is valid' do
-          expect(upload.save).to be true
-        end
-      end
-    end
+  before do
+    Aws.config[:stub_responses] = true
   end
 
   describe '#default scope' do
@@ -112,285 +14,295 @@ RSpec.describe SupplyTeachers::Admin::Upload, type: :model do
   end
 
   describe '#aasm state' do
-    it 'starts at not_started state' do
-      expect(upload).to have_state(:not_started)
+    before do
+      allow(admin_upload).to receive(:cleanup_input_files)
     end
 
-    context 'when start_upload is called' do
+    describe 'initial state' do
+      it 'has state in progress' do
+        expect(admin_upload).to have_state(:in_progress)
+      end
+
+      it 'does not cleanup files' do
+        expect(admin_upload).not_to have_received(:cleanup_input_files)
+      end
+    end
+
+    describe 'in_review' do
+      before { admin_upload.review }
+
+      it 'has state in review' do
+        expect(admin_upload).to have_state(:in_review)
+      end
+
+      it 'does not cleanup files' do
+        expect(admin_upload).not_to have_received(:cleanup_input_files)
+      end
+    end
+
+    describe 'failed' do
+      context 'when in_progress' do
+        before { admin_upload.fail }
+
+        it 'has state failed' do
+          expect(admin_upload).to have_state(:failed)
+        end
+
+        it 'does cleanup files' do
+          expect(admin_upload).to have_received(:cleanup_input_files)
+        end
+      end
+
+      context 'when uploading' do
+        before do
+          admin_upload.aasm.current_state = :uploading
+          admin_upload.fail
+        end
+
+        it 'has state failed' do
+          expect(admin_upload).to have_state(:failed)
+        end
+
+        it 'does cleanup files' do
+          expect(admin_upload).to have_received(:cleanup_input_files)
+        end
+      end
+    end
+
+    describe 'uploading' do
       before do
-        allow(SupplyTeachers::DataImportWorker).to receive(:perform_async).with(upload.id).and_return(true)
-        upload.start_upload!
+        admin_upload.aasm.current_state = :in_review
+        admin_upload.upload
       end
 
-      it 'changes the state to processing_files' do
-        expect(upload).to have_state(:processing_files)
+      it 'has state uploading' do
+        expect(admin_upload).to have_state(:uploading)
       end
 
-      it 'starts the worker' do
-        expect(SupplyTeachers::DataImportWorker).to have_received(:perform_async).with(upload.id)
-      end
-    end
-
-    context 'when files_processing_complete is called' do
-      before { upload.update(aasm_state: 'processing_files') }
-
-      it 'changes the state to files_processed' do
-        upload.files_processing_complete!
-
-        expect(upload).to have_state(:files_processed)
+      it 'does not cleanup files' do
+        expect(admin_upload).not_to have_received(:cleanup_input_files)
       end
     end
 
-    context 'when approve is called' do
+    describe 'approved' do
       before do
-        upload.update(aasm_state: 'files_processed')
-        allow(SupplyTeachers::DataUploadWorker).to receive(:perform_async).with(upload.id).and_return(true)
-        upload.approve!
+        admin_upload.aasm.current_state = :uploading
+        admin_upload.approve
       end
 
-      it 'changes the state to uploading' do
-        expect(upload).to have_state(:uploading)
+      it 'has state approved' do
+        expect(admin_upload).to have_state(:approved)
       end
 
-      it 'starts the worker' do
-        expect(SupplyTeachers::DataUploadWorker).to have_received(:perform_async).with(upload.id)
-      end
-    end
-
-    context 'when publish is called' do
-      before { upload.update(aasm_state: 'uploading') }
-
-      it 'changes the state to published' do
-        upload.publish!
-
-        expect(upload).to have_state(:published)
+      it 'does not cleanup files' do
+        expect(admin_upload).not_to have_received(:cleanup_input_files)
       end
     end
 
-    context 'when reject is called' do
+    describe 'rejected' do
       before do
-        upload.update(aasm_state: 'files_processed')
-        allow(upload).to receive(:cleanup_input_files)
-        upload.reject!
+        admin_upload.aasm.current_state = :in_review
+        admin_upload.reject
       end
 
-      it 'changes the state to rejected' do
-        expect(upload).to have_state(:rejected)
+      it 'has state rejected' do
+        expect(admin_upload).to have_state(:rejected)
       end
 
       it 'does cleanup files' do
-        expect(upload).to have_received(:cleanup_input_files)
+        expect(admin_upload).to have_received(:cleanup_input_files)
       end
     end
 
-    context 'when cancel is called' do
-      before do
-        upload.update(aasm_state: 'files_processed')
-        allow(upload).to receive(:cleanup_input_files)
-        upload.cancel!
+    describe 'canceled' do
+      context 'when in review' do
+        before do
+          admin_upload.aasm.current_state = :in_review
+          admin_upload.cancel
+        end
+
+        it 'has state canceled' do
+          expect(admin_upload).to have_state(:canceled)
+        end
+
+        it 'does cleanup files' do
+          expect(admin_upload).to have_received(:cleanup_input_files)
+        end
       end
 
-      it 'changes the state to canceled' do
-        expect(upload).to have_state(:canceled)
-      end
+      context 'when in progress' do
+        before do
+          admin_upload.aasm.current_state = :in_progress
+          admin_upload.cancel
+        end
 
-      it 'does cleanup files' do
-        expect(upload).to have_received(:cleanup_input_files)
-      end
-    end
+        it 'has state canceled' do
+          expect(admin_upload).to have_state(:canceled)
+        end
 
-    context 'when fail is called' do
-      before do
-        upload.update(aasm_state: 'uploading')
-        allow(upload).to receive(:cleanup_input_files)
-        upload.fail!
-      end
-
-      it 'changes the state to fail' do
-        expect(upload).to have_state(:failed)
-      end
-
-      it 'does cleanup files' do
-        expect(upload).to have_received(:cleanup_input_files)
+        it 'does cleanup files' do
+          expect(admin_upload).to have_received(:cleanup_input_files)
+        end
       end
     end
   end
 
   describe '#available_for_cp' do
-    let(:new_upload) { build(:supply_teachers_admin_upload) }
+    let(:upload) { create(:supply_teachers_admin_upload) }
 
     context 'when no previous upload exists' do
-      it 'returns false for current_accredited_suppliers' do
-        expect(new_upload.send(:available_for_cp, nil, :current_accredited_suppliers)).to eq false
-      end
-
-      it 'returns false for supplier_lookup' do
-        expect(new_upload.send(:available_for_cp, nil, :supplier_lookup)).to eq false
+      it 'returns true for supplier_lookup' do
+        expect(upload.send(:available_for_cp, :supplier_lookup)).to eq false
       end
     end
 
     context 'when previous approved upload exists' do
       before do
-        new_upload.current_accredited_suppliers = valid_xlsx_file_path
-        new_upload.supplier_lookup = valid_csv_file_path
-        upload.update(aasm_state: 'published')
-      end
-
-      it 'returns true for current_accredited_suppliers' do
-        expect(new_upload.send(:available_for_cp, upload.current_accredited_suppliers, :current_accredited_suppliers)).to eq true
-      end
-
-      it 'returns false for geographical_data_all_suppliers' do
-        expect(new_upload.send(:available_for_cp, upload.geographical_data_all_suppliers, :geographical_data_all_suppliers)).to eq false
-      end
-
-      it 'returns false for lot_1_and_lot_2_comparisons' do
-        expect(new_upload.send(:available_for_cp, upload.lot_1_and_lot_2_comparisons, :lot_1_and_lot_2_comparisons)).to eq false
-      end
-
-      it 'returns false for master_vendor_contacts' do
-        expect(new_upload.send(:available_for_cp, upload.master_vendor_contacts, :master_vendor_contacts)).to eq false
-      end
-
-      it 'returns false for neutral_vendor_contacts' do
-        expect(new_upload.send(:available_for_cp, upload.neutral_vendor_contacts, :neutral_vendor_contacts)).to eq false
-      end
-
-      it 'returns false for pricing_for_tool' do
-        expect(new_upload.send(:available_for_cp, upload.pricing_for_tool, :pricing_for_tool)).to eq false
+        admin_upload.aasm.current_state = :uploading
+        admin_upload.approve!
       end
 
       it 'returns true for supplier_lookup' do
-        expect(new_upload.send(:available_for_cp, upload.supplier_lookup, :supplier_lookup)).to eq true
+        expect(upload.send(:available_for_cp, :supplier_lookup)).to eq true
+      end
+
+      it 'returns false for current_accredited_suppliers' do
+        expect(upload.send(:available_for_cp, :current_accredited_suppliers)).to eq false
+      end
+
+      it 'returns false for geographical_data_all_suppliers' do
+        expect(upload.send(:available_for_cp, :geographical_data_all_suppliers)).to eq false
+      end
+
+      it 'returns false for lot_1_and_lot_2_comparisons' do
+        expect(upload.send(:available_for_cp, :lot_1_and_lot_2_comparisons)).to eq false
+      end
+
+      it 'returns false for master_vendor_contacts' do
+        expect(upload.send(:available_for_cp, :master_vendor_contacts)).to eq false
+      end
+
+      it 'returns false for neutral_vendor_contacts' do
+        expect(upload.send(:available_for_cp, :neutral_vendor_contacts)).to eq false
+      end
+
+      it 'returns false for pricing_for_tool' do
+        expect(upload.send(:available_for_cp, :pricing_for_tool)).to eq false
       end
     end
   end
 
   describe '#files_count' do
     context 'when one file' do
-      before do
-        blank_upload.current_accredited_suppliers = valid_xlsx_file_path
-        blank_upload.save
-      end
-
       it 'returns 1' do
-        expect(blank_upload.files_count).to eq(1)
+        expect(admin_upload.files_count).to eq(1)
       end
     end
 
     context 'when two files' do
       before do
-        blank_upload.current_accredited_suppliers = valid_xlsx_file_path
-        blank_upload.supplier_lookup = valid_csv_file_path
-        blank_upload.save
+        admin_upload.master_vendor_contacts = Rack::Test::UploadedFile.new(Rails.root.join('spec', 'fixtures', 'supplier_lookup_test.csv'))
       end
 
       it 'returns 2' do
-        expect(blank_upload.files_count).to eq(2)
+        expect(admin_upload.files_count).to eq(2)
       end
     end
   end
 
-  describe '#previous_uploaded_file_upload' do
+  describe '#previous_uploaded_file_object' do
     context 'when there is a previous approved upload' do
-      before { upload.update(aasm_state: 'published') }
+      before do
+        admin_upload.aasm.current_state = :uploading
+        admin_upload.approve!
+      end
 
       it 'returns previous approved object with uploaded file' do
-        expect(described_class.previous_uploaded_file_upload(:current_accredited_suppliers)).to eq upload
-        expect(described_class.previous_uploaded_file_upload(:supplier_lookup)).to eq upload
+        expect(described_class.previous_uploaded_file_object(:supplier_lookup)).to eq admin_upload
       end
 
       it 'returns nil if file is not there' do
-        expect(described_class.previous_uploaded_file_upload(:master_vendor_contacts)).to eq nil
+        expect(described_class.previous_uploaded_file_object(:master_vendor_contacts)).to eq nil
       end
     end
 
     context 'when there is no previous upload that is approved' do
       it 'returns nil' do
-        expect(described_class.previous_uploaded_file_upload(:supplier_lookup)).to eq nil
+        expect(described_class.previous_uploaded_file_object(:supplier_lookup)).to eq nil
       end
     end
   end
 
   describe '#reject_previous_uploads' do
-    before do
-      upload.update(aasm_state: state)
-      new_upload = build(:supply_teachers_admin_upload)
-      new_upload.current_accredited_suppliers = valid_xlsx_file_path
-      new_upload.save
-      upload.reload
-    end
-
-    context 'when there is previous upload in not_started state' do
-      let(:state) { 'not_started' }
+    context 'when there is previous upload in in_progress state' do
+      before do
+        admin_upload
+        create(:supply_teachers_admin_upload)
+        admin_upload.reload
+      end
 
       it 'cancels the upload' do
-        expect(upload).to have_state(:canceled)
+        expect(admin_upload).to have_state(:canceled)
       end
     end
 
-    context 'when there is previous upload in processing_files state' do
-      let(:state) { 'processing_files' }
-
-      it 'cancels the upload' do
-        expect(upload).to have_state(:canceled)
+    context 'when there is previous upload in in_review state' do
+      before do
+        admin_upload.review!
+        create(:supply_teachers_admin_upload)
+        admin_upload.reload
       end
-    end
-
-    context 'when there is previous upload in files_processed state' do
-      let(:state) { 'files_processed' }
 
       it 'cancels the upload' do
-        expect(upload).to have_state(:canceled)
+        expect(admin_upload).to have_state(:canceled)
       end
     end
 
     context 'when there is previous upload in uploading state' do
-      let(:state) { 'uploading' }
+      before do
+        admin_upload.review!
+        admin_upload.upload!
+        create(:supply_teachers_admin_upload)
+        admin_upload.reload
+      end
 
       it 'cancels the upload' do
-        expect(upload).to have_state(:canceled)
+        expect(admin_upload).to have_state(:canceled)
       end
     end
 
-    context 'when there is previous upload in published state' do
-      let(:state) { 'published' }
+    context 'when there is previous upload in approved state' do
+      let(:admin_upload) { create(:supply_teachers_admin_upload, aasm_state: 'uploading') }
 
       it 'does not cancel the upload' do
-        expect(upload).not_to have_state(:canceled)
+        expect(admin_upload).not_to have_state(:canceled)
       end
     end
   end
 
   describe '#copy_files_to_current_data' do
-    let(:new_upload) { build(:supply_teachers_admin_upload) }
-
-    before { new_upload.supplier_lookup = valid_csv_file_path }
-
     context 'when a CurrentData object does not exist' do
       it 'creates a CurrentData object' do
-        expect { new_upload.save }.to change(SupplyTeachers::Admin::CurrentData, :count).by(1)
+        expect { create(:supply_teachers_admin_upload) }.to change(SupplyTeachers::Admin::CurrentData, :count).by(+1)
       end
 
       it 'updates all CurrentData files to match the Upload object' do
-        new_upload.save
-
-        expect(SupplyTeachers::Admin::CurrentData.first.supplier_lookup.blob).to eq new_upload.supplier_lookup.blob
+        admin_upload
+        expect(SupplyTeachers::Admin::CurrentData.first.supplier_lookup.file.read).to eq admin_upload.supplier_lookup.file.read
       end
     end
 
     context 'when a CurrentData object exists' do
-      before { upload }
+      before do
+        admin_upload
+      end
 
       it 'does not create a new CurrentData object' do
-        expect { new_upload.save }.not_to change(SupplyTeachers::Admin::CurrentData, :count)
+        expect { create(:supply_teachers_admin_upload) }.not_to change(SupplyTeachers::Admin::CurrentData, :count)
       end
 
       it 'updates the existing CurrentData object' do
-        new_upload.save
-
-        expect(SupplyTeachers::Admin::CurrentData.first.supplier_lookup.blob).not_to eq upload.supplier_lookup.blob
-        expect(SupplyTeachers::Admin::CurrentData.first.supplier_lookup.blob).to eq new_upload.supplier_lookup.blob
+        expect(SupplyTeachers::Admin::CurrentData.first.supplier_lookup.read).to eq admin_upload.supplier_lookup.read
       end
     end
   end

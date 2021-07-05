@@ -1,27 +1,35 @@
 module ManagementConsultancy
   module Admin
-    class Upload < ::Admin::Upload
+    class Upload < ApplicationRecord
+      include AASM
       self.table_name = 'management_consultancy_admin_uploads'
+      default_scope { order(created_at: :desc) }
 
-      has_one_attached :supplier_details_file
-      has_one_attached :supplier_rate_cards_file
-      has_one_attached :supplier_regional_offerings_file
-      has_one_attached :supplier_service_offerings_file
+      mount_uploader :suppliers_data, ManagementConsultancyFileUploader
 
-      validates :supplier_details_file, antivirus: { message: :malicious }, size: { less_than: 10.megabytes, message: :too_large }, content_type: { with: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', message: :wrong_content_type }, on: :upload
-      validates :supplier_rate_cards_file, antivirus: { message: :malicious }, size: { less_than: 10.megabytes, message: :too_large }, content_type: { with: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', message: :wrong_content_type }, on: :upload
-      validates :supplier_regional_offerings_file, antivirus: { message: :malicious }, size: { less_than: 10.megabytes, message: :too_large }, content_type: { with: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', message: :wrong_content_type }, on: :upload, unless: -> { Marketplace.mcf3_live? }
-      validates :supplier_service_offerings_file, antivirus: { message: :malicious }, size: { less_than: 10.megabytes, message: :too_large }, content_type: { with: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', message: :wrong_content_type }, on: :upload
+      attr_accessor :suppliers_data_cache
 
-      def self.attributes
-        if Marketplace.mcf3_live?
-          %i[supplier_details_file supplier_rate_cards_file supplier_service_offerings_file]
-        else
-          %i[supplier_details_file supplier_rate_cards_file supplier_regional_offerings_file supplier_service_offerings_file]
+      aasm do
+        state :in_progress, initial: true
+        state :uploaded
+        state :failed
+        event :upload do
+          transitions from: :in_progress, to: :uploaded
+        end
+        event :fail do
+          transitions from: :in_progress, to: :failed
         end
       end
 
-      SERVICE = ManagementConsultancy
+      def short_uuid
+        id[0..7]
+      end
+
+      private
+
+      def start_upload
+        ManagementConsultancy::DataUploadWorker.perform_async(id)
+      end
     end
   end
 end

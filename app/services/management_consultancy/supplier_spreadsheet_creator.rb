@@ -38,12 +38,6 @@ class ManagementConsultancy::SupplierSpreadsheetCreator
   end
 
   def add_audit_trail(sheet)
-    add_services(sheet)
-
-    add_regions(sheet) if @params['region_codes']
-  end
-
-  def add_services(sheet)
     services = []
     @params['services'].each do |service|
       if service =~ /^MCF\d[.]\d+[.]\d+[.]\d+$/
@@ -55,9 +49,7 @@ class ManagementConsultancy::SupplierSpreadsheetCreator
       end
     end
     sheet.add_row ['Services', services.join(', ')]
-  end
 
-  def add_regions(sheet)
     regions = []
     @params['region_codes'].each do |region_code|
       regions << Nuts2Region.find_by(code: region_code).name

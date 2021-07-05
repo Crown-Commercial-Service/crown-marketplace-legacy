@@ -4,7 +4,7 @@ module SupplyTeachers
       skip_before_action :verify_authenticity_token, only: :create
       before_action :authenticate_user!
       before_action :authorize_user
-      before_action :set_upload, only: %i[show update destroy]
+      before_action :set_back_path
 
       def index
         @uploads = Upload.all.page params[:page]
@@ -12,38 +12,52 @@ module SupplyTeachers
       end
 
       def show
+        @upload = Upload.find(params[:id])
         @attributes = Upload::ATTRIBUTES
       end
 
       def new
         @upload = Upload.new
-        @uploads_in_progress = Upload.in_upload_progress
+        @uploads_in_progress = Upload.in_review_or_in_progress
       end
 
       def create
         @upload = Upload.new(upload_params)
-        @uploads_in_progress = Upload.in_upload_progress
+        @uploads_in_progress = Upload.in_review_or_in_progress
 
         if @upload.save
-          @upload.start_upload!
-          redirect_to supply_teachers_admin_upload_path(id: @upload.id)
+          SupplyTeachers::DataScriptWorker.perform_async(@upload.id)
+          redirect_to supply_teachers_admin_in_progress_path
         else
+          @upload.cleanup_input_files
           render :new
         end
       end
 
-      def update
-        if params[:approve]
-          @upload.approve!
-        elsif params[:reject]
-          @upload.reject!
-        end
-        redirect_to supply_teachers_admin_upload_path
+      def approve
+        upload = Upload.perform_upload(params[:upload_id])
+        redirect_to supply_teachers_admin_upload_uploading_path(upload_id: upload.id)
+      end
+
+      def reject
+        @upload = Upload.find(params[:upload_id])
+        @upload.reject!
+      end
+
+      def in_progress; end
+
+      def uploading
+        @upload = Upload.find(params[:upload_id])
       end
 
       def destroy
-        @upload.destroy
-        redirect_to supply_teachers_admin_uploads_path
+        upload = Upload.find(params[:upload_id])
+
+        if upload.destroy
+          redirect_to supply_teachers_admin_uploads_path
+        else
+          redirect_to supply_teachers_admin_upload(params[:upload_id]), error: 'Could not delete.'
+        end
       end
 
       def accessibility_statement
@@ -60,24 +74,25 @@ module SupplyTeachers
 
       private
 
-      def set_upload
-        @upload = Upload.find(params[:id] || params[:upload_id])
+      def set_back_path
+        @back_path = supply_teachers_admin_uploads_path
       end
 
       def upload_params
-        params.require(:supply_teachers_admin_upload).permit(:current_accredited_suppliers, :geographical_data_all_suppliers, :lot_1_and_lot_2_comparisons, :master_vendor_contacts, :neutral_vendor_contacts, :pricing_for_tool, :supplier_lookup) if params[:supply_teachers_admin_upload].present?
+        params.require(:supply_teachers_admin_upload).permit(:current_accredited_suppliers, :geographical_data_all_suppliers, :lot_1_and_lot_2_comparisons, :master_vendor_contacts, :neutral_vendor_contacts, :pricing_for_tool, :supplier_lookup, :current_accredited_suppliers_cache, :geographical_data_all_suppliers_cache, :lot_1_and_lot_2_comparisons_cache, :master_vendor_contacts_cache, :neutral_vendor_contacts_cache, :pricing_for_tool_cache, :supplier_lookup_cache)
       end
 
       def setup_previous_uploaded_files
         @current_uploads = []
         Upload::ATTRIBUTES.each do |attr|
-          upload = Upload.previous_uploaded_file_upload(attr)
-          next if upload.nil?
+          object = Upload.previous_uploaded_file_object(attr)
+          next if object.nil?
 
           @current_uploads << {
+            file_path: object.send(attr).url,
+            upload_id: object.id,
             attribute_name: attr,
-            upload: upload,
-            attachment: upload.send(attr)
+            datetime: object.datetime
           }
         end
       end

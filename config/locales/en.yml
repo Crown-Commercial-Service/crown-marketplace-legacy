@@ -53,12 +53,10 @@ en:
           attributes:
             email:
               blank: Enter an email address in the correct format, like name@example.com
-              invalid: Email address cannot contain any capital letters
               not_on_safelist: You must use a public sector email
             password:
               blank: Enter a password
               invalid_no_capitals: Password must include a capital letter
-              invalid_no_number: Password must include a number
               invalid_no_symbol: Password must include a special character
               too_short: Password must be 8 characters or more
             password_confirmation:
@@ -224,109 +222,10 @@ en:
   activerecord:
     errors:
       models:
-        legal_services/admin/upload:
-          attributes:
-            supplier_details_file:
-              malicious: The 'Supplier details' file contains a virus
-              not_attached: Select the 'Supplier details' file
-              too_large: The 'Supplier details' file must be smaller than 10mb
-              wrong_content_type: The 'Supplier details' file does not contain the expected content type
-              wrong_extension: The 'Supplier details' file must be an XLSX
-            supplier_lot_1_service_offerings_file:
-              malicious: The 'Supplier lot 1 service offerings' file contains a virus
-              not_attached: Select the 'Supplier lot 1 service offerings' file
-              too_large: The 'Supplier lot 1 service offerings' file must be smaller than 10mb
-              wrong_content_type: The 'Supplier lot 1 service offerings' file does not contain the expected content type
-              wrong_extension: The 'Supplier lot 1 service offerings' file must be an XLSX
-            supplier_lot_2_service_offerings_file:
-              malicious: The 'Supplier lot 2 service offerings' file contains a virus
-              not_attached: Select the 'Supplier lot 2 service offerings' file
-              too_large: The 'Supplier lot 2 service offerings' file must be smaller than 10mb
-              wrong_content_type: The 'Supplier lot 2 service offerings' file does not contain the expected content type
-              wrong_extension: The 'Supplier lot 2 service offerings' file must be an XLSX
-            supplier_lot_3_service_offerings_file:
-              malicious: The 'Supplier lot 3 service offerings' file contains a virus
-              not_attached: Select the 'Supplier lot 3 service offerings' file
-              too_large: The 'Supplier lot 3 service offerings' file must be smaller than 10mb
-              wrong_content_type: The 'Supplier lot 3 service offerings' file does not contain the expected content type
-              wrong_extension: The 'Supplier lot 3 service offerings' file must be an XLSX
-            supplier_lot_4_service_offerings_file:
-              malicious: The 'Supplier lot 4 service offerings' file contains a virus
-              not_attached: Select the 'Supplier lot 4 service offerings' file
-              too_large: The 'Supplier lot 4 service offerings' file must be smaller than 10mb
-              wrong_content_type: The 'Supplier lot 4 service offerings' file does not contain the expected content type
-              wrong_extension: The 'Supplier lot 4 service offerings' file must be an XLSX
-            supplier_rate_cards_file:
-              malicious: The 'Supplier rate cards' file contains a virus
-              not_attached: Select the 'Supplier rate cards' file
-              too_large: The 'Supplier rate cards' file must be smaller than 10mb
-              wrong_content_type: The 'Supplier rate cards' file does not contain the expected content type
-              wrong_extension: The 'Supplier rate cards' file must be an XLSX
-        management_consultancy/admin/upload:
-          attributes:
-            supplier_details_file:
-              malicious: The 'Supplier details' file contains a virus
-              not_attached: Select the 'Supplier details' file
-              too_large: The 'Supplier details' file must be smaller than 10mb
-              wrong_content_type: The 'Supplier details' file does not contain the expected content type
-              wrong_extension: The 'Supplier details' file must be an XLSX
-            supplier_rate_cards_file:
-              malicious: The 'Supplier rate cards' file contains a virus
-              not_attached: Select the 'Supplier rate cards' file
-              too_large: The 'Supplier rate cards' file must be smaller than 10mb
-              wrong_content_type: The 'Supplier rate cards' file does not contain the expected content type
-              wrong_extension: The 'Supplier rate cards' file must be an XLSX
-            supplier_regional_offerings_file:
-              malicious: The 'Supplier regional offerings' file contains a virus
-              not_attached: Select the 'Supplier regional offerings' file
-              too_large: The 'Supplier regional offerings' file must be smaller than 10mb
-              wrong_content_type: The 'Supplier regional offerings' file does not contain the expected content type
-              wrong_extension: The 'Supplier regional offerings' file must be an XLSX
-            supplier_service_offerings_file:
-              malicious: The 'Supplier service offerings' file contains a virus
-              not_attached: Select the 'Supplier service offerings' file
-              too_large: The 'Supplier service offerings' file must be smaller than 10mb
-              wrong_content_type: The 'Supplier service offerings' file does not contain the expected content type
-              wrong_extension: The 'Supplier service offerings' file must be an XLSX
         supply_teachers/admin/upload:
           attributes:
             base:
-              none_attached: Upload at least one file
-            current_accredited_suppliers:
-              malicious: The 'Current accredited suppliers' file contains a virus
-              too_large: The 'Current accredited suppliers' file must be smaller than 10mb
-              wrong_content_type: The 'Current accredited suppliers' file does not contain the expected content type
-              wrong_extension: The 'Current accredited suppliers' file must be an XLSX
-            geographical_data_all_suppliers:
-              malicious: The 'Geographical data all suppliers' file contains a virus
-              too_large: The 'Geographical data all suppliers' file must be smaller than 10mb
-              wrong_content_type: The 'Geographical data all suppliers' file does not contain the expected content type
-              wrong_extension: The 'Geographical data all suppliers' file must be an XLSX
-            lot_1_and_lot_2_comparisons:
-              malicious: The 'Lot 1 and lot 2 comparisons' file contains a virus
-              too_large: The 'Lot 1 and lot 2 comparisons' file must be smaller than 10mb
-              wrong_content_type: The 'Lot 1 and lot 2 comparisons' file does not contain the expected content type
-              wrong_extension: The 'Lot 1 and lot 2 comparisons' file must be an XLSX
-            master_vendor_contacts:
-              malicious: The 'Master vendor contacts' file contains a virus
-              too_large: The 'Master vendor contacts' file must be smaller than 10mb
-              wrong_content_type: The 'Master vendor contacts' file does not contain the expected content type
-              wrong_extension: The 'Master vendor contacts' file must be a CSV
-            neutral_vendor_contacts:
-              malicious: The 'Neutral vendor contacts' file contains a virus
-              too_large: The 'Neutral vendor contacts' file must be smaller than 10mb
-              wrong_content_type: The 'Neutral vendor contacts' file does not contain the expected content type
-              wrong_extension: The 'Neutral vendor contacts' file must be a CSV
-            pricing_for_tool:
-              malicious: The 'Pricing for tool' file contains a virus
-              not_attached: Select the 'Pricing for tool' file
-              wrong_content_type: The 'Pricing for tool' file does not contain the expected content type
-              wrong_extension: The 'Pricing for tool' file must be an XLSX
-            supplier_lookup:
-              malicious: The 'Supplier lookup' file contains a virus
-              too_large: The 'Supplier lookup' file must be smaller than 10mb
-              wrong_content_type: The 'Supplier lookup' file does not contain the expected content type
-              wrong_extension: The 'Supplier lookup' file must be a CSV
+              none_present: Upload at least one file
         supply_teachers/branch:
           attributes:
             postcode:
@@ -355,7 +254,6 @@ en:
     submit: Continue
     type_doc: application/msword
     type_xlsx: application/msexcel
-    type_zip: application/zip
     xlsx_html: <abbr title="Microsoft Excel">XLSX</abbr>
   companies:
     unit:
@@ -587,114 +485,34 @@ en:
         new:
           email_hint_html: Enter the email address you used to set up your account.
       uploads:
-        failed:
-          below_is_a_list: Below is a list of the issues that have occurred with the file upload and details on how they might be fixed.
-          details: Details
-          error_details:
-            file_check_failed: Something went wrong when checking the files, please try uploading the files again
-            file_process_failed: Something went wrong when processing the files, please try uploading the files again
-            file_publish_failed: Something went wrong when publishing the files, please try uploading the files again
-            supplier_details_has_empty_sheets: Make sure the sheet for 'Supplier details' have been filled in
-            supplier_details_has_incorrect_headers: 'Make sure the sheet for ''Supplier details'' has the following headers: ''Supplier Name'', ''Email address'', ''Phone number'', ''Website URL'', ''Postal address'', ''Is an SME'', ''DUNS Number'', ''Lot 1: Prospectus Link'', ''Lot 2: Prospectus Link'', ''Lot 3: Prospectus Link'', ''Lot 4: Prospectus Link'', ''About the supplier'''
-            supplier_details_missing_sheets: The 'Supplier details' file should have 1 sheet named 'All Suppliers'
-            supplier_lot_1_service_offerings_has_empty_sheets_html: 'The following sheets have no data: %{list} Make sure all sheets for ''Supplier lot 1 service offerings'' have been filled in'
-            supplier_lot_1_service_offerings_has_incorrect_headers_html: 'The following sheets have incorrect column headers: %{list} Make sure all sheets for ''Supplier lot 1 service offerings'' have the 14 expected services'
-            supplier_lot_1_service_offerings_missing_sheets: 'The ''Supplier lot 1 service offerings'' file should have 13 sheets with the following names: ''Full UK Coverage'', ''North East England (NUTS C)'', ''North West England (NUTS D)'', ''Yorkshire & Humberside (NUTS E)'', ''East Midlands (NUTS F)'', ''West Midlands (NUTS G)'', ''East of England (NUTS H)'', ''Greater London (NUTS I)'', ''South East England (NUTS J)'', ''South West England (NUTS K)'', ''Wales (NUTS L)'', ''Scotland (NUTS M)'', ''Northern Ireland (NUTS N)'''
-            supplier_lot_2_service_offerings_has_empty_sheets_html: 'The following sheets have no data: %{list} Make sure all sheets for ''Supplier lot 2 service offerings'' have been filled in'
-            supplier_lot_2_service_offerings_has_incorrect_headers_html: 'The following sheets have incorrect column  headers: %{list} Make sure all sheets for ''Supplier lot 2 service offerings'' have the 35 expected services'
-            supplier_lot_2_service_offerings_missing_sheets: 'The ''Supplier lot 2 service offerings'' file should have 3 sheets with the following names: ''Lot 2a - England & Wales'', ''Lot 2b - Scotland'', ''Lot 2c - Northern Ireland'''
-            supplier_lot_3_service_offerings_has_empty_sheets: Make sure the sheet for 'Supplier lot 3 service offerings' have been filled in
-            supplier_lot_3_service_offerings_has_incorrect_headers: Make sure the sheet for 'Supplier lot 3 service offerings' only has the single service 'WPSLS.3.1'
-            supplier_lot_3_service_offerings_missing_sheets: The ''Supplier lot 3 service offerings' file should have 1 sheet named 'All regions'
-            supplier_lot_4_service_offerings_has_empty_sheets: Make sure the sheet for 'Supplier lot 4 service offerings' have been filled in
-            supplier_lot_4_service_offerings_has_incorrect_headers: Make sure the sheet for 'Supplier lot 4 service offerings' only has the single service 'WPSLS.4.1'
-            supplier_lot_4_service_offerings_missing_sheets: The ''Supplier lot 4 service offerings' file should have 1 sheet named 'All regions'
-            supplier_missing_lots_html: 'The following suppliers do not offer any lots: %{list} Make sure all the suppliers have the correct name and DUNS number'
-            supplier_missing_rate_cards_html: 'The following suppliers do not have any rate cards: %{list} Make sure all the suppliers have the correct name and DUNS number'
-            supplier_rate_cards_has_empty_sheets_html: 'The following sheets have no data: %{list} Make sure all sheets for ''Supplier rate cards'' have been filled in'
-            supplier_rate_cards_has_incorrect_headers_html: 'The following sheets have incorrect headers: %{list} Make sure all sheets for ''Supplier rate cards'' have the right catagories for the rates'
-            supplier_rate_cards_missing_sheets: 'The ''Supplier rate cards'' file should have 6 sheets with the following names: ''''Lot 1'', ''Lot 2a - England & Wales'', ''Lot 2b - Scotland'', ''Lot 2c - Northern Ireland'', ''Lot 3'', ''Lot 4'''
-            upload_failed: Something went wrong with the file upload, please try uploading the files again
-          error_name:
-            file_check_failed: File check failed
-            file_process_failed: File processing failed
-            file_publish_failed: File publishing failed
-            supplier_details_has_empty_sheets: There are sheets in 'Supplier details' without any data
-            supplier_details_has_incorrect_headers: There are sheets in 'Supplier details' with incorrect headers
-            supplier_details_missing_sheets: The 'Supplier details' file is missing sheets
-            supplier_lot_1_service_offerings_has_empty_sheets: There are sheets in 'Supplier lot 1 service offerings' without any data
-            supplier_lot_1_service_offerings_has_incorrect_headers: There are sheets in 'Supplier lot 1 service offerings' with incorrect services
-            supplier_lot_1_service_offerings_missing_sheets: The 'Supplier lot 1 service offerings' file is missing sheets
-            supplier_lot_2_service_offerings_has_empty_sheets: There are sheets in 'Supplier lot 2 service offerings' without any data
-            supplier_lot_2_service_offerings_has_incorrect_headers: There are sheets in 'Supplier lot 2 service offerings' with incorrect services
-            supplier_lot_2_service_offerings_missing_sheets: The 'Supplier lot 2 service offerings' file is missing sheets
-            supplier_lot_3_service_offerings_has_empty_sheets: There are sheets in 'Supplier lot 3 service offerings' without any data
-            supplier_lot_3_service_offerings_has_incorrect_headers: There are sheets in 'Supplier lot 3 service offerings' with incorrect services
-            supplier_lot_3_service_offerings_missing_sheets: The 'Supplier lot 3 service offerings' file is missing sheets
-            supplier_lot_4_service_offerings_has_empty_sheets: There are sheets in 'Supplier lot 4 service offerings' without any data
-            supplier_lot_4_service_offerings_has_incorrect_headers: There are sheets in 'Supplier lot 4 service offerings' with incorrect services
-            supplier_lot_4_service_offerings_missing_sheets: The 'Supplier lot 4 service offerings' file is missing sheets
-            supplier_missing_lots: There are suppliers without any lots
-            supplier_missing_rate_cards: There are suppliers without any rate cards
-            supplier_rate_cards_has_empty_sheets: There are sheets in 'Supplier rate cards' without any data
-            supplier_rate_cards_has_incorrect_headers: There are sheets in 'Supplier rate cards' with incorrect headers
-            supplier_rate_cards_missing_sheets: The 'Supplier rate cards' file is missing sheets
-            upload_failed: Upload failed
-          errors_with_upload: Errors with the upload
-          issue: Issue
         index:
-          caption: Legal Services
+          caption: Manage supplier data
           create_new: Create a new data upload
-          current_data: Current published data
           date: Date
-          download: Download
-          file_name:
-            supplier_details_file: Supplier details
-            supplier_lot_1_service_offerings_file: Supplier lot 1 service offerings
-            supplier_lot_2_service_offerings_file: Supplier lot 2 service offerings
-            supplier_lot_3_service_offerings_file: Supplier lot 3 service offerings
-            supplier_lot_4_service_offerings_file: Supplier lot 4 service offerings
-            supplier_rate_cards_file: Supplier rate cards
-          heading: Manage supplier data
+          heading: Legal Services
           name: Name
+          number_of_files: Files
           status: Status
           table_caption: Previous uploads
         new:
           caption: Legal Services
-          download_templates: Download file templates
-          file_label:
-            supplier_details_file: Supplier details
-            supplier_lot_1_service_offerings_file: Supplier lot 1 service offerings
-            supplier_lot_2_service_offerings_file: Supplier lot 2 service offerings
-            supplier_lot_3_service_offerings_file: Supplier lot 3 service offerings
-            supplier_lot_4_service_offerings_file: Supplier lot 4 service offerings
-            supplier_rate_cards_file: Supplier rate cards
           heading: New data upload
-          return: Return to 'Manage supplier data'
-          template_file_name: Download spreadsheet templates
-          template_file_path: legal-services/Supplier spreadsheet templates.zip
-          upload_caption: Supported file format is .xlsx and maximum file size is 10mb
-          upload_data: Upload data
-          upload_title: Upload the supplier data
-          you_can_download: You can download a zip file containing an empty template for each of the spreadsheets
+          upload_caption: Supported file format is JSON. Maximum file size is 10mb.
+          upload_title: Upload the complete supplier data
         show:
+          approve: Approve
           caption: Legal Services
-          datetime: 'Date of file upload:'
+          confirm: Confirm changes
+          datetime: 'Date/time:'
           download: Download
-          file_name:
-            supplier_details_file: Supplier details
-            supplier_lot_1_service_offerings_file: Supplier lot 1 service offerings
-            supplier_lot_2_service_offerings_file: Supplier lot 2 service offerings
-            supplier_lot_3_service_offerings_file: Supplier lot 3 service offerings
-            supplier_lot_4_service_offerings_file: Supplier lot 4 service offerings
-            supplier_rate_cards_file: Supplier rate cards
-          files: Uploaded files
+          error_heading: Error
+          file: File
+          files: Files
           heading: 'Upload session #%{number}'
-          name: File name
-          return: Return to 'Manage supplier data'
+          reject: Reject
+          spreadsheet: Spreadsheet
           status: 'Status:'
-        upload:
-          upload_name: 'Upload session #%{number}'
+          suppliers_data: Suppliers data
     home:
       accessibility_statement:
         compliance: No known accessibility non compliance issues.
@@ -860,112 +678,34 @@ en:
         new:
           email_hint_html: Enter the email address you used to set up your account.
       uploads:
-        failed:
-          below_is_a_list: Below is a list of the issues that have occurred with the file upload and details on how they might be fixed.
-          common_causes: 'Common causes of these issues may include:'
-          common_causes_1: Suppliers having the incorrect DUNS number
-          common_causes_2: Sheets have a blank row
-          details: Details
-          error_details:
-            file_check_failed: Something went wrong when checking the files, please try uploading the files again
-            file_process_failed: Something went wrong when processing the files, please try uploading the files again
-            file_publish_failed: Something went wrong when publishing the files, please try uploading the files again
-            mcf3_live:
-              file_check_failed: Something went wrong when checking the files, please try uploading the files again
-              file_process_failed: Something went wrong when processing the files, please try uploading the files again
-              file_publish_failed: Something went wrong when publishing the files, please try uploading the files again
-              supplier_details_missing_sheets: 'The ''Supplier details'' file should have 1 sheet with the following name: ''MCF3'''
-              supplier_rate_cards_missing_sheets: 'The ''Supplier rate cards'' file should have 9 sheets with the following names: ''MCF3 Lot 1'', ''MCF3 Lot 2'', ''MCF3 Lot 3'', ''MCF3 Lot 4'', ''MCF3 Lot 5'', ''MCF3 Lot 6'', ''MCF3 Lot 7'', ''MCF3 Lot 8'', ''MCF3 Lot 9'''
-              supplier_regional_offerings_missing_sheets: No longer occurs
-              supplier_service_offerings_missing_sheets: 'The ''Supplier service offerings'' file should have 9 sheets with the following names: ''MCF3 Lot 1'', ''MCF3 Lot 2'', ''MCF3 Lot 3'', ''MCF3 Lot 4'', ''MCF3 Lot 5'', ''MCF3 Lot 6'', ''MCF3 Lot 7'', ''MCF3 Lot 8'', ''MCF3 Lot 9'''
-              upload_failed: Something went wrong with the file upload, please try uploading the files again
-            supplier_details_has_empty_sheets_html: 'The following sheets have no data: %{list} Make sure all sheets for ''Supplier details'' have been filled in'
-            supplier_details_has_incorrect_headers_html: 'The following sheets have incorrect headers: %{list} Make sure all sheets for ''Supplier details'' have the following headers: ''Supplier name'', ''Email address'', ''Phone number'', ''Website URL'', ''Postal address'', ''Is an SME?'', ''DUNS Number'''
-            supplier_details_missing_sheets: 'The ''Supplier details'' file should have 3 sheets with the following names: ''MCF'', ''MCF2'', ''MCF3'''
-            supplier_missing_lots_html: 'The following suppliers do not offer any lots: %{list} Make sure all the suppliers have the correct name and DUNS number'
-            supplier_missing_rate_cards_html: 'The following suppliers do not have any rate cards: %{list} Make sure all the suppliers have the correct name and DUNS number'
-            supplier_rate_cards_has_empty_sheets_html: 'The following sheets have no data: %{list} Make sure all sheets for ''Supplier rate cards'' have been filled in'
-            supplier_rate_cards_has_incorrect_headers_html: 'The following sheets are missing columns: %{list} Make sure all sheets for ''Supplier rate cards'' have the 10 expected columns'
-            supplier_rate_cards_missing_sheets: 'The ''Supplier rate cards'' file should have 20 sheets with the following names: ''MCF Lot 2'', ''MCF Lot 3'', ''MCF Lot 4'', ''MCF Lot 5'', ''MCF Lot 6'', ''MCF Lot 7'', ''MCF Lot 8'', ''MCF2 Lot 1'', ''MCF2 Lot 2'', ''MCF2 Lot 3'', ''MCF2 Lot 4'', ''MCF3 Lot 1'', ''MCF3 Lot 2'', ''MCF3 Lot 3'', ''MCF3 Lot 4'', ''MCF3 Lot 5'', ''MCF3 Lot 6'', ''MCF3 Lot 7'', ''MCF3 Lot 8'', ''MCF3 Lot 9'''
-            supplier_regional_offerings_has_empty_sheets_html: 'The following sheets have no data: %{list} Make sure all sheets for ''Supplier regional offerings'' have been filled in'
-            supplier_regional_offerings_has_incorrect_headers_html: 'The following sheets have incorrect headers: %{list} Make sure all sheets for ''Supplier regional offerings'' have the correct regions'
-            supplier_regional_offerings_missing_sheets: 'The ''Supplier regional offerings'' file should have 11 sheets with the following names: ''MCF Lot 2'', ''MCF Lot 3'', ''MCF Lot 4'', ''MCF Lot 5'', ''MCF Lot 6'', ''MCF Lot 7'', ''MCF Lot 8'', ''MCF2 Lot 1'', ''MCF2 Lot 2'', ''MCF2 Lot 3'', ''MCF2 Lot 4'''
-            supplier_service_offerings_has_empty_sheets_html: 'The following sheets have no data: %{list} Make sure all sheets for ''Supplier service offerings'' have been filled in'
-            supplier_service_offerings_has_incorrect_headers_html: 'The following sheets have incorrect column headers: %{list} Make sure all sheets for ''Supplier service offerings'' have the correct services for their lot'
-            supplier_service_offerings_missing_sheets: 'The ''Supplier service offerings'' file should have 20 sheets with the following names: ''MCF Lot 2'', ''MCF Lot 3'', ''MCF Lot 4'', ''MCF Lot 5'', ''MCF Lot 6'', ''MCF Lot 7'', ''MCF Lot 8'', ''MCF2 Lot 1'', ''MCF2 Lot 2'', ''MCF2 Lot 3'', ''MCF2 Lot 4'', ''MCF3 Lot 1'', ''MCF3 Lot 2'', ''MCF3 Lot 3'', ''MCF3 Lot 4'', ''MCF3 Lot 5'', ''MCF3 Lot 6'', ''MCF3 Lot 7'', ''MCF3 Lot 8'', ''MCF3 Lot 9'''
-            upload_failed: Something went wrong with the file upload, please try uploading the files again
-          error_name:
-            file_check_failed: File check failed
-            file_process_failed: File processing failed
-            file_publish_failed: File publishing failed
-            supplier_details_has_empty_sheets: There are sheets in 'Supplier details' without any data
-            supplier_details_has_incorrect_headers: There are sheets in 'Supplier details' with incorrect headers
-            supplier_details_missing_sheets: The 'Supplier details' file is missing sheets
-            supplier_missing_lots: There are suppliers without any lots
-            supplier_missing_rate_cards: There are suppliers without any rate cards
-            supplier_rate_cards_has_empty_sheets: There are sheets in 'Supplier rate cards' without any data
-            supplier_rate_cards_has_incorrect_headers: There are sheets in 'Supplier rate cards' with incorrect headers
-            supplier_rate_cards_missing_sheets: The 'Supplier rate cards' file is missing sheets
-            supplier_regional_offerings_has_empty_sheets: There are sheets in 'Supplier regional offerings' without any data
-            supplier_regional_offerings_has_incorrect_headers: There are sheets in 'Supplier regional offerings' with incorrect headers
-            supplier_regional_offerings_missing_sheets: The 'Supplier regional offerings' file is missing sheets
-            supplier_service_offerings_has_empty_sheets: There are sheets in 'Supplier service offerings' without any data
-            supplier_service_offerings_has_incorrect_headers: There are sheets in 'Supplier service offerings' with incorrect services
-            supplier_service_offerings_missing_sheets: The 'Supplier service offerings' file is missing sheets
-            upload_failed: Upload failed
-          errors_with_upload: Errors with the upload
-          issue: Issue
-          warning_description: This upload occurred before MCF3 went live, this means some of the error details will no longer be correct.
-          warning_text: Errors out of date
+        in_progress:
+          content: The data have been uploaded and are now being processed.
+          heading: Upload successful
         index:
-          caption: Management Consultancy
+          caption: Manage supplier data
           create_new: Create a new data upload
-          current_data: Current published data
           date: Date
-          download: Download
-          file_name:
-            supplier_details_file: Supplier details
-            supplier_rate_cards_file: Supplier rate cards
-            supplier_regional_offerings_file: Supplier regional offerings
-            supplier_service_offerings_file: Supplier service offerings
-          heading: Manage supplier data
+          heading: Management Consultancy
           name: Name
           status: Status
           table_caption: Previous uploads
         new:
           caption: Management Consultancy
-          download_templates: Download file templates
-          file_label:
-            supplier_details_file: Supplier details
-            supplier_rate_cards_file: Supplier rate cards
-            supplier_regional_offerings_file: Supplier regional offerings
-            supplier_service_offerings_file: Supplier service offerings
           heading: New data upload
-          include_mcf3: Except for 'Supplier regional offerings', all files should include the sheets for MCF3. If the data for MCF3 is not available, keep the headings or columns but leave the fields blank.
-          return: Return to 'Manage supplier data'
-          template_file_mcf3_path: management-consultancy/mcf3/Supplier spreadsheet templates.zip
-          template_file_name: Download spreadsheet templates
-          template_file_path: management-consultancy/Supplier spreadsheet templates.zip
-          upload_caption: Supported file format is .xlsx and maximum file size is 10mb
-          upload_data: Upload data
-          upload_title: Upload the supplier data
-          you_can_download: You can download a zip file containing an empty template for each of the spreadsheets
+          upload_caption: Supported file format is JSON Maximum file size is 10mb.
+          upload_title: Upload the complete supplier data
         show:
           caption: Management consultancy
-          datetime: 'Date of file upload:'
+          datetime: 'Date/time:'
           download: Download
-          file_name:
-            supplier_details_file: Supplier details
-            supplier_rate_cards_file: Supplier rate cards
-            supplier_regional_offerings_file: Supplier regional offerings
-            supplier_service_offerings_file: Supplier service offerings
-          files: Uploaded files
+          file: File
+          files: Files
           heading: 'Upload session #%{number}'
-          name: File name
-          return: Return to 'Manage supplier data'
           status: 'Status:'
-        upload:
-          upload_name: 'Upload session #%{number}'
+          suppliers_data: Suppliers data
+        uploading:
+          content_html: 'The data from <strong>''Upload session #%{session_no}''</strong> is currently in progress to be published to the <strong>''Agency supply teachers and agency workers''</strong> service.'
+          heading: Data upload in progress
     home:
       accessibility_statement:
         compliance: No known accessibility non compliance issues.
@@ -1093,7 +833,6 @@ en:
         technology_services_link_text: Technology services 2
       choose_lot:
         mcf2_heading: Management Consultancy Framework (MCF2)
-        mcf3_heading: Management Consultancy Framework (MCF3)
         mcf_heading: Management Consultancy Framework (MCF)
         question: Select the lot you need
       choose_regions:
@@ -1131,7 +870,6 @@ en:
         expression_of_interest_template: Expression of interest template
         expression_of_interest_template_link_1: https://ccs-agreements.cabinetoffice.gov.uk/sites/default/files/contracts/RM3745%20MCF%20Expression%20of%20Interest.docx?format=doc
         expression_of_interest_template_link_2: https://ccs-agreements.cabinetoffice.gov.uk/sites/default/files/contracts/RM6008%20MCF2%20Expression%20of%20Interest%20-%20%20V1.docx?format=doc
-        expression_of_interest_template_link_3: "#?format=doc"
         heading: Download the supplier shortlist
         lead_text: The spreadsheet includes the selections you made, for your records and audit trail
         other_documents: Other documents
@@ -1215,14 +953,6 @@ en:
       other: results
   scotland: Scotland
   shared:
-    admin:
-      in_progress:
-        checking_files: Checking files
-        complete: Complete
-        files_uploaded: Files uploaded
-        processing_data: Processing data
-        publishing_data: Publishing data
-        upload_progress: Upload progress
     basket:
       remove_all: Remove all
     error_summary:
@@ -1281,33 +1011,40 @@ en:
         new:
           email_hint_html: Enter the email address you used to set up your account.
       uploads:
-        current_upload:
-          upload_name: 'Upload session #%{number}'
+        in_progress:
+          button: Return to manage supplier data
+          content: We are processing the uploaded spreadsheets.
+          heading: Upload successful
         index:
+          approved: Published on live
+          canceled: Cancelled session
           caption: Manage supplier data
           create_new: Set up upload session
           current_table_caption: Data currently used
           date: Date and time
+          failed: Failed
           heading: Supply teachers and agency workers
+          in_progress: Processing
+          in_review: Waiting to publish
           name: Name
           no_of_files: Number of files
+          rejected: Cancelled session
           spreadsheet: Spreadsheet
           status: Status
           table_caption: Upload sessions
           upload_session: Upload session
+          uploading: Processing
         new:
           caption: Supply teachers and agency workers
-          extension_type:
-            csv: This file must be a CSV
-            xlsx: This file must be an XLSX
           heading: Set up a new upload session
-          return: Return to manage supplier data
           upload_button: Upload spreadsheets
-          upload_caption: The maximum file size is 5mb.
+          upload_caption: XLS, XLSX and CSV are supported. Maximum file size is 5mb.
           upload_title: Choose one or more spreadsheets to upload
-          warning: Warning
-          warning_plural: Upload sessions %{sessions} are in %{states} respectively. Uploading new spreadsheets will cancel those sessions
-          warning_singular: Upload session %{session} is in %{state}. Uploading new spreadsheets will cancel that session
+        reject:
+          content: You can now create a new upload.
+          heading_html: Upload session %{number} has been cancelled
+          index_button: Return to manage supplier data
+          new_button: Set up a new upload session
         show:
           approve: Publish to live service
           caption: Supply teachers and agency workers
@@ -1324,21 +1061,13 @@ en:
           neutral_vendor_contacts: Neutral vendor contacts
           pricing_for_tool: Pricing for tool
           reject: Cancel session
-          return: Return to manage supplier data
           spreadsheet: Spreadsheet
           status: 'Status:'
           supplier_lookup: Supplier lookup
-        state:
-          canceled: Cancelled session
-          failed: Faild
-          files_processed: Waiting to publish
-          in_progress: Processing files
-          processing_files: Processing files
-          published: Published on live
-          rejected: Cancelled session
-          uploading: Publishing files
-        upload:
-          upload_name: 'Upload session #%{number}'
+        uploading:
+          button: Return to manage supplier data
+          content_html: 'The data from <strong>''Upload session #%{session_no}''</strong> is currently processing and will soon be published to the <strong>''Supply teachers and agency workers''</strong> service.'
+          heading: Data published
     branches:
       branch:
         address: Address

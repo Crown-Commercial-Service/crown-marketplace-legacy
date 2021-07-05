@@ -6,16 +6,16 @@ module SupplyTeachers
       validate :only_one_record, on: :create
 
       # input files
-      has_one_attached :current_accredited_suppliers
-      has_one_attached :geographical_data_all_suppliers
-      has_one_attached :lot_1_and_lot_2_comparisons
-      has_one_attached :master_vendor_contacts
-      has_one_attached :neutral_vendor_contacts
-      has_one_attached :pricing_for_tool
-      has_one_attached :supplier_lookup
+      mount_uploader :current_accredited_suppliers, SupplyTeachersFileUploader
+      mount_uploader :geographical_data_all_suppliers, SupplyTeachersFileUploader
+      mount_uploader :lot_1_and_lot_2_comparisons, SupplyTeachersFileUploader
+      mount_uploader :master_vendor_contacts, SupplyTeachersFileUploader
+      mount_uploader :neutral_vendor_contacts, SupplyTeachersFileUploader
+      mount_uploader :pricing_for_tool, SupplyTeachersFileUploader
+      mount_uploader :supplier_lookup, SupplyTeachersFileUploader
 
       # output file
-      has_one_attached :data
+      mount_uploader :data, SupplyTeachersJsonFileUploader
 
       private
 

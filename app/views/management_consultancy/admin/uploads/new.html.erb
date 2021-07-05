@@ -1,49 +1,18 @@
-<%= content_for :page_title, t('.heading') %>
-
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <%= render partial: 'shared/error_summary', locals: { errors: @upload.errors } %>
     <span class="govuk-caption-l govuk-!-margin-bottom-0"><%= t('.caption') %></span>
     <h1 class="govuk-heading-xl govuk-!-margin-bottom-5 cmp-page-heading"><%= t('.heading') %></h1>
-  </div>
-</div>
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <h2 class="govuk-heading-m"><%= t('.download_templates') %></h2>
-    <p><%= t('.you_can_download') %></p>
-    <div>
-      <%= link_to_public_file_for_download(template_file_path, :zip, t('.template_file_name'), false, class: 'govuk-button govuk-button--secondary') %>
-    </div>
-  </div>
-</div>
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <h2 class="govuk-heading-m govuk-!-margin-bottom-0"><%= t('.upload_title') %></h2>
+    <h3 class="govuk-heading-m govuk-!-margin-bottom-0"><%= t('.upload_title') %></h3>
     <span class="govuk-caption-m govuk-!-margin-bottom-7"><%= t('.upload_caption') %></span>
-
-    <% unless Marketplace.mcf3_live? %>
-      <p>
-        <%= t('.include_mcf3') %>
-      </p>
-    <% end %>
-
-    
-    <%= form_with model: @upload, url: management_consultancy_admin_uploads_path, method: :post, local: 'false', html: { specialvalidation: true, novalidate: true } do |f| %>
-      <% ManagementConsultancy::Admin::Upload.attributes.each do |file| %>
-        <%= govuk_form_group_with_optional_error(f.object, file) do %>
-          <%= f.label file, t(".file_label.#{file}"), class: 'govuk-label' %>
-          <div class="govuk-!-margin-top-2 govuk-!-width-two-thirds">
-            <%= display_error f.object, file%>
-            <%= tag(:hr, class: 'govuk-section-break govuk-!-margin-top-4') if f.object.errors[file].any? %>
-            <span class="<%= 'govuk-file-upload--error' if f.object.errors[file].any? %>">
-              <%= f.file_field file, class: 'govuk-file-upload' %>
-            </span>
-          </div>
-        <% end  %>
+    <%= form_for @upload, html: { multipart: true } do |f| %>
+      <%= govuk_form_group_with_optional_error(@upload, :suppliers) do %>
+        <%= display_errors(@upload, :current_accredited_suppliers) %>
+        <%= f.label :suppliers_data, class: "govuk-label" %>
+        <%= f.file_field :suppliers_data, class: css_classes_for_file_upload(@upload, :suppliers_data) %>
+        <%= f.hidden_field :suppliers_data_cache %>
       <% end %>
-      <%= f.submit t('.upload_data'), class: 'govuk-button', name: t('.upload_data') %>
-      <br/>
-      <%= link_to t('.return'), management_consultancy_admin_uploads_path, class: 'govuk-link--no-visited-state govuk-!-font-size-19' %>
+      <%= f.submit 'Upload data', class: 'govuk-button', name: 'Upload data' %>
     <% end %>
   </div>
 </div>

@@ -12,9 +12,6 @@ FactoryBot.define do
       (1..4).each do |lot|
         create_list :management_consultancy_rate_card, 1, supplier: supplier, lot: "MCF2.#{lot}"
       end
-      (1..9).each do |lot|
-        create_list :management_consultancy_rate_card, 1, supplier: supplier, lot: "MCF3.#{lot}"
-      end
     end
   end
 end

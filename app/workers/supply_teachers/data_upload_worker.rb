@@ -1,23 +1,18 @@
+require 'rake'
+require 'aws-sdk-s3'
+
 module SupplyTeachers
   class DataUploadWorker
     include Sidekiq::Worker
     sidekiq_options queue: 'st'
 
     def perform(upload_id)
-      upload = Admin::Upload.find(upload_id)
+      upload = SupplyTeachers::Admin::Upload.find(upload_id)
+      suppliers = JSON.parse(data_file)
 
-      tmpfile = Tempfile.create
-      begin
-        tmpfile.binmode
-        tmpfile.write Admin::CurrentData.first.data.download
-        suppliers = JSON.parse(File.read(tmpfile.path))
-      ensure
-        tmpfile.close
-      end
+      SupplyTeachers::Upload.upload!(suppliers)
 
-      Upload.upload!(suppliers)
-
-      upload.publish!
+      upload.approve!
     rescue ActiveRecord::RecordInvalid => e
       summary = {
         record: e.record,
@@ -25,7 +20,7 @@ module SupplyTeachers
         errors: e.record.errors
       }
 
-      fail_upload(Admin::Upload.find(upload_id), summary)
+      fail_upload(SupplyTeachers::Admin::Upload.find(upload_id), summary)
     end
 
     private
@@ -33,6 +28,14 @@ module SupplyTeachers
     def fail_upload(upload, fail_reason)
       upload.fail!
       upload.update(fail_reason: fail_reason)
+    end
+
+    def data_file
+      if Rails.env.production?
+        Net::HTTP.get(URI(SupplyTeachers::Admin::CurrentData.first.data.url))
+      else
+        File.open(SupplyTeachers::Admin::CurrentData.first.data.path).read
+      end
     end
   end
 end

@@ -14,7 +14,7 @@ module ManagementConsultancy
     end
 
     def next_step_class
-      Marketplace.mcf3_live? ? Journey::Suppliers : Journey::ChooseRegions
+      Journey::ChooseRegions
     end
   end
 end
