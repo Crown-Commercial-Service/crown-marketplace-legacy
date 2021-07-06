@@ -1,74 +1,23 @@
 module LegalServices
   module Admin
-    class Upload < ApplicationRecord
-      include AASM
+    class Upload < ::Admin::Upload
       self.table_name = 'legal_services_admin_uploads'
-      default_scope { order(created_at: :desc) }
 
-      ATTRIBUTES = %i[suppliers rate_cards supplier_lot_1_service_offerings supplier_lot_2_service_offerings supplier_lot_3_service_offerings supplier_lot_4_service_offerings suppliers_data].freeze
+      has_one_attached :supplier_details_file
+      has_one_attached :supplier_rate_cards_file
+      has_one_attached :supplier_lot_1_service_offerings_file
+      has_one_attached :supplier_lot_2_service_offerings_file
+      has_one_attached :supplier_lot_3_service_offerings_file
+      has_one_attached :supplier_lot_4_service_offerings_file
 
-      mount_uploader :suppliers, LegalServicesFileUploader
-      mount_uploader :rate_cards, LegalServicesFileUploader
-      mount_uploader :supplier_lot_1_service_offerings, LegalServicesFileUploader
-      mount_uploader :supplier_lot_2_service_offerings, LegalServicesFileUploader
-      mount_uploader :supplier_lot_3_service_offerings, LegalServicesFileUploader
-      mount_uploader :supplier_lot_4_service_offerings, LegalServicesFileUploader
-      mount_uploader :suppliers_data, LegalServicesFileUploader
+      validates :supplier_details_file, :supplier_rate_cards_file, :supplier_lot_1_service_offerings_file, :supplier_lot_2_service_offerings_file, :supplier_lot_3_service_offerings_file, :supplier_lot_4_service_offerings_file, antivirus: { message: :malicious }, size: { less_than: 10.megabytes, message: :too_large }, content_type: { with: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', message: :wrong_content_type }, on: :upload
 
-      attr_accessor :suppliers_cache, :rate_cards_cache, :supplier_lot_1_service_offerings_cache, :supplier_lot_2_service_offerings_cache, :supplier_lot_3_service_offerings_cache, :supplier_lot_4_service_offerings_cache, :suppliers_data_cache
-
-      validates :suppliers_data, presence: true
-
-      aasm do
-        state :in_progress, initial: true
-        state :in_review, :failed, :approved, :rejected, :canceled, :completed
-        event :review do
-          transitions from: :in_progress, to: :in_review
-        end
-        event :fail do
-          transitions from: %i[in_progress approved], to: :failed
-        end
-        event :approve do
-          after :start_upload
-          transitions from: :in_review, to: :approved
-        end
-        event :complete do
-          transitions from: %i[approved in_review in_progress], to: :completed
-        end
-        event :reject do
-          transitions from: :in_review, to: :rejected
-        end
-        event :cancel do
-          transitions from: %i[in_review in_progress], to: :canceled
-        end
+      def self.attributes
+        self::ATTRIBUTES
       end
 
-      def files_count
-        count = 0
-        [suppliers, rate_cards, supplier_lot_1_service_offerings, supplier_lot_2_service_offerings, supplier_lot_3_service_offerings, supplier_lot_4_service_offerings].each do |uploaded_file|
-          count += 1 if uploaded_file.file.present?
-        end
-        count
-      end
-
-      def short_uuid
-        id[0..7]
-      end
-
-      def self.in_review_or_in_progress
-        in_review + in_progress
-      end
-
-      private
-
-      def start_upload
-        LegalServices::DataUploadWorker.perform_async(id)
-      end
-
-      def reject_previous_uploads
-        self.class.in_review.map(&:cancel!)
-        self.class.in_progress.map(&:cancel!)
-      end
+      ATTRIBUTES = %i[supplier_details_file supplier_rate_cards_file supplier_lot_1_service_offerings_file supplier_lot_2_service_offerings_file supplier_lot_3_service_offerings_file supplier_lot_4_service_offerings_file].freeze
+      SERVICE = LegalServices
     end
   end
 end

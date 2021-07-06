@@ -7,7 +7,7 @@ RSpec.describe ManagementConsultancy::Lot, type: :model do
   let(:all_numbers) { described_class.all_numbers }
 
   it 'loads lots from CSV' do
-    expect(lots.count).to eq(11)
+    expect(lots.count).to eq(20)
   end
 
   it 'populates attributes of first lot' do

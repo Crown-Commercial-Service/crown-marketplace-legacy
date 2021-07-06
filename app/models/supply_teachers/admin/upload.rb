@@ -5,96 +5,100 @@ module SupplyTeachers
       self.table_name = 'supply_teachers_admin_uploads'
       default_scope { order(created_at: :desc) }
       ATTRIBUTES = %i[current_accredited_suppliers geographical_data_all_suppliers lot_1_and_lot_2_comparisons master_vendor_contacts neutral_vendor_contacts pricing_for_tool supplier_lookup].freeze
+      FILE_TO_EXTENSION = { current_accredited_suppliers: 'xlsx', geographical_data_all_suppliers: 'xlsx', lot_1_and_lot_2_comparisons: 'xlsx', master_vendor_contacts: 'csv', neutral_vendor_contacts: 'csv', pricing_for_tool: 'xlsx', supplier_lookup: 'csv' }.freeze
 
-      mount_uploader :current_accredited_suppliers, SupplyTeachersFileUploader
-      mount_uploader :geographical_data_all_suppliers, SupplyTeachersFileUploader
-      mount_uploader :lot_1_and_lot_2_comparisons, SupplyTeachersFileUploader
-      mount_uploader :master_vendor_contacts, SupplyTeachersFileUploader
-      mount_uploader :neutral_vendor_contacts, SupplyTeachersFileUploader
-      mount_uploader :pricing_for_tool, SupplyTeachersFileUploader
-      mount_uploader :supplier_lookup, SupplyTeachersFileUploader
+      # input files
+      has_one_attached :current_accredited_suppliers
+      has_one_attached :geographical_data_all_suppliers
+      has_one_attached :lot_1_and_lot_2_comparisons
+      has_one_attached :master_vendor_contacts
+      has_one_attached :neutral_vendor_contacts
+      has_one_attached :pricing_for_tool
+      has_one_attached :supplier_lookup
 
-      attr_accessor :current_accredited_suppliers_cache, :geographical_data_all_suppliers_cache, :lot_1_and_lot_2_comparisons_cache, :master_vendor_contacts_cache, :neutral_vendor_contacts_cache, :pricing_for_tool_cache, :supplier_lookup_cache
+      # output file
+      has_one_attached :data
 
-      validate :any_present?, on: :create
-      validate :reject_uploads_and_cp_files, on: :create
+      validate :any_attached?, :file_ext_validation, on: :create
+      validates :current_accredited_suppliers, antivirus: { message: :malicious }, size: { less_than: 10.megabytes, message: :too_large }, content_type: { with: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', message: :wrong_content_type }, on: :create
+      validates :geographical_data_all_suppliers, antivirus: { message: :malicious }, size: { less_than: 10.megabytes, message: :too_large }, content_type: { with: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', message: :wrong_content_type }, on: :create
+      validates :lot_1_and_lot_2_comparisons, antivirus: { message: :malicious }, size: { less_than: 10.megabytes, message: :too_large }, content_type: { with: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', message: :wrong_content_type }, on: :create
+      validates :master_vendor_contacts, antivirus: { message: :malicious }, size: { less_than: 10.megabytes, message: :too_large }, content_type: { with: 'text/csv', message: :wrong_content_type }, on: :create
+      validates :neutral_vendor_contacts, antivirus: { message: :malicious }, size: { less_than: 10.megabytes, message: :too_large }, content_type: { with: 'text/csv', message: :wrong_content_type }, on: :create
+      validates :pricing_for_tool, antivirus: { message: :malicious }, size: { less_than: 10.megabytes, message: :too_large }, content_type: { with: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', message: :wrong_content_type }, on: :create
+      validates :supplier_lookup, antivirus: { message: :malicious }, size: { less_than: 10.megabytes, message: :too_large }, content_type: { with: 'text/csv', message: :wrong_content_type }, on: :create
+      after_validation :cancel_previous_uploads_and_copy_data, on: :create
 
       aasm do
-        state :in_progress, initial: true
-        state :in_review, :failed, :approved, :rejected, :canceled, :uploading
-        event :review do
-          transitions from: :in_progress, to: :in_review
+        state :not_started, initial: true
+        state :processing_files, :files_processed, :rejected, :canceled, :uploading, :published, :failed
+        event :start_upload do
+          transitions from: :not_started, to: :processing_files
+          after do
+            SupplyTeachers::DataImportWorker.perform_async(id)
+          end
         end
-        event :fail do
-          transitions from: %i[in_progress uploading], to: :failed, after: :cleanup_input_files
-        end
-        event :upload do
-          transitions from: :in_review, to: :uploading
+        event :files_processing_complete do
+          transitions from: :processing_files, to: :files_processed
         end
         event :approve do
-          transitions from: :uploading, to: :approved
+          transitions from: :files_processed, to: :uploading
+          after do
+            SupplyTeachers::DataUploadWorker.perform_async(id)
+          end
+        end
+        event :publish do
+          transitions from: :uploading, to: :published
         end
         event :reject do
-          transitions from: :in_review, to: :rejected, after: :cleanup_input_files
+          transitions from: :files_processed, to: :rejected, after: :cleanup_input_files
         end
         event :cancel do
-          transitions from: %i[in_review in_progress uploading], to: :canceled, after: :cleanup_input_files
+          transitions from: %i[not_started processing_files files_processed uploading], to: :canceled, after: :cleanup_input_files
         end
-      end
-
-      def cleanup_input_files
-        current_data = CurrentData.first_or_create
-        ATTRIBUTES.each do |attr|
-          current_data.send("#{attr}=", Upload.previous_uploaded_file(attr.to_sym)) if available_for_cp(attr.to_sym)
+        event :fail do
+          transitions from: %i[not_started processing_files uploading], to: :failed, after: :cleanup_input_files
         end
-        current_data.save!
       end
 
       def files_count
-        count = 0
-        [current_accredited_suppliers, geographical_data_all_suppliers, lot_1_and_lot_2_comparisons, master_vendor_contacts, neutral_vendor_contacts, pricing_for_tool, supplier_lookup].each do |uploaded_file|
-          count += 1 if uploaded_file.file.present?
-        end
-        count
+        ATTRIBUTES.count { |uploaded_file| send(uploaded_file).attached? }
       end
 
-      def datetime
-        created_at.strftime('%d %b %Y at %l:%M%P')
+      def short_uuid
+        id[0..7]
       end
 
       def self.previous_uploaded_file(attr_name)
-        previous_uploaded_file_object(attr_name).try(:send, attr_name)
+        previous_uploaded_file_upload(attr_name).try(:send, attr_name)
       end
 
-      def self.previous_uploaded_file_url(attr_name)
-        previous_uploaded_file_object(attr_name).try(:send, "#{attr_name}_url")
+      def self.previous_uploaded_file_upload(attr_name)
+        where(aasm_state: :published).joins("#{attr_name}_attachment".to_sym).first
       end
 
-      def self.previous_uploaded_file_object(attr_name)
-        where(aasm_state: :approved).where.not("#{attr_name}": nil).first
-      end
-
-      def self.in_review_or_in_progress
-        in_review + in_progress + uploading
-      end
-
-      def self.perform_upload(upload_id)
-        upload_session = find(upload_id)
-        upload_session.upload!
-        SupplyTeachers::DataUploadWorker.perform_async(upload_id)
-        upload_session
+      def self.in_upload_progress
+        not_started + processing_files + files_processed + uploading
       end
 
       private
 
-      def any_present?
-        errors.add :base, :none_present unless ATTRIBUTES.any? { |attr| send(attr).try(:present?) }
+      def any_attached?
+        errors.add :base, :none_attached unless ATTRIBUTES.any? { |attr| send(attr).attached? }
       end
 
-      def reject_uploads_and_cp_files
+      def file_ext_validation
+        ATTRIBUTES.each do |attr|
+          next unless send(attr).attached?
+
+          errors.add(attr, :wrong_extension) unless send(attr).blob.filename.to_s.end_with?(".#{FILE_TO_EXTENSION[attr]}")
+        end
+      end
+
+      def cancel_previous_uploads_and_copy_data
         return if errors.any?
 
-        reject_previous_uploads
+        cancel_previous_uploads
         copy_files_to_current_data
       rescue StandardError => e
         errors.add(:base, e.message)
@@ -103,19 +107,30 @@ module SupplyTeachers
       def copy_files_to_current_data
         current_data = CurrentData.first_or_create
         ATTRIBUTES.each do |attr|
-          current_data.send("#{attr}=", send(attr.to_sym)) if send("#{attr}_changed?".to_sym)
+          current_data.send(attr).attach(send(attr).blob) if send(attr).attached?
+        end
+        current_data.save
+      end
+
+      def cancel_previous_uploads
+        self.class.not_started.map(&:cancel!)
+        self.class.processing_files.map(&:cancel!)
+        self.class.files_processed.map(&:cancel!)
+        self.class.uploading.map(&:cancel!)
+      end
+
+      def cleanup_input_files
+        current_data = CurrentData.first_or_create
+        ATTRIBUTES.each do |attr|
+          previous_upload_file = Upload.previous_uploaded_file(attr)
+
+          current_data.send(attr).attach(previous_upload_file.blob) if available_for_cp(previous_upload_file, attr)
         end
         current_data.save!
       end
 
-      def reject_previous_uploads
-        self.class.in_review.map(&:cancel!)
-        self.class.in_progress.map(&:cancel!)
-        self.class.uploading.map(&:cancel!)
-      end
-
-      def available_for_cp(attr_name)
-        send(attr_name).file.present? && self.class.previous_uploaded_file(attr_name).try(:file).present?
+      def available_for_cp(previous_upload_file, attr_name)
+        send(attr_name).attached? && previous_upload_file.try(:attached?)
       end
     end
   end

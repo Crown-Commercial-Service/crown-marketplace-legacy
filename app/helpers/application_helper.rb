@@ -15,11 +15,11 @@ module ApplicationHelper
   end
 
   def feedback_email_link
-    return link_to(t('common.feedback'), Marketplace.supply_teachers_survey_link, target: '_blank', rel: 'noopener', class: 'govuk-link') if controller.class.try(:module_parent_name) == 'SupplyTeachers'
+    return link_to(t('common.feedback'), Marketplace.st_survey_link, target: '_blank', rel: 'noopener', class: 'govuk-link') if params[:service].to_s.starts_with? 'supply_teachers'
 
-    return link_to(t('common.feedback'), 'https://www.smartsurvey.co.uk/s/BGBL4/', target: '_blank', rel: 'noopener', class: 'govuk-link') if controller.class.try(:module_parent_name) == 'LegalServices'
+    return link_to(t('common.feedback'), Marketplace.ls_survey_link, target: '_blank', rel: 'noopener', class: 'govuk-link') if params[:service].to_s.starts_with? 'legal_services'
 
-    link_to(t('common.feedback'), 'https://www.smartsurvey.co.uk/s/MIIJB/', target: '_blank', rel: 'noopener', class: 'govuk-link')
+    link_to(t('common.feedback'), Marketplace.mc_survey_link, target: '_blank', rel: 'noopener', class: 'govuk-link')
   end
 
   def support_email_link(label)
@@ -194,6 +194,57 @@ module ApplicationHelper
 
   def supply_teachers_accessibility_statement_links
     ['sign-in', 'forgot-password', 'fixed-term-results', 'master-vendors', 'temp-to-perm-calculator?looking_for=calculate_temp_to_perm_fee', 'branches/3d-recruit'].map { |link| "https://marketplace.service.crowncommercial.gov.uk/supply-teachers/#{link}" }
+  end
+
+  def govuk_tag_with_text(colour, text)
+    extra_classes = {
+      grey: 'govuk-tag--grey',
+      blue: 'govuk-tag',
+      red: 'govuk-tag--red'
+    }
+
+    tag.strong(text, class: ['govuk-tag'] << extra_classes[colour])
+  end
+
+  def warning_text(text)
+    tag.div(class: 'govuk-warning-text') do
+      concat(tag.span('!', class: 'govuk-warning-text__icon', aria: { hidden: true }))
+      concat(
+        tag.strong(class: 'govuk-warning-text__text') do
+          concat(tag.span('Warning', class: 'govuk-warning-text__assistive'))
+          concat(text)
+        end
+      )
+    end
+  end
+
+  def link_to_public_file_for_download(filename, file_type, text, show_doc_image, **html_options)
+    link_to_file_for_download("/#{filename}?format=#{file_type}", file_type, text, show_doc_image, **html_options)
+  end
+
+  def link_to_generated_file_for_download(filename, file_type, text, show_doc_image, **html_options)
+    link_to_file_for_download("#{filename}?format=#{file_type}", file_type, text, show_doc_image, **html_options)
+  end
+
+  def link_to_file_for_download(file_link, file_type, text, show_doc_image, **html_options)
+    link_to(file_link, class: ('supplier-record__file-download' if show_doc_image).to_s, type: t("common.type_#{file_type}"), download: '', **html_options) do
+      capture do
+        concat(text)
+        concat(tag.span(t("common.#{file_type}_html"), class: 'govuk-visually-hidden')) if show_doc_image
+      end
+    end
+  end
+
+  def get_error_details(service, error, details)
+    t("#{service}.admin.uploads.failed.error_details.#{error}_html", list: details_to_list(details))
+  end
+
+  def details_to_list(details)
+    tag.ul class: 'govuk-list govuk-list--bullet' do
+      details.each do |detail|
+        concat(tag.li(detail))
+      end
+    end
   end
 end
 # rubocop:enable Metrics/ModuleLength

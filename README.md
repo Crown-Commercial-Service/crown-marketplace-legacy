@@ -1,5 +1,9 @@
 # Crown Marketplace
 
+[![Build Status](https://travis-ci.com/Crown-Commercial-Service/crown-marketplace-legacy.svg?branch=master)](https://travis-ci.com/Crown-Commercial-Service/crown-marketplace-legacy)
+[![Maintainability](https://api.codeclimate.com/v1/badges/120ac3c547d7b1328077/maintainability)](https://codeclimate.com/github/Crown-Commercial-Service/crown-marketplace-legacy/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/120ac3c547d7b1328077/test_coverage)](https://codeclimate.com/github/Crown-Commercial-Service/crown-marketplace-legacy/test_coverage)
+
 ## Prerequisites
 
 ### Ubuntu
@@ -160,6 +164,10 @@ environments:
 #### Log level
 
 * `LOG_LEVEL` can be used to manipulate the log level in production. Set to `'debug'` to see debug output; the default (if not set) is `:info`
+
+### Other
+
+* `MCF3_LIVE_DATE` needs to be a date formated as 'YYYY/MM/DD'
 
 ## Run
 

@@ -6,7 +6,7 @@ require:
 
 AllCops:
     NewCops: disable
-    TargetRubyVersion: 2.5
+    TargetRubyVersion: 2.7
     Exclude:
         - 'db/schema.rb'
         - 'db/seeds.rb'
@@ -17,7 +17,6 @@ AllCops:
         - 'lib/tasks/supply_teachers/**/*'
         - 'lib/tasks/management_consultancy/**/*'
         - 'lib/tasks/legal_services/**/*'
-        - 'config/initializers/carrierwave.rb'
         - 'node_modules/**/*'
 
 Rails:
