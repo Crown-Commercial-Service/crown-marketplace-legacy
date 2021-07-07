@@ -579,7 +579,7 @@ DEPENDENCIES
   date_validator (>= 0.9.0)
   devise (~> 4.7.3)
   dotenv-rails (>= 2.7.6)
-  down
+  down (>= 5.2.0)
   factory_bot_rails (>= 6.1.0)
   faker (~> 2.10.2)
   fog-aws (>= 3.10.0)
@@ -593,7 +593,7 @@ DEPENDENCIES
   json-jwt (>= 1.11.0)
   jsonpath (~> 0.5.8)
   kaminari (~> 1.2.1)
-  launchy
+  launchy (>= 2.5.0)
   listen (>= 3.0.5, < 3.2)
   notifications-ruby-client
   omniauth (~> 1.9.0)
@@ -636,7 +636,7 @@ DEPENDENCIES
   uk_postcode
   virtus
   wdm (>= 0.1.0)
-  webmock
+  webmock (>= 3.12.2)
 
 RUBY VERSION
    ruby 2.7.3p183
