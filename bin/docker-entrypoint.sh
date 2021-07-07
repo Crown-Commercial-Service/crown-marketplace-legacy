@@ -9,6 +9,8 @@ fi
 if [ "$APP_RUN_SIDEKIQ" = 'FALSE' ]; then
   echo TCPAddr $CLAMAV_SERVER_IP > /etc/clamav/clamd.conf && echo TCPSocket 3310 >> /etc/clamav/clamd.conf
 
+  bundle exec rails db:migrate:ignore_concurrent
+
   if [ "$APP_RUN_RAKE_TASKS" = 'TRUE' ]; then
     bundle exec rails command:run
   fi
