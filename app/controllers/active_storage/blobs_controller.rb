@@ -18,35 +18,19 @@ class ActiveStorage::BlobsController < ActiveStorage::BaseController
 
   def authorize_user
     if params[:st_upload_id].present?
-      authorize_supply_teachers_upload_view
+      authorize_upload_view SupplyTeachers::Admin::Upload, params[:st_upload_id]
     elsif params[:mc_upload_id].present?
-      authorize_management_consultancy_upload_view
+      authorize_upload_view ManagementConsultancy::Admin::Upload, params[:mc_upload_id]
     elsif params[:ls_upload_id].present?
-      authorize_legal_services_upload_view
+      authorize_upload_view LegalServices::Admin::Upload, params[:ls_upload_id]
     end
   end
 
-  def authorize_supply_teachers_upload_view
-    st_upload = SupplyTeachers::Admin::Upload.find_by(id: params[:st_upload_id])
+  def authorize_upload_view(model, id)
+    upload = model.find_by(id: id)
 
-    raise ActionController::RoutingError, 'not found' if st_upload.blank?
+    raise ActionController::RoutingError, 'not found' if upload.blank?
 
-    authorize! :view, st_upload if st_upload.present?
-  end
-
-  def authorize_management_consultancy_upload_view
-    mc_upload = ManagementConsultancy::Admin::Upload.find_by(id: params[:mc_upload_id])
-
-    raise ActionController::RoutingError, 'not found' if mc_upload.blank?
-
-    authorize! :view, mc_upload if mc_upload.present?
-  end
-
-  def authorize_legal_services_upload_view
-    ls_upload = LegalServices::Admin::Upload.find_by(id: params[:ls_upload_id])
-
-    raise ActionController::RoutingError, 'not found' if ls_upload.blank?
-
-    authorize! :view, ls_upload if ls_upload.present?
+    authorize! :view, upload if upload.present?
   end
 end

@@ -1,7 +1,10 @@
 module SupplyTeachers
   class Journey::FTAToPermFixedTermFee
+    DATE_ATTIBUTES = %i[contract_start_date contract_end_date].freeze
+
     include Steppable
     include Dateable
+    include DateValidator
 
     attribute :fixed_term_fee
     attribute :contract_start_date_day
@@ -11,8 +14,6 @@ module SupplyTeachers
     attribute :contract_end_date_month
     attribute :contract_end_date_year
     validates :fixed_term_fee, presence: true
-
-    PARSED_DATE_FORMAT = '%Y-%m-%d'.freeze
 
     def next_step_class
       Journey::FTAToPermFee
@@ -30,26 +31,6 @@ module SupplyTeachers
 
     def hire_by_date
       contract_end_date + 6.months
-    end
-
-    private
-
-    def contract_end_date
-      Date.strptime(
-        "#{contract_end_date_year}-#{contract_end_date_month}-#{contract_end_date_day}",
-        PARSED_DATE_FORMAT
-      )
-    rescue ArgumentError
-      nil
-    end
-
-    def contract_start_date
-      Date.strptime(
-        "#{contract_start_date_year}-#{contract_start_date_month}-#{contract_start_date_day}",
-        PARSED_DATE_FORMAT
-      )
-    rescue ArgumentError
-      nil
     end
   end
 end
