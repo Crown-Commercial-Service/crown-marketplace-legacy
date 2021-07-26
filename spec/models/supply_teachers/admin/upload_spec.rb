@@ -16,7 +16,7 @@ RSpec.describe SupplyTeachers::Admin::Upload, type: :model do
   let(:upload) do
     build(:supply_teachers_admin_upload) do |admin_upload|
       admin_upload.current_accredited_suppliers = valid_xlsx_file_path
-      admin_upload.supplier_lookup = valid_csv_file_path
+      admin_upload.pricing_for_tool = valid_xlsx_file_path
       admin_upload.save
     end
   end
@@ -224,15 +224,15 @@ RSpec.describe SupplyTeachers::Admin::Upload, type: :model do
         expect(new_upload.send(:available_for_cp, nil, :current_accredited_suppliers)).to eq false
       end
 
-      it 'returns false for supplier_lookup' do
-        expect(new_upload.send(:available_for_cp, nil, :supplier_lookup)).to eq false
+      it 'returns false for pricing_for_tool' do
+        expect(new_upload.send(:available_for_cp, nil, :pricing_for_tool)).to eq false
       end
     end
 
     context 'when previous approved upload exists' do
       before do
         new_upload.current_accredited_suppliers = valid_xlsx_file_path
-        new_upload.supplier_lookup = valid_csv_file_path
+        new_upload.pricing_for_tool = valid_xlsx_file_path
         upload.update(aasm_state: 'published')
       end
 
@@ -256,12 +256,12 @@ RSpec.describe SupplyTeachers::Admin::Upload, type: :model do
         expect(new_upload.send(:available_for_cp, upload.neutral_vendor_contacts, :neutral_vendor_contacts)).to eq false
       end
 
-      it 'returns false for pricing_for_tool' do
-        expect(new_upload.send(:available_for_cp, upload.pricing_for_tool, :pricing_for_tool)).to eq false
+      it 'returns true for pricing_for_tool' do
+        expect(new_upload.send(:available_for_cp, upload.pricing_for_tool, :pricing_for_tool)).to eq true
       end
 
-      it 'returns true for supplier_lookup' do
-        expect(new_upload.send(:available_for_cp, upload.supplier_lookup, :supplier_lookup)).to eq true
+      it 'returns false for supplier_lookup' do
+        expect(new_upload.send(:available_for_cp, upload.supplier_lookup, :supplier_lookup)).to eq false
       end
     end
   end
@@ -277,18 +277,6 @@ RSpec.describe SupplyTeachers::Admin::Upload, type: :model do
         expect(blank_upload.files_count).to eq(1)
       end
     end
-
-    context 'when two files' do
-      before do
-        blank_upload.current_accredited_suppliers = valid_xlsx_file_path
-        blank_upload.supplier_lookup = valid_csv_file_path
-        blank_upload.save
-      end
-
-      it 'returns 2' do
-        expect(blank_upload.files_count).to eq(2)
-      end
-    end
   end
 
   describe '#previous_uploaded_file_upload' do
@@ -297,7 +285,7 @@ RSpec.describe SupplyTeachers::Admin::Upload, type: :model do
 
       it 'returns previous approved object with uploaded file' do
         expect(described_class.previous_uploaded_file_upload(:current_accredited_suppliers)).to eq upload
-        expect(described_class.previous_uploaded_file_upload(:supplier_lookup)).to eq upload
+        expect(described_class.previous_uploaded_file_upload(:pricing_for_tool)).to eq upload
       end
 
       it 'returns nil if file is not there' do
@@ -307,7 +295,7 @@ RSpec.describe SupplyTeachers::Admin::Upload, type: :model do
 
     context 'when there is no previous upload that is approved' do
       it 'returns nil' do
-        expect(described_class.previous_uploaded_file_upload(:supplier_lookup)).to eq nil
+        expect(described_class.previous_uploaded_file_upload(:pricing_for_tool)).to eq nil
       end
     end
   end
@@ -365,9 +353,11 @@ RSpec.describe SupplyTeachers::Admin::Upload, type: :model do
   describe '#copy_files_to_current_data' do
     let(:new_upload) { build(:supply_teachers_admin_upload) }
 
-    before { new_upload.supplier_lookup = valid_csv_file_path }
+    before { new_upload.pricing_for_tool = valid_xlsx_file_path }
 
     context 'when a CurrentData object does not exist' do
+      before { SupplyTeachers::Admin::CurrentData.first&.delete }
+
       it 'creates a CurrentData object' do
         expect { new_upload.save }.to change(SupplyTeachers::Admin::CurrentData, :count).by(1)
       end
@@ -375,7 +365,7 @@ RSpec.describe SupplyTeachers::Admin::Upload, type: :model do
       it 'updates all CurrentData files to match the Upload object' do
         new_upload.save
 
-        expect(SupplyTeachers::Admin::CurrentData.first.supplier_lookup.blob).to eq new_upload.supplier_lookup.blob
+        expect(SupplyTeachers::Admin::CurrentData.first.pricing_for_tool.blob).to eq new_upload.pricing_for_tool.blob
       end
     end
 
@@ -389,8 +379,8 @@ RSpec.describe SupplyTeachers::Admin::Upload, type: :model do
       it 'updates the existing CurrentData object' do
         new_upload.save
 
-        expect(SupplyTeachers::Admin::CurrentData.first.supplier_lookup.blob).not_to eq upload.supplier_lookup.blob
-        expect(SupplyTeachers::Admin::CurrentData.first.supplier_lookup.blob).to eq new_upload.supplier_lookup.blob
+        expect(SupplyTeachers::Admin::CurrentData.first.pricing_for_tool.blob).not_to eq upload.pricing_for_tool.blob
+        expect(SupplyTeachers::Admin::CurrentData.first.pricing_for_tool.blob).to eq new_upload.pricing_for_tool.blob
       end
     end
   end
