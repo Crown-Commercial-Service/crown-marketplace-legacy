@@ -44,8 +44,8 @@ gem 'jquery-rails', '~> 4.4.0'
 gem 'rollbar', '~> 2.24.0'
 
 # for dfe sign in
-gem 'omniauth', '~> 1.9.0'
-gem 'omniauth-oauth2', '~> 1.6.0'
+gem 'omniauth', '~> 2.0.0'
+gem 'omniauth-oauth2', '~> 1.7.1'
 # updating to the latest gem version causes an error when response_type is :code. A fix is coming but has not been merged in yet, so will be using this forked repo until then
 gem 'omniauth_openid_connect', git: 'https://github.com/iceraluk/omniauth_openid_connect.git'
 gem 'json-jwt', '>= 1.11.0'
@@ -104,7 +104,7 @@ gem 'date_validator', '>= 0.9.0'
 gem 'ratonvirus', '>= 0.1.1'
 gem 'ratonvirus-clamby', '>= 0.1.0'
 # for active storage validation
-gem 'active_storage_validations', '>= 0.9.2'
+gem 'active_storage_validations', '>= 0.9.3'
 # gem for  bulk inserts
 gem 'activerecord-import', '~> 0.15.0'
 # gov notify
@@ -124,7 +124,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'dotenv-rails', '>= 2.7.6'
-  gem 'factory_bot_rails', '>= 6.1.0'
+  gem 'factory_bot_rails', '>= 6.2.0'
   gem 'launchy', '>= 2.5.0'
   gem 'pry-rails'
   gem 'rails-controller-testing', '>= 1.0.5'
