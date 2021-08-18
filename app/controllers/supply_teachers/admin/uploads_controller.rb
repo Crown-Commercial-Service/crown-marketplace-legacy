@@ -1,6 +1,8 @@
 module SupplyTeachers
   module Admin
     class UploadsController < SupplyTeachers::FrameworkController
+      include ::Admin::SharedPagesConcern
+
       skip_before_action :verify_authenticity_token, only: :create
       before_action :authenticate_user!
       before_action :authorize_user
@@ -44,18 +46,6 @@ module SupplyTeachers
       def destroy
         @upload.destroy
         redirect_to supply_teachers_admin_uploads_path
-      end
-
-      def accessibility_statement
-        render 'supply_teachers/home/accessibility_statement'
-      end
-
-      def cookie_policy
-        render 'home/cookie_policy'
-      end
-
-      def cookie_settings
-        render 'home/cookie_settings'
       end
 
       private
