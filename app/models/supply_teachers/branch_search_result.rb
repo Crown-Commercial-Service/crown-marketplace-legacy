@@ -1,7 +1,7 @@
 module SupplyTeachers
   class BranchSearchResult
     attr_reader :id, :supplier_name, :name, :contact_name, :telephone_number, :contact_email, :slug
-    attr_accessor :rate, :distance, :daily_rate, :worker_cost, :agency_fee
+    attr_accessor :rate, :distance, :daily_rate, :worker_cost, :agency_fee, :error
     # fta_calculator attr_accessors
     attr_accessor :finders_fee
 
