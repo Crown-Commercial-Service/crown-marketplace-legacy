@@ -1,5 +1,3 @@
-require 'holidays'
-
 module TempToPermCalculator
   class Calculator
     WORKING_DAYS_BEFORE_WHICH_EARLY_HIRE_FEE_CAN_BE_CHARGED = 60
@@ -32,10 +30,7 @@ module TempToPermCalculator
       @hire_date = hire_date
       @markup_rate = markup_rate
       @notice_date = notice_date
-      @holiday_1_start_date = holiday_1_start_date
-      @holiday_1_end_date = holiday_1_end_date
-      @holiday_2_start_date = holiday_2_start_date
-      @holiday_2_end_date = holiday_2_end_date
+      @working_days = WorkingDays.new(holiday_1_start_date, holiday_1_end_date, holiday_2_start_date, holiday_2_end_date)
     end
 
     def maximum_fee_for_lack_of_notice
@@ -47,27 +42,27 @@ module TempToPermCalculator
     end
 
     def days_notice_given
-      working_days_between(@notice_date, @hire_date)
+      @working_days.between(@notice_date, @hire_date)
     end
 
     def hiring_within_8_weeks?
-      end_of_8th_working_week = working_days_after(@contract_start_date,
-                                                   WORKING_DAYS_AFTER_WHICH_LATE_NOTICE_FEE_CAN_BE_CHARGED - 1)
+      end_of_8th_working_week = @working_days.after(@contract_start_date,
+                                                    WORKING_DAYS_AFTER_WHICH_LATE_NOTICE_FEE_CAN_BE_CHARGED - 1)
       @hire_date <= end_of_8th_working_week
     end
 
     def hiring_between_9_and_12_weeks?
-      start_of_9th_working_week = working_days_after(@contract_start_date,
-                                                     WORKING_DAYS_AFTER_WHICH_LATE_NOTICE_FEE_CAN_BE_CHARGED)
-      end_of_12th_working_week = working_days_after(@contract_start_date,
-                                                    WORKING_DAYS_BEFORE_WHICH_EARLY_HIRE_FEE_CAN_BE_CHARGED - 1)
+      start_of_9th_working_week = @working_days.after(@contract_start_date,
+                                                      WORKING_DAYS_AFTER_WHICH_LATE_NOTICE_FEE_CAN_BE_CHARGED)
+      end_of_12th_working_week = @working_days.after(@contract_start_date,
+                                                     WORKING_DAYS_BEFORE_WHICH_EARLY_HIRE_FEE_CAN_BE_CHARGED - 1)
 
       (start_of_9th_working_week..end_of_12th_working_week).cover?(@hire_date)
     end
 
     def hiring_after_12_weeks?
-      start_of_13th_working_week = working_days_after(@contract_start_date,
-                                                      WORKING_DAYS_BEFORE_WHICH_EARLY_HIRE_FEE_CAN_BE_CHARGED)
+      start_of_13th_working_week = @working_days.after(@contract_start_date,
+                                                       WORKING_DAYS_BEFORE_WHICH_EARLY_HIRE_FEE_CAN_BE_CHARGED)
       @hire_date >= start_of_13th_working_week
     end
 
@@ -94,7 +89,7 @@ module TempToPermCalculator
     end
 
     def chargeable_working_days_based_on_early_hire
-      chargeable_working_days = WORKING_DAYS_BEFORE_WHICH_EARLY_HIRE_FEE_CAN_BE_CHARGED - working_days
+      chargeable_working_days = WORKING_DAYS_BEFORE_WHICH_EARLY_HIRE_FEE_CAN_BE_CHARGED - working_days_count
       chargeable_working_days.negative? ? 0 : chargeable_working_days
     end
 
@@ -103,7 +98,7 @@ module TempToPermCalculator
       return 0 unless @notice_date
       return 0 if @notice_date <= notice_date_based_on_hire_date
 
-      working_days_between(notice_date_based_on_hire_date, @notice_date)
+      @working_days.between(notice_date_based_on_hire_date, @notice_date)
     end
 
     def daily_supplier_fee
@@ -114,18 +109,16 @@ module TempToPermCalculator
       daily_supplier_fee * (@days_per_week / MAXIMUM_NUMBER_OF_WORKING_DAYS_PER_WEEK.to_f)
     end
 
-    def working_days
-      (@contract_start_date..@hire_date).select do |day|
-        day != @hire_date && working_day?(day)
-      end.count
+    def working_days_count
+      @working_days.between(@contract_start_date, @hire_date)
     end
 
     def ideal_hire_date
-      working_days_after(early_hire_fee_can_be_charged_until, 1)
+      @working_days.after(early_hire_fee_can_be_charged_until, 1)
     end
 
     def ideal_notice_date
-      working_days_before(ideal_hire_date, WORKING_DAYS_NOTICE_PERIOD_REQUIRED_TO_AVOID_LATE_NOTICE_FEE)
+      @working_days.before(ideal_hire_date, WORKING_DAYS_NOTICE_PERIOD_REQUIRED_TO_AVOID_LATE_NOTICE_FEE)
     end
 
     def before_national_deal_began?
@@ -135,7 +128,7 @@ module TempToPermCalculator
     def notice_date_based_on_hire_date
       return nil unless notice_period_required?
 
-      working_days_before(@hire_date, 20)
+      @working_days.before(@hire_date, 20)
     end
 
     def notice_period_required?
@@ -145,44 +138,11 @@ module TempToPermCalculator
     private
 
     def late_notice_fee_can_be_charged_from
-      working_days_after(@contract_start_date, WORKING_DAYS_AFTER_WHICH_LATE_NOTICE_FEE_CAN_BE_CHARGED)
+      @working_days.after(@contract_start_date, WORKING_DAYS_AFTER_WHICH_LATE_NOTICE_FEE_CAN_BE_CHARGED)
     end
 
     def early_hire_fee_can_be_charged_until
-      working_days_after(@contract_start_date, WORKING_DAYS_BEFORE_WHICH_EARLY_HIRE_FEE_CAN_BE_CHARGED - 1)
-    end
-
-    def working_days_after(date, number_of_days)
-      working_days_count = working_day?(date) ? 1 : 0
-      while working_days_count <= number_of_days
-        date += 1.day
-        working_days_count += 1 if working_day?(date)
-      end
-      date
-    end
-
-    def working_days_before(date, number_of_days)
-      working_days_count = working_day?(date) ? 1 : 0
-      while working_days_count <= number_of_days
-        date -= 1.day
-        working_days_count += 1 if working_day?(date)
-      end
-      date
-    end
-
-    def working_days_between(earlier_date, later_date)
-      (earlier_date...later_date).select { |date| working_day?(date) }.count
-    end
-
-    def working_day?(date)
-      date.on_weekday? && Holidays.on(date, :gb_eng).empty? && !school_holidays.include?(date)
-    end
-
-    def school_holidays
-      holidays = []
-      holidays += (@holiday_1_start_date..@holiday_1_end_date).to_a if @holiday_1_start_date && @holiday_1_end_date
-      holidays += (@holiday_2_start_date..@holiday_2_end_date).to_a if @holiday_2_start_date && @holiday_2_end_date
-      holidays
+      @working_days.after(@contract_start_date, WORKING_DAYS_BEFORE_WHICH_EARLY_HIRE_FEE_CAN_BE_CHARGED - 1)
     end
   end
 end

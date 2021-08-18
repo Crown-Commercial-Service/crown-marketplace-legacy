@@ -1,5 +1,3 @@
-require 'holidays'
-
 module FTAToPermCalculator
   class Calculator
     attr_reader :fixed_term_contract_fee, :current_contract_length
