@@ -58,21 +58,27 @@ Rails.application.routes.draw do
   end
 
   concern :shared_pages do
+    get '/', to: 'home#index'
+    get '/not-permitted', to: 'home#not_permitted'
     get '/accessibility-statement', to: 'home#accessibility_statement'
     get '/cookie-policy', to: 'home#cookie_policy'
     get '/cookie-settings', to: 'home#cookie_settings'
   end
 
-  concern :shared_admin_pages do
+  concern :admin_shared_pages do
     get '/accessibility-statement', to: 'uploads#accessibility_statement'
     get '/cookie-policy', to: 'uploads#cookie_policy'
     get '/cookie-settings', to: 'uploads#cookie_settings'
   end
 
+  concern :admin_uploads do
+    resources :uploads, only: %i[index new create show] do
+      get '/progress', action: :progress
+    end
+  end
+
   namespace 'supply_teachers', path: 'supply-teachers', defaults: { service: 'supply_teachers' } do
     concerns :shared_pages
-    get '/', to: 'home#index'
-    get '/not-permitted', to: 'home#not_permitted'
     get '/cognito', to: 'gateway#index', cognito_enabled: true
     get '/gateway', to: 'gateway#index'
     get '/temp-to-perm-fee', to: 'home#temp_to_perm_fee'
@@ -87,37 +93,29 @@ Rails.application.routes.draw do
     resources :downloads, only: :index
     namespace :admin, defaults: { service: 'supply_teachers/admin' } do
       resources :uploads, only: %i[index new create show destroy update]
-      concerns :shared_admin_pages
+      concerns :admin_shared_pages
     end
     get '/start', to: 'journey#start', as: 'journey_start'
     get '/:slug', to: 'journey#question', as: 'journey_question'
     get '/:slug/answer', to: 'journey#answer', as: 'journey_answer'
-    resources :uploads, only: :create if Marketplace.upload_privileges?
   end
 
   namespace 'management_consultancy', path: 'management-consultancy', defaults: { service: 'management_consultancy' } do
     concerns :shared_pages
-    get '/', to: 'home#index'
-    get '/not-permitted', to: 'home#not_permitted'
     get '/suppliers', to: 'suppliers#index'
     get '/suppliers/download', to: 'suppliers#download', as: 'suppliers_download'
     get '/suppliers/:id', to: 'suppliers#show', as: 'supplier'
     namespace :admin, defaults: { service: 'management_consultancy/admin' } do
-      resources :uploads, only: %i[index new create show] do
-        get '/progress', action: :progress
-      end
-      concerns :shared_admin_pages
+      concerns :admin_uploads
+      concerns :admin_shared_pages
     end
     get '/start', to: 'journey#start', as: 'journey_start'
     get '/:slug', to: 'journey#question', as: 'journey_question'
     get '/:slug/answer', to: 'journey#answer', as: 'journey_answer'
-    resources :uploads, only: :create if Marketplace.upload_privileges?
   end
 
   namespace 'legal_services', path: 'legal-services', defaults: { service: 'legal_services' } do
     concerns :shared_pages
-    get '/', to: 'home#index'
-    get '/not-permitted', to: 'home#not_permitted'
     get '/service-not-suitable', to: 'home#service_not_suitable'
     get '/suppliers/download', to: 'suppliers#download'
     get '/suppliers/no-suppliers-found', to: 'suppliers#no_suppliers_found'
@@ -128,12 +126,9 @@ Rails.application.routes.draw do
     get '/:slug/answer', to: 'journey#answer', as: 'journey_answer'
     resources :downloads, only: :index
     namespace :admin, defaults: { service: 'legal_services/admin' } do
-      resources :uploads, only: %i[index new create show] do
-        get '/progress', action: :progress
-      end
-      concerns :shared_admin_pages
+      concerns :admin_uploads
+      concerns :admin_shared_pages
     end
-    resources :uploads, only: :create if Marketplace.upload_privileges?
   end
 
   get '/404', to: 'errors#not_found', as: :errors_404
