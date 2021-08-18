@@ -12,5 +12,9 @@ module SupplyTeachers
     def agency_fee
       daily_rate - worker_cost
     end
+
+    def valid?
+      daily_rate.is_a?(Integer) && daily_rate.positive?
+    end
   end
 end

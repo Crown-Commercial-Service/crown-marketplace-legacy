@@ -25,23 +25,30 @@ module SupplyTeachers
 
     private
 
-    def supplier_mark_up(daily_rate, markup_rate)
+    def supplier_mark_up(result, daily_rate, markup_rate)
       return unless daily_rate && markup_rate
       return if daily_rate.empty?
 
-      SupplierMarkUp.new(daily_rate: daily_rate, markup_rate: markup_rate)
+      mark_up = SupplierMarkUp.new(daily_rate: daily_rate, markup_rate: markup_rate)
+
+      if mark_up.valid?
+        result.worker_cost = mark_up.worker_cost
+        result.agency_fee = mark_up.agency_fee
+      else
+        result.error = true
+      end
     end
 
-    def supplier_finders_fee(fixed_term_length, salary, fixed_term_rate)
+    def supplier_finders_fee(result, fixed_term_length, salary, fixed_term_rate)
       return unless fixed_term_length && salary
-      return if fixed_term_length.nil?
+      return if fixed_term_length.nil? || salary.empty?
 
-      raise 'invalid' if salary.to_f.zero?
+      finders_fee = SupplierFindersFee.new(fixed_term_length: fixed_term_length, salary: salary, fixed_term_rate: fixed_term_rate)
 
-      if fixed_term_length > 12
-        salary.to_f * fixed_term_rate
+      if finders_fee.valid?
+        result.finders_fee = finders_fee.finders_fee
       else
-        salary.to_f * fixed_term_length / 12 * fixed_term_rate
+        result.error = true
       end
     end
 
@@ -51,17 +58,15 @@ module SupplyTeachers
       salary.is_a?(String) ? salary : salary.fetch(branch_id, nil)
     end
 
-    # rubocop:disable Metrics/AbcSize
     def search_result_attributes(branch, point, daily_rates, fixed_term_length, salary)
       search_result_for(branch).tap do |result|
         result.rate = rate(branch)
         result.distance = point.distance(branch.location)
         result.daily_rate = daily_rates.fetch(branch.id, nil)
-        result.worker_cost = supplier_mark_up(result.daily_rate, result.rate)&.worker_cost
-        result.agency_fee = supplier_mark_up(result.daily_rate, result.rate)&.agency_fee
-        result.finders_fee = supplier_finders_fee(fixed_term_length, branch_salary(salary, branch.id), result.rate)
+
+        supplier_mark_up(result, result.daily_rate, result.rate)
+        supplier_finders_fee(result, fixed_term_length, branch_salary(salary, branch.id), result.rate)
       end
     end
-    # rubocop:enable Metrics/AbcSize
   end
 end

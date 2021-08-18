@@ -15,8 +15,7 @@
 //= require js-cookie/src/js.cookie
 //= require google_analytics
 //= require cookie_banner
-//= require supplier_markup_calculator
-//= require legal_services/ls_form_validation.js
+//= require supply_teachers/supplier_markup_calculator.js
 //= require cp/cp-sign-in.js
 //= require global/global.js
 //= require global/upload_progress.js

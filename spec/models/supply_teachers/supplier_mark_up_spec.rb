@@ -16,4 +16,46 @@ RSpec.describe SupplyTeachers::SupplierMarkUp, type: :model do
       expect(supplier_mark_up.agency_fee).to be_within(0.1).of(67.22)
     end
   end
+
+  describe 'valid?' do
+    context 'when the salary does not resolve to an integer' do
+      let(:daily_rate) { '3478j' }
+
+      it 'is not valid' do
+        expect(supplier_mark_up.valid?).to be false
+      end
+    end
+
+    context 'when the salary is 0' do
+      let(:daily_rate) { '0' }
+
+      it 'is not valid' do
+        expect(supplier_mark_up.valid?).to be false
+      end
+    end
+
+    context 'when the salary is negative' do
+      let(:daily_rate) { '-31' }
+
+      it 'is not valid' do
+        expect(supplier_mark_up.valid?).to be false
+      end
+    end
+
+    context 'when the salary is greater than 0' do
+      let(:daily_rate) { '45' }
+
+      it 'is valid' do
+        expect(supplier_mark_up.valid?).to be true
+      end
+    end
+
+    context 'when the salary is a float' do
+      let(:daily_rate) { '8.67' }
+
+      it 'is valid' do
+        expect(supplier_mark_up.valid?).to be true
+      end
+    end
+  end
 end
