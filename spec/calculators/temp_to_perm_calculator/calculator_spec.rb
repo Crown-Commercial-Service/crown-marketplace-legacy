@@ -151,7 +151,7 @@ RSpec.describe TempToPermCalculator::Calculator do
     let(:hire_date) { start_of_13th_week }
 
     it 'calculates the number of working days between the start date and hire date' do
-      expect(calculator.working_days).to eq(50)
+      expect(calculator.working_days_count).to eq(50)
     end
 
     it 'calculates the ideal hire date as the start of the 15th week to take school holidays into account in order to avoid paying an early hire fee' do
@@ -237,7 +237,7 @@ RSpec.describe TempToPermCalculator::Calculator do
     it { is_expected.not_to be_hiring_after_12_weeks }
 
     it 'calculates the number of working days between the start date and hire date' do
-      expect(calculator.working_days).to eq(15)
+      expect(calculator.working_days_count).to eq(15)
     end
 
     it 'calculates the number of chargeable working days due to early hire as the difference between the minimum of 60 (12 weeks) and the number of days worked' do
@@ -277,7 +277,7 @@ RSpec.describe TempToPermCalculator::Calculator do
     it { is_expected.not_to be_hiring_after_12_weeks }
 
     it 'calculates the number of working days between the start date and hire date' do
-      expect(calculator.working_days).to eq(55)
+      expect(calculator.working_days_count).to eq(55)
     end
 
     it 'calculates the number of chargeable working days due to early hire as the difference between the minimum of 60 (12 weeks) and the number of days worked' do
@@ -477,7 +477,7 @@ RSpec.describe TempToPermCalculator::Calculator do
     it { is_expected.to be_hiring_after_12_weeks }
 
     it 'calculates the number of working days between the start date and hire date' do
-      expect(calculator.working_days).to eq(60)
+      expect(calculator.working_days_count).to eq(60)
     end
 
     it 'calculates the number of chargeable working days due to early hire as the difference between the minimum of 60 (12 weeks) and the number of days worked' do
@@ -685,14 +685,14 @@ RSpec.describe TempToPermCalculator::Calculator do
     end
   end
 
-  describe '#working_days' do
+  describe '#working_days_count' do
     context 'when the working period includes a bank holiday in England' do
       let(:august_bank_holiday) { Date.parse('Monday, 27th August 2018') }
       let(:contract_start_date) { august_bank_holiday }
       let(:hire_date) { Date.parse('Monday, 3rd September 2018') }
 
       it 'excludes the bank holiday in the calculation' do
-        expect(calculator.working_days).to eq(4)
+        expect(calculator.working_days_count).to eq(4)
       end
     end
   end
