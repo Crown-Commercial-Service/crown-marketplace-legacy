@@ -34,18 +34,6 @@ module Admin::UploadsController
     render json: { import_status: @upload.aasm_state }
   end
 
-  def accessibility_statement
-    render "#{service.to_s.underscore}/home/accessibility_statement"
-  end
-
-  def cookie_policy
-    render 'home/cookie_policy'
-  end
-
-  def cookie_settings
-    render 'home/cookie_settings'
-  end
-
   private
 
   def set_upload
@@ -54,5 +42,9 @@ module Admin::UploadsController
 
   def authorize_user
     authorize! :manage, service::Admin::Upload
+  end
+
+  def service
+    @service ||= self.class.module_parent.module_parent
   end
 end
