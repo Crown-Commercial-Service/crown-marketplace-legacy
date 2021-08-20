@@ -25,7 +25,13 @@ module Base
       @challenge = Cognito::RespondToChallenge.new(params[:challenge_name], params[:username], params[:session], new_password: params[:new_password], new_password_confirmation: params[:new_password_confirmation], access_code: params[:access_code])
       @challenge.call
       if @challenge.success?
-        @challenge.challenge? ? redirect_to(new_challenge_path) : find_and_sign_in_user
+        if @challenge.challenge?
+          cookies[:session] = @challenge.new_session
+
+          redirect_to(new_challenge_path)
+        else
+          find_and_sign_in_user
+        end
       else
         render :challenge_new
       end
@@ -40,7 +46,6 @@ module Base
     private
 
     def new_challenge_path
-      cookies[:session] = @challenge.new_session
       users_challenge_path(challenge_name: @challenge.new_challenge_name, username: params[:username])
     end
 

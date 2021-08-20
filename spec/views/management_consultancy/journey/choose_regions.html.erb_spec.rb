@@ -14,6 +14,7 @@ RSpec.describe 'management_consultancy/journey/choose_regions.html.erb' do
 
   before do
     view.extend(ApplicationHelper)
+    view.extend(ManagementConsultancy::FrameworkHelper)
     assign(:journey, journey)
     assign(:form_path, '/')
     params[:services] = []

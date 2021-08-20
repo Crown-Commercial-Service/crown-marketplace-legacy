@@ -3,7 +3,6 @@ module ManagementConsultancy
     private
 
     def new_challenge_path
-      cookies[:session] = @challenge.new_session
       management_consultancy_users_challenge_path(challenge_name: @challenge.new_challenge_name, username: params[:username])
     end
 

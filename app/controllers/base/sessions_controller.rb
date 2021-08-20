@@ -16,7 +16,13 @@ module Base
       @result.call
 
       if @result.success?
-        @result.challenge? ? redirect_to(challenge_path) : super
+        if @result.challenge?
+          cookies[:session] = { value: @result.session, expires: 20.minutes, httponly: true }
+
+          redirect_to(challenge_path)
+        else
+          super
+        end
       else
         result_unsuccessful_path
       end

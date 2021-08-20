@@ -4,7 +4,6 @@ module SupplyTeachers
       private
 
       def new_challenge_path
-        cookies[:session] = @challenge.new_session
         supply_teachers_admin_users_challenge_path(challenge_name: @challenge.new_challenge_name, username: params[:username])
       end
 
