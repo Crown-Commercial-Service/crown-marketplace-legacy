@@ -982,8 +982,10 @@ en:
         before_you_start:
           heading: Before you start
           mcf2_link_text: Management Consultancy Framework Two
+          mcf3_link_text: Management Consultancy Framework Three
+          mcf3_text_html: You need to know which lot the management consultancy services you need are in. Review the lot descriptions documents for %{mcf3_link}.
           mcf_link_text: Management Consultancy Framework
-          text_html: You need to know which lot the management consultancy services you need are in. Review the lot descriptions documents for %{mcf_link} and %{mcf2_link}.
+          mcf_text_html: You need to know which lot the management consultancy services you need are in. Review the lot descriptions documents for %{mcf_link} and %{mcf2_link}.
         guidance:
           heading: Guidance and other useful documents
           mcf2_link_text: Management Consultancy Framework Two (MCF2) specification
@@ -1093,7 +1095,7 @@ en:
         technology_services_link_text: Technology services 2
       choose_lot:
         mcf2_heading: Management Consultancy Framework (MCF2)
-        mcf3_heading: Management Consultancy Framework (MCF3)
+        mcf3_heading: Management Consultancy Framework 3 (MCF3)
         mcf_heading: Management Consultancy Framework (MCF)
         question: Select the lot you need
       choose_regions:
@@ -1107,6 +1109,8 @@ en:
         question: Select the services you need
         service_selected: service selected
         services_selected: services selected
+      management_consultancy_lots:
+        service_line: Service line
     passwords:
       forgot_password_confirmation:
         heading: A reset email has been sent
@@ -1131,7 +1135,7 @@ en:
         expression_of_interest_template: Expression of interest template
         expression_of_interest_template_link_1: https://ccs-agreements.cabinetoffice.gov.uk/sites/default/files/contracts/RM3745%20MCF%20Expression%20of%20Interest.docx?format=doc
         expression_of_interest_template_link_2: https://ccs-agreements.cabinetoffice.gov.uk/sites/default/files/contracts/RM6008%20MCF2%20Expression%20of%20Interest%20-%20%20V1.docx?format=doc
-        expression_of_interest_template_link_3: "#?format=doc"
+        expression_of_interest_template_link_3: "/management-consultancy/mcf3/RM6187 MCF3 Expression of Interest.docx?format=doc"
         heading: Download the supplier shortlist
         lead_text: The spreadsheet includes the selections you made, for your records and audit trail
         other_documents: Other documents
@@ -1159,6 +1163,9 @@ en:
         further_competition: These are the maximum rates the supplier charges for a direct award. You may get a cheaper rate by running a further competition.
         is_an_sme: This supplier is a small or medium-sized enterprise
         max_day_rate: Max day rate
+        maximum_day_rates: Maximum day rates
+        rates_are_fixed: Rates are fixed for the life of the framework and any call-off. These rates are for an 8 hour working day and include travel expenses to the base location as stipulated by the customer.
+        rates_are_maximum: These are the maximum rates a supplier can charge and cannot be exceeded. Suppliers can reduce these rates
   miles:
     unit:
       one: mile

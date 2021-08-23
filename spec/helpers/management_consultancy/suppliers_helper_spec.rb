@@ -17,5 +17,13 @@ RSpec.describe ManagementConsultancy::SuppliersHelper, type: :helper do
         end
       end
     end
+
+    context 'when the lot starts with MCF3' do
+      ['MCF3.1', 'MCF3.2', 'MCF3.3', 'MCF3.4', 'MCF3.5', 'MCF3.6', 'MCF3.7', 'MCF3.8', 'MCF3.9'].each do |lot|
+        it "returns the link for the RM6008 MCF2 when the lot is #{lot}" do
+          expect(eoi_document_link(lot)).to eq I18n.t('management_consultancy.suppliers.download.expression_of_interest_template_link_3')
+        end
+      end
+    end
   end
 end
