@@ -17,17 +17,22 @@
       <h2 class="govuk-heading-m"><%= t('.before_you_start.heading') %></h2>
 
       <p class="govuk-body">
-        <%= t('.before_you_start.text_html', mcf_link: link_to(t('.before_you_start.mcf_link_text'), 'https://ccs-agreements.cabinetoffice.gov.uk/contracts/rm3745'), mcf2_link: link_to(t('.before_you_start.mcf2_link_text'), 'https://ccs-agreements.cabinetoffice.gov.uk/contracts/rm6008')) %>
+        <% if Marketplace.mcf3_live? %>
+          <%= t('.before_you_start.mcf3_text_html', mcf3_link: link_to(t('.before_you_start.mcf3_link_text'), 'https://www.crowncommercial.gov.uk/agreements/RM6187')) %>
+        <% else %>
+          <%= t('.before_you_start.mcf_text_html', mcf_link: link_to(t('.before_you_start.mcf_link_text'), 'https://ccs-agreements.cabinetoffice.gov.uk/contracts/rm3745'), mcf2_link: link_to(t('.before_you_start.mcf2_link_text'), 'https://ccs-agreements.cabinetoffice.gov.uk/contracts/rm6008')) %>
+        <% end %>
       </p>
 
       <%= govuk_button_start(t('shared.gateway.start_now'), journey_start_path(journey: ManagementConsultancy::Journey.journey_name), class: 'govuk-!-margin-top-2 govuk-!-margin-bottom-8', aria: { label: t('shared.gateway.start_now') }) %>
-
-      <h3 class="govuk-heading-m"><%= t('.guidance.heading') %></h2>
-      <ul class="govuk-list govuk-list--bullet">
-        <li><%= link_to(t('.guidance.mcf_link_text'), 'https://ccs-agreements.cabinetoffice.gov.uk/contracts/rm3745') %></li>
-        <li><%= link_to(t('.guidance.mcf2_link_text'), 'https://ccs-agreements.cabinetoffice.gov.uk/contracts/rm6008') %></li>
-        <li><%= link_to(t('.guidance.ojeu_contract_link_text'), 'http://ted.europa.eu/TED/notice/udl?uri=TED:NOTICE:377411-2017:TEXT:EN:HTML&rearus=dQx2Ud0JnqAMCZKQx764kA') %></li>
-      </ul>
-    </div>
+      <% unless Marketplace.mcf3_live? %>
+        <h3 class="govuk-heading-m"><%= t('.guidance.heading') %></h2>
+        <ul class="govuk-list govuk-list--bullet">
+          <li><%= link_to(t('.guidance.mcf_link_text'), 'https://ccs-agreements.cabinetoffice.gov.uk/contracts/rm3745') %></li>
+          <li><%= link_to(t('.guidance.mcf2_link_text'), 'https://ccs-agreements.cabinetoffice.gov.uk/contracts/rm6008') %></li>
+          <li><%= link_to(t('.guidance.ojeu_contract_link_text'), 'http://ted.europa.eu/TED/notice/udl?uri=TED:NOTICE:377411-2017:TEXT:EN:HTML&rearus=dQx2Ud0JnqAMCZKQx764kA') %></li>
+        </ul>
+      </div>
+    <% end %>
   </div>
 </div>
