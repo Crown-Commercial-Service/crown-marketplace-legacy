@@ -1,4 +1,4 @@
-FROM ruby:2.7.3-alpine
+FROM ruby:2.7-alpine
 
 # Build information
 ARG GIT_OWNER
@@ -50,7 +50,9 @@ ENV APP_RUN_PRECOMPILE_ASSETS=$APP_RUN_PRECOMPILE_ASSETS
 ENV BUILD_PACKAGES curl-dev ruby-dev postgresql-dev build-base tzdata clamav clamav-daemon
 
 # Update and install base packages
-RUN apk update && apk upgrade && apk add bash $BUILD_PACKAGES nodejs-current-npm git
+RUN apk update \
+    && apk upgrade \
+    && apk add bash $BUILD_PACKAGES npm git
 
 RUN npm config set unsafe-perm true
 
@@ -58,7 +60,9 @@ RUN npm config set unsafe-perm true
 RUN npm install yarn -g
 
 # Throw errors if Gemfile has been modified since Gemfile.lock
-RUN bundle config --global frozen 1
+RUN bundle config --global frozen 1 \
+    && bundle config set deployment 'true' \
+    && bundle config set without 'development test'
 
 # Create app directory
 WORKDIR /usr/src/app
@@ -66,7 +70,7 @@ WORKDIR /usr/src/app
 COPY Gemfile Gemfile.lock ./
 
 # Install Gem dependencies
-RUN bundle install --deployment --without development test
+RUN bundle install
 
 # Install Node.js dependencies
 COPY package.json yarn.lock ./
@@ -89,7 +93,7 @@ RUN GOOGLE_GEOCODING_API_KEY=dummy SECRET_KEY_BASE=dummy APP_RUN_PRECOMPILE_ASSE
 # Add ngnx
 RUN apk add nginx
 RUN mkdir -p /run/nginx
-COPY default.conf /etc/nginx/conf.d/default.conf
+COPY default.conf /etc/nginx/http.d/default.conf
 
 # Run the web app on port 8080
 ENV PORT=8080
