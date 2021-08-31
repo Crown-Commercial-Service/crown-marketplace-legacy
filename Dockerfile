@@ -95,6 +95,12 @@ COPY default.conf /etc/nginx/conf.d/default.conf
 ENV PORT=8080
 EXPOSE 8080
 
+# Create non-root user and associated user group
+RUN addgroup -S cmpgroup && adduser -S cmpuser -G cmpgroup
+
+# Switch to non-root user for running
+USER cmpuser
+
 # Ensure our entry point script is executable
 RUN chmod +x ./bin/docker-entrypoint.sh
 
