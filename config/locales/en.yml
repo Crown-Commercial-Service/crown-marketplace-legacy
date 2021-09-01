@@ -989,6 +989,7 @@ en:
         guidance:
           heading: Guidance and other useful documents
           mcf2_link_text: Management Consultancy Framework Two (MCF2) specification
+          mcf3_link_text: Management Consultancy Framework Three (MCF3) specification
           mcf_link_text: Management Consultancy Framework (MCF) specification
           ojeu_contract_link_text: OJEU contract notice
         heading: Find management consultants
@@ -996,6 +997,8 @@ en:
         using_this_service: Using this service means you're following the public sector procurement procedures.
     job_titles:
       mcf1:
+        director: Partner/Managing Director
+        junior: Junior Consultant
         lot_2:
           director: Partner/Director Account/Auditor
           junior: Junior Accountant/Auditor
@@ -1010,70 +1013,24 @@ en:
           principal: Audit Manager
           senior: Senior Auditor
           standard: Lead Auditor
-        lot_4:
-          director: Partner/Managing Director
-          junior: Junior Consultant
-          managing: Managing Consultant/Associate Director/Director
-          principal: Principal Consultant
-          senior: Senior Consultant/Manager
-          standard: Consultant
-        lot_5:
-          director: Partner/Managing Director
-          junior: Junior Consultant
-          managing: Managing Consultant/Associate Director/Director
-          principal: Principal Consultant
-          senior: Senior Consultant/Manager
-          standard: Consultant
-        lot_6:
-          director: Partner/Managing Director
-          junior: Junior Consultant
-          managing: Managing Consultant/Associate Director/Director
-          principal: Principal Consultant
-          senior: Senior Consultant/Manager
-          standard: Consultant
-        lot_7:
-          director: Partner/Managing Director
-          junior: Junior Consultant
-          managing: Managing Consultant/Associate Director/Director
-          principal: Principal Consultant
-          senior: Senior Consultant/Manager
-          standard: Consultant
-        lot_8:
-          director: Partner/Managing Director
-          junior: Junior Consultant
-          managing: Managing Consultant/Associate Director/Director
-          principal: Principal Consultant
-          senior: Senior Consultant/Manager
-          standard: Consultant
+        managing: Managing Consultant/Associate Director/Director
+        principal: Principal Consultant
+        senior: Senior Consultant/Manager
+        standard: Consultant
       mcf2:
-        lot_1:
-          director: Partner/Managing Director
-          junior: Junior Consultant
-          managing: Managing Consultant/Associate Director/Director
-          principal: Principal Consultant
-          senior: Senior Consultant/Manager
-          standard: Consultant
-        lot_2:
-          director: Partner/Managing Director
-          junior: Junior Consultant
-          managing: Managing Consultant/Associate Director/Director
-          principal: Principal Consultant
-          senior: Senior Consultant/Manager
-          standard: Consultant
-        lot_3:
-          director: Partner/Managing Director
-          junior: Junior Consultant
-          managing: Managing Consultant/Associate Director/Director
-          principal: Principal Consultant
-          senior: Senior Consultant/Manager
-          standard: Consultant
-        lot_4:
-          director: Partner/Managing Director
-          junior: Junior Consultant
-          managing: Managing Consultant/Associate Director/Director
-          principal: Principal Consultant
-          senior: Senior Consultant/Manager
-          standard: Consultant
+        director: Partner/Managing Director
+        junior: Junior Consultant
+        managing: Managing Consultant/Associate Director/Director
+        principal: Principal Consultant
+        senior: Senior Consultant/Manager
+        standard: Consultant
+      mcf3:
+        director: Partner
+        junior: Analyst / Junior Consultant
+        managing: Managing Consultant / Director
+        principal: Principal Consultant / Associate Director
+        senior: Senior Consultant / Engagement Manager / Project Lead
+        standard: Consultant
     journey:
       choose_help_needed:
         body: Check that you don’t need one of these other frameworks offered by the Crown Commercial Service.
@@ -1110,7 +1067,7 @@ en:
         service_selected: service selected
         services_selected: services selected
       management_consultancy_lots:
-        service_line: Service line
+        service_lines: Service lines
     passwords:
       forgot_password_confirmation:
         heading: A reset email has been sent
@@ -1135,7 +1092,7 @@ en:
         expression_of_interest_template: Expression of interest template
         expression_of_interest_template_link_1: https://ccs-agreements.cabinetoffice.gov.uk/sites/default/files/contracts/RM3745%20MCF%20Expression%20of%20Interest.docx?format=doc
         expression_of_interest_template_link_2: https://ccs-agreements.cabinetoffice.gov.uk/sites/default/files/contracts/RM6008%20MCF2%20Expression%20of%20Interest%20-%20%20V1.docx?format=doc
-        expression_of_interest_template_link_3: "/management-consultancy/mcf3/RM6187 MCF3 Expression of Interest.docx?format=doc"
+        expression_of_interest_template_link_3: https://assets.crowncommercial.gov.uk/wp-content/uploads/T1-Expression-of-Interest-2.odt?format=doc
         heading: Download the supplier shortlist
         lead_text: The spreadsheet includes the selections you made, for your records and audit trail
         other_documents: Other documents
