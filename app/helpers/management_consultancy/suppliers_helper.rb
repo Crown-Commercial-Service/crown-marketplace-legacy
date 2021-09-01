@@ -2,7 +2,12 @@ module ManagementConsultancy::SuppliersHelper
   def mc_lot_key(lot)
     framework = lot.split('.')[0].downcase
     lot_number = lot.split('.')[1]
-    "#{framework}.lot_#{lot_number}"
+
+    if framework == 'mcf1' && ['2', '3'].include?(lot_number)
+      "#{framework}.lot_#{lot_number}"
+    else
+      framework
+    end
   end
 
   def framework_lot_and_description(number, description)
