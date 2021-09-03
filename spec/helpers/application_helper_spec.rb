@@ -96,4 +96,22 @@ RSpec.describe ApplicationHelper, type: :helper do
       expect(helper.miles_to_metres(miles)).to eq(expected)
     end
   end
+
+  describe '#url_formatter' do
+    context 'with a url that is missing the protocol' do
+      it 'returns the url with a http protocol' do
+        url = 'www.example.com'
+
+        expect(helper.url_formatter(url)).to eq('http://www.example.com')
+      end
+    end
+
+    context 'with a url that is not missing the protocol' do
+      it 'returns the provided url' do
+        url = 'https://www.example.com'
+
+        expect(helper.url_formatter(url)).to eq('https://www.example.com')
+      end
+    end
+  end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_27_080143) do
+ActiveRecord::Schema.define(version: 2021_09_03_090547) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -99,7 +99,6 @@ ActiveRecord::Schema.define(version: 2021_05_27_080143) do
     t.datetime "updated_at", null: false
     t.string "supplier_details_file", limit: 255
     t.string "supplier_rate_cards_file", limit: 255
-    t.string "supplier_regional_offerings_file", limit: 255
     t.string "supplier_service_offerings_file", limit: 255
     t.text "import_errors"
   end
@@ -119,17 +118,6 @@ ActiveRecord::Schema.define(version: 2021_05_27_080143) do
     t.string "telephone_number"
     t.string "email"
     t.index ["management_consultancy_supplier_id"], name: "index_management_consultancy_rate_cards_on_supplier_id"
-  end
-
-  create_table "management_consultancy_regional_availabilities", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.uuid "management_consultancy_supplier_id", null: false
-    t.text "lot_number", null: false
-    t.text "region_code", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.boolean "expenses_required", null: false
-    t.index ["management_consultancy_supplier_id"], name: "index_mc_regional_availabilities_on_mc_supplier_id"
-    t.index ["region_code", "lot_number", "management_consultancy_supplier_id"], name: "index_region_on_lot_number_and_mc_supplier_id", unique: true
   end
 
   create_table "management_consultancy_service_offerings", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -266,7 +254,6 @@ ActiveRecord::Schema.define(version: 2021_05_27_080143) do
   add_foreign_key "legal_services_regional_availabilities", "legal_services_suppliers"
   add_foreign_key "legal_services_service_offerings", "legal_services_suppliers"
   add_foreign_key "management_consultancy_rate_cards", "management_consultancy_suppliers"
-  add_foreign_key "management_consultancy_regional_availabilities", "management_consultancy_suppliers"
   add_foreign_key "management_consultancy_service_offerings", "management_consultancy_suppliers"
   add_foreign_key "supply_teachers_branches", "supply_teachers_suppliers"
   add_foreign_key "supply_teachers_rates", "supply_teachers_suppliers"

@@ -1,25 +1,18 @@
-require 'axlsx'
-
-class LegalServices::SupplierSpreadsheetCreator
+class LegalServices::SupplierSpreadsheetCreator < SupplierSpreadsheetCreator
   def initialize(suppliers, params)
-    @suppliers = suppliers
-    @params = params
+    super(suppliers, params, LegalServices::Service)
   end
 
   def build
-    Axlsx::Package.new do |p|
-      p.workbook.add_worksheet(name: 'Supplier shortlist') do |sheet|
-        sheet.add_row ['Supplier name', 'Phone number', 'Email']
-        add_supplier_details(sheet)
-      end
+    super do |shortlist_sheet, audit_sheet|
+      shortlist_sheet.add_row ['Supplier name', 'Phone number', 'Email']
+      add_supplier_details(shortlist_sheet)
 
-      p.workbook.add_worksheet(name: 'Shortlist audit') do |sheet|
-        sheet.add_row ['Central Government user?', @params['central_government']]
-        sheet.add_row ['Fees under £20 000 per matter?', 'yes'] if @params['central_government'] == 'yes'
-        lot = LegalServices::Lot.find_by(number: @params['lot'])
-        sheet.add_row ['Lot', "#{lot.number} - #{lot.description}"] unless @params['central_government'] == 'yes'
-        add_audit_trail(sheet)
-      end
+      audit_sheet.add_row ['Central Government user?', @params['central_government']]
+      audit_sheet.add_row ['Fees under £20 000 per matter?', 'yes'] if @params['central_government'] == 'yes'
+      lot = LegalServices::Lot.find_by(number: @params['lot'])
+      audit_sheet.add_row ['Lot', "#{lot.number} - #{lot.description}"] unless @params['central_government'] == 'yes'
+      add_audit_trail(audit_sheet)
     end
   end
 
@@ -60,11 +53,5 @@ class LegalServices::SupplierSpreadsheetCreator
   def add_jurisdiction(sheet)
     jurisdictions = { 'a' => 'England & Wales', 'b' => 'Scotland', 'c' => 'Northern Ireland' }
     sheet.add_row ['Jurisdiction', jurisdictions[@params['jurisdiction']]]
-  end
-
-  def add_services(sheet)
-    services = []
-    @params['services'].each { |service| services << LegalServices::Service.find_by(code: service).name }
-    sheet.add_row ['Services', services.join(', ')]
   end
 end

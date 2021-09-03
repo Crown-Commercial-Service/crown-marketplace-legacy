@@ -1,23 +1,16 @@
-require 'axlsx'
-
-class ManagementConsultancy::SupplierSpreadsheetCreator
+class ManagementConsultancy::SupplierSpreadsheetCreator < SupplierSpreadsheetCreator
   def initialize(suppliers, params)
-    @suppliers = suppliers
-    @params = params
+    super(suppliers, params, ManagementConsultancy::Service)
   end
 
   def build
-    Axlsx::Package.new do |p|
-      p.workbook.add_worksheet(name: 'Supplier shortlist') do |sheet|
-        sheet.add_row ['Supplier name', 'Contact name', 'Phone number', 'Email']
-        add_supplier_details(sheet)
-      end
+    super do |shortlist_sheet, audit_sheet|
+      shortlist_sheet.add_row ['Supplier name', 'Contact name', 'Phone number', 'Email']
+      add_supplier_details(shortlist_sheet)
 
-      p.workbook.add_worksheet(name: 'Shortlist audit') do |sheet|
-        lot = ManagementConsultancy::Lot.find_by(number: @params['lot'])
-        sheet.add_row ['Lot', "#{lot.number} - #{lot.description}"]
-        add_audit_trail(sheet)
-      end
+      lot = ManagementConsultancy::Lot.find_by(number: @params['lot'])
+      audit_sheet.add_row ['Lot', "#{lot.number} - #{lot.description}"]
+      add_services(audit_sheet)
     end
   end
 
@@ -35,33 +28,5 @@ class ManagementConsultancy::SupplierSpreadsheetCreator
         ]
       )
     end
-  end
-
-  def add_audit_trail(sheet)
-    add_services(sheet)
-
-    add_regions(sheet) if @params['region_codes']
-  end
-
-  def add_services(sheet)
-    services = []
-    @params['services'].each do |service|
-      if service =~ /^MCF\d[.]\d+[.]\d+[.]\d+$/
-        subservice =  ManagementConsultancy::Subservice.find_by(code: service)
-        parent_service = ManagementConsultancy::Service.find_by(code: subservice.service)
-        services << "#{parent_service.name} - #{subservice.name}"
-      else
-        services << ManagementConsultancy::Service.find_by(code: service).name
-      end
-    end
-    sheet.add_row ['Services', services.join(', ')]
-  end
-
-  def add_regions(sheet)
-    regions = []
-    @params['region_codes'].each do |region_code|
-      regions << Nuts2Region.find_by(code: region_code).name
-    end
-    sheet.add_row ['Regions', regions.join(', ')]
   end
 end

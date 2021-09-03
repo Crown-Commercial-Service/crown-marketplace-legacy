@@ -1,10 +1,5 @@
 module ManagementConsultancy
   class Supplier < ApplicationRecord
-    has_many :regional_availabilities,
-             foreign_key: :management_consultancy_supplier_id,
-             inverse_of: :supplier,
-             dependent: :destroy
-
     has_many :service_offerings,
              foreign_key: :management_consultancy_supplier_id,
              inverse_of: :supplier,
@@ -25,23 +20,13 @@ module ManagementConsultancy
     end
 
     def self.offering_services(lot_number, service_codes)
-      lot_service_codes = Service.where(lot_number: lot_number).map(&:code) + Subservice.all.map(&:code)
+      lot_service_codes = Service.where(lot_number: lot_number).map(&:code)
       valid_service_codes = service_codes & lot_service_codes
       ids = ServiceOffering.supplier_ids_for_service_codes(valid_service_codes)
       where(id: ids)
     end
 
-    def self.supplying_regions(lot_number, region_codes, expenses_paid = true)
-      ids = RegionalAvailability.supplier_ids_for_region_codes(lot_number, region_codes, expenses_paid)
-      where(id: ids)
-    end
-
-    def self.offering_services_in_regions(lot_number, service_codes, region_codes, expenses_paid = true)
-      offering_services(lot_number, service_codes).supplying_regions(lot_number, region_codes, expenses_paid)
-    end
-
     def self.delete_all_with_dependents
-      RegionalAvailability.delete_all
       ServiceOffering.delete_all
       RateCard.delete_all
       delete_all

@@ -125,6 +125,7 @@ ignore_unused:
   - home.index.legal_services_link
   - management_consultancy.admin.uploads.failed.error_details.*
   - common.type_*
+  - common.title_*
 # - 'activerecord.attributes.*'
 # - '{devise,kaminari,will_paginate}.*'
   - 'devise.*'

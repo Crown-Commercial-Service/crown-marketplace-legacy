@@ -3,8 +3,6 @@ require 'rails_helper'
 RSpec.describe ManagementConsultancy::Admin::UploadsController, type: :controller do
   let(:default_params) { { service: 'management_consultancy/admin' } }
 
-  before { allow(Marketplace).to receive(:mcf3_live?).and_return(false) }
-
   describe 'GET index' do
     context 'when not logged in' do
       it 'redirects to the sign-in' do
@@ -93,7 +91,7 @@ RSpec.describe ManagementConsultancy::Admin::UploadsController, type: :controlle
       allow(upload).to receive(:save).with(context: :upload).and_return(valid)
       allow(ManagementConsultancy::Admin::Upload).to receive(:new).with(anything).and_return(upload)
       allow(ManagementConsultancy::FileUploadWorker).to receive(:perform_async).with(upload.id).and_return(true)
-      post :create, params: { management_consultancy_admin_upload: { supplier_details_file: fake_file, supplier_rate_cards_file: fake_file, supplier_regional_offerings_file: fake_file, supplier_service_offerings_file: fake_file } }
+      post :create, params: { management_consultancy_admin_upload: { supplier_details_file: fake_file, supplier_rate_cards_file: fake_file, supplier_service_offerings_file: fake_file } }
     end
 
     after do

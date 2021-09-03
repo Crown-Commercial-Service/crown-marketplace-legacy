@@ -24,7 +24,6 @@ RSpec.describe ManagementConsultancy::FilesImporter do
   let(:files_importer) { described_class.new(upload) }
 
   before do
-    allow(Marketplace).to receive(:mcf3_live?).and_return(true)
     supplier_details_file.build
     supplier_details_file.write
     supplier_rate_cards_file.build
@@ -114,7 +113,6 @@ RSpec.describe ManagementConsultancy::FilesImporter do
       expected_supplier_results.each do |name, expected_results|
         supplier = ManagementConsultancy::Supplier.find_by(name: name)
 
-        expect(supplier.regional_availabilities.count).to eq 0
         expect(supplier.service_offerings.count).to eq expected_results[:service_offerings]
         expect(supplier.rate_cards.count).to eq expected_results[:rate_cards]
       end

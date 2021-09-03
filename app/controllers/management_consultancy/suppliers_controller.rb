@@ -24,7 +24,7 @@ module ManagementConsultancy
         format.xlsx do
           spreadsheet_builder = ManagementConsultancy::SupplierSpreadsheetCreator.new(@all_suppliers, params)
           spreadsheet = spreadsheet_builder.build
-          render xlsx: spreadsheet.to_stream.read, filename: "shortlist_of_management_consultancy_suppliers.xlsx_#{DateTime.now.getlocal.strftime '%d-%m-%Y'}", format: 'application/vnd.openxmlformates-officedocument.spreadsheetml.sheet'
+          render xlsx: spreadsheet.to_stream.read, filename: "shortlist_of_management_consultancy_suppliers_#{DateTime.now.getlocal.strftime '%d-%m-%Y'}", format: 'application/vnd.openxmlformates-officedocument.spreadsheetml.sheet'
         end
       end
     end
@@ -32,26 +32,14 @@ module ManagementConsultancy
     private
 
     def redirect_if_wrong_lot
-      if Marketplace.mcf3_live?
-        redirect_to management_consultancy_path unless params[:lot].starts_with?('MCF3')
-      elsif ['MCF1', 'MCF2'].none? { |lot| params[:lot].starts_with?(lot) }
-        redirect_to management_consultancy_path
-      end
+      redirect_to management_consultancy_path unless params[:lot].starts_with?('MCF3')
     end
 
     def fetch_suppliers
-      @all_suppliers = if Marketplace.mcf3_live?
-                         Supplier.offering_services(
-                           params[:lot],
-                           params[:services],
-                         ).order(:name)
-                       else
-                         Supplier.offering_services_in_regions(
-                           params[:lot],
-                           params[:services],
-                           params[:region_codes]
-                         ).order(:name)
-                       end
+      @all_suppliers = Supplier.offering_services(
+        params[:lot],
+        params[:services],
+      ).order(:name)
     end
 
     def set_back_path

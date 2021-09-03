@@ -5,20 +5,14 @@ module ManagementConsultancy
 
       has_one_attached :supplier_details_file
       has_one_attached :supplier_rate_cards_file
-      has_one_attached :supplier_regional_offerings_file
       has_one_attached :supplier_service_offerings_file
 
       validates :supplier_details_file, antivirus: { message: :malicious }, size: { less_than: 10.megabytes, message: :too_large }, content_type: { with: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', message: :wrong_content_type }, on: :upload
       validates :supplier_rate_cards_file, antivirus: { message: :malicious }, size: { less_than: 10.megabytes, message: :too_large }, content_type: { with: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', message: :wrong_content_type }, on: :upload
-      validates :supplier_regional_offerings_file, antivirus: { message: :malicious }, size: { less_than: 10.megabytes, message: :too_large }, content_type: { with: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', message: :wrong_content_type }, on: :upload, unless: -> { Marketplace.mcf3_live? }
       validates :supplier_service_offerings_file, antivirus: { message: :malicious }, size: { less_than: 10.megabytes, message: :too_large }, content_type: { with: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', message: :wrong_content_type }, on: :upload
 
       def self.attributes
-        if Marketplace.mcf3_live?
-          %i[supplier_details_file supplier_rate_cards_file supplier_service_offerings_file]
-        else
-          %i[supplier_details_file supplier_rate_cards_file supplier_regional_offerings_file supplier_service_offerings_file]
-        end
+        %i[supplier_details_file supplier_rate_cards_file supplier_service_offerings_file]
       end
 
       SERVICE = ManagementConsultancy

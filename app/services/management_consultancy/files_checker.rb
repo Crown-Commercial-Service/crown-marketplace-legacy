@@ -25,8 +25,6 @@ class ManagementConsultancy::FilesChecker
       if suppliers_workbook.sheet(index).row(1) != ['Supplier name', 'Email address', 'Phone number', 'Website URL', 'Postal address', 'Is an SME?', 'DUNS Number']
         sheets_with_errors << framework
       elsif suppliers_workbook.sheet(index).last_row == 1
-        next if mcf3_can_be_blank?(framework)
-
         empty_sheets << framework
       end
     end
@@ -39,8 +37,6 @@ class ManagementConsultancy::FilesChecker
       if rate_cards_workbook.sheet(index).last_column != 10
         sheets_with_errors << service_code
       elsif rate_cards_workbook.sheet(index).last_row == 1
-        next if mcf3_can_be_blank?(service_code)
-
         empty_sheets << service_code
       end
     end
@@ -48,13 +44,9 @@ class ManagementConsultancy::FilesChecker
 
   def check_supplier_service_offerings_spreadsheet(service_offerings_workbook)
     check_sheets(service_offerings_workbook, all_sheets, 'supplier_service_offerings') do |sheets_with_errors, empty_sheets, index|
-      service_code = index_to_service_code(index)
-
       if service_offerings_workbook.sheet(index).last_row != sheet_index_to_service_code[index][:rows]
         sheets_with_errors << index_to_service_code(index)
       elsif service_offerings_workbook.sheet(index).last_column == 1
-        next if mcf3_can_be_blank?(service_code)
-
         empty_sheets << index_to_service_code(index)
       end
     end
@@ -62,10 +54,6 @@ class ManagementConsultancy::FilesChecker
 
   def index_to_service_code(index)
     "MCF#{sheet_index_to_service_code[index][:mcf]} Lot #{sheet_index_to_service_code[index][:code]}"
-  end
-
-  def mcf3_can_be_blank?(code)
-    !Marketplace.mcf3_live? && code.start_with?('MCF3')
   end
 
   def supplier_details_sheets
@@ -78,10 +66,6 @@ class ManagementConsultancy::FilesChecker
 
   def all_sheets
     self.class::ALL_SHEETS
-  end
-
-  def supplier_regional_offerings_sheets
-    self.class::SUPPLIER_REGIONAL_OFFERINGS_SHEETS
   end
 
   def sheet_index_to_service_code

@@ -17,11 +17,7 @@
             </h1>
             <%= display_error(@journey, :services) %>
           </legend>
-          <% if @journey.params['lot'].split('.')[0] == 'MCF2' %>
-            <%= render partial: 'mcf2_services', locals: { services: @journey.current_step.services_for_lot(@journey.params['lot']) } %>
-          <% else %>
-            <%= render partial: 'mcf_services', locals: { services: @journey.current_step.services_for_lot(@journey.params['lot']) } %>
-          <% end %>
+          <%= render partial: 'mcf_services', locals: { services: @journey.current_step.services_for_lot(@journey.params['lot']) } %>
         <% end %>
       <% end %>
     </section>

@@ -1,13 +1,3 @@
-<% if Marketplace.mcf3_live? && @upload.created_at < Time.parse(ENV['MCF3_LIVE_DATE']).in_time_zone('London') %>
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-        <%= warning_text(t('.warning_text')) %>
-        <p class='govuk-body-m '>
-          <%= t('.warning_description') %>
-        </p>
-    </div>
-  </div>
-<% end %>
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <h2 class="govuk-heading-m"><%= t('.errors_with_upload') %></h2>
@@ -40,7 +30,7 @@
               <% if error[:details] %>
                 <%= get_error_details('management_consultancy', error[:error], error[:details]) %>
               <% else %>
-                <%= t("#{error_translation_base}.#{error[:error]}") %>
+                <%= t(".error_details.#{error[:error]}") %>
               <% end %>
             </td>
           </tr>
