@@ -12,12 +12,7 @@
 <div class="ccs-titles-checkboxes">
     <%= govuk_form_group_with_optional_error(@journey, :lot) do %>
         <div class="govuk-radios">
-            <% if Marketplace.mcf3_live? %>
-                <%= render partial: 'management_consultancy_lots', locals: { legend_heading: t('.mcf3_heading'), lots: ManagementConsultancy::Journey::ChooseLot.mcf3_lots } %>
-            <% else %>
-                <%= render partial: 'management_consultancy_lots', locals: { legend_heading: t('.mcf_heading'), lots: ManagementConsultancy::Journey::ChooseLot.mcf_lots } %>
-                <%= render partial: 'management_consultancy_lots', locals: { legend_heading: t('.mcf2_heading'), lots: ManagementConsultancy::Journey::ChooseLot.mcf2_lots } %>
-            <% end %>
+            <%= render partial: 'management_consultancy_lots', locals: { legend_heading: t('.mcf3_heading'), lots: ManagementConsultancy::Journey::ChooseLot.mcf3_lots } %>
         </div>
     <% end %>
     <%= submit_tag t('common.submit'), class: "govuk-button", name: "Continue" %>

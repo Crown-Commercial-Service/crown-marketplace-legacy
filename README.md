@@ -165,10 +165,6 @@ environments:
 
 * `LOG_LEVEL` can be used to manipulate the log level in production. Set to `'debug'` to see debug output; the default (if not set) is `:info`
 
-### Other
-
-* `MCF3_LIVE_DATE` needs to be a date formated as 'YYYY/MM/DD'
-
 ## Run
 
 Execute the following commands:

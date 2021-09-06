@@ -162,8 +162,4 @@ module Marketplace
   def self.upload_privileges?
     ENV['APP_HAS_UPLOAD_PRIVILEGES'].present?
   end
-
-  def self.mcf3_live?
-    @mcf3_live ||= Time.now.in_time_zone('London') >= Time.parse(ENV['MCF3_LIVE_DATE']).in_time_zone('London')
-  end
 end

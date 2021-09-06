@@ -7,12 +7,12 @@ RSpec.describe ManagementConsultancy::Lot, type: :model do
   let(:all_numbers) { described_class.all_numbers }
 
   it 'loads lots from CSV' do
-    expect(lots.count).to eq(20)
+    expect(lots.count).to eq(9)
   end
 
   it 'populates attributes of first lot' do
-    expect(first_lot.number).to eq('MCF1.2')
-    expect(first_lot.description).to eq('Finance')
+    expect(first_lot.number).to eq('MCF3.1')
+    expect(first_lot.description).to eq('Business')
   end
 
   it 'only has unique numbers' do
@@ -25,7 +25,7 @@ RSpec.describe ManagementConsultancy::Lot, type: :model do
 
   describe '.[]' do
     it 'looks up lot by number' do
-      expect(described_class['MCF1.2'].number).to eq('MCF1.2')
+      expect(described_class['MCF3.2'].number).to eq('MCF3.2')
     end
   end
 

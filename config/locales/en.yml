@@ -276,12 +276,6 @@ en:
               too_large: The 'Supplier rate cards' file must be smaller than 10mb
               wrong_content_type: The 'Supplier rate cards' file does not contain the expected content type
               wrong_extension: The 'Supplier rate cards' file must be an XLSX
-            supplier_regional_offerings_file:
-              malicious: The 'Supplier regional offerings' file contains a virus
-              not_attached: Select the 'Supplier regional offerings' file
-              too_large: The 'Supplier regional offerings' file must be smaller than 10mb
-              wrong_content_type: The 'Supplier regional offerings' file does not contain the expected content type
-              wrong_extension: The 'Supplier regional offerings' file must be an XLSX
             supplier_service_offerings_file:
               malicious: The 'Supplier service offerings' file contains a virus
               not_attached: Select the 'Supplier service offerings' file
@@ -341,7 +335,6 @@ en:
     confirm_and_continue: Confirm and continue
     continue: Continue
     create_account: Create account
-    doc_html: <abbr title="Microsoft Word">DOC</abbr>
     error_summary_title: There is a problem
     feedback: feedback
     general_legal_advice_services_url: https://www.crowncommercial.gov.uk/agreements/RM3786
@@ -353,10 +346,13 @@ en:
     send_reset_email: Send reset email
     sign_in: Sign in
     submit: Continue
+    title_doc_html: <abbr title="Microsoft Word">DOC</abbr>
+    title_odt_html: <abbr title="OpenDocument Format">ODT</abbr>
+    title_xlsx_html: <abbr title="Microsoft Excel">XLSX</abbr>
     type_doc: application/msword
+    type_odt: application/vnd.oasis.opendocum
     type_xlsx: application/msexcel
     type_zip: application/zip
-    xlsx_html: <abbr title="Microsoft Excel">XLSX</abbr>
   companies:
     unit:
       one: company
@@ -552,7 +548,6 @@ en:
       cookie_settings_link_aria_label: Change you cookie settings
       crown_copyright: "© Crown copyright"
       error_prefix: Error
-      feedback: feedback
       feedback_end_journey_html: <b> This is a new service - how did you find it? </b> Please complete <a href="%{link}" target="_blank" >a short survey</a> to help us improve it.
       feedback_html: This is a new service – your %{link} will help us to improve it.
       having_problems: Having problems with this service?
@@ -870,29 +865,17 @@ en:
             file_check_failed: Something went wrong when checking the files, please try uploading the files again
             file_process_failed: Something went wrong when processing the files, please try uploading the files again
             file_publish_failed: Something went wrong when publishing the files, please try uploading the files again
-            mcf3_live:
-              file_check_failed: Something went wrong when checking the files, please try uploading the files again
-              file_process_failed: Something went wrong when processing the files, please try uploading the files again
-              file_publish_failed: Something went wrong when publishing the files, please try uploading the files again
-              supplier_details_missing_sheets: 'The ''Supplier details'' file should have 1 sheet with the following name: ''MCF3'''
-              supplier_rate_cards_missing_sheets: 'The ''Supplier rate cards'' file should have 9 sheets with the following names: ''MCF3 Lot 1'', ''MCF3 Lot 2'', ''MCF3 Lot 3'', ''MCF3 Lot 4'', ''MCF3 Lot 5'', ''MCF3 Lot 6'', ''MCF3 Lot 7'', ''MCF3 Lot 8'', ''MCF3 Lot 9'''
-              supplier_regional_offerings_missing_sheets: No longer occurs
-              supplier_service_offerings_missing_sheets: 'The ''Supplier service offerings'' file should have 9 sheets with the following names: ''MCF3 Lot 1'', ''MCF3 Lot 2'', ''MCF3 Lot 3'', ''MCF3 Lot 4'', ''MCF3 Lot 5'', ''MCF3 Lot 6'', ''MCF3 Lot 7'', ''MCF3 Lot 8'', ''MCF3 Lot 9'''
-              upload_failed: Something went wrong with the file upload, please try uploading the files again
             supplier_details_has_empty_sheets_html: 'The following sheets have no data: %{list} Make sure all sheets for ''Supplier details'' have been filled in'
             supplier_details_has_incorrect_headers_html: 'The following sheets have incorrect headers: %{list} Make sure all sheets for ''Supplier details'' have the following headers: ''Supplier name'', ''Email address'', ''Phone number'', ''Website URL'', ''Postal address'', ''Is an SME?'', ''DUNS Number'''
-            supplier_details_missing_sheets: 'The ''Supplier details'' file should have 3 sheets with the following names: ''MCF'', ''MCF2'', ''MCF3'''
+            supplier_details_missing_sheets: 'The ''Supplier details'' file should have 1 sheet with the following name: ''MCF3'''
             supplier_missing_lots_html: 'The following suppliers do not offer any lots: %{list} Make sure all the suppliers have the correct name and DUNS number'
             supplier_missing_rate_cards_html: 'The following suppliers do not have any rate cards: %{list} Make sure all the suppliers have the correct name and DUNS number'
             supplier_rate_cards_has_empty_sheets_html: 'The following sheets have no data: %{list} Make sure all sheets for ''Supplier rate cards'' have been filled in'
             supplier_rate_cards_has_incorrect_headers_html: 'The following sheets are missing columns: %{list} Make sure all sheets for ''Supplier rate cards'' have the 10 expected columns'
-            supplier_rate_cards_missing_sheets: 'The ''Supplier rate cards'' file should have 20 sheets with the following names: ''MCF Lot 2'', ''MCF Lot 3'', ''MCF Lot 4'', ''MCF Lot 5'', ''MCF Lot 6'', ''MCF Lot 7'', ''MCF Lot 8'', ''MCF2 Lot 1'', ''MCF2 Lot 2'', ''MCF2 Lot 3'', ''MCF2 Lot 4'', ''MCF3 Lot 1'', ''MCF3 Lot 2'', ''MCF3 Lot 3'', ''MCF3 Lot 4'', ''MCF3 Lot 5'', ''MCF3 Lot 6'', ''MCF3 Lot 7'', ''MCF3 Lot 8'', ''MCF3 Lot 9'''
-            supplier_regional_offerings_has_empty_sheets_html: 'The following sheets have no data: %{list} Make sure all sheets for ''Supplier regional offerings'' have been filled in'
-            supplier_regional_offerings_has_incorrect_headers_html: 'The following sheets have incorrect headers: %{list} Make sure all sheets for ''Supplier regional offerings'' have the correct regions'
-            supplier_regional_offerings_missing_sheets: 'The ''Supplier regional offerings'' file should have 11 sheets with the following names: ''MCF Lot 2'', ''MCF Lot 3'', ''MCF Lot 4'', ''MCF Lot 5'', ''MCF Lot 6'', ''MCF Lot 7'', ''MCF Lot 8'', ''MCF2 Lot 1'', ''MCF2 Lot 2'', ''MCF2 Lot 3'', ''MCF2 Lot 4'''
+            supplier_rate_cards_missing_sheets: 'The ''Supplier rate cards'' file should have 9 sheets with the following names: ''MCF3 Lot 1'', ''MCF3 Lot 2'', ''MCF3 Lot 3'', ''MCF3 Lot 4'', ''MCF3 Lot 5'', ''MCF3 Lot 6'', ''MCF3 Lot 7'', ''MCF3 Lot 8'', ''MCF3 Lot 9'''
             supplier_service_offerings_has_empty_sheets_html: 'The following sheets have no data: %{list} Make sure all sheets for ''Supplier service offerings'' have been filled in'
             supplier_service_offerings_has_incorrect_headers_html: 'The following sheets have incorrect column headers: %{list} Make sure all sheets for ''Supplier service offerings'' have the correct services for their lot'
-            supplier_service_offerings_missing_sheets: 'The ''Supplier service offerings'' file should have 20 sheets with the following names: ''MCF Lot 2'', ''MCF Lot 3'', ''MCF Lot 4'', ''MCF Lot 5'', ''MCF Lot 6'', ''MCF Lot 7'', ''MCF Lot 8'', ''MCF2 Lot 1'', ''MCF2 Lot 2'', ''MCF2 Lot 3'', ''MCF2 Lot 4'', ''MCF3 Lot 1'', ''MCF3 Lot 2'', ''MCF3 Lot 3'', ''MCF3 Lot 4'', ''MCF3 Lot 5'', ''MCF3 Lot 6'', ''MCF3 Lot 7'', ''MCF3 Lot 8'', ''MCF3 Lot 9'''
+            supplier_service_offerings_missing_sheets: 'The ''Supplier service offerings'' file should have 9 sheets with the following names: ''MCF3 Lot 1'', ''MCF3 Lot 2'', ''MCF3 Lot 3'', ''MCF3 Lot 4'', ''MCF3 Lot 5'', ''MCF3 Lot 6'', ''MCF3 Lot 7'', ''MCF3 Lot 8'', ''MCF3 Lot 9'''
             upload_failed: Something went wrong with the file upload, please try uploading the files again
           error_name:
             file_check_failed: File check failed
@@ -906,17 +889,12 @@ en:
             supplier_rate_cards_has_empty_sheets: There are sheets in 'Supplier rate cards' without any data
             supplier_rate_cards_has_incorrect_headers: There are sheets in 'Supplier rate cards' with incorrect headers
             supplier_rate_cards_missing_sheets: The 'Supplier rate cards' file is missing sheets
-            supplier_regional_offerings_has_empty_sheets: There are sheets in 'Supplier regional offerings' without any data
-            supplier_regional_offerings_has_incorrect_headers: There are sheets in 'Supplier regional offerings' with incorrect headers
-            supplier_regional_offerings_missing_sheets: The 'Supplier regional offerings' file is missing sheets
             supplier_service_offerings_has_empty_sheets: There are sheets in 'Supplier service offerings' without any data
             supplier_service_offerings_has_incorrect_headers: There are sheets in 'Supplier service offerings' with incorrect services
             supplier_service_offerings_missing_sheets: The 'Supplier service offerings' file is missing sheets
             upload_failed: Upload failed
           errors_with_upload: Errors with the upload
           issue: Issue
-          warning_description: This upload occurred before MCF3 went live, this means some of the error details will no longer be correct.
-          warning_text: Errors out of date
         index:
           caption: Management Consultancy
           create_new: Create a new data upload
@@ -926,7 +904,6 @@ en:
           file_name:
             supplier_details_file: Supplier details
             supplier_rate_cards_file: Supplier rate cards
-            supplier_regional_offerings_file: Supplier regional offerings
             supplier_service_offerings_file: Supplier service offerings
           heading: Manage supplier data
           name: Name
@@ -938,12 +915,9 @@ en:
           file_label:
             supplier_details_file: Supplier details
             supplier_rate_cards_file: Supplier rate cards
-            supplier_regional_offerings_file: Supplier regional offerings
             supplier_service_offerings_file: Supplier service offerings
           heading: New data upload
-          include_mcf3: Except for 'Supplier regional offerings', all files should include the sheets for MCF3. If the data for MCF3 is not available, keep the headings or columns but leave the fields blank.
           return: Return to 'Manage supplier data'
-          template_file_mcf3_path: management-consultancy/mcf3/Supplier spreadsheet templates.zip
           template_file_name: Download spreadsheet templates
           template_file_path: management-consultancy/Supplier spreadsheet templates.zip
           upload_caption: Supported file format is .xlsx and maximum file size is 10mb
@@ -957,7 +931,6 @@ en:
           file_name:
             supplier_details_file: Supplier details
             supplier_rate_cards_file: Supplier rate cards
-            supplier_regional_offerings_file: Supplier regional offerings
             supplier_service_offerings_file: Supplier service offerings
           files: Uploaded files
           heading: 'Upload session #%{number}'
@@ -981,56 +954,21 @@ en:
       index:
         before_you_start:
           heading: Before you start
-          mcf2_link_text: Management Consultancy Framework Two
           mcf3_link_text: lot descriptions documents
           mcf3_text_html: You need to know which lot the management consultancy services you need are in. Review the %{mcf3_link} for Management Consultancy Framework Three.
-          mcf_link_text: Management Consultancy Framework
-          mcf_text_html: You need to know which lot the management consultancy services you need are in. Review the lot descriptions documents for %{mcf_link} and %{mcf2_link}.
         guidance:
           heading: Guidance and other useful documents
-          mcf2_link_text: Management Consultancy Framework Two (MCF2) specification
           mcf3_link_text: Management Consultancy Framework Three (MCF3) specification
-          mcf_link_text: Management Consultancy Framework (MCF) specification
-          ojeu_contract_link_text: OJEU contract notice
         heading: Find management consultants
         use_this_service: Use this service to download a shortlist of suppliers that provide the management consultancy services you need.
         using_this_service: Using this service means you're following the public sector procurement procedures.
     job_titles:
-      mcf1:
-        director: Partner/Managing Director
-        junior: Junior Consultant
-        lot_2:
-          director: Partner/Director Account/Auditor
-          junior: Junior Accountant/Auditor
-          managing: Managing Account/Auditor
-          principal: Principal Accountant/Auditor
-          senior: Senior Accountant/Auditor
-          standard: Accountant/Auditor
-        lot_3:
-          director: Partner/Director of Audit
-          junior: Junior Auditor
-          managing: Senior Audit Manager
-          principal: Audit Manager
-          senior: Senior Auditor
-          standard: Lead Auditor
-        managing: Managing Consultant/Associate Director/Director
-        principal: Principal Consultant
-        senior: Senior Consultant/Manager
-        standard: Consultant
-      mcf2:
-        director: Partner/Managing Director
-        junior: Junior Consultant
-        managing: Managing Consultant/Associate Director/Director
-        principal: Principal Consultant
-        senior: Senior Consultant/Manager
-        standard: Consultant
-      mcf3:
-        director: Partner
-        junior: Analyst / Junior Consultant
-        managing: Managing Consultant / Director
-        principal: Principal Consultant / Associate Director
-        senior: Senior Consultant / Engagement Manager / Project Lead
-        standard: Consultant
+      director: Partner
+      junior: Analyst / Junior Consultant
+      managing: Managing Consultant / Director
+      principal: Principal Consultant / Associate Director
+      senior: Senior Consultant / Engagement Manager / Project Lead
+      standard: Consultant
     journey:
       choose_help_needed:
         body: Check that you don’t need one of these other frameworks offered by the Crown Commercial Service.
@@ -1056,16 +994,8 @@ en:
           link: https://www.crowncommercial.gov.uk/agreements/RM6100
           link_text: Technology services 3
       choose_lot:
-        mcf2_heading: Management Consultancy Framework (MCF2)
         mcf3_heading: Management Consultancy Framework 3 (MCF3)
-        mcf_heading: Management Consultancy Framework (MCF)
         question: Select the lot you need
-      choose_regions:
-        no_regions_selected: No regions selected
-        question: Select the regions you want the consultants to work
-        region_selected: region selected
-        regions_selected: regions selected
-        subtitle: Suppliers have said where they’ll provide consultants
       choose_services:
         no_services_selected: No services selected
         question: Select the services you need
@@ -1095,9 +1025,7 @@ en:
       download:
         download_supplier_shortlist: Download supplier shortlist
         expression_of_interest_template: Expression of interest template
-        expression_of_interest_template_link_1: https://ccs-agreements.cabinetoffice.gov.uk/sites/default/files/contracts/RM3745%20MCF%20Expression%20of%20Interest.docx?format=doc
-        expression_of_interest_template_link_2: https://ccs-agreements.cabinetoffice.gov.uk/sites/default/files/contracts/RM6008%20MCF2%20Expression%20of%20Interest%20-%20%20V1.docx?format=doc
-        expression_of_interest_template_link_3: https://assets.crowncommercial.gov.uk/wp-content/uploads/T1-Expression-of-Interest-2.odt?format=doc
+        expression_of_interest_template_link: https://assets.crowncommercial.gov.uk/wp-content/uploads/T1-Expression-of-Interest-2.odt?format=odt
         heading: Download the supplier shortlist
         lead_text: The spreadsheet includes the selections you made, for your records and audit trail
         other_documents: Other documents
@@ -1111,7 +1039,6 @@ en:
           text: No companies can provide consultants that can meet your requirements.
         suppliers_found_html: "<span class='govuk-!-font-size-27 govuk-!-font-weight-bold'>%{number}</span> <span class='govuk-!-font-weight-bold'>%{suppliers}</span> can provide consultants that meet your requirements"
       show:
-        based_on: and based on an 8 hour working day.
         contact_details:
           address: Address
           email: Email
@@ -1120,9 +1047,6 @@ en:
           phone_number: Phone number
           website: Website
         day_rates: Day rates
-        fixed_until_mcf1: Fixed until September 2021
-        fixed_until_mcf2: Fixed until September 2020
-        further_competition: These are the maximum rates the supplier charges for a direct award. You may get a cheaper rate by running a further competition.
         is_an_sme: This supplier is a small or medium-sized enterprise
         max_day_rate: Max day rate
         maximum_day_rates: Maximum day rates

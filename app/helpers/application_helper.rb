@@ -22,10 +22,6 @@ module ApplicationHelper
     link_to(t('common.feedback'), Marketplace.mc_survey_link, target: '_blank', rel: 'noopener', class: 'govuk-link')
   end
 
-  def support_email_link(label)
-    govuk_email_link(Marketplace.support_email_address, label, css_class: 'govuk-link ga-support-mailto')
-  end
-
   def footer_email_link(label)
     mail_to(Marketplace.support_email_address, Marketplace.support_email_address, class: 'govuk-link ga-support-mailto', 'aria-label': label)
   end
@@ -36,10 +32,6 @@ module ApplicationHelper
 
   def support_telephone_number
     Marketplace.support_telephone_number
-  end
-
-  def govuk_email_link(email_address, aria_label, css_class: 'govuk-link')
-    mail_to(email_address, t('layouts.application.feedback'), class: css_class, 'aria-label': aria_label)
   end
 
   def govuk_form_group_with_optional_error(journey, *attributes, &block)
@@ -58,12 +50,6 @@ module ApplicationHelper
     options[:aria] = { describedby: error_id(attribute) } if attribute_has_errors
 
     tag.fieldset(options, &block)
-  end
-
-  def property_name(section_name, attributes)
-    return "#{section_name}_#{attributes.is_a?(Array) ? attributes.last : attributes}" unless section_name.nil?
-
-    (attributes.is_a?(Array) ? attributes.last : attributes).to_s
   end
 
   def display_errors(journey, *attributes)
@@ -164,20 +150,8 @@ module ApplicationHelper
     controller.action_name == 'not_permitted'
   end
 
-  def format_date(date_object)
-    date_object&.in_time_zone('London')&.strftime '%e %B %Y'
-  end
-
   def format_date_time(date_object)
     date_object&.in_time_zone('London')&.strftime '%e %B %Y, %l:%M%P'
-  end
-
-  def format_date_time_day(date_object)
-    date_object&.in_time_zone('London')&.strftime '%e %B %Y, %l:%M%P'
-  end
-
-  def format_money(cost, precision = 2)
-    number_to_currency(cost, precision: precision, unit: '£')
   end
 
   def cookie_policy_path(service)
@@ -206,31 +180,19 @@ module ApplicationHelper
     tag.strong(text, class: ['govuk-tag'] << extra_classes[colour])
   end
 
-  def warning_text(text)
-    tag.div(class: 'govuk-warning-text') do
-      concat(tag.span('!', class: 'govuk-warning-text__icon', aria: { hidden: true }))
-      concat(
-        tag.strong(class: 'govuk-warning-text__text') do
-          concat(tag.span('Warning', class: 'govuk-warning-text__assistive'))
-          concat(text)
-        end
-      )
-    end
-  end
-
   def link_to_public_file_for_download(filename, file_type, text, show_doc_image, **html_options)
     link_to_file_for_download("/#{filename}?format=#{file_type}", file_type, text, show_doc_image, **html_options)
   end
 
   def link_to_generated_file_for_download(filename, file_type, text, show_doc_image, **html_options)
-    link_to_file_for_download("#{filename}?format=#{file_type}", file_type, text, show_doc_image, **html_options)
+    link_to_file_for_download("#{filename}&format=#{file_type}", file_type, text, show_doc_image, **html_options)
   end
 
   def link_to_file_for_download(file_link, file_type, text, show_doc_image, **html_options)
     link_to(file_link, class: ('supplier-record__file-download' if show_doc_image).to_s, type: t("common.type_#{file_type}"), download: '', **html_options) do
       capture do
         concat(text)
-        concat(tag.span(t("common.#{file_type}_html"), class: 'govuk-visually-hidden')) if show_doc_image
+        concat(tag.span(t("common.title_#{file_type}_html"), class: 'govuk-visually-hidden')) if show_doc_image
       end
     end
   end
@@ -245,6 +207,14 @@ module ApplicationHelper
         concat(tag.li(detail))
       end
     end
+  end
+
+  def url_formatter(url)
+    u = URI.parse(url)
+
+    return url if %w[http https].include?(u.scheme)
+
+    "http://#{url}"
   end
 end
 # rubocop:enable Metrics/ModuleLength

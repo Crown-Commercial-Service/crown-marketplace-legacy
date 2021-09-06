@@ -23,7 +23,6 @@ module ManagementConsultancy
       error
     end
 
-    # rubocop:disable Metrics/AbcSize
     def self.create_supplier!(data)
       supplier = Supplier.create!(
         id: data['supplier_id'],
@@ -39,14 +38,6 @@ module ManagementConsultancy
       lots = data.fetch('lots', [])
       lots.each do |lot|
         lot_number = lot['lot_number']
-        regions = lot.fetch('regions', {})
-        regions.each do |region, policy|
-          supplier.regional_availabilities.create!(
-            lot_number: lot_number,
-            region_code: region,
-            expenses_required: policy == 'provided_if_expenses'
-          )
-        end
         services = lot.fetch('services', [])
         services.each do |service|
           supplier.service_offerings.create!(
@@ -62,6 +53,5 @@ module ManagementConsultancy
         supplier.rate_cards.create!(rate_card)
       end
     end
-    # rubocop:enable Metrics/AbcSize
   end
 end

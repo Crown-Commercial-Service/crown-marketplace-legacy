@@ -10,24 +10,6 @@ RSpec.describe LegalServices::SuppliersHelper, type: :helper do
     end
   end
 
-  describe '#url_formatter' do
-    context 'with a url that is missing the protocol' do
-      it 'returns the url with a http protocol' do
-        url = 'www.example.com'
-
-        expect(helper.url_formatter(url)).to eq('http://www.example.com')
-      end
-    end
-
-    context 'with a url that is not missing the protocol' do
-      it 'returns the provided url' do
-        url = 'https://www.example.com'
-
-        expect(helper.url_formatter(url)).to eq('https://www.example.com')
-      end
-    end
-  end
-
   describe '#prospectus_link_a_url?' do
     let(:lot_number) { rand(2..4).to_s }
     let(:link_url) { Faker::Internet.unique.url }

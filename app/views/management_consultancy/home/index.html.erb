@@ -17,24 +17,14 @@
       <h2 class="govuk-heading-m"><%= t('.before_you_start.heading') %></h2>
 
       <p class="govuk-body">
-        <% if Marketplace.mcf3_live? %>
-          <%= t('.before_you_start.mcf3_text_html', mcf3_link: link_to(t('.before_you_start.mcf3_link_text'), 'https://assets.crowncommercial.gov.uk/wp-content/uploads/RM6187-MCF3-Lot-descriptions.pdf')) %>
-        <% else %>
-          <%= t('.before_you_start.mcf_text_html', mcf_link: link_to(t('.before_you_start.mcf_link_text'), 'https://ccs-agreements.cabinetoffice.gov.uk/contracts/rm3745'), mcf2_link: link_to(t('.before_you_start.mcf2_link_text'), 'https://ccs-agreements.cabinetoffice.gov.uk/contracts/rm6008')) %>
-        <% end %>
+        <%= t('.before_you_start.mcf3_text_html', mcf3_link: link_to(t('.before_you_start.mcf3_link_text'), 'https://assets.crowncommercial.gov.uk/wp-content/uploads/RM6187-MCF3-Lot-descriptions.pdf')) %>
       </p>
 
       <%= govuk_button_start(t('shared.gateway.start_now'), journey_start_path(journey: ManagementConsultancy::Journey.journey_name), class: 'govuk-!-margin-top-2 govuk-!-margin-bottom-8', aria: { label: t('shared.gateway.start_now') }) %>
       <h3 class="govuk-heading-m"><%= t('.guidance.heading') %></h2>
       <ul class="govuk-list govuk-list--bullet">
-        <% if Marketplace.mcf3_live? %>
-          <li><%= link_to(t('.guidance.mcf3_link_text'), 'https://www.crowncommercial.gov.uk/agreements/RM6187') %></li>
-        <% else %>
-          <li><%= link_to(t('.guidance.mcf_link_text'), 'https://ccs-agreements.cabinetoffice.gov.uk/contracts/rm3745') %></li>
-          <li><%= link_to(t('.guidance.mcf2_link_text'), 'https://ccs-agreements.cabinetoffice.gov.uk/contracts/rm6008') %></li>
-          <li><%= link_to(t('.guidance.ojeu_contract_link_text'), 'http://ted.europa.eu/TED/notice/udl?uri=TED:NOTICE:377411-2017:TEXT:EN:HTML&rearus=dQx2Ud0JnqAMCZKQx764kA') %></li>
-        <% end %>
+        <li><%= link_to(t('.guidance.mcf3_link_text'), 'https://www.crowncommercial.gov.uk/agreements/RM6187') %></li>
       </ul>
-      </div>
+    </div>
   </div>
 </div>

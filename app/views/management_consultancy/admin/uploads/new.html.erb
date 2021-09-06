@@ -12,7 +12,7 @@
     <h2 class="govuk-heading-m"><%= t('.download_templates') %></h2>
     <p><%= t('.you_can_download') %></p>
     <div>
-      <%= link_to_public_file_for_download(template_file_path, :zip, t('.template_file_name'), false, class: 'govuk-button govuk-button--secondary') %>
+      <%= link_to_public_file_for_download(t('.template_file_path'), :zip, t('.template_file_name'), false, class: 'govuk-button govuk-button--secondary') %>
     </div>
   </div>
 </div>
@@ -20,13 +20,6 @@
   <div class="govuk-grid-column-two-thirds">
     <h2 class="govuk-heading-m govuk-!-margin-bottom-0"><%= t('.upload_title') %></h2>
     <span class="govuk-caption-m govuk-!-margin-bottom-7"><%= t('.upload_caption') %></span>
-
-    <% unless Marketplace.mcf3_live? %>
-      <p>
-        <%= t('.include_mcf3') %>
-      </p>
-    <% end %>
-
     
     <%= form_with model: @upload, url: management_consultancy_admin_uploads_path, method: :post, local: 'false', html: { specialvalidation: true, novalidate: true } do |f| %>
       <% ManagementConsultancy::Admin::Upload.attributes.each do |file| %>
