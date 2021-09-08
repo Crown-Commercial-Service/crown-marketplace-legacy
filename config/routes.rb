@@ -137,7 +137,7 @@ Rails.application.routes.draw do
   get '/503', to: 'errors#service_unavailable', as: :errors_503
 
   if Marketplace.dfe_signin_enabled?
-    get '/auth/dfe', as: :dfe_sign_in
+    post '/auth/dfe', as: :dfe_sign_in
     get '/auth/dfe/callback' => 'auth#callback'
   end
 
