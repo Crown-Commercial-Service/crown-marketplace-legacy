@@ -46,7 +46,7 @@ gem 'rollbar', '~> 2.24.0'
 # for dfe sign in
 gem 'omniauth', '~> 2.0.0'
 gem 'omniauth-oauth2', '~> 1.7.1'
-gem 'omniauth-rails_csrf_protection'
+gem 'omniauth-rails_csrf_protection', '>= 1.0.0'
 # The omniauth_openid_connect is no longer maintained so does not work with omniauth 2.0.
 # This is a custom gem to make omniauth_openid_connect work with omniauth 2.0.
 gem 'ccs_omniauth_openid_connect', '~> 0.4.0', git: 'https://github.com/Crown-Commercial-Service/ccs_omniauth_openid_connect.git'
@@ -120,7 +120,7 @@ gem 'amoeba', '>= 3.1.0'
 # asset sync
 
 gem 'asset_sync'
-gem 'fog-aws', '>= 3.10.0'
+gem 'fog-aws', '>= 3.11.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -135,7 +135,7 @@ group :development, :test do
   gem 'rubocop'
   gem 'rubocop-rspec'
   gem 'rubocop-rails', require: false
-  gem 'rubyXL', '>= 3.4.17'
+  gem 'rubyXL', '>= 3.4.18'
   gem 'i18n-tasks', '>= 0.9.34'
   gem 'poltergeist', '>= 1.18.1'
   gem 'wdm', '>= 0.1.0', platforms: %i[x64_mingw]

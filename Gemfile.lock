@@ -600,7 +600,7 @@ DEPENDENCIES
   down (>= 5.2.0)
   factory_bot_rails (>= 6.2.0)
   faker (~> 2.10.2)
-  fog-aws (>= 3.10.0)
+  fog-aws (>= 3.11.0)
   friendly_id (~> 5.2.5)
   geocoder (>= 1.6.1)
   gov_uk_date_fields (>= 4.2.0)
@@ -616,7 +616,7 @@ DEPENDENCIES
   notifications-ruby-client
   omniauth (~> 2.0.0)
   omniauth-oauth2 (~> 1.7.1)
-  omniauth-rails_csrf_protection
+  omniauth-rails_csrf_protection (>= 1.0.0)
   pg (>= 0.18, < 2.0)
   phonejack
   poltergeist (>= 1.18.1)
@@ -636,7 +636,7 @@ DEPENDENCIES
   rubocop
   rubocop-rails
   rubocop-rspec
-  rubyXL (>= 3.4.17)
+  rubyXL (>= 3.4.18)
   rubyzip (>= 1.2.1)
   sass-rails (~> 5.1, >= 5.1.0)
   selenium-webdriver (>= 3.142.3)
