@@ -22,10 +22,6 @@ module ApplicationHelper
     link_to(t('common.feedback'), Marketplace.mc_survey_link, target: '_blank', rel: 'noopener', class: 'govuk-link')
   end
 
-  def footer_email_link(label)
-    mail_to(Marketplace.support_email_address, Marketplace.support_email_address, class: 'govuk-link ga-support-mailto', 'aria-label': label)
-  end
-
   def dfe_account_request_url
     'https://ccsheretohelp.uk/contact/?type=ST18/19'
   end
@@ -215,6 +211,24 @@ module ApplicationHelper
     return url if %w[http https].include?(u.scheme)
 
     "http://#{url}"
+  end
+
+  def contact_link(link_text)
+    # TODO: add param to URL for contact form
+
+    service_name = case params[:service]
+                   when 'management_consultancy', 'management_consultancy/admin'
+                     'Management Consultancy'
+                   when 'legal_services', 'legal_services/admin'
+                     'Legal Services'
+                   when 'supply_teachers', 'supply_teachers/admin', 'auth'
+                     'Supply Teachers'
+                   end
+
+    uri = URI(Marketplace.support_form_link)
+    uri.query = { service: service_name }.to_query if service_name
+
+    link_to(link_text, uri.to_s, target: :blank)
   end
 end
 # rubocop:enable Metrics/ModuleLength

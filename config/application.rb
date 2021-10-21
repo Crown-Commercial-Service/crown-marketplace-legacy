@@ -71,8 +71,8 @@ module Marketplace
     'info@crowncommercial.gov.uk'
   end
 
-  def self.support_email_address
-    'info@crowncommercial.gov.uk'
+  def self.support_form_link
+    'https://www.crowncommercial.gov.uk/contact'
   end
 
   def self.st_survey_link

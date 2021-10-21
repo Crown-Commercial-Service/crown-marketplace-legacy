@@ -114,4 +114,67 @@ RSpec.describe ApplicationHelper, type: :helper do
       end
     end
   end
+
+  describe '.contact_link' do
+    let(:result) { helper.contact_link(link_text) }
+    let(:link_text) { 'Contact us' }
+
+    before { helper.params[:service] = service }
+
+    context 'when the service param is management_consultancy' do
+      let(:service) { 'management_consultancy' }
+
+      it 'returns the correct link with text' do
+        expect(result).to eq '<a target="blank" href="https://www.crowncommercial.gov.uk/contact?service=Management+Consultancy">Contact us</a>'
+      end
+    end
+
+    context 'when the service param is management_consultancy/admin' do
+      let(:service) { 'management_consultancy/admin' }
+
+      it 'returns the correct link with text' do
+        expect(result).to eq '<a target="blank" href="https://www.crowncommercial.gov.uk/contact?service=Management+Consultancy">Contact us</a>'
+      end
+    end
+
+    context 'when the service param is legal_services' do
+      let(:service) { 'legal_services' }
+
+      it 'returns the correct link with text' do
+        expect(result).to eq '<a target="blank" href="https://www.crowncommercial.gov.uk/contact?service=Legal+Services">Contact us</a>'
+      end
+    end
+
+    context 'when the service param is legal_services/admin' do
+      let(:service) { 'legal_services/admin' }
+
+      it 'returns the correct link with text' do
+        expect(result).to eq '<a target="blank" href="https://www.crowncommercial.gov.uk/contact?service=Legal+Services">Contact us</a>'
+      end
+    end
+
+    context 'when the service param is supply_teachers' do
+      let(:service) { 'supply_teachers' }
+
+      it 'returns the correct link with text' do
+        expect(result).to eq '<a target="blank" href="https://www.crowncommercial.gov.uk/contact?service=Supply+Teachers">Contact us</a>'
+      end
+    end
+
+    context 'when the service param is supply_teachers/admin' do
+      let(:service) { 'supply_teachers/admin' }
+
+      it 'returns the correct link with text' do
+        expect(result).to eq '<a target="blank" href="https://www.crowncommercial.gov.uk/contact?service=Supply+Teachers">Contact us</a>'
+      end
+    end
+
+    context 'when the service param is auth' do
+      let(:service) { 'auth' }
+
+      it 'returns the correct link with text' do
+        expect(result).to eq '<a target="blank" href="https://www.crowncommercial.gov.uk/contact?service=Supply+Teachers">Contact us</a>'
+      end
+    end
+  end
 end
