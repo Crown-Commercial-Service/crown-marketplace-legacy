@@ -45,7 +45,7 @@
           <%= t(
             '.general_legal_advice_services_html',
             general_legal_advice_services_link: link_to(t('.general_legal_advice_services_link_text'), t('.general_legal_advice_services_link')),
-            ccs_support_link: mail_to(Marketplace.support_email_address, t('.ccs_support_link_text'), class: 'govuk-link ga-support-mailto', 'aria-label': t('.ccs_support_link_text'))
+            ccs_support_link: contact_link(t('.ccs_support_link_text'))
             )
           %>
         </p>
