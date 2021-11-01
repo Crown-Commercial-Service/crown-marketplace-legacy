@@ -360,9 +360,8 @@ en:
   england_wales: England and Wales
   errors:
     contact_ccs:
-      call: 'Call:'
-      contact_ccs: 'Contact CCS if you believe you are seeing this message in error:'
-      email: 'Email:'
+      contact_ccs_html: "%{link} if you believe you are seeing this message in error."
+      link_text: Contact CCS (opens in new tab)
     internal_error:
       there_is_a_problem: Sorry, there is a problem with the service
       try_again_later: Try again later.
@@ -518,8 +517,8 @@ en:
       management_consultancy_link: Find management consultancy services
       supply_teachers_link: Find supply teachers and agency workers
     not_permitted:
-      ccs_support: CCS Support
-      details_html: Contact %{email} if you need to speak to someone about this.
+      ccs_support: CCS Support (opens in a new tab)
+      details_html: Contact %{link} if you need to speak to someone about this.
       title: Sorry, you are not authorised to view this page
   journey_step:
     supply_teachers:
@@ -550,13 +549,14 @@ en:
       error_prefix: Error
       feedback_end_journey_html: <b> This is a new service - how did you find it? </b> Please complete <a href="%{link}" target="_blank" >a short survey</a> to help us improve it.
       feedback_html: This is a new service – your %{link} will help us to improve it.
-      having_problems: Having problems with this service?
       privacy_link: Privacy policy
       privacy_link_aria_label: View our privacy policy
       skip: Skip to main content
-      support_html: Email %{link} or call %{phone} for support.
-      support_link_aria_label: Email us for support with this service
       title: Crown Commercial Service
+    contact_us:
+      contact_us: Contact us (opens in a new tab)
+      having_problems: Having problems with this service?
+      support_html: "%{link} for support."
     cookie-banner:
       accept_cookies: Accept analytics cookies
       change_cookie_settings_html: You can %{cookie_settings_link} at any time.
@@ -765,7 +765,7 @@ en:
         regions_selected: regions selected
         view_locations: View locations (PDF 266 KB)
       choose_services:
-        ccs_support_link_text: Contact CCS Support
+        ccs_support_link_text: Contact CCS Support (opens in new tab)
         general_legal_advice_services_html: If the services you need aren't listed here, the %{general_legal_advice_services_link} agreement provides legal services for central government and arms-length bodies. %{ccs_support_link} for help.
         general_legal_advice_services_link: https://www.crowncommercial.gov.uk/agreements/RM3786
         general_legal_advice_services_link_text: General Legal Advice Services (RM3786)
