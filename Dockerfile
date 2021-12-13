@@ -45,6 +45,9 @@ ARG APP_RUN_PRECOMPILE_ASSETS
 LABEL app_run_precompile_assets=$APP_RUN_PRECOMPILE_ASSETS
 ENV APP_RUN_PRECOMPILE_ASSETS=$APP_RUN_PRECOMPILE_ASSETS
 
+# Potential fix for log4j vulnerability
+ENV LOG4J_FORMAT_MSG_NO_LOOKUPS=true
+
 ##_PARAMETER_STORE_MARKER_##
 
 ENV BUILD_PACKAGES curl-dev ruby-dev postgresql-dev build-base tzdata clamav clamav-daemon
