@@ -26,8 +26,6 @@ RSpec.feature 'Management consultancy', type: :feature, management_consultancy: 
 
     required_service = ManagementConsultancy::Service.where(code: 'MCF3.1.1').first
 
-    click_on 'Confirm and continue'
-
     choose 'Lot 1 - Business'
     click_on I18n.t('common.submit')
 
@@ -43,8 +41,6 @@ RSpec.feature 'Management consultancy', type: :feature, management_consultancy: 
     visit_management_consultancy_start
 
     required_service = ManagementConsultancy::Service.where(code: 'MCF3.3.3').first
-
-    click_on 'Confirm and continue'
 
     choose 'Lot 3 - Complex and Transformation'
     click_on I18n.t('common.submit')
@@ -62,8 +58,6 @@ RSpec.feature 'Management consultancy', type: :feature, management_consultancy: 
 
     required_service = ManagementConsultancy::Service.where(code: 'MCF3.4.4').first
 
-    click_on 'Confirm and continue'
-
     choose 'Lot 4 - Finance'
     click_on I18n.t('common.submit')
 
@@ -79,8 +73,6 @@ RSpec.feature 'Management consultancy', type: :feature, management_consultancy: 
     visit_management_consultancy_start
 
     required_service = ManagementConsultancy::Service.where(code: 'MCF3.7.8').first
-
-    click_on 'Confirm and continue'
 
     choose 'Lot 7 - Health, Social Care and Community'
     click_on I18n.t('common.submit')
@@ -98,8 +90,6 @@ RSpec.feature 'Management consultancy', type: :feature, management_consultancy: 
 
     required_service = ManagementConsultancy::Service.where(code: 'MCF3.5.6').first
     wrong_service = ManagementConsultancy::Service.where(code: 'MCF3.5.7').first
-
-    click_on 'Confirm and continue'
 
     choose 'Lot 5 - HR'
     click_on I18n.t('common.submit')
