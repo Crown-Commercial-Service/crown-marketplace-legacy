@@ -93,10 +93,6 @@ en:
           attributes:
             expenses:
               inclusion: Please say whether you pay expenses
-        management_consultancy/journey/choose_help_needed:
-          attributes:
-            help_needed:
-              inclusion: Select what you need
         management_consultancy/journey/choose_lot:
           attributes:
             lot:
@@ -332,7 +328,6 @@ en:
     back_to_start: Back to start
     ccs_contact_url: https://www.crowncommercial.gov.uk/contact
     change_password_and_sign_in: Change password and sign in
-    confirm_and_continue: Confirm and continue
     continue: Continue
     create_account: Create account
     error_summary_title: There is a problem
@@ -970,29 +965,6 @@ en:
       senior: Senior Consultant / Engagement Manager / Project Lead
       standard: Consultant
     journey:
-      choose_help_needed:
-        body: Check that you don’t need one of these other frameworks offered by the Crown Commercial Service.
-        contingent_labour:
-          html: "%{contingent_labour_link} - contingent labour for short-term projects with specific outcomes"
-          link: https://www.crowncommercial.gov.uk/agreements/RM3749
-          link_text: Public sector resourcing
-        digital_outcomes_and_specialists:
-          html: "%{digital_outcomes_and_specialists_link} - support to design, build and deliver digital outcomes using the agile approach"
-          link: https://www.crowncommercial.gov.uk/agreements/RM1043.7
-          link_text: Digital outcomes and specialists 5
-        g_cloud:
-          html: "%{g_cloud_link} - cloud hosting, software and support"
-          link: https://www.crowncommercial.gov.uk/agreements/RM1557.12
-          link_text: G-Cloud 12
-        headline: Confirm you need management consultancy
-        research_marketplace:
-          html: "%{research_marketplace_link} - social, economic or market research for projects of all sizes and budgets"
-          link: https://www.crowncommercial.gov.uk/agreements/RM6018
-          link_text: Research marketplace
-        technology_services:
-          html: "%{technology_services_link} - technology services at all government security classifcation levels"
-          link: https://www.crowncommercial.gov.uk/agreements/RM6100
-          link_text: Technology services 3
       choose_lot:
         mcf3_heading: Management Consultancy Framework 3 (MCF3)
         question: Select the lot you need
