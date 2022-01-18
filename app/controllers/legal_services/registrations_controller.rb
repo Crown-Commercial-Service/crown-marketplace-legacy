@@ -6,8 +6,8 @@ module LegalServices
       :ls_access
     end
 
-    def after_sign_up_path_for(resource)
-      legal_services_users_confirm_path(email: resource.email)
+    def service_after_sign_up_path
+      legal_services_users_confirm_path
     end
 
     def domain_not_on_safelist_path
