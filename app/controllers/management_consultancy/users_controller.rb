@@ -2,8 +2,7 @@ module ManagementConsultancy
   class UsersController < Base::UsersController
     private
 
-    def new_challenge_path
-      cookies[:session] = @challenge.new_session
+    def new_service_challenge_path
       management_consultancy_users_challenge_path(challenge_name: @challenge.new_challenge_name, username: params[:username])
     end
 
