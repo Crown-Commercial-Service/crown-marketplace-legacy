@@ -43,6 +43,12 @@ module Base
       authorize! :read, SupplyTeachers
     end
 
+    def challenge_path
+      cookies[:session] = { value: @result.session, expires: 20.minutes, httponly: true }
+
+      service_challenge_path
+    end
+
     def result_unsuccessful_path
       sign_out
       if @result.needs_password_reset

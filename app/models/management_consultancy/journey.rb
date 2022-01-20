@@ -4,7 +4,7 @@ module ManagementConsultancy
 
     def initialize(slug, params)
       paths = JourneyPaths.new(self.class.journey_name)
-      first_step_class = ChooseHelpNeeded
+      first_step_class = ChooseLot
       super(first_step_class, slug, params, paths)
     end
 
