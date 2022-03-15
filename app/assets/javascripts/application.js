@@ -12,7 +12,7 @@
 //= require jquery3
 //= require rails-ujs
 //= require govuk-frontend/govuk/all
-//= require js-cookie/src/js.cookie
+//= require js-cookie/dist/js.cookie
 //= require google_analytics
 //= require cookie_banner
 //= require supply_teachers/supplier_markup_calculator.js
