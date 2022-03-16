@@ -44,7 +44,8 @@ module Base
     end
 
     def challenge_path
-      cookies[:session] = { value: @result.session, expires: 20.minutes, httponly: true }
+      cookies[:crown_marketplace_challenge_session] = { value: @result.session, expires: 20.minutes, httponly: true }
+      cookies[:crown_marketplace_challenge_username] = { value: @result.cognito_uuid, expires: 20.minutes, httponly: true }
 
       service_challenge_path
     end
@@ -52,9 +53,13 @@ module Base
     def result_unsuccessful_path
       sign_out
       if @result.needs_password_reset
-        redirect_to confirm_forgot_password_path(params[:user][:email])
+        cookies[:crown_marketplace_reset_email] = { value: params[:user][:email], expires: 20.minutes, httponly: true }
+
+        redirect_to confirm_forgot_password_path
       elsif @result.needs_confirmation
-        redirect_to confirm_email_path(params[:user][:email])
+        cookies[:crown_marketplace_confirmation_email] = { value: params[:user][:email], expires: 20.minutes, httponly: true }
+
+        redirect_to confirm_email_path
       else
         render :new
       end

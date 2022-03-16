@@ -3,7 +3,7 @@ module SupplyTeachers
     protected
 
     def service_challenge_path
-      supply_teachers_users_challenge_path(challenge_name: @result.challenge_name, username: @result.cognito_uuid)
+      supply_teachers_users_challenge_path(challenge_name: @result.challenge_name)
     end
 
     def after_sign_in_path_for(resource)
@@ -18,12 +18,12 @@ module SupplyTeachers
       supply_teachers_new_user_session_path
     end
 
-    def confirm_forgot_password_path(username)
-      supply_teachers_edit_user_password_path(username: username)
+    def confirm_forgot_password_path
+      supply_teachers_edit_user_password_path
     end
 
-    def confirm_email_path(email)
-      supply_teachers_users_confirm_path(email: email)
+    def confirm_email_path
+      supply_teachers_users_confirm_path
     end
   end
 end

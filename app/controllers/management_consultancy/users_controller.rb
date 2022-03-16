@@ -3,7 +3,7 @@ module ManagementConsultancy
     private
 
     def new_service_challenge_path
-      management_consultancy_users_challenge_path(challenge_name: @challenge.new_challenge_name, username: params[:username])
+      management_consultancy_users_challenge_path(challenge_name: @challenge.new_challenge_name)
     end
 
     def after_sign_in_path_for(resource)
@@ -11,7 +11,7 @@ module ManagementConsultancy
     end
 
     def confirm_user_registration_path
-      management_consultancy_users_confirm_path(email: params[:email])
+      management_consultancy_users_confirm_path
     end
   end
 end
