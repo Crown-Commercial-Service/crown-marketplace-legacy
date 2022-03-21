@@ -4,7 +4,7 @@ module LegalServices
       private
 
       def new_service_challenge_path
-        legal_services_admin_users_challenge_path(challenge_name: @challenge.new_challenge_name, username: params[:username])
+        legal_services_admin_users_challenge_path(challenge_name: @challenge.new_challenge_name)
       end
 
       def after_sign_in_path_for(resource)
