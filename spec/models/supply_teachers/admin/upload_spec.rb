@@ -1,31 +1,32 @@
 require 'rails_helper'
 
+FILE_PARAMS = {
+  valid_xlsx: [:xlsx, 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'],
+  valid_csv: [:csv, 'text/csv'],
+  invalid_xlsx_file_extension: [:csv, 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'],
+  invalid_csv_file_extension: [:xlsx, 'text/csv'],
+  invalid_xlsx_file_content: [:xlsx, 'text/csv'],
+  invalid_csv_file_content: [:csv, 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet']
+}.freeze
+
 RSpec.describe SupplyTeachers::Admin::Upload, type: :model do
   let(:blank_upload) { build(:supply_teachers_admin_upload) }
-  let(:valid_xlsx_file) { Tempfile.new(['valid_xlsx_file', '.xlsx']) }
-  let(:valid_csv_file) { Tempfile.new(['valid_csv_file', '.csv']) }
-  let(:invalid_file) { Tempfile.new(['invalid_file', '.xlsx']) }
-  let(:valid_xlsx_file_path) { fixture_file_upload(valid_xlsx_file.path, 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet') }
-  let(:valid_csv_file_path) { fixture_file_upload(valid_csv_file.path, 'text/csv') }
-  let(:invalid_xlsx_file_extension_path) { fixture_file_upload(valid_csv_file.path, 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet') }
-  let(:invalid_csv_file_extension_path) { fixture_file_upload(valid_xlsx_file.path, 'text/csv') }
-  let(:invalid_xlsx_file_content_path) { fixture_file_upload(valid_xlsx_file.path, 'text/csv') }
-  let(:invalid_csv_file_content_path) { fixture_file_upload(valid_csv_file.path, 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet') }
-  let(:invalid_file_path) { fixture_file_upload(invalid_file.path, 'application/pdft') }
-
   let(:upload) do
-    build(:supply_teachers_admin_upload) do |admin_upload|
-      admin_upload.current_accredited_suppliers = valid_xlsx_file_path
-      admin_upload.pricing_for_tool = valid_xlsx_file_path
-      admin_upload.save
-    end
+    admin_upload = build(:supply_teachers_admin_upload)
+    admin_upload.update(current_accredited_suppliers: create_file(*FILE_PARAMS[:valid_xlsx]))
+    admin_upload.update(pricing_for_tool: create_file(*FILE_PARAMS[:valid_xlsx]))
+    admin_upload
+  end
+  let(:created_files) { [] }
+
+  def create_file(extension, content)
+    temp_file = Tempfile.new(['supplier_data', ".#{extension}"])
+    created_files << temp_file
+
+    fixture_file_upload(temp_file.path, content)
   end
 
-  after do
-    valid_xlsx_file.unlink
-    valid_csv_file.unlink
-    invalid_file.unlink
-  end
+  after { created_files.each(&:unlink) }
 
   describe 'validations' do
     context 'when considering if the files are attached' do
@@ -40,13 +41,13 @@ RSpec.describe SupplyTeachers::Admin::Upload, type: :model do
     context 'when considering the file extension' do
       context 'and no files have the correct file extension' do
         before do
-          blank_upload.current_accredited_suppliers = invalid_xlsx_file_extension_path
-          blank_upload.geographical_data_all_suppliers = invalid_xlsx_file_extension_path
-          blank_upload.lot_1_and_lot_2_comparisons = invalid_xlsx_file_extension_path
-          blank_upload.master_vendor_contacts = invalid_csv_file_extension_path
-          blank_upload.neutral_vendor_contacts = invalid_csv_file_extension_path
-          blank_upload.pricing_for_tool = invalid_xlsx_file_extension_path
-          blank_upload.supplier_lookup = invalid_csv_file_extension_path
+          blank_upload.current_accredited_suppliers = create_file(*FILE_PARAMS[:invalid_xlsx_file_extension])
+          blank_upload.geographical_data_all_suppliers = create_file(*FILE_PARAMS[:invalid_xlsx_file_extension])
+          blank_upload.lot_1_and_lot_2_comparisons = create_file(*FILE_PARAMS[:invalid_xlsx_file_extension])
+          blank_upload.master_vendor_contacts = create_file(*FILE_PARAMS[:invalid_csv_file_extension])
+          blank_upload.neutral_vendor_contacts = create_file(*FILE_PARAMS[:invalid_csv_file_extension])
+          blank_upload.pricing_for_tool = create_file(*FILE_PARAMS[:invalid_xlsx_file_extension])
+          blank_upload.supplier_lookup = create_file(*FILE_PARAMS[:invalid_csv_file_extension])
         end
 
         it 'is not valid and has the correct error messages' do
@@ -59,13 +60,13 @@ RSpec.describe SupplyTeachers::Admin::Upload, type: :model do
     context 'when considering the file content type' do
       context 'and no files have the correct content type' do
         before do
-          blank_upload.current_accredited_suppliers = invalid_xlsx_file_content_path
-          blank_upload.geographical_data_all_suppliers = invalid_xlsx_file_content_path
-          blank_upload.lot_1_and_lot_2_comparisons = invalid_xlsx_file_content_path
-          blank_upload.master_vendor_contacts = invalid_csv_file_content_path
-          blank_upload.neutral_vendor_contacts = invalid_csv_file_content_path
-          blank_upload.pricing_for_tool = invalid_xlsx_file_content_path
-          blank_upload.supplier_lookup = invalid_csv_file_content_path
+          blank_upload.current_accredited_suppliers = create_file(*FILE_PARAMS[:invalid_xlsx_file_content])
+          blank_upload.geographical_data_all_suppliers = create_file(*FILE_PARAMS[:invalid_xlsx_file_content])
+          blank_upload.lot_1_and_lot_2_comparisons = create_file(*FILE_PARAMS[:invalid_xlsx_file_content])
+          blank_upload.master_vendor_contacts = create_file(*FILE_PARAMS[:invalid_csv_file_content])
+          blank_upload.neutral_vendor_contacts = create_file(*FILE_PARAMS[:invalid_csv_file_content])
+          blank_upload.pricing_for_tool = create_file(*FILE_PARAMS[:invalid_xlsx_file_content])
+          blank_upload.supplier_lookup = create_file(*FILE_PARAMS[:invalid_csv_file_content])
         end
 
         it 'is not valid and has the correct error messages' do
@@ -78,8 +79,8 @@ RSpec.describe SupplyTeachers::Admin::Upload, type: :model do
     context 'when all uploaded files are valid' do
       context 'and two files are attached' do
         before do
-          blank_upload.current_accredited_suppliers = valid_xlsx_file_path
-          blank_upload.supplier_lookup = valid_csv_file_path
+          blank_upload.current_accredited_suppliers = create_file(*FILE_PARAMS[:valid_xlsx])
+          blank_upload.supplier_lookup = create_file(*FILE_PARAMS[:valid_csv])
         end
 
         it 'is valid' do
@@ -89,13 +90,13 @@ RSpec.describe SupplyTeachers::Admin::Upload, type: :model do
 
       context 'and all 7 files are attached' do
         before do
-          blank_upload.current_accredited_suppliers = valid_xlsx_file_path
-          blank_upload.geographical_data_all_suppliers = valid_xlsx_file_path
-          blank_upload.lot_1_and_lot_2_comparisons = valid_xlsx_file_path
-          blank_upload.master_vendor_contacts = valid_csv_file_path
-          blank_upload.neutral_vendor_contacts = valid_csv_file_path
-          blank_upload.pricing_for_tool = valid_xlsx_file_path
-          blank_upload.supplier_lookup = valid_csv_file_path
+          blank_upload.current_accredited_suppliers = create_file(*FILE_PARAMS[:valid_xlsx])
+          blank_upload.geographical_data_all_suppliers = create_file(*FILE_PARAMS[:valid_xlsx])
+          blank_upload.lot_1_and_lot_2_comparisons = create_file(*FILE_PARAMS[:valid_xlsx])
+          blank_upload.master_vendor_contacts = create_file(*FILE_PARAMS[:valid_csv])
+          blank_upload.neutral_vendor_contacts = create_file(*FILE_PARAMS[:valid_csv])
+          blank_upload.pricing_for_tool = create_file(*FILE_PARAMS[:valid_xlsx])
+          blank_upload.supplier_lookup = create_file(*FILE_PARAMS[:valid_csv])
         end
 
         it 'is valid' do
@@ -231,9 +232,9 @@ RSpec.describe SupplyTeachers::Admin::Upload, type: :model do
 
     context 'when previous approved upload exists' do
       before do
-        new_upload.current_accredited_suppliers = valid_xlsx_file_path
-        new_upload.pricing_for_tool = valid_xlsx_file_path
-        upload.update(aasm_state: 'published')
+        new_upload.current_accredited_suppliers = create_file(*FILE_PARAMS[:valid_xlsx])
+        new_upload.pricing_for_tool = create_file(*FILE_PARAMS[:valid_xlsx])
+        upload.update!(aasm_state: 'published')
       end
 
       it 'returns true for current_accredited_suppliers' do
@@ -269,7 +270,7 @@ RSpec.describe SupplyTeachers::Admin::Upload, type: :model do
   describe '#files_count' do
     context 'when one file' do
       before do
-        blank_upload.current_accredited_suppliers = valid_xlsx_file_path
+        blank_upload.current_accredited_suppliers = create_file(*FILE_PARAMS[:valid_xlsx])
         blank_upload.save
       end
 
@@ -281,7 +282,7 @@ RSpec.describe SupplyTeachers::Admin::Upload, type: :model do
 
   describe '#previous_uploaded_file_upload' do
     context 'when there is a previous approved upload' do
-      before { upload.update(aasm_state: 'published') }
+      before { upload.update!(aasm_state: 'published') }
 
       it 'returns previous approved object with uploaded file' do
         expect(described_class.previous_uploaded_file_upload(:current_accredited_suppliers)).to eq upload
@@ -304,7 +305,7 @@ RSpec.describe SupplyTeachers::Admin::Upload, type: :model do
     before do
       upload.update(aasm_state: state)
       new_upload = build(:supply_teachers_admin_upload)
-      new_upload.current_accredited_suppliers = valid_xlsx_file_path
+      new_upload.current_accredited_suppliers = create_file(*FILE_PARAMS[:valid_xlsx])
       new_upload.save
       upload.reload
     end
@@ -351,19 +352,21 @@ RSpec.describe SupplyTeachers::Admin::Upload, type: :model do
   end
 
   describe '#copy_files_to_current_data' do
-    let(:new_upload) { build(:supply_teachers_admin_upload) }
-
-    before { new_upload.pricing_for_tool = valid_xlsx_file_path }
+    let(:new_upload) do
+      admin_upload = build(:supply_teachers_admin_upload)
+      admin_upload.update(pricing_for_tool: create_file(*FILE_PARAMS[:valid_xlsx]))
+      admin_upload
+    end
 
     context 'when a CurrentData object does not exist' do
       before { SupplyTeachers::Admin::CurrentData.first&.delete }
 
       it 'creates a CurrentData object' do
-        expect { new_upload.save }.to change(SupplyTeachers::Admin::CurrentData, :count).by(1)
+        expect { new_upload }.to change(SupplyTeachers::Admin::CurrentData, :count).by(1)
       end
 
       it 'updates all CurrentData files to match the Upload object' do
-        new_upload.save
+        new_upload
 
         expect(SupplyTeachers::Admin::CurrentData.first.pricing_for_tool.blob).to eq new_upload.pricing_for_tool.blob
       end
@@ -373,11 +376,11 @@ RSpec.describe SupplyTeachers::Admin::Upload, type: :model do
       before { upload }
 
       it 'does not create a new CurrentData object' do
-        expect { new_upload.save }.not_to change(SupplyTeachers::Admin::CurrentData, :count)
+        expect { new_upload }.not_to change(SupplyTeachers::Admin::CurrentData, :count)
       end
 
       it 'updates the existing CurrentData object' do
-        new_upload.save
+        new_upload
 
         expect(SupplyTeachers::Admin::CurrentData.first.pricing_for_tool.blob).not_to eq upload.pricing_for_tool.blob
         expect(SupplyTeachers::Admin::CurrentData.first.pricing_for_tool.blob).to eq new_upload.pricing_for_tool.blob
