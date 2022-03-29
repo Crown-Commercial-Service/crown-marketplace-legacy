@@ -45,7 +45,7 @@ gem 'rollbar', '~> 2.24.0'
 
 # for dfe sign in
 gem 'omniauth', '~> 2.0.0'
-gem 'omniauth-oauth2', '~> 1.7.1'
+gem 'omniauth-oauth2', '~> 1.7.2'
 gem 'omniauth-rails_csrf_protection', '>= 1.0.0'
 # The omniauth_openid_connect is no longer maintained so does not work with omniauth 2.0.
 # This is a custom gem to make omniauth_openid_connect work with omniauth 2.0.
