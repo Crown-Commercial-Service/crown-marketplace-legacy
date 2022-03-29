@@ -75,7 +75,7 @@ gem 'jsonpath', '~> 1.1.0'
 gem 'down', '>= 5.2.0'
 
 # state machine
-gem 'aasm', '~> 5.0'
+gem 'aasm', '~> 5.2'
 
 # for running background jobs
 gem 'sidekiq', '~> 6.4.0'
