@@ -11,8 +11,5 @@
  * It is generally better to create a new file per style scope.
  *
  *= require_self
- *= require govuk-frontend
+ *= require main
  */
-
-/*! Copyright (c) 2011 by Margaret Calvert & Henrik Kubel. All rights reserved. The font has been customised for exclusive use on gov.uk. This cut is not commercially available. */
-
