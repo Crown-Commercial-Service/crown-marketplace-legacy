@@ -96,8 +96,6 @@ gem 'role_model', '~> 0.8.2'
 gem 'sprockets', '>= 3.7.2'
 gem 'sprockets-bumble_d', '>= 2.2.0'
 
-gem 'smarter_csv'
-
 # for date layout and validation
 gem 'gov_uk_date_fields', '>= 4.2.0'
 gem 'date_validator', '>= 0.9.0'
@@ -113,9 +111,6 @@ gem 'activerecord-import', '~> 0.15.0'
 gem 'notifications-ruby-client'
 # DOCX generation
 gem 'caracal-rails', '>= 1.0.2'
-
-# duplicating procurements
-gem 'amoeba', '>= 3.1.0'
 
 # asset sync
 
