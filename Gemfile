@@ -66,7 +66,7 @@ gem 'friendly_id', '~> 5.4.2'
 # aws s3 bucket access for postcode data
 gem 'aws-sdk-s3', '~> 1'
 # handles spreadsheets
-gem 'roo', '~> 2.8.3'
+gem 'roo', '~> 2.9.0'
 
 # manipulating JSON for anonymisation
 gem 'jsonpath', '~> 1.1.0'
