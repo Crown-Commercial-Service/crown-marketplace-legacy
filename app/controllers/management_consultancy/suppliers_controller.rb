@@ -24,7 +24,7 @@ module ManagementConsultancy
         format.xlsx do
           spreadsheet_builder = ManagementConsultancy::SupplierSpreadsheetCreator.new(@all_suppliers, params)
           spreadsheet = spreadsheet_builder.build
-          render xlsx: spreadsheet.to_stream.read, filename: "shortlist_of_management_consultancy_suppliers_#{DateTime.now.getlocal.strftime '%d-%m-%Y'}", format: 'application/vnd.openxmlformates-officedocument.spreadsheetml.sheet'
+          send_data spreadsheet.to_stream.read, filename: "shortlist_of_management_consultancy_suppliers_#{DateTime.now.getlocal.strftime '%d-%m-%Y'}.xlsx", type: :xlsx
         end
       end
     end
