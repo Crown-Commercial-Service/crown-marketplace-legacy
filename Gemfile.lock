@@ -214,7 +214,7 @@ GEM
       fog-core
       nokogiri (>= 1.5.11, < 2.0.0)
     formatador (1.1.0)
-    friendly_id (5.2.5)
+    friendly_id (5.4.2)
       activerecord (>= 4.0.0)
     geocoder (1.7.5)
     globalid (1.0.0)
@@ -594,7 +594,7 @@ DEPENDENCIES
   factory_bot_rails (>= 6.2.0)
   faker (~> 2.10.2)
   fog-aws (>= 3.11.0)
-  friendly_id (~> 5.2.5)
+  friendly_id (~> 5.4.2)
   geocoder (>= 1.6.1)
   gov_uk_date_fields (>= 4.2.0)
   holidays
