@@ -41,7 +41,7 @@ gem 'holidays'
 gem 'virtus'
 gem 'jquery-rails', '~> 4.4.0'
 
-gem 'rollbar', '~> 2.24.0'
+gem 'rollbar', '~> 3.3.0'
 
 # for dfe sign in
 gem 'omniauth', '~> 2.0.0'
