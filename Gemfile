@@ -71,9 +71,6 @@ gem 'roo', '~> 2.9.0'
 # manipulating JSON for anonymisation
 gem 'jsonpath', '~> 1.1.0'
 
-# robust file download from URL using open-uri
-gem 'down', '>= 5.2.0'
-
 # state machine
 gem 'aasm', '~> 5.2'
 
@@ -81,12 +78,6 @@ gem 'aasm', '~> 5.2'
 gem 'sidekiq', '~> 6.4.1'
 gem 'sinatra', '~> 2.0.8', '>= 2.0.8.1', require: false
 gem 'slim', '~> 4.1.0'
-
-# for rspec and ST data generation script
-gem 'capybara', '>= 3.35.3'
-gem 'show_me_the_cookies', '>= 5.0.1'
-
-gem 'faker', '~> 2.20.0'
 
 # for authorization
 gem 'cancan', '~> 1.6.10'
@@ -96,24 +87,13 @@ gem 'role_model', '~> 0.8.2'
 gem 'sprockets', '>= 3.7.2'
 gem 'sprockets-bumble_d', '>= 2.2.0'
 
-# for date layout and validation
-gem 'gov_uk_date_fields', '>= 4.2.0'
-gem 'date_validator', '>= 0.9.0'
-
 # for clamav
 gem 'ratonvirus', '>= 0.1.1'
 gem 'ratonvirus-clamby', '>= 0.1.0'
 # for active storage validation
 gem 'active_storage_validations', '>= 0.9.5'
-# gem for  bulk inserts
-gem 'activerecord-import', '~> 0.15.0'
-# gov notify
-gem 'notifications-ruby-client'
-# DOCX generation
-gem 'caracal-rails', '>= 1.0.2'
 
 # asset sync
-
 gem 'asset_sync'
 gem 'fog-aws', '>= 3.11.0'
 
@@ -135,6 +115,7 @@ group :development, :test do
   gem 'poltergeist', '>= 1.18.1'
   gem 'wdm', '>= 0.1.0', platforms: %i[x64_mingw]
   gem 'tzinfo-data', platforms: %i[x64_mingw]
+  gem 'faker', '~> 2.20.0'
 end
 
 group :development do
@@ -149,4 +130,6 @@ group :test do
   gem 'webmock', '>= 3.12.2'
   gem 'simplecov', '>= 0.16.1', require: false
   gem 'selenium-webdriver', '>= 3.142.3'
+  gem 'capybara', '>= 3.35.3'
+  gem 'show_me_the_cookies', '>= 5.0.1'
 end

@@ -92,9 +92,9 @@ RSpec.describe LegalServices::SuppliersHelper, type: :helper do
       let(:monthly) { (Faker::Number.decimal(l_digits: 7) * 100).to_i }
 
       it 'displays the rate with pounds and pence' do
-        expect(helper.display_rate('solicitor', 'hourly')).to eq "£#{hourly.to_s[..2].to_i.to_s(:delimited)}.#{hourly.to_s[3..]}"
-        expect(helper.display_rate('solicitor', 'daily')).to eq "£#{daily.to_s[..4].to_i.to_s(:delimited)}.#{daily.to_s[5..]}"
-        expect(helper.display_rate('solicitor', 'monthly')).to eq "£#{monthly.to_s[..6].to_i.to_s(:delimited)}.#{monthly.to_s[7..]}"
+        expect(helper.display_rate('solicitor', 'hourly')).to eq "£#{hourly.to_s[..-3].to_i.to_s(:delimited)}.#{hourly.to_s[-2..]}"
+        expect(helper.display_rate('solicitor', 'daily')).to eq "£#{daily.to_s[..-3].to_i.to_s(:delimited)}.#{daily.to_s[-2..]}"
+        expect(helper.display_rate('solicitor', 'monthly')).to eq "£#{monthly.to_s[..-3].to_i.to_s(:delimited)}.#{monthly.to_s[-2..]}"
       end
     end
   end
