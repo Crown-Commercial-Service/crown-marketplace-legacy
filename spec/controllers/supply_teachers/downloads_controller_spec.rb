@@ -10,8 +10,17 @@ RSpec.describe SupplyTeachers::DownloadsController, type: :controller do
       end
     end
 
-    context 'when logged in' do
+    context 'when logged in as a buyer' do
       login_st_buyer
+      it 'redirects to not permitted' do
+        get :index, params: { format: 'xlsx' }
+
+        expect(response).to redirect_to not_permitted_path(service: 'supply_teachers')
+      end
+    end
+
+    context 'when logged in as an admin' do
+      login_st_admin
       it 'responds to requests for xlsx files' do
         get :index, params: { format: 'xlsx' }
 

@@ -97,7 +97,7 @@ RSpec.describe ManagementConsultancy::SuppliersController, type: :controller do
       end
 
       it 'downloads the document with the right filename and file type' do
-        expect(response.headers['Content-Disposition']).to include 'filename=shortlist_of_management_consultancy_suppliers'
+        expect(response.headers['Content-Disposition']).to include 'filename="shortlist_of_management_consultancy_suppliers'
         expect(response.headers['Content-Type']).to eq 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
       end
     end
