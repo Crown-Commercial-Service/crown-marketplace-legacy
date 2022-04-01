@@ -13,7 +13,7 @@ module ManagementConsultancy
     end
 
     def write
-      File.write(self.class::OUTPUT_PATH, @package.to_stream.read)
+      File.write(self.class::OUTPUT_PATH, @package.to_stream.read, binmode: true)
     end
 
     def self.sheets_with_extra_headers(sheets_with_extra_headers)
