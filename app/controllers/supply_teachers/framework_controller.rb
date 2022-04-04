@@ -8,5 +8,9 @@ module SupplyTeachers
     def authorize_user
       authorize! :read, SupplyTeachers
     end
+
+    def service_scope
+      :supply_teachers
+    end
   end
 end
