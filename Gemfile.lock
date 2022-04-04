@@ -260,6 +260,8 @@ GEM
     geocoder (1.7.5)
     globalid (1.0.0)
       activesupport (>= 5.0)
+    gov_uk_date_fields (4.2.0)
+      rails (>= 5.2)
     hashdiff (1.0.1)
     hashie (5.0.0)
     highline (2.0.3)
@@ -640,6 +642,7 @@ DEPENDENCIES
   fog-aws (>= 3.13.0)
   friendly_id (~> 5.4.2)
   geocoder (>= 1.6.1)
+  gov_uk_date_fields (>= 4.2.0)
   holidays
   i18n-tasks (>= 1.0.9)
   jbuilder (~> 2.11, >= 2.11.5)

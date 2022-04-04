@@ -1,0 +1,367 @@
+require 'rails_helper'
+
+RSpec.describe Framework, type: :model do
+  describe '.frameworks' do
+    context 'when no scope is provided' do
+      it 'returns RM3826, RM6238, RM6187 and RM3788' do
+        expect(described_class.frameworks).to eq %w[RM3826 RM6238 RM6187 RM3788 RM6240]
+      end
+    end
+
+    context 'when the supply_teachers scope is provided' do
+      it 'returns RM3826 and RM6238' do
+        expect(described_class.supply_teachers.frameworks).to eq %w[RM3826 RM6238]
+      end
+    end
+
+    context 'when the management_consultancy scope is provided' do
+      it 'returns RM6187' do
+        expect(described_class.management_consultancy.frameworks).to eq %w[RM6187]
+      end
+    end
+
+    context 'when the legal_services scope is provided' do
+      it 'returns RM3788' do
+        expect(described_class.legal_services.frameworks).to eq %w[RM3788 RM6240]
+      end
+    end
+  end
+
+  shared_context 'and RM6238 is live in the future' do
+    before { described_class.find_by(framework: 'RM6238').update(live_at: Time.zone.now + 1.day) }
+  end
+
+  shared_context 'and RM6238 is live today' do
+    before { described_class.find_by(framework: 'RM6238').update(live_at: Time.zone.now) }
+  end
+
+  shared_context 'and RM6240 is live in the future' do
+    before { described_class.find_by(framework: 'RM6240').update(live_at: Time.zone.now + 1.day) }
+  end
+
+  shared_context 'and RM6240 is live today' do
+    before { described_class.find_by(framework: 'RM6240').update(live_at: Time.zone.now) }
+  end
+
+  describe '.live_frameworks' do
+    context 'when RM6238 goes live tomorrow' do
+      include_context 'and RM6238 is live in the future'
+
+      it 'returns RM3826, RM6187, RM3788 and RM6240' do
+        expect(described_class.live_frameworks).to eq %w[RM3826 RM6187 RM3788 RM6240]
+      end
+
+      context 'and the supply_teachers scope is provided' do
+        it 'returns RM3826' do
+          expect(described_class.supply_teachers.live_frameworks).to eq %w[RM3826]
+        end
+      end
+    end
+
+    context 'when RM6240 goes live tomorrow' do
+      include_context 'and RM6240 is live in the future'
+
+      it 'returns RM3826, RM6238, RM6187 and RM3788, ' do
+        expect(described_class.live_frameworks).to eq %w[RM3826 RM6238 RM6187 RM3788]
+      end
+
+      context 'and the legal_services scope is provided' do
+        it 'returns RM3788' do
+          expect(described_class.legal_services.live_frameworks).to eq %w[RM3788]
+        end
+      end
+    end
+
+    context 'when RM6238 is live today' do
+      include_context 'and RM6238 is live today'
+
+      it 'returns RM3826, RM6238, RM6187, RM6240 and RM3788' do
+        expect(described_class.live_frameworks).to eq %w[RM3826 RM6187 RM3788 RM6240 RM6238]
+      end
+
+      context 'and the supply_teachers scope is provided' do
+        it 'returns RM3826 and RM6238' do
+          expect(described_class.supply_teachers.live_frameworks).to eq %w[RM3826 RM6238]
+        end
+      end
+    end
+
+    context 'when RM6240 is live today' do
+      include_context 'and RM6240 is live today'
+
+      it 'returns RM3826, RM6238, RM6187, RM3788 and RM6240' do
+        expect(described_class.live_frameworks).to eq %w[RM3826 RM6238 RM6187 RM3788 RM6240]
+      end
+
+      context 'and the legal_services scope is provided' do
+        it 'returns RM3788 and RM6240' do
+          expect(described_class.legal_services.live_frameworks).to eq %w[RM3788 RM6240]
+        end
+      end
+    end
+
+    context 'when RM6238 went live yesterday' do
+      it 'returns RM3826, RM6238, RM6187, RM3788 and RM6240' do
+        expect(described_class.live_frameworks).to eq %w[RM3826 RM6238 RM6187 RM3788 RM6240]
+      end
+
+      context 'and the supply_teachers scope is provided' do
+        it 'returns RM3826 and RM6238' do
+          expect(described_class.supply_teachers.live_frameworks).to eq %w[RM3826 RM6238]
+        end
+      end
+    end
+
+    context 'when RM6240 went live yesterday' do
+      it 'returns RM3826, RM6240, RM6187, RM3788 and RM6240' do
+        expect(described_class.live_frameworks).to eq %w[RM3826 RM6238 RM6187 RM3788 RM6240]
+      end
+
+      context 'and the legal_services scope is provided' do
+        it 'returns RM3788 and RM6240' do
+          expect(described_class.legal_services.live_frameworks).to eq %w[RM3788 RM6240]
+        end
+      end
+    end
+  end
+
+  describe '.default_framework' do
+    context 'when the supply_teachers scope is provided' do
+      context 'when RM6238 goes live tomorrow' do
+        include_context 'and RM6238 is live in the future'
+
+        it 'returns RM3826' do
+          expect(described_class.supply_teachers.default_framework).to eq 'RM3826'
+        end
+      end
+
+      context 'when RM6238 is live today' do
+        include_context 'and RM6238 is live today'
+
+        it 'returns RM6238' do
+          expect(described_class.supply_teachers.default_framework).to eq 'RM6238'
+        end
+      end
+
+      context 'when RM6238 went live yesterday' do
+        it 'returns RM6238' do
+          expect(described_class.supply_teachers.default_framework).to eq 'RM6238'
+        end
+      end
+    end
+
+    context 'when the management_consultancy scope is provided' do
+      it 'returns RM6187' do
+        expect(described_class.management_consultancy.default_framework).to eq 'RM6187'
+      end
+    end
+
+    context 'when the legal_services scope is provided' do
+      context 'when RM6240 goes live tomorrow' do
+        include_context 'and RM6240 is live in the future'
+
+        it 'returns RM3788' do
+          expect(described_class.legal_services.default_framework).to eq 'RM3788'
+        end
+      end
+
+      context 'when RM6240 is live today' do
+        include_context 'and RM6240 is live today'
+
+        it 'returns RM6240' do
+          expect(described_class.legal_services.default_framework).to eq 'RM6240'
+        end
+      end
+
+      context 'when RM6240 went live yesterday' do
+        it 'returns RM6240' do
+          expect(described_class.legal_services.default_framework).to eq 'RM6240'
+        end
+      end
+    end
+  end
+
+  describe '.recognised_live_framework' do
+    context 'when the supply_teachers scope is provided' do
+      context 'when the framework is RM3826' do
+        it 'returns true' do
+          expect(described_class.supply_teachers.recognised_live_framework?('RM3826')).to be true
+        end
+      end
+
+      # rubocop:disable RSpec/NestedGroups
+      context 'when the framework is RM6238' do
+        context 'and RM6238 goes live tomorrow' do
+          include_context 'and RM6238 is live in the future'
+
+          it 'returns false' do
+            expect(described_class.supply_teachers.recognised_live_framework?('RM6238')).to be false
+          end
+        end
+
+        context 'when RM6238 is live today' do
+          include_context 'and RM6238 is live today'
+
+          it 'returns true' do
+            expect(described_class.supply_teachers.recognised_live_framework?('RM6238')).to be true
+          end
+        end
+
+        context 'and RM6238 went live yesterday' do
+          it 'returns true' do
+            expect(described_class.supply_teachers.recognised_live_framework?('RM6238')).to be true
+          end
+        end
+      end
+      # rubocop:enable RSpec/NestedGroups
+
+      context 'when the framework is neither RM3826 or RM6238' do
+        it 'returns false' do
+          expect(described_class.supply_teachers.recognised_live_framework?('RM6187')).to be false
+        end
+      end
+    end
+
+    context 'when the management_consultancy scope is provided' do
+      context 'when the framework is RM6187' do
+        it 'returns true' do
+          expect(described_class.management_consultancy.recognised_live_framework?('RM6187')).to be true
+        end
+      end
+
+      context 'when the framework is not RM6187' do
+        it 'returns false' do
+          expect(described_class.management_consultancy.recognised_live_framework?('RM3788')).to be false
+        end
+      end
+    end
+
+    context 'when the legal_services scope is provided' do
+      context 'when the framework is RM3788' do
+        it 'returns true' do
+          expect(described_class.legal_services.recognised_live_framework?('RM3788')).to be true
+        end
+      end
+
+      # rubocop:disable RSpec/NestedGroups
+      context 'when the framework is RM6240' do
+        context 'and RM6240 goes live tomorrow' do
+          include_context 'and RM6240 is live in the future'
+
+          it 'returns false' do
+            expect(described_class.legal_services.recognised_live_framework?('RM6240')).to be false
+          end
+        end
+
+        context 'when RM6240 is live today' do
+          include_context 'and RM6240 is live today'
+
+          it 'returns true' do
+            expect(described_class.legal_services.recognised_live_framework?('RM6240')).to be true
+          end
+        end
+
+        context 'and RM6240 went live yesterday' do
+          it 'returns true' do
+            expect(described_class.legal_services.recognised_live_framework?('RM6240')).to be true
+          end
+        end
+      end
+      # rubocop:enable RSpec/NestedGroups
+
+      context 'when the framework is neither RM3788 or RM6240' do
+        it 'returns false' do
+          expect(described_class.legal_services.recognised_live_framework?('RM6187')).to be false
+        end
+      end
+    end
+  end
+
+  describe '.status' do
+    let(:framework) { create(:legacy_framework, live_at: live_at) }
+
+    context 'when the live_at date is before today' do
+      let(:live_at) { Time.zone.now - 1.day }
+
+      it 'returns live' do
+        expect(framework.status).to eq :live
+      end
+    end
+
+    context 'when the live_at date is today' do
+      let(:live_at) { Time.zone.now }
+
+      it 'returns live' do
+        expect(framework.status).to eq :live
+      end
+    end
+
+    context 'when the live_at date is after today' do
+      let(:live_at) { Time.zone.now + 1.day }
+
+      it 'returns coming' do
+        expect(framework.status).to eq :coming
+      end
+    end
+  end
+
+  describe 'validating the live at date' do
+    let(:framework) { create(:legacy_framework) }
+    let(:live_at) { Time.zone.now + 1.day }
+    let(:live_at_yyyy) { live_at.year.to_s }
+    let(:live_at_mm) { live_at.month.to_s }
+    let(:live_at_dd) { live_at.day.to_s }
+
+    before do
+      framework.live_at_yyyy = live_at_yyyy
+      framework.live_at_mm = live_at_mm
+      framework.live_at_dd = live_at_dd
+    end
+
+    context 'when considering live_at_yyyy and it is nil' do
+      let(:live_at_yyyy) { nil }
+
+      it 'is not valid and has the correct error message' do
+        expect(framework.valid?(:update)).to eq false
+        expect(framework.errors[:live_at].first).to eq 'Enter a valid \'live at\' date'
+      end
+    end
+
+    context 'when considering live_at_mm and it is blank' do
+      let(:live_at_mm) { '' }
+
+      it 'is not valid and has the correct error message' do
+        expect(framework.valid?(:update)).to eq false
+        expect(framework.errors[:live_at].first).to eq 'Enter a valid \'live at\' date'
+      end
+    end
+
+    context 'when considering live_at_dd and it is empty' do
+      let(:live_at_dd) { '    ' }
+
+      it 'is not valid and has the correct error message' do
+        expect(framework.valid?(:update)).to eq false
+        expect(framework.errors[:live_at].first).to eq 'Enter a valid \'live at\' date'
+      end
+    end
+
+    context 'when considering the full live_at' do
+      context 'and it is not a real date' do
+        let(:live_at_yyyy) { live_at.year.to_s }
+        let(:live_at_mm) { '2' }
+        let(:live_at_dd) { '30' }
+
+        it 'is not valid and has the correct error message' do
+          expect(framework.valid?(:update)).to eq false
+          expect(framework.errors[:live_at].first).to eq 'Enter a valid \'live at\' date'
+        end
+      end
+
+      context 'and it is a real date' do
+        it 'is valid' do
+          expect(framework.valid?(:update)).to eq true
+        end
+      end
+    end
+  end
+end

@@ -8,5 +8,9 @@ module ManagementConsultancy
     def authorize_user
       authorize! :read, ManagementConsultancy
     end
+
+    def service_scope
+      :management_consultancy
+    end
   end
 end
