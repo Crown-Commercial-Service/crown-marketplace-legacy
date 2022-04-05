@@ -700,7 +700,7 @@ en:
       accessibility_statement:
         compliance: No known accessibility non compliance issues.
         date: 1 July 2020
-        heading: Legal Services (LS) Accessibility Statement
+        heading: Legal Services (LS) Accessibility statement
         list_2_continue: one page has two continue buttons, this results in screen readers repeating "continue"
         marketplace_link: https://marketplace.service.crowncommercial.gov.uk/legal-services
         non_accessible_content_1: We are aware of an issue with the "select the services you need" page when tabbed in conjunction with NVDA, JAWS and macOS VoiceOver screen reader assistive technologies. The duplicate 'Continue' buttons that are present result in the screen reader stuttering.
@@ -949,7 +949,7 @@ en:
       accessibility_statement:
         compliance: No known accessibility non compliance issues.
         date: 1 July 2020
-        heading: Management Consultancy (MC) Accessibility Statement
+        heading: Management Consultancy (MC) Accessibility statement
         heading_how_we_tested: How we tested this website
         marketplace_link: https://marketplace.service.crowncommercial.gov.uk/management-consultancy
         service: Management Consultancy

@@ -45,7 +45,7 @@ module ApplicationHelper
     options = { class: 'govuk-fieldset' }
     options[:aria] = { describedby: error_id(attribute) } if attribute_has_errors
 
-    tag.fieldset(options, &block)
+    tag.fieldset(**options, &block)
   end
 
   def display_errors(journey, *attributes)
