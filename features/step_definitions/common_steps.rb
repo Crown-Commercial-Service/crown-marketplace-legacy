@@ -59,3 +59,31 @@ Then('I should see the following error messages:') do |table|
   expect(page).to have_css('div.govuk-error-summary')
   expect(page.find('.govuk-error-summary__list').find_all('a').map(&:text).reject(&:empty?)).to eq table.raw.flatten
 end
+
+Given('I select {string}') do |item|
+  choose item
+end
+
+Given('I check {string}') do |item|
+  check item
+end
+
+When('I deselect the following items:') do |items|
+  items.raw.flatten.each do |item|
+    page.uncheck(item)
+  end
+end
+
+Given('I click on the {string} back link') do |link_text|
+  page.find('.govuk-back-link', text: link_text).click
+end
+
+Then('the spreadsheet {string} is downloaded') do |spreadsheet_name|
+  expect(page.response_headers['Content-Type']).to eq 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+  expect(page.response_headers['Content-Disposition']).to include "filename=\"#{spreadsheet_name}"
+end
+
+Then('I pause') do
+  # binding.pry
+  pending 'This step is used for debugging features'
+end

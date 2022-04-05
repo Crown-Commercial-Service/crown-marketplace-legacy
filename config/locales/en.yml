@@ -373,14 +373,6 @@ en:
     unacceptable:
       changes_rejected: Sorry, the change you wanted was rejected
       explanation: Maybe you tried to change something you didn’t have access to.
-  faker:
-    company:
-      name:
-      - "#{Name.last_name} #{suffix}"
-      suffix:
-      - Ltd
-      - plc
-      - LLP
   header_navigation_links_helper:
     back_to_start: Back to start
     sign_out: Sign out
