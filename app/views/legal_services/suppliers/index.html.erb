@@ -6,28 +6,30 @@
       <%= full_lot_description(@lot.number, @lot.description) %>
     </span>
     <% if @suppliers.count.zero? %>
-      <div class="govuk-grid-column-two-thirds">
-        <h1 class="govuk-heading-xl"><%= t('.no_suppliers_found.heading') %></h1>
-        <% if params[:central_government] == 'yes' %>
-          <p class="govuk-body govuk-!-font-size-24">
-            <%= t(
-              '.no_suppliers_found.text_central_government_users_html',
-               general_legal_advice_service_link: link_to(
-                  t('.no_suppliers_found.general_legal_advice_services_link_text'),
-                 t('.no_suppliers_found.general_legal_advice_services_link_url')
-                )
-              ) %>
-          </p>
-          <br>
-          <p class="govuk-body">
-            <%= t('.no_suppliers_found.contact_html', contact_link: link_to(t('.no_suppliers_found.contact_link_text'), t('common.ccs_contact_url'))) %>
-          </p>
-        <% else %>
-          <p class="govuk-body govuk-!-font-size-24">
-            <%=t('.no_suppliers_found.text') %>
-          </p>
-        <% end %>
-        <%= link_to 'Back to start', legal_services_path, class: 'govuk-button govuk-!-margin-top-4 govuk-!-padding-left-4 govuk-!-padding-right-4', name: 'Back to start' %>
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <h1 class="govuk-heading-xl"><%= t('.no_suppliers_found.heading') %></h1>
+          <% if params[:central_government] == 'yes' %>
+            <p class="govuk-body govuk-!-font-size-24">
+              <%= t(
+                '.no_suppliers_found.text_central_government_users_html',
+                general_legal_advice_service_link: link_to(
+                    t('.no_suppliers_found.general_legal_advice_services_link_text'),
+                  t('.no_suppliers_found.general_legal_advice_services_link_url')
+                  )
+                ) %>
+            </p>
+            <br>
+            <p class="govuk-body">
+              <%= t('.no_suppliers_found.contact_html', contact_link: link_to(t('.no_suppliers_found.contact_link_text'), t('common.ccs_contact_url'))) %>
+            </p>
+          <% else %>
+            <p class="govuk-body govuk-!-font-size-24">
+              <%=t('.no_suppliers_found.text') %>
+            </p>
+          <% end %>
+          <%= link_to 'Back to start', legal_services_path, class: 'govuk-button govuk-!-margin-top-4 govuk-!-padding-left-4 govuk-!-padding-right-4', name: 'Back to start' %>
+        </div>
       </div>
     <% else %>
       <h1 class="govuk-heading-xl govuk-!-margin-bottom-4 govuk-!-margin-top-0"><%= t('.heading') %></h1>
