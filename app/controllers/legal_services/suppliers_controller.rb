@@ -23,7 +23,7 @@ module LegalServices
         format.xlsx do
           spreadsheet_builder = LegalServices::SupplierSpreadsheetCreator.new(@suppliers, params)
           spreadsheet = spreadsheet_builder.build
-          render xlsx: spreadsheet.to_stream.read, filename: 'Shortlist of WPS Legal Services Suppliers', format: 'application/vnd.openxmlformates-officedocument.spreadsheetml.sheet'
+          send_data spreadsheet.to_stream.read, filename: 'Shortlist of WPS Legal Services Suppliers.xlsx', type: :xlsx
         end
       end
     end

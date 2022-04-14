@@ -1,6 +1,6 @@
 # Crown Marketplace
 
-[![Build Status](https://travis-ci.com/Crown-Commercial-Service/crown-marketplace-legacy.svg?branch=master)](https://travis-ci.com/Crown-Commercial-Service/crown-marketplace-legacy)
+![Test Status](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/actions/workflows/rubyonrails.yml/badge.svg)
 [![Maintainability](https://api.codeclimate.com/v1/badges/120ac3c547d7b1328077/maintainability)](https://codeclimate.com/github/Crown-Commercial-Service/crown-marketplace-legacy/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/120ac3c547d7b1328077/test_coverage)](https://codeclimate.com/github/Crown-Commercial-Service/crown-marketplace-legacy/test_coverage)
 

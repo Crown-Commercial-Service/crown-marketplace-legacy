@@ -3,7 +3,7 @@ module ManagementConsultancy
     protected
 
     def service_challenge_path
-      management_consultancy_users_challenge_path(challenge_name: @result.challenge_name, username: @result.cognito_uuid)
+      management_consultancy_users_challenge_path(challenge_name: @result.challenge_name)
     end
 
     def after_sign_in_path_for(resource)
@@ -18,12 +18,12 @@ module ManagementConsultancy
       management_consultancy_new_user_session_path
     end
 
-    def confirm_forgot_password_path(username)
-      management_consultancy_edit_user_password_path(username: username)
+    def confirm_forgot_password_path
+      management_consultancy_edit_user_password_path
     end
 
-    def confirm_email_path(email)
-      management_consultancy_users_confirm_path(email: email)
+    def confirm_email_path
+      management_consultancy_users_confirm_path
     end
   end
 end
