@@ -6,8 +6,4 @@ module Pages
   def journey_page
     @journey_page ||= Journey.new
   end
-
-  def mc_page
-    @mc_page ||= MC.new
-  end
 end

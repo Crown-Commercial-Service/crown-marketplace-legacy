@@ -78,6 +78,10 @@ Given('I click on the {string} back link') do |link_text|
   page.find('.govuk-back-link', text: link_text).click
 end
 
+Then('I click on the {string} button') do |button_text|
+  page.find('.govuk-button', text: button_text).click
+end
+
 Then('the spreadsheet {string} is downloaded') do |spreadsheet_name|
   expect(page.response_headers['Content-Type']).to eq 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
   expect(page.response_headers['Content-Disposition']).to include "filename=\"#{spreadsheet_name}"
