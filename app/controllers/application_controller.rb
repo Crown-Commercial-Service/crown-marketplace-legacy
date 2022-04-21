@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  class UnrecognisedFrameworkError < StandardError; end
+
   before_action :configure_permitted_parameters, if: :devise_controller?
   protect_from_forgery with: :exception
   before_action :authenticate_user!, :validate_service
@@ -7,8 +9,10 @@ class ApplicationController < ActionController::Base
     redirect_to not_permitted_path(service: request.path_parameters[:controller].split('/').first)
   end
 
-  rescue_from ActionController::UnknownFormat, ActionView::MissingTemplate do
-    raise ActionController::RoutingError, 'Not Found'
+  if Rails.env.production?
+    rescue_from ActionController::UnknownFormat, ActionView::MissingTemplate do
+      raise ActionController::RoutingError, 'Not Found'
+    end
   end
 
   def gateway_url
@@ -26,9 +30,9 @@ class ApplicationController < ActionController::Base
     when 'supply_teachers'
       st_gateway_path
     when 'management_consultancy'
-      request.headers['REQUEST_PATH']&.include?('/management-consultancy/admin') ? management_consultancy_admin_new_user_session_path : management_consultancy_new_user_session_path
+      request.path&.include?('admin') ? management_consultancy_rm6187_admin_new_user_session_path : management_consultancy_rm6187_new_user_session_path
     else
-      request.headers['REQUEST_PATH']&.include?('/legal-services/admin') ? legal_services_admin_new_user_session_path : legal_services_new_user_session_path
+      request.path&.include?('admin') ? legal_services_admin_new_user_session_path : legal_services_new_user_session_path
     end
   end
 
@@ -63,7 +67,7 @@ class ApplicationController < ActionController::Base
   end
 
   def st_gateway_path
-    if request.headers['REQUEST_PATH']&.include?('/supply-teachers/admin')
+    if request.path&.include?('/supply-teachers/admin')
       supply_teachers_admin_user_session_url
     else
       supply_teachers_gateway_url

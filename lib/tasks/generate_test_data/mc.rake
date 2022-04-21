@@ -68,13 +68,13 @@ module GenerateTestData
     end
 
     def self.write_to_file
-      File.open('data/management_consultancy/dummy_supplier_data.json', 'w') do |file|
+      File.open('data/management_consultancy/rm6187/dummy_supplier_data.json', 'w') do |file|
         file.write(JSON.pretty_generate(@suppliers))
       end
     end
 
     def self.mcf3_lots_and_services
-      @mcf3_lots_and_services ||= ManagementConsultancy::Lot.all.map { |lot| [lot.number, lot.services.map(&:code)] }
+      @mcf3_lots_and_services ||= ManagementConsultancy::RM6187::Lot.all.map { |lot| [lot.number, lot.services.map(&:code)] }
     end
   end
 end

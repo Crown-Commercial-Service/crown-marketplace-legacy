@@ -154,16 +154,29 @@ module ApplicationHelper
     date_object&.in_time_zone('London')&.strftime '%e %B %Y, %l:%M%P'
   end
 
-  def cookie_policy_path(service)
-    "/#{service.gsub('_', '-')}/cookie-policy"
+  def cookie_policy_path(service, framework)
+    shared_pages_path(service, framework, 'cookie-policy')
   end
 
-  def cookie_settings_path(service)
-    "/#{service.gsub('_', '-')}/cookie-settings"
+  def cookie_settings_path(service, framework)
+    shared_pages_path(service, framework, 'cookie-settings')
   end
 
-  def accessibility_statement_path(service)
-    "/#{service.gsub('_', '-')}/accessibility-statement"
+  def accessibility_statement_path(service, framework)
+    shared_pages_path(service, framework, 'accessibility-statement')
+  end
+
+  def shared_pages_path(service, framework, page)
+    service_name = service.gsub('_', '-')
+
+    service_path = if service_name.include? 'admin'
+                     service_name = service_name.split('/')
+                     [service_name[0], framework, service_name[1]]
+                   else
+                     [service_name, framework]
+                   end
+
+    ([''] + service_path + [page]).compact.join('/')
   end
 
   def supply_teachers_accessibility_statement_links

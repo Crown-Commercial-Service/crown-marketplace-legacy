@@ -5,16 +5,16 @@ module ImportTestData
 
       empty_tables
 
-      File.open('data/management_consultancy/dummy_supplier_data.json', 'r') do |file|
+      File.open('data/management_consultancy/rm6187/dummy_supplier_data.json', 'r') do |file|
         supplier_data = JSON.parse(file.read)
-        ManagementConsultancy::Upload.upload!(supplier_data)
+        ManagementConsultancy::RM6187::Upload.upload!(supplier_data)
       end
     end
 
     def self.empty_tables
-      ManagementConsultancy::RateCard.destroy_all
-      ManagementConsultancy::ServiceOffering.destroy_all
-      ManagementConsultancy::Supplier.destroy_all
+      ManagementConsultancy::RM6187::RateCard.destroy_all
+      ManagementConsultancy::RM6187::ServiceOffering.destroy_all
+      ManagementConsultancy::RM6187::Supplier.destroy_all
     end
   end
 

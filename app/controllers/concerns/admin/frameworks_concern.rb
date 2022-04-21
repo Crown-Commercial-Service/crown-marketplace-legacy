@@ -2,6 +2,7 @@ module Admin::FrameworksConcern
   extend ActiveSupport::Concern
 
   included do
+    before_action :raise_if_unrecognised_framework, except: %i[index edit update]
     before_action :set_framework, only: %i[edit update]
   end
 

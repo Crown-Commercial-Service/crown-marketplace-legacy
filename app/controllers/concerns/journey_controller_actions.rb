@@ -33,6 +33,6 @@ module JourneyControllerActions
   end
 
   def build_journey
-    journey_class.new(params[:slug], params)
+    journey_class.new(params[:framework], params[:slug], params)
   end
 end
