@@ -5,7 +5,7 @@ Feature: Supply Teachers - Start pages
     When I go to the 'supply teachers' start page
     Then I am on the 'Find supply teachers and agency workers' page
 
-  Scenario: Buyer navigatis to sign in page
+  Scenario: Buyer navigates to sign in page
     When I go to the 'supply teachers' start page
     Then I am on the 'Find supply teachers and agency workers' page
     When I click on 'Start now'

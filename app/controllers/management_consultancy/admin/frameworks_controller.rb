@@ -1,6 +1,6 @@
 module ManagementConsultancy
   module Admin
-    class FrameworksController < ManagementConsultancy::FrameworkController
+    class FrameworksController < ManagementConsultancy::Admin::FrameworkController
       include ::Admin::FrameworksConcern
 
       before_action :authenticate_user!
@@ -13,7 +13,7 @@ module ManagementConsultancy
       private
 
       def authorize_user
-        authorize! :manage, ManagementConsultancy::Admin::Upload
+        authorize! :manage, ManagementConsultancy::RM6187::Admin::Upload
       end
     end
   end

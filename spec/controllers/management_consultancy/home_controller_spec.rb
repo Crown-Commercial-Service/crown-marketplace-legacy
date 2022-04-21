@@ -3,34 +3,30 @@ require 'rails_helper'
 RSpec.describe ManagementConsultancy::HomeController, type: :controller do
   let(:default_params) { { service: 'management_consultancy' } }
 
-  login_mc_buyer
+  describe 'GET framework' do
+    it 'redirects to the RM6187 home page' do
+      get :framework
+      expect(response).to redirect_to management_consultancy_rm6187_path
+    end
+  end
 
   describe 'GET index' do
-    it 'renders the index template' do
-      get :index
+    context 'when the framework is not the current framework' do
+      it 'redirects to the framework path' do
+        get :index, params: { framework: 'RM6232' }
 
-      expect(response).to render_template(:index)
+        expect(response).to redirect_to management_consultancy_path
+      end
     end
-  end
 
-  describe 'GET not_permitted' do
-    it 'renders the not_permitted page' do
-      get :not_permitted
-      expect(response).to render_template(:not_permitted)
-    end
-  end
-
-  describe 'GET cookie_policy' do
-    it 'renders the cookie policy page' do
-      get :cookie_policy
-      expect(response).to render_template('home/cookie_policy')
-    end
-  end
-
-  describe 'GET cookie_settings' do
-    it 'renders the cookie settings page' do
-      get :cookie_settings
-      expect(response).to render_template('home/cookie_settings')
+    context 'when the framework is the current framework' do
+      # This is because in practice, the rails router will have already used the correct framework controller,
+      # therefore, this test is just to make sure that the UnrecognisedLiveFrameworkError is not invoked
+      it 'raises the MissingExactTemplate error' do
+        expect do
+          get :index, params: { framework: 'RM6187' }
+        end.to raise_error(ActionController::MissingExactTemplate)
+      end
     end
   end
 
@@ -39,7 +35,7 @@ RSpec.describe ManagementConsultancy::HomeController, type: :controller do
       let(:default_params) { { service: 'apprenticeships' } }
 
       it 'renders the erros_not_found page' do
-        get :index
+        get :framework
 
         expect(response).to redirect_to errors_404_path
       end
