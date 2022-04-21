@@ -5,7 +5,7 @@ Feature: Legal Services - Start pages
     When I go to the 'legal services' start page
     Then I am on the 'Find legal services for the wider public sector' page
 
-  Scenario: Buyer navigatis to sign in page
+  Scenario: Buyer navigates to sign in page
     When I go to the 'legal services' start page
     Then I am on the 'Find legal services for the wider public sector' page
     When I click on 'Start now'

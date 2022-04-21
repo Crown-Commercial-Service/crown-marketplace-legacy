@@ -125,13 +125,13 @@ RSpec.describe Framework, type: :model do
     end
   end
 
-  describe '.default_framework' do
+  describe '.current_framework' do
     context 'when the supply_teachers scope is provided' do
       context 'when RM6238 goes live tomorrow' do
         include_context 'and RM6238 is live in the future'
 
         it 'returns RM3826' do
-          expect(described_class.supply_teachers.default_framework).to eq 'RM3826'
+          expect(described_class.supply_teachers.current_framework).to eq 'RM3826'
         end
       end
 
@@ -139,20 +139,20 @@ RSpec.describe Framework, type: :model do
         include_context 'and RM6238 is live today'
 
         it 'returns RM6238' do
-          expect(described_class.supply_teachers.default_framework).to eq 'RM6238'
+          expect(described_class.supply_teachers.current_framework).to eq 'RM6238'
         end
       end
 
       context 'when RM6238 went live yesterday' do
         it 'returns RM6238' do
-          expect(described_class.supply_teachers.default_framework).to eq 'RM6238'
+          expect(described_class.supply_teachers.current_framework).to eq 'RM6238'
         end
       end
     end
 
     context 'when the management_consultancy scope is provided' do
       it 'returns RM6187' do
-        expect(described_class.management_consultancy.default_framework).to eq 'RM6187'
+        expect(described_class.management_consultancy.current_framework).to eq 'RM6187'
       end
     end
 
@@ -161,7 +161,7 @@ RSpec.describe Framework, type: :model do
         include_context 'and RM6240 is live in the future'
 
         it 'returns RM3788' do
-          expect(described_class.legal_services.default_framework).to eq 'RM3788'
+          expect(described_class.legal_services.current_framework).to eq 'RM3788'
         end
       end
 
@@ -169,33 +169,57 @@ RSpec.describe Framework, type: :model do
         include_context 'and RM6240 is live today'
 
         it 'returns RM6240' do
-          expect(described_class.legal_services.default_framework).to eq 'RM6240'
+          expect(described_class.legal_services.current_framework).to eq 'RM6240'
         end
       end
 
       context 'when RM6240 went live yesterday' do
         it 'returns RM6240' do
-          expect(described_class.legal_services.default_framework).to eq 'RM6240'
+          expect(described_class.legal_services.current_framework).to eq 'RM6240'
         end
       end
     end
   end
 
-  describe '.recognised_live_framework' do
+  # rubocop:disable RSpec/NestedGroups
+  describe '.current_live_framework?' do
     context 'when the supply_teachers scope is provided' do
-      context 'when the framework is RM3826' do
-        it 'returns true' do
-          expect(described_class.supply_teachers.recognised_live_framework?('RM3826')).to be true
+      let(:result) { described_class.supply_teachers.current_live_framework?(framework) }
+
+      context 'when the framework passed is RM3826' do
+        let(:framework) { 'RM3826' }
+
+        context 'and RM6238 goes live tomorrow' do
+          include_context 'and RM6238 is live in the future'
+
+          it 'returns true' do
+            expect(result).to be true
+          end
+        end
+
+        context 'when RM6238 is live today' do
+          include_context 'and RM6238 is live today'
+
+          it 'returns false' do
+            expect(result).to be false
+          end
+        end
+
+        context 'and RM6238 went live yesterday' do
+          it 'returns false' do
+            expect(result).to be false
+          end
         end
       end
 
-      # rubocop:disable RSpec/NestedGroups
-      context 'when the framework is RM6238' do
+      context 'when the framework passed is RM6238' do
+        let(:framework) { 'RM6238' }
+
         context 'and RM6238 goes live tomorrow' do
           include_context 'and RM6238 is live in the future'
 
           it 'returns false' do
-            expect(described_class.supply_teachers.recognised_live_framework?('RM6238')).to be false
+            expect(result).to be false
           end
         end
 
@@ -203,21 +227,22 @@ RSpec.describe Framework, type: :model do
           include_context 'and RM6238 is live today'
 
           it 'returns true' do
-            expect(described_class.supply_teachers.recognised_live_framework?('RM6238')).to be true
+            expect(result).to be true
           end
         end
 
         context 'and RM6238 went live yesterday' do
           it 'returns true' do
-            expect(described_class.supply_teachers.recognised_live_framework?('RM6238')).to be true
+            expect(result).to be true
           end
         end
       end
-      # rubocop:enable RSpec/NestedGroups
 
       context 'when the framework is neither RM3826 or RM6238' do
+        let(:framework) { 'RM6187' }
+
         it 'returns false' do
-          expect(described_class.supply_teachers.recognised_live_framework?('RM6187')).to be false
+          expect(result).to be false
         end
       end
     end
@@ -225,31 +250,54 @@ RSpec.describe Framework, type: :model do
     context 'when the management_consultancy scope is provided' do
       context 'when the framework is RM6187' do
         it 'returns true' do
-          expect(described_class.management_consultancy.recognised_live_framework?('RM6187')).to be true
+          expect(described_class.management_consultancy.current_live_framework?('RM6187')).to be true
         end
       end
 
       context 'when the framework is not RM6187' do
         it 'returns false' do
-          expect(described_class.management_consultancy.recognised_live_framework?('RM3788')).to be false
+          expect(described_class.management_consultancy.current_live_framework?('RM3788')).to be false
         end
       end
     end
 
     context 'when the legal_services scope is provided' do
-      context 'when the framework is RM3788' do
-        it 'returns true' do
-          expect(described_class.legal_services.recognised_live_framework?('RM3788')).to be true
+      let(:result) { described_class.legal_services.current_live_framework?(framework) }
+
+      context 'when the framework passed is RM3788' do
+        let(:framework) { 'RM3788' }
+
+        context 'and RM6240 goes live tomorrow' do
+          include_context 'and RM6240 is live in the future'
+
+          it 'returns true' do
+            expect(result).to be true
+          end
+        end
+
+        context 'when RM6240 is live today' do
+          include_context 'and RM6240 is live today'
+
+          it 'returns false' do
+            expect(result).to be false
+          end
+        end
+
+        context 'and RM6240 went live yesterday' do
+          it 'returns false' do
+            expect(result).to be false
+          end
         end
       end
 
-      # rubocop:disable RSpec/NestedGroups
-      context 'when the framework is RM6240' do
+      context 'when the framework passed is RM6240' do
+        let(:framework) { 'RM6240' }
+
         context 'and RM6240 goes live tomorrow' do
           include_context 'and RM6240 is live in the future'
 
           it 'returns false' do
-            expect(described_class.legal_services.recognised_live_framework?('RM6240')).to be false
+            expect(result).to be false
           end
         end
 
@@ -257,25 +305,27 @@ RSpec.describe Framework, type: :model do
           include_context 'and RM6240 is live today'
 
           it 'returns true' do
-            expect(described_class.legal_services.recognised_live_framework?('RM6240')).to be true
+            expect(result).to be true
           end
         end
 
         context 'and RM6240 went live yesterday' do
           it 'returns true' do
-            expect(described_class.legal_services.recognised_live_framework?('RM6240')).to be true
+            expect(result).to be true
           end
         end
       end
-      # rubocop:enable RSpec/NestedGroups
 
       context 'when the framework is neither RM3788 or RM6240' do
+        let(:framework) { 'RM6187' }
+
         it 'returns false' do
-          expect(described_class.legal_services.recognised_live_framework?('RM6187')).to be false
+          expect(result).to be false
         end
       end
     end
   end
+  # rubocop:enable RSpec/NestedGroups
 
   describe '.status' do
     let(:framework) { create(:legacy_framework, live_at: live_at) }

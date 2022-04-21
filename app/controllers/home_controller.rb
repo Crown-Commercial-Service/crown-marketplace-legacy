@@ -11,5 +11,6 @@ class HomeController < ApplicationController
 
   def not_permitted
     params[:service] = 'supply_teachers' if params[:service] == 'auth' || params[:service].nil?
+    render layout: 'error'
   end
 end

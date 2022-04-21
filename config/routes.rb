@@ -42,9 +42,11 @@ Rails.application.routes.draw do
     end
 
     namespace 'management_consultancy', path: 'management-consultancy', defaults: { service: 'management_consultancy' } do
-      concerns %i[authenticatable registrable]
-      namespace :admin, defaults: { service: 'management_consultancy/admin' } do
-        concerns :authenticatable
+      namespace 'rm6187', path: 'RM6187', defaults: { framework: 'RM6187' } do
+        concerns %i[authenticatable registrable]
+        namespace :admin, defaults: { service: 'management_consultancy/admin' } do
+          concerns :authenticatable
+        end
       end
     end
 
@@ -64,10 +66,17 @@ Rails.application.routes.draw do
     get '/cookie-settings', to: 'home#cookie_settings'
   end
 
+  concern :framework do
+    get '/', to: 'home#framework'
+  end
+
   concern :admin_shared_pages do
     get '/accessibility-statement', to: 'uploads#accessibility_statement'
     get '/cookie-policy', to: 'uploads#cookie_policy'
     get '/cookie-settings', to: 'uploads#cookie_settings'
+  end
+
+  concern :admin_frameworks do
     resources :frameworks, only: %i[index edit update] if Marketplace.can_edit_legacy_frameworks?
   end
 
@@ -75,6 +84,7 @@ Rails.application.routes.draw do
     resources :uploads, only: %i[index new create show] do
       get '/progress', action: :progress
     end
+    get '/', to: 'uploads#index'
   end
 
   namespace 'supply_teachers', path: 'supply-teachers', defaults: { service: 'supply_teachers' } do
@@ -94,6 +104,7 @@ Rails.application.routes.draw do
     namespace :admin, defaults: { service: 'supply_teachers/admin' } do
       resources :uploads, only: %i[index new create show destroy update]
       concerns :admin_shared_pages
+      concerns :admin_frameworks
     end
     get '/start', to: 'journey#start', as: 'journey_start'
     get '/:slug', to: 'journey#question', as: 'journey_question'
@@ -101,17 +112,28 @@ Rails.application.routes.draw do
   end
 
   namespace 'management_consultancy', path: 'management-consultancy', defaults: { service: 'management_consultancy' } do
-    concerns :shared_pages
-    get '/suppliers', to: 'suppliers#index'
-    get '/suppliers/download', to: 'suppliers#download', as: 'suppliers_download'
-    get '/suppliers/:id', to: 'suppliers#show', as: 'supplier'
+    concerns :framework
+
     namespace :admin, defaults: { service: 'management_consultancy/admin' } do
-      concerns :admin_uploads
-      concerns :admin_shared_pages
+      concerns %i[framework admin_frameworks]
     end
-    get '/start', to: 'journey#start', as: 'journey_start'
-    get '/:slug', to: 'journey#question', as: 'journey_question'
-    get '/:slug/answer', to: 'journey#answer', as: 'journey_answer'
+
+    namespace 'rm6187', path: 'RM6187', defaults: { framework: 'RM6187' } do
+      concerns :shared_pages
+      get '/suppliers', to: 'suppliers#index'
+      get '/suppliers/download', to: 'suppliers#download', as: 'suppliers_download'
+      get '/suppliers/:id', to: 'suppliers#show', as: 'supplier'
+      namespace :admin, defaults: { service: 'management_consultancy/admin' } do
+        concerns :admin_uploads
+        concerns :admin_shared_pages
+      end
+    end
+
+    get '/:framework', to: 'home#index', as: 'index'
+    get '/:framework/admin', to: 'admin/home#index', defaults: { service: 'management_consultancy/admin' }, as: 'admin_index'
+    get '/:framework/start', to: 'journey#start', as: 'journey_start'
+    get '/:framework/:slug', to: 'journey#question', as: 'journey_question'
+    get '/:framework/:slug/answer', to: 'journey#answer', as: 'journey_answer'
   end
 
   namespace 'legal_services', path: 'legal-services', defaults: { service: 'legal_services' } do
@@ -128,6 +150,7 @@ Rails.application.routes.draw do
     namespace :admin, defaults: { service: 'legal_services/admin' } do
       concerns :admin_uploads
       concerns :admin_shared_pages
+      concerns :admin_frameworks
     end
   end
 
@@ -141,8 +164,8 @@ Rails.application.routes.draw do
     get '/auth/dfe/callback' => 'auth#callback'
   end
 
-  get '/:journey/start', to: 'journey#start', as: 'journey_start'
-  get '/:journey/:slug', to: 'journey#question', as: 'journey_question'
-  get '/:journey/:slug/answer', to: 'journey#answer', as: 'journey_answer'
+  get '/:journey/:framework/start', to: 'journey#start', as: 'journey_start'
+  get '/:journey/:framework/:slug', to: 'journey#question', as: 'journey_question'
+  get '/:journey/:framework/:slug/answer', to: 'journey#answer', as: 'journey_answer'
 end
 # rubocop:enable Metrics/BlockLength

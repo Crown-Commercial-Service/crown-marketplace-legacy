@@ -14,12 +14,12 @@ class Framework < ApplicationRecord
     where('live_at <= ?', Time.now.in_time_zone('London')).pluck(:framework)
   end
 
-  def self.default_framework
+  def self.current_framework
     live_frameworks.last
   end
 
-  def self.recognised_live_framework?(framework)
-    live_frameworks.include?(framework)
+  def self.current_live_framework?(framework)
+    current_framework == framework
   end
 
   def self.recognised_framework?(framework)

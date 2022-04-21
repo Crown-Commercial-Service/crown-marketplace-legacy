@@ -2,12 +2,12 @@
 Feature: Management Consultancy - Cookie pages accessibility
 
   Scenario: Start page with the banner
-    Given I go to the 'management consultancy' start page
+    Given I go to the 'management consultancy' start page for 'RM6187'
     And the cookie banner 'is' visible
     Then the page should be axe clean
 
   Scenario: Cookie policy
-    Given I go to the 'management consultancy' start page
+    Given I go to the 'management consultancy' start page for 'RM6187'
     And the cookie banner 'is' visible
     When I click on 'Accept analytics cookies'
     And I click on 'Cookie policy'
@@ -15,7 +15,7 @@ Feature: Management Consultancy - Cookie pages accessibility
     Then the page should be axe clean
 
   Scenario: Cookie settings
-    Given I go to the 'management consultancy' start page
+    Given I go to the 'management consultancy' start page for 'RM6187'
     And the cookie banner 'is' visible
     When I click on 'Accept analytics cookies'
     When I click on 'Cookie settings'

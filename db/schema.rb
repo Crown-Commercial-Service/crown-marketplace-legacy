@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_04_102514) do
+ActiveRecord::Schema.define(version: 2022_04_21_105830) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -101,7 +101,7 @@ ActiveRecord::Schema.define(version: 2022_04_04_102514) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "management_consultancy_admin_uploads", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+  create_table "management_consultancy_rm6187_admin_uploads", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "aasm_state", limit: 30
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -111,8 +111,8 @@ ActiveRecord::Schema.define(version: 2022_04_04_102514) do
     t.text "import_errors"
   end
 
-  create_table "management_consultancy_rate_cards", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.uuid "management_consultancy_supplier_id", null: false
+  create_table "management_consultancy_rm6187_rate_cards", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "management_consultancy_rm6187_supplier_id", null: false
     t.string "lot"
     t.integer "junior_rate_in_pence"
     t.integer "standard_rate_in_pence"
@@ -125,20 +125,20 @@ ActiveRecord::Schema.define(version: 2022_04_04_102514) do
     t.string "contact_name"
     t.string "telephone_number"
     t.string "email"
-    t.index ["management_consultancy_supplier_id"], name: "index_management_consultancy_rate_cards_on_supplier_id"
+    t.index ["management_consultancy_rm6187_supplier_id"], name: "index_mc_rm6187_rate_cards_on_supplier_id"
   end
 
-  create_table "management_consultancy_service_offerings", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.uuid "management_consultancy_supplier_id", null: false
+  create_table "management_consultancy_rm6187_service_offerings", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "management_consultancy_rm6187_supplier_id", null: false
     t.text "lot_number", null: false
     t.text "service_code", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["management_consultancy_supplier_id"], name: "index_mc_service_offerings_on_mc_supplier_id"
-    t.index ["service_code", "lot_number", "management_consultancy_supplier_id"], name: "index_service_on_lot_number_and_mc_supplier_id", unique: true
+    t.index ["management_consultancy_rm6187_supplier_id"], name: "index_mc_rm6187_service_offerings_on_mc_supplier_id"
+    t.index ["service_code", "lot_number", "management_consultancy_rm6187_supplier_id"], name: "index_service_on_lot_number_and_mc_supplier_id", unique: true
   end
 
-  create_table "management_consultancy_suppliers", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+  create_table "management_consultancy_rm6187_suppliers", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.text "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -151,7 +151,7 @@ ActiveRecord::Schema.define(version: 2022_04_04_102514) do
     t.integer "duns"
   end
 
-  create_table "management_consultancy_uploads", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+  create_table "management_consultancy_rm6187_uploads", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -261,8 +261,8 @@ ActiveRecord::Schema.define(version: 2022_04_04_102514) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "legal_services_regional_availabilities", "legal_services_suppliers"
   add_foreign_key "legal_services_service_offerings", "legal_services_suppliers"
-  add_foreign_key "management_consultancy_rate_cards", "management_consultancy_suppliers"
-  add_foreign_key "management_consultancy_service_offerings", "management_consultancy_suppliers"
+  add_foreign_key "management_consultancy_rm6187_rate_cards", "management_consultancy_rm6187_suppliers"
+  add_foreign_key "management_consultancy_rm6187_service_offerings", "management_consultancy_rm6187_suppliers"
   add_foreign_key "supply_teachers_branches", "supply_teachers_suppliers"
   add_foreign_key "supply_teachers_rates", "supply_teachers_suppliers"
 end
