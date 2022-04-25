@@ -69,7 +69,7 @@ gem 'aws-sdk-s3', '~> 1'
 gem 'roo', '~> 2.9.0'
 
 # manipulating JSON for anonymisation
-gem 'jsonpath', '~> 1.1.0'
+gem 'jsonpath', '~> 1.1.2'
 
 # state machine
 gem 'aasm', '~> 5.2'
