@@ -36,6 +36,25 @@ module ImportTestData
       LegalServices::Supplier.destroy_all
     end
   end
+
+  module ST
+    def self.import_data
+      puts 'Importing ST data'
+
+      empty_tables
+
+      File.open('data/supply_teachers/dummy_supplier_data.json', 'r') do |file|
+        supplier_data = JSON.parse(file.read)
+        SupplyTeachers::Upload.upload!(supplier_data)
+      end
+    end
+
+    def self.empty_tables
+      SupplyTeachers::Branch.destroy_all
+      SupplyTeachers::Rate.destroy_all
+      SupplyTeachers::Supplier.destroy_all
+    end
+  end
 end
 
 namespace :db do
@@ -45,6 +64,7 @@ namespace :db do
       puts 'Importing the supplier test data'
       ImportTestData::MC.import_data
       ImportTestData::LS.import_data
+      ImportTestData::ST.import_data
       puts 'Finished supplier test data import'
     end
   end

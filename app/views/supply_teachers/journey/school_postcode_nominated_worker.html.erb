@@ -11,9 +11,9 @@
         <%= t('.question') %>
       </label>
     </h1>
-    <span id="postcode-hint" class="govuk-hint">
+    <div id="postcode-hint" class="govuk-hint">
       <%= t('.question_hint') %>
-    </span>
+    </div>
     <%= display_error(@journey, :location) %>
     <%= text_field_tag :postcode, params[:postcode], placeholder: 'SW1A 1AA', class: css_classes_for_input(@journey, :location, ['govuk-input--width-10']) %>
   <% end %>

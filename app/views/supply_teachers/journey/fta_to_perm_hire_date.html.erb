@@ -10,14 +10,14 @@
       <%= govuk_form_group_with_optional_error(@journey, :hire_date) do %>
         <%= govuk_fieldset_with_optional_error(@journey, :hire_date) do %>
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-            <h2 class="govuk-fieldset__heading">
+            <h1 class="govuk-fieldset__heading">
               <%= t('.hire_date_question') %>
-            </h2>
+            </h1>
           </legend>
           <%= display_errors(@journey, :hire_date) %>
-          <span id="contract-start-hint" class="govuk-hint">
+          <div id="contract-start-hint" class="govuk-hint">
             <%= t('.hire_date_question_hint') %>
-          </span>
+          </div>
           <div class="govuk-date-input" id="contract-start">
             <div class="govuk-date-input__item">
               <div class="govuk-form-group">

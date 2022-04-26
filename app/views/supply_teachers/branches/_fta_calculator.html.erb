@@ -14,8 +14,10 @@
           <%= t('.annual_salary') %>
         </label>
         <div class="calculator-form__annual-salary">
-          <%= text_field_tag "annual_salary[#{branch.id}]", @salary, class: 'govuk-input govuk-input--width-10 calculator-form__annual-salary-input' %>
-          <i class="govuk-body calculator-form__annual-salary-icon">£</i>
+          <div class="govuk-input__wrapper">
+            <div class="govuk-input__prefix" aria-hidden="true">£</div>
+            <%= text_field_tag "annual_salary[#{branch.id}]", @salary, class: 'govuk-input govuk-input--width-10 calculator-form__annual-salary-input' %>
+          </div>
         </div>
       </div>
     </div>
