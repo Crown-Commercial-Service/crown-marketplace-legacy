@@ -97,6 +97,9 @@ gem 'active_storage_validations', '>= 0.9.7'
 gem 'asset_sync'
 gem 'fog-aws', '>= 3.13.0'
 
+# Reuired for the ST import
+gem 'capybara', '>= 3.36.0'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
@@ -131,7 +134,6 @@ group :test do
   gem 'simplecov', '>= 0.16.1', require: false
   gem 'selenium-webdriver', '>= 3.142.3'
   gem 'cucumber-rails', '>= 2.5.1', require: false
-  gem 'capybara', '>= 3.36.0'
   gem 'database_cleaner', '>= 2.0.1'
   gem 'site_prism', '>= 3.7.3'
   gem 'axe-core-capybara', '>= 4.2.1'
