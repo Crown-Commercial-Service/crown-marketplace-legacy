@@ -294,7 +294,7 @@ GEM
       activesupport (>= 4.2)
       aes_key_wrap
       bindata
-    jsonpath (1.1.0)
+    jsonpath (1.1.2)
       multi_json
     jwt (2.3.0)
     kaminari (1.2.2)
@@ -645,7 +645,7 @@ DEPENDENCIES
   jbuilder (~> 2.11, >= 2.11.5)
   jquery-rails (~> 4.4.0)
   json-jwt (>= 1.11.0)
-  jsonpath (~> 1.1.0)
+  jsonpath (~> 1.1.2)
   kaminari (~> 1.2.2)
   launchy (>= 2.5.0)
   listen (>= 3.0.5, < 3.8)
