@@ -10,9 +10,9 @@
       <%= govuk_form_group_with_optional_error(@journey, :contract_start_date) do %>
         <%= govuk_fieldset_with_optional_error(@journey, :contract_start_date) do %>
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-            <h2 class="govuk-fieldset__heading">
+            <h1 class="govuk-fieldset__heading">
               <%= t('.contract_start_question') %>
-            </h2>
+            </h1>
           </legend>
           <%= display_errors(@journey, :contract_start_date) %>
           <span id="contract-start-hint" class="govuk-hint">

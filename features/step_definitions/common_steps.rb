@@ -84,7 +84,7 @@ end
 
 Then('the spreadsheet {string} is downloaded') do |spreadsheet_name|
   expect(page.response_headers['Content-Type']).to eq 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
-  expect(page.response_headers['Content-Disposition']).to include "filename=\"#{spreadsheet_name}"
+  expect(page.response_headers['Content-Disposition']).to include "filename=\"#{spreadsheet_name}".gsub('(', '%28').gsub(')', '%29')
 end
 
 Then('I pause') do
