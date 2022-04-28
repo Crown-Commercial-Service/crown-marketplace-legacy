@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.7.6'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.0.4', '>= 6.0.4.7'
+gem 'rails', '~> 6.0.4', '>= 6.0.4.8'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
@@ -91,7 +91,7 @@ gem 'sprockets-bumble_d', '>= 2.2.0'
 gem 'ratonvirus', '>= 0.1.1'
 gem 'ratonvirus-clamby', '>= 0.1.0'
 # for active storage validation
-gem 'active_storage_validations', '>= 0.9.7'
+gem 'active_storage_validations', '>= 0.9.8'
 
 # asset sync
 gem 'asset_sync'
@@ -108,7 +108,7 @@ group :development, :test do
   gem 'launchy', '>= 2.5.0'
   gem 'pry-rails'
   gem 'rails-controller-testing', '>= 1.0.5'
-  gem 'rspec-rails', '>= 5.1.1'
+  gem 'rspec-rails', '>= 5.1.2'
   gem 'shoulda-matchers', '>= 4.2.0'
   gem 'rubocop'
   gem 'rubocop-rspec'
