@@ -27,22 +27,6 @@ RSpec.describe Framework, type: :model do
     end
   end
 
-  shared_context 'and RM6238 is live in the future' do
-    before { described_class.find_by(framework: 'RM6238').update(live_at: Time.zone.now + 1.day) }
-  end
-
-  shared_context 'and RM6238 is live today' do
-    before { described_class.find_by(framework: 'RM6238').update(live_at: Time.zone.now) }
-  end
-
-  shared_context 'and RM6240 is live in the future' do
-    before { described_class.find_by(framework: 'RM6240').update(live_at: Time.zone.now + 1.day) }
-  end
-
-  shared_context 'and RM6240 is live today' do
-    before { described_class.find_by(framework: 'RM6240').update(live_at: Time.zone.now) }
-  end
-
   describe '.live_frameworks' do
     context 'when RM6238 goes live tomorrow' do
       include_context 'and RM6238 is live in the future'

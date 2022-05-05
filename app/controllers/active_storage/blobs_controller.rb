@@ -22,7 +22,7 @@ class ActiveStorage::BlobsController < ActiveStorage::BaseController
     elsif params[:mc_upload_id].present?
       authorize_upload_view ManagementConsultancy::RM6187::Admin::Upload, params[:mc_upload_id]
     elsif params[:ls_upload_id].present?
-      authorize_upload_view LegalServices::Admin::Upload, params[:ls_upload_id]
+      authorize_upload_view LegalServices::RM3788::Admin::Upload, params[:ls_upload_id]
     end
   end
 
