@@ -28,6 +28,15 @@ RSpec.describe ManagementConsultancy::RM6187::Admin::UploadsController, type: :c
         get :index
         expect(response).to render_template(:index)
       end
+
+      context 'and the framework dose not exist' do
+        it 'renders the unrecognised framework page with the right http status' do
+          get :index, params: { framework: 'RM3788' }
+
+          expect(response).to render_template('home/unrecognised_framework')
+          expect(response).to have_http_status(:bad_request)
+        end
+      end
     end
   end
 

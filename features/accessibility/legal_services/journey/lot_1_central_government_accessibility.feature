@@ -2,7 +2,7 @@
 Feature: Legal services - Central Government - Lot 1 - Accessibility
 
   Background: Login and then navigate to the start page
-    Given I sign in and navigate to the start page for 'legal services'
+    Given I sign in and navigate to the start page for the 'RM3788' framework in 'legal services'
     Then I am on the 'Do you work for central government?' page
 
   Scenario: Do you work for central government? page

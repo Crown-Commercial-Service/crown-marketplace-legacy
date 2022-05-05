@@ -51,9 +51,11 @@ Rails.application.routes.draw do
     end
 
     namespace 'legal_services', path: 'legal-services', defaults: { service: 'legal_services' } do
-      concerns %i[authenticatable registrable]
-      namespace :admin, defaults: { service: 'legal_services/admin' } do
-        concerns :authenticatable
+      namespace 'rm3788', path: 'RM3788', defaults: { framework: 'RM3788' } do
+        concerns %i[authenticatable registrable]
+        namespace :admin, defaults: { service: 'legal_services/admin' } do
+          concerns :authenticatable
+        end
       end
     end
   end
@@ -137,21 +139,31 @@ Rails.application.routes.draw do
   end
 
   namespace 'legal_services', path: 'legal-services', defaults: { service: 'legal_services' } do
-    concerns :shared_pages
-    get '/service-not-suitable', to: 'home#service_not_suitable'
-    get '/suppliers/download', to: 'suppliers#download'
-    get '/suppliers/no-suppliers-found', to: 'suppliers#no_suppliers_found'
-    get '/suppliers/cg-no-suppliers-found', to: 'suppliers#cg_no_suppliers_found'
-    resources :suppliers, only: %i[index show]
-    get '/start', to: 'journey#start', as: 'journey_start'
-    get '/:slug', to: 'journey#question', as: 'journey_question'
-    get '/:slug/answer', to: 'journey#answer', as: 'journey_answer'
-    resources :downloads, only: :index
+    concerns :framework
+
     namespace :admin, defaults: { service: 'legal_services/admin' } do
-      concerns :admin_uploads
-      concerns :admin_shared_pages
-      concerns :admin_frameworks
+      concerns %i[framework admin_frameworks]
     end
+
+    namespace 'rm3788', path: 'RM3788', defaults: { framework: 'RM3788' } do
+      concerns :shared_pages
+      get '/service-not-suitable', to: 'home#service_not_suitable'
+      get '/suppliers/download', to: 'suppliers#download'
+      get '/suppliers/no-suppliers-found', to: 'suppliers#no_suppliers_found'
+      get '/suppliers/cg-no-suppliers-found', to: 'suppliers#cg_no_suppliers_found'
+      resources :suppliers, only: %i[index show]
+      resources :downloads, only: :index
+      namespace :admin, defaults: { service: 'legal_services/admin' } do
+        concerns :admin_uploads
+        concerns :admin_shared_pages
+      end
+    end
+
+    get '/:framework', to: 'home#index', as: 'index'
+    get '/:framework/admin', to: 'admin/home#index', defaults: { service: 'legal_services/admin' }, as: 'admin_index'
+    get '/:framework/start', to: 'journey#start', as: 'journey_start'
+    get '/:framework/:slug', to: 'journey#question', as: 'journey_question'
+    get '/:framework/:slug/answer', to: 'journey#answer', as: 'journey_answer'
   end
 
   get '/404', to: 'errors#not_found', as: :errors_404

@@ -32,7 +32,7 @@ class ApplicationController < ActionController::Base
     when 'management_consultancy'
       request.path&.include?('admin') ? management_consultancy_rm6187_admin_new_user_session_path : management_consultancy_rm6187_new_user_session_path
     else
-      request.path&.include?('admin') ? legal_services_admin_new_user_session_path : legal_services_new_user_session_path
+      request.path&.include?('admin') ? legal_services_rm3788_admin_new_user_session_path : legal_services_rm3788_new_user_session_path
     end
   end
 

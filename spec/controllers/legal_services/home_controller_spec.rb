@@ -3,41 +3,79 @@ require 'rails_helper'
 RSpec.describe LegalServices::HomeController, type: :controller do
   let(:default_params) { { service: 'legal_services' } }
 
-  login_ls_buyer
+  describe 'GET framework' do
+    context 'when RM3788 is live' do
+      include_context 'and RM6240 is live in the future'
+
+      it 'redirects to the RM3788 home page' do
+        get :framework
+        expect(response).to redirect_to legal_services_rm3788_path
+      end
+    end
+
+    context 'when RM6240 is live' do
+      it 'redirects to the RM6240 home page' do
+        get :framework
+        expect(response).to redirect_to legal_services_index_path('RM6240')
+      end
+    end
+  end
 
   describe 'GET index' do
-    it 'renders the index template' do
-      get :index
+    context 'when RM6240 is live' do
+      context 'and the framework is not RM3788 or RM6240' do
+        it 'renders the unrecognised framework page with the right http status' do
+          get :index, params: { framework: 'RM3826' }
 
-      expect(response).to render_template(:index)
+          expect(response).to redirect_to legal_services_path
+        end
+      end
+
+      # This is because in practice, the rails router will have already used the correct framework controller,
+      # therefore, this test is just to make sure that the UnrecognisedLiveFrameworkError is not invoked
+      context 'and the framework is RM6240' do
+        it 'raises the MissingExactTemplate error' do
+          expect do
+            get :index, params: { framework: 'RM6240' }
+          end.to raise_error(ActionController::MissingExactTemplate)
+        end
+      end
+
+      context 'and the framework is RM3788' do
+        it 'raises the MissingExactTemplate error' do
+          get :index, params: { framework: 'RM3826' }
+
+          expect(response).to redirect_to legal_services_path
+        end
+      end
     end
-  end
 
-  describe 'GET not_permitted' do
-    it 'renders the not_permitted page' do
-      get :not_permitted
-      expect(response).to render_template(:not_permitted)
-    end
-  end
+    context 'when RM6240 is not live' do
+      include_context 'and RM6240 is live in the future'
 
-  describe 'GET accessibility_statement' do
-    it 'renders the accessibility_statement page' do
-      get :accessibility_statement
-      expect(response).to render_template(:accessibility_statement)
-    end
-  end
+      context 'and the framework is not RM3788 or RM6240' do
+        it 'renders the unrecognised framework page with the right http status' do
+          get :index, params: { framework: 'RM3826' }
 
-  describe 'GET cookie_policy' do
-    it 'renders the cookie policy page' do
-      get :cookie_policy
-      expect(response).to render_template('home/cookie_policy')
-    end
-  end
+          expect(response).to redirect_to legal_services_path
+        end
+      end
 
-  describe 'GET cookie_settings' do
-    it 'renders the cookie settings page' do
-      get :cookie_settings
-      expect(response).to render_template('home/cookie_settings')
+      context 'and the framework is RM6240' do
+        it 'raises the MissingExactTemplate error' do
+          get :index, params: { framework: 'RM6240' }
+
+          expect(response).to redirect_to legal_services_path
+        end
+      end
+
+      context 'and the framework is RM3788' do
+        it 'raises the MissingExactTemplate error' do
+          expect do
+            get :index, params: { framework: 'RM3788' }
+          end.to raise_error(ActionController::MissingExactTemplate)
+        end
+      end
     end
   end
 
@@ -46,17 +84,10 @@ RSpec.describe LegalServices::HomeController, type: :controller do
       let(:default_params) { { service: 'apprenticeships' } }
 
       it 'renders the erros_not_found page' do
-        get :index
+        get :framework
 
         expect(response).to redirect_to errors_404_path
       end
-    end
-  end
-
-  describe 'GET service_not_suitable' do
-    it 'renders the service not suitable page' do
-      get :service_not_suitable
-      expect(response).to render_template(:service_not_suitable)
     end
   end
 end
