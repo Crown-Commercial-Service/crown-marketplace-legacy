@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.5'
+ruby '2.7.6'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.4', '>= 6.0.4.7'
@@ -17,7 +17,7 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'mini_racer', platforms: :ruby
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.11'
+gem 'jbuilder', '~> 2.11', '>= 2.11.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -34,8 +34,8 @@ gem 'geocoder', '>= 1.6.1'
 gem 'activerecord-postgis-adapter', '>= 5.2.2'
 gem 'uk_postcode'
 gem 'rubyzip', '>= 1.2.1'
-gem 'caxlsx', '>= 3.1.0'
-gem 'caxlsx_rails', '>= 0.6.2'
+gem 'caxlsx', '>= 3.2.0'
+gem 'caxlsx_rails', '>= 0.6.3'
 gem 'phonejack'
 gem 'holidays'
 gem 'virtus'
@@ -44,9 +44,9 @@ gem 'jquery-rails', '~> 4.4.0'
 gem 'rollbar', '~> 3.3.0'
 
 # for dfe sign in
-gem 'omniauth', '~> 2.0.0'
+gem 'omniauth', '~> 2.1.0'
 gem 'omniauth-oauth2', '~> 1.7.2'
-gem 'omniauth-rails_csrf_protection', '>= 1.0.0'
+gem 'omniauth-rails_csrf_protection', '>= 1.0.1'
 # The omniauth_openid_connect is no longer maintained so does not work with omniauth 2.0.
 # This is a custom gem to make omniauth_openid_connect work with omniauth 2.0.
 gem 'ccs_omniauth_openid_connect', '~> 0.4.0', git: 'https://github.com/Crown-Commercial-Service/ccs_omniauth_openid_connect.git'
@@ -69,18 +69,18 @@ gem 'aws-sdk-s3', '~> 1'
 gem 'roo', '~> 2.9.0'
 
 # manipulating JSON for anonymisation
-gem 'jsonpath', '~> 1.1.0'
+gem 'jsonpath', '~> 1.1.2'
 
 # state machine
 gem 'aasm', '~> 5.2'
 
 # for running background jobs
-gem 'sidekiq', '~> 6.4.1'
+gem 'sidekiq', '~> 6.4.2'
 gem 'sinatra', '~> 2.2.0', require: false
 gem 'slim', '~> 4.1.0'
 
 # for authorization
-gem 'cancancan', '~> 3.2.0'
+gem 'cancancan', '~> 3.3.0'
 
 gem 'role_model', '~> 0.8.2'
 
@@ -91,11 +91,14 @@ gem 'sprockets-bumble_d', '>= 2.2.0'
 gem 'ratonvirus', '>= 0.1.1'
 gem 'ratonvirus-clamby', '>= 0.1.0'
 # for active storage validation
-gem 'active_storage_validations', '>= 0.9.5'
+gem 'active_storage_validations', '>= 0.9.7'
 
 # asset sync
 gem 'asset_sync'
-gem 'fog-aws', '>= 3.11.0'
+gem 'fog-aws', '>= 3.13.0'
+
+# Reuired for the ST import
+gem 'capybara', '>= 3.36.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -105,13 +108,13 @@ group :development, :test do
   gem 'launchy', '>= 2.5.0'
   gem 'pry-rails'
   gem 'rails-controller-testing', '>= 1.0.5'
-  gem 'rspec-rails', '>= 5.0.2'
+  gem 'rspec-rails', '>= 5.1.1'
   gem 'shoulda-matchers', '>= 4.2.0'
   gem 'rubocop'
   gem 'rubocop-rspec'
   gem 'rubocop-rails', require: false
-  gem 'rubyXL', '>= 3.4.18'
-  gem 'i18n-tasks', '>= 0.9.34'
+  gem 'rubyXL', '>= 3.4.22'
+  gem 'i18n-tasks', '>= 1.0.9'
   gem 'poltergeist', '>= 1.18.1'
   gem 'wdm', '>= 0.1.0', platforms: %i[x64_mingw]
   gem 'tzinfo-data', platforms: %i[x64_mingw]
@@ -130,6 +133,10 @@ group :test do
   gem 'webmock', '>= 3.12.2'
   gem 'simplecov', '>= 0.16.1', require: false
   gem 'selenium-webdriver', '>= 3.142.3'
-  gem 'capybara', '>= 3.35.3'
+  gem 'cucumber-rails', '>= 2.5.1', require: false
+  gem 'database_cleaner', '>= 2.0.1'
+  gem 'site_prism', '>= 3.7.3'
+  gem 'axe-core-capybara', '>= 4.2.1'
+  gem 'axe-core-cucumber', '>= 4.2.1'
   gem 'show_me_the_cookies', '>= 5.0.1'
 end
