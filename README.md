@@ -202,7 +202,7 @@ using the Rails console with one of the following commands:
 
 * `FacilitiesManagement::Upload.order(:created_at).last.created_at`
 * `ManagementConsultancy::Upload.order(:created_at).last.created_at`
-* `SupplyTeachers::Upload.order(:created_at).last.created_at`
+* `SupplyTeachers::RM3826::Upload.order(:created_at).last.created_at`
 ## Development
 
 ### Design & frontend

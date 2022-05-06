@@ -16,7 +16,7 @@ module ManagementConsultancy
       end
 
       def new_session_path
-        management_consultancy_rm6187_rm6187_new_user_session_path
+        management_consultancy_rm6187_new_user_session_path
       end
 
       def confirm_forgot_password_path

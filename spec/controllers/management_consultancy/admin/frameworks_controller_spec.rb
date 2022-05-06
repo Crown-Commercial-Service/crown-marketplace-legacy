@@ -16,7 +16,7 @@ RSpec.describe ManagementConsultancy::Admin::FrameworksController do
 
       it 'redirects to not permitted' do
         get :index
-        expect(response).to redirect_to not_permitted_path(service: 'management_consultancy')
+        expect(response).to redirect_to '/management-consultancy/RM6187/admin/not-permitted'
       end
     end
   end

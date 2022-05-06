@@ -1,0 +1,70 @@
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <span class="govuk-caption-l govuk-!-margin-bottom-0"><%= t('.caption') %></span>
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-4 cmp-page-heading"><%= t('.heading', number: @upload.short_uuid) %></h1>
+
+    <dl class="govuk-summary-list govuk-summary-list--no-border">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          <%= t('.status') %>
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <%= govuk_tag_with_text(*upload_status_tag(@upload.aasm_state)) %>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          <%= t('.datetime') %>
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <%= format_date_time @upload.created_at %>
+        </dd>
+      </div>
+    </dl>
+
+    <% if @upload.fail_reason.present? %>
+      <div class="govuk-inset-text">
+        <h3><%= t('.error_heading') %></h3>
+        <p class="govuk-body govuk-body-s govuk-error-message">
+          <%= @upload.fail_reason %>
+        </p>
+      </div>
+    <% end %>
+
+    <table class="govuk-table govuk-!-margin-top-4">
+      <caption class="govuk-table__caption"><%= t('.files') %></caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th class="govuk-table__header" scope="col"><%= t('.spreadsheet') %></th>
+          <th class="govuk-table__header" scope="col"></th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+      <% @attributes.each do |attribute| %>
+        <% if @upload.send(attribute).attached? %>
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="row"><%= t(".#{attribute.to_s}") %></th>
+            <td class="govuk-table__cell"><%= link_to 'Download', st_file_link(@upload, @upload.send(attribute)), download: '' %></td>
+          </tr>
+        <% end %>
+      <% end %>
+      </tbody>
+    </table>
+
+    <% if @upload.files_processed? %>
+      <%= form_with url: supply_teachers_rm3826_admin_upload_path, model: @upload, method: :put, local: 'false', html: { specialvalidation: true, novalidate: true } do |f| %>
+        <p class="govuk-body govuk-!-margin-top-8"><%= t('.confirm_changes') %></p>
+        <%= f.submit t('.approve'), class: 'govuk-button govuk-!-margin-right-4', name: :approve %>
+        <%= f.submit t('.reject'), class: 'govuk-button  govuk-button--warning', name: :reject %>
+      <% end %>
+    <% end %>
+    <% if @upload.processing_files? %>
+      <%= form_with url: supply_teachers_rm3826_admin_upload_path, model: @upload, method: :delete, local: 'false', html: { specialvalidation: true, novalidate: true } do |f| %>
+        <%= f.submit t('.delete'), class: 'govuk-button  govuk-button--warning', name: :delete %>
+      <% end %>
+    <% end %>
+    <p class="govuk-body">
+      <%= link_to t('.return'), supply_teachers_rm3826_admin_uploads_path, class: 'govuk-link govuk-link--no-visited-state' %> 
+    </p>
+  </div>
+</div>

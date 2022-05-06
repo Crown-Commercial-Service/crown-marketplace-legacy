@@ -13,7 +13,7 @@ Given 'I sign in and navigate to the start page for {string}' do |service|
   when 'supply teachers'
     create_buyer_user('st')
     start_page_title = 'What is your school looking for?'
-    visit supply_teachers_new_user_session_path
+    visit supply_teachers_rm3826_new_user_session_path
   end
 
   update_banner_cookie(true) if @javascript
