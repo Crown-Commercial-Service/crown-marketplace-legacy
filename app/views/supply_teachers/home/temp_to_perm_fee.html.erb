@@ -32,31 +32,33 @@
         <li>you give 4 working weeks’ notice to the agency</li>
       </ul>
 
-      <% if @calculator.hiring_after_12_weeks? %>
-        <% if @calculator.notice_date.present? && @calculator.enough_notice? %>
-          <%= render partial: 'after_12_weeks_and_enough_notice' %>
-        <% elsif @calculator.notice_date.present? && !@calculator.enough_notice? %>
-          <%= render partial: 'after_12_weeks_and_not_enough_notice',
-                     locals: { calculator: @calculator } %>
-        <% elsif @calculator.notice_date.blank? %>
-          <%= render partial: 'after_12_weeks_and_no_notice_date',
-                     locals: { calculator: @calculator } %>
+      <div id="temp-to-perm-result-information">
+        <% if @calculator.hiring_after_12_weeks? %>
+          <% if @calculator.notice_date.present? && @calculator.enough_notice? %>
+            <%= render partial: 'after_12_weeks_and_enough_notice' %>
+          <% elsif @calculator.notice_date.present? && !@calculator.enough_notice? %>
+            <%= render partial: 'after_12_weeks_and_not_enough_notice',
+                      locals: { calculator: @calculator } %>
+          <% elsif @calculator.notice_date.blank? %>
+            <%= render partial: 'after_12_weeks_and_no_notice_date',
+                      locals: { calculator: @calculator } %>
+          <% end %>
+        <% elsif @calculator.hiring_between_9_and_12_weeks? %>
+          <% if @calculator.notice_date.present? && @calculator.enough_notice? %>
+            <%= render partial: 'between_9_and_12_weeks_and_enough_notice',
+                      locals: { calculator: @calculator } %>
+          <% elsif @calculator.notice_date.present? && !@calculator.enough_notice? %>
+            <%= render partial: 'between_9_and_12_weeks_and_not_enough_notice',
+                      locals: { calculator: @calculator } %>
+          <% elsif @calculator.notice_date.blank? %>
+            <%= render partial: 'between_9_and_12_weeks_and_no_notice_date',
+                      locals: { calculator: @calculator } %>
+          <% end %>
+        <% elsif @calculator.hiring_within_8_weeks? %>
+          <%= render partial: 'within_first_8_weeks',
+                    locals: { calculator: @calculator } %>
         <% end %>
-      <% elsif @calculator.hiring_between_9_and_12_weeks? %>
-        <% if @calculator.notice_date.present? && @calculator.enough_notice? %>
-          <%= render partial: 'between_9_and_12_weeks_and_enough_notice',
-                     locals: { calculator: @calculator } %>
-        <% elsif @calculator.notice_date.present? && !@calculator.enough_notice? %>
-          <%= render partial: 'between_9_and_12_weeks_and_not_enough_notice',
-                     locals: { calculator: @calculator } %>
-        <% elsif @calculator.notice_date.blank? %>
-          <%= render partial: 'between_9_and_12_weeks_and_no_notice_date',
-                     locals: { calculator: @calculator } %>
-        <% end %>
-      <% elsif @calculator.hiring_within_8_weeks? %>
-        <%= render partial: 'within_first_8_weeks',
-                   locals: { calculator: @calculator } %>
-      <% end %>
+      </div>
     </div>
   </div>
 </div>

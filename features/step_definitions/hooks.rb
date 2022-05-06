@@ -13,3 +13,19 @@ end
 Before('not @javascript') do
   page.driver.browser.set_cookie('crown_marketplace_cookie_settings_viewed=true')
 end
+
+Before('@geocode_london') do
+  stub_geocoder('London')
+end
+
+Before('@geocode_liverpool') do
+  stub_geocoder('Liverpool')
+end
+
+Before('@geocode_birmingham') do
+  stub_geocoder('Birmingham')
+end
+
+After('@geocoder_london or @geocoder_liverpool or @geocode_birmingham') do
+  reset_geocoder
+end

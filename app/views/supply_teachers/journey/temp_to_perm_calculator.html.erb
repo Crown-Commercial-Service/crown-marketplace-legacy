@@ -3,7 +3,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <%= render partial: 'shared/error_summary', locals: { errors: @journey.errors } %>
-    <h1 class="govuk-heading-xl cmp-page-heading"><%= t('.header') %></h1>
+    <h1 class="govuk-heading-l cmp-page-heading"><%= t('.header') %></h1>
     <%= form_tag @form_path, method: :get do %>
       <%= hidden_fields_for_previous_steps_and_responses(@journey) %>
       <%= govuk_form_group_with_optional_error(@journey, :contract_start_date) do %>
@@ -14,9 +14,9 @@
             </h2>
           </legend>
           <%= display_errors(@journey, :contract_start_date) %>
-          <span id="contract-start-hint" class="govuk-hint">
+          <div id="contract-start-hint" class="govuk-hint">
             <%= t('.contract_start_question_hint') %>
-          </span>
+          </div>
           <div class="govuk-date-input" id="contract-start">
             <div class="govuk-date-input__item">
               <div class="govuk-form-group">
@@ -55,9 +55,9 @@
           </h2>
         </legend>
         <%= display_error(@journey, :days_per_week) %>
-        <span class="govuk-hint">
+        <div class="govuk-hint">
           <%= t('.days_per_week_question_hint') %>
-        </span>
+        </div>
         <%= text_field_tag :days_per_week, params[:days_per_week], class: css_classes_for_input(@journey, :days_per_week, ['govuk-input--width-3']) %>
       <% end %>
 
@@ -70,12 +70,14 @@
           </h2>
         </legend>
         <%= display_error(@journey, :day_rate) %>
-        <span class="govuk-hint">
+        <div class="govuk-hint">
           <%= t('.day_rate_question_hint') %>
-        </span>
+        </div>
         <div class="calculator-form__day-rate">
-          <%= text_field_tag :day_rate, params[:day_rate], class: css_classes_for_input(@journey, :day_rate, ['govuk-input--width-10 calculator-form__day-rate-input']) %>
-          <i class="govuk-body calculator-form__day-rate-icon"><%= t('.day_rate_icon') %></i>
+          <div class="govuk-input__wrapper">
+            <div class="govuk-input__prefix" aria-hidden="true">£</div>
+            <%= text_field_tag :day_rate, params[:day_rate], class: css_classes_for_input(@journey, :day_rate, ['govuk-input--width-10 calculator-form__day-rate-input']) %>
+          </div>
         </div>
       <% end %>
 
@@ -88,12 +90,14 @@
           </h2>
         </legend>
         <%= display_error(@journey, :markup_rate) %>
-        <span class="govuk-hint">
+        <div class="govuk-hint">
           <%= t('.markup_rate_question_hint') %>
-        </span>
+        </div>
         <div class="calculator-form__markup-rate">
-          <%= text_field_tag :markup_rate, params[:markup_rate], class: css_classes_for_input(@journey, :markup_rate, ['govuk-input--width-10 calculator-form__markup-rate-input']) %>
-          <i class="govuk-body calculator-form__markup-percentage-icon"><%= t('.markup_percentage_icon') %></i>
+          <div class="govuk-input__wrapper">
+            <%= text_field_tag :markup_rate, params[:markup_rate], class: css_classes_for_input(@journey, :markup_rate, ['govuk-input--width-10 calculator-form__markup-rate-input']) %>
+            <div class="govuk-input__suffix" aria-hidden="true">%</div>
+          </div>
         </div>
       <% end %>
 
@@ -105,9 +109,9 @@
             </h2>
           </legend>
           <%= display_errors(@journey, :hire_date) %>
-          <span id="hire-date-hint" class="govuk-hint">
+          <div id="hire-date-hint" class="govuk-hint">
             <%= t('.hire_date_question_hint') %>
-          </span>
+          </div>
           <div class="govuk-date-input" id="hire-date">
             <div class="govuk-date-input__item">
               <div class="govuk-form-group">
@@ -145,9 +149,9 @@
             </h2>
           </legend>
           <%= display_errors(@journey, :holiday_1_start_date) %>
-          <span id="holiday-1-start-date-hint" class="govuk-hint">
+          <div id="holiday-1-start-date-hint" class="govuk-hint">
             <%= t('.holiday_1_start_date_question_hint') %>
-          </span>
+          </div>
           <div class="govuk-date-input" id="holiday-1-start-date">
             <div class="govuk-date-input__item">
               <div class="govuk-form-group">
@@ -185,9 +189,9 @@
             </h2>
           </legend>
           <%= display_errors(@journey, :holiday_1_end_date) %>
-          <span id="holiday-1-end-date-hint" class="govuk-hint">
+          <div id="holiday-1-end-date-hint" class="govuk-hint">
             <%= t('.holiday_1_end_date_question_hint') %>
-          </span>
+          </div>
           <div class="govuk-date-input" id="holiday-1-end-date">
             <div class="govuk-date-input__item">
               <div class="govuk-form-group">
@@ -225,9 +229,9 @@
             </h2>
           </legend>
           <%= display_errors(@journey, :holiday_2_start_date) %>
-          <span id="holiday-2-start-date-hint" class="govuk-hint">
+          <div id="holiday-2-start-date-hint" class="govuk-hint">
             <%= t('.holiday_2_start_date_question_hint') %>
-          </span>
+          </div>
           <div class="govuk-date-input" id="holiday-2-start-date">
             <div class="govuk-date-input__item">
               <div class="govuk-form-group">
@@ -265,9 +269,9 @@
             </h2>
           </legend>
           <%= display_errors(@journey, :holiday_2_end_date) %>
-          <span id="holiday-2-end-date-hint" class="govuk-hint">
+          <div id="holiday-2-end-date-hint" class="govuk-hint">
             <%= t('.holiday_2_end_date_question_hint') %>
-          </span>
+          </div>
           <div class="govuk-date-input" id="holiday-2-end-date">
             <div class="govuk-date-input__item">
               <div class="govuk-form-group">
@@ -305,9 +309,9 @@
             </h2>
           </legend>
           <%= display_errors(@journey, :notice_date) %>
-          <span id="notice-date-hint" class="govuk-hint">
+          <div id="notice-date-hint" class="govuk-hint">
             <%= t('.notice_date_question_hint') %>
-          </span>
+          </div>
           <div class="govuk-date-input" id="notice-date">
             <div class="govuk-date-input__item">
               <div class="govuk-form-group">

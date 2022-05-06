@@ -144,6 +144,8 @@ en:
           attributes:
             fixed_term_fee:
               blank: Enter the fixed term fee
+              greater_than: The fixed term fee must be more than 0
+              not_a_number: The fixed term fee must must be a number
         supply_teachers/journey/fta_to_perm_hire_date:
           attributes:
             hire_date:
@@ -198,7 +200,7 @@ en:
               invalid: Enter a real date
             holiday_2_end_date:
               before_start_date: The end date of the second school holiday must be after the start date
-              blank: Enter the date the second school holiday ended, including the day, month and yea
+              blank: Enter the date the second school holiday ended, including the day, month and year
               invalid: Enter a real date
             holiday_2_start_date:
               blank: Enter the date the second school holiday started, including the day, month and year
@@ -1231,7 +1233,7 @@ en:
       fta_calculator:
         annual_salary: Enter annual salary
         error: 'Error:'
-        error_message: Annual salary is invalid.
+        error_message: Annual salary is invalid
         finders_fee: finders fee based on
         fixed_term_length: fixed term length
         heading: 'Update the salary to see what their finders fee will be:'
@@ -1390,7 +1392,6 @@ en:
         page_title: What date do you want the employee to start?
       fta_calculator_salary:
         page_title: What would the employee's annual salary be?
-        salary_icon: "£"
         salary_question: What would the employee's annual salary be?
         salary_question_hint: Even if the fixed term agreement is less than a year, please provide the salary as if it were for an entire year
       fta_to_perm_contract_end:
@@ -1402,7 +1403,6 @@ en:
         contract_start_question_hint: For example, 01 03 2018
         page_title: What date did the workers fixed term contract start?
       fta_to_perm_fixed_term_fee:
-        fixed_term_fee_icon: "£"
         fixed_term_fee_question: What fixed term fee did you pay the worker?
         page_title: What fixed term fee did you pay the worker?
       fta_to_perm_hire_date:
@@ -1446,7 +1446,6 @@ en:
       temp_to_perm_calculator:
         contract_start_question: When did the worker’s current contract start?
         contract_start_question_hint: For example, 31 3 1980
-        day_rate_icon: "£"
         day_rate_question: What does the agency charge you per day for the worker?
         day_rate_question_hint: An amount in pounds. For example, 150
         days_per_week_question: How many days per week is the worker contracted for?
@@ -1462,7 +1461,6 @@ en:
         holiday_2_end_date_question_hint: Leave this blank if there weren’t any holidays between the contract start date and the hire date
         holiday_2_start_date_question: What date did the second school holiday start?
         holiday_2_start_date_question_hint: Leave this blank if there weren’t any holidays between the contract start date and the hire date
-        markup_percentage_icon: "%"
         markup_rate_question: What mark-up does the agency charge for the worker?
         markup_rate_question_hint: This is the percentage fee you agreed with the agency. For example, 20
         notice_date_question: What date did you notify the agency that you wish to hire the worker?
