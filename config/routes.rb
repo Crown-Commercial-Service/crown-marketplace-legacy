@@ -68,6 +68,7 @@ Rails.application.routes.draw do
     get '/accessibility-statement', to: 'uploads#accessibility_statement'
     get '/cookie-policy', to: 'uploads#cookie_policy'
     get '/cookie-settings', to: 'uploads#cookie_settings'
+    resources :frameworks, only: %i[index edit update] if Marketplace.can_edit_legacy_frameworks?
   end
 
   concern :admin_uploads do

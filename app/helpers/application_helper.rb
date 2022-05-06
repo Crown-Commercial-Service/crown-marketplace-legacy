@@ -146,6 +146,10 @@ module ApplicationHelper
     controller.action_name == 'not_permitted'
   end
 
+  def format_date(date_object)
+    date_object&.in_time_zone('London')&.strftime '%-d %B %Y'
+  end
+
   def format_date_time(date_object)
     date_object&.in_time_zone('London')&.strftime '%e %B %Y, %l:%M%P'
   end

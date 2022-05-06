@@ -100,6 +100,9 @@ gem 'fog-aws', '>= 3.13.0'
 # Reuired for the ST import
 gem 'capybara', '>= 3.36.0'
 
+# for date layout
+gem 'gov_uk_date_fields', '>= 4.2.0'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

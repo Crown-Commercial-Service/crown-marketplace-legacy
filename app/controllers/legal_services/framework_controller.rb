@@ -8,5 +8,9 @@ module LegalServices
     def authorize_user
       authorize! :read, LegalServices
     end
+
+    def service_scope
+      :legal_services
+    end
   end
 end
