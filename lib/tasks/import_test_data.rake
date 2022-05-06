@@ -43,16 +43,16 @@ module ImportTestData
 
       empty_tables
 
-      File.open('data/supply_teachers/dummy_supplier_data.json', 'r') do |file|
+      File.open('data/supply_teachers/rm3826/dummy_supplier_data.json', 'r') do |file|
         supplier_data = JSON.parse(file.read)
-        SupplyTeachers::Upload.upload!(supplier_data)
+        SupplyTeachers::RM3826::Upload.upload!(supplier_data)
       end
     end
 
     def self.empty_tables
-      SupplyTeachers::Branch.destroy_all
-      SupplyTeachers::Rate.destroy_all
-      SupplyTeachers::Supplier.destroy_all
+      SupplyTeachers::RM3826::Branch.destroy_all
+      SupplyTeachers::RM3826::Rate.destroy_all
+      SupplyTeachers::RM3826::Supplier.destroy_all
     end
   end
 end

@@ -6,7 +6,7 @@ class ActiveStorage::BlobsController < ActiveStorage::BaseController
   include ActiveStorage::SetBlob
 
   rescue_from CanCan::AccessDenied do
-    redirect_to not_permitted_path(service: params[:service])
+    redirect_to supply_teachers_rm3826_not_permitted_path
   end
 
   def show
@@ -17,20 +17,18 @@ class ActiveStorage::BlobsController < ActiveStorage::BaseController
   protected
 
   def authorize_user
-    if params[:st_upload_id].present?
-      authorize_upload_view SupplyTeachers::Admin::Upload, params[:st_upload_id]
-    elsif params[:mc_upload_id].present?
-      authorize_upload_view ManagementConsultancy::RM6187::Admin::Upload, params[:mc_upload_id]
-    elsif params[:ls_upload_id].present?
-      authorize_upload_view LegalServices::RM3788::Admin::Upload, params[:ls_upload_id]
-    end
+    raise CanCan::AccessDenied unless params[:key] && params[:value] && KEY_TO_MODEL.key?(params[:key].to_sym)
+
+    object = KEY_TO_MODEL[params[:key].to_sym].find_by(id: params[:value])
+
+    raise ActionController::RoutingError, 'not found' if object.blank?
+
+    authorize! :view, object if object.present?
   end
 
-  def authorize_upload_view(model, id)
-    upload = model.find_by(id: id)
-
-    raise ActionController::RoutingError, 'not found' if upload.blank?
-
-    authorize! :view, upload if upload.present?
-  end
+  KEY_TO_MODEL = {
+    st_upload_id: SupplyTeachers::RM3826::Admin::Upload,
+    mc_upload_id: ManagementConsultancy::RM6187::Admin::Upload,
+    ls_upload_id: LegalServices::RM3788::Admin::Upload
+  }.freeze
 end

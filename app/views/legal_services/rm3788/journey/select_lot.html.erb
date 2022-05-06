@@ -23,7 +23,7 @@
                 <%= label_tag :"lot_#{lot.number}", lot_full_description(lot), class: 'govuk-label govuk-radios__label govuk-!-font-weight-bold' %>
 
                 <span id=<%= "lot-#{lot.number}-item-hint" %> class="govuk-hint govuk-radios__hint">
-                  <%= t(".lot#{lot.number}_extended_description") %>
+                  <%= t(".extended_description.lot_#{lot.number}") %>
                 </span>
 
                 <% if ['1', '2'].include? lot.number %>

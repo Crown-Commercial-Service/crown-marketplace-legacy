@@ -24,7 +24,7 @@ RSpec.describe LegalServices::HomeController, type: :controller do
   describe 'GET index' do
     context 'when RM6240 is live' do
       context 'and the framework is not RM3788 or RM6240' do
-        it 'renders the unrecognised framework page with the right http status' do
+        it 'redirects to the framework path' do
           get :index, params: { framework: 'RM3826' }
 
           expect(response).to redirect_to legal_services_path
@@ -42,8 +42,8 @@ RSpec.describe LegalServices::HomeController, type: :controller do
       end
 
       context 'and the framework is RM3788' do
-        it 'raises the MissingExactTemplate error' do
-          get :index, params: { framework: 'RM3826' }
+        it 'redirects to the framework path' do
+          get :index, params: { framework: 'RM3788' }
 
           expect(response).to redirect_to legal_services_path
         end
@@ -54,7 +54,7 @@ RSpec.describe LegalServices::HomeController, type: :controller do
       include_context 'and RM6240 is live in the future'
 
       context 'and the framework is not RM3788 or RM6240' do
-        it 'renders the unrecognised framework page with the right http status' do
+        it 'redirects to the framework path' do
           get :index, params: { framework: 'RM3826' }
 
           expect(response).to redirect_to legal_services_path
@@ -62,7 +62,7 @@ RSpec.describe LegalServices::HomeController, type: :controller do
       end
 
       context 'and the framework is RM6240' do
-        it 'raises the MissingExactTemplate error' do
+        it 'redirects to the framework path' do
           get :index, params: { framework: 'RM6240' }
 
           expect(response).to redirect_to legal_services_path

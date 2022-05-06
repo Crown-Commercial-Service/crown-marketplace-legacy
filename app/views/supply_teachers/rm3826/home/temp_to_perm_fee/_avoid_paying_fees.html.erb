@@ -1,0 +1,16 @@
+<% if @calculator.ideal_notice_date.past? %>
+  <p>
+    <%= t('.to_provide_notice') %>
+  </p>
+  <ul>
+    <li><%= t('.give_notice') %></li>
+    <li><%= t('.make_the_worker_permanent') %></li>
+  </ul>
+<% else %>
+  <p>
+    <%= t('.avoid_fee',
+          ideal_notice_date: @calculator.ideal_notice_date.to_formatted_s(:long_with_day),
+          ideal_hire_date: @calculator.ideal_hire_date.to_formatted_s(:long_with_day)
+    ) %>
+  </p>
+<% end %>

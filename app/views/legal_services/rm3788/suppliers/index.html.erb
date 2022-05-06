@@ -36,9 +36,13 @@
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-full">
           <p class="govuk-body">
-            <%= t('.suppliers_found_html',
-                  number: @suppliers.count,
-                  suppliers: number_to_human(@suppliers.count, units: :legal_services_suppliers, format: '%u')) %>
+            <span class='govuk-!-font-weight-bold'>
+              <span class='govuk-!-font-size-27 govuk-!-font-weight-bold'>
+                <%= @suppliers.count %>
+              </span>
+              <%= t('.supplier').pluralize(@suppliers.count) %>
+            </span>
+            <%= t('.can_provide_legal_services') %>
           </p>
         </div>
       </div>

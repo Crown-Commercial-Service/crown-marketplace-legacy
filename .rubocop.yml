@@ -86,7 +86,7 @@ Metrics/AbcSize:
     Max: 25 # TODO: Restore to '20'
     Exclude:
         - 'spec/**/*'
-        - 'app/controllers/supply_teachers/branches_controller.rb'
+        - 'app/controllers/supply_teachers/rm3826/branches_controller.rb'
 
 Metrics/BlockLength:
     Max: 40
@@ -95,8 +95,8 @@ Metrics/BlockLength:
 
 Metrics/ParameterLists:
     Exclude:
-        - 'app/models/supply_teachers/branch_search_result.rb'
-        - 'app/calculators/temp_to_perm_calculator/calculator.rb'
+        - 'app/models/supply_teachers/rm3826/branch_search_result.rb'
+        - 'app/calculators/supply_teachers/rm3826/temp_to_perm_calculator/calculator.rb'
 
 Migration/RequireUUIDPrimaryKeys:
   Enabled: false
@@ -130,7 +130,7 @@ RSpec/ExampleLength:
 RSpec/NestedGroups:
     Max: 4
     Exclude:
-        - 'spec/**/journey_spec.rb'
+        - 'spec/**/journey_*_spec.rb'
         - 'spec/**/branches_controller_spec.rb'
 
 RSpec/ContextWording:
