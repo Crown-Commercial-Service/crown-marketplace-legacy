@@ -37,3 +37,7 @@ end
 After('@geocoder_london or @geocoder_liverpool or @geocode_birmingham') do
   reset_geocoder
 end
+
+Before('@mobile') do
+  resize_window_to_mobile
+end
