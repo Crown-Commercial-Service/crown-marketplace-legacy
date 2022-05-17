@@ -110,22 +110,12 @@ ignore_unused:
   - results.*
   - suppliers.*
   - companies.*
-  - management_consultancy.job_titles.*
-  - legal_services.journey.select_lot.lot1_extended_description
-  - legal_services.journey.select_lot.lot2_extended_description
-  - legal_services.journey.select_lot.lot3_extended_description
-  - legal_services.journey.select_lot.lot4_extended_description
-  - legal_services.job_titles.*
-  - supply_teachers.home.fta_to_perm_fee.no_fee.hire_not_within_6_months
-  - supply_teachers.home.fta_to_perm_fee.no_fee.length_not_within_12_months
-  - supply_teachers.home.fta_to_perm_fee.no_fee.end_not_within_6_months
-  - home.index.supply_teachers_link
-  - home.index.management_consultancy_link
-  - home.index.legal_services_link
+  - legal_services.rm3788.journey.select_lot.extended_description.lot_*
+  - legal_services.rm3788.job_titles.*
+  - supply_teachers.rm3826.home.temp_to_perm_fee.calculations.*
   - home.cookie_policy.cookie_banner_cookies.row_*
   - home.cookie_policy.ga_cookies.row_*
   - home.cookie_policy.reg_and_sign_in_cookie.row_*
-  - management_consultancy.admin.uploads.failed.error_details.*
   - common.type_*
   - common.title_*
 # - 'activerecord.attributes.*'

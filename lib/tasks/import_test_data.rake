@@ -5,16 +5,16 @@ module ImportTestData
 
       empty_tables
 
-      File.open('data/management_consultancy/dummy_supplier_data.json', 'r') do |file|
+      File.open('data/management_consultancy/rm6187/dummy_supplier_data.json', 'r') do |file|
         supplier_data = JSON.parse(file.read)
-        ManagementConsultancy::Upload.upload!(supplier_data)
+        ManagementConsultancy::RM6187::Upload.upload!(supplier_data)
       end
     end
 
     def self.empty_tables
-      ManagementConsultancy::RateCard.destroy_all
-      ManagementConsultancy::ServiceOffering.destroy_all
-      ManagementConsultancy::Supplier.destroy_all
+      ManagementConsultancy::RM6187::RateCard.destroy_all
+      ManagementConsultancy::RM6187::ServiceOffering.destroy_all
+      ManagementConsultancy::RM6187::Supplier.destroy_all
     end
   end
 
@@ -24,16 +24,16 @@ module ImportTestData
 
       empty_tables
 
-      File.open('data/legal_services/dummy_supplier_data.json', 'r') do |file|
+      File.open('data/legal_services/rm3788/dummy_supplier_data.json', 'r') do |file|
         supplier_data = JSON.parse(file.read)
-        LegalServices::Upload.upload!(supplier_data)
+        LegalServices::RM3788::Upload.upload!(supplier_data)
       end
     end
 
     def self.empty_tables
-      LegalServices::RegionalAvailability.destroy_all
-      LegalServices::ServiceOffering.destroy_all
-      LegalServices::Supplier.destroy_all
+      LegalServices::RM3788::RegionalAvailability.destroy_all
+      LegalServices::RM3788::ServiceOffering.destroy_all
+      LegalServices::RM3788::Supplier.destroy_all
     end
   end
 
@@ -43,16 +43,16 @@ module ImportTestData
 
       empty_tables
 
-      File.open('data/supply_teachers/dummy_supplier_data.json', 'r') do |file|
+      File.open('data/supply_teachers/rm3826/dummy_supplier_data.json', 'r') do |file|
         supplier_data = JSON.parse(file.read)
-        SupplyTeachers::Upload.upload!(supplier_data)
+        SupplyTeachers::RM3826::Upload.upload!(supplier_data)
       end
     end
 
     def self.empty_tables
-      SupplyTeachers::Branch.destroy_all
-      SupplyTeachers::Rate.destroy_all
-      SupplyTeachers::Supplier.destroy_all
+      SupplyTeachers::RM3826::Branch.destroy_all
+      SupplyTeachers::RM3826::Rate.destroy_all
+      SupplyTeachers::RM3826::Supplier.destroy_all
     end
   end
 end

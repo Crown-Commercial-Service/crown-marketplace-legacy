@@ -17,9 +17,11 @@ RSpec.feature 'Authentication', type: :feature do
     create_cookie('foo', 'bar')
   end
 
+  include_context 'and RM6238 is live in the future'
+
   scenario 'Unauthenticated users cannot access protected pages' do
     OmniAuth.config.test_mode = false
-    visit '/management-consultancy/start'
+    visit '/management-consultancy/RM6187/start'
 
     expect(page).to have_text('Sign in to your management consultancy buyer account')
   end
@@ -27,7 +29,7 @@ RSpec.feature 'Authentication', type: :feature do
   scenario 'Users can sign in using AWS Cognito' do
     OmniAuth.config.test_mode = false
     user = create(:user, roles: %i[buyer mc_access])
-    visit '/management-consultancy/start'
+    visit '/management-consultancy/RM6187/start'
     fill_in 'Email', with: user.email
     fill_in 'Password', with: 'ValidPassword!'
     click_button 'Sign in'
@@ -37,7 +39,7 @@ RSpec.feature 'Authentication', type: :feature do
 
   scenario 'Users can sign in using AWS Cognito with capitals in email' do
     user = create(:user, roles: %i[buyer mc_access])
-    visit '/management-consultancy/start'
+    visit '/management-consultancy/RM6187/start'
     fill_in 'Email', with: user.email.upcase
     fill_in 'Password', with: 'ValidPassword!'
     click_button 'Sign in'
@@ -47,18 +49,18 @@ RSpec.feature 'Authentication', type: :feature do
 
   scenario 'Users signed in using AWS Cognito can sign out' do
     user = create(:user, roles: %i[buyer mc_access])
-    visit '/management-consultancy/start'
+    visit '/management-consultancy/RM6187/start'
     fill_in 'Email', with: user.email
     fill_in 'Password', with: 'ValidPassword!'
     click_button 'Sign in'
     click_on 'Sign out'
 
-    visit '/management-consultancy/start'
+    visit '/management-consultancy/RM6187/start'
     expect(page).to have_text('Sign in to your management consultancy buyer account')
   end
 
   scenario 'Users can sign in using DfE sign-in', dfe: true do
-    visit '/supply-teachers/start'
+    visit '/supply-teachers/RM3826/start'
     click_on 'Sign in with DfE Sign-in'
 
     expect(page).not_to have_text('Not permitted')
@@ -66,20 +68,20 @@ RSpec.feature 'Authentication', type: :feature do
   end
 
   scenario 'Users signed in using DfE sign-in can sign out', dfe: true do
-    visit '/supply-teachers/start'
+    visit '/supply-teachers/RM3826/start'
     click_on 'Sign in with DfE Sign-in'
     click_on 'Sign out'
 
-    visit '/supply-teachers/start'
+    visit '/supply-teachers/RM3826/start'
 
     expect(page).to have_text('Sign in with DfE Sign-in')
   end
 
   scenario 'DfE users cannot see other frameworks', dfe: true do
-    visit '/supply-teachers/start'
+    visit '/supply-teachers/RM3826/start'
     click_on 'Sign in with DfE Sign-in'
 
-    visit '/management-consultancy/start'
+    visit '/management-consultancy/RM6187/start'
 
     expect(page).to have_text(I18n.t('home.not_permitted.title'))
   end
@@ -109,7 +111,7 @@ RSpec.feature 'Authentication', type: :feature do
       }
     )
 
-    visit '/supply-teachers/start'
+    visit '/supply-teachers/RM3826/start'
 
     click_on 'Sign in with DfE Sign-in'
 
@@ -124,7 +126,7 @@ RSpec.feature 'Authentication', type: :feature do
     allow(Marketplace)
       .to receive(:dfe_signin_safelisted_email_addresses)
       .and_return([])
-    visit '/supply-teachers/start'
+    visit '/supply-teachers/RM3826/start'
     click_on 'Sign in with DfE Sign-in'
 
     expect(page).to have_text(I18n.t('home.not_permitted.title'))

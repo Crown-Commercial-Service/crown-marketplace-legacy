@@ -3,107 +3,79 @@ require 'rails_helper'
 RSpec.describe SupplyTeachers::HomeController, type: :controller do
   let(:default_params) { { service: 'supply_teachers' } }
 
-  login_st_buyer
+  describe 'GET framework' do
+    context 'when RM3826 is live' do
+      include_context 'and RM6238 is live in the future'
+
+      it 'redirects to the RM3826 home page' do
+        get :framework
+        expect(response).to redirect_to supply_teachers_rm3826_path
+      end
+    end
+
+    context 'when RM6238 is live' do
+      it 'redirects to the RM6238 home page' do
+        get :framework
+        expect(response).to redirect_to supply_teachers_index_path('RM6238')
+      end
+    end
+  end
 
   describe 'GET index' do
-    it 'renders the index template' do
-      get :index
+    context 'when RM6238 is live' do
+      context 'and the framework is not RM3826 or RM6238' do
+        it 'redirects to the framework path' do
+          get :index, params: { framework: 'RM6187' }
 
-      expect(response).to render_template(:index)
-    end
-  end
+          expect(response).to redirect_to supply_teachers_path
+        end
+      end
 
-  describe 'GET temp_to_perm_fee' do
-    def request
-      get :temp_to_perm_fee, params: {
-        looking_for: 'calculate_temp_to_perm_fee',
-        day_rate: '600',
-        days_per_week: '5',
-        contract_start_date_year: '2018',
-        contract_start_date_month: '12',
-        contract_start_date_day: '1',
-        hire_date_year: '2018',
-        hire_date_month: '12',
-        hire_date_day: '10',
-        markup_rate: '30.5',
-        holiday_1_start_date_year: '2018',
-        holiday_1_start_date_month: '12',
-        holiday_1_start_date_day: '2',
-        holiday_1_end_date_year: '2018',
-        holiday_1_end_date_month: '12',
-        holiday_1_end_date_day: '3',
-        holiday_2_start_date_year: '2018',
-        holiday_2_start_date_month: '12',
-        holiday_2_start_date_day: '4',
-        holiday_2_end_date_year: '2018',
-        holiday_2_end_date_month: '12',
-        holiday_2_end_date_day: '5'
-      }
+      # This is because in practice, the rails router will have already used the correct framework controller,
+      # therefore, this test is just to make sure that the UnrecognisedLiveFrameworkError is not invoked
+      context 'and the framework is RM6238' do
+        it 'raises the MissingExactTemplate error' do
+          expect do
+            get :index, params: { framework: 'RM6238' }
+          end.to raise_error(ActionController::MissingExactTemplate)
+        end
+      end
+
+      context 'and the framework is RM3826' do
+        it 'redirects to the framework path' do
+          get :index, params: { framework: 'RM3826' }
+
+          expect(response).to redirect_to supply_teachers_path
+        end
+      end
     end
 
-    # rubocop:disable RSpec/ExampleLength
-    it 'calls the calculator with the correct parameters' do
-      calculator = instance_double('TempToPermCalculator::Calculator')
-      allow(calculator).to receive(:fee).and_return(500)
-      allow(TempToPermCalculator::Calculator)
-        .to receive(:new)
-        .and_return(calculator)
+    context 'when RM6238 is not live' do
+      include_context 'and RM6238 is live in the future'
 
-      request
+      context 'and the framework is not RM3826 or RM6238' do
+        it 'redirects to the framework path' do
+          get :index, params: { framework: 'RM6187' }
 
-      expect(TempToPermCalculator::Calculator).to have_received(:new).with(
-        day_rate: 600,
-        days_per_week: 5,
-        contract_start_date: Date.new(2018, 12, 1),
-        hire_date: Date.new(2018, 12, 10),
-        markup_rate: 0.305,
-        notice_date: nil,
-        holiday_1_start_date: Date.new(2018, 12, 2),
-        holiday_1_end_date: Date.new(2018, 12, 3),
-        holiday_2_start_date: Date.new(2018, 12, 4),
-        holiday_2_end_date: Date.new(2018, 12, 5)
-      )
-    end
-    # rubocop:enable RSpec/ExampleLength
+          expect(response).to redirect_to supply_teachers_path
+        end
+      end
 
-    it 'assigns the calculator to the view' do
-      request
+      context 'and the framework is RM6238' do
+        it 'redirects to the framework path' do
+          get :index, params: { framework: 'RM6238' }
 
-      expect(assigns(:calculator)).to be_truthy
-    end
+          expect(response).to redirect_to supply_teachers_path
+        end
+      end
 
-    it 'renders the template' do
-      request
-
-      expect(response).to render_template(:temp_to_perm_fee)
-    end
-  end
-
-  describe 'GET not_permitted' do
-    it 'renders the not_permitted page' do
-      get :not_permitted
-      expect(response).to render_template(:not_permitted)
-    end
-  end
-
-  describe 'GET accessibility_statement' do
-    it 'renders the accessibility_statement page' do
-      get :accessibility_statement
-      expect(response).to render_template(:accessibility_statement)
-    end
-  end
-
-  describe 'GET cookie_policy' do
-    it 'renders the cookie policy page' do
-      get :cookie_policy
-      expect(response).to render_template('home/cookie_policy')
-    end
-  end
-
-  describe 'GET cookie_settings' do
-    it 'renders the cookie settings page' do
-      get :cookie_settings
-      expect(response).to render_template('home/cookie_settings')
+      context 'and the framework is RM3826' do
+        it 'raises the MissingExactTemplate error' do
+          expect do
+            get :index, params: { framework: 'RM3826' }
+          end.to raise_error(ActionController::MissingExactTemplate)
+        end
+      end
     end
   end
 
@@ -112,7 +84,7 @@ RSpec.describe SupplyTeachers::HomeController, type: :controller do
       let(:default_params) { { service: 'apprenticeships' } }
 
       it 'renders the erros_not_found page' do
-        get :index
+        get :framework
 
         expect(response).to redirect_to errors_404_path
       end

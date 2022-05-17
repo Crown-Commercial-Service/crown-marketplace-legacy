@@ -1,6 +1,6 @@
 module LegalServices
   module Admin
-    class FrameworksController < LegalServices::FrameworkController
+    class FrameworksController < LegalServices::Admin::FrameworkController
       include ::Admin::FrameworksConcern
 
       before_action :authenticate_user!
@@ -13,7 +13,7 @@ module LegalServices
       private
 
       def authorize_user
-        authorize! :manage, LegalServices::Admin::Upload
+        authorize! :manage, LegalServices::RM3788::Admin::Upload
       end
     end
   end

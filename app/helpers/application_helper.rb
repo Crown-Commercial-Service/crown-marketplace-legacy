@@ -122,14 +122,6 @@ module ApplicationHelper
     html
   end
 
-  def service_header_banner
-    if params[:service]
-      render partial: "#{params[:service]}/header-banner"
-    else
-      render partial: 'layouts/header-banner'
-    end
-  end
-
   def landing_or_admin_page
     (PLATFORM_LANDINGPAGES.include?(controller.class.controller_path) && controller.action_name == 'index') || controller.action_name == 'landing_page' || ADMIN_CONTROLLERS.include?(controller.class.module_parent_name.try(:underscore))
   end
@@ -154,16 +146,16 @@ module ApplicationHelper
     date_object&.in_time_zone('London')&.strftime '%e %B %Y, %l:%M%P'
   end
 
-  def cookie_policy_path(service)
-    "/#{service.gsub('_', '-')}/cookie-policy"
+  def cookie_policy_path
+    "#{service_path_base}/cookie-policy"
   end
 
-  def cookie_settings_path(service)
-    "/#{service.gsub('_', '-')}/cookie-settings"
+  def cookie_settings_path
+    "#{service_path_base}/cookie-settings"
   end
 
-  def accessibility_statement_path(service)
-    "/#{service.gsub('_', '-')}/accessibility-statement"
+  def accessibility_statement_path
+    "#{service_path_base}/accessibility-statement"
   end
 
   def supply_teachers_accessibility_statement_links

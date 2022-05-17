@@ -1,0 +1,233 @@
+---
+en:
+  activemodel:
+    errors:
+      models:
+        management_consultancy/rm6187/journey/choose_expenses:
+          attributes:
+            expenses:
+              inclusion: Please say whether you pay expenses
+        management_consultancy/rm6187/journey/choose_lot:
+          attributes:
+            lot:
+              inclusion: Select the lot you need
+        management_consultancy/rm6187/journey/choose_regions:
+          attributes:
+            region_codes:
+              too_short: Select the region or regions you want the consultants to work
+        management_consultancy/rm6187/journey/choose_services:
+          attributes:
+            services:
+              too_short: Select the service or services you need
+  activerecord:
+    errors:
+      models:
+        management_consultancy/rm6187/admin/upload:
+          attributes:
+            supplier_details_file:
+              malicious: The 'Supplier details' file contains a virus
+              not_attached: Select the 'Supplier details' file
+              too_large: The 'Supplier details' file must be smaller than 10mb
+              wrong_content_type: The 'Supplier details' file does not contain the expected content type
+              wrong_extension: The 'Supplier details' file must be an XLSX
+            supplier_rate_cards_file:
+              malicious: The 'Supplier rate cards' file contains a virus
+              not_attached: Select the 'Supplier rate cards' file
+              too_large: The 'Supplier rate cards' file must be smaller than 10mb
+              wrong_content_type: The 'Supplier rate cards' file does not contain the expected content type
+              wrong_extension: The 'Supplier rate cards' file must be an XLSX
+            supplier_service_offerings_file:
+              malicious: The 'Supplier service offerings' file contains a virus
+              not_attached: Select the 'Supplier service offerings' file
+              too_large: The 'Supplier service offerings' file must be smaller than 10mb
+              wrong_content_type: The 'Supplier service offerings' file does not contain the expected content type
+              wrong_extension: The 'Supplier service offerings' file must be an XLSX
+  management_consultancy:
+    admin:
+      frameworks:
+        edit:
+          service_name: management consultancy
+        index:
+          service_name: management consultancy
+          service_title: Management consultancy
+      home:
+        unrecognised_framework:
+          heading: The web address contained an unrecognised framework
+          make_sure_listed: The framework in the web address is '%{framework}'. Make sure the web address contains one of the listed frameworks.
+          page_title: Unrecognised framework
+          the_recognised_are: 'The Management Consultancy frameworks are:'
+    rm6187:
+      admin:
+        passwords:
+          forgot_password_confirmation:
+            heading: A reset email has been sent
+            lead: If the email address you've entered belongs to a Crown Commercial Service account, we'll send a link to reset the password.
+            text01: If you don't receive this, email
+            text02_html: <a href="mailto:support@crowncommercial.gov.uk">support@crowncommercial.gov.uk</a>
+        sessions:
+          new:
+            email_hint_html: Enter the email address you used to set up your account.
+        uploads:
+          failed:
+            below_is_a_list: Below is a list of the issues that have occurred with the file upload and details on how they might be fixed.
+            common_causes: 'Common causes of these issues may include:'
+            common_causes_1: Suppliers having the incorrect DUNS number
+            common_causes_2: Sheets have a blank row
+            details: Details
+            error_details:
+              file_check_failed: Something went wrong when checking the files, please try uploading the files again
+              file_process_failed: Something went wrong when processing the files, please try uploading the files again
+              file_publish_failed: Something went wrong when publishing the files, please try uploading the files again
+              supplier_details_has_empty_sheets_html: 'The following sheets have no data: %{list} Make sure all sheets for ''Supplier details'' have been filled in'
+              supplier_details_has_incorrect_headers_html: 'The following sheets have incorrect headers: %{list} Make sure all sheets for ''Supplier details'' have the following headers: ''Supplier name'', ''Email address'', ''Phone number'', ''Website URL'', ''Postal address'', ''Is an SME?'', ''DUNS Number'''
+              supplier_details_missing_sheets: 'The ''Supplier details'' file should have 1 sheet with the following name: ''MCF3'''
+              supplier_missing_lots_html: 'The following suppliers do not offer any lots: %{list} Make sure all the suppliers have the correct name and DUNS number'
+              supplier_missing_rate_cards_html: 'The following suppliers do not have any rate cards: %{list} Make sure all the suppliers have the correct name and DUNS number'
+              supplier_rate_cards_has_empty_sheets_html: 'The following sheets have no data: %{list} Make sure all sheets for ''Supplier rate cards'' have been filled in'
+              supplier_rate_cards_has_incorrect_headers_html: 'The following sheets are missing columns: %{list} Make sure all sheets for ''Supplier rate cards'' have the 10 expected columns'
+              supplier_rate_cards_missing_sheets: 'The ''Supplier rate cards'' file should have 9 sheets with the following names: ''MCF3 Lot 1'', ''MCF3 Lot 2'', ''MCF3 Lot 3'', ''MCF3 Lot 4'', ''MCF3 Lot 5'', ''MCF3 Lot 6'', ''MCF3 Lot 7'', ''MCF3 Lot 8'', ''MCF3 Lot 9'''
+              supplier_service_offerings_has_empty_sheets_html: 'The following sheets have no data: %{list} Make sure all sheets for ''Supplier service offerings'' have been filled in'
+              supplier_service_offerings_has_incorrect_headers_html: 'The following sheets have incorrect column headers: %{list} Make sure all sheets for ''Supplier service offerings'' have the correct services for their lot'
+              supplier_service_offerings_missing_sheets: 'The ''Supplier service offerings'' file should have 9 sheets with the following names: ''MCF3 Lot 1'', ''MCF3 Lot 2'', ''MCF3 Lot 3'', ''MCF3 Lot 4'', ''MCF3 Lot 5'', ''MCF3 Lot 6'', ''MCF3 Lot 7'', ''MCF3 Lot 8'', ''MCF3 Lot 9'''
+              upload_failed: Something went wrong with the file upload, please try uploading the files again
+            error_name:
+              file_check_failed: File check failed
+              file_process_failed: File processing failed
+              file_publish_failed: File publishing failed
+              supplier_details_has_empty_sheets: There are sheets in 'Supplier details' without any data
+              supplier_details_has_incorrect_headers: There are sheets in 'Supplier details' with incorrect headers
+              supplier_details_missing_sheets: The 'Supplier details' file is missing sheets
+              supplier_missing_lots: There are suppliers without any lots
+              supplier_missing_rate_cards: There are suppliers without any rate cards
+              supplier_rate_cards_has_empty_sheets: There are sheets in 'Supplier rate cards' without any data
+              supplier_rate_cards_has_incorrect_headers: There are sheets in 'Supplier rate cards' with incorrect headers
+              supplier_rate_cards_missing_sheets: The 'Supplier rate cards' file is missing sheets
+              supplier_service_offerings_has_empty_sheets: There are sheets in 'Supplier service offerings' without any data
+              supplier_service_offerings_has_incorrect_headers: There are sheets in 'Supplier service offerings' with incorrect services
+              supplier_service_offerings_missing_sheets: The 'Supplier service offerings' file is missing sheets
+              upload_failed: Upload failed
+            errors_with_upload: Errors with the upload
+            issue: Issue
+          index:
+            caption: Management Consultancy
+            create_new: Create a new data upload
+            current_data: Current published data
+            date: Date
+            download: Download
+            file_name:
+              supplier_details_file: Supplier details
+              supplier_rate_cards_file: Supplier rate cards
+              supplier_service_offerings_file: Supplier service offerings
+            heading: Manage supplier data
+            name: Name
+            status: Status
+            table_caption: Previous uploads
+          new:
+            caption: Management Consultancy
+            download_templates: Download file templates
+            file_label:
+              supplier_details_file: Supplier details
+              supplier_rate_cards_file: Supplier rate cards
+              supplier_service_offerings_file: Supplier service offerings
+            heading: New data upload
+            return: Return to 'Manage supplier data'
+            template_file_name: Download spreadsheet templates
+            template_file_path: management-consultancy/rm6187/Supplier spreadsheet templates.zip
+            upload_caption: Supported file format is .xlsx and maximum file size is 10mb
+            upload_data: Upload data
+            upload_title: Upload the supplier data
+            you_can_download: You can download a zip file containing an empty template for each of the spreadsheets
+          show:
+            caption: Management consultancy
+            datetime: 'Date of file upload:'
+            download: Download
+            file_name:
+              supplier_details_file: Supplier details
+              supplier_rate_cards_file: Supplier rate cards
+              supplier_service_offerings_file: Supplier service offerings
+            files: Uploaded files
+            heading: 'Upload session #%{number}'
+            name: File name
+            return: Return to 'Manage supplier data'
+            status: 'Status:'
+          upload:
+            upload_name: 'Upload session #%{number}'
+      home:
+        index:
+          before_you_start:
+            heading: Before you start
+            mcf3_link_text: lot descriptions documents
+            mcf3_text_html: You need to know which lot the management consultancy services you need are in. Review the %{mcf3_link} for Management Consultancy Framework Three.
+          guidance:
+            heading: Guidance and other useful documents
+            mcf3_link_text: Management Consultancy Framework Three (MCF3) specification
+          heading: Find management consultants
+          use_this_service: Use this service to download a shortlist of suppliers that provide the management consultancy services you need.
+          using_this_service: Using this service means you're following the public sector procurement procedures.
+      journey:
+        choose_lot:
+          mcf3_heading: Management Consultancy Framework 3 (MCF3)
+          question: Select the lot you need
+        choose_services:
+          no_services_selected: No services selected
+          question: Select the services you need
+          service_selected: service selected
+          services_selected: services selected
+        management_consultancy_lots:
+          service_lines: Service lines
+      passwords:
+        forgot_password_confirmation:
+          heading: A reset email has been sent
+          lead: If the email address you've entered belongs to a Crown Commercial Service account, we'll send a link to reset the password.
+          text01: If you don't receive this, email
+          text02_html: <a href="mailto:support@crowncommercial.gov.uk">support@crowncommercial.gov.uk</a>
+      registrations:
+        domain_not_on_safelist:
+          heading: You must use a public sector email address
+          lead_html: You must be employed by, or represent, a public sector organisation to create a <abbr title="Crown Commercial Service">CCS</abbr> account.
+          line_01: The email you used doesn't belong to a recognised public sector domain.
+          line_02_html: Create an account using a different email address or email <a href="mailto:info@crowncommercial.gov.uk">info@crowncommercial.gov.uk</a> if
+          list_01: you think your domain should be recognised
+          list_02: you still can't create an account
+      sessions:
+        new:
+          email_hint_html: Enter the email address you used to set up your account.
+          sign_in_header: Sign in to your management consultancy buyer account
+      suppliers:
+        download:
+          download_supplier_shortlist: Download supplier shortlist
+          expression_of_interest_template: Expression of interest template
+          expression_of_interest_template_link: https://assets.crowncommercial.gov.uk/wp-content/uploads/T1-Expression-of-Interest-2.odt?format=odt
+          heading: Download the supplier shortlist
+          lead_text: The spreadsheet includes the selections you made, for your records and audit trail
+          other_documents: Other documents
+        index:
+          download_suppliers_list: Download the supplier list
+          heading: Supplier results
+          no_suppliers_found:
+            contact_html: "%{contact_link} for help."
+            contact_link_text: Contact CCS Support
+            heading: No suppliers were found
+            text: No companies can provide consultants that can meet your requirements.
+          suppliers_found_html: "<span class='govuk-!-font-size-27 govuk-!-font-weight-bold'>%{number}</span> <span class='govuk-!-font-weight-bold'>%{suppliers}</span> can provide consultants that meet your requirements"
+        show:
+          contact_details:
+            address: Address
+            email: Email
+            heading: Contact details
+            person: Name
+            phone_number: Phone number
+            website: Website
+          day_rates: Day rates
+          is_an_sme: This supplier is a small or medium-sized enterprise
+          job_titles:
+            director: Partner
+            junior: Analyst / Junior Consultant
+            managing: Managing Consultant / Director
+            principal: Principal Consultant / Associate Director
+            senior: Senior Consultant / Engagement Manager / Project Lead
+            standard: Consultant
+          max_day_rate: Max day rate
+          maximum_day_rates: Maximum day rates
+          rates_are_fixed: Rates are fixed for the life of the framework and any call-off. These rates are for an 8 hour working day and include travel expenses to the base location as stipulated by the customer.
+          rates_are_maximum: These are the maximum rates a supplier can charge and cannot be exceeded. Suppliers can reduce these rates

@@ -53,7 +53,7 @@ RSpec.describe Cognito::SignInUser do
 
       it 'does returns cognito error' do
         response = described_class.call(email, password, cookies_disabled)
-        expect(response.error).to eq I18n.t('users.sign_in_error')
+        expect(response.error).to eq 'You must provide a correct username or password'
       end
     end
 
@@ -114,7 +114,7 @@ RSpec.describe Cognito::SignInUser do
 
       it 'does returns cognito error' do
         response = described_class.call(email, password, cookies_disabled)
-        expect(response.error).to eq I18n.t('users.sign_in_error')
+        expect(response.error).to eq 'You must provide a correct username or password'
       end
 
       it 'returns need_password_reset false' do

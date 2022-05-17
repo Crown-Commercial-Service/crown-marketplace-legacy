@@ -1,10 +1,11 @@
 class GenericJourney
   attr_reader :steps, :params
 
-  def initialize(first_step_class, slug, params, paths)
+  def initialize(first_step_class, framework, slug, params, paths)
     @steps = []
     @params = HashWithIndifferentAccess.new
     @paths = paths
+    @framework = framework
 
     klass = first_step_class
     loop do
@@ -35,27 +36,27 @@ class GenericJourney
   end
 
   def first_step_path
-    @paths.question first_step.slug
+    @paths.question @framework, first_step.slug
   end
 
   def current_step_path
-    @paths.question current_slug, params
+    @paths.question @framework, current_slug, params
   end
 
   def previous_step_path
     if previous_slug.present?
-      @paths.question previous_slug, params
+      @paths.question @framework, previous_slug, params
     else
       start_path
     end
   end
 
   def next_step_path
-    @paths.question next_slug, params
+    @paths.question @framework, next_slug, params
   end
 
   def form_path
-    @paths.answer current_slug
+    @paths.answer @framework, current_slug
   end
 
   def start_path
@@ -69,7 +70,7 @@ class GenericJourney
   end
 
   def template
-    [self.class.journey_name.underscore, current_step.template].join('/')
+    [self.class.journey_name.underscore, @framework.downcase, current_step.template].join('/')
   end
 
   delegate :slug, to: :current_step, prefix: :current, allow_nil: true

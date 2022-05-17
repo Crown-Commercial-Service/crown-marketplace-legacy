@@ -26,11 +26,11 @@ module Cognito
       errors.add(:base, e.message)
       @needs_confirmation = true
     rescue Aws::CognitoIdentityProvider::Errors::UserNotFoundException
-      @error = I18n.t('users.sign_in_error')
-      errors.add(:base, @error)
+      @error = I18n.t('activemodel.errors.models.cognito/sign_in_user.attributes.base.sign_in_error')
+      errors.add(:base, :sign_in_error)
     rescue Aws::CognitoIdentityProvider::Errors::ServiceError
-      @error = I18n.t('users.sign_in_error')
-      errors.add(:base, @error)
+      @error = I18n.t('activemodel.errors.models.cognito/sign_in_user.attributes.base.sign_in_error')
+      errors.add(:base, :sign_in_error)
     end
 
     def success?

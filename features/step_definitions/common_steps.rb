@@ -5,15 +5,40 @@ Given 'I sign in and navigate to the start page for {string}' do |service|
   when 'legal services'
     create_buyer_user('ls')
     start_page_title = 'Do you work for central government?'
-    visit legal_services_new_user_session_path
+    visit legal_services_rm3788_new_user_session_path
   when 'management consultancy'
     create_buyer_user('mc')
     start_page_title = 'Select the lot you need'
-    visit management_consultancy_new_user_session_path
+    visit management_consultancy_rm6187_new_user_session_path
   when 'supply teachers'
     create_buyer_user('st')
     start_page_title = 'What is your school looking for?'
-    visit supply_teachers_new_user_session_path
+    visit supply_teachers_rm3826_new_user_session_path
+  end
+
+  update_banner_cookie(true) if @javascript
+  fill_in 'email', with: @user.email
+  fill_in 'password', with: 'ValidPassword'
+  click_on 'Sign in'
+  step "I am on the '#{start_page_title}' page"
+end
+
+Given('I sign in and navigate to the start page for the {string} framework in {string}') do |framework, service|
+  start_page_title = ''
+
+  case service
+  when 'legal services'
+    create_buyer_user('ls')
+    start_page_title = 'Do you work for central government?'
+    visit "/legal-services/#{framework}/sign-in"
+  when 'management consultancy'
+    create_buyer_user('mc')
+    start_page_title = 'Select the lot you need'
+    visit "/management-consultancy/#{framework}/sign-in"
+  when 'supply teachers'
+    create_buyer_user('st')
+    start_page_title = 'What is your school looking for?'
+    visit "/supply-teachers/#{framework}/sign-in"
   end
 
   update_banner_cookie(true) if @javascript
@@ -26,12 +51,52 @@ end
 When('I go to the {string} start page') do |service|
   case service
   when 'legal services'
-    visit legal_services_path
+    visit legal_services_rm3788_path
   when 'management consultancy'
-    visit management_consultancy_path
+    visit management_consultancy_rm6187_path
   when 'supply teachers'
     visit supply_teachers_path
   end
+end
+
+When('I go to the {string} start page for {string}') do |service, framework|
+  case service
+  when 'legal services'
+    visit "/legal-services/#{framework}"
+  when 'management consultancy'
+    visit "/management-consultancy/#{framework}"
+  when 'supply teachers'
+    visit "/supply-teachers/#{framework}"
+  end
+end
+
+Given('I sign in as an admin for the {string} framework in {string}') do |framework, service|
+  admin_dashboard_title = ''
+
+  case service
+  when 'legal services'
+    create_admin_user('ls')
+    admin_dashboard_title = 'Manage supplier data'
+    visit "/legal-services/#{framework}/admin/sign-in"
+  when 'management consultancy'
+    create_admin_user('mc')
+    admin_dashboard_title = 'Manage supplier data'
+    visit "/management-consultancy/#{framework}/admin/sign-in"
+  when 'supply teachers'
+    create_admin_user('st')
+    admin_dashboard_title = 'Supply teachers and agency workers'
+    visit "/supply-teachers/#{framework}/admin/sign-in"
+  end
+
+  update_banner_cookie(true) if @javascript
+  fill_in 'email', with: @user.email
+  fill_in 'password', with: 'ValidPassword'
+  click_on 'Sign in'
+  step "I am on the '#{admin_dashboard_title}' page"
+end
+
+When('I go to {string}') do |uri|
+  visit uri
 end
 
 Then('I am on the {string} page') do |title|
@@ -85,6 +150,18 @@ end
 Then('the spreadsheet {string} is downloaded') do |spreadsheet_name|
   expect(page.response_headers['Content-Type']).to eq 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
   expect(page.response_headers['Content-Disposition']).to include "filename=\"#{spreadsheet_name}".gsub('(', '%28').gsub(')', '%29')
+end
+
+Then('the framework is {string}') do |framework|
+  expect(page.current_path.split('/')[2]).to eq framework
+end
+
+Then('the unrecognised framework is {string}') do |framework|
+  expect(home_page.unrecognised_framework.description).to have_content("The framework in the web address is '#{framework}'. Make sure the web address contains one of the listed frameworks.")
+end
+
+Then('I am on {string}') do |expected_path|
+  expect(page.current_path).to eq expected_path
 end
 
 Then('I pause') do
