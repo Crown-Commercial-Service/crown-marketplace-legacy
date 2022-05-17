@@ -28,7 +28,7 @@ module SupplyTeachersSupplyTeachers1,0
 app/models/supply_teachers/supplier.rb,931
 module SupplyTeachersSupplyTeachers1,0
   class Supplier < ApplicationRecordSupplier2,0
-  class Supplier < ApplicationRecordSupplyTeachers::Supplier2,0
+  class Supplier < ApplicationRecordSupplyTeachers::RM3826::Supplier2,0
     has_many :branches,branches3,0
     has_many :branches,branches=3,0
     has_many :branches,branche_ids3,0
@@ -49,7 +49,7 @@ module SupplyTeachersSupplyTeachers1,0
 app/models/supply_teachers/job_type.rb,287
 module SupplyTeachersSupplyTeachers1,0
   class JobTypeJobType2,0
-  class JobTypeSupplyTeachers::JobType2,0
+  class JobTypeSupplyTeachers::RM3826::JobType2,0
     def self.[](code)[]10,0
     def self.find_role_by(code:)find_role_by14,0
     def self.rolesroles18,0
@@ -69,7 +69,7 @@ module SupplyTeachersSupplyTeachers1,0
 app/models/supply_teachers/rate_term.rb,388
 module SupplyTeachersSupplyTeachers1,0
   class RateTermRateTerm2,0
-  class RateTermSupplyTeachers::RateTerm2,0
+  class RateTermSupplyTeachers::RM3826::RateTerm2,0
     attr_accessor :code, :descriptioncode5,0
     attr_accessor :code, :descriptioncode=5,0
     attr_accessor :code, :descriptiondescription5,0
@@ -80,7 +80,7 @@ module SupplyTeachersSupplyTeachers1,0
 app/models/supply_teachers/branch_search_result.rb,961
 module SupplyTeachersSupplyTeachers1,0
   class BranchSearchResultBranchSearchResult2,0
-  class BranchSearchResultSupplyTeachers::BranchSearchResult2,0
+  class BranchSearchResultSupplyTeachers::RM3826::BranchSearchResult2,0
     attr_reader :idid3,0
     attr_reader :supplier_namesupplier_name4,0
     attr_reader :namename5,0
@@ -103,54 +103,54 @@ module SupplyTeachersSupplyTeachers1,0
 app/models/supply_teachers/journey/agency_payroll.rb,209
 module SupplyTeachersSupplyTeachers1,0
   class Journey::AgencyPayrollAgencyPayroll2,0
-  class Journey::AgencyPayrollSupplyTeachers::Journey::AgencyPayroll2,0
+  class Journey::AgencyPayrollSupplyTeachers::RM3826::Journey::AgencyPayroll2,0
     def next_step_classnext_step_class12,0
 
 app/models/supply_teachers/journey/managed_service_provider.rb,244
 module SupplyTeachersSupplyTeachers1,0
   class Journey::ManagedServiceProviderManagedServiceProvider2,0
-  class Journey::ManagedServiceProviderSupplyTeachers::Journey::ManagedServiceProvider2,0
+  class Journey::ManagedServiceProviderSupplyTeachers::RM3826::Journey::ManagedServiceProvider2,0
     def next_step_classnext_step_class8,0
 
 app/models/supply_teachers/journey/school_postcode_agency_supplied_worker.rb,292
 module SupplyTeachersSupplyTeachers1,0
   class Journey::SchoolPostcodeAgencySuppliedWorkerSchoolPostcodeAgencySuppliedWorker2,0
-  class Journey::SchoolPostcodeAgencySuppliedWorkerSupplyTeachers::Journey::SchoolPostcodeAgencySuppliedWorker2,0
+  class Journey::SchoolPostcodeAgencySuppliedWorkerSupplyTeachers::RM3826::Journey::SchoolPostcodeAgencySuppliedWorker2,0
     def next_step_classnext_step_class6,0
 
 app/models/supply_teachers/journey/looking_for.rb,197
 module SupplyTeachersSupplyTeachers1,0
   class Journey::LookingForLookingFor2,0
-  class Journey::LookingForSupplyTeachers::Journey::LookingFor2,0
+  class Journey::LookingForSupplyTeachers::RM3826::Journey::LookingFor2,0
     def next_step_classnext_step_class13,0
 
 app/models/supply_teachers/journey/payroll_provider.rb,216
 module SupplyTeachersSupplyTeachers1,0
   class Journey::PayrollProviderPayrollProvider2,0
-  class Journey::PayrollProviderSupplyTeachers::Journey::PayrollProvider2,0
+  class Journey::PayrollProviderSupplyTeachers::RM3826::Journey::PayrollProvider2,0
     def next_step_classnext_step_class8,0
 
 app/models/supply_teachers/journey/temp_to_perm_fee.rb,164
 module SupplyTeachersSupplyTeachers1,0
   class Journey::TempToPermFeeTempToPermFee2,0
-  class Journey::TempToPermFeeSupplyTeachers::Journey::TempToPermFee2,0
+  class Journey::TempToPermFeeSupplyTeachers::RM3826::Journey::TempToPermFee2,0
 
 app/models/supply_teachers/journey/worker_type.rb,196
 module SupplyTeachersSupplyTeachers1,0
   class Journey::WorkerTypeWorkerType2,0
-  class Journey::WorkerTypeSupplyTeachers::Journey::WorkerType2,0
+  class Journey::WorkerTypeSupplyTeachers::RM3826::Journey::WorkerType2,0
     def next_step_classnext_step_class8,0
 
 app/models/supply_teachers/journey/school_postcode_nominated_worker.rb,272
 module SupplyTeachersSupplyTeachers1,0
   class Journey::SchoolPostcodeNominatedWorkerSchoolPostcodeNominatedWorker2,0
-  class Journey::SchoolPostcodeNominatedWorkerSupplyTeachers::Journey::SchoolPostcodeNominatedWorker2,0
+  class Journey::SchoolPostcodeNominatedWorkerSupplyTeachers::RM3826::Journey::SchoolPostcodeNominatedWorker2,0
     def next_step_classnext_step_class6,0
 
 app/models/supply_teachers/journey/nominated_worker_results.rb,282
 module SupplyTeachersSupplyTeachers1,0
   class Journey::NominatedWorkerResultsNominatedWorkerResults2,0
-  class Journey::NominatedWorkerResultsSupplyTeachers::Journey::NominatedWorkerResults2,0
+  class Journey::NominatedWorkerResultsSupplyTeachers::RM3826::Journey::NominatedWorkerResults2,0
     def ratesrates7,0
     def rate(branch)rate11,0
     def inputsinputs15,0
@@ -158,15 +158,15 @@ module SupplyTeachersSupplyTeachers1,0
 app/models/supply_teachers/journey/master_vendor_managed_service.rb,242
 module SupplyTeachersSupplyTeachers1,0
   class Journey::MasterVendorManagedServiceMasterVendorManagedService2,0
-  class Journey::MasterVendorManagedServiceSupplyTeachers::Journey::MasterVendorManagedService2,0
+  class Journey::MasterVendorManagedServiceSupplyTeachers::RM3826::Journey::MasterVendorManagedService2,0
     def inputsinputs5,0
 
 app/models/supply_teachers/journey/temp_to_perm_calculator.rb,1283
 module SupplyTeachersSupplyTeachers1,0
   class Journey::TempToPermCalculatorTempToPermCalculator2,0
-  class Journey::TempToPermCalculatorSupplyTeachers::Journey::TempToPermCalculator2,0
+  class Journey::TempToPermCalculatorSupplyTeachers::RM3826::Journey::TempToPermCalculator2,0
     PARSED_DATE_FORMAT = '%Y-%m-%d'.freezePARSED_DATE_FORMAT119,0
-    PARSED_DATE_FORMAT = '%Y-%m-%d'.freezeSupplyTeachers::Journey::TempToPermCalculator::PARSED_DATE_FORMAT119,0
+    PARSED_DATE_FORMAT = '%Y-%m-%d'.freezeSupplyTeachers::RM3826::Journey::TempToPermCalculator::PARSED_DATE_FORMAT119,0
     def next_step_classnext_step_class121,0
     def contract_start_datecontract_start_date125,0
     def hire_datehire_date134,0
@@ -184,7 +184,7 @@ module SupplyTeachersSupplyTeachers1,0
 app/models/supply_teachers/journey/agency_payroll_results.rb,329
 module SupplyTeachersSupplyTeachers1,0
   class Journey::AgencyPayrollResultsAgencyPayrollResults2,0
-  class Journey::AgencyPayrollResultsSupplyTeachers::Journey::AgencyPayrollResults2,0
+  class Journey::AgencyPayrollResultsSupplyTeachers::RM3826::Journey::AgencyPayrollResults2,0
     def ratesrates10,0
     def rate(branch)rate14,0
     def job_typejob_type18,0
@@ -215,13 +215,13 @@ module SupplyTeachersSupplyTeachers1,0
 app/models/supply_teachers/journey/neutral_vendor_managed_service.rb,246
 module SupplyTeachersSupplyTeachers1,0
   class Journey::NeutralVendorManagedServiceNeutralVendorManagedService2,0
-  class Journey::NeutralVendorManagedServiceSupplyTeachers::Journey::NeutralVendorManagedService2,0
+  class Journey::NeutralVendorManagedServiceSupplyTeachers::RM3826::Journey::NeutralVendorManagedService2,0
     def inputsinputs5,0
 
 app/models/supply_teachers/branch.rb,540
 module SupplyTeachersSupplyTeachers1,0
   class Branch < ApplicationRecordBranch2,0
-  class Branch < ApplicationRecordSupplyTeachers::Branch2,0
+  class Branch < ApplicationRecordSupplyTeachers::RM3826::Branch2,0
     belongs_to :supplier,supplier6,0
     belongs_to :supplier,supplier=6,0
     belongs_to :supplier,build_supplier6,0
@@ -234,13 +234,13 @@ module SupplyTeachersSupplyTeachers1,0
 app/models/supply_teachers/organisation_category.rb,202
 module SupplyTeachersSupplyTeachers1,0
   class OrganisationCategoryOrganisationCategory2,0
-  class OrganisationCategorySupplyTeachers::OrganisationCategory2,0
+  class OrganisationCategorySupplyTeachers::RM3826::OrganisationCategory2,0
     def non_profit?non_profit?10,0
 
 app/models/supply_teachers/rate.rb,781
 module SupplyTeachersSupplyTeachers1,0
   class Rate < ApplicationRecordRate2,0
-  class Rate < ApplicationRecordSupplyTeachers::Rate2,0
+  class Rate < ApplicationRecordSupplyTeachers::RM3826::Rate2,0
     belongs_to :supplier,supplier3,0
     belongs_to :supplier,supplier=3,0
     belongs_to :supplier,build_supplier3,0
@@ -259,13 +259,13 @@ module SupplyTeachersSupplyTeachers1,0
 app/models/supply_teachers/supplier_mark_up.rb,212
 module SupplyTeachersSupplyTeachers1,0
   class SupplierMarkUpSupplierMarkUp2,0
-  class SupplierMarkUpSupplyTeachers::SupplierMarkUp2,0
+  class SupplierMarkUpSupplyTeachers::RM3826::SupplierMarkUp2,0
     def worker_costworker_cost8,0
     def agency_feeagency_fee12,0
 
 app/models/supply_teachers/audit_spreadsheet.rb,284
-class SupplyTeachers::AuditSpreadsheetAuditSpreadsheet1,0
-class SupplyTeachers::AuditSpreadsheetSupplyTeachers::AuditSpreadsheet1,0
+class SupplyTeachers::RM3826::AuditSpreadsheetAuditSpreadsheet1,0
+class SupplyTeachers::RM3826::AuditSpreadsheetSupplyTeachers::RM3826::AuditSpreadsheet1,0
   def to_xlsxto_xlsx4,0
   def add_branch_worksheet(workbook)add_branch_worksheet14,0
   def add_rate_worksheet(workbook)add_rate_worksheet40,0
@@ -273,7 +273,7 @@ class SupplyTeachers::AuditSpreadsheetSupplyTeachers::AuditSpreadsheet1,0
 app/models/supply_teachers/lot.rb,354
 module SupplyTeachersSupplyTeachers1,0
   class LotLot2,0
-  class LotSupplyTeachers::Lot2,0
+  class LotSupplyTeachers::RM3826::Lot2,0
     attr_accessor :number, :descriptionnumber5,0
     attr_accessor :number, :descriptionnumber=5,0
     attr_accessor :number, :descriptiondescription5,0
@@ -283,7 +283,7 @@ module SupplyTeachersSupplyTeachers1,0
 app/models/supply_teachers/term.rb,482
 module SupplyTeachersSupplyTeachers1,0
   class TermTerm2,0
-  class TermSupplyTeachers::Term2,0
+  class TermSupplyTeachers::RM3826::Term2,0
     attr_accessor :code, :description, :rate_termcode5,0
     attr_accessor :code, :description, :rate_termcode=5,0
     attr_accessor :code, :description, :rate_termdescription5,0
@@ -294,13 +294,13 @@ module SupplyTeachersSupplyTeachers1,0
 app/models/supply_teachers/school_type.rb,162
 module SupplyTeachersSupplyTeachers1,0
   class SchoolTypeSchoolType2,0
-  class SchoolTypeSupplyTeachers::SchoolType2,0
+  class SchoolTypeSupplyTeachers::RM3826::SchoolType2,0
     def non_profit?non_profit?10,0
 
 app/models/supply_teachers/upload.rb,531
 module SupplyTeachersSupplyTeachers1,0
   class Upload < ApplicationRecordUpload2,0
-  class Upload < ApplicationRecordSupplyTeachers::Upload2,0
+  class Upload < ApplicationRecordSupplyTeachers::RM3826::Upload2,0
     def self.upload!(suppliers)upload!3,0
     def self.all_or_none(transaction_class)all_or_none15,0
     def self.create_supplier!(data)create_supplier!26,0
@@ -309,10 +309,10 @@ module SupplyTeachersSupplyTeachers1,0
     def self.create_supplier_rates!(supplier, lot_number, rates)create_supplier_rates!80,0
 
 app/models/supply_teachers/spreadsheet.rb,944
-class SupplyTeachers::SpreadsheetSpreadsheet1,0
-class SupplyTeachers::SpreadsheetSupplyTeachers::Spreadsheet1,0
+class SupplyTeachers::RM3826::SpreadsheetSpreadsheet1,0
+class SupplyTeachers::RM3826::SpreadsheetSupplyTeachers::RM3826::Spreadsheet1,0
   class DataDownloadDataDownload2,0
-  class DataDownloadSupplyTeachers::Spreadsheet::DataDownload2,0
+  class DataDownloadSupplyTeachers::RM3826::Spreadsheet::DataDownload2,0
     def sheet_namesheet_name5,0
     def titletitle9,0
     def headersheaders13,0
@@ -320,7 +320,7 @@ class SupplyTeachers::SpreadsheetSupplyTeachers::Spreadsheet1,0
     def row(branch, _row_num)row21,0
     def style(workbook, sheet); endstyle29,0
   class Shortlist < DataDownloadShortlist32,0
-  class Shortlist < DataDownloadSupplyTeachers::Spreadsheet::Shortlist32,0
+  class Shortlist < DataDownloadSupplyTeachers::RM3826::Spreadsheet::Shortlist32,0
     def sheet_namesheet_name33,0
     def titletitle37,0
     def headersheaders43,0
@@ -943,9 +943,9 @@ module SupplyTeachersSupplyTeachers1,0
 app/controllers/supply_teachers/branches_controller.rb,502
 module SupplyTeachersSupplyTeachers1,0
   class BranchesController < FrameworkControllerBranchesController2,0
-  class BranchesController < FrameworkControllerSupplyTeachers::BranchesController2,0
+  class BranchesController < FrameworkControllerSupplyTeachers::RM3826::BranchesController2,0
     SEARCH_RADIUSES = [50, 25, 10, 5, 1].freezeSEARCH_RADIUSES3,0
-    SEARCH_RADIUSES = [50, 25, 10, 5, 1].freezeSupplyTeachers::BranchesController::SEARCH_RADIUSES3,0
+    SEARCH_RADIUSES = [50, 25, 10, 5, 1].freezeSupplyTeachers::RM3826::BranchesController::SEARCH_RADIUSES3,0
     def indexindex7,0
     def showshow19,0
     def render_branchesrender_branches25,0
@@ -1096,8 +1096,8 @@ module JourneyControllerActionsJourneyControllerActions1,0
   def build_journeybuild_journey34,0
 
 app/helpers/supply_teachers/branches_helper.rb,246
-module SupplyTeachers::BranchesHelperBranchesHelper1,0
-module SupplyTeachers::BranchesHelperSupplyTeachers::BranchesHelper1,0
+module SupplyTeachers::RM3826::BranchesHelperBranchesHelper1,0
+module SupplyTeachers::RM3826::BranchesHelperSupplyTeachers::RM3826::BranchesHelper1,0
   def display_name_for_branch(branch)display_name_for_branch2,0
   def link_to_calculator?link_to_calculator?6,0
 
@@ -1257,7 +1257,7 @@ spec/support/start_pages.rb,369
 module SpecSupportSpecSupport1,0
   module VisitStartPagesVisitStartPages2,0
   module VisitStartPagesSpecSupport::VisitStartPages2,0
-    def visit_supply_teachers_startvisit_supply_teachers_start3,0
+    def visit_supply_teachers_rm3826_startvisit_supply_teachers_rm3826_start3,0
     def visit_facilities_management_startvisit_facilities_management_start9,0
     def visit_management_consultancy_startvisit_management_consultancy_start15,0
 

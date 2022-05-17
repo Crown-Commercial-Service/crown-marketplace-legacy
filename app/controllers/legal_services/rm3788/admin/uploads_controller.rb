@@ -2,7 +2,7 @@ module LegalServices
   module RM3788
     module Admin
       class UploadsController < LegalServices::Admin::FrameworkController
-        include ::Admin::SharedPagesConcern
+        include SharedPagesConcern
         include ::Admin::UploadsController
 
         private

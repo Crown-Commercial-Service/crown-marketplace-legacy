@@ -29,6 +29,6 @@ class Ability
       can :manage, ManagementConsultancy::RM6187::Admin::Upload
       can :manage, LegalServices::RM3788::Admin::Upload
     end
-    can :manage, SupplyTeachers::Admin::Upload if user.has_role? :st_access
+    can :manage, SupplyTeachers::RM3826::Admin::Upload if user.has_role? :st_access
   end
 end

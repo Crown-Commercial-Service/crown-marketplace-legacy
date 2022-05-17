@@ -2,16 +2,19 @@ module SharedPagesConcern
   extend ActiveSupport::Concern
 
   included do
-    before_action :authenticate_user!, :authorize_user, except: %i[index not_permitted accessibility_statement cookie_policy cookie_settings]
+    skip_before_action :authenticate_user!, :authorize_user
   end
-
-  def index; end
 
   def not_permitted
     render 'home/not_permitted', layout: 'error'
   end
 
-  def accessibility_statement; end
+  def accessibility_statement
+    service = params[:service] || 'supply_teachers'
+    service_name = service.split('/').first
+
+    render "home/accessibility/#{service_name}/accessibility_statement"
+  end
 
   def cookie_policy
     render 'home/cookie_policy'

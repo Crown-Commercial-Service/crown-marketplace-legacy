@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!, :validate_service
 
   rescue_from CanCan::AccessDenied do
-    redirect_to not_permitted_path(service: request.path_parameters[:controller].split('/').first)
+    redirect_to not_permitted_path
   end
 
   if Rails.env.production?
@@ -46,6 +46,23 @@ class ApplicationController < ActionController::Base
     TransientSessionInfo[session.id] = JSON.parse(flash['current_choices']) if flash['current_choices'] && params['current_choices'].nil?
   end
 
+  def service_path_base
+    @service_path_base ||= begin
+      service_path_base = ['']
+
+      service = params[:service] || 'supply_teachers'
+      service_name = service.split('/').first
+
+      service_path_base << service_name.gsub('_', '-')
+      service_path_base << (params[:framework] || Framework.send(service_name).current_framework)
+      service_path_base << 'admin' if service.include?('admin')
+
+      service_path_base.join('/')
+    end
+  end
+
+  helper_method :service_path_base
+
   protected
 
   def configure_permitted_parameters
@@ -67,11 +84,15 @@ class ApplicationController < ActionController::Base
   end
 
   def st_gateway_path
-    if request.path&.include?('/supply-teachers/admin')
-      supply_teachers_admin_user_session_url
+    if request.path&.include?('admin')
+      supply_teachers_rm3826_admin_user_session_url
     else
-      supply_teachers_gateway_url
+      supply_teachers_rm3826_gateway_url
     end
+  end
+
+  def not_permitted_path
+    "#{service_path_base}/not-permitted"
   end
 
   def validate_service

@@ -18,7 +18,7 @@ module Login
     end
 
     def logout_url(routable)
-      routable.supply_teachers_gateway_url
+      routable.supply_teachers_rm3826_gateway_url
     end
 
     def permit?(framework)
@@ -30,11 +30,11 @@ module Login
     private
 
     def school_type
-      SupplyTeachers::SchoolType.find_by(id: @extra['school_type_id'].to_s)
+      SupplyTeachers::RM3826::SchoolType.find_by(id: @extra['school_type_id'].to_s)
     end
 
     def organisation_category
-      SupplyTeachers::OrganisationCategory.find_by(id: @extra['organisation_category'].to_s)
+      SupplyTeachers::RM3826::OrganisationCategory.find_by(id: @extra['organisation_category'].to_s)
     end
 
     def safelisted?

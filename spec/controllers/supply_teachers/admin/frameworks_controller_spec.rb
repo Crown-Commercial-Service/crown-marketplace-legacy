@@ -16,7 +16,7 @@ RSpec.describe SupplyTeachers::Admin::FrameworksController do
 
       it 'redirects to not permitted' do
         get :index
-        expect(response).to redirect_to not_permitted_path(service: 'supply_teachers')
+        expect(response).to redirect_to '/supply-teachers/RM6238/admin/not-permitted'
       end
     end
   end

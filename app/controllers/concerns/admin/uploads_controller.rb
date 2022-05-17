@@ -3,8 +3,7 @@ module Admin::UploadsController
 
   included do
     skip_before_action :verify_authenticity_token, only: :create
-    before_action :authenticate_user!
-    before_action :authorize_user
+    before_action :authenticate_user!, :authorize_user, only: %i[index show new create progress]
     before_action :set_upload, only: %i[show progress]
   end
 

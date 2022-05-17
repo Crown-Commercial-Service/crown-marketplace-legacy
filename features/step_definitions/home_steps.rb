@@ -45,7 +45,16 @@ Then('I should see the following navigation links:') do |navigation_links|
 end
 
 Given('I go to the not permitted page for {string}') do |service|
-  visit not_permitted_path(service: service.gsub(' ', '_'))
+  service_and_framework_path = case service
+                               when 'management consultancy'
+                                 "/management-consultancy/#{Framework.management_consultancy.current_framework}"
+                               when 'legal services'
+                                 "/legal-services/#{Framework.legal_services.current_framework}"
+                               else
+                                 "/supply-teachers/#{Framework.supply_teachers.current_framework}"
+                               end
+
+  visit "#{service_and_framework_path}/not-permitted"
 end
 
 Given('I enter {string} for my email') do |email|

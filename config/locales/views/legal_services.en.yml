@@ -204,18 +204,6 @@ en:
           upload:
             upload_name: 'Upload session #%{number}'
       home:
-        accessibility_statement:
-          compliance: No known accessibility non compliance issues.
-          date: 1 July 2020
-          heading: Legal Services (LS) Accessibility statement
-          list_2_continue: one page has two continue buttons, this results in screen readers repeating "continue"
-          marketplace_link: https://marketplace.service.crowncommercial.gov.uk/legal-services
-          non_accessible_content_1: We are aware of an issue with the "select the services you need" page when tabbed in conjunction with NVDA, JAWS and macOS VoiceOver screen reader assistive technologies. The duplicate 'Continue' buttons that are present result in the screen reader stuttering.
-          non_accessible_content_2: It would be expected that only one 'Continue' button would be present on a page to prevent continue being announced twice by screen readers. We will resolve this issue by October 2020.
-          service: Legal Services
-          the_complete_journey: The complete Legal Services journey was tested, this included every page a buyer would progress through to complete the procurement activity.
-          we_know: This website has one accessibility issue.
-          website_last_tested: This website was last tested on 3 April 2020. The test was carried out by Zoonou Ltd.
         index:
           heading: Find legal services for the wider public sector
           ojeu_link_text: OJEU contract notice
@@ -287,11 +275,12 @@ en:
           service_selected: service selected
           services_selected: services selected
         select_lot:
+          extended_description:
+            lot_1: Select lot 1 if your requirements have a regional focus or your budget is below £200,000. These suppliers provide services across 14 legal specialisms within at least one of the 13 UK NUTS regions.
+            lot_2: Select lot 2 if your requirements needs a full-service supplier or your budget is over £200,000. Full-service firms can provide services in 35 specialisms. Suppliers have said which jurisdictional area of the UK they serve.
+            lot_3: Suppliers in lot 3 provide legal services for large property developments and projects across the UK. You can also select lot 3 if you need a specialist understanding of the property sector. Property law is available in lot 1 and lot 2.
+            lot_4: Suppliers in lot 4 provide legal services for transport rail across the UK.
           heading: Select the lot you need
-          lot1_extended_description: Select lot 1 if your requirements have a regional focus or your budget is below £200,000. These suppliers provide services across 14 legal specialisms within at least one of the 13 UK NUTS regions.
-          lot2_extended_description: Select lot 2 if your requirements needs a full-service supplier or your budget is over £200,000. Full-service firms can provide services in 35 specialisms. Suppliers have said which jurisdictional area of the UK they serve.
-          lot3_extended_description: Suppliers in lot 3 provide legal services for large property developments and projects across the UK. You can also select lot 3 if you need a specialist understanding of the property sector. Property law is available in lot 1 and lot 2.
-          lot4_extended_description: Suppliers in lot 4 provide legal services for transport rail across the UK.
         sorry:
           heading: Sorry, this panel isn't suitable for you
           lead: This panel supports a range of legal services primarily for the wider public sector
@@ -323,6 +312,7 @@ en:
           download_supplier_shortlist_link: Download supplier shortlist
           heading: Download the supplier shortlist
         index:
+          can_provide_legal_services: can provide legal services that meet your requirements.
           download_suppliers_list: Download the supplier list
           heading: Supplier results
           no_suppliers_found:
@@ -334,7 +324,7 @@ en:
             text: There are no suppliers on this panel that can provide the law services you need
             text_central_government_users_html: The %{general_legal_advice_service_link} agreement provides legal services for central government and arms-length bodies.
           page_title: Supplier results
-          suppliers_found_html: "<span class='govuk-!-font-size-27 govuk-!-font-weight-bold'>%{number}</span> <span class='govuk-!-font-weight-bold'>%{suppliers}</span> can provide legal services that meet your requirements."
+          supplier: supplier
         show:
           contact_details:
             address: Address
@@ -352,7 +342,3 @@ en:
           position: Position
           rates: Rates
           supplier_prospectus_headline: Supplier prospectus
-  legal_services_suppliers:
-    unit:
-      one: supplier
-      other: suppliers

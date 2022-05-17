@@ -1,6 +1,6 @@
 module SupplyTeachers
   module Admin
-    class FrameworksController < SupplyTeachers::FrameworkController
+    class FrameworksController < SupplyTeachers::Admin::FrameworkController
       include ::Admin::FrameworksConcern
 
       before_action :authenticate_user!
@@ -13,7 +13,7 @@ module SupplyTeachers
       private
 
       def authorize_user
-        authorize! :manage, SupplyTeachers::Admin::Upload
+        authorize! :manage, SupplyTeachers::RM3826::Admin::Upload
       end
     end
   end
