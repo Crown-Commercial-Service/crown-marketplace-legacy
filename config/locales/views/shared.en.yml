@@ -1,14 +1,43 @@
 ---
 en:
-  activemodel:
-    errors:
-      models:
-        user:
-          incorrect_username_or_password: You must provide a correct username or password
-  dashboard:
-    index:
-      admin_link: Managing framework and supplier data
   shared:
+    admin:
+      frameworks:
+        edit:
+          buyer_section_visible: The buyer section for this framework will be visible if the 'live at' date is today (%{current_date}) or earlier.
+          page_title: Framework 'live at' date
+          return_to_frameworks: Return to %{service_name} frameworks
+          save_and_return: Save and return
+          update_live_at_date: Update framework 'live at' date for %{framework}
+        index:
+          change: Change
+          coming: coming
+          expired: Expired
+          framework: Framework
+          if_the_framework: If the framework 'live at' date is before the current date (%{current_date}), the buyer section for this framework will be accessible to our customers.
+          live: live
+          live_at: Live at
+          page_title: "%{service_title} frameworks"
+          section_not_accessible: This section is not accessible in production and is for testing purposes only.
+          status: Status
+          the_admin_section: The admin section for a framework will always be visible for any framework that is on the system no matter when it goes live.
+          this_section_allows: This section allows you to view and change the 'live at' date for a %{service_name} framework.
+          to_update_in_prod: To update the framework 'live at' date in production speak to a developer.
+      in_progress:
+        checking_files: Checking files
+        complete: Complete
+        files_uploaded: Files uploaded
+        processing_data: Processing data
+        publishing_data: Publishing data
+        upload_progress: Upload progress
+    basket:
+      remove_all: Remove all
+    error_summary:
+      there_is_a_problem: There is a problem
+    gateway:
+      sign_in_with_cognito: Sign in with CCS
+      sign_in_with_dfe: Sign in with DfE Sign-in
+      start_now: Start now
     passwords:
       edit:
         confirm_new_password: Confirm new password
@@ -33,10 +62,39 @@ en:
       password_reset_success:
         heading: You have successfully changed your password
         lead: You can now sign in to your Crown Commercial Service account
+    registrations:
+      new:
+        confirm_password: Confirm your password
+        create_password: Create a password you'll remember
+        email: Email address
+        email_hint: We will send a confirmation code to this address.
+        heading_html: Create a <abbr title="Crown Commercial Service">CCS</abbr> account
+        lead: You must be employed by, or represent, a public sector organisation.
     sessions:
       new:
+        create_ccs_account_html: Create an account
         email_address: Email address
+        enter_your_password: Enter your password
         forgotten_password_html: I’ve forgotten my password
         password: Password
-  users:
-    sign_in_error: You must provide a correct username or password
+        please_enter_a_valid_email_address: You must provide your email address in the correct format, like name@example.com
+        problems_signing_in: Problems signing in
+    users:
+      confirm_new:
+        confirmation_code: Confirmation code
+        email: Email address
+        heading: Activate your account
+        lead_end: containing your confirmation code.
+        lead_start: An email has been sent to
+        resend_the_confirmation_email: Resend the email
+      new_password_required:
+        confirm_your_password: Confirm your password
+        create_your_password: Create a password you'll remember
+        heading: Change your password
+        intro: This is the first time you've signed in to your account. You need to reset your password.
+      sms_mfa:
+        access_code: Access code
+        content: It may take a few minutes to arrive.
+        heading: Enter your access code
+        lead: 'We just sent a 6 digit access code by text to:'
+        resend_the_confirmation_code_html: To receive a new access code, <a href="%{link}"> sign in</a> again.

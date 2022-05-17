@@ -5,7 +5,7 @@ Given 'I sign in and navigate to the start page for {string}' do |service|
   when 'legal services'
     create_buyer_user('ls')
     start_page_title = 'Do you work for central government?'
-    visit legal_services_new_user_session_path
+    visit legal_services_rm3788_new_user_session_path
   when 'management consultancy'
     create_buyer_user('mc')
     start_page_title = 'Select the lot you need'
@@ -13,7 +13,7 @@ Given 'I sign in and navigate to the start page for {string}' do |service|
   when 'supply teachers'
     create_buyer_user('st')
     start_page_title = 'What is your school looking for?'
-    visit supply_teachers_new_user_session_path
+    visit supply_teachers_rm3826_new_user_session_path
   end
 
   update_banner_cookie(true) if @javascript
@@ -51,7 +51,7 @@ end
 When('I go to the {string} start page') do |service|
   case service
   when 'legal services'
-    visit legal_services_path
+    visit legal_services_rm3788_path
   when 'management consultancy'
     visit management_consultancy_rm6187_path
   when 'supply teachers'

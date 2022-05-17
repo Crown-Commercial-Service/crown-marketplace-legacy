@@ -26,6 +26,14 @@ Before('@geocode_birmingham') do
   stub_geocoder('Birmingham')
 end
 
+Before('@RM3788') do
+  open_rm3788_framework
+end
+
+Before('@RM3826') do
+  open_rm3826_framework
+end
+
 After('@geocoder_london or @geocoder_liverpool or @geocode_birmingham') do
   reset_geocoder
 end

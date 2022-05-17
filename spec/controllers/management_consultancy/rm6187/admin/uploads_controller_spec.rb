@@ -17,7 +17,7 @@ RSpec.describe ManagementConsultancy::RM6187::Admin::UploadsController, type: :c
 
       it 'redirects to not permitted' do
         get :index
-        expect(response).to redirect_to not_permitted_path(service: 'management_consultancy')
+        expect(response).to redirect_to '/management-consultancy/RM6187/admin/not-permitted'
       end
     end
 
@@ -28,33 +28,47 @@ RSpec.describe ManagementConsultancy::RM6187::Admin::UploadsController, type: :c
         get :index
         expect(response).to render_template(:index)
       end
+
+      context 'and the framework dose not exist' do
+        it 'renders the unrecognised framework page with the right http status' do
+          get :index, params: { framework: 'RM3788' }
+
+          expect(response).to render_template('home/unrecognised_framework')
+          expect(response).to have_http_status(:bad_request)
+        end
+      end
     end
   end
 
   describe 'GET accessibility_statement' do
-    login_mc_admin
-
     it 'renders the accessibility_statement page' do
       get :accessibility_statement
-      expect(response).to render_template('management_consultancy/rm6187/home/accessibility_statement')
+
+      expect(response).to render_template('home/accessibility/management_consultancy/accessibility_statement')
     end
   end
 
   describe 'GET cookie_policy' do
-    login_mc_admin
-
     it 'renders the cookie policy page' do
       get :cookie_policy
+
       expect(response).to render_template('home/cookie_policy')
     end
   end
 
   describe 'GET cookie_settings' do
-    login_mc_admin
-
     it 'renders the cookie settings page' do
       get :cookie_settings
+
       expect(response).to render_template('home/cookie_settings')
+    end
+  end
+
+  describe 'GET not_permitted' do
+    it 'renders the not_permitted page' do
+      get :not_permitted
+
+      expect(response).to render_template('home/not_permitted')
     end
   end
 

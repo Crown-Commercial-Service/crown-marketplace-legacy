@@ -188,7 +188,7 @@ module GenerateTestData
     end
 
     def self.write_to_file
-      File.open('data/legal_services/dummy_supplier_data.json', 'w') do |file|
+      File.open('data/legal_services/rm3788/dummy_supplier_data.json', 'w') do |file|
         file.write(JSON.pretty_generate(@suppliers))
       end
     end
