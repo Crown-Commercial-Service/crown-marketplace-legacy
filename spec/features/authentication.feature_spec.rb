@@ -34,7 +34,7 @@ RSpec.feature 'Authentication', type: :feature do
     fill_in 'Password', with: 'ValidPassword!'
     click_button 'Sign in'
     expect(page).not_to have_text('Not permitted')
-    expect(page).to have_text('Select the lot you need')
+    expect(page).to have_text('Improvements to Crown Commercial Service digital solutions')
   end
 
   scenario 'Users can sign in using AWS Cognito with capitals in email' do
@@ -44,7 +44,7 @@ RSpec.feature 'Authentication', type: :feature do
     fill_in 'Password', with: 'ValidPassword!'
     click_button 'Sign in'
     expect(page).not_to have_text('Not permitted')
-    expect(page).to have_text('Select the lot you need')
+    expect(page).to have_text('Improvements to Crown Commercial Service digital solutions')
   end
 
   scenario 'Users signed in using AWS Cognito can sign out' do
