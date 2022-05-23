@@ -173,6 +173,39 @@ en:
           question: Select the services you need
           service_selected: service selected
           services_selected: services selected
+        improvements:
+          heading: Improvements to Crown Commercial Service digital solutions
+          sections:
+            section_1:
+              heading: What is happening?
+              paragraphs:
+                paragraph_1: During the summer of 2022, CCS will launch a new digital service called the Public Procurement Gateway.
+                paragraph_2: Public Procurement Gateway will provide you with a single point of entry to access multiple CCS services and help you to manage your information in a secure and simple way.
+            section_2:
+              heading: How does this affect me?
+              paragraphs:
+                paragraph_1: The first service that will go live on Public Procurement Gateway is Contract Award Service. One of the first commercial agreements on this new service will be Management Consultancy Framework Three (MCF3) and is due to go live in July 2022.
+                paragraph_2: Through the new Contract Award service, buyers will be able to filter and engage with suppliers, view supplier pricing, go to market, evaluate responses, and award contracts.
+                paragraph_3: Contract Award Service has been designed to help buyers understand what steps need to be taken to put in place a compliant and cost effective call-off contract. The Service does not impact any of your own tendering systems that you may currently access.
+                paragraph_4: Once MCF3 is live in July, the current filtering tool for Management Consultancy Framework Three will no longer be available.
+            section_3:
+              heading: How to use the new Contract Award Service
+              paragraphs:
+                paragraph_1_html: 'To use the new service you will need to request access to the Public Procurement Gateway and there are guides available to help you: %{ppg_link}.'
+              ppg_link: https://www.crowncommercial.gov.uk/public-procurement-gateway-guides
+            section_4:
+              guidance_document_text: guidance document
+              guidance_document_url: https://www.crowncommercial.gov.uk/ppg_training/course/en/assets/6239a39d57a6700a058bb61d/file.pdf
+              heading: What do I need to do?
+              paragraphs:
+                paragraph_1: Please go to Create Account on the CCS website and enter your personal details and organisation information. You will be informed if your organisation is registered and will be prompted to request access from your lead administrator, who will receive a notification of your request and approve, as appropriate.
+                paragraph_2_html: If your organisation is not registered you will be offered the opportunity to become the lead administrator for your organisation and can register or alternatively you can discuss and nominate another colleague. Before you register as the administrator it is worth spending a few minutes to read the %{guidance_document} of what an administrator involves.
+                paragraph_3: Every organisation must have an administrator to register for the Public Procurement Gateway before individuals can create an account and access Contract Award Service.
+            section_5:
+              email_link: info@crowncommercial.gov.uk
+              heading: Find out more
+              paragraphs:
+                paragraph_1_html: We will be holding a number of customer events to talk through the new digital service. If you have any questions about Public Procurement Gateway or Contract Award Service, email %{email_link}.
         management_consultancy_lots:
           service_lines: Service lines
       passwords:
