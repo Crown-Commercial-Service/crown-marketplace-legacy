@@ -91,14 +91,14 @@ gem 'sprockets-bumble_d', '>= 2.2.0'
 gem 'ratonvirus', '>= 0.1.1'
 gem 'ratonvirus-clamby', '>= 0.1.0'
 # for active storage validation
-gem 'active_storage_validations', '>= 0.9.7'
+gem 'active_storage_validations', '>= 0.9.8'
 
 # asset sync
 gem 'asset_sync'
-gem 'fog-aws', '>= 3.13.0'
+gem 'fog-aws', '>= 3.14.0'
 
 # Reuired for the ST import
-gem 'capybara', '>= 3.36.0'
+gem 'capybara', '>= 3.37.1'
 
 # for date layout
 gem 'gov_uk_date_fields', '>= 4.2.0'
@@ -111,13 +111,13 @@ group :development, :test do
   gem 'launchy', '>= 2.5.0'
   gem 'pry-rails'
   gem 'rails-controller-testing', '>= 1.0.5'
-  gem 'rspec-rails', '>= 5.1.1'
+  gem 'rspec-rails', '>= 5.1.2'
   gem 'shoulda-matchers', '>= 4.2.0'
   gem 'rubocop'
   gem 'rubocop-rspec'
   gem 'rubocop-rails', require: false
-  gem 'rubyXL', '>= 3.4.22'
-  gem 'i18n-tasks', '>= 1.0.9'
+  gem 'rubyXL', '>= 3.4.23'
+  gem 'i18n-tasks', '>= 1.0.10'
   gem 'poltergeist', '>= 1.18.1'
   gem 'wdm', '>= 0.1.0', platforms: %i[x64_mingw]
   gem 'tzinfo-data', platforms: %i[x64_mingw]
