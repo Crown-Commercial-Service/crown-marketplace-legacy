@@ -1,14 +1,18 @@
 class ApplicationController < ActionController::Base
+  class UnrecognisedFrameworkError < StandardError; end
+
   before_action :configure_permitted_parameters, if: :devise_controller?
   protect_from_forgery with: :exception
   before_action :authenticate_user!, :validate_service
 
   rescue_from CanCan::AccessDenied do
-    redirect_to not_permitted_path(service: request.path_parameters[:controller].split('/').first)
+    redirect_to not_permitted_path
   end
 
-  rescue_from ActionController::UnknownFormat, ActionView::MissingTemplate do
-    raise ActionController::RoutingError, 'Not Found'
+  if Rails.env.production?
+    rescue_from ActionController::UnknownFormat, ActionView::MissingTemplate do
+      raise ActionController::RoutingError, 'Not Found'
+    end
   end
 
   def gateway_url
@@ -26,9 +30,9 @@ class ApplicationController < ActionController::Base
     when 'supply_teachers'
       st_gateway_path
     when 'management_consultancy'
-      request.headers['REQUEST_PATH']&.include?('/management-consultancy/admin') ? management_consultancy_admin_new_user_session_path : management_consultancy_new_user_session_path
+      request.path&.include?('admin') ? management_consultancy_rm6187_admin_new_user_session_path : management_consultancy_rm6187_new_user_session_path
     else
-      request.headers['REQUEST_PATH']&.include?('/legal-services/admin') ? legal_services_admin_new_user_session_path : legal_services_new_user_session_path
+      request.path&.include?('admin') ? legal_services_rm3788_admin_new_user_session_path : legal_services_rm3788_new_user_session_path
     end
   end
 
@@ -41,6 +45,23 @@ class ApplicationController < ActionController::Base
     TransientSessionInfo[session.id] = JSON.parse(params['current_choices']) if params['current_choices']
     TransientSessionInfo[session.id] = JSON.parse(flash['current_choices']) if flash['current_choices'] && params['current_choices'].nil?
   end
+
+  def service_path_base
+    @service_path_base ||= begin
+      service_path_base = ['']
+
+      service = params[:service] || 'supply_teachers'
+      service_name = service.split('/').first
+
+      service_path_base << service_name.gsub('_', '-')
+      service_path_base << (params[:framework] || Framework.send(service_name).current_framework)
+      service_path_base << 'admin' if service.include?('admin')
+
+      service_path_base.join('/')
+    end
+  end
+
+  helper_method :service_path_base
 
   protected
 
@@ -63,11 +84,15 @@ class ApplicationController < ActionController::Base
   end
 
   def st_gateway_path
-    if request.headers['REQUEST_PATH']&.include?('/supply-teachers/admin')
-      supply_teachers_admin_user_session_url
+    if request.path&.include?('admin')
+      supply_teachers_rm3826_admin_user_session_url
     else
-      supply_teachers_gateway_url
+      supply_teachers_rm3826_gateway_url
     end
+  end
+
+  def not_permitted_path
+    "#{service_path_base}/not-permitted"
   end
 
   def validate_service

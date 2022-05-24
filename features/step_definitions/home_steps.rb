@@ -39,13 +39,31 @@ Then('I choose to {string} cookies') do |option|
 end
 
 Then('I should see the following navigation links:') do |navigation_links|
-  home_page.navigation_links.zip(navigation_links.raw.flatten).each do |actual, expected|
+  home_page.navigation.links.zip(navigation_links.raw.flatten).each do |actual, expected|
     expect(actual).to have_content expected
   end
 end
 
+Then('the header navigation links {string} visible') do |option|
+  case option
+  when 'are'
+    expect(home_page.navigation).to be_visible
+  when 'are not'
+    expect(home_page.navigation).to_not be_visible
+  end
+end
+
 Given('I go to the not permitted page for {string}') do |service|
-  visit not_permitted_path(service: service.gsub(' ', '_'))
+  service_and_framework_path = case service
+                               when 'management consultancy'
+                                 "/management-consultancy/#{Framework.management_consultancy.current_framework}"
+                               when 'legal services'
+                                 "/legal-services/#{Framework.legal_services.current_framework}"
+                               else
+                                 "/supply-teachers/#{Framework.supply_teachers.current_framework}"
+                               end
+
+  visit "#{service_and_framework_path}/not-permitted"
 end
 
 Given('I enter {string} for my email') do |email|

@@ -79,3 +79,6 @@ Cucumber::Rails::Database.javascript_strategy = :transaction
 Capybara.ignore_hidden_elements = false
 
 Capybara.javascript_driver = :selenium_headless
+
+# For the supply teachers tests
+Geocoder.configure(lookup: :test)

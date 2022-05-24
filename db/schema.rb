@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_03_090547) do
+ActiveRecord::Schema.define(version: 2022_05_09_084611) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -37,7 +37,15 @@ ActiveRecord::Schema.define(version: 2021_09_03_090547) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "legal_services_admin_uploads", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+  create_table "frameworks", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "service", limit: 25
+    t.string "framework", limit: 6
+    t.date "live_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "legal_services_rm3788_admin_uploads", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "aasm_state", limit: 30
     t.string "supplier_details_file", limit: 255
     t.string "supplier_lot_1_service_offerings_file", limit: 255
@@ -50,27 +58,27 @@ ActiveRecord::Schema.define(version: 2021_09_03_090547) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "legal_services_regional_availabilities", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.uuid "legal_services_supplier_id", null: false
+  create_table "legal_services_rm3788_regional_availabilities", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "legal_services_rm3788_supplier_id", null: false
     t.text "region_code", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "service_code"
-    t.index ["legal_services_supplier_id"], name: "index_ls_regional_availabilities_on_ls_supplier_id"
-    t.index ["service_code", "region_code", "legal_services_supplier_id"], name: "index_service_on_region_and_ls_supplier_id", unique: true
+    t.index ["legal_services_rm3788_supplier_id"], name: "index_ls_rm3788_regional_availabilities_on_ls_supplier_id"
+    t.index ["service_code", "region_code", "legal_services_rm3788_supplier_id"], name: "index_service_on_region_and_ls_rm3788_supplier_id", unique: true
   end
 
-  create_table "legal_services_service_offerings", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.uuid "legal_services_supplier_id", null: false
+  create_table "legal_services_rm3788_service_offerings", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "legal_services_rm3788_supplier_id", null: false
     t.text "lot_number", null: false
     t.text "service_code", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["legal_services_supplier_id"], name: "index_ls_service_offerings_on_ls_supplier_id"
-    t.index ["service_code", "lot_number", "legal_services_supplier_id"], name: "index_service_on_lot_number_and_ls_supplier_id", unique: true
+    t.index ["legal_services_rm3788_supplier_id"], name: "index_ls_rm3788_service_offerings_on_ls_supplier_id"
+    t.index ["service_code", "lot_number", "legal_services_rm3788_supplier_id"], name: "index_service_on_lot_number_and_ls_rm3788_supplier_id", unique: true
   end
 
-  create_table "legal_services_suppliers", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+  create_table "legal_services_rm3788_suppliers", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.text "name", null: false
     t.text "email"
     t.text "phone_number"
@@ -85,15 +93,15 @@ ActiveRecord::Schema.define(version: 2021_09_03_090547) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.jsonb "rate_cards"
-    t.index ["rate_cards"], name: "index_legal_services_suppliers_on_rate_cards", using: :gin
+    t.index ["rate_cards"], name: "index_ls_rm3788_suppliers_on_rate_cards", using: :gin
   end
 
-  create_table "legal_services_uploads", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+  create_table "legal_services_rm3788_uploads", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "management_consultancy_admin_uploads", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+  create_table "management_consultancy_rm6187_admin_uploads", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "aasm_state", limit: 30
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -103,8 +111,8 @@ ActiveRecord::Schema.define(version: 2021_09_03_090547) do
     t.text "import_errors"
   end
 
-  create_table "management_consultancy_rate_cards", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.uuid "management_consultancy_supplier_id", null: false
+  create_table "management_consultancy_rm6187_rate_cards", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "management_consultancy_rm6187_supplier_id", null: false
     t.string "lot"
     t.integer "junior_rate_in_pence"
     t.integer "standard_rate_in_pence"
@@ -117,20 +125,20 @@ ActiveRecord::Schema.define(version: 2021_09_03_090547) do
     t.string "contact_name"
     t.string "telephone_number"
     t.string "email"
-    t.index ["management_consultancy_supplier_id"], name: "index_management_consultancy_rate_cards_on_supplier_id"
+    t.index ["management_consultancy_rm6187_supplier_id"], name: "index_mc_rm6187_rate_cards_on_supplier_id"
   end
 
-  create_table "management_consultancy_service_offerings", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.uuid "management_consultancy_supplier_id", null: false
+  create_table "management_consultancy_rm6187_service_offerings", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "management_consultancy_rm6187_supplier_id", null: false
     t.text "lot_number", null: false
     t.text "service_code", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["management_consultancy_supplier_id"], name: "index_mc_service_offerings_on_mc_supplier_id"
-    t.index ["service_code", "lot_number", "management_consultancy_supplier_id"], name: "index_service_on_lot_number_and_mc_supplier_id", unique: true
+    t.index ["management_consultancy_rm6187_supplier_id"], name: "index_mc_rm6187_service_offerings_on_mc_supplier_id"
+    t.index ["service_code", "lot_number", "management_consultancy_rm6187_supplier_id"], name: "index_rm6187_service_on_lot_number_and_mc_supplier_id", unique: true
   end
 
-  create_table "management_consultancy_suppliers", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+  create_table "management_consultancy_rm6187_suppliers", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.text "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -143,7 +151,7 @@ ActiveRecord::Schema.define(version: 2021_09_03_090547) do
     t.integer "duns"
   end
 
-  create_table "management_consultancy_uploads", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+  create_table "management_consultancy_rm6187_uploads", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -156,7 +164,7 @@ ActiveRecord::Schema.define(version: 2021_09_03_090547) do
     t.index ["code"], name: "nuts_regions_code_key", unique: true
   end
 
-  create_table "supply_teachers_admin_current_data", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+  create_table "supply_teachers_rm3826_admin_current_data", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "current_accredited_suppliers", limit: 255
     t.string "geographical_data_all_suppliers", limit: 255
     t.string "lot_1_and_lot_2_comparisons", limit: 255
@@ -170,7 +178,7 @@ ActiveRecord::Schema.define(version: 2021_09_03_090547) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "supply_teachers_admin_uploads", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+  create_table "supply_teachers_rm3826_admin_uploads", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "aasm_state", limit: 30
     t.string "current_accredited_suppliers", limit: 255
     t.string "geographical_data_all_suppliers", limit: 255
@@ -184,8 +192,8 @@ ActiveRecord::Schema.define(version: 2021_09_03_090547) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "supply_teachers_branches", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.uuid "supply_teachers_supplier_id", null: false
+  create_table "supply_teachers_rm3826_branches", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "supply_teachers_rm3826_supplier_id", null: false
     t.string "postcode", limit: 8, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -200,12 +208,12 @@ ActiveRecord::Schema.define(version: 2021_09_03_090547) do
     t.string "county"
     t.string "region"
     t.string "slug"
-    t.index ["slug"], name: "index_supply_teachers_branches_on_slug", unique: true
-    t.index ["supply_teachers_supplier_id"], name: "index_supply_teachers_branches_on_supply_teachers_supplier_id"
+    t.index ["slug"], name: "index_st_rm3826_branches_on_slug", unique: true
+    t.index ["supply_teachers_rm3826_supplier_id"], name: "index_st_rm3826_branches_on_st_supplier_id"
   end
 
-  create_table "supply_teachers_rates", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.uuid "supply_teachers_supplier_id", null: false
+  create_table "supply_teachers_rm3826_rates", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "supply_teachers_rm3826_supplier_id", null: false
     t.text "job_type", null: false
     t.float "mark_up"
     t.datetime "created_at", null: false
@@ -213,11 +221,11 @@ ActiveRecord::Schema.define(version: 2021_09_03_090547) do
     t.text "term"
     t.integer "lot_number", default: 1, null: false
     t.money "daily_fee", scale: 2
-    t.index ["lot_number", "term", "job_type", "supply_teachers_supplier_id"], name: "index_lot_number_on_term_and_job_type_and_st_supplier_id", unique: true
-    t.index ["supply_teachers_supplier_id"], name: "index_supply_teachers_rates_on_supply_teachers_supplier_id"
+    t.index ["lot_number", "term", "job_type", "supply_teachers_rm3826_supplier_id"], name: "index_lot_number_on_term_and_job_type_and_st_rm3826_supplier_id", unique: true
+    t.index ["supply_teachers_rm3826_supplier_id"], name: "index_st_rm3826_rates_on_st_supplier_id"
   end
 
-  create_table "supply_teachers_suppliers", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+  create_table "supply_teachers_rm3826_suppliers", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.text "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -229,7 +237,7 @@ ActiveRecord::Schema.define(version: 2021_09_03_090547) do
     t.text "master_vendor_contact_email"
   end
 
-  create_table "supply_teachers_uploads", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+  create_table "supply_teachers_rm3826_uploads", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -251,10 +259,10 @@ ActiveRecord::Schema.define(version: 2021_09_03_090547) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "legal_services_regional_availabilities", "legal_services_suppliers"
-  add_foreign_key "legal_services_service_offerings", "legal_services_suppliers"
-  add_foreign_key "management_consultancy_rate_cards", "management_consultancy_suppliers"
-  add_foreign_key "management_consultancy_service_offerings", "management_consultancy_suppliers"
-  add_foreign_key "supply_teachers_branches", "supply_teachers_suppliers"
-  add_foreign_key "supply_teachers_rates", "supply_teachers_suppliers"
+  add_foreign_key "legal_services_rm3788_regional_availabilities", "legal_services_rm3788_suppliers"
+  add_foreign_key "legal_services_rm3788_service_offerings", "legal_services_rm3788_suppliers"
+  add_foreign_key "management_consultancy_rm6187_rate_cards", "management_consultancy_rm6187_suppliers"
+  add_foreign_key "management_consultancy_rm6187_service_offerings", "management_consultancy_rm6187_suppliers"
+  add_foreign_key "supply_teachers_rm3826_branches", "supply_teachers_rm3826_suppliers"
+  add_foreign_key "supply_teachers_rm3826_rates", "supply_teachers_rm3826_suppliers"
 end
