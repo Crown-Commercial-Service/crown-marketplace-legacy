@@ -8,6 +8,8 @@ RSpec.describe LegalServices::RM3788::Admin::SessionsController, type: :controll
   describe 'GET new' do
     before { get :new }
 
+    render_views
+
     it 'renders the new page' do
       expect(response).to render_template(:new)
     end

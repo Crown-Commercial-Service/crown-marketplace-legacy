@@ -6,6 +6,8 @@ RSpec.describe SupplyTeachers::RM3826::PasswordsController, type: :controller do
   describe 'GET new' do
     before { get :new }
 
+    render_views
+
     it 'renders the new page' do
       expect(response).to render_template(:new)
     end
@@ -50,6 +52,8 @@ RSpec.describe SupplyTeachers::RM3826::PasswordsController, type: :controller do
       cookies[:crown_marketplace_reset_email] = 'test@email.com'
       get :edit
     end
+
+    render_views
 
     it 'renders the edit page' do
       expect(response).to render_template(:edit)
@@ -98,6 +102,8 @@ RSpec.describe SupplyTeachers::RM3826::PasswordsController, type: :controller do
 
   describe 'GET password_reset_success' do
     before { get :password_reset_success }
+
+    render_views
 
     it 'renders the password_reset_success page' do
       expect(response).to render_template(:password_reset_success)
