@@ -6,6 +6,8 @@ RSpec.describe LegalServices::RM3788::UsersController, type: :controller do
   describe 'GET confirm_new' do
     before { get :confirm_new }
 
+    render_views
+
     it 'renders the confirm_new page' do
       expect(response).to render_template(:confirm_new)
     end
