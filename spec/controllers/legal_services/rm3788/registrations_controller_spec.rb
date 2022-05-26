@@ -8,6 +8,8 @@ RSpec.describe LegalServices::RM3788::RegistrationsController, type: :controller
   describe 'GET new' do
     before { get :new }
 
+    render_views
+
     it 'renders the new page' do
       expect(response).to render_template(:new)
     end
@@ -61,6 +63,8 @@ RSpec.describe LegalServices::RM3788::RegistrationsController, type: :controller
 
   describe 'GET domain_not_on_safelist' do
     before { get :domain_not_on_safelist }
+
+    render_views
 
     it 'renders the new page' do
       expect(response).to render_template(:domain_not_on_safelist)
