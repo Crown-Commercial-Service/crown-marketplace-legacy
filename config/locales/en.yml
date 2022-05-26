@@ -97,7 +97,7 @@ en:
     title_odt_html: <abbr title="OpenDocument Format">ODT</abbr>
     title_xlsx_html: <abbr title="Microsoft Excel">XLSX</abbr>
     type_doc: application/msword
-    type_odt: application/vnd.oasis.opendocum
+    type_odt: application/vnd.oasis.opendocument.text
     type_xlsx: application/msexcel
     type_zip: application/zip
   companies:
