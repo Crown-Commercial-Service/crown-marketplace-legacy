@@ -33,7 +33,7 @@ Given('I sign in and navigate to the start page for the {string} framework in {s
     visit "/legal-services/#{framework}/sign-in"
   when 'management consultancy'
     create_buyer_user('mc')
-    start_page_title = 'Improvements to Crown Commercial Service digital solutions'
+    start_page_title = 'Select the lot you need'
     visit "/management-consultancy/#{framework}/sign-in"
   when 'supply teachers'
     create_buyer_user('st')

@@ -17,4 +17,4 @@ Feature: Management Consultancy - Start pages
     When I click on 'Start now'
     Then I am on the 'Sign in to your management consultancy buyer account' page
     Then I should sign in as an 'mc' buyer
-    Then I am on the 'Improvements to Crown Commercial Service digital solutions' page
+    Then I am on the 'Select the lot you need' page

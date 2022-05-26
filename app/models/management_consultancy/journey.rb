@@ -26,7 +26,7 @@ module ManagementConsultancy
     end
 
     FIRST_STEP_CLASS = {
-      'RM6187' => ManagementConsultancy::RM6187::Journey::Improvements
+      'RM6187' => ManagementConsultancy::RM6187::Journey::ChooseLot
     }.freeze
   end
 end
