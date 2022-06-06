@@ -15,10 +15,10 @@ Feature: Supply Teachers - Agency results - Fixed term - Results by length
 
   @pipeline
   Scenario Outline: Changing the length of the contract changes the result values only
-    And I enter 'today' for the date
+    And I enter '06/05/2022' for the date
     And I click on 'Continue'
     Then I am on the 'What date do you want the employee to stop working?' page
-    And I enter a date <years> years and <months> months into the future
+    And I enter '<date>' for the date
     And I click on 'Continue'
     Then I am on the "What would the employee's annual salary be?" page
     And I enter '28000' for the 'salary'
@@ -45,13 +45,13 @@ Feature: Supply Teachers - Agency results - Fixed term - Results by length
       | Search distance: 25 miles       |
 
     Examples:
-      | years | months  | number_of_months  | agency_1_rate | agency_2_rate | agency_3_rate | agency_4_rate | agency_5_rate | agency_6_rate | agency_7_rate | agency_8_rate |
-      | 0     | 0       | 0                 | £0.00         | £0.00         | £0.00         | £0.00         | £0.00         | £0.00         | £0.00         | £0.00         |
-      | 0     | 2       | 2                 | £620.67       | £779.33       | £812.00       | £1,022.00     | £1,110.67     | £1,269.33     | £1,320.67     | £1,353.33     |
-      | 0     | 4       | 4                 | £1,241.33     | £1,558.67     | £1,624.00     | £2,044.00     | £2,221.33     | £2,538.67     | £2,641.33     | £2,706.67     |
-      | 0     | 9       | 9                 | £2,793.00     | £3,507.00     | £3,654.00     | £4,599.00     | £4,998.00     | £5,712.00     | £5,943.00     | £6,090.00     |
-      | 1     | 0       | 12                | £3,724.00     | £4,676.00     | £4,872.00     | £6,132.00     | £6,664.00     | £7,616.00     | £7,924.00     | £8,120.00     |
-      | 2     | 3       | 27                | £3,724.00     | £4,676.00     | £4,872.00     | £6,132.00     | £6,664.00     | £7,616.00     | £7,924.00     | £8,120.00     |
+      | date        | number_of_months  | agency_1_rate | agency_2_rate | agency_3_rate | agency_4_rate | agency_5_rate | agency_6_rate | agency_7_rate | agency_8_rate |
+      | 06/05/2022  | 0                 | £0.00         | £0.00         | £0.00         | £0.00         | £0.00         | £0.00         | £0.00         | £0.00         |
+      | 06/07/2022  | 2                 | £620.67       | £779.33       | £812.00       | £1,022.00     | £1,110.67     | £1,269.33     | £1,320.67     | £1,353.33     |
+      | 06/09/2022  | 4                 | £1,241.33     | £1,558.67     | £1,624.00     | £2,044.00     | £2,221.33     | £2,538.67     | £2,641.33     | £2,706.67     |
+      | 06/02/2023  | 9                 | £2,793.00     | £3,507.00     | £3,654.00     | £4,599.00     | £4,998.00     | £5,712.00     | £5,943.00     | £6,090.00     |
+      | 06/05/2023  | 12                | £3,724.00     | £4,676.00     | £4,872.00     | £6,132.00     | £6,664.00     | £7,616.00     | £7,924.00     | £8,120.00     |
+      | 06/08/2024  | 27                | £3,724.00     | £4,676.00     | £4,872.00     | £6,132.00     | £6,664.00     | £7,616.00     | £7,924.00     | £8,120.00     |
 
   Scenario Outline: Half months are shown correctly
     And I enter '01/01/2022' for the date
