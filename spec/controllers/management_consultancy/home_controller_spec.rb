@@ -12,10 +12,11 @@ RSpec.describe ManagementConsultancy::HomeController, type: :controller do
 
   describe 'GET index' do
     context 'when the framework is not the current framework' do
-      it 'redirects to the framework path' do
+      it 'renders the unrecognised framework page with the right http status' do
         get :index, params: { framework: 'RM6232' }
 
-        expect(response).to redirect_to management_consultancy_path
+        expect(response).to render_template('management_consultancy/home/unrecognised_framework')
+        expect(response).to have_http_status(:bad_request)
       end
     end
 

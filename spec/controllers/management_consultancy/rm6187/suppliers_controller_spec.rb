@@ -50,8 +50,9 @@ RSpec.describe ManagementConsultancy::RM6187::SuppliersController, type: :contro
       context 'when the framework is not the current framework' do
         let(:framework) { 'RM6232' }
 
-        it 'redirects to the framework path' do
-          expect(response).to redirect_to management_consultancy_path
+        it 'renders the unrecognised framework page with the right http status' do
+          expect(response).to render_template('management_consultancy/home/unrecognised_framework')
+          expect(response).to have_http_status(:bad_request)
         end
       end
     end
@@ -94,8 +95,9 @@ RSpec.describe ManagementConsultancy::RM6187::SuppliersController, type: :contro
       context 'when the framework is not the current framework' do
         let(:framework) { 'RM6232' }
 
-        it 'redirects to the framework path' do
-          expect(response).to redirect_to management_consultancy_path
+        it 'renders the unrecognised framework page with the right http status' do
+          expect(response).to render_template('management_consultancy/home/unrecognised_framework')
+          expect(response).to have_http_status(:bad_request)
         end
       end
     end
@@ -121,8 +123,9 @@ RSpec.describe ManagementConsultancy::RM6187::SuppliersController, type: :contro
       context 'when the framework is not the current framework' do
         let(:framework) { 'RM6232' }
 
-        it 'redirects to the framework path' do
-          expect(response).to redirect_to management_consultancy_path
+        it 'renders the unrecognised framework page with the right http status' do
+          expect(response).to render_template('management_consultancy/home/unrecognised_framework')
+          expect(response).to have_http_status(:bad_request)
         end
       end
     end
@@ -141,8 +144,9 @@ RSpec.describe ManagementConsultancy::RM6187::SuppliersController, type: :contro
       context 'when the framework is not the current framework' do
         let(:framework) { 'RM6232' }
 
-        it 'redirects to the framework path' do
-          expect(response).to redirect_to management_consultancy_path
+        it 'renders the unrecognised framework page with the right http status' do
+          expect(response).to render_template('management_consultancy/home/unrecognised_framework')
+          expect(response).to have_http_status(:bad_request)
         end
       end
     end

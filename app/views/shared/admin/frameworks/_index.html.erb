@@ -27,6 +27,7 @@
         <tr class="govuk-table__row">
           <th scope="col" class="govuk-table__header"><%= t('.framework') %></th>
           <th scope="col" class="govuk-table__header"><%= t('.live_at') %></th>
+          <th scope="col" class="govuk-table__header"><%= t('.expires_at') %></th>
           <th scope="col" class="govuk-table__header"><%= t('.status') %></th>
           <td class="govuk-table__header"></td>
         </tr>
@@ -36,6 +37,7 @@
           <tr class="govuk-table__row">
             <th scope="row" class="govuk-table__header"><%= framework.framework %></th>
             <td class="govuk-table__cell"><%= format_date(framework.live_at) %></td>
+            <td class="govuk-table__cell"><%= format_date(framework.expires_at) %></td>
             <td class="govuk-table__cell">
               <% case framework.status %>
               <% when :live %>
