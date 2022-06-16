@@ -65,8 +65,9 @@ RSpec.describe LegalServices::RM3788::SuppliersController, type: :controller do
       context 'when the framework is not the current framework' do
         let(:framework) { 'RM6240' }
 
-        it 'redirects to the framework path' do
-          expect(response).to redirect_to legal_services_path
+        it 'renders the unrecognised framework page with the right http status' do
+          expect(response).to render_template('legal_services/home/unrecognised_framework')
+          expect(response).to have_http_status(:bad_request)
         end
       end
     end
@@ -96,8 +97,9 @@ RSpec.describe LegalServices::RM3788::SuppliersController, type: :controller do
     context 'when the framework is not the current framework' do
       let(:framework) { 'RM6240' }
 
-      it 'redirects to the framework path' do
-        expect(response).to redirect_to legal_services_path
+      it 'renders the unrecognised framework page with the right http status' do
+        expect(response).to render_template('legal_services/home/unrecognised_framework')
+        expect(response).to have_http_status(:bad_request)
       end
     end
   end
@@ -117,8 +119,9 @@ RSpec.describe LegalServices::RM3788::SuppliersController, type: :controller do
       context 'when the framework is not the current framework' do
         let(:framework) { 'RM6240' }
 
-        it 'redirects to the framework path' do
-          expect(response).to redirect_to legal_services_path
+        it 'renders the unrecognised framework page with the right http status' do
+          expect(response).to render_template('legal_services/home/unrecognised_framework')
+          expect(response).to have_http_status(:bad_request)
         end
       end
     end

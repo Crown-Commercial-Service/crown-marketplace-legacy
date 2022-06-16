@@ -1,5 +1,6 @@
 require 'rails_helper'
 
+# rubocop:disable RSpec/NestedGroups
 RSpec.describe Framework, type: :model do
   describe '.frameworks' do
     context 'when no scope is provided' do
@@ -40,6 +41,20 @@ RSpec.describe Framework, type: :model do
           expect(described_class.supply_teachers.live_frameworks).to eq %w[RM3826]
         end
       end
+
+      context 'and RM3826 framework expires today' do
+        include_context 'and RM3826 has expired'
+
+        it 'returns RM6187, RM3788 and RM6240' do
+          expect(described_class.live_frameworks).to eq %w[RM6187 RM3788 RM6240]
+        end
+
+        context 'and the supply_teachers scope is provided' do
+          it 'returns an empty array' do
+            expect(described_class.supply_teachers.live_frameworks).to eq %w[]
+          end
+        end
+      end
     end
 
     context 'when RM6240 goes live tomorrow' do
@@ -52,6 +67,20 @@ RSpec.describe Framework, type: :model do
       context 'and the legal_services scope is provided' do
         it 'returns RM3788' do
           expect(described_class.legal_services.live_frameworks).to eq %w[RM3788]
+        end
+      end
+
+      context 'and RM3788 framework expires today' do
+        include_context 'and RM3788 has expired'
+
+        it 'returns RM3826, RM6238 and RM6187' do
+          expect(described_class.live_frameworks).to eq %w[RM3826 RM6238 RM6187]
+        end
+
+        context 'and the legal_services scope is provided' do
+          it 'returns an empty array' do
+            expect(described_class.legal_services.live_frameworks).to eq %w[]
+          end
         end
       end
     end
@@ -68,6 +97,20 @@ RSpec.describe Framework, type: :model do
           expect(described_class.supply_teachers.live_frameworks).to eq %w[RM3826 RM6238]
         end
       end
+
+      context 'and RM3826 framework expires today' do
+        include_context 'and RM3826 has expired'
+
+        it 'returns RM6238, RM6187, RM6240 and RM3788' do
+          expect(described_class.live_frameworks).to eq %w[RM6187 RM3788 RM6240 RM6238]
+        end
+
+        context 'and the supply_teachers scope is provided' do
+          it 'returns RM6238' do
+            expect(described_class.supply_teachers.live_frameworks).to eq %w[RM6238]
+          end
+        end
+      end
     end
 
     context 'when RM6240 is live today' do
@@ -82,6 +125,20 @@ RSpec.describe Framework, type: :model do
           expect(described_class.legal_services.live_frameworks).to eq %w[RM3788 RM6240]
         end
       end
+
+      context 'and RM3788 framework expires today' do
+        include_context 'and RM3788 has expired'
+
+        it 'returns RM3826, RM6238, RM6187 and RM6240' do
+          expect(described_class.live_frameworks).to eq %w[RM3826 RM6238 RM6187 RM6240]
+        end
+
+        context 'and the legal_services scope is provided' do
+          it 'returns RM6240' do
+            expect(described_class.legal_services.live_frameworks).to eq %w[RM6240]
+          end
+        end
+      end
     end
 
     context 'when RM6238 went live yesterday' do
@@ -92,6 +149,20 @@ RSpec.describe Framework, type: :model do
       context 'and the supply_teachers scope is provided' do
         it 'returns RM3826 and RM6238' do
           expect(described_class.supply_teachers.live_frameworks).to eq %w[RM3826 RM6238]
+        end
+      end
+
+      context 'and RM3826 framework expires today' do
+        include_context 'and RM3826 has expired'
+
+        it 'returns RM6238, RM6187, RM3788 and RM6240' do
+          expect(described_class.live_frameworks).to eq %w[RM6238 RM6187 RM3788 RM6240]
+        end
+
+        context 'and the supply_teachers scope is provided' do
+          it 'returns RM6238' do
+            expect(described_class.supply_teachers.live_frameworks).to eq %w[RM6238]
+          end
         end
       end
     end
@@ -106,6 +177,20 @@ RSpec.describe Framework, type: :model do
           expect(described_class.legal_services.live_frameworks).to eq %w[RM3788 RM6240]
         end
       end
+
+      context 'and RM3788 framework expires today' do
+        include_context 'and RM3788 has expired'
+
+        it 'returns RM3826, RM6238, RM6187 and RM6240' do
+          expect(described_class.live_frameworks).to eq %w[RM3826 RM6238 RM6187 RM6240]
+        end
+
+        context 'and the legal_services scope is provided' do
+          it 'returns RM6240' do
+            expect(described_class.legal_services.live_frameworks).to eq %w[RM6240]
+          end
+        end
+      end
     end
   end
 
@@ -117,6 +202,14 @@ RSpec.describe Framework, type: :model do
         it 'returns RM3826' do
           expect(described_class.supply_teachers.current_framework).to eq 'RM3826'
         end
+
+        context 'and RM3826 framework expires today' do
+          include_context 'and RM3826 has expired'
+
+          it 'returns nil' do
+            expect(described_class.supply_teachers.current_framework).to be nil
+          end
+        end
       end
 
       context 'when RM6238 is live today' do
@@ -125,11 +218,27 @@ RSpec.describe Framework, type: :model do
         it 'returns RM6238' do
           expect(described_class.supply_teachers.current_framework).to eq 'RM6238'
         end
+
+        context 'and RM3826 framework expires today' do
+          include_context 'and RM3826 has expired'
+
+          it 'returns RM6238' do
+            expect(described_class.supply_teachers.current_framework).to eq 'RM6238'
+          end
+        end
       end
 
       context 'when RM6238 went live yesterday' do
         it 'returns RM6238' do
           expect(described_class.supply_teachers.current_framework).to eq 'RM6238'
+        end
+
+        context 'and RM3826 framework expires today' do
+          include_context 'and RM3826 has expired'
+
+          it 'returns RM6238' do
+            expect(described_class.supply_teachers.current_framework).to eq 'RM6238'
+          end
         end
       end
     end
@@ -147,6 +256,14 @@ RSpec.describe Framework, type: :model do
         it 'returns RM3788' do
           expect(described_class.legal_services.current_framework).to eq 'RM3788'
         end
+
+        context 'and RM3788 framework expires today' do
+          include_context 'and RM3788 has expired'
+
+          it 'returns nil' do
+            expect(described_class.legal_services.current_framework).to be nil
+          end
+        end
       end
 
       context 'when RM6240 is live today' do
@@ -155,20 +272,35 @@ RSpec.describe Framework, type: :model do
         it 'returns RM6240' do
           expect(described_class.legal_services.current_framework).to eq 'RM6240'
         end
+
+        context 'and RM3788 framework expires today' do
+          include_context 'and RM3788 has expired'
+
+          it 'returns RM6240' do
+            expect(described_class.legal_services.current_framework).to eq 'RM6240'
+          end
+        end
       end
 
       context 'when RM6240 went live yesterday' do
         it 'returns RM6240' do
           expect(described_class.legal_services.current_framework).to eq 'RM6240'
         end
+
+        context 'and RM3788 framework expires today' do
+          include_context 'and RM3788 has expired'
+
+          it 'returns RM6240' do
+            expect(described_class.legal_services.current_framework).to eq 'RM6240'
+          end
+        end
       end
     end
   end
 
-  # rubocop:disable RSpec/NestedGroups
-  describe '.current_live_framework?' do
+  describe '.live_framework?' do
     context 'when the supply_teachers scope is provided' do
-      let(:result) { described_class.supply_teachers.current_live_framework?(framework) }
+      let(:result) { described_class.supply_teachers.live_framework?(framework) }
 
       context 'when the framework passed is RM3826' do
         let(:framework) { 'RM3826' }
@@ -179,19 +311,43 @@ RSpec.describe Framework, type: :model do
           it 'returns true' do
             expect(result).to be true
           end
+
+          context 'and RM3826 framework expires today' do
+            include_context 'and RM3826 has expired'
+
+            it 'returns false' do
+              expect(result).to be false
+            end
+          end
         end
 
         context 'when RM6238 is live today' do
           include_context 'and RM6238 is live today'
 
-          it 'returns false' do
-            expect(result).to be false
+          it 'returns true' do
+            expect(result).to be true
+          end
+
+          context 'and RM3826 framework expires today' do
+            include_context 'and RM3826 has expired'
+
+            it 'returns false' do
+              expect(result).to be false
+            end
           end
         end
 
         context 'and RM6238 went live yesterday' do
-          it 'returns false' do
-            expect(result).to be false
+          it 'returns true' do
+            expect(result).to be true
+          end
+
+          context 'and RM3826 framework expires today' do
+            include_context 'and RM3826 has expired'
+
+            it 'returns false' do
+              expect(result).to be false
+            end
           end
         end
       end
@@ -205,6 +361,14 @@ RSpec.describe Framework, type: :model do
           it 'returns false' do
             expect(result).to be false
           end
+
+          context 'and RM3826 framework expires today' do
+            include_context 'and RM3826 has expired'
+
+            it 'returns false' do
+              expect(result).to be false
+            end
+          end
         end
 
         context 'when RM6238 is live today' do
@@ -213,11 +377,27 @@ RSpec.describe Framework, type: :model do
           it 'returns true' do
             expect(result).to be true
           end
+
+          context 'and RM3826 framework expires today' do
+            include_context 'and RM3826 has expired'
+
+            it 'returns true' do
+              expect(result).to be true
+            end
+          end
         end
 
         context 'and RM6238 went live yesterday' do
           it 'returns true' do
             expect(result).to be true
+          end
+
+          context 'and RM3826 framework expires today' do
+            include_context 'and RM3826 has expired'
+
+            it 'returns true' do
+              expect(result).to be true
+            end
           end
         end
       end
@@ -234,19 +414,19 @@ RSpec.describe Framework, type: :model do
     context 'when the management_consultancy scope is provided' do
       context 'when the framework is RM6187' do
         it 'returns true' do
-          expect(described_class.management_consultancy.current_live_framework?('RM6187')).to be true
+          expect(described_class.management_consultancy.live_framework?('RM6187')).to be true
         end
       end
 
       context 'when the framework is not RM6187' do
         it 'returns false' do
-          expect(described_class.management_consultancy.current_live_framework?('RM3788')).to be false
+          expect(described_class.management_consultancy.live_framework?('RM3788')).to be false
         end
       end
     end
 
     context 'when the legal_services scope is provided' do
-      let(:result) { described_class.legal_services.current_live_framework?(framework) }
+      let(:result) { described_class.legal_services.live_framework?(framework) }
 
       context 'when the framework passed is RM3788' do
         let(:framework) { 'RM3788' }
@@ -257,19 +437,43 @@ RSpec.describe Framework, type: :model do
           it 'returns true' do
             expect(result).to be true
           end
+
+          context 'and RM3788 framework expires today' do
+            include_context 'and RM3788 has expired'
+
+            it 'returns false' do
+              expect(result).to be false
+            end
+          end
         end
 
         context 'when RM6240 is live today' do
           include_context 'and RM6240 is live today'
 
-          it 'returns false' do
-            expect(result).to be false
+          it 'returns true' do
+            expect(result).to be true
+          end
+
+          context 'and RM3788 framework expires today' do
+            include_context 'and RM3788 has expired'
+
+            it 'returns false' do
+              expect(result).to be false
+            end
           end
         end
 
         context 'and RM6240 went live yesterday' do
-          it 'returns false' do
-            expect(result).to be false
+          it 'returns true' do
+            expect(result).to be true
+          end
+
+          context 'and RM3788 framework expires today' do
+            include_context 'and RM3788 has expired'
+
+            it 'returns false' do
+              expect(result).to be false
+            end
           end
         end
       end
@@ -283,6 +487,14 @@ RSpec.describe Framework, type: :model do
           it 'returns false' do
             expect(result).to be false
           end
+
+          context 'and RM3788 framework expires today' do
+            include_context 'and RM3788 has expired'
+
+            it 'returns false' do
+              expect(result).to be false
+            end
+          end
         end
 
         context 'when RM6240 is live today' do
@@ -291,11 +503,27 @@ RSpec.describe Framework, type: :model do
           it 'returns true' do
             expect(result).to be true
           end
+
+          context 'and RM3788 framework expires today' do
+            include_context 'and RM3788 has expired'
+
+            it 'returns true' do
+              expect(result).to be true
+            end
+          end
         end
 
         context 'and RM6240 went live yesterday' do
           it 'returns true' do
             expect(result).to be true
+          end
+
+          context 'and RM3788 framework expires today' do
+            include_context 'and RM3788 has expired'
+
+            it 'returns true' do
+              expect(result).to be true
+            end
           end
         end
       end
@@ -324,6 +552,14 @@ RSpec.describe Framework, type: :model do
             it 'returns live' do
               expect(result).to eq :live
             end
+
+            context 'and RM3826 framework expires today' do
+              include_context 'and RM3826 has expired'
+
+              it 'returns expired' do
+                expect(result).to eq :expired
+              end
+            end
           end
 
           context 'and the frameworks is RM6238' do
@@ -331,6 +567,14 @@ RSpec.describe Framework, type: :model do
 
             it 'returns coming' do
               expect(result).to eq :coming
+            end
+
+            context 'and RM3826 framework expires today' do
+              include_context 'and RM3826 has expired'
+
+              it 'returns coming' do
+                expect(result).to eq :coming
+              end
             end
           end
         end
@@ -341,8 +585,16 @@ RSpec.describe Framework, type: :model do
           context 'and the frameworks is RM3826' do
             let(:framework) { 'RM3826' }
 
-            it 'returns expired' do
-              expect(result).to eq :expired
+            it 'returns live' do
+              expect(result).to eq :live
+            end
+
+            context 'and RM3826 framework expires today' do
+              include_context 'and RM3826 has expired'
+
+              it 'returns expired' do
+                expect(result).to eq :expired
+              end
             end
           end
 
@@ -351,6 +603,14 @@ RSpec.describe Framework, type: :model do
 
             it 'returns live' do
               expect(result).to eq :live
+            end
+
+            context 'and RM3826 framework expires today' do
+              include_context 'and RM3826 has expired'
+
+              it 'returns live' do
+                expect(result).to eq :live
+              end
             end
           end
         end
@@ -359,8 +619,16 @@ RSpec.describe Framework, type: :model do
           context 'and the frameworks is RM3826' do
             let(:framework) { 'RM3826' }
 
-            it 'returns expired' do
-              expect(result).to eq :expired
+            it 'returns live' do
+              expect(result).to eq :live
+            end
+
+            context 'and RM3826 framework expires today' do
+              include_context 'and RM3826 has expired'
+
+              it 'returns expired' do
+                expect(result).to eq :expired
+              end
             end
           end
 
@@ -369,6 +637,14 @@ RSpec.describe Framework, type: :model do
 
             it 'returns live' do
               expect(result).to eq :live
+            end
+
+            context 'and RM3826 framework expires today' do
+              include_context 'and RM3826 has expired'
+
+              it 'returns live' do
+                expect(result).to eq :live
+              end
             end
           end
         end
@@ -394,6 +670,14 @@ RSpec.describe Framework, type: :model do
             it 'returns live' do
               expect(result).to eq :live
             end
+
+            context 'and RM3788 framework expires today' do
+              include_context 'and RM3788 has expired'
+
+              it 'returns expired' do
+                expect(result).to eq :expired
+              end
+            end
           end
 
           context 'and the frameworks is RM6240' do
@@ -401,6 +685,14 @@ RSpec.describe Framework, type: :model do
 
             it 'returns coming' do
               expect(result).to eq :coming
+            end
+
+            context 'and RM3788 framework expires today' do
+              include_context 'and RM3788 has expired'
+
+              it 'returns expired' do
+                expect(result).to eq :coming
+              end
             end
           end
         end
@@ -411,8 +703,16 @@ RSpec.describe Framework, type: :model do
           context 'and the frameworks is RM3788' do
             let(:framework) { 'RM3788' }
 
-            it 'returns expired' do
-              expect(result).to eq :expired
+            it 'returns live' do
+              expect(result).to eq :live
+            end
+
+            context 'and RM3788 framework expires today' do
+              include_context 'and RM3788 has expired'
+
+              it 'returns expired' do
+                expect(result).to eq :expired
+              end
             end
           end
 
@@ -421,6 +721,14 @@ RSpec.describe Framework, type: :model do
 
             it 'returns live' do
               expect(result).to eq :live
+            end
+
+            context 'and RM3788 framework expires today' do
+              include_context 'and RM3788 has expired'
+
+              it 'returns live' do
+                expect(result).to eq :live
+              end
             end
           end
         end
@@ -429,8 +737,16 @@ RSpec.describe Framework, type: :model do
           context 'and the frameworks is RM3788' do
             let(:framework) { 'RM3788' }
 
-            it 'returns expired' do
-              expect(result).to eq :expired
+            it 'returns live' do
+              expect(result).to eq :live
+            end
+
+            context 'and RM3788 framework expires today' do
+              include_context 'and RM3788 has expired'
+
+              it 'returns expired' do
+                expect(result).to eq :expired
+              end
             end
           end
 
@@ -440,12 +756,19 @@ RSpec.describe Framework, type: :model do
             it 'returns live' do
               expect(result).to eq :live
             end
+
+            context 'and RM3788 framework expires today' do
+              include_context 'and RM3788 has expired'
+
+              it 'returns live' do
+                expect(result).to eq :live
+              end
+            end
           end
         end
       end
     end
   end
-  # rubocop:enable RSpec/NestedGroups
 
   describe 'validating the live at date' do
     let(:framework) { create(:legacy_framework) }
@@ -506,4 +829,96 @@ RSpec.describe Framework, type: :model do
       end
     end
   end
+
+  describe 'validating the expires at date' do
+    let(:framework) { create(:legacy_framework) }
+    let(:expires_at) { Time.zone.now + 2.years }
+    let(:expires_at_yyyy) { expires_at.year.to_s }
+    let(:expires_at_mm) { expires_at.month.to_s }
+    let(:expires_at_dd) { expires_at.day.to_s }
+
+    before do
+      framework.expires_at_yyyy = expires_at_yyyy
+      framework.expires_at_mm = expires_at_mm
+      framework.expires_at_dd = expires_at_dd
+    end
+
+    context 'when considering expires_at_yyyy and it is nil' do
+      let(:expires_at_yyyy) { nil }
+
+      it 'is not valid and has the correct error message' do
+        expect(framework.valid?(:update)).to eq false
+        expect(framework.errors[:expires_at].first).to eq 'Enter a valid \'expires at\' date'
+      end
+    end
+
+    context 'when considering expires_at_mm and it is blank' do
+      let(:expires_at_mm) { '' }
+
+      it 'is not valid and has the correct error message' do
+        expect(framework.valid?(:update)).to eq false
+        expect(framework.errors[:expires_at].first).to eq 'Enter a valid \'expires at\' date'
+      end
+    end
+
+    context 'when considering expires_at_dd and it is empty' do
+      let(:expires_at_dd) { '    ' }
+
+      it 'is not valid and has the correct error message' do
+        expect(framework.valid?(:update)).to eq false
+        expect(framework.errors[:expires_at].first).to eq 'Enter a valid \'expires at\' date'
+      end
+    end
+
+    context 'when considering the full expires_at' do
+      context 'and it is not a real date' do
+        let(:expires_at_yyyy) { expires_at.year.to_s }
+        let(:expires_at_mm) { '2' }
+        let(:expires_at_dd) { '30' }
+
+        it 'is not valid and has the correct error message' do
+          expect(framework.valid?(:update)).to eq false
+          expect(framework.errors[:expires_at].first).to eq 'Enter a valid \'expires at\' date'
+        end
+      end
+
+      context 'and it is a real date' do
+        it 'is valid' do
+          expect(framework.valid?(:update)).to eq true
+        end
+      end
+    end
+  end
+
+  describe 'validating the expires at date is after the live at date' do
+    let(:framework) { create(:legacy_framework, live_at: today, expires_at: expires_at) }
+    let(:today) { Time.zone.today }
+
+    context 'when the expires at date is in the future' do
+      let(:expires_at) { today + 1.year }
+
+      it 'is valid' do
+        expect(framework.valid?(:update)).to eq true
+      end
+    end
+
+    context 'when the expires at date is the same as the live at date' do
+      let(:expires_at) { today }
+
+      it 'is not valid and has the correct error message' do
+        expect(framework.valid?(:update)).to eq false
+        expect(framework.errors[:expires_at].first).to eq "The 'expires at' date must be after the 'live at' date"
+      end
+    end
+
+    context 'when the expires at date is before the live at date' do
+      let(:expires_at) { today - 2.days }
+
+      it 'is not valid and has the correct error message' do
+        expect(framework.valid?(:update)).to eq false
+        expect(framework.errors[:expires_at].first).to eq "The 'expires at' date must be after the 'live at' date"
+      end
+    end
+  end
 end
+# rubocop:enable RSpec/NestedGroups

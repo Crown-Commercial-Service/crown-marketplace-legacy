@@ -32,6 +32,9 @@ module Admin::FrameworksConcern
             :live_at_dd,
             :live_at_mm,
             :live_at_yyyy,
+            :expires_at_dd,
+            :expires_at_mm,
+            :expires_at_yyyy,
           )
   end
 end
