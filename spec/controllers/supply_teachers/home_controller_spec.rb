@@ -24,10 +24,11 @@ RSpec.describe SupplyTeachers::HomeController, type: :controller do
   describe 'GET index' do
     context 'when RM6238 is live' do
       context 'and the framework is not RM3826 or RM6238' do
-        it 'redirects to the framework path' do
+        it 'renders the unrecognised framework page with the right http status' do
           get :index, params: { framework: 'RM6187' }
 
-          expect(response).to redirect_to supply_teachers_path
+          expect(response).to render_template('supply_teachers/home/unrecognised_framework')
+          expect(response).to have_http_status(:bad_request)
         end
       end
 
@@ -42,11 +43,24 @@ RSpec.describe SupplyTeachers::HomeController, type: :controller do
       end
 
       context 'and the framework is RM3826' do
-        it 'redirects to the framework path' do
-          get :index, params: { framework: 'RM3826' }
-
-          expect(response).to redirect_to supply_teachers_path
+        it 'raises the MissingExactTemplate error' do
+          expect do
+            get :index, params: { framework: 'RM3826' }
+          end.to raise_error(ActionController::MissingExactTemplate)
         end
+
+        # rubocop:disable RSpec/NestedGroups
+        context 'and RM3826 framework expires today' do
+          include_context 'and RM3826 has expired'
+
+          it 'renders the unrecognised framework page with the right http status' do
+            get :index, params: { framework: 'RM3826' }
+
+            expect(response).to render_template('supply_teachers/home/unrecognised_framework')
+            expect(response).to have_http_status(:bad_request)
+          end
+        end
+        # rubocop:enable RSpec/NestedGroups
       end
     end
 
@@ -54,18 +68,20 @@ RSpec.describe SupplyTeachers::HomeController, type: :controller do
       include_context 'and RM6238 is live in the future'
 
       context 'and the framework is not RM3826 or RM6238' do
-        it 'redirects to the framework path' do
+        it 'renders the unrecognised framework page with the right http status' do
           get :index, params: { framework: 'RM6187' }
 
-          expect(response).to redirect_to supply_teachers_path
+          expect(response).to render_template('supply_teachers/home/unrecognised_framework')
+          expect(response).to have_http_status(:bad_request)
         end
       end
 
       context 'and the framework is RM6238' do
-        it 'redirects to the framework path' do
+        it 'renders the unrecognised framework page with the right http status' do
           get :index, params: { framework: 'RM6238' }
 
-          expect(response).to redirect_to supply_teachers_path
+          expect(response).to render_template('supply_teachers/home/unrecognised_framework')
+          expect(response).to have_http_status(:bad_request)
         end
       end
 
