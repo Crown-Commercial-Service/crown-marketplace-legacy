@@ -70,6 +70,10 @@ en:
       models:
         framework:
           attributes:
+            expires_at:
+              blank: Enter a valid 'expires at' date
+              not_a_date: Enter a valid 'expires at' date
+              not_after_live_at_date: The 'expires at' date must be after the 'live at' date
             live_at:
               blank: Enter a valid 'live at' date
               not_a_date: Enter a valid 'live at' date
@@ -97,7 +101,7 @@ en:
     title_odt_html: <abbr title="OpenDocument Format">ODT</abbr>
     title_xlsx_html: <abbr title="Microsoft Excel">XLSX</abbr>
     type_doc: application/msword
-    type_odt: application/vnd.oasis.opendocum
+    type_odt: application/vnd.oasis.opendocument.text
     type_xlsx: application/msexcel
     type_zip: application/zip
   companies:
@@ -436,9 +440,4 @@ en:
     unit:
       one: agency
       other: agencies
-  views:
-    pagination:
-      next: Next <b>→</b>
-      previous: "<b>←</b> Previous"
-      truncate: "..."
   'yes': 'Yes'

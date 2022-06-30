@@ -2,7 +2,14 @@ module SupplyTeachers
   class FrameworkController < ::ApplicationController
     before_action :authenticate_user!
     before_action :authorize_user
-    before_action :redirect_if_not_live_framework
+    before_action :raise_if_not_live_framework
+
+    rescue_from UnrecognisedLiveFrameworkError do
+      @unrecognised_framework = params[:framework]
+      params[:framework] = Framework.supply_teachers.current_framework
+
+      render 'supply_teachers/home/unrecognised_framework', status: :bad_request
+    end
 
     protected
 
@@ -10,8 +17,8 @@ module SupplyTeachers
       authorize! :read, SupplyTeachers
     end
 
-    def redirect_if_not_live_framework
-      redirect_to supply_teachers_path unless Framework.supply_teachers.current_live_framework?(params[:framework])
+    def raise_if_not_live_framework
+      raise UnrecognisedLiveFrameworkError, 'Unrecognised Live Framework' unless Framework.supply_teachers.live_framework?(params[:framework])
     end
   end
 end

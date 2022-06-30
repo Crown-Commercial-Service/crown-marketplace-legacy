@@ -7,6 +7,4 @@
     per_page:      number of items to fetch per page
     remote:        data-remote
 -%>
-<li>
-  <%= link_to page, url, {remote: remote, rel: page.rel, aria: {current: ("true" if page.current?)}} %>
-</li>
+<%= govuk_pagination_item({ number: page, href: url, current: page.current? }) %>

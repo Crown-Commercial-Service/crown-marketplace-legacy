@@ -39,7 +39,7 @@ gem 'caxlsx_rails', '>= 0.6.3'
 gem 'phonejack'
 gem 'holidays'
 gem 'virtus'
-gem 'jquery-rails', '~> 4.4.0'
+gem 'jquery-rails', '~> 4.5.0'
 
 gem 'rollbar', '~> 3.3.0'
 
@@ -55,7 +55,7 @@ gem 'json-jwt', '>= 1.11.0'
 # for authentication
 gem 'devise', '~> 4.8.1'
 # for cognito
-gem 'aws-sdk-cognitoidentityprovider', '~> 1.65.0'
+gem 'aws-sdk-cognitoidentityprovider', '~> 1.67.0'
 
 # for pagination
 gem 'kaminari', '~> 1.2.2'

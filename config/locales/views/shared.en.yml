@@ -4,15 +4,18 @@ en:
     admin:
       frameworks:
         edit:
-          buyer_section_visible: The buyer section for this framework will be visible if the 'live at' date is today (%{current_date}) or earlier.
+          expires_at_date: Framework 'expires at' date for %{framework}
+          expires_at_hint: The buyer section for this framework will not be visible if the date today (%{current_date}) is on or after the 'expires at' date.
+          live_at_date: Framework 'live at' date for %{framework}
+          live_at_hint: The buyer section for this framework will be visible if the 'live at' date is today (%{current_date}) or earlier.
           page_title: Framework 'live at' date
           return_to_frameworks: Return to %{service_name} frameworks
           save_and_return: Save and return
-          update_live_at_date: Update framework 'live at' date for %{framework}
         index:
           change: Change
           coming: coming
           expired: Expired
+          expires_at: Expires at
           framework: Framework
           if_the_framework: If the framework 'live at' date is before the current date (%{current_date}), the buyer section for this framework will be accessible to our customers.
           live: live

@@ -22,10 +22,11 @@ RSpec.describe SupplyTeachers::RM3826::BranchesController, type: :controller do
 
       let(:framework) { 'RM6238' }
 
-      it 'redirects to the framework path' do
+      it 'renders the unrecognised framework page with the right http status' do
         get :index
 
-        expect(response).to redirect_to supply_teachers_path
+        expect(response).to render_template('supply_teachers/home/unrecognised_framework')
+        expect(response).to have_http_status(:bad_request)
       end
     end
 
