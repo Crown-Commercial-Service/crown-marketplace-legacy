@@ -1,7 +1,9 @@
 name: "Ruby on Rails CI"
+
 on:
   - push
   - pull_request
+
 jobs:
   unit-test:
     runs-on: ubuntu-18.04
@@ -36,7 +38,7 @@ jobs:
       - name: Compile assets
         run: bin/rails assets:precompile
 
-      - name: Run tests
+      - name: Run unit tests
         run: bin/rake
 
       - name: publish code coverage
@@ -61,6 +63,7 @@ jobs:
     env:
       RAILS_ENV: test
       DATABASE_URL: "postgis://rails:password@localhost:5432/rails_test"
+      CUCUMBER_FORMAT: progress
 
     steps:
       - name: Setup Gecko driver
@@ -85,3 +88,8 @@ jobs:
 
       - name: Run feature tests
         run: bin/rails cucumber:pipeline
+        if: github.event.pull_request.base.ref != 'preview' && github.event.pull_request.base.ref != 'production'
+
+      - name: Run all feature tests
+        run: bin/rails cucumber:ok
+        if: github.event.pull_request.base.ref == 'preview' || github.event.pull_request.base.ref == 'production'
