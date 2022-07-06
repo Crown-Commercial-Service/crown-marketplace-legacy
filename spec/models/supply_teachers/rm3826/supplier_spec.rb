@@ -81,7 +81,7 @@ RSpec.describe SupplyTeachers::RM3826::Supplier, type: :model do
 
     let!(:supplier_with_direct_provision_rate) do
       create(:supply_teachers_rm3826_supplier).tap do |supplier|
-        create(:direct_provision_rate, supplier: supplier)
+        create(:rm3826_direct_provision_rate, supplier: supplier)
       end
     end
 
@@ -133,7 +133,7 @@ RSpec.describe SupplyTeachers::RM3826::Supplier, type: :model do
 
     let!(:supplier_with_direct_provision_rate) do
       create(:supply_teachers_rm3826_supplier).tap do |supplier|
-        create(:direct_provision_rate, supplier: supplier)
+        create(:rm3826_direct_provision_rate, supplier: supplier)
       end
     end
 
