@@ -3,7 +3,7 @@ module SupplyTeachers
     class Rate < ApplicationRecord
       belongs_to :supplier,
                  foreign_key: :supply_teachers_rm3826_supplier_id,
-                 inverse_of: :branches
+                 inverse_of: :rates
 
       validates :lot_number, presence: true,
                              uniqueness: { scope: %i[supplier term job_type] },
