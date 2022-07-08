@@ -33,7 +33,6 @@ class Ability
 
     return unless user.has_role? :st_access
 
-    can :manage, SupplyTeachers::RM3826::Admin::Upload
-    can :manage, SupplyTeachers::RM6238::Admin::Upload
+    can :manage, SupplyTeachers::Admin
   end
 end
