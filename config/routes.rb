@@ -123,6 +123,14 @@ Rails.application.routes.draw do
       end
     end
 
+    namespace 'rm6238', path: 'RM6238', defaults: { framework: 'RM6238' } do
+      namespace :admin, defaults: { service: 'supply_teachers/admin' } do
+        get '/', to: 'uploads#index'
+        resources :uploads, only: %i[index new create show destroy update]
+        concerns :admin_shared_pages
+      end
+    end
+
     get '/:framework', to: 'home#index', as: 'index'
     get '/:framework/admin', to: 'admin/home#index', defaults: { service: 'supply_teachers/admin' }, as: 'admin_index'
     get '/:framework/start', to: 'journey#start', as: 'journey_start'
