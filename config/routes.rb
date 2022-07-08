@@ -81,6 +81,7 @@ Rails.application.routes.draw do
     get '/accessibility-statement', to: 'home#accessibility_statement'
     get '/cookie-policy', to: 'home#cookie_policy'
     get '/cookie-settings', to: 'home#cookie_settings'
+    put '/cookie-settings', to: 'home#update_cookie_settings'
   end
 
   concern :admin_shared_pages do
@@ -88,6 +89,7 @@ Rails.application.routes.draw do
     get '/accessibility-statement', to: 'uploads#accessibility_statement'
     get '/cookie-policy', to: 'uploads#cookie_policy'
     get '/cookie-settings', to: 'uploads#cookie_settings'
+    put '/cookie-settings', to: 'uploads#update_cookie_settings'
   end
 
   concern :framework do
