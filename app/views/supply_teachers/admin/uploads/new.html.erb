@@ -1,0 +1,47 @@
+<%= content_for :page_title, t('.heading') %>
+
+<%= render partial: 'shared/error_summary', locals: { errors: @upload.errors } %>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <span class="govuk-caption-l">
+      <%= t('.caption') %>
+    </span>
+    <h1 class="govuk-heading-xl">
+      <%= t('.heading') %>
+    </h1>
+    
+    <%= warning_text(warning_details(@uploads_in_progress)) if @uploads_in_progress.any? %>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <%= form_with model: @upload, url: index_path, method: :post, local: 'false', html: { specialvalidation: true, novalidate: true } do |f| %>
+      <fieldset class="govuk-fieldset">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+          <h2 class="govuk-fieldset__heading">
+            <%= t('.upload_title') %>
+          </h2>
+        </legend>
+        <div class="govuk-hint">
+          <%= t('.upload_caption') %>
+        </div>
+        <% service::Upload::ATTRIBUTES.each do |file| %>
+          <%= govuk_form_group_with_optional_error(f.object, file) do %>
+            <%= f.label file, class: 'govuk-label' %>
+            <div class="govuk-hint">
+              <%= expected_file_type(file) %>
+            </div>
+            <%= display_error f.object, file %>
+            <%= f.file_field file, class: "govuk-file-upload #{ 'govuk-file-upload--error' if f.object.errors[file] }" %>
+          <% end %>
+        <% end %>
+      </fieldset>
+      <%= f.submit t('.upload_button'), class: 'govuk-button' %>
+      <p>
+        <%= link_to t('.return'), index_path, class: 'govuk-link govuk-link--no-visited-state' %> 
+      </p>
+    <% end %>
+  </div>
+</div>
