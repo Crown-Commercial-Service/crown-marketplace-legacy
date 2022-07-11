@@ -23,11 +23,12 @@ class ActiveStorage::BlobsController < ActiveStorage::BaseController
 
     raise ActionController::RoutingError, 'not found' if object.blank?
 
-    authorize! :view, object if object.present?
+    authorize! :read, object if object.present?
   end
 
   KEY_TO_MODEL = {
-    st_upload_id: SupplyTeachers::RM3826::Admin::Upload,
+    st_rm3826_upload_id: SupplyTeachers::RM3826::Admin::Upload,
+    st_rm6238_upload_id: SupplyTeachers::RM6238::Admin::Upload,
     mc_upload_id: ManagementConsultancy::RM6187::Admin::Upload,
     ls_upload_id: LegalServices::RM3788::Admin::Upload
   }.freeze

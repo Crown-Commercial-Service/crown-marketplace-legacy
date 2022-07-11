@@ -25,7 +25,7 @@ RSpec.describe SupplyTeachers::RM6238::TenureType, type: :model do
 
   describe '.[]' do
     it 'looks up rate term description by code' do
-      expect(described_class['6_weeks_plus']).to eq('Long Term (6 weeks+)')
+      expect(described_class['six_weeks_plus']).to eq('Long Term (6 weeks+)')
     end
   end
 

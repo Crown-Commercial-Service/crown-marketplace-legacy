@@ -113,11 +113,11 @@ RSpec.describe SupplyTeachers::RM6238::Admin::UploadsController, type: :controll
       let(:upload_params) { { geographical_data_all_suppliers: fake_file } }
       let(:new_upload) { SupplyTeachers::RM6238::Admin::Upload.first }
 
-      pending 'redirects to the show page' do
+      it 'redirects to the show page' do
         expect(response).to redirect_to supply_teachers_rm6238_admin_upload_path(new_upload)
       end
 
-      pending 'changes the state to processing_files' do
+      it 'changes the state to processing_files' do
         expect(new_upload.processing_files?).to be true
       end
     end
@@ -125,7 +125,7 @@ RSpec.describe SupplyTeachers::RM6238::Admin::UploadsController, type: :controll
     context 'when the upload is invalid' do
       let(:upload_params) { {} }
 
-      pending 'renders the new page' do
+      it 'renders the new page' do
         expect(response).to render_template(:new)
       end
     end
@@ -167,11 +167,11 @@ RSpec.describe SupplyTeachers::RM6238::Admin::UploadsController, type: :controll
     context 'when the upload is approved' do
       let(:update_params) { { approve: 'Publish to live service' } }
 
-      pending 'redirects to the show page' do
+      it 'redirects to the show page' do
         expect(response).to redirect_to supply_teachers_rm6238_admin_upload_path(upload)
       end
 
-      pending 'changes the state to uploading' do
+      it 'changes the state to uploading' do
         expect(upload).to have_state(:uploading)
       end
     end
@@ -179,11 +179,11 @@ RSpec.describe SupplyTeachers::RM6238::Admin::UploadsController, type: :controll
     context 'when the upload is rejected' do
       let(:update_params) { { reject: 'Cancel session' } }
 
-      pending 'redirects to the show page' do
+      it 'redirects to the show page' do
         expect(response).to redirect_to supply_teachers_rm6238_admin_upload_path(upload)
       end
 
-      pending 'changes the state to rejected' do
+      it 'changes the state to rejected' do
         expect(upload).to have_state(:rejected)
       end
     end
@@ -191,11 +191,11 @@ RSpec.describe SupplyTeachers::RM6238::Admin::UploadsController, type: :controll
     context 'when the upload is neither approved or rejected' do
       let(:update_params) { {} }
 
-      pending 'redirects to the show page' do
+      it 'redirects to the show page' do
         expect(response).to redirect_to supply_teachers_rm6238_admin_upload_path(upload)
       end
 
-      pending 'does not change the state' do
+      it 'does not change the state' do
         expect(upload).to have_state(:files_processed)
       end
     end

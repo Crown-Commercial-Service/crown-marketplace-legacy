@@ -120,11 +120,11 @@ RSpec.describe SupplyTeachers::RM6238::Admin::Upload, type: :model do
         upload.start_upload!
       end
 
-      pending 'changes the state to processing_files' do
+      it 'changes the state to processing_files' do
         expect(upload).to have_state(:processing_files)
       end
 
-      pending 'starts the worker' do
+      it 'starts the worker' do
         expect(SupplyTeachers::RM6238::Admin::DataImportWorker).to have_received(:perform_async).with(upload.id)
       end
     end
@@ -146,11 +146,11 @@ RSpec.describe SupplyTeachers::RM6238::Admin::Upload, type: :model do
         upload.approve!
       end
 
-      pending 'changes the state to uploading' do
+      it 'changes the state to uploading' do
         expect(upload).to have_state(:uploading)
       end
 
-      pending 'starts the worker' do
+      it 'starts the worker' do
         expect(SupplyTeachers::RM6238::Admin::DataUploadWorker).to have_received(:perform_async).with(upload.id)
       end
     end
