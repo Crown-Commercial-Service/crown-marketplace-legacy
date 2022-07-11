@@ -185,15 +185,15 @@ RSpec.describe SupplyTeachers::RM6238::Supplier, type: :model do
     let!(:rate_teacher_daily) do
       create(managed_service_provider, supplier: supplier, job_type: 'teacher', tenure_type: 'daily')
     end
-    let!(:rate_teacher_6_weeks_plus) do
-      create(managed_service_provider, supplier: supplier, job_type: 'teacher', tenure_type: '6_weeks_plus')
+    let!(:rate_teacher_six_weeks_plus) do
+      create(managed_service_provider, supplier: supplier, job_type: 'teacher', tenure_type: 'six_weeks_plus')
     end
 
     let!(:rate_senior_daily) do
       create(managed_service_provider, supplier: supplier, job_type: 'senior', tenure_type: 'daily')
     end
-    let!(:rate_senior_6_weeks_plus) do
-      create(managed_service_provider, supplier: supplier, job_type: 'senior', tenure_type: '6_weeks_plus')
+    let!(:rate_senior_six_weeks_plus) do
+      create(managed_service_provider, supplier: supplier, job_type: 'senior', tenure_type: 'six_weeks_plus')
     end
 
     let(:job_types_vs_rates) { supplier.master_vendor_rates_grouped_by_job_type(threshold_position) }
@@ -205,11 +205,11 @@ RSpec.describe SupplyTeachers::RM6238::Supplier, type: :model do
       it 'returns rates grouped by job type' do
         expect(job_types_vs_rates['teacher']).to include(
           rate_teacher_daily,
-          rate_teacher_6_weeks_plus
+          rate_teacher_six_weeks_plus
         )
         expect(job_types_vs_rates['senior']).to include(
           rate_senior_daily,
-          rate_senior_6_weeks_plus
+          rate_senior_six_weeks_plus
         )
       end
     end
@@ -221,11 +221,11 @@ RSpec.describe SupplyTeachers::RM6238::Supplier, type: :model do
       it 'returns rates grouped by job type' do
         expect(job_types_vs_rates['teacher']).to include(
           rate_teacher_daily,
-          rate_teacher_6_weeks_plus
+          rate_teacher_six_weeks_plus
         )
         expect(job_types_vs_rates['senior']).to include(
           rate_senior_daily,
-          rate_senior_6_weeks_plus
+          rate_senior_six_weeks_plus
         )
       end
     end
@@ -237,11 +237,11 @@ RSpec.describe SupplyTeachers::RM6238::Supplier, type: :model do
       it 'returns rates grouped by job type' do
         expect(job_types_vs_rates['teacher']).to include(
           rate_teacher_daily,
-          rate_teacher_6_weeks_plus
+          rate_teacher_six_weeks_plus
         )
         expect(job_types_vs_rates['senior']).to include(
           rate_senior_daily,
-          rate_senior_6_weeks_plus
+          rate_senior_six_weeks_plus
         )
       end
     end
@@ -252,9 +252,9 @@ RSpec.describe SupplyTeachers::RM6238::Supplier, type: :model do
 
     before do
       create(:supply_teachers_rm6238_rate, supplier: supplier, job_type: 'teacher', tenure_type: 'daily', rate: 1234)
-      create(:supply_teachers_rm6238_rate, supplier: supplier, job_type: 'teacher', tenure_type: '6_weeks_plus', rate: 2345)
+      create(:supply_teachers_rm6238_rate, supplier: supplier, job_type: 'teacher', tenure_type: 'six_weeks_plus', rate: 2345)
       create(:supply_teachers_rm6238_rate, supplier: supplier, job_type: 'senior', tenure_type: 'daily', rate: 3456)
-      create(:supply_teachers_rm6238_rate, supplier: supplier, job_type: 'senior', tenure_type: '6_weeks_plus', rate: 4567)
+      create(:supply_teachers_rm6238_rate, supplier: supplier, job_type: 'senior', tenure_type: 'six_weeks_plus', rate: 4567)
       create(:supply_teachers_rm6238_master_vendor_below_threshold_rate, supplier: supplier, job_type: 'senior', tenure_type: 'daily', rate: 5678)
     end
 
@@ -269,8 +269,8 @@ RSpec.describe SupplyTeachers::RM6238::Supplier, type: :model do
         end
       end
 
-      context 'and the tenure_type is 6_weeks_plus' do
-        let(:tenure_type) { '6_weeks_plus' }
+      context 'and the tenure_type is six_weeks_plus' do
+        let(:tenure_type) { 'six_weeks_plus' }
 
         it 'returns the correct rate' do
           expect(rate).to eq 23.45
@@ -297,8 +297,8 @@ RSpec.describe SupplyTeachers::RM6238::Supplier, type: :model do
         end
       end
 
-      context 'and the tenure_type is 6_weeks_plus' do
-        let(:tenure_type) { '6_weeks_plus' }
+      context 'and the tenure_type is six_weeks_plus' do
+        let(:tenure_type) { 'six_weeks_plus' }
 
         it 'returns the correct rate' do
           expect(rate).to eq 45.67
@@ -325,8 +325,8 @@ RSpec.describe SupplyTeachers::RM6238::Supplier, type: :model do
         end
       end
 
-      context 'and the tenure_type is 6_weeks_plus' do
-        let(:tenure_type) { '6_weeks_plus' }
+      context 'and the tenure_type is six_weeks_plus' do
+        let(:tenure_type) { 'six_weeks_plus' }
 
         it 'returns nil' do
           expect(rate).to be_nil

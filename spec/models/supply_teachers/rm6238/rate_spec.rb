@@ -62,8 +62,8 @@ RSpec.describe SupplyTeachers::RM6238::Rate, type: :model do
         end
       end
 
-      context 'and the tenure_type is 6_weeks_plus' do
-        let(:tenure_type) { '6_weeks_plus' }
+      context 'and the tenure_type is six_weeks_plus' do
+        let(:tenure_type) { 'six_weeks_plus' }
 
         it 'is valid' do
           expect(rate).to be_valid
@@ -106,8 +106,8 @@ RSpec.describe SupplyTeachers::RM6238::Rate, type: :model do
         end
       end
 
-      context 'and the tenure_type is 6_weeks_plus' do
-        let(:tenure_type) { '6_weeks_plus' }
+      context 'and the tenure_type is six_weeks_plus' do
+        let(:tenure_type) { 'six_weeks_plus' }
 
         it 'is valid' do
           expect(rate).to be_valid
@@ -150,8 +150,8 @@ RSpec.describe SupplyTeachers::RM6238::Rate, type: :model do
         end
       end
 
-      context 'and the tenure_type is 6_weeks_plus' do
-        let(:tenure_type) { '6_weeks_plus' }
+      context 'and the tenure_type is six_weeks_plus' do
+        let(:tenure_type) { 'six_weeks_plus' }
 
         it 'is valid' do
           expect(rate).to be_valid
@@ -194,8 +194,8 @@ RSpec.describe SupplyTeachers::RM6238::Rate, type: :model do
         end
       end
 
-      context 'and the tenure_type is 6_weeks_plus' do
-        let(:tenure_type) { '6_weeks_plus' }
+      context 'and the tenure_type is six_weeks_plus' do
+        let(:tenure_type) { 'six_weeks_plus' }
 
         it 'is valid' do
           expect(rate).to be_valid
@@ -238,8 +238,8 @@ RSpec.describe SupplyTeachers::RM6238::Rate, type: :model do
         end
       end
 
-      context 'and the tenure_type is 6_weeks_plus' do
-        let(:tenure_type) { '6_weeks_plus' }
+      context 'and the tenure_type is six_weeks_plus' do
+        let(:tenure_type) { 'six_weeks_plus' }
 
         it 'is valid' do
           expect(rate).to be_valid
@@ -330,8 +330,8 @@ RSpec.describe SupplyTeachers::RM6238::Rate, type: :model do
         end
       end
 
-      context 'and the tenure_type is 6_weeks_plus' do
-        let(:tenure_type) { '6_weeks_plus' }
+      context 'and the tenure_type is six_weeks_plus' do
+        let(:tenure_type) { 'six_weeks_plus' }
 
         it 'is valid' do
           expect(rate).to be_valid
@@ -472,7 +472,7 @@ RSpec.describe SupplyTeachers::RM6238::Rate, type: :model do
     end
 
     context 'when the tenure_type is different' do
-      let(:tenure_type) { '6_weeks_plus' }
+      let(:tenure_type) { 'six_weeks_plus' }
 
       it 'is valid' do
         expect(new_rate).to be_valid

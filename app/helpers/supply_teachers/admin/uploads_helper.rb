@@ -40,7 +40,7 @@ module SupplyTeachers::Admin::UploadsHelper
   end
 
   def st_file_link(upload, attachment)
-    "#{rails_blob_path(attachment, disposition: 'attachment', key: :st_upload_id, value: upload.id)}&format=#{get_file_extension(attachment)}"
+    "#{rails_blob_path(attachment, disposition: 'attachment', key: "st_#{params[:framework].downcase}_upload_id".to_sym, value: upload.id)}&format=#{get_file_extension(attachment)}"
   end
 
   def expected_file_type(attachment)
