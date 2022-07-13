@@ -1,4 +1,4 @@
-@RM3826 @accessibility @javascript
+@accessibility @javascript
 Feature: Supply Teachers - Master vendors - Accessibility
 
   Scenario: Master vendors page

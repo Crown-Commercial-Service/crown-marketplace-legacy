@@ -1,4 +1,4 @@
-@RM3826 @geocode_liverpool
+@geocode_liverpool
 Feature: Supply Teachers - Agency results - Agency payroll - Results by length
 
   Background: Navigate to the School postcode and worker requirements page

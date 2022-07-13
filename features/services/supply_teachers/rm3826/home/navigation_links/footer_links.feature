@@ -1,4 +1,3 @@
-@RM3826
 Feature: Supply Teachers - Footer links
 
   Background: Navigate to start page

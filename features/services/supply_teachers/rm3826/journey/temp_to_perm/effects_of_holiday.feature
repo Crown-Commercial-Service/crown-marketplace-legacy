@@ -1,4 +1,3 @@
-@RM3826
 Feature: Supply Teachers - Temp to perm - Effects of holiday
 
   Background: Navigate to the temp to perm section

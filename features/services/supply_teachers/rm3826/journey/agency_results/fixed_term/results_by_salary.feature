@@ -1,4 +1,4 @@
-@RM3826 @pipeline @geocode_liverpool
+@pipeline @geocode_liverpool
 Feature: Supply Teachers - Agency results - Fixed term - Results by length
 
   Scenario Outline: Changing the salary of the contract changes the result values only

@@ -9,12 +9,12 @@ module SupplyTeachers
         [
           ['master_vendor_contacts', '2'],
           ['education_technology_platform_contacts', '4']
-        ].each do |managed_service_providor, lot_number|
-          managed_service_providor_contact = data.fetch(managed_service_providor, {})
+        ].each do |managed_service_provider, lot_number|
+          managed_service_provider_contact = data.fetch(managed_service_provider, {})
 
-          next if managed_service_providor_contact.blank?
+          next if managed_service_provider_contact.blank?
 
-          create_managed_service_providor_contacts(s, lot_number, managed_service_providor_contact)
+          create_managed_service_provider_contacts(s, lot_number, managed_service_provider_contact)
         end
 
         rates = data.fetch('pricing', [])
@@ -28,12 +28,12 @@ module SupplyTeachers
         }
       end
 
-      def self.create_managed_service_providor_contacts(supplier, lot_number, managed_service_providor_contacts)
+      def self.create_managed_service_provider_contacts(supplier, lot_number, managed_service_provider_contacts)
         supplier.managed_service_providers.create!(
           lot_number: lot_number,
-          contact_name: managed_service_providor_contacts['name'],
-          telephone_number: managed_service_providor_contacts['telephone'],
-          contact_email: managed_service_providor_contacts['email']
+          contact_name: managed_service_provider_contacts['name'],
+          telephone_number: managed_service_provider_contacts['telephone'],
+          contact_email: managed_service_provider_contacts['email']
         )
       end
 
