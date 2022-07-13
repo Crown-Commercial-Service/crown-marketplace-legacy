@@ -1,4 +1,3 @@
-@RM3826
 Feature: Supply Teachers - Agency results - Nominated worker - Results by location
 
   Background: Navigate to the What is your school’s postcode? page

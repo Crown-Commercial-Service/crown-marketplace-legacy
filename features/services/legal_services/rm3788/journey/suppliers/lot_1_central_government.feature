@@ -1,4 +1,4 @@
-@RM3788 @pipeline
+@pipeline
 Feature: Legal services - Lot 1 - Non central government - Suppliers
 
   Background: Login and then navigate to the supplier results page

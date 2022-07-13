@@ -1,4 +1,4 @@
-@RM3826 @geocode_london
+@geocode_london
 Feature: Supply Teachers - Agency results - Fixed term - Results by length
 
   Background: I navigate to the employee to start date page

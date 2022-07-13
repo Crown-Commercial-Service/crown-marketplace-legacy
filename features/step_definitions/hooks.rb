@@ -1,3 +1,12 @@
+Before do |scenario|
+  %w[rm3826 rm6238 rm6187 rm3788 rm6240].each do |framework|
+    if scenario.location.file.include? framework
+      @framework = framework.upcase
+      break
+    end
+  end
+end
+
 Before('@javascript') do
   @javascript = true
 end
@@ -24,14 +33,6 @@ end
 
 Before('@geocode_birmingham') do
   stub_geocoder('Birmingham')
-end
-
-Before('@RM3788') do
-  open_rm3788_framework
-end
-
-Before('@RM3826') do
-  open_rm3826_framework
 end
 
 After('@geocoder_london or @geocoder_liverpool or @geocode_birmingham') do

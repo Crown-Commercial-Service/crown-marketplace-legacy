@@ -1,4 +1,4 @@
-@RM3788 @javascript @pipeline
+@javascript @pipeline
 Feature: Legal services - Non central governemnt - Lot 2 - Service selection
 
   Background: Navigate to start page and select the lot

@@ -1,4 +1,4 @@
-@RM3788 @javascript @pipeline
+@javascript @pipeline
 Feature: Legal Services - Cookie settings
 
   Background: Go to start page

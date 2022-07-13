@@ -1,4 +1,3 @@
-@RM3826
 Feature: Supply Teachers - Navigation links when signed in
 
   Background: I navigate to the start page

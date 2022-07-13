@@ -117,6 +117,14 @@ en:
           attributes:
             worker_type:
               inclusion: Select yes if you want an agency to supply the worker
+        supply_teachers/rm6238/journey/looking_for:
+          attributes:
+            looking_for:
+              inclusion: Select individual worker, managed service provider, or calculate temp-to-perm fee
+        supply_teachers/rm6238/journey/managed_service_provider:
+          attributes:
+            managed_service_provider:
+              inclusion: Select master vendor or education technology platform service
   activerecord:
     errors:
       models:
@@ -585,4 +593,24 @@ en:
           you_will_need_to_have: 'You will need to have:'
           you_will_need_your_dfe_sign_in_html: your DfE Sign-in email address and password. If you don’t have an account, you can <a href="%{get_dfe_url}">get a DfE Sign-in account</a> if your school is on the <a href="%{get_schools_info_url}">Get Information About Schools (GIAS) register</a>
           your_schools_postcode: your school’s postcode
+      journey:
+        looking_for:
+          answer:
+            all_suppliers: A list of all agencies
+            calculate_fta_to_perm_fee: To work out what fixed-term worker transfer fee I could be charged
+            calculate_temp_to_perm_fee: To calculate the fee my school will be charged if I make an agency worker permanent
+            managed_service_provider: An agency to manage all my school's needs; a 'managed service provider'
+            worker: An agency who can provide my school with an individual worker
+          page_title: What is your school looking for?
+          question: What is your school looking for?
+        managed_service_provider:
+          answer:
+            education_technology_platform: Education technology platform service
+            master_vendor: Master vendor managed service
+          hint:
+            education_technology_platform: DESCRIPTION FOR EDUCATION TECH PLATFORMS
+            master_vendor: These supply whatever candidates they can. Where they don’t have a suitable candidate themselves, they find other agencies who do.
+          page_title: What type of managed service do you want?
+          question: What type of managed service do you want?
+          question_hint: A managed service provider is a company that can manage all your temporary staff needs.
       page_section: Find supply teachers and agency staff

@@ -1,4 +1,4 @@
-@RM3826 @accessibility @javascript
+@accessibility @javascript
 Feature: Supply Teachers - FTA to perm - Accessibility
 
   Background: Login and then navigate to the What date did the workers fixed term contract start? page

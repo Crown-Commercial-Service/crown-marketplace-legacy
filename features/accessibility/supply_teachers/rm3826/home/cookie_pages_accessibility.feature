@@ -1,4 +1,4 @@
-@RM3826 @accessibility @javascript
+@accessibility @javascript
 Feature: Supply Teachers - Cookie pages accessibility
 
   Scenario: Start page with the banner
