@@ -65,7 +65,7 @@ RSpec.describe SupplyTeachers::RM3826::BranchesController, type: :controller do
 
       it 'assigns BranchSearchResults to @branches' do
         expect(assigns(:branches).map(&:class).uniq).to eq(
-          [SupplyTeachers::RM3826::BranchSearchResult]
+          [SupplyTeachers::BranchSearchResult]
         )
       end
 

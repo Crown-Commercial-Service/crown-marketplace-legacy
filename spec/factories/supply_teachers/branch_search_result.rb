@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :supply_teachers_rm3826_branch_search_result, class: 'SupplyTeachers::RM3826::BranchSearchResult' do
+  factory :supply_teachers_branch_search_result, class: 'SupplyTeachers::BranchSearchResult' do
     id { SecureRandom.uuid }
     name { Faker::Name.unique.name }
     supplier_name { Faker::Name.unique.name }
