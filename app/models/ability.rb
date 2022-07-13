@@ -25,10 +25,15 @@ class Ability
 
   def admin_tool_specific_auth(user)
     can :read, :all
+
     if user.has_any_role? :mc_access, :ls_access
       can :manage, ManagementConsultancy::RM6187::Admin::Upload
       can :manage, LegalServices::RM3788::Admin::Upload
     end
-    can :manage, SupplyTeachers::RM3826::Admin::Upload if user.has_role? :st_access
+
+    return unless user.has_role? :st_access
+
+    can :manage, SupplyTeachers::RM3826::Admin::Upload
+    can :manage, SupplyTeachers::RM6238::Admin::Upload
   end
 end

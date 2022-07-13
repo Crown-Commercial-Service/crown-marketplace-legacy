@@ -1,13 +1,19 @@
+<%= content_for :page_title, t('.heading') %>
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
-    <span class="govuk-caption-xl"><%= t('.caption') %></span>
-    <h1 class="govuk-heading-xl"><%= t('.heading') %></h1>
-    <% if flash[:notice] %>
-      <div class="govuk-inset-text cmp-inset-text--success">
-        <p class="govuk-body govuk-body-s"><%= flash[:notice] %></p>
-      </div>
-    <% end %>
+    <span class="govuk-caption-xl">
+      <%= t('.caption') %>
+    </span>
+    <h1 class="govuk-heading-xl">
+      <%= t('.heading') %>
+    </h1>
+
+    <%= link_to t('.create_new'), new_path, class: 'govuk-button' %>
   </div>
+</div>
+
+<div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
     <table class="govuk-table">
       <caption class="govuk-table__caption"><%= t('.current_table_caption') %></caption>
@@ -24,7 +30,11 @@
       </tbody>
     </table>
   </div>
-  <hr class="govuk-section-break govuk-section-break--m">
+</div>
+
+<hr class="govuk-section-break govuk-section-break--m">
+
+<div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
     <table class="govuk-table">
       <caption class="govuk-table__caption"><%= t('.table_caption') %></caption>
@@ -41,7 +51,5 @@
       </tbody>
     </table>
     <%= paginate @uploads, views_prefix: 'shared', window: 0, outer_window: 2 %>
-
-    <%= link_to t('.create_new'), new_supply_teachers_rm3826_admin_upload_path, class: 'govuk-button'  %>
   </div>
 </div>
