@@ -7,7 +7,7 @@ RSpec.describe SupplyTeachers::RM6238::Admin::UploadsController, type: :controll
 
   describe 'GET index' do
     context 'when not logged in' do
-      pending 'redirects to the gateway' do
+      it 'redirects to the gateway' do
         get :index
         expect(response).to redirect_to supply_teachers_rm6238_admin_user_session_url
       end

@@ -93,10 +93,6 @@ module SupplyTeachers
           }
         end
       end
-
-      def authorize_user
-        authorize! :manage, service::Upload
-      end
     end
   end
 end

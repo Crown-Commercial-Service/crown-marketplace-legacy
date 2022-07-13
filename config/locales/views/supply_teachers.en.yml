@@ -278,12 +278,6 @@ en:
         the_recognised_are: 'The Supply Teachers frameworks are:'
     rm3826:
       admin:
-        passwords:
-          forgot_password_confirmation:
-            heading: A reset email has been sent
-            lead: If the email address you've entered belongs to a Crown Commercial Service account, we'll send a link to reset the password.
-            text01: If you don't receive this, email
-            text02_html: <a href="mailto:support@crowncommercial.gov.uk">support@crowncommercial.gov.uk</a>
         sessions:
           new:
             email_hint_html: Enter the email address you used to set up your account.
@@ -534,12 +528,6 @@ en:
           page_title: Do you want an agency to supply the worker?
           question: Do you want an agency to supply the worker?
       page_section: Find supply teachers and agency staff
-      passwords:
-        forgot_password_confirmation:
-          heading: A reset email has been sent
-          lead: If the email address you've entered belongs to a Crown Commercial Service account, we'll send a link to reset the password.
-          text01: If you don't receive this, email
-          text02_html: <a href="mailto:support@crowncommercial.gov.uk">support@crowncommercial.gov.uk</a>
       sessions:
         new:
           email_hint_html: Enter the email address you used to set up your account.
@@ -572,3 +560,8 @@ en:
           mark_up_html: A %{mark_up} mark-up is charged if you use the agency to hire a specific person for you (a ‘nominated worker’).
           one_vendor_found_html: There is only one neutral vendor on this framework.
           page_title: Neutral vendor managed service providers
+    rm6238:
+      admin:
+        sessions:
+          new:
+            email_hint_html: Enter the email address you used to set up your account.
