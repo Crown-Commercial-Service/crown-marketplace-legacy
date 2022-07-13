@@ -41,6 +41,7 @@ Rails.application.routes.draw do
         end
       end
       namespace 'rm6238', path: 'RM6238', defaults: { framework: 'RM6238' } do
+        concerns :authenticatable
         namespace :admin, defaults: { service: 'supply_teachers/admin' } do
           concerns :authenticatable
         end
@@ -99,6 +100,11 @@ Rails.application.routes.draw do
     get '/', to: 'uploads#index'
   end
 
+  concern :gateway do
+    get '/cognito', to: 'gateway#index', cognito_enabled: true
+    get '/gateway', to: 'gateway#index'
+  end
+
   namespace 'supply_teachers', path: 'supply-teachers', defaults: { service: 'supply_teachers' } do
     concerns :framework
 
@@ -107,9 +113,7 @@ Rails.application.routes.draw do
     end
 
     namespace 'rm3826', path: 'RM3826', defaults: { framework: 'RM3826' } do
-      concerns %i[buyer_shared_pages shared_pages]
-      get '/cognito', to: 'gateway#index', cognito_enabled: true
-      get '/gateway', to: 'gateway#index'
+      concerns %i[buyer_shared_pages shared_pages gateway]
       get '/temp-to-perm-fee', to: 'home#temp_to_perm_fee'
       get '/fta-to-perm-fee', to: 'home#fta_to_perm_fee'
       get '/master-vendors', to: 'suppliers#master_vendors', as: 'master_vendors'
@@ -129,6 +133,8 @@ Rails.application.routes.draw do
     end
 
     namespace 'rm6238', path: 'RM6238', defaults: { framework: 'RM6238' } do
+      concerns %i[buyer_shared_pages shared_pages gateway]
+
       namespace :admin, defaults: { service: 'supply_teachers/admin' } do
         get '/', to: 'uploads#index'
         resources :uploads, only: %i[index new create show destroy update]
