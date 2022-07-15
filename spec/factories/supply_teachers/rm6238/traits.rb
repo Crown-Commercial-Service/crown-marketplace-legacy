@@ -3,6 +3,10 @@ FactoryBot.define do
     lot_number { '1' }
   end
 
+  trait :supply_teachers_rm6238_master_vendor do
+    lot_number { '2' }
+  end
+
   trait :supply_teachers_rm6238_master_vendor_below_threshold do
     lot_number { '2.1' }
   end

@@ -1,0 +1,49 @@
+<div class="master-vendor-record">
+  <h2 class="govuk-heading-m"><%= master_vendor.name %></h2>
+
+  <% master_vendor_contact = managed_service_provider_contact(master_vendor, '2')%>
+
+  <% if master_vendor_contact.present? %>
+    <p class="govuk-body">
+      <span class="master-vendor-contact-details__name">
+        <strong><%= master_vendor_contact.contact_name %></strong>
+      </span><br />
+      <span class="master-vendor-contact-details__telephone">
+        <%= format_telephone_number(master_vendor_contact.telephone_number) %>
+      </span><br />
+      <span class="master-vendor-contact-details__email">
+        <%= mail_to(master_vendor_contact.contact_email,
+                   master_vendor_contact.contact_email,
+                   'aria-label': "Email #{master_vendor_contact.contact_name} from #{master_vendor.name}") %>
+      </span>
+    </p>
+  <% end %>
+
+  <table class="govuk-table">
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th class="govuk-table__header" scope="col"><strong><%= t('.column1') %></strong></th>
+        <th class="govuk-table__header govuk-table__header--numeric master-vendor-record__markup-column" scope="col"><strong><%= t('.column2') %><br><%= SupplyTeachers::RM6238::TenureType['daily'] %></strong></th>
+        <th class="govuk-table__header govuk-table__header--numeric master-vendor-record__markup-column" scope="col"><strong><%= t('.column2') %><br><%= SupplyTeachers::RM6238::TenureType['six_weeks_plus'] %></strong></th>
+      </tr>
+    </thead>
+    <tbody class="govuk-table__body">
+      <% master_vendor.master_vendor_rates_grouped_by_job_type(threshold_position).each do |job_type, rates| %>
+        <tr class="govuk-table__row">
+          <th class="govuk-table__header" scope="row"><%= SupplyTeachers::RM6238::JobType[job_type] %></th>
+          <% if rates.length == 1 %>
+            <% rates.each do |rate| %>
+              <% 2.times do %>
+                <%= master_vendor_rate_cell(rate) %>
+              <% end %>
+            <% end %>
+          <% elsif rates.length == 2 %>
+            <% master_vendor_sorted_rates(rates).each do |rate| %>
+              <%= master_vendor_rate_cell(rate) %>
+            <% end %>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -125,6 +125,10 @@ en:
           attributes:
             managed_service_provider:
               inclusion: Select master vendor or education technology platform service
+        supply_teachers/rm6238/journey/master_vendor_options:
+          attributes:
+            threshold_position:
+              inclusion: Select an option
   activerecord:
     errors:
       models:
@@ -613,4 +617,27 @@ en:
           page_title: What type of managed service do you want?
           question: What type of managed service do you want?
           question_hint: A managed service provider is a company that can manage all your temporary staff needs.
+        master_vendor_options:
+          answer:
+            above_threshold: 'Yes'
+            below_threshold: 'No'
+          page_title: Is your contract likely to be worth more than £2.5 million?
+          question: Is your contract likely to be worth more than £2.5 million?
+          question_hint: DESCRIPTION TO EXPLAIN OPTIONS
       page_section: Find supply teachers and agency staff
+      suppliers:
+        master_vendor:
+          column1: Job type
+          column2: Supplier fee
+        master_vendors:
+          do_next:
+            competition_online_html: you can also do this online, <a href="%{esourcing_url}" class="govuk-link--no-visited-state">using CCS’s esourcing tool</a>
+            further_competition_html: run a further competition to select an agency - there is <a href="%{advice_url}" class="govuk-link--no-visited-state">advice from CCS</a> on how to do this -
+            header: What to do next
+            more_help: Contact supplyteachers@crowncommercial.gov.uk if you need more help running a further competition.
+            sign_form_html: select an agency and <a href="%{form_url}" class="govuk-link--no-visited-state">sign the full version order form</a> listed in the documents section of the <a href="%{framework_url}" class="govuk-link--no-visited-state">CCS framework</a> as ‘RM6238 Order form template full version v1.docx’
+          header: Master vendor managed service providers
+          page_title: Master vendor managed service providers
+          threshold_position:
+            above_threshold: Contract worth more than £2.5 million
+            below_threshold: Contract worth less than £2.5 million

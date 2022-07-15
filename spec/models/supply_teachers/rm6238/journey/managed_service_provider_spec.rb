@@ -35,8 +35,8 @@ RSpec.describe SupplyTeachers::RM6238::Journey::ManagedServiceProvider, type: :m
     context 'when managed_service_provider is master_vendor' do
       let(:managed_service_provider) { 'master_vendor' }
 
-      pending 'returns Journey::MasterVendorManagedServiceOptions' do
-        expect(step.next_step_class).to be SupplyTeachers::RM6238::Journey::MasterVendorManagedServiceOptions
+      it 'returns Journey::MasterVendorOptions' do
+        expect(step.next_step_class).to be SupplyTeachers::RM6238::Journey::MasterVendorOptions
       end
     end
 
@@ -74,7 +74,7 @@ RSpec.describe SupplyTeachers::RM6238::Journey::ManagedServiceProvider, type: :m
   end
 
   describe '.final?' do
-    pending 'returns false' do
+    it 'returns false' do
       expect(step.final?).to be false
     end
   end
