@@ -11,7 +11,7 @@ module SupplyTeachers
       def next_step_class
         case managed_service_provider
         when 'master_vendor'
-          # Journey::MasterVendorManagedServiceOptions
+          Journey::MasterVendorOptions
         when 'education_technology_platform'
           # Journey::EducationTechnologyPlatformService
         end

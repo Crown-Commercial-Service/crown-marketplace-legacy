@@ -177,4 +177,42 @@ RSpec.describe ApplicationHelper, type: :helper do
       end
     end
   end
+
+  describe '#format_money' do
+    context 'when no value is passed for precision' do
+      let(:result) { helper.format_money(123456.123456) }
+
+      it 'returns the cost to 2 dp' do
+        expect(result).to eq '£123,456.12'
+      end
+    end
+
+    context 'when a value is passed for precision' do
+      let(:result) { helper.format_money(123456.123456, precision) }
+
+      context 'and that value is 0' do
+        let(:precision) { 0 }
+
+        it 'returns the cost to 0 dp' do
+          expect(result).to eq '£123,456'
+        end
+      end
+
+      context 'and that value is 2' do
+        let(:precision) { 2 }
+
+        it 'returns the cost to 2 dp' do
+          expect(result).to eq '£123,456.12'
+        end
+      end
+
+      context 'and that value is 4' do
+        let(:precision) { 4 }
+
+        it 'returns the cost to 4 dp' do
+          expect(result).to eq '£123,456.1235'
+        end
+      end
+    end
+  end
 end

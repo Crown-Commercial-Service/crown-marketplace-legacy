@@ -134,6 +134,11 @@ Rails.application.routes.draw do
 
     namespace 'rm6238', path: 'RM6238', defaults: { framework: 'RM6238' } do
       concerns %i[buyer_shared_pages shared_pages gateway]
+      resources :suppliers, path: '/', only: %i[] do
+        collection do
+          get '/master-vendors', action: :master_vendors
+        end
+      end
 
       namespace :admin, defaults: { service: 'supply_teachers/admin' } do
         get '/', to: 'uploads#index'

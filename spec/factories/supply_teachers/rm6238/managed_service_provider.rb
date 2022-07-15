@@ -6,12 +6,8 @@ FactoryBot.define do
     contact_email { Faker::Internet.email }
   end
 
-  factory :supply_teachers_rm6238_managed_service_provider_master_vendor_below_threshold, parent: :supply_teachers_rm6238_managed_service_provider do
-    supply_teachers_rm6238_master_vendor_below_threshold
-  end
-
-  factory :supply_teachers_rm6238_managed_service_provider_master_vendor_above_threshold, parent: :supply_teachers_rm6238_managed_service_provider do
-    supply_teachers_rm6238_master_vendor_above_threshold
+  factory :supply_teachers_rm6238_managed_service_provider_master_vendor, parent: :supply_teachers_rm6238_managed_service_provider do
+    supply_teachers_rm6238_master_vendor
   end
 
   factory :supply_teachers_rm6238_managed_service_provider_education_technology_platforms, parent: :supply_teachers_rm6238_managed_service_provider do
