@@ -61,6 +61,8 @@ module Marketplace
 
     config.exceptions_app = routes
 
+    config.active_record.yaml_column_permitted_classes = [Symbol]
+
     # do not add field-with-error div anymore
     ActionView::Base.field_error_proc = proc do |html_tag, _instance|
       html_tag
