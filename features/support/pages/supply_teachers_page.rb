@@ -15,9 +15,9 @@ module Pages
       elements :choices, '.cmp-sidebar > ul > li'
     end
 
-    section :master_vendors, '#main-content' do
+    section :managed_service_providers, '#main-content' do
       element :number_of_agencies, '> div.govuk-grid-row > div > p'
-      elements :agencies, '.master-vendor-record'
+      elements :agencies, '.managed-service-provider-record'
     end
 
     section :all_agencies, '#main-content' do
