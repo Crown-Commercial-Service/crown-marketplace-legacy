@@ -12,6 +12,11 @@ module SupplyTeachers
         @suppliers = Supplier.with_master_vendor_rates(threshold_position)
       end
 
+      def education_technology_platform_vendors
+        @back_path = source_journey.previous_step_path
+        @suppliers = Supplier.with_education_technology_platforms_rates
+      end
+
       private
 
       def threshold_position

@@ -137,6 +137,7 @@ Rails.application.routes.draw do
       resources :suppliers, path: '/', only: %i[] do
         collection do
           get '/master-vendors', action: :master_vendors
+          get '/education-technology-platform-vendors', action: :education_technology_platform_vendors
         end
       end
 

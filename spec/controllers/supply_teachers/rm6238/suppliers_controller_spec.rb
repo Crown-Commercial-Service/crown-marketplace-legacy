@@ -28,7 +28,7 @@ RSpec.describe SupplyTeachers::RM6238::SuppliersController, type: :controller do
       expect(assigns(:suppliers)).to eq(suppliers)
     end
 
-    it 'sets the back path to the managed-service-provider question' do
+    it 'sets the back path to the master-vendor-options question' do
       expected_path = journey_question_path(
         journey: 'supply-teachers',
         slug: 'master-vendor-options',
@@ -46,6 +46,37 @@ RSpec.describe SupplyTeachers::RM6238::SuppliersController, type: :controller do
         expect(response).to render_template('supply_teachers/home/unrecognised_framework')
         expect(response).to have_http_status(:bad_request)
       end
+    end
+  end
+
+  describe 'GET education_technology_platform_vendors' do
+    let(:supplier) { build(:supply_teachers_rm6238_supplier) }
+    let(:suppliers) { [supplier] }
+
+    before do
+      allow(SupplyTeachers::RM6238::Supplier).to receive(:with_education_technology_platforms_rates).and_return(suppliers)
+
+      get :education_technology_platform_vendors, params: {
+        looking_for: 'managed_service_provider', managed_service_provider: 'education_technology_platform'
+      }
+    end
+
+    it 'renders the education_technology_platform_vendors template' do
+      expect(response).to render_template('education_technology_platform_vendors')
+    end
+
+    it 'assigns suppliers with education technology platform vendor rates to suppliers' do
+      expect(assigns(:suppliers)).to eq(suppliers)
+    end
+
+    it 'sets the back path to the managed-service-provider question' do
+      expected_path = journey_question_path(
+        journey: 'supply-teachers',
+        slug: 'managed-service-provider',
+        looking_for: 'managed_service_provider',
+        managed_service_provider: 'education_technology_platform'
+      )
+      expect(assigns(:back_path)).to eq(expected_path)
     end
   end
 end

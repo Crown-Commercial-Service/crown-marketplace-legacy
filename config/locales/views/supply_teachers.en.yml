@@ -626,6 +626,18 @@ en:
           question_hint: DESCRIPTION TO EXPLAIN OPTIONS
       page_section: Find supply teachers and agency staff
       suppliers:
+        education_technology_platform_vendor:
+          agency_management:
+            daily: 'Agency Management Fee: Daily supply worker (per worker, per day)'
+            six_weeks_plus: 'Agency Management Fee: Long term assignment (6 weeks+) (per worker, per day)'
+          column1: Job type
+          column2: Supplier fee
+        education_technology_platform_vendors:
+          do_next:
+            header: What to do next
+            what_to_do: WHAT TO DO NEXT
+          header: Education technology platform service providers
+          page_title: Education technology platform service providers
         master_vendor:
           column1: Job type
           column2: Supplier fee
