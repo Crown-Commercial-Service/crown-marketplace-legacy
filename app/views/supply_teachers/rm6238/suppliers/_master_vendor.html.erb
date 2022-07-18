@@ -7,14 +7,18 @@
     <p class="govuk-body">
       <span class="master-vendor-contact-details__name">
         <strong><%= master_vendor_contact.contact_name %></strong>
-      </span><br />
+      </span>
+      <br />
       <span class="master-vendor-contact-details__telephone">
         <%= format_telephone_number(master_vendor_contact.telephone_number) %>
-      </span><br />
+      </span>
+      <br />
       <span class="master-vendor-contact-details__email">
         <%= mail_to(master_vendor_contact.contact_email,
                    master_vendor_contact.contact_email,
-                   'aria-label': "Email #{master_vendor_contact.contact_name} from #{master_vendor.name}") %>
+                   aria: {
+                     label: "Email #{master_vendor_contact.contact_name} from #{master_vendor.name}"
+                   }) %>
       </span>
     </p>
   <% end %>
@@ -34,12 +38,12 @@
           <% if rates.length == 1 %>
             <% rates.each do |rate| %>
               <% 2.times do %>
-                <%= master_vendor_rate_cell(rate) %>
+                <%= managed_service_provider_rate_cell(rate) %>
               <% end %>
             <% end %>
           <% elsif rates.length == 2 %>
-            <% master_vendor_sorted_rates(rates).each do |rate| %>
-              <%= master_vendor_rate_cell(rate) %>
+            <% managed_service_provider_sorted_rates(rates).each do |rate| %>
+              <%= managed_service_provider_rate_cell(rate) %>
             <% end %>
           <% end %>
         </tr>

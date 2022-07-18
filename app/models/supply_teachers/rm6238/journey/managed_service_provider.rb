@@ -13,7 +13,7 @@ module SupplyTeachers
         when 'master_vendor'
           Journey::MasterVendorOptions
         when 'education_technology_platform'
-          # Journey::EducationTechnologyPlatformService
+          Journey::EducationTechnologyPlatformVendors
         end
       end
     end
