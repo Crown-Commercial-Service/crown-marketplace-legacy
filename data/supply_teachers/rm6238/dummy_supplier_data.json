@@ -1,0 +1,1858 @@
+[
+  {
+    "supplier_id": "30dcd9cf-7559-4a43-8bdb-a8ed061fba91",
+    "supplier_name": "ONDRICKA LLC",
+    "branches": [
+
+    ],
+    "pricing": [
+      {
+        "lot_number": "2.1",
+        "job_type": "teacher",
+        "term": "daily",
+        "fee": 4140
+      },
+      {
+        "lot_number": "2.1",
+        "job_type": "teacher",
+        "term": "six_weeks_plus",
+        "fee": 3933
+      },
+      {
+        "lot_number": "2.1",
+        "job_type": "support",
+        "term": "daily",
+        "fee": 3726
+      },
+      {
+        "lot_number": "2.1",
+        "job_type": "support",
+        "term": "six_weeks_plus",
+        "fee": 3539
+      },
+      {
+        "lot_number": "2.1",
+        "job_type": "senior",
+        "term": "daily",
+        "fee": 4554
+      },
+      {
+        "lot_number": "2.1",
+        "job_type": "senior",
+        "term": "six_weeks_plus",
+        "fee": 4326
+      },
+      {
+        "lot_number": "2.1",
+        "job_type": "other",
+        "term": "daily",
+        "fee": 3933
+      },
+      {
+        "lot_number": "2.1",
+        "job_type": "other",
+        "term": "six_weeks_plus",
+        "fee": 3736
+      },
+      {
+        "lot_number": "2.1",
+        "job_type": "over_12_week",
+        "term": "daily",
+        "fee": 500
+      },
+      {
+        "lot_number": "2.1",
+        "job_type": "over_12_week",
+        "term": "six_weeks_plus",
+        "fee": 16560
+      },
+      {
+        "lot_number": "2.1",
+        "job_type": "nominated",
+        "term": null,
+        "fee": 3312
+      },
+      {
+        "lot_number": "2.1",
+        "job_type": "fixed_term",
+        "term": null,
+        "fee": 2484
+      }
+    ],
+    "master_vendor_contacts": {
+      "name": "Deirdre Pagac",
+      "telephone": "1-871-086-0283",
+      "email": "ondricka_llc@ruecker-sipes.biz"
+    },
+    "education_technology_platform_contacts": {
+    }
+  },
+  {
+    "supplier_id": "e7ddeb10-e92d-42f1-8c29-de81034f9d4a",
+    "supplier_name": "MAGGIO GROUP",
+    "branches": [
+
+    ],
+    "pricing": [
+      {
+        "lot_number": "2.1",
+        "job_type": "teacher",
+        "term": "daily",
+        "fee": 4739
+      },
+      {
+        "lot_number": "2.1",
+        "job_type": "teacher",
+        "term": "six_weeks_plus",
+        "fee": 4502
+      },
+      {
+        "lot_number": "2.1",
+        "job_type": "support",
+        "term": "daily",
+        "fee": 4265
+      },
+      {
+        "lot_number": "2.1",
+        "job_type": "support",
+        "term": "six_weeks_plus",
+        "fee": 4051
+      },
+      {
+        "lot_number": "2.1",
+        "job_type": "senior",
+        "term": "daily",
+        "fee": 5212
+      },
+      {
+        "lot_number": "2.1",
+        "job_type": "senior",
+        "term": "six_weeks_plus",
+        "fee": 4951
+      },
+      {
+        "lot_number": "2.1",
+        "job_type": "other",
+        "term": "daily",
+        "fee": 4502
+      },
+      {
+        "lot_number": "2.1",
+        "job_type": "other",
+        "term": "six_weeks_plus",
+        "fee": 4276
+      },
+      {
+        "lot_number": "2.1",
+        "job_type": "over_12_week",
+        "term": "daily",
+        "fee": 900
+      },
+      {
+        "lot_number": "2.1",
+        "job_type": "over_12_week",
+        "term": "six_weeks_plus",
+        "fee": 18956
+      },
+      {
+        "lot_number": "2.1",
+        "job_type": "nominated",
+        "term": null,
+        "fee": 3791
+      },
+      {
+        "lot_number": "2.1",
+        "job_type": "fixed_term",
+        "term": null,
+        "fee": 2843
+      },
+      {
+        "lot_number": "2.2",
+        "job_type": "teacher",
+        "term": "daily",
+        "fee": 3665
+      },
+      {
+        "lot_number": "2.2",
+        "job_type": "teacher",
+        "term": "six_weeks_plus",
+        "fee": 3481
+      },
+      {
+        "lot_number": "2.2",
+        "job_type": "support",
+        "term": "daily",
+        "fee": 3298
+      },
+      {
+        "lot_number": "2.2",
+        "job_type": "support",
+        "term": "six_weeks_plus",
+        "fee": 3133
+      },
+      {
+        "lot_number": "2.2",
+        "job_type": "senior",
+        "term": "daily",
+        "fee": 4031
+      },
+      {
+        "lot_number": "2.2",
+        "job_type": "senior",
+        "term": "six_weeks_plus",
+        "fee": 3829
+      },
+      {
+        "lot_number": "2.2",
+        "job_type": "other",
+        "term": "daily",
+        "fee": 3481
+      },
+      {
+        "lot_number": "2.2",
+        "job_type": "other",
+        "term": "six_weeks_plus",
+        "fee": 3306
+      },
+      {
+        "lot_number": "2.2",
+        "job_type": "over_12_week",
+        "term": "daily",
+        "fee": 400
+      },
+      {
+        "lot_number": "2.2",
+        "job_type": "over_12_week",
+        "term": "six_weeks_plus",
+        "fee": 14660
+      },
+      {
+        "lot_number": "2.2",
+        "job_type": "nominated",
+        "term": null,
+        "fee": 2932
+      },
+      {
+        "lot_number": "2.2",
+        "job_type": "fixed_term",
+        "term": null,
+        "fee": 2199
+      }
+    ],
+    "master_vendor_contacts": {
+      "name": "Dean Hackett",
+      "telephone": "1-992-898-2027 x3413",
+      "email": "maggio_group@streich.info"
+    },
+    "education_technology_platform_contacts": {
+    }
+  },
+  {
+    "supplier_id": "ee357550-078b-4b9a-a163-bca57e8f7820",
+    "supplier_name": "SHIELDS, HERZOG AND NITZSCHE",
+    "branches": [
+
+    ],
+    "pricing": [
+      {
+        "lot_number": "2.1",
+        "job_type": "teacher",
+        "term": "daily",
+        "fee": 5070
+      },
+      {
+        "lot_number": "2.1",
+        "job_type": "teacher",
+        "term": "six_weeks_plus",
+        "fee": 4816
+      },
+      {
+        "lot_number": "2.1",
+        "job_type": "support",
+        "term": "daily",
+        "fee": 4563
+      },
+      {
+        "lot_number": "2.1",
+        "job_type": "support",
+        "term": "six_weeks_plus",
+        "fee": 4334
+      },
+      {
+        "lot_number": "2.1",
+        "job_type": "senior",
+        "term": "daily",
+        "fee": 5577
+      },
+      {
+        "lot_number": "2.1",
+        "job_type": "senior",
+        "term": "six_weeks_plus",
+        "fee": 5298
+      },
+      {
+        "lot_number": "2.1",
+        "job_type": "other",
+        "term": "daily",
+        "fee": 4816
+      },
+      {
+        "lot_number": "2.1",
+        "job_type": "other",
+        "term": "six_weeks_plus",
+        "fee": 4575
+      },
+      {
+        "lot_number": "2.1",
+        "job_type": "over_12_week",
+        "term": "daily",
+        "fee": 600
+      },
+      {
+        "lot_number": "2.1",
+        "job_type": "over_12_week",
+        "term": "six_weeks_plus",
+        "fee": 20280
+      },
+      {
+        "lot_number": "2.1",
+        "job_type": "nominated",
+        "term": null,
+        "fee": 4056
+      },
+      {
+        "lot_number": "2.1",
+        "job_type": "fixed_term",
+        "term": null,
+        "fee": 3042
+      },
+      {
+        "lot_number": "2.2",
+        "job_type": "teacher",
+        "term": "daily",
+        "fee": 2611
+      },
+      {
+        "lot_number": "2.2",
+        "job_type": "teacher",
+        "term": "six_weeks_plus",
+        "fee": 2480
+      },
+      {
+        "lot_number": "2.2",
+        "job_type": "support",
+        "term": "daily",
+        "fee": 2349
+      },
+      {
+        "lot_number": "2.2",
+        "job_type": "support",
+        "term": "six_weeks_plus",
+        "fee": 2231
+      },
+      {
+        "lot_number": "2.2",
+        "job_type": "senior",
+        "term": "daily",
+        "fee": 2872
+      },
+      {
+        "lot_number": "2.2",
+        "job_type": "senior",
+        "term": "six_weeks_plus",
+        "fee": 2728
+      },
+      {
+        "lot_number": "2.2",
+        "job_type": "other",
+        "term": "daily",
+        "fee": 2480
+      },
+      {
+        "lot_number": "2.2",
+        "job_type": "other",
+        "term": "six_weeks_plus",
+        "fee": 2356
+      },
+      {
+        "lot_number": "2.2",
+        "job_type": "over_12_week",
+        "term": "daily",
+        "fee": 800
+      },
+      {
+        "lot_number": "2.2",
+        "job_type": "over_12_week",
+        "term": "six_weeks_plus",
+        "fee": 10444
+      },
+      {
+        "lot_number": "2.2",
+        "job_type": "nominated",
+        "term": null,
+        "fee": 2088
+      },
+      {
+        "lot_number": "2.2",
+        "job_type": "fixed_term",
+        "term": null,
+        "fee": 1566
+      }
+    ],
+    "master_vendor_contacts": {
+      "name": "Heather D'Amore",
+      "telephone": "777.572.3171",
+      "email": "herzog_shields_nitzsche_and@emard-hilpert.net"
+    },
+    "education_technology_platform_contacts": {
+    }
+  },
+  {
+    "supplier_id": "359e869b-5682-44d1-8e20-573c22780aef",
+    "supplier_name": "EBERT AND SONS",
+    "branches": [
+
+    ],
+    "pricing": [
+      {
+        "lot_number": "2.2",
+        "job_type": "teacher",
+        "term": "daily",
+        "fee": 3041
+      },
+      {
+        "lot_number": "2.2",
+        "job_type": "teacher",
+        "term": "six_weeks_plus",
+        "fee": 2888
+      },
+      {
+        "lot_number": "2.2",
+        "job_type": "support",
+        "term": "daily",
+        "fee": 2736
+      },
+      {
+        "lot_number": "2.2",
+        "job_type": "support",
+        "term": "six_weeks_plus",
+        "fee": 2599
+      },
+      {
+        "lot_number": "2.2",
+        "job_type": "senior",
+        "term": "daily",
+        "fee": 3345
+      },
+      {
+        "lot_number": "2.2",
+        "job_type": "senior",
+        "term": "six_weeks_plus",
+        "fee": 3177
+      },
+      {
+        "lot_number": "2.2",
+        "job_type": "other",
+        "term": "daily",
+        "fee": 2888
+      },
+      {
+        "lot_number": "2.2",
+        "job_type": "other",
+        "term": "six_weeks_plus",
+        "fee": 2743
+      },
+      {
+        "lot_number": "2.2",
+        "job_type": "over_12_week",
+        "term": "daily",
+        "fee": 1000
+      },
+      {
+        "lot_number": "2.2",
+        "job_type": "over_12_week",
+        "term": "six_weeks_plus",
+        "fee": 12164
+      },
+      {
+        "lot_number": "2.2",
+        "job_type": "nominated",
+        "term": null,
+        "fee": 2432
+      },
+      {
+        "lot_number": "2.2",
+        "job_type": "fixed_term",
+        "term": null,
+        "fee": 1824
+      }
+    ],
+    "master_vendor_contacts": {
+      "name": "Teodora Leuschke Jr.",
+      "telephone": "(561) 463-6594",
+      "email": "and.sons.ebert@mcdermott-hane.io"
+    },
+    "education_technology_platform_contacts": {
+    }
+  },
+  {
+    "supplier_id": "404b7c3e-5153-48e8-a153-bdff87d64e36",
+    "supplier_name": "MCGLYNN LLC",
+    "branches": [
+      {
+        "branch_name": "London",
+        "town": "London",
+        "address_1": "10 South Colonnade",
+        "address_2": null,
+        "county": null,
+        "region": "Inner London - East",
+        "postcode": "E14 4PU",
+        "lat": 51.50458599115668,
+        "lon": -0.02208052729799974,
+        "telephone": "1-597-719-6858 x926",
+        "contacts": [
+          {
+            "name": "Msgr. Carmen Orn",
+            "email": "carmen.msgr.orn@rempel.io"
+          }
+        ]
+      },
+      {
+        "branch_name": "Manchester",
+        "town": "Manchester",
+        "address_1": "Old Trafford",
+        "address_2": "Sir Matt Busby Way",
+        "county": "Greater Manchester",
+        "region": "Greater Manchester",
+        "postcode": "M16 0RA",
+        "lat": 53.46367330827036,
+        "lon": -2.2929726032049316,
+        "telephone": "1-790-327-7187 x804",
+        "contacts": [
+          {
+            "name": "Autumn Weimann DVM",
+            "email": "weimann_autumn_dvm@dibbert-kunde.io"
+          }
+        ]
+      }
+    ],
+    "pricing": [
+      {
+        "lot_number": "1",
+        "job_type": "teacher",
+        "term": "daily",
+        "fee": 5290
+      },
+      {
+        "lot_number": "1",
+        "job_type": "teacher",
+        "term": "six_weeks_plus",
+        "fee": 5025
+      },
+      {
+        "lot_number": "1",
+        "job_type": "support",
+        "term": "daily",
+        "fee": 4761
+      },
+      {
+        "lot_number": "1",
+        "job_type": "support",
+        "term": "six_weeks_plus",
+        "fee": 4522
+      },
+      {
+        "lot_number": "1",
+        "job_type": "senior",
+        "term": "daily",
+        "fee": 5819
+      },
+      {
+        "lot_number": "1",
+        "job_type": "senior",
+        "term": "six_weeks_plus",
+        "fee": 5528
+      },
+      {
+        "lot_number": "1",
+        "job_type": "other",
+        "term": "daily",
+        "fee": 5025
+      },
+      {
+        "lot_number": "1",
+        "job_type": "other",
+        "term": "six_weeks_plus",
+        "fee": 4773
+      },
+      {
+        "lot_number": "1",
+        "job_type": "over_12_week",
+        "term": "daily",
+        "fee": 400
+      },
+      {
+        "lot_number": "1",
+        "job_type": "over_12_week",
+        "term": "six_weeks_plus",
+        "fee": 21160
+      },
+      {
+        "lot_number": "1",
+        "job_type": "nominated",
+        "term": null,
+        "fee": 4232
+      },
+      {
+        "lot_number": "1",
+        "job_type": "fixed_term",
+        "term": null,
+        "fee": 3174
+      }
+    ],
+    "master_vendor_contacts": {
+    },
+    "education_technology_platform_contacts": {
+    }
+  },
+  {
+    "supplier_id": "e43e7d91-5d8b-4aef-939c-61b818352e63",
+    "supplier_name": "PROSACCO INC",
+    "branches": [
+      {
+        "branch_name": "London",
+        "town": "London",
+        "address_1": "London Stadium",
+        "address_2": "Queen Elizabeth Olympic Park",
+        "county": null,
+        "region": "Inner London - East",
+        "postcode": "E20 2ST",
+        "lat": 51.53856612802023,
+        "lon": -0.016517049198377255,
+        "telephone": "697-834-5533 x2436",
+        "contacts": [
+          {
+            "name": "Wilber Dach",
+            "email": "dach.wilber@reinger.name"
+          }
+        ]
+      },
+      {
+        "branch_name": "Southport",
+        "town": "Southport",
+        "address_1": "Southport Pleasureland",
+        "address_2": "Marine Dr",
+        "county": "Merseyside",
+        "region": "Merseyside",
+        "postcode": "PR8 1RX",
+        "lat": 53.64815863047592,
+        "lon": -3.0172629561364004,
+        "telephone": "575.078.4007 x13577",
+        "contacts": [
+          {
+            "name": "Rex Padberg",
+            "email": "rex_padberg@stamm.co"
+          }
+        ]
+      }
+    ],
+    "pricing": [
+      {
+        "lot_number": "1",
+        "job_type": "teacher",
+        "term": "daily",
+        "fee": 2695
+      },
+      {
+        "lot_number": "1",
+        "job_type": "teacher",
+        "term": "six_weeks_plus",
+        "fee": 2560
+      },
+      {
+        "lot_number": "1",
+        "job_type": "support",
+        "term": "daily",
+        "fee": 2425
+      },
+      {
+        "lot_number": "1",
+        "job_type": "support",
+        "term": "six_weeks_plus",
+        "fee": 2303
+      },
+      {
+        "lot_number": "1",
+        "job_type": "senior",
+        "term": "daily",
+        "fee": 2964
+      },
+      {
+        "lot_number": "1",
+        "job_type": "senior",
+        "term": "six_weeks_plus",
+        "fee": 2815
+      },
+      {
+        "lot_number": "1",
+        "job_type": "other",
+        "term": "daily",
+        "fee": 2560
+      },
+      {
+        "lot_number": "1",
+        "job_type": "other",
+        "term": "six_weeks_plus",
+        "fee": 2432
+      },
+      {
+        "lot_number": "1",
+        "job_type": "over_12_week",
+        "term": "daily",
+        "fee": 500
+      },
+      {
+        "lot_number": "1",
+        "job_type": "over_12_week",
+        "term": "six_weeks_plus",
+        "fee": 10780
+      },
+      {
+        "lot_number": "1",
+        "job_type": "nominated",
+        "term": null,
+        "fee": 2156
+      },
+      {
+        "lot_number": "1",
+        "job_type": "fixed_term",
+        "term": null,
+        "fee": 1617
+      }
+    ],
+    "master_vendor_contacts": {
+    },
+    "education_technology_platform_contacts": {
+    }
+  },
+  {
+    "supplier_id": "37c5cc0b-af25-4d8b-b06b-231008926231",
+    "supplier_name": "THOMPSON-HALVORSON",
+    "branches": [
+      {
+        "branch_name": "London",
+        "town": "London",
+        "address_1": "Buckingham Palace",
+        "address_2": null,
+        "county": null,
+        "region": "Inner London - West",
+        "postcode": "SW1A 1AA",
+        "lat": 51.50306085083827,
+        "lon": -0.1447072660356099,
+        "telephone": "898-640-5949",
+        "contacts": [
+          {
+            "name": "Estelle Moen",
+            "email": "moen.estelle@mann.org"
+          }
+        ]
+      },
+      {
+        "branch_name": "Liverpool",
+        "town": "Liverpool",
+        "address_1": "Liverpool John Lennon Airport",
+        "address_2": "Speke Hall Ave",
+        "county": "Merseyside",
+        "region": "Merseyside",
+        "postcode": "L24 1YD",
+        "lat": 53.33543706989522,
+        "lon": -2.8525950536169677,
+        "telephone": "482-361-3296",
+        "contacts": [
+          {
+            "name": "Tamara Flatley",
+            "email": "tamara_flatley@morar.info"
+          }
+        ]
+      }
+    ],
+    "pricing": [
+      {
+        "lot_number": "1",
+        "job_type": "teacher",
+        "term": "daily",
+        "fee": 3432
+      },
+      {
+        "lot_number": "1",
+        "job_type": "teacher",
+        "term": "six_weeks_plus",
+        "fee": 3260
+      },
+      {
+        "lot_number": "1",
+        "job_type": "support",
+        "term": "daily",
+        "fee": 3088
+      },
+      {
+        "lot_number": "1",
+        "job_type": "support",
+        "term": "six_weeks_plus",
+        "fee": 2933
+      },
+      {
+        "lot_number": "1",
+        "job_type": "senior",
+        "term": "daily",
+        "fee": 3775
+      },
+      {
+        "lot_number": "1",
+        "job_type": "senior",
+        "term": "six_weeks_plus",
+        "fee": 3586
+      },
+      {
+        "lot_number": "1",
+        "job_type": "other",
+        "term": "daily",
+        "fee": 3260
+      },
+      {
+        "lot_number": "1",
+        "job_type": "other",
+        "term": "six_weeks_plus",
+        "fee": 3097
+      },
+      {
+        "lot_number": "1",
+        "job_type": "over_12_week",
+        "term": "daily",
+        "fee": 100
+      },
+      {
+        "lot_number": "1",
+        "job_type": "over_12_week",
+        "term": "six_weeks_plus",
+        "fee": 13728
+      },
+      {
+        "lot_number": "1",
+        "job_type": "nominated",
+        "term": null,
+        "fee": 2745
+      },
+      {
+        "lot_number": "1",
+        "job_type": "fixed_term",
+        "term": null,
+        "fee": 2059
+      }
+    ],
+    "master_vendor_contacts": {
+    },
+    "education_technology_platform_contacts": {
+    }
+  },
+  {
+    "supplier_id": "5832f82d-b9f0-4a21-8d7f-bc1639ceb01e",
+    "supplier_name": "HESSEL INC",
+    "branches": [
+      {
+        "branch_name": "Twickenham",
+        "town": "Twickenham",
+        "address_1": "Twickenham Stadium",
+        "address_2": "200 Whitton Rd",
+        "county": "London",
+        "region": "IOuter London - West and North West",
+        "postcode": "TW2 7BA",
+        "lat": 51.46190833253159,
+        "lon": -0.340934872716188,
+        "telephone": "(202) 623-4825 x49419",
+        "contacts": [
+          {
+            "name": "Raul Cummings Ret.",
+            "email": "cummings_ret_raul@balistreri-robel.org"
+          }
+        ]
+      },
+      {
+        "branch_name": "Liverpool",
+        "town": "Liverpool",
+        "address_1": "Anfield",
+        "address_2": "Anfield Rd",
+        "county": "Merseyside",
+        "region": "Merseyside",
+        "postcode": "L4 0TH",
+        "lat": 53.43134641218853,
+        "lon": -2.960931536892127,
+        "telephone": "710-203-0193 x5979",
+        "contacts": [
+          {
+            "name": "Del Conroy",
+            "email": "del_conroy@williamson.co"
+          }
+        ]
+      }
+    ],
+    "pricing": [
+      {
+        "lot_number": "1",
+        "job_type": "teacher",
+        "term": "daily",
+        "fee": 2873
+      },
+      {
+        "lot_number": "1",
+        "job_type": "teacher",
+        "term": "six_weeks_plus",
+        "fee": 2729
+      },
+      {
+        "lot_number": "1",
+        "job_type": "support",
+        "term": "daily",
+        "fee": 2585
+      },
+      {
+        "lot_number": "1",
+        "job_type": "support",
+        "term": "six_weeks_plus",
+        "fee": 2455
+      },
+      {
+        "lot_number": "1",
+        "job_type": "senior",
+        "term": "daily",
+        "fee": 3160
+      },
+      {
+        "lot_number": "1",
+        "job_type": "senior",
+        "term": "six_weeks_plus",
+        "fee": 3002
+      },
+      {
+        "lot_number": "1",
+        "job_type": "other",
+        "term": "daily",
+        "fee": 2729
+      },
+      {
+        "lot_number": "1",
+        "job_type": "other",
+        "term": "six_weeks_plus",
+        "fee": 2592
+      },
+      {
+        "lot_number": "1",
+        "job_type": "over_12_week",
+        "term": "daily",
+        "fee": 800
+      },
+      {
+        "lot_number": "1",
+        "job_type": "over_12_week",
+        "term": "six_weeks_plus",
+        "fee": 11492
+      },
+      {
+        "lot_number": "1",
+        "job_type": "nominated",
+        "term": null,
+        "fee": 2298
+      },
+      {
+        "lot_number": "1",
+        "job_type": "fixed_term",
+        "term": null,
+        "fee": 1723
+      }
+    ],
+    "master_vendor_contacts": {
+    },
+    "education_technology_platform_contacts": {
+    }
+  },
+  {
+    "supplier_id": "ef434a28-c15e-4723-bf77-663c2345d68b",
+    "supplier_name": "VOLKMAN INC",
+    "branches": [
+      {
+        "branch_name": "Southend-on-Sea",
+        "town": "Southend-on-Sea",
+        "address_1": "Roots Hall",
+        "address_2": "Victoria Ave",
+        "county": "Essex",
+        "region": "Essex",
+        "postcode": "SS2 6NQ",
+        "lat": 51.549072447921404,
+        "lon": 0.7016791349027106,
+        "telephone": "(545) 859-1942 x398",
+        "contacts": [
+          {
+            "name": "Mrs. Jetta Frami",
+            "email": "jetta.frami.mrs@wiza.name"
+          }
+        ]
+      },
+      {
+        "branch_name": "Liverpool",
+        "town": "Liverpool",
+        "address_1": "The Capital Building",
+        "address_2": "Old Hall St",
+        "county": "Merseyside",
+        "region": "Merseyside",
+        "postcode": "L3 9PP",
+        "lat": 53.40926484785927,
+        "lon": -2.9950993589489463,
+        "telephone": "(892) 793-3933 x486",
+        "contacts": [
+          {
+            "name": "Rodrigo Larson",
+            "email": "rodrigo.larson@satterfield.org"
+          }
+        ]
+      }
+    ],
+    "pricing": [
+      {
+        "lot_number": "1",
+        "job_type": "teacher",
+        "term": "daily",
+        "fee": 3274
+      },
+      {
+        "lot_number": "1",
+        "job_type": "teacher",
+        "term": "six_weeks_plus",
+        "fee": 3110
+      },
+      {
+        "lot_number": "1",
+        "job_type": "support",
+        "term": "daily",
+        "fee": 2946
+      },
+      {
+        "lot_number": "1",
+        "job_type": "support",
+        "term": "six_weeks_plus",
+        "fee": 2798
+      },
+      {
+        "lot_number": "1",
+        "job_type": "senior",
+        "term": "daily",
+        "fee": 3601
+      },
+      {
+        "lot_number": "1",
+        "job_type": "senior",
+        "term": "six_weeks_plus",
+        "fee": 3420
+      },
+      {
+        "lot_number": "1",
+        "job_type": "other",
+        "term": "daily",
+        "fee": 3110
+      },
+      {
+        "lot_number": "1",
+        "job_type": "other",
+        "term": "six_weeks_plus",
+        "fee": 2954
+      },
+      {
+        "lot_number": "1",
+        "job_type": "over_12_week",
+        "term": "daily",
+        "fee": 300
+      },
+      {
+        "lot_number": "1",
+        "job_type": "over_12_week",
+        "term": "six_weeks_plus",
+        "fee": 13096
+      },
+      {
+        "lot_number": "1",
+        "job_type": "nominated",
+        "term": null,
+        "fee": 2619
+      },
+      {
+        "lot_number": "1",
+        "job_type": "fixed_term",
+        "term": null,
+        "fee": 1964
+      }
+    ],
+    "master_vendor_contacts": {
+    },
+    "education_technology_platform_contacts": {
+    }
+  },
+  {
+    "supplier_id": "1c9e797c-d13b-4cd1-9ad0-2d3dd60129e1",
+    "supplier_name": "JASKOLSKI-LEHNER",
+    "branches": [
+      {
+        "branch_name": "London",
+        "town": "London",
+        "address_1": "10 South Colonnade",
+        "address_2": null,
+        "county": null,
+        "region": "Inner London - East",
+        "postcode": "E14 4PU",
+        "lat": 51.50458599115668,
+        "lon": -0.02208052729799974,
+        "telephone": "(587) 438-1332 x668",
+        "contacts": [
+          {
+            "name": "Ilda Volkman",
+            "email": "volkman.ilda@ortiz.com"
+          }
+        ]
+      },
+      {
+        "branch_name": "Manchester",
+        "town": "Manchester",
+        "address_1": "Old Trafford",
+        "address_2": "Sir Matt Busby Way",
+        "county": "Greater Manchester",
+        "region": "Greater Manchester",
+        "postcode": "M16 0RA",
+        "lat": 53.46367330827036,
+        "lon": -2.2929726032049316,
+        "telephone": "792.003.5314",
+        "contacts": [
+          {
+            "name": "Rudolf Corwin",
+            "email": "corwin.rudolf@wunsch.info"
+          }
+        ]
+      }
+    ],
+    "pricing": [
+      {
+        "lot_number": "1",
+        "job_type": "teacher",
+        "term": "daily",
+        "fee": 3486
+      },
+      {
+        "lot_number": "1",
+        "job_type": "teacher",
+        "term": "six_weeks_plus",
+        "fee": 3311
+      },
+      {
+        "lot_number": "1",
+        "job_type": "support",
+        "term": "daily",
+        "fee": 3137
+      },
+      {
+        "lot_number": "1",
+        "job_type": "support",
+        "term": "six_weeks_plus",
+        "fee": 2980
+      },
+      {
+        "lot_number": "1",
+        "job_type": "senior",
+        "term": "daily",
+        "fee": 3834
+      },
+      {
+        "lot_number": "1",
+        "job_type": "senior",
+        "term": "six_weeks_plus",
+        "fee": 3642
+      },
+      {
+        "lot_number": "1",
+        "job_type": "other",
+        "term": "daily",
+        "fee": 3311
+      },
+      {
+        "lot_number": "1",
+        "job_type": "other",
+        "term": "six_weeks_plus",
+        "fee": 3145
+      },
+      {
+        "lot_number": "1",
+        "job_type": "over_12_week",
+        "term": "daily",
+        "fee": 1000
+      },
+      {
+        "lot_number": "1",
+        "job_type": "over_12_week",
+        "term": "six_weeks_plus",
+        "fee": 13944
+      },
+      {
+        "lot_number": "1",
+        "job_type": "nominated",
+        "term": null,
+        "fee": 2788
+      },
+      {
+        "lot_number": "1",
+        "job_type": "fixed_term",
+        "term": null,
+        "fee": 2091
+      }
+    ],
+    "master_vendor_contacts": {
+    },
+    "education_technology_platform_contacts": {
+    }
+  },
+  {
+    "supplier_id": "13812a37-0a53-4499-8709-2fd02761abd3",
+    "supplier_name": "JACOBI-JENKINS",
+    "branches": [
+      {
+        "branch_name": "London",
+        "town": "London",
+        "address_1": "London Stadium",
+        "address_2": "Queen Elizabeth Olympic Park",
+        "county": null,
+        "region": "Inner London - East",
+        "postcode": "E20 2ST",
+        "lat": 51.53856612802023,
+        "lon": -0.016517049198377255,
+        "telephone": "767-458-1429",
+        "contacts": [
+          {
+            "name": "Ms. Olga Kris",
+            "email": "olga.ms.kris@bauch-kutch.info"
+          }
+        ]
+      },
+      {
+        "branch_name": "Southport",
+        "town": "Southport",
+        "address_1": "Southport Pleasureland",
+        "address_2": "Marine Dr",
+        "county": "Merseyside",
+        "region": "Merseyside",
+        "postcode": "PR8 1RX",
+        "lat": 53.64815863047592,
+        "lon": -3.0172629561364004,
+        "telephone": "199.113.1450 x696",
+        "contacts": [
+          {
+            "name": "Sen. Alissa Schulist",
+            "email": "sen_schulist_alissa@reinger-johnston.com"
+          }
+        ]
+      }
+    ],
+    "pricing": [
+      {
+        "lot_number": "1",
+        "job_type": "teacher",
+        "term": "daily",
+        "fee": 5948
+      },
+      {
+        "lot_number": "1",
+        "job_type": "teacher",
+        "term": "six_weeks_plus",
+        "fee": 5650
+      },
+      {
+        "lot_number": "1",
+        "job_type": "support",
+        "term": "daily",
+        "fee": 5353
+      },
+      {
+        "lot_number": "1",
+        "job_type": "support",
+        "term": "six_weeks_plus",
+        "fee": 5085
+      },
+      {
+        "lot_number": "1",
+        "job_type": "senior",
+        "term": "daily",
+        "fee": 6542
+      },
+      {
+        "lot_number": "1",
+        "job_type": "senior",
+        "term": "six_weeks_plus",
+        "fee": 6214
+      },
+      {
+        "lot_number": "1",
+        "job_type": "other",
+        "term": "daily",
+        "fee": 5650
+      },
+      {
+        "lot_number": "1",
+        "job_type": "other",
+        "term": "six_weeks_plus",
+        "fee": 5367
+      },
+      {
+        "lot_number": "1",
+        "job_type": "over_12_week",
+        "term": "daily",
+        "fee": 700
+      },
+      {
+        "lot_number": "1",
+        "job_type": "over_12_week",
+        "term": "six_weeks_plus",
+        "fee": 23792
+      },
+      {
+        "lot_number": "1",
+        "job_type": "nominated",
+        "term": null,
+        "fee": 4758
+      },
+      {
+        "lot_number": "1",
+        "job_type": "fixed_term",
+        "term": null,
+        "fee": 3568
+      }
+    ],
+    "master_vendor_contacts": {
+    },
+    "education_technology_platform_contacts": {
+    }
+  },
+  {
+    "supplier_id": "797b227a-3ae0-4684-ba3f-c12cbc01da41",
+    "supplier_name": "SCHAMBERGER LLC",
+    "branches": [
+      {
+        "branch_name": "London",
+        "town": "London",
+        "address_1": "Buckingham Palace",
+        "address_2": null,
+        "county": null,
+        "region": "Inner London - West",
+        "postcode": "SW1A 1AA",
+        "lat": 51.50306085083827,
+        "lon": -0.1447072660356099,
+        "telephone": "(494) 784-8353 x278",
+        "contacts": [
+          {
+            "name": "Judy Heller",
+            "email": "heller_judy@farrell.net"
+          }
+        ]
+      },
+      {
+        "branch_name": "Liverpool",
+        "town": "Liverpool",
+        "address_1": "Liverpool John Lennon Airport",
+        "address_2": "Speke Hall Ave",
+        "county": "Merseyside",
+        "region": "Merseyside",
+        "postcode": "L24 1YD",
+        "lat": 53.33543706989522,
+        "lon": -2.8525950536169677,
+        "telephone": "(896) 985-5201 x5651",
+        "contacts": [
+          {
+            "name": "Ellis Herzog",
+            "email": "ellis.herzog@rodriguez.co"
+          }
+        ]
+      }
+    ],
+    "pricing": [
+      {
+        "lot_number": "1",
+        "job_type": "teacher",
+        "term": "daily",
+        "fee": 3584
+      },
+      {
+        "lot_number": "1",
+        "job_type": "teacher",
+        "term": "six_weeks_plus",
+        "fee": 3404
+      },
+      {
+        "lot_number": "1",
+        "job_type": "support",
+        "term": "daily",
+        "fee": 3225
+      },
+      {
+        "lot_number": "1",
+        "job_type": "support",
+        "term": "six_weeks_plus",
+        "fee": 3063
+      },
+      {
+        "lot_number": "1",
+        "job_type": "senior",
+        "term": "daily",
+        "fee": 3942
+      },
+      {
+        "lot_number": "1",
+        "job_type": "senior",
+        "term": "six_weeks_plus",
+        "fee": 3744
+      },
+      {
+        "lot_number": "1",
+        "job_type": "other",
+        "term": "daily",
+        "fee": 3404
+      },
+      {
+        "lot_number": "1",
+        "job_type": "other",
+        "term": "six_weeks_plus",
+        "fee": 3233
+      },
+      {
+        "lot_number": "1",
+        "job_type": "over_12_week",
+        "term": "daily",
+        "fee": 200
+      },
+      {
+        "lot_number": "1",
+        "job_type": "over_12_week",
+        "term": "six_weeks_plus",
+        "fee": 14336
+      },
+      {
+        "lot_number": "1",
+        "job_type": "nominated",
+        "term": null,
+        "fee": 2867
+      },
+      {
+        "lot_number": "1",
+        "job_type": "fixed_term",
+        "term": null,
+        "fee": 2150
+      }
+    ],
+    "master_vendor_contacts": {
+    },
+    "education_technology_platform_contacts": {
+    }
+  },
+  {
+    "supplier_id": "e05a964a-799a-46f3-9edd-e66d7df97f20",
+    "supplier_name": "BROWN, SCHINNER AND STRACKE",
+    "branches": [
+      {
+        "branch_name": "Twickenham",
+        "town": "Twickenham",
+        "address_1": "Twickenham Stadium",
+        "address_2": "200 Whitton Rd",
+        "county": "London",
+        "region": "IOuter London - West and North West",
+        "postcode": "TW2 7BA",
+        "lat": 51.46190833253159,
+        "lon": -0.340934872716188,
+        "telephone": "1-448-326-1469 x607",
+        "contacts": [
+          {
+            "name": "Rosaria Schultz",
+            "email": "rosaria.schultz@beer-morissette.biz"
+          }
+        ]
+      },
+      {
+        "branch_name": "Liverpool",
+        "town": "Liverpool",
+        "address_1": "Anfield",
+        "address_2": "Anfield Rd",
+        "county": "Merseyside",
+        "region": "Merseyside",
+        "postcode": "L4 0TH",
+        "lat": 53.43134641218853,
+        "lon": -2.960931536892127,
+        "telephone": "1-834-359-0664 x2052",
+        "contacts": [
+          {
+            "name": "German Johnston I",
+            "email": "german.i.johnston@abbott-schamberger.net"
+          }
+        ]
+      }
+    ],
+    "pricing": [
+      {
+        "lot_number": "1",
+        "job_type": "teacher",
+        "term": "daily",
+        "fee": 5287
+      },
+      {
+        "lot_number": "1",
+        "job_type": "teacher",
+        "term": "six_weeks_plus",
+        "fee": 5022
+      },
+      {
+        "lot_number": "1",
+        "job_type": "support",
+        "term": "daily",
+        "fee": 4758
+      },
+      {
+        "lot_number": "1",
+        "job_type": "support",
+        "term": "six_weeks_plus",
+        "fee": 4520
+      },
+      {
+        "lot_number": "1",
+        "job_type": "senior",
+        "term": "daily",
+        "fee": 5815
+      },
+      {
+        "lot_number": "1",
+        "job_type": "senior",
+        "term": "six_weeks_plus",
+        "fee": 5524
+      },
+      {
+        "lot_number": "1",
+        "job_type": "other",
+        "term": "daily",
+        "fee": 5022
+      },
+      {
+        "lot_number": "1",
+        "job_type": "other",
+        "term": "six_weeks_plus",
+        "fee": 4770
+      },
+      {
+        "lot_number": "1",
+        "job_type": "over_12_week",
+        "term": "daily",
+        "fee": 200
+      },
+      {
+        "lot_number": "1",
+        "job_type": "over_12_week",
+        "term": "six_weeks_plus",
+        "fee": 21148
+      },
+      {
+        "lot_number": "1",
+        "job_type": "nominated",
+        "term": null,
+        "fee": 4229
+      },
+      {
+        "lot_number": "1",
+        "job_type": "fixed_term",
+        "term": null,
+        "fee": 3172
+      }
+    ],
+    "master_vendor_contacts": {
+    },
+    "education_technology_platform_contacts": {
+    }
+  },
+  {
+    "supplier_id": "d9c93ab7-f16e-40d7-a62e-919863394837",
+    "supplier_name": "GOLDNER GROUP",
+    "branches": [
+      {
+        "branch_name": "Southend-on-Sea",
+        "town": "Southend-on-Sea",
+        "address_1": "Roots Hall",
+        "address_2": "Victoria Ave",
+        "county": "Essex",
+        "region": "Essex",
+        "postcode": "SS2 6NQ",
+        "lat": 51.549072447921404,
+        "lon": 0.7016791349027106,
+        "telephone": "(640) 048-1829 x5181",
+        "contacts": [
+          {
+            "name": "Manuel Bailey",
+            "email": "bailey.manuel@zemlak.biz"
+          }
+        ]
+      },
+      {
+        "branch_name": "Liverpool",
+        "town": "Liverpool",
+        "address_1": "The Capital Building",
+        "address_2": "Old Hall St",
+        "county": "Merseyside",
+        "region": "Merseyside",
+        "postcode": "L3 9PP",
+        "lat": 53.40926484785927,
+        "lon": -2.9950993589489463,
+        "telephone": "(656) 411-8409 x74934",
+        "contacts": [
+          {
+            "name": "Porfirio Langworth V",
+            "email": "porfirio_langworth_v@pollich-dubuque.co"
+          }
+        ]
+      }
+    ],
+    "pricing": [
+      {
+        "lot_number": "1",
+        "job_type": "teacher",
+        "term": "daily",
+        "fee": 3260
+      },
+      {
+        "lot_number": "1",
+        "job_type": "teacher",
+        "term": "six_weeks_plus",
+        "fee": 3097
+      },
+      {
+        "lot_number": "1",
+        "job_type": "support",
+        "term": "daily",
+        "fee": 2934
+      },
+      {
+        "lot_number": "1",
+        "job_type": "support",
+        "term": "six_weeks_plus",
+        "fee": 2787
+      },
+      {
+        "lot_number": "1",
+        "job_type": "senior",
+        "term": "daily",
+        "fee": 3586
+      },
+      {
+        "lot_number": "1",
+        "job_type": "senior",
+        "term": "six_weeks_plus",
+        "fee": 3406
+      },
+      {
+        "lot_number": "1",
+        "job_type": "other",
+        "term": "daily",
+        "fee": 3097
+      },
+      {
+        "lot_number": "1",
+        "job_type": "other",
+        "term": "six_weeks_plus",
+        "fee": 2942
+      },
+      {
+        "lot_number": "1",
+        "job_type": "over_12_week",
+        "term": "daily",
+        "fee": 0
+      },
+      {
+        "lot_number": "1",
+        "job_type": "over_12_week",
+        "term": "six_weeks_plus",
+        "fee": 13040
+      },
+      {
+        "lot_number": "1",
+        "job_type": "nominated",
+        "term": null,
+        "fee": 2608
+      },
+      {
+        "lot_number": "1",
+        "job_type": "fixed_term",
+        "term": null,
+        "fee": 1956
+      }
+    ],
+    "master_vendor_contacts": {
+    },
+    "education_technology_platform_contacts": {
+    }
+  },
+  {
+    "supplier_id": "74281af9-582e-4e5a-ae03-4e24c800319e",
+    "supplier_name": "TERRY-EMMERICH",
+    "branches": [
+
+    ],
+    "pricing": [
+      {
+        "lot_number": "4",
+        "job_type": "agency_management",
+        "term": "daily",
+        "fee": 2223
+      },
+      {
+        "lot_number": "4",
+        "job_type": "agency_management",
+        "term": "six_weeks_plus",
+        "fee": 2111
+      },
+      {
+        "lot_number": "4",
+        "job_type": "nominated",
+        "term": null,
+        "fee": 2000
+      },
+      {
+        "lot_number": "4",
+        "job_type": "fixed_term",
+        "term": null,
+        "fee": 500
+      }
+    ],
+    "master_vendor_contacts": {
+    },
+    "education_technology_platform_contacts": {
+      "name": "Msgr. Rachel Abernathy",
+      "telephone": "238.481.0154 x64340",
+      "email": "emmerich_terry@ondricka.info"
+    }
+  },
+  {
+    "supplier_id": "58467a7c-266c-40dc-b994-90547ec7b018",
+    "supplier_name": "HERMAN AND SONS",
+    "branches": [
+
+    ],
+    "pricing": [
+      {
+        "lot_number": "4",
+        "job_type": "agency_management",
+        "term": "daily",
+        "fee": 1054
+      },
+      {
+        "lot_number": "4",
+        "job_type": "agency_management",
+        "term": "six_weeks_plus",
+        "fee": 1001
+      },
+      {
+        "lot_number": "4",
+        "job_type": "nominated",
+        "term": null,
+        "fee": 948
+      },
+      {
+        "lot_number": "4",
+        "job_type": "fixed_term",
+        "term": null,
+        "fee": 1500
+      }
+    ],
+    "master_vendor_contacts": {
+    },
+    "education_technology_platform_contacts": {
+      "name": "Gov. Kurtis Von",
+      "telephone": "1-523-899-6047",
+      "email": "herman.sons.and@morissette.net"
+    }
+  },
+  {
+    "supplier_id": "13690a50-8927-4cb9-8c3d-fa2446896eb9",
+    "supplier_name": "HAGENES, KASSULKE AND TREUTEL",
+    "branches": [
+
+    ],
+    "pricing": [
+      {
+        "lot_number": "4",
+        "job_type": "agency_management",
+        "term": "daily",
+        "fee": 1559
+      },
+      {
+        "lot_number": "4",
+        "job_type": "agency_management",
+        "term": "six_weeks_plus",
+        "fee": 1481
+      },
+      {
+        "lot_number": "4",
+        "job_type": "nominated",
+        "term": null,
+        "fee": 1403
+      },
+      {
+        "lot_number": "4",
+        "job_type": "fixed_term",
+        "term": null,
+        "fee": 900
+      }
+    ],
+    "master_vendor_contacts": {
+    },
+    "education_technology_platform_contacts": {
+      "name": "Piedad Schiller",
+      "telephone": "1-544-523-7403 x79694",
+      "email": "hagenes.treutel.kassulke.and@oberbrunner-waelchi.co"
+    }
+  },
+  {
+    "supplier_id": "c96baff0-1741-46b0-85d6-5f594fa1cc03",
+    "supplier_name": "DECKOW LLC",
+    "branches": [
+
+    ],
+    "pricing": [
+      {
+        "lot_number": "4",
+        "job_type": "agency_management",
+        "term": "daily",
+        "fee": 1388
+      },
+      {
+        "lot_number": "4",
+        "job_type": "agency_management",
+        "term": "six_weeks_plus",
+        "fee": 1318
+      },
+      {
+        "lot_number": "4",
+        "job_type": "nominated",
+        "term": null,
+        "fee": 1249
+      },
+      {
+        "lot_number": "4",
+        "job_type": "fixed_term",
+        "term": null,
+        "fee": 1300
+      }
+    ],
+    "master_vendor_contacts": {
+    },
+    "education_technology_platform_contacts": {
+      "name": "Prof. Roland Nienow",
+      "telephone": "1-781-026-6875 x6967",
+      "email": "llc.deckow@cronin.net"
+    }
+  }
+]

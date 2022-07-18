@@ -11,3 +11,11 @@ Feature: Supply Teachers - Managed service provider validations
     And I click on 'Continue'
     Then I should see the following error messages:
       | Select master vendor or education technology platform service |
+
+  Scenario: Is your contract likely to be worth more than £2.5 million? validations
+    And I select 'Master vendor managed service'
+    And I click on 'Continue'
+    Then I am on the 'Is your contract likely to be worth more than £2.5 million?' page
+    And I click on 'Continue'
+    Then I should see the following error messages:
+      | Select an option  |

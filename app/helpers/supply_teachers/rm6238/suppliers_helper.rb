@@ -10,7 +10,7 @@ module SupplyTeachers::RM6238::SuppliersHelper
                    format_money(rate.value)
                  end
 
-    tag.td(rate_value, class: 'govuk-table__cell govuk-table__cell--numeric master-vendor-record__markup-column')
+    tag.td(rate_value, class: 'govuk-table__cell govuk-table__cell--numeric managed-service-provider-record__markup-column')
   end
 
   def managed_service_provider_sorted_rates(rates)
