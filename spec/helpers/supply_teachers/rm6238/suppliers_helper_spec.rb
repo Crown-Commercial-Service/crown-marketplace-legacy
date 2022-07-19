@@ -37,18 +37,18 @@ RSpec.describe SupplyTeachers::RM6238::SuppliersHelper, type: :helper do
     let(:result) { helper.master_vendor_rate_cell(rate) }
 
     context 'when the rate is a percentage' do
-      let(:rate) { create(:supply_teachers_rm6238_master_vendor_below_threshold_rate, job_type: 'fixed_term') }
+      let(:rate) { create(:supply_teachers_rm6238_master_vendor_below_threshold_rate, job_type: 'fixed_term', rate: 4321) }
 
       it 'returns the rate as a percentage' do
-        expect(result).to include '30.0%'
+        expect(result).to include '43.2%'
       end
     end
 
     context 'when the rate is not a percentage' do
-      let(:rate) { create(:supply_teachers_rm6238_master_vendor_below_threshold_rate) }
+      let(:rate) { create(:supply_teachers_rm6238_master_vendor_below_threshold_rate, rate: 4321) }
 
       it 'returns the rate as a percentage' do
-        expect(result).to include '£0.30'
+        expect(result).to include '£43.21'
       end
     end
   end

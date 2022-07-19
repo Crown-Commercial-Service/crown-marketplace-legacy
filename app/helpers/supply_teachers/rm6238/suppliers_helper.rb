@@ -5,7 +5,7 @@ module SupplyTeachers::RM6238::SuppliersHelper
 
   def master_vendor_rate_cell(rate)
     rate_value = if rate.percentage?
-                   number_to_percentage(rate.rate, precision: 1)
+                   number_to_percentage(rate.value, precision: 1)
                  else
                    format_money(rate.value)
                  end
