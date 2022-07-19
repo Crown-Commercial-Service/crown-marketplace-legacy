@@ -35,7 +35,7 @@ RSpec.describe SupplyTeachers::RM6238::Journey::LookingFor, type: :model do
     context 'when looking for is worker' do
       let(:looking_for) { 'worker' }
 
-      pending 'returns Journey::WorkerType' do
+      it 'returns Journey::WorkerType' do
         expect(step.next_step_class).to be SupplyTeachers::RM6238::Journey::WorkerType
       end
     end
@@ -98,7 +98,7 @@ RSpec.describe SupplyTeachers::RM6238::Journey::LookingFor, type: :model do
   end
 
   describe '.final?' do
-    pending 'returns false' do
+    it 'returns false' do
       expect(step.final?).to be false
     end
   end

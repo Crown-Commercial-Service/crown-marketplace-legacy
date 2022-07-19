@@ -10,8 +10,8 @@ module GovUKHelper::Radios
                                                      end
 
       govuk_fieldset(govuk_radios_options[:fieldset]) do
+        concat(govuk_hint(attribute, govuk_radios_options[:hint])) if govuk_radios_options[:hint]
         concat(error_message)
-        concat(tag.div(govuk_radios_options[:hint][:text], class: 'govuk-hint', id: hint_id([attribute]))) if govuk_radios_options[:hint]
         concat(tag.div(class: 'govuk-radios', data: { module: 'govuk-radios' }) do
           capture do
             govuk_radios_options[:items].each { |radio_item| concat(govuk_radio_item(form, attribute, radio_item)) }
@@ -41,9 +41,5 @@ module GovUKHelper::Radios
         concat(tag.div(radio_item[:hint], class: 'govuk-hint govuk-radios__hint', id: hint_id(attribute, radio_item[:value]))) if radio_item[:hint]
       end
     end
-  end
-
-  def hint_id(*attributes)
-    (attributes + ['hint']).join('_')
   end
 end
