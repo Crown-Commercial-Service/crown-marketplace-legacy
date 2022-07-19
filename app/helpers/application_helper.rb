@@ -230,5 +230,9 @@ module ApplicationHelper
 
     link_to(link_text, uri.to_s, target: :blank)
   end
+
+  def checked?(actual, expected)
+    actual == expected
+  end
 end
 # rubocop:enable Metrics/ModuleLength

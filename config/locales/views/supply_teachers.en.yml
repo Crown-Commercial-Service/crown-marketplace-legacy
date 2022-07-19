@@ -321,6 +321,48 @@ en:
           uploading: Publishing files
         upload:
           upload_name: 'Upload session #%{number}'
+    branches:
+      fta_calculator:
+        annual_salary: Enter annual salary
+        error: 'Error:'
+        error_message: Annual salary is invalid
+        finders_fee: finders fee based on
+        fixed_term_length: fixed term length
+        heading: 'Update the salary to see what their finders fee will be:'
+      index:
+        calculate_markup_button_label: Calculate the fee
+        calculate_markup_description: 'See how much the worker makes and what fee the agency will get using the figure they quoted you:'
+        calculate_markup_heading: Calculate agency fee
+        distance_aria_label_html: Set the radius to %{radius_setting}
+        do_next:
+          ccs_framework: CCS framework
+          contact_supplier: contact the agency of your choice from the list below to find a suitable, available worker and their daily rate
+          different_supplier: If you use a different agency later on, you will need to sign another short order form.
+          header: What to do next
+          short_order_form: short order form
+          sign_form_html: sign the %{form_url} (also available in the documents section of the %{framework_url} as ‘RM3826 Supply Teachers - Order Form Template (Short Form).docx’)
+          sign_once: You only need to sign the form once to use this agency for the duration of the framework (which runs until 29 August 2022).
+        download: Download shortlist of agencies
+        download_aria_label: Download shortlist as Microsoft Excel file
+        download_with_calculator: Download shortlist (with markup calculator)
+        download_with_calculator_aria_label: Download shortlist (with markup calculator) as Microsoft Excel file
+        header: Agency results
+        inputs:
+          job_type: Job type
+          looking_for: Looking for
+          managed_service_provider: Managed service provider type
+          payroll_provider: Payroll provider
+          postcode: Postcode
+          radius: Search distance
+          term: Term
+          worker_type: Worker type
+        inputs_header: Choices used to generate this list
+        mark_up_explanation: Results are sorted by mark-up from lowest to highest. Mark-up is the percentage the agency charges on top of the charge for the worker. It includes things like overheads, the agencies’ profits and management charges.
+        other_radius: 'Change this distance to:'
+        page_title: Agencies
+        print: Print this page
+        results_found_html: "<strong>%{results}</strong> found"
+        results_found_with_location_html: "<strong>%{results}</strong> found within <strong>%{range}</strong> of <strong>%{postcode}</strong>."
     gateway:
       index:
         dfe_signin:
@@ -389,45 +431,6 @@ en:
             worker_cost: Cost of the worker
           markup: Mark-up
           miles: Miles
-        fta_calculator:
-          annual_salary: Enter annual salary
-          error: 'Error:'
-          error_message: Annual salary is invalid
-          finders_fee: finders fee based on
-          fixed_term_length: fixed term length
-          heading: 'Update the salary to see what their finders fee will be:'
-        index:
-          calculate_markup_button_label: Calculate the fee
-          calculate_markup_description: 'See how much the worker makes and what fee the agency will get using the figure they quoted you:'
-          calculate_markup_heading: Calculate agency fee
-          distance_aria_label_html: Set the radius to %{radius_setting}
-          do_next:
-            contact_supplier: contact the agency of your choice from the list below to find a suitable, available worker and their daily rate
-            different_supplier: If you use a different agency later on, you will need to sign another short order form.
-            header: What to do next
-            sign_form_html: sign the <a href="%{form_url}">short order form</a> (also available in the documents section of the <a href="%{framework_url}">CCS framework</a> as ‘RM3826 Supply Teachers - Order Form Template (Short Form).docx’)
-            sign_once: You only need to sign the form once to use this agency for the duration of the framework (which runs until 29 August 2022).
-          download: Download shortlist of agencies
-          download_aria_label: Download shortlist as Microsoft Excel file
-          download_with_calculator: Download shortlist (with markup calculator)
-          download_with_calculator_aria_label: Download shortlist (with markup calculator) as Microsoft Excel file
-          header: Agency results
-          inputs:
-            job_type: Job type
-            looking_for: Looking for
-            managed_service_provider: Managed service provider type
-            payroll_provider: Payroll provider
-            postcode: Postcode
-            radius: Search distance
-            term: Term
-            worker_type: Worker type
-          inputs_header: Choices used to generate this list
-          mark-up_explanation_html: Results are sorted by mark-up from lowest to highest. Mark-up is the percentage the agency charges on top of the charge for the worker. It includes things like overheads, the agencies’ profits and management charges.
-          other_radius_html: 'Change this distance to: '
-          page_title: Agencies
-          print: Print this page
-          results_found_html: "<strong>%{results}</strong> found"
-          results_found_with_location_html: "<strong>%{results}</strong> found within <strong>%{range}</strong> of <strong>%{postcode}</strong>."
         show:
           address: Address
           branch_name: Branch
@@ -608,6 +611,11 @@ en:
           one_vendor_found_html: There is only one neutral vendor on this framework.
           page_title: Neutral vendor managed service providers
     rm6238:
+      branches:
+        branch:
+          branch: Branch
+          miles: Miles
+          supplier_fee: Supplier fee
       home:
         index:
           accreditation_of_agencies: Accreditation of agencies

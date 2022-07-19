@@ -38,7 +38,7 @@
               <% if rates.length == 1 %>
                 <%= SupplyTeachers::RM6238::JobType[job_type] %>
               <% else %>
-                <%= t(".agency_management.#{rate.tenure_type}") %>
+                <%= t(".agency_management.#{rate.term}") %>
               <% end %>
             </th>
             <%= managed_service_provider_rate_cell(rate) %>

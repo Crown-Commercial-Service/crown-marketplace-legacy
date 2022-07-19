@@ -44,7 +44,7 @@ RSpec.describe SupplyTeachers::RM6238::Journey::SchoolPostcodeNominatedWorker, t
   end
 
   describe '.next_step_class' do
-    pending 'returns Journey::NominatedWorkerResults' do
+    it 'returns Journey::NominatedWorkerResults' do
       expect(step.next_step_class).to be SupplyTeachers::RM6238::Journey::NominatedWorkerResults
     end
   end
@@ -74,7 +74,7 @@ RSpec.describe SupplyTeachers::RM6238::Journey::SchoolPostcodeNominatedWorker, t
   end
 
   describe '.final?' do
-    pending 'returns false' do
+    it 'returns false' do
       expect(step.final?).to be false
     end
   end

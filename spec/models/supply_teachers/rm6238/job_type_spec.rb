@@ -44,13 +44,13 @@ RSpec.describe SupplyTeachers::RM6238::JobType, type: :model do
     end
   end
 
-  describe '.find_tenure_allowed_by' do
-    it 'looks up tenure_allowed job type by code' do
-      expect(described_class.find_tenure_allowed_by(code: first_job_type.code)).to eq(first_job_type)
+  describe '.find_term_allowed_by' do
+    it 'looks up term_allowed job type by code' do
+      expect(described_class.find_term_allowed_by(code: first_job_type.code)).to eq(first_job_type)
     end
 
-    it 'does not find non tenure_allowed job type' do
-      expect(described_class.find_tenure_allowed_by(code: non_role_job_type.code)).to be_nil
+    it 'does not find non term_allowed job type' do
+      expect(described_class.find_term_allowed_by(code: non_role_job_type.code)).to be_nil
     end
   end
 
