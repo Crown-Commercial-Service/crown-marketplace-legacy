@@ -1,4 +1,4 @@
-@RM3826 @mobile @javascript @pipline
+@mobile @javascript @pipline
 Feature: Supply Teachers - Headers are responsive
 
   Scenario: Signed in and the navigation links are responsive

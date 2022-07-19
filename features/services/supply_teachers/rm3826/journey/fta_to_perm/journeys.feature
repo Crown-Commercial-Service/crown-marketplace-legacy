@@ -1,4 +1,3 @@
-@RM3826
 Feature: Supply Teachers - FTA to perm - results
 
   Background: Navigate to the FTA to perm section

@@ -1,4 +1,4 @@
-@RM3826 @pipeline
+@pipeline
 Feature: Supply Teachers - Master vendors
 
   Scenario: Master vendor results

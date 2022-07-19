@@ -32,7 +32,8 @@ module SupplyTeachers
     end
 
     FIRST_STEP_CLASS = {
-      'RM3826' => SupplyTeachers::RM3826::Journey::LookingFor
+      'RM3826' => SupplyTeachers::RM3826::Journey::LookingFor,
+      'RM6238' => SupplyTeachers::RM6238::Journey::LookingFor
     }.freeze
   end
 end

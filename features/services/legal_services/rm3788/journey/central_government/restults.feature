@@ -1,4 +1,4 @@
-@RM3788 @pipeline
+@pipeline
 Feature: Legal services - Central governemnt - fees under £20,000 - Results
 
   Background: Navigate to start page and complete the journey

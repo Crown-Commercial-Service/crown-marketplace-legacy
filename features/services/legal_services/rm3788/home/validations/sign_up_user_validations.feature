@@ -1,4 +1,4 @@
-@RM3788 @allow_list @pipeline
+@allow_list @pipeline
 Feature: Legal Services - Sign up user
 
   Background: navigate to create an account page

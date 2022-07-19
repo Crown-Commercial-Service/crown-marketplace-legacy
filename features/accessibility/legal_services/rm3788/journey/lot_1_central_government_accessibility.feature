@@ -1,4 +1,4 @@
-@RM3788 @accessibility @javascript
+@accessibility @javascript
 Feature: Legal services - Central Government - Lot 1 - Accessibility
 
   Background: Login and then navigate to the start page

@@ -1,4 +1,4 @@
-@RM3788 @pipeline
+@pipeline
 Feature: Legal Services - Start pages - With an unrecognised framework
 
   Scenario: Go to unrecognised famework in the buyer section - logged in

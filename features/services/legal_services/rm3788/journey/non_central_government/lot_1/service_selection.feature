@@ -1,4 +1,4 @@
-@RM3788 @javascript
+@javascript
 Feature: Legal services - Non central governemnt - Lot 1 - Service selection
 
   Background: Navigate to start page and select the lot
