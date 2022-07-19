@@ -1,0 +1,26 @@
+<%= add_optional_error_prefix_to_page_title(@journey.errors) %>
+<%= content_for :page_title, t('.page_title') %>
+<%= content_for :page_section, t("supply_teachers.#{params[:framework].downcase}.page_section") %>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <%= render partial: 'shared/error_summary', locals: { errors: @journey.errors } %>
+    <%= form_with url: @form_path, method: :get, local: true, html: { specialvalidation: true, novalidate: true } do |f| %>
+      <%= hidden_fields_for_previous_steps_and_responses(@journey) %>
+      <%= govuk_date_input(f, @journey.current_step, :contract_start_date, {
+        fieldset: {
+          legend: {
+            text: t('.contract_start_question'),
+            classes: 'govuk-fieldset__legend--m',
+            page_heading?: true
+          },
+        },
+        hint: {
+          text: t('.contract_start_question_hint')
+        }
+      }) %>
+
+      <%= submit_tag t('common.submit'), class: "govuk-button" %>
+    <% end %>
+  </div>
+</div>

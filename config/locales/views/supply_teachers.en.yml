@@ -117,6 +117,29 @@ en:
           attributes:
             worker_type:
               inclusion: Select yes if you want an agency to supply the worker
+        supply_teachers/rm6238/journey/agency_payroll:
+          attributes:
+            job_type:
+              blank: Select the type of worker you need
+            location:
+              invalid_location: Enter a valid postcode
+            term:
+              blank: Select how long you need the worker for
+        supply_teachers/rm6238/journey/fta_calculator_contract_end:
+          attributes:
+            contract_end_date:
+              after_contract_start_date: The date the contract ended must be after the date the worker’s current contract started
+              blank: Enter the contract end date, including the day, month and year
+        supply_teachers/rm6238/journey/fta_calculator_contract_start:
+          attributes:
+            contract_start_date:
+              blank: Enter the contract start date, including the day, month and year
+              invalid: Enter a real date
+        supply_teachers/rm6238/journey/fta_calculator_salary:
+          attributes:
+            salary:
+              blank: Enter the annual salary
+              invalid: Enter a valid salary
         supply_teachers/rm6238/journey/looking_for:
           attributes:
             looking_for:
@@ -129,6 +152,22 @@ en:
           attributes:
             threshold_position:
               inclusion: Select an option
+        supply_teachers/rm6238/journey/payroll_provider:
+          attributes:
+            payroll_provider:
+              inclusion: Select yes if you want to put the worker on the school’s payroll
+        supply_teachers/rm6238/journey/school_postcode_agency_supplied_worker:
+          attributes:
+            location:
+              invalid_location: Enter a valid postcode
+        supply_teachers/rm6238/journey/school_postcode_nominated_worker:
+          attributes:
+            location:
+              invalid_location: Enter a valid postcode
+        supply_teachers/rm6238/journey/worker_type:
+          attributes:
+            worker_type:
+              inclusion: Select yes if you want an agency to supply the worker
   activerecord:
     errors:
       models:
@@ -298,6 +337,45 @@ en:
         make_sure_listed: The framework in the web address is '%{framework}'. Make sure the web address contains one of the listed frameworks.
         page_title: Unrecognised framework
         the_recognised_are: 'The Supply Teachers frameworks are:'
+    journey:
+      agency_payroll:
+        page_title: School postcode and worker requirements
+        postcode_question: What is your school’s postcode?
+        question_hint: We use this to find agencies near to your school
+        worker_term_question: How long does your school need the worker for?
+        worker_type_question: What type of worker does your school need?
+      fta_calculator_contract_end:
+        contract_end_question: What date do you want the employee to stop working?
+        contract_end_question_hint: For example, 01 03 2018. An estimate is fine.
+        page_title: What date do you want the employee to stop working?
+      fta_calculator_contract_start:
+        contract_start_question: What date do you want the employee to start?
+        contract_start_question_hint: For example, 01 03 2018. An estimate is fine.
+        page_title: What date do you want the employee to start?
+      fta_calculator_salary:
+        page_title: What would the employee's annual salary be?
+        salary_question: What would the employee's annual salary be?
+        salary_question_hint: Even if the fixed term agreement is less than a year, please provide the salary as if it were for an entire year
+      payroll_provider:
+        answer:
+          agency: 'Yes'
+          school: No, I want to put the worker on our payroll
+        page_title: Do you want to put the worker on the school payroll?
+        question: Do you want the agency to manage the worker’s pay?
+      school_postcode_agency_supplied_worker:
+        page_title: What is your school postcode
+        question: What is your school’s postcode?
+        question_hint: We use this to find agencies near to your school
+      school_postcode_nominated_worker:
+        page_title: What is your school postcode
+        question: What is your school’s postcode?
+        question_hint: We use this to find agencies near to your school
+      worker_type:
+        answer:
+          agency_supplied: 'Yes'
+          nominated: No, I have a worker I want the agency to manage (a ‘nominated worker’)
+        page_title: Do you want an agency to supply the worker?
+        question: Do you want an agency to supply the worker?
     rm3826:
       branches:
         branch:
@@ -441,24 +519,6 @@ en:
           within_first_8_weeks:
             description: Based on the information you provided, you’re taking the worker on permanently within their first 12 working weeks, so you can be charged a fee.
       journey:
-        agency_payroll:
-          page_title: School postcode and worker requirements
-          postcode_question: What is your school’s postcode?
-          question_hint: We use this to find agencies near to your school
-          worker_term_question: How long does your school need the worker for?
-          worker_type_question: What type of worker does your school need?
-        fta_calculator_contract_end:
-          contract_end_question: What date do you want the employee to stop working?
-          contract_end_question_hint: For example, 01 03 2018. An estimate is fine.
-          page_title: What date do you want the employee to stop working?
-        fta_calculator_contract_start:
-          contract_start_question: What date do you want the employee to start?
-          contract_start_question_hint: For example, 01 03 2018. An estimate is fine.
-          page_title: What date do you want the employee to start?
-        fta_calculator_salary:
-          page_title: What would the employee's annual salary be?
-          salary_question: What would the employee's annual salary be?
-          salary_question_hint: Even if the fixed term agreement is less than a year, please provide the salary as if it were for an entire year
         fta_to_perm_contract_end:
           contract_end_question: What date did the workers fixed term contract end?
           contract_end_question_hint: For example, 12 05 2019
@@ -495,19 +555,6 @@ en:
           page_title: What type of managed service do you want?
           question: What type of managed service do you want?
           question_hint: A managed service provider is a company that can manage all your temporary staff needs.
-        payroll_provider:
-          answer_agency_payroll: 'Yes'
-          answer_school_payroll: No, I want to put the worker on our payroll
-          page_title: Do you want to put the worker on the school payroll?
-          question: Do you want the agency to manage the worker’s pay?
-        school_postcode_agency_supplied_worker:
-          page_title: What is your school postcode
-          question: What is your school’s postcode?
-          question_hint: We use this to find agencies near to your school
-        school_postcode_nominated_worker:
-          page_title: What is your school postcode
-          question: What is your school’s postcode?
-          question_hint: We use this to find agencies near to your school
         temp_to_perm_calculator:
           contract_start_question: When did the worker’s current contract start?
           contract_start_question_hint: For example, 31 3 1980
@@ -530,11 +577,6 @@ en:
           markup_rate_question_hint: This is the percentage fee you agreed with the agency. For example, 20
           notice_date_question: What date did you notify the agency that you wish to hire the worker?
           notice_date_question_hint: Leave this blank if you haven’t yet notified the agency
-        worker_type:
-          answer_agency_supplied: 'Yes'
-          answer_nominated_worker: No, I have a worker I want the agency to manage (a ‘nominated worker’)
-          page_title: Do you want an agency to supply the worker?
-          question: Do you want an agency to supply the worker?
       page_section: Find supply teachers and agency staff
       suppliers:
         all_suppliers:
