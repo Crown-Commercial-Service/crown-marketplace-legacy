@@ -1,0 +1,21 @@
+module SupplyTeachers::RM6238::SuppliersHelper
+  def managed_service_provider_contact(supplier, lot_number)
+    supplier.managed_service_providers.find_by(lot_number: lot_number)
+  end
+
+  def master_vendor_rate_cell(rate)
+    rate_value = if rate.percentage?
+                   number_to_percentage(rate.rate, precision: 1)
+                 else
+                   format_money(rate.value)
+                 end
+
+    tag.td(rate_value, class: 'govuk-table__cell govuk-table__cell--numeric master-vendor-record__markup-column')
+  end
+
+  def master_vendor_sorted_rates(rates)
+    rates.sort_by { |rate| MASTER_VENDOR_SORT_ORDER.index(rate.tenure_type) }
+  end
+
+  MASTER_VENDOR_SORT_ORDER = %w[daily six_weeks_plus].freeze
+end

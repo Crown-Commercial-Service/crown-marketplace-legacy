@@ -1,5 +1,6 @@
 module GovUKHelper
   include Button
+  include Details
   include ErrorMessage
   include Fieldset
   include FormGroup

@@ -49,8 +49,8 @@ RSpec.describe SupplyTeachers::RM6238::Supplier, type: :model do
     end
 
     context 'and the supplier has manged service providers' do
-      let!(:managed_service_provider_1) { create(:supply_teachers_rm6238_managed_service_provider_master_vendor_below_threshold, supplier: supplier) }
-      let!(:managed_service_provider_2) { create(:supply_teachers_rm6238_managed_service_provider_master_vendor_above_threshold, supplier: supplier) }
+      let!(:managed_service_provider_1) { create(:supply_teachers_rm6238_managed_service_provider_master_vendor, supplier: supplier) }
+      let!(:managed_service_provider_2) { create(:supply_teachers_rm6238_managed_service_provider_master_vendor, supplier: supplier) }
 
       it 'destroys all its rates' do
         supplier.destroy!
