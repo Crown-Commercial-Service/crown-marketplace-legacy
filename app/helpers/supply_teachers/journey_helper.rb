@@ -13,7 +13,7 @@ module SupplyTeachers::JourneyHelper
     when 'RM3826'
       SupplyTeachers::RM3826::Term
     when 'RM6238'
-      SupplyTeachers::RM6238::TenureType
+      SupplyTeachers::RM6238::Term
     end
   end
 end

@@ -42,7 +42,7 @@ module SupplyTeachers
           supplier.rates.create!(
             lot_number: rate_data['lot_number'],
             job_type: rate_data['job_type'],
-            tenure_type: rate_data['term'],
+            term: rate_data['term'],
             rate: rate_data['fee']
           )
         end

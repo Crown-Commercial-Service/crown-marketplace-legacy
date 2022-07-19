@@ -10,7 +10,7 @@ module GovUKHelper::DateInput
                                                          end
 
       govuk_fieldset(govuk_date_input_options[:fieldset]) do
-        concat(govuk_hint(attribute, govuk_date_input_options[:hint])) if govuk_date_input_options[:hint]
+        concat(govuk_hint(attribute, **govuk_date_input_options[:hint])) if govuk_date_input_options[:hint]
         concat(error_message)
         concat(tag.div(class: 'govuk-date-input') do
           capture do

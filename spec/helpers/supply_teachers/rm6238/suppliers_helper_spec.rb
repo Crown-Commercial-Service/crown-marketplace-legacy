@@ -56,8 +56,8 @@ RSpec.describe SupplyTeachers::RM6238::SuppliersHelper, type: :helper do
   describe '.managed_service_provider_sorted_rates' do
     let(:supplier) { create(:supply_teachers_rm6238_supplier) }
 
-    let(:rate1) { create(:supply_teachers_rm6238_master_vendor_below_threshold_rate, supplier: supplier, job_type: 'teacher', tenure_type: 'daily') }
-    let(:rate2) { create(:supply_teachers_rm6238_master_vendor_below_threshold_rate, supplier: supplier, job_type: 'teacher', tenure_type: 'six_weeks_plus') }
+    let(:rate1) { create(:supply_teachers_rm6238_master_vendor_below_threshold_rate, supplier: supplier, job_type: 'teacher', term: 'daily') }
+    let(:rate2) { create(:supply_teachers_rm6238_master_vendor_below_threshold_rate, supplier: supplier, job_type: 'teacher', term: 'six_weeks_plus') }
 
     before do
       rate2

@@ -33,6 +33,7 @@ RSpec.describe 'supply_teachers/rm3826/branches/index.html.erb' do
 
   before do
     view.extend(ApplicationHelper)
+    view.params[:framework] = 'RM3826'
 
     assign(:journey, journey)
     assign(:branches, branches)
@@ -81,7 +82,7 @@ RSpec.describe 'supply_teachers/rm3826/branches/index.html.erb' do
   end
 
   it 'has a button to calculate the mark-up' do
-    expect(rendered).to have_button(I18n.t('supply_teachers.rm3826.branches.index.calculate_markup_button_label'))
+    expect(rendered).to have_button(I18n.t('supply_teachers.branches.index.calculate_markup_button_label'))
   end
 
   context 'when shortlisting for teachers on school payroll' do
@@ -92,7 +93,7 @@ RSpec.describe 'supply_teachers/rm3826/branches/index.html.erb' do
     end
 
     it 'does not have a button to calculate the mark-up' do
-      expect(rendered).not_to have_button(I18n.t('supply_teachers.rm3826.branches.index.calculate_markup_button_label'))
+      expect(rendered).not_to have_button(I18n.t('supply_teachers.branches.index.calculate_markup_button_label'))
     end
   end
 

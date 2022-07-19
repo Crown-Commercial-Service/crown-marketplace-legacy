@@ -56,13 +56,13 @@ RSpec.feature 'Supplier mark-up calculator', type: :feature, supply_teachers: tr
     choose 'Qualified teacher: SEN roles'
     click_on I18n.t('common.submit')
 
-    within page.find('.supplier-record:first') do
+    within page.find('.supplier-record:nth-of-type(1)') do
       fill_in 'Enter daily rate', with: '150'
     end
 
     click_on 'Calculate the fee'
 
-    within page.find('.supplier-record:first') do
+    within page.find('.supplier-record:nth-of-type(1)') do
       expect(page).to have_css('.supplier-record__worker-cost', text: '£115.38')
       expect(page).to have_css('.supplier-record__agency-fee', text: '£34.62')
     end

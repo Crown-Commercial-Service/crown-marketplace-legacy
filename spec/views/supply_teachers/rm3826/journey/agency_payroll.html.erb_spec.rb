@@ -7,7 +7,6 @@ RSpec.describe 'supply_teachers/rm3826/journey/agency_payroll.html.erb' do
 
   before do
     view.extend(ApplicationHelper)
-    view.extend(JourneyHelper)
     view.extend(SupplyTeachers::JourneyHelper)
     assign(:journey, journey)
     assign(:form_path, '/')

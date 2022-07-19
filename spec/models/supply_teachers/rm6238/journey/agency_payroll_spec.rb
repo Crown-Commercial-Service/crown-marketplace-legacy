@@ -64,7 +64,7 @@ RSpec.describe SupplyTeachers::RM6238::Journey::AgencyPayroll, type: :model do
   end
 
   describe '.next_step_class' do
-    pending 'returns Journey::AgencyPayrollResults' do
+    it 'returns Journey::AgencyPayrollResults' do
       expect(step.next_step_class).to be SupplyTeachers::RM6238::Journey::AgencyPayrollResults
     end
   end
@@ -94,7 +94,7 @@ RSpec.describe SupplyTeachers::RM6238::Journey::AgencyPayroll, type: :model do
   end
 
   describe '.final?' do
-    pending 'returns false' do
+    it 'returns false' do
       expect(step.final?).to be false
     end
   end
