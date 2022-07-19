@@ -1,19 +1,6 @@
 module LegalServices
   module RM3788
     class PasswordsController < Base::PasswordsController
-      protected
-
-      def new_password_path
-        legal_services_rm3788_new_user_password_path
-      end
-
-      def after_password_reset_path
-        legal_services_rm3788_password_reset_success_path
-      end
-
-      def after_request_password_path
-        legal_services_rm3788_edit_user_password_path
-      end
     end
   end
 end
