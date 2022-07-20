@@ -3,7 +3,7 @@ module SupplyTeachers::RM6238::SuppliersHelper
     supplier.managed_service_providers.find_by(lot_number: lot_number)
   end
 
-  def master_vendor_rate_cell(rate)
+  def managed_service_provider_rate_cell(rate)
     rate_value = if rate.percentage?
                    number_to_percentage(rate.value, precision: 1)
                  else
@@ -13,9 +13,9 @@ module SupplyTeachers::RM6238::SuppliersHelper
     tag.td(rate_value, class: 'govuk-table__cell govuk-table__cell--numeric master-vendor-record__markup-column')
   end
 
-  def master_vendor_sorted_rates(rates)
-    rates.sort_by { |rate| MASTER_VENDOR_SORT_ORDER.index(rate.tenure_type) }
+  def managed_service_provider_sorted_rates(rates)
+    rates.sort_by { |rate| MANAGED_SERVICE_PROVIDER_SORT_ORDER.index(rate.tenure_type) }
   end
 
-  MASTER_VENDOR_SORT_ORDER = %w[daily six_weeks_plus].freeze
+  MANAGED_SERVICE_PROVIDER_SORT_ORDER = %w[daily six_weeks_plus].freeze
 end

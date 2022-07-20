@@ -43,8 +43,8 @@ RSpec.describe SupplyTeachers::RM6238::Journey::ManagedServiceProvider, type: :m
     context 'when managed_service_provider is education_technology_platform' do
       let(:managed_service_provider) { 'education_technology_platform' }
 
-      pending 'returns Journey::EducationTechnologyPlatformService' do
-        expect(step.next_step_class).to be SupplyTeachers::RM6238::Journey::EducationTechnologyPlatformService
+      it 'returns Journey::EducationTechnologyPlatformVendors' do
+        expect(step.next_step_class).to be SupplyTeachers::RM6238::Journey::EducationTechnologyPlatformVendors
       end
     end
   end
