@@ -11,18 +11,18 @@ Feature: Supply Teachers - Education technology platforms
     Then I am on the 'Education technology platform service providers' page
     And there are 4 managed service provider agencies
     And the managed service provider agencies are:
-      | TERRY-EMMERICH                |
-      | HERMAN AND SONS               |
-      | HAGENES, KASSULKE AND TREUTEL |
-      | DECKOW LLC                    |
-    And the contact details for the managed service provider 'TERRY-EMMERICH' are:
-      | Msgr. Rachel Abernathy        |
-      | 238.481.0154 x64340           |
-      | emmerich_terry@ondricka.info  |
-    And the education technology platform agency 'TERRY-EMMERICH' has the following rates:
-      | Agency Management Fee: Daily supply worker (per worker, per day)              | £22.23  |
-      | Agency Management Fee: Long term assignment (6 weeks+) (per worker, per day)  | £21.11  |
-      | A specific person                                                             | £20.00  |
-      | Employed directly                                                             | 5.0%    |
+      | LEFFLER AND SONS        |
+      | CHRISTIANSEN INC        |
+      | BOYLE, KOEPP AND TURNER |
+      | BRAUN INC               |
+    And the contact details for the managed service provider 'LEFFLER AND SONS' are:
+      | Kaitlin Hahn                  |
+      | 128.218.6912 x969             |
+      | sons.leffler.and@gislason.io  |
+    And the education technology platform agency 'LEFFLER AND SONS' has the following rates:
+      | Agency Management Fee: Daily supply worker (per worker, per day)              | £14.07  |
+      | Agency Management Fee: Long term assignment (6 weeks+) (per worker, per day)  | £13.36  |
+      | A specific person                                                             | £12.66  |
+      | Employed directly                                                             | 14.0%   |
     And I click on 'Back'
     Then I am on the 'What type of managed service do you want?' page

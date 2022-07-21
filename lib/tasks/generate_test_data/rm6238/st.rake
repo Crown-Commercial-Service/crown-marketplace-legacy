@@ -51,8 +51,8 @@ module GenerateTestData
           add_pricing_for_supplier(supplier, rand(2500..6000), '2.2')
         end
 
-        @suppliers[4..13].each do |supplier|
-          add_pricing_for_supplier(supplier, rand(2500..6000), '1')
+        @suppliers[4..13].each.with_index do |supplier, supplier_index|
+          add_pricing_for_supplier(supplier, rand(2500..6000), '1', supplier_index)
         end
 
         @suppliers[14..].each do |supplier|
@@ -66,11 +66,13 @@ module GenerateTestData
         end
       end
 
-      def self.add_pricing_for_supplier(supplier, base_rate, lot_number)
+      def self.add_pricing_for_supplier(supplier, base_rate, lot_number, supplier_index = nil)
         JOB_TYPES.each.with_index do |job_type, index|
           base_fee_for_job = determin_base_fee_for_job(base_rate, job_type)
 
           if index < 4
+            next if skip_job?(lot_number, supplier_index)
+
             TERMS.each do |term|
               supplier[:pricing] << {
                 lot_number: lot_number,
@@ -158,6 +160,10 @@ module GenerateTestData
             }
           ]
         }
+      end
+
+      def self.skip_job?(lot_number, supplier_index)
+        lot_number == '1' && supplier_index > 4 && rand > 0.5
       end
 
       JOB_TYPES = %w[teacher support senior other over_12_week nominated fixed_term].freeze
