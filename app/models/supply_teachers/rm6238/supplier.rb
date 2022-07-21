@@ -50,6 +50,10 @@ module SupplyTeachers
         rates.education_technology_platforms.group_by(&:job_type)
       end
 
+      def rates_grouped_by_job_type
+        rates.group_by(&:job_type)
+      end
+
       def direct_provision_rates
         rates.direct_provision
       end

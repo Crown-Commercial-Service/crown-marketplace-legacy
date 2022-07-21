@@ -49,7 +49,7 @@
           <% end %>
           <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible govuk-!-margin-bottom-8">
           <% if @branches.any? %>
-            <%= render partial: 'branch', collection: @branches %>
+            <%= render partial: 'supply_teachers/branches/branch', collection: @branches %>
           <% end %>
         </div>
         <div class="govuk-grid-column-one-third">

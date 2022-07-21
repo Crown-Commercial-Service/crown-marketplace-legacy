@@ -1,4 +1,4 @@
-<div class="managed-service-provider-record">
+<div class="agency-record">
   <h2 class="govuk-heading-m"><%= education_technology_platform_vendor.name %></h2>
 
   <% education_technology_platform_vendor_contact = managed_service_provider_contact(education_technology_platform_vendor, '4')%>
@@ -27,7 +27,7 @@
     <thead class="govuk-table__head">
       <tr class="govuk-table__row">
         <th class="govuk-table__header" scope="col"><strong><%= t('.column1') %></strong></th>
-        <th class="govuk-table__header govuk-table__header--numeric managed-service-provider-record__markup-column" scope="col"><strong><%= t('.column2') %></strong></th>
+        <th class="govuk-table__header govuk-table__header--numeric agency-record__markup-column" scope="col"><strong><%= t('.column2') %></strong></th>
       </tr>
     </thead>
     <tbody class="govuk-table__body">
@@ -41,7 +41,7 @@
                 <%= t(".agency_management.#{rate.term}") %>
               <% end %>
             </th>
-            <%= managed_service_provider_rate_cell(rate) %>
+            <%= agency_rate_cell(rate) %>
           </tr>
         <% end %>
       <% end %>

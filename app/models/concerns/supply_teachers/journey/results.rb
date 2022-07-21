@@ -1,7 +1,6 @@
 module SupplyTeachers
   module Journey::Results
     extend ActiveSupport::Concern
-    include SupplyTeachers::BranchesHelper
     include Geolocatable
 
     def branches(daily_rates: {}, salary: nil, fixed_term_length: nil)
@@ -42,6 +41,10 @@ module SupplyTeachers
       return unless salary
 
       salary.is_a?(String) ? salary : salary.fetch(branch_id, nil)
+    end
+
+    def display_name_for_branch(branch)
+      branch.name.present? ? branch.name : branch.town
     end
   end
 end

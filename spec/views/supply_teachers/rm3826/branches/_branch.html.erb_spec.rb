@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'supply_teachers/rm3826/branches/_branch.html.erb' do
+RSpec.describe 'supply_teachers/branches/_branch.html.erb' do
   helper(TelephoneNumberHelper)
 
   let(:supplier) { build(:supply_teachers_rm3826_supplier) }
@@ -25,7 +25,7 @@ RSpec.describe 'supply_teachers/rm3826/branches/_branch.html.erb' do
 
   before do
     allow(view).to receive(:link_to_calculator?).and_return(link_to_calculator?)
-    render 'supply_teachers/rm3826/branches/branch', branch: branch
+    render 'supply_teachers/branches/branch', branch: branch
   end
 
   it 'displays branch name' do
@@ -53,14 +53,14 @@ RSpec.describe 'supply_teachers/rm3826/branches/_branch.html.erb' do
   end
 
   it 'displays the online calculator' do
-    expect(rendered).to have_content(I18n.t('supply_teachers.rm3826.branches.branch.calculator.heading'))
+    expect(rendered).to have_content(I18n.t('supply_teachers.branches.daily_rate_calculator.calculator.heading'))
   end
 
   context 'when shortlisting for teachers on school payroll' do
     let(:link_to_calculator?) { false }
 
     it 'does not display the online calculator' do
-      expect(rendered).not_to have_content(I18n.t('supply_teachers.rm3826.branches.branch.calculator.heading'))
+      expect(rendered).not_to have_content(I18n.t('supply_teachers.branches.branch.calculator.heading'))
     end
   end
 end

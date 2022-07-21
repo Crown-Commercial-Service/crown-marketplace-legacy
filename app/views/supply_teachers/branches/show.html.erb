@@ -1,0 +1,57 @@
+<%= content_for :page_title, @branch.supplier_name  %>
+<%= content_for :page_section, t("supply_teachers.#{params[:framework].downcase}.page_section") %>
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <span class="govuk-caption-xl app-content__section-heading">
+      <%= t('.header') %>
+    </span>
+    <h1 class="govuk-heading-xl">
+      <%= @branch.supplier_name %>
+    </h1>
+
+    <div class="cmp-inset-text--neutral govuk-grid-column-full govuk-!-padding-top-3 govuk-!-padding-left-0">
+      <div class="govuk-grid-column-one-third">
+        <p>
+          <strong><%= t('.branch_name') %></strong>:
+          <br/>
+          <%= @branch.name %>
+        </p>
+        <p>
+          <strong><%= t('.region') %></strong>:
+          <br/>
+          <%= @branch.region %>
+        </p>
+      </div>
+      <div class="govuk-grid-column-one-third">
+        <p>
+          <strong><%= t('.contact_name') %></strong>:
+          <br/>
+          <%= @branch.contact_name %>
+        </p>
+        <p>
+          <strong><%= t('.contact_email') %></strong>:
+          <br/>
+          <%= mail_to @branch.contact_email, @branch.contact_email %>
+        </p>
+        <p>
+          <strong><%= t('.phone_number') %></strong>:
+          <br/>
+          <%= @branch.telephone_number %>
+        </p>
+      </div>
+      <div class="govuk-grid-column-one-third">
+        <p class="govuk-body govuk-!-margin-bottom-1">
+          <strong><%= t('.address') %></strong>:
+        </p>
+        <ul class="govuk-list">
+          <% @branch.address_elements.each do |address_element| %>
+            <li><%= address_element %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<%= render partial: 'rates' %>
