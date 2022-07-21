@@ -1,4 +1,4 @@
-class SupplyTeachers::RM3826::Spreadsheet
+class SupplyTeachers::Spreadsheet
   class DataDownload
     include TelephoneNumberHelper
 

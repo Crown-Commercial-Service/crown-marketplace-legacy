@@ -76,7 +76,7 @@ RSpec.describe SupplyTeachers::RM3826::BranchesController, type: :controller do
       end
 
       it 'responds to requests for spreadsheets' do
-        allow(SupplyTeachers::RM3826::Spreadsheet)
+        allow(SupplyTeachers::Spreadsheet)
           .to receive(:new)
           .and_return(instance_double('Spreadsheet', to_xlsx: 'spreadsheet-data'))
 

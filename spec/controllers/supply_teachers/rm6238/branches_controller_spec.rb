@@ -75,8 +75,8 @@ RSpec.describe SupplyTeachers::RM6238::BranchesController, type: :controller do
         expect(response.media_type).to eq 'text/html'
       end
 
-      pending 'responds to requests for spreadsheets' do
-        allow(SupplyTeachers::RM6238::Spreadsheet)
+      it 'responds to requests for spreadsheets' do
+        allow(SupplyTeachers::Spreadsheet)
           .to receive(:new)
           .and_return(instance_double('Spreadsheet', to_xlsx: 'spreadsheet-data'))
 
