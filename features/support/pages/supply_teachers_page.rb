@@ -17,7 +17,7 @@ module Pages
 
     section :managed_service_providers, '#main-content' do
       element :number_of_agencies, '> div.govuk-grid-row > div > p'
-      elements :agencies, '.managed-service-provider-record'
+      elements :agencies, '.agency-record'
     end
 
     section :all_agencies, '#main-content' do
@@ -33,7 +33,7 @@ module Pages
         element :'Contact name', 'div:nth-child(2) > p:nth-child(1)'
         element :'Contact email', 'div:nth-child(2) > p:nth-child(2)'
         element :'Phone number', 'div:nth-child(2) > p:nth-child(3)'
-        element :Address, 'div:nth-child(3) > p'
+        element :Address, 'div:nth-child(3) > ul'
       end
       element :agency_rates_table, 'table > tbody'
     end

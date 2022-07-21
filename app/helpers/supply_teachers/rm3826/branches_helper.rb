@@ -3,8 +3,8 @@ module SupplyTeachers::RM3826::BranchesHelper
     params[:payroll_provider] != 'school'
   end
 
-  def fta_calculator_page?
-    params[:worker_type] == 'agency_supplied' && params[:payroll_provider] == 'school'
+  def daily_fee_or_markup(branch)
+    number_to_percentage(branch.rate * 100, precision: 1)
   end
 
   def finders_fee(rate)

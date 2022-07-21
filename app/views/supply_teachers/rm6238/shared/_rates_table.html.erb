@@ -1,0 +1,27 @@
+<table class="govuk-table">
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th class="govuk-table__header" scope="col"><strong><%= t('.column1') %></strong></th>
+      <th class="govuk-table__header govuk-table__header--numeric agency-record__markup-column" scope="col"><strong><%= t('.column2') %><br><%= SupplyTeachers::RM6238::Term['daily'] %></strong></th>
+      <th class="govuk-table__header govuk-table__header--numeric agency-record__markup-column" scope="col"><strong><%= t('.column2') %><br><%= SupplyTeachers::RM6238::Term['six_weeks_plus'] %></strong></th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <% grouped_rates.each do |job_type, rates| %>
+      <tr class="govuk-table__row">
+        <th class="govuk-table__header" scope="row"><%= SupplyTeachers::RM6238::JobType[job_type] %></th>
+        <% if rates.length == 1 %>
+          <% rates.each do |rate| %>
+            <% 2.times do %>
+              <%= agency_rate_cell(rate) %>
+            <% end %>
+          <% end %>
+        <% elsif rates.length == 2 %>
+          <% agency_sorted_rates(rates).each do |rate| %>
+            <%= agency_rate_cell(rate) %>
+          <% end %>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

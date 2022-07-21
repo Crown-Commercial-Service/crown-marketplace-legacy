@@ -86,7 +86,6 @@ Metrics/AbcSize:
     Max: 25 # TODO: Restore to '20'
     Exclude:
         - 'spec/**/*'
-        - 'app/controllers/supply_teachers/rm3826/branches_controller.rb'
 
 Metrics/BlockLength:
     Max: 40
