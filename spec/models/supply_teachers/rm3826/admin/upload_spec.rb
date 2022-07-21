@@ -71,7 +71,7 @@ RSpec.describe SupplyTeachers::RM3826::Admin::Upload, type: :model do
 
         it 'is not valid and has the correct error messages' do
           expect(blank_upload.save).to be false
-          expect(blank_upload.errors.messages.values.flatten).to match ["The 'Current accredited suppliers' file does not contain the expected content type", "The 'Geographical data all suppliers' file does not contain the expected content type", "The 'Lot 1 and lot 2 comparisons' file does not contain the expected content type", "The 'Master vendor contacts' file does not contain the expected content type", "The 'Neutral vendor contacts' file does not contain the expected content type", "The 'Pricing for tool' file does not contain the expected content type", "The 'Supplier lookup' file does not contain the expected content type"]
+          expect(blank_upload.errors.messages.values.flatten).to match ["The 'Current accredited suppliers' file does not contain the expected content type", "The 'Geographical data all suppliers' file does not contain the expected content type", "The 'Master vendor contacts' file does not contain the expected content type", "The 'Pricing for tool' file does not contain the expected content type", "The 'Supplier lookup' file does not contain the expected content type", "The 'Lot 1 and lot 2 comparisons' file does not contain the expected content type", "The 'Neutral vendor contacts' file does not contain the expected content type"]
         end
       end
     end
@@ -119,7 +119,7 @@ RSpec.describe SupplyTeachers::RM3826::Admin::Upload, type: :model do
 
     context 'when start_upload is called' do
       before do
-        allow(SupplyTeachers::RM3826::DataImportWorker).to receive(:perform_async).with(upload.id).and_return(true)
+        allow(SupplyTeachers::RM3826::Admin::DataImportWorker).to receive(:perform_async).with(upload.id).and_return(true)
         upload.start_upload!
       end
 
@@ -128,7 +128,7 @@ RSpec.describe SupplyTeachers::RM3826::Admin::Upload, type: :model do
       end
 
       it 'starts the worker' do
-        expect(SupplyTeachers::RM3826::DataImportWorker).to have_received(:perform_async).with(upload.id)
+        expect(SupplyTeachers::RM3826::Admin::DataImportWorker).to have_received(:perform_async).with(upload.id)
       end
     end
 
@@ -145,7 +145,7 @@ RSpec.describe SupplyTeachers::RM3826::Admin::Upload, type: :model do
     context 'when approve is called' do
       before do
         upload.update(aasm_state: 'files_processed')
-        allow(SupplyTeachers::RM3826::DataUploadWorker).to receive(:perform_async).with(upload.id).and_return(true)
+        allow(SupplyTeachers::RM3826::Admin::DataUploadWorker).to receive(:perform_async).with(upload.id).and_return(true)
         upload.approve!
       end
 
@@ -154,7 +154,7 @@ RSpec.describe SupplyTeachers::RM3826::Admin::Upload, type: :model do
       end
 
       it 'starts the worker' do
-        expect(SupplyTeachers::RM3826::DataUploadWorker).to have_received(:perform_async).with(upload.id)
+        expect(SupplyTeachers::RM3826::Admin::DataUploadWorker).to have_received(:perform_async).with(upload.id)
       end
     end
 

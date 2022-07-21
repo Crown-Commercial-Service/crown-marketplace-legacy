@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_16_110030) do
+ActiveRecord::Schema.define(version: 2022_07_12_072302) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -243,6 +243,74 @@ ActiveRecord::Schema.define(version: 2022_06_16_110030) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "supply_teachers_rm6238_admin_current_data", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.text "error"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "supply_teachers_rm6238_admin_uploads", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "aasm_state", limit: 30
+    t.text "fail_reason"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "supply_teachers_rm6238_branches", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "supply_teachers_rm6238_supplier_id"
+    t.text "slug"
+    t.geography "location", limit: {:srid=>4326, :type=>"st_point", :geographic=>true}
+    t.string "postcode", limit: 8, null: false
+    t.text "contact_name"
+    t.text "contact_email"
+    t.text "telephone_number"
+    t.text "name"
+    t.text "town"
+    t.text "address_1"
+    t.text "address_2"
+    t.text "county"
+    t.text "region"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["slug"], name: "index_supply_teachers_rm6238_branches_on_slug"
+    t.index ["supply_teachers_rm6238_supplier_id"], name: "index_st_rm6238_branches_on_st_rm6238_supplier_id"
+  end
+
+  create_table "supply_teachers_rm6238_managed_service_providers", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "supply_teachers_rm6238_supplier_id"
+    t.string "lot_number", limit: 4, null: false
+    t.text "contact_name"
+    t.text "telephone_number"
+    t.text "contact_email"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["lot_number"], name: "index_st_rm6238_managed_service_providers_on_lot_number"
+    t.index ["supply_teachers_rm6238_supplier_id"], name: "index_st_rm6238_service_providers_on_st_rm6238_supplier_id"
+  end
+
+  create_table "supply_teachers_rm6238_rates", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "supply_teachers_rm6238_supplier_id"
+    t.string "lot_number", limit: 4, null: false
+    t.integer "rate", null: false
+    t.text "job_type", null: false
+    t.text "tenure_type"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["supply_teachers_rm6238_supplier_id", "lot_number", "job_type", "tenure_type"], name: "index_rates_on_supplier_id_and_lot_number_and_job_and_tenure", unique: true
+    t.index ["supply_teachers_rm6238_supplier_id"], name: "index_st_rm6238_rates_on_st_rm6238_supplier_id"
+  end
+
+  create_table "supply_teachers_rm6238_suppliers", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.text "name", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "supply_teachers_rm6238_uploads", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "email", limit: 255, default: "", null: false
     t.string "first_name", limit: 255
@@ -266,4 +334,7 @@ ActiveRecord::Schema.define(version: 2022_06_16_110030) do
   add_foreign_key "management_consultancy_rm6187_service_offerings", "management_consultancy_rm6187_suppliers"
   add_foreign_key "supply_teachers_rm3826_branches", "supply_teachers_rm3826_suppliers"
   add_foreign_key "supply_teachers_rm3826_rates", "supply_teachers_rm3826_suppliers"
+  add_foreign_key "supply_teachers_rm6238_branches", "supply_teachers_rm6238_suppliers"
+  add_foreign_key "supply_teachers_rm6238_managed_service_providers", "supply_teachers_rm6238_suppliers"
+  add_foreign_key "supply_teachers_rm6238_rates", "supply_teachers_rm6238_suppliers"
 end

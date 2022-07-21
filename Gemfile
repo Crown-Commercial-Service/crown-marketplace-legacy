@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.7.6'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.0.5'
+gem 'rails', '~> 6.0.5', '>= 6.0.5.1'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
@@ -45,7 +45,7 @@ gem 'rollbar', '~> 3.3.0'
 
 # for dfe sign in
 gem 'omniauth', '~> 2.1.0'
-gem 'omniauth-oauth2', '~> 1.7.2'
+gem 'omniauth-oauth2', '~> 1.8.0'
 gem 'omniauth-rails_csrf_protection', '>= 1.0.1'
 # The omniauth_openid_connect is no longer maintained so does not work with omniauth 2.0.
 # This is a custom gem to make omniauth_openid_connect work with omniauth 2.0.
@@ -75,7 +75,7 @@ gem 'jsonpath', '~> 1.1.2'
 gem 'aasm', '~> 5.2'
 
 # for running background jobs
-gem 'sidekiq', '~> 6.4.2'
+gem 'sidekiq', '~> 6.5.1'
 gem 'sinatra', '~> 2.2.0', require: false
 gem 'slim', '~> 4.1.0'
 
@@ -141,5 +141,5 @@ group :test do
   gem 'site_prism', '>= 3.7.3'
   gem 'axe-core-capybara', '>= 4.2.1'
   gem 'axe-core-cucumber', '>= 4.2.1'
-  gem 'show_me_the_cookies', '>= 5.0.1'
+  gem 'show_me_the_cookies', '>= 6.0.0'
 end

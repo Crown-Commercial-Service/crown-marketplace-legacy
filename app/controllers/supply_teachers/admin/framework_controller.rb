@@ -15,7 +15,7 @@ module SupplyTeachers
       protected
 
       def authorize_user
-        authorize! :manage, SupplyTeachers::RM3826::Admin::Upload
+        authorize! :manage, SupplyTeachers::Admin
       end
 
       def service_scope

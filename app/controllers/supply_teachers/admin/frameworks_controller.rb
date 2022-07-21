@@ -9,12 +9,6 @@ module SupplyTeachers
       def framework_index_path
         supply_teachers_admin_frameworks_path
       end
-
-      private
-
-      def authorize_user
-        authorize! :manage, SupplyTeachers::RM3826::Admin::Upload
-      end
     end
   end
 end

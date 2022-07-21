@@ -40,6 +40,11 @@ Rails.application.routes.draw do
           concerns :authenticatable
         end
       end
+      namespace 'rm6238', path: 'RM6238', defaults: { framework: 'RM6238' } do
+        namespace :admin, defaults: { service: 'supply_teachers/admin' } do
+          concerns :authenticatable
+        end
+      end
     end
 
     namespace 'management_consultancy', path: 'management-consultancy', defaults: { service: 'management_consultancy' } do
@@ -116,6 +121,14 @@ Rails.application.routes.draw do
       resources :branches, only: %i[index show]
       resources :downloads, only: :index
 
+      namespace :admin, defaults: { service: 'supply_teachers/admin' } do
+        get '/', to: 'uploads#index'
+        resources :uploads, only: %i[index new create show destroy update]
+        concerns :admin_shared_pages
+      end
+    end
+
+    namespace 'rm6238', path: 'RM6238', defaults: { framework: 'RM6238' } do
       namespace :admin, defaults: { service: 'supply_teachers/admin' } do
         get '/', to: 'uploads#index'
         resources :uploads, only: %i[index new create show destroy update]

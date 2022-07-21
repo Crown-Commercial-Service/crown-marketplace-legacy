@@ -27,13 +27,10 @@ class ApplicationController < ActionController::Base
   private
 
   def determine_gateway_url
-    case controller_path.split('/').first
-    when 'supply_teachers'
+    if controller_path.split('/').first == 'supply_teachers'
       st_gateway_path
-    when 'management_consultancy'
-      request.path&.include?('admin') ? management_consultancy_rm6187_admin_new_user_session_path : management_consultancy_rm6187_new_user_session_path
     else
-      request.path&.include?('admin') ? legal_services_rm3788_admin_new_user_session_path : legal_services_rm3788_new_user_session_path
+      "#{service_path_base}/sign-in"
     end
   end
 
@@ -86,9 +83,9 @@ class ApplicationController < ActionController::Base
 
   def st_gateway_path
     if request.path&.include?('admin')
-      supply_teachers_rm3826_admin_user_session_url
+      "#{service_path_base}/sign-in"
     else
-      supply_teachers_rm3826_gateway_url
+      "#{service_path_base}/gateway"
     end
   end
 

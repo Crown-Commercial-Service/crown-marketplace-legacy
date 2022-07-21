@@ -163,6 +163,40 @@ en:
           attributes:
             postcode:
               invalid_postcode: Enter a valid postcode
+        supply_teachers/rm6238/admin/upload:
+          attributes:
+            base:
+              none_attached: Upload at least one file
+            current_accredited_suppliers:
+              malicious: The 'Current accredited suppliers' file contains a virus
+              too_large: The 'Current accredited suppliers' file must be smaller than 10mb
+              wrong_content_type: The 'Current accredited suppliers' file does not contain the expected content type
+              wrong_extension: The 'Current accredited suppliers' file must be an XLSX
+            education_technology_platform_contacts:
+              malicious: The 'Education technology platform contacts' file contains a virus
+              too_large: The 'Education technology platform contacts' file must be smaller than 10mb
+              wrong_content_type: The 'Education technology platform contacts' file does not contain the expected content type
+              wrong_extension: The 'Education technology platform contacts' file must be a CSV
+            geographical_data_all_suppliers:
+              malicious: The 'Geographical data all suppliers' file contains a virus
+              too_large: The 'Geographical data all suppliers' file must be smaller than 10mb
+              wrong_content_type: The 'Geographical data all suppliers' file does not contain the expected content type
+              wrong_extension: The 'Geographical data all suppliers' file must be an XLSX
+            master_vendor_contacts:
+              malicious: The 'Master vendor contacts' file contains a virus
+              too_large: The 'Master vendor contacts' file must be smaller than 10mb
+              wrong_content_type: The 'Master vendor contacts' file does not contain the expected content type
+              wrong_extension: The 'Master vendor contacts' file must be a CSV
+            pricing_for_tool:
+              malicious: The 'Pricing for tool' file contains a virus
+              not_attached: Select the 'Pricing for tool' file
+              wrong_content_type: The 'Pricing for tool' file does not contain the expected content type
+              wrong_extension: The 'Pricing for tool' file must be an XLSX
+            supplier_lookup:
+              malicious: The 'Supplier lookup' file contains a virus
+              too_large: The 'Supplier lookup' file must be smaller than 10mb
+              wrong_content_type: The 'Supplier lookup' file does not contain the expected content type
+              wrong_extension: The 'Supplier lookup' file must be a CSV
   supply_teachers:
     admin:
       frameworks:
@@ -177,6 +211,65 @@ en:
           make_sure_listed: The framework in the web address is '%{framework}'. Make sure the web address contains one of the listed frameworks.
           page_title: Unrecognised framework
           the_recognised_are: 'The Supply Teachers frameworks are:'
+      uploads:
+        current_upload:
+          upload_name: 'Upload session #%{number}'
+        index:
+          caption: Manage supplier data
+          create_new: Set up upload session
+          current_table_caption: Data currently used
+          date: Date and time
+          heading: Supply teachers and agency workers
+          name: Name
+          no_of_files: Number of files
+          spreadsheet: Spreadsheet
+          status: Status
+          table_caption: Upload sessions
+          upload_session: Upload session
+        new:
+          caption: Supply teachers and agency workers
+          extension_type:
+            csv: This file must be a CSV
+            xlsx: This file must be an XLSX
+          heading: Set up a new upload session
+          return: Return to manage supplier data
+          upload_button: Upload spreadsheets
+          upload_caption: The maximum file size is 5mb.
+          upload_title: Choose one or more spreadsheets to upload
+          warning_plural: Upload sessions %{sessions} are in %{states} respectively. Uploading new spreadsheets will cancel those sessions
+          warning_singular: Upload session %{session} is in %{state}. Uploading new spreadsheets will cancel that session
+        show:
+          approve: Publish to live service
+          caption: Supply teachers and agency workers
+          confirm_changes: 'Confirm these files are ready to be used by the live service:'
+          current_accredited_suppliers: Current accredited suppliers
+          datetime: 'Date and time:'
+          delete: Delete session
+          education_technology_platform_contacts: Education technology platform contacts
+          error_heading: There is a problem
+          files: Files
+          geographical_data_all_suppliers: Geographical data all suppliers
+          heading: Upload session %{number}
+          lot_1_and_lot_2_comparisons: Lot 1 and Lot 2 comparisons
+          master_vendor_contacts: Master vendor contacts
+          neutral_vendor_contacts: Neutral vendor contacts
+          pricing_for_tool: Pricing for tool
+          reject: Cancel session
+          return: Return to manage supplier data
+          spreadsheet: Spreadsheet
+          status: 'Status:'
+          supplier_lookup: Supplier lookup
+        state:
+          canceled: Cancelled session
+          failed: Faild
+          files_processed: Waiting to publish
+          in_progress: Processing files
+          processing_files: Processing files
+          published: Published on live
+          rejected: Cancelled session
+          uploading: Publishing files
+        upload:
+          upload_name: 'Upload session #%{number}'
     home:
       unrecognised_framework:
         heading: The web address contained an unrecognised framework
@@ -185,74 +278,9 @@ en:
         the_recognised_are: 'The Supply Teachers frameworks are:'
     rm3826:
       admin:
-        passwords:
-          forgot_password_confirmation:
-            heading: A reset email has been sent
-            lead: If the email address you've entered belongs to a Crown Commercial Service account, we'll send a link to reset the password.
-            text01: If you don't receive this, email
-            text02_html: <a href="mailto:support@crowncommercial.gov.uk">support@crowncommercial.gov.uk</a>
         sessions:
           new:
             email_hint_html: Enter the email address you used to set up your account.
-        uploads:
-          current_upload:
-            upload_name: 'Upload session #%{number}'
-          index:
-            caption: Manage supplier data
-            create_new: Set up upload session
-            current_table_caption: Data currently used
-            date: Date and time
-            heading: Supply teachers and agency workers
-            name: Name
-            no_of_files: Number of files
-            spreadsheet: Spreadsheet
-            status: Status
-            table_caption: Upload sessions
-            upload_session: Upload session
-          new:
-            caption: Supply teachers and agency workers
-            extension_type:
-              csv: This file must be a CSV
-              xlsx: This file must be an XLSX
-            heading: Set up a new upload session
-            return: Return to manage supplier data
-            upload_button: Upload spreadsheets
-            upload_caption: The maximum file size is 5mb.
-            upload_title: Choose one or more spreadsheets to upload
-            warning: Warning
-            warning_plural: Upload sessions %{sessions} are in %{states} respectively. Uploading new spreadsheets will cancel those sessions
-            warning_singular: Upload session %{session} is in %{state}. Uploading new spreadsheets will cancel that session
-          show:
-            approve: Publish to live service
-            caption: Supply teachers and agency workers
-            confirm_changes: 'Confirm these files are ready to be used by the live service:'
-            current_accredited_suppliers: Current accredited suppliers
-            datetime: 'Date and time:'
-            delete: Delete session
-            error_heading: There is a problem
-            files: Files
-            geographical_data_all_suppliers: Geographical data all suppliers
-            heading: Upload session %{number}
-            lot_1_and_lot_2_comparisons: Lot 1 and Lot 2 comparisons
-            master_vendor_contacts: Master vendor contacts
-            neutral_vendor_contacts: Neutral vendor contacts
-            pricing_for_tool: Pricing for tool
-            reject: Cancel session
-            return: Return to manage supplier data
-            spreadsheet: Spreadsheet
-            status: 'Status:'
-            supplier_lookup: Supplier lookup
-          state:
-            canceled: Cancelled session
-            failed: Faild
-            files_processed: Waiting to publish
-            in_progress: Processing files
-            processing_files: Processing files
-            published: Published on live
-            rejected: Cancelled session
-            uploading: Publishing files
-          upload:
-            upload_name: 'Upload session #%{number}'
       branches:
         branch:
           branch: Branch
@@ -282,7 +310,7 @@ en:
             different_supplier: If you use a different agency later on, you will need to sign another short order form.
             header: What to do next
             sign_form_html: sign the <a href="%{form_url}">short order form</a> (also available in the documents section of the <a href="%{framework_url}">CCS framework</a> as ‘RM3826 Supply Teachers - Order Form Template (Short Form).docx’)
-            sign_once: You only need to sign the form once to use this agency for the duration of the framework (which runs until 29 August 2020).
+            sign_once: You only need to sign the form once to use this agency for the duration of the framework (which runs until 29 August 2022).
           download: Download shortlist of agencies
           download_aria_label: Download shortlist as Microsoft Excel file
           download_with_calculator: Download shortlist (with markup calculator)
@@ -500,12 +528,6 @@ en:
           page_title: Do you want an agency to supply the worker?
           question: Do you want an agency to supply the worker?
       page_section: Find supply teachers and agency staff
-      passwords:
-        forgot_password_confirmation:
-          heading: A reset email has been sent
-          lead: If the email address you've entered belongs to a Crown Commercial Service account, we'll send a link to reset the password.
-          text01: If you don't receive this, email
-          text02_html: <a href="mailto:support@crowncommercial.gov.uk">support@crowncommercial.gov.uk</a>
       sessions:
         new:
           email_hint_html: Enter the email address you used to set up your account.
@@ -538,3 +560,8 @@ en:
           mark_up_html: A %{mark_up} mark-up is charged if you use the agency to hire a specific person for you (a ‘nominated worker’).
           one_vendor_found_html: There is only one neutral vendor on this framework.
           page_title: Neutral vendor managed service providers
+    rm6238:
+      admin:
+        sessions:
+          new:
+            email_hint_html: Enter the email address you used to set up your account.

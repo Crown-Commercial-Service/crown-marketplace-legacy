@@ -11,7 +11,7 @@ FactoryBot.define do
     lot_number { 3 }
   end
 
-  factory :supply_teachers_rm3826_rate, aliases: [:direct_provision_rate], class: 'SupplyTeachers::RM3826::Rate' do
+  factory :supply_teachers_rm3826_rate, aliases: [:rm3826_direct_provision_rate], class: 'SupplyTeachers::RM3826::Rate' do
     association :supplier, factory: :supply_teachers_rm3826_supplier
     supply_teachers_rm3826_direct_provision
     job_type { 'nominated' }

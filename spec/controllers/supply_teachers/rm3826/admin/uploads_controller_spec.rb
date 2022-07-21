@@ -101,7 +101,7 @@ RSpec.describe SupplyTeachers::RM3826::Admin::UploadsController, type: :controll
     login_st_admin
 
     before do
-      allow(SupplyTeachers::RM3826::DataImportWorker).to receive(:perform_async).with(anything).and_return(true)
+      allow(SupplyTeachers::RM3826::Admin::DataImportWorker).to receive(:perform_async).with(anything).and_return(true)
       post :create, params: { supply_teachers_rm3826_admin_upload: upload_params }
     end
 
@@ -159,7 +159,7 @@ RSpec.describe SupplyTeachers::RM3826::Admin::UploadsController, type: :controll
     login_st_admin
 
     before do
-      allow(SupplyTeachers::RM3826::DataUploadWorker).to receive(:perform_async).with(anything).and_return(true)
+      allow(SupplyTeachers::RM3826::Admin::DataUploadWorker).to receive(:perform_async).with(anything).and_return(true)
       put :update, params: { id: upload.id, **update_params }
       upload.reload
     end
