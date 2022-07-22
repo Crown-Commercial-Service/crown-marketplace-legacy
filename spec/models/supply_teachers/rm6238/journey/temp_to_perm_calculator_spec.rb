@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe SupplyTeachers::RM3826::Journey::TempToPermCalculator, type: :model do
+RSpec.describe SupplyTeachers::RM6238::Journey::TempToPermCalculator, type: :model do
   subject(:step) do
     described_class.new(
       contract_start_date_day: contract_start_date_day,
@@ -30,7 +30,7 @@ RSpec.describe SupplyTeachers::RM3826::Journey::TempToPermCalculator, type: :mod
     )
   end
 
-  let(:model_key) { 'activemodel.errors.models.supply_teachers/rm3826/journey/temp_to_perm_calculator' }
+  let(:model_key) { 'activemodel.errors.models.supply_teachers/rm6238/journey/temp_to_perm_calculator' }
 
   let(:contract_start_date_day) { 11 }
   let(:contract_start_date_month) { 1 }
@@ -68,7 +68,7 @@ RSpec.describe SupplyTeachers::RM3826::Journey::TempToPermCalculator, type: :mod
 
   describe '#next_step_class' do
     it 'is Fee' do
-      expect(step.next_step_class).to eq(SupplyTeachers::RM3826::Journey::TempToPermFee)
+      expect(step.next_step_class).to eq(SupplyTeachers::RM6238::Journey::TempToPermFee)
     end
   end
 
@@ -876,7 +876,7 @@ RSpec.describe SupplyTeachers::RM3826::Journey::TempToPermCalculator, type: :mod
 
   describe '.next_step_class' do
     it 'returns Journey::TempToPermFee' do
-      expect(step.next_step_class).to be SupplyTeachers::RM3826::Journey::TempToPermFee
+      expect(step.next_step_class).to be SupplyTeachers::RM6238::Journey::TempToPermFee
     end
   end
 

@@ -2,7 +2,7 @@
 Feature: Supply Teachers - FTA to perm - Validations
 
   Background: Navigate to the FTA to perm section
-    Given I sign in and navigate to the start page for the 'RM3826' framework in 'supply teachers'
+    Given I sign in and navigate to the start page for the 'RM6238' framework in 'supply teachers'
     And I select 'To work out what fixed-term worker transfer fee I could be charged'
     And I click on 'Continue'
     Then I am on the 'What date did the workers fixed term contract start?' page

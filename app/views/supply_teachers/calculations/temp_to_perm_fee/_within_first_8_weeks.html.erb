@@ -2,10 +2,10 @@
   <%= t('.description') %>
 </p>
 <p>
-  <%= t('supply_teachers.rm3826.home.temp_to_perm_fee.fees_are_negotiable') %>
+  <%= t('supply_teachers.calculations.temp_to_perm_fee.fees_are_negotiable') %>
 </p>
 
-<h2><%= t('supply_teachers.rm3826.home.temp_to_perm_fee.calculation') %></h2>
+<h2><%= t('supply_teachers.calculations.temp_to_perm_fee.calculation') %></h2>
 
 <ul>
   <li>
@@ -29,11 +29,3 @@
     <%= display_total_fee(calculator) %>
   </li>
 </ul>
-
-<% if calculator.fee < calculator.maximum_fee_for_lack_of_notice %>
-  <p>
-    <%= t('.notice_period_disclaimer',
-        max_fee: number_to_currency(calculator.maximum_fee_for_lack_of_notice),
-        latest_notice_date: calculator.notice_date_based_on_hire_date.to_s(:long_with_day)) %>
-  </p>
-<% end %>

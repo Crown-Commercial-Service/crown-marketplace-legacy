@@ -1,4 +1,4 @@
-module SupplyTeachers::RM3826::TempToPermCalculator
+module SupplyTeachers::TempToPermCalculator
   class Calculator
     WORKING_DAYS_BEFORE_WHICH_EARLY_HIRE_FEE_CAN_BE_CHARGED = 60
     WORKING_DAYS_AFTER_WHICH_LATE_NOTICE_FEE_CAN_BE_CHARGED = 40

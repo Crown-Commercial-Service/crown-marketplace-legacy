@@ -1,5 +1,5 @@
-module SupplyTeachers::RM3826::TempToPermCalculatorHelper
-  TRANSLATION_SCOPE = 'supply_teachers.rm3826.home.temp_to_perm_fee.calculations'.freeze
+module SupplyTeachers::TempToPermCalculatorHelper
+  TRANSLATION_SCOPE = 'supply_teachers.calculations.temp_to_perm_fee.calculations'.freeze
 
   def display_notice_period_required(calculator)
     t("#{TRANSLATION_SCOPE}.notice_period_required",
@@ -26,7 +26,7 @@ module SupplyTeachers::RM3826::TempToPermCalculatorHelper
   end
 
   def display_suppliers_pro_rata_daily_fee?(calculator)
-    calculator.days_per_week < SupplyTeachers::RM3826::TempToPermCalculator::Calculator::MAXIMUM_NUMBER_OF_WORKING_DAYS_PER_WEEK
+    calculator.days_per_week < SupplyTeachers::TempToPermCalculator::Calculator::MAXIMUM_NUMBER_OF_WORKING_DAYS_PER_WEEK
   end
 
   def display_suppliers_pro_rata_daily_fee(calculator)

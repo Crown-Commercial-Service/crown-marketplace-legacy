@@ -12,7 +12,7 @@ module GovUKHelper::DateInput
       govuk_fieldset(govuk_date_input_options[:fieldset]) do
         concat(govuk_hint(attribute, **govuk_date_input_options[:hint])) if govuk_date_input_options[:hint]
         concat(error_message)
-        concat(tag.div(class: 'govuk-date-input') do
+        concat(tag.div(class: 'govuk-date-input', id: attribute.to_s.gsub('_', '-')) do
           capture do
             %i[day month year].each do |date_part|
               concat(date_input(form, model, attribute, date_part, error_message.present?))

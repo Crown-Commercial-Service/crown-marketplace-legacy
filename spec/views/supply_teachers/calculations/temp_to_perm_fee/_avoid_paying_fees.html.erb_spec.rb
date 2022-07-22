@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'supply_teachers/rm3826/home/temp_to_perm_fee/_avoid_paying_fees.html.erb' do
+RSpec.describe 'supply_teachers/calculations/temp_to_perm_fee/_avoid_paying_fees.html.erb' do
   let(:calculator) do
     instance_double(
       'SupplyTeachers::RM3826::TempToPermCalculator::Calculator',
@@ -10,11 +10,11 @@ RSpec.describe 'supply_teachers/rm3826/home/temp_to_perm_fee/_avoid_paying_fees.
     )
   end
 
-  let(:i18n_key) { 'supply_teachers.rm3826.home.temp_to_perm_fee.avoid_paying_fees' }
+  let(:i18n_key) { 'supply_teachers.calculations.temp_to_perm_fee.avoid_paying_fees' }
 
   before do
     assign(:calculator, calculator)
-    render 'supply_teachers/rm3826/home/temp_to_perm_fee/avoid_paying_fees'
+    render 'supply_teachers/calculations/temp_to_perm_fee/avoid_paying_fees'
   end
 
   context 'when the ideal notice date is in the past' do

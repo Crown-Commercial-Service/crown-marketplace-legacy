@@ -1,8 +1,8 @@
-module SupplyTeachers::RM3826::HomeHelper
-  include SupplyTeachers::RM3826::TempToPermCalculatorHelper
+module SupplyTeachers::CalculationsHelper
+  include SupplyTeachers::TempToPermCalculatorHelper
 
   def determine_result_partial
-    result_partial = 'supply_teachers/rm3826/home/temp_to_perm_fee/'
+    result_partial = 'supply_teachers/calculations/temp_to_perm_fee/'
 
     if @calculator.hiring_after_12_weeks?
       result_partial +=  'after_12_weeks_and_'
