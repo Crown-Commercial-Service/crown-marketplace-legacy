@@ -67,7 +67,7 @@ RSpec.describe SupplyTeachers::RM6238::Journey::LookingFor, type: :model do
     context 'when looking for is all_suppliers' do
       let(:looking_for) { 'all_suppliers' }
 
-      pending 'returns Journey::AllSuppliers' do
+      it 'returns Journey::AllSuppliers' do
         expect(step.next_step_class).to be SupplyTeachers::RM6238::Journey::AllSuppliers
       end
     end

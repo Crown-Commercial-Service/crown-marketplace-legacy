@@ -1,11 +1,13 @@
 require 'rails_helper'
 
-RSpec.describe 'supply_teachers/rm3826/suppliers/_branch.html.erb' do
+RSpec.describe 'supply_teachers/suppliers/_branch.html.erb' do
   let(:supplier) { create(:supply_teachers_rm3826_supplier) }
   let(:branch) { create(:supply_teachers_rm3826_branch, supplier: supplier) }
 
   before do
-    render 'supply_teachers/rm3826/suppliers/branch', branch: branch
+    view.params[:framework] = 'RM3826'
+
+    render 'supply_teachers/suppliers/branch', branch: branch
   end
 
   it 'displays supplier and branch name' do

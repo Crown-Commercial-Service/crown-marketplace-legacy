@@ -1,9 +1,7 @@
 module SupplyTeachers
   module RM6238
-    class SuppliersController < SupplyTeachers::FrameworkController
+    class SuppliersController < SupplyTeachers::SuppliersController
       before_action :set_end_of_journey, only: %i[master_vendors]
-
-      helper :telephone_number
 
       helper_method :threshold_position
 
