@@ -1,4 +1,4 @@
-module SupplyTeachers::RM3826::FTAToPermCalculator
+module SupplyTeachers::FTAToPermCalculator
   class Calculator
     attr_reader :fixed_term_contract_fee, :current_contract_length
 

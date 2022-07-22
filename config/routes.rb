@@ -117,6 +117,14 @@ Rails.application.routes.draw do
       end
     end
 
+    concern :calculations do
+      resources :calculations, path: '/', only: %i[] do
+        collection do
+          get '/fta-to-perm-fee', action: :fta_to_perm_fee
+        end
+      end
+    end
+
     concern :admin do
       namespace :admin, defaults: { service: 'supply_teachers/admin' } do
         get '/', to: 'uploads#index'
@@ -132,17 +140,23 @@ Rails.application.routes.draw do
     end
 
     namespace 'rm3826', path: 'RM3826', defaults: { framework: 'RM3826' } do
-      concerns %i[buyer_shared_pages shared_pages gateway branches admin]
+      concerns %i[buyer_shared_pages shared_pages gateway branches admin calculations]
       get '/temp-to-perm-fee', to: 'home#temp_to_perm_fee'
       get '/fta-to-perm-fee', to: 'home#fta_to_perm_fee'
-      get '/master-vendors', to: 'suppliers#master_vendors', as: 'master_vendors'
-      # get '/neutral-vendors', to: 'suppliers#neutral_vendors', as: 'neutral_vendors'
-      get '/all-suppliers', to: 'suppliers#all_suppliers', as: 'all_suppliers'
+
+      resources :suppliers, path: '/', only: %i[] do
+        collection do
+          get '/master-vendors', action: :master_vendors
+          # get '/neutral-vendors', action: :neutral_vendors
+          get '/all-suppliers', action: :all_suppliers
+        end
+      end
+
       resources :downloads, only: :index
     end
 
     namespace 'rm6238', path: 'RM6238', defaults: { framework: 'RM6238' } do
-      concerns %i[buyer_shared_pages shared_pages gateway branches admin]
+      concerns %i[buyer_shared_pages shared_pages gateway branches admin calculations]
       resources :suppliers, path: '/', only: %i[] do
         collection do
           get '/master-vendors', action: :master_vendors
