@@ -38,15 +38,6 @@ RSpec.describe SupplyTeachers::RM6238::SuppliersController, type: :controller do
       )
       expect(assigns(:back_path)).to eq(expected_path)
     end
-
-    context 'when the framework is not the current framework' do
-      let(:framework) { 'RM3826' }
-
-      it 'renders the unrecognised framework page with the right http status' do
-        expect(response).to render_template('supply_teachers/home/unrecognised_framework')
-        expect(response).to have_http_status(:bad_request)
-      end
-    end
   end
 
   describe 'GET education_technology_platform_vendors' do
@@ -77,6 +68,44 @@ RSpec.describe SupplyTeachers::RM6238::SuppliersController, type: :controller do
         managed_service_provider: 'education_technology_platform'
       )
       expect(assigns(:back_path)).to eq(expected_path)
+    end
+  end
+
+  describe 'GET all suppliers' do
+    let(:branch) { create(:supply_teachers_rm6238_branch,  slug: 'branch-a') }
+    let(:branch1) { create(:supply_teachers_rm6238_branch, slug: 'branch-b') }
+
+    before do
+      get :all_suppliers, params: {
+        journey: 'supply-teachers',
+        looking_for: 'all_suppliers'
+      }
+    end
+
+    it 'renders the all_suppliers template' do
+      expect(response).to render_template('all_suppliers')
+    end
+
+    it 'assigns branches' do
+      expect(assigns(:branches)).to eq([branch, branch1])
+    end
+
+    it 'sets the back path to the looking-for question' do
+      expected_path = journey_question_path(
+        journey: 'supply-teachers',
+        slug: 'looking-for',
+        looking_for: 'all_suppliers'
+      )
+      expect(assigns(:back_path)).to eq(expected_path)
+    end
+
+    context 'when the framework is not the current framework' do
+      let(:framework) { 'RM3826' }
+
+      it 'renders the unrecognised framework page with the right http status' do
+        expect(response).to render_template('supply_teachers/home/unrecognised_framework')
+        expect(response).to have_http_status(:bad_request)
+      end
     end
   end
 end

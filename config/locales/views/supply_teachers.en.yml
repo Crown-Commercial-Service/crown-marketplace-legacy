@@ -586,11 +586,6 @@ en:
           notice_date_question_hint: Leave this blank if you haven’t yet notified the agency
       page_section: Find supply teachers and agency staff
       suppliers:
-        all_suppliers:
-          branch: Branch
-          header: All agencies
-          page_title: All agencies
-          results_found_with_location_html: There are <strong>%{results} agencies</strong> currently available
         master_vendor:
           column1: Job type
           column2: Agency mark-up
@@ -703,3 +698,9 @@ en:
           threshold_position:
             above_threshold: Contract worth more than £2.5 million
             below_threshold: Contract worth less than £2.5 million
+    suppliers:
+      all_suppliers:
+        branch: Branch
+        header: All agencies
+        page_title: All agencies
+        results_found_with_location_html: There are <strong>%{results} agencies</strong> currently available
