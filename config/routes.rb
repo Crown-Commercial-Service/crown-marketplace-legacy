@@ -120,6 +120,7 @@ Rails.application.routes.draw do
     concern :calculations do
       resources :calculations, path: '/', only: %i[] do
         collection do
+          get '/temp-to-perm-fee', action: :temp_to_perm_fee
           get '/fta-to-perm-fee', action: :fta_to_perm_fee
         end
       end
@@ -141,8 +142,6 @@ Rails.application.routes.draw do
 
     namespace 'rm3826', path: 'RM3826', defaults: { framework: 'RM3826' } do
       concerns %i[buyer_shared_pages shared_pages gateway branches admin calculations]
-      get '/temp-to-perm-fee', to: 'home#temp_to_perm_fee'
-      get '/fta-to-perm-fee', to: 'home#fta_to_perm_fee'
 
       resources :suppliers, path: '/', only: %i[] do
         collection do
@@ -157,6 +156,7 @@ Rails.application.routes.draw do
 
     namespace 'rm6238', path: 'RM6238', defaults: { framework: 'RM6238' } do
       concerns %i[buyer_shared_pages shared_pages gateway branches admin calculations]
+
       resources :suppliers, path: '/', only: %i[] do
         collection do
           get '/master-vendors', action: :master_vendors

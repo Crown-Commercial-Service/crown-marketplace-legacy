@@ -14,13 +14,17 @@ RSpec.describe 'supply_teachers/rm3826/journey/temp_to_perm_calculator.html.erb'
 
   before do
     view.extend(ApplicationHelper)
+    view.params[:framework] = 'RM3826'
+
     assign(:journey, journey)
     assign(:form_path, '/')
+
+    allow(step).to receive(:errors).and_return(errors)
   end
 
-  it 'does not include aria-describedby attribute' do
+  it 'does include aria-describedby attribute' do
     render
-    expect(rendered).not_to have_css('fieldset[aria-describedby]')
+    expect(rendered).to have_css('fieldset[aria-describedby]', count: 7)
   end
 
   it 'does not display the error summary' do
@@ -40,9 +44,7 @@ RSpec.describe 'supply_teachers/rm3826/journey/temp_to_perm_calculator.html.erb'
   end
 
   context 'when the journey has an error in contract_start_date' do
-    before do
-      errors.add(:contract_start_date, 'error-message')
-    end
+    before { errors.add(:contract_start_date, 'error-message') }
 
     it 'links the fieldset to the error message' do
       render

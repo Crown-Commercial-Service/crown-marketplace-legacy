@@ -1,0 +1,146 @@
+<%= add_optional_error_prefix_to_page_title(@journey.errors) %>
+<%= content_for :page_title, t('.page_title') %>
+<%= content_for :page_section, t("supply_teachers.#{params[:framework].downcase}.page_section") %>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <%= render partial: 'shared/error_summary', locals: { errors: @journey.errors } %>
+    <h1 class="govuk-heading-l cmp-page-heading"><%= t('.header') %></h1>
+    <%= form_with url: @form_path, method: :get, local: true, html: { specialvalidation: true, novalidate: true } do |f| %>
+      <%= hidden_fields_for_previous_steps_and_responses(@journey) %>
+      <%= govuk_date_input(f, @journey.current_step, :contract_start_date, {
+        fieldset: {
+          legend: {
+            text: t('.contract_start_question'),
+            classes: 'govuk-fieldset__legend--m'
+          },
+        },
+        hint: {
+          text: t('.contract_start_question_hint')
+        }
+      }) %>
+
+      <%= govuk_text_input(f, @journey, :days_per_week, {
+        label: {
+          text: t('.days_per_week_question'),
+          classes: 'govuk-label--m'
+        },
+        hint: {
+          text: t('.days_per_week_question_hint')
+        },
+        input: {
+          classes: 'govuk-input--width-3',
+          value: params[:days_per_week]
+        }
+      })%>
+
+      <%= govuk_text_input(f, @journey, :day_rate, {
+        label: {
+          text: t('.day_rate_question'),
+          classes: 'govuk-label--m'
+        },
+        hint: {
+          text: t('.day_rate_question_hint')
+        },
+        input: {
+          classes: 'govuk-input--width-10',
+          value: params[:day_rate],
+          prefix: {
+            text: '£'
+          }
+        }
+      })%>
+
+      <%= govuk_text_input(f, @journey, :markup_rate, {
+        label: {
+          text: t('.markup_rate_question'),
+          classes: 'govuk-label--m'
+        },
+        hint: {
+          text: t('.markup_rate_question_hint')
+        },
+        input: {
+          classes: 'govuk-input--width-10',
+          value: params[:markup_rate],
+          suffix: {
+            text: '%'
+          }
+        }
+      })%>
+
+      <%= govuk_date_input(f, @journey.current_step, :hire_date, {
+        fieldset: {
+          legend: {
+            text: t('.hire_date_question'),
+            classes: 'govuk-fieldset__legend--m'
+          },
+        },
+        hint: {
+          text: t('.hire_date_question_hint')
+        }
+      }) %>
+
+      <%= govuk_date_input(f, @journey.current_step, :holiday_1_start_date, {
+        fieldset: {
+          legend: {
+            text: t('.holiday_1_start_date_question'),
+            classes: 'govuk-fieldset__legend--m'
+          },
+        },
+        hint: {
+          text: t('.holiday_1_start_date_question_hint')
+        }
+      }) %>
+
+      <%= govuk_date_input(f, @journey.current_step, :holiday_1_end_date, {
+        fieldset: {
+          legend: {
+            text: t('.holiday_1_end_date_question'),
+            classes: 'govuk-fieldset__legend--m'
+          },
+        },
+        hint: {
+          text: t('.holiday_1_end_date_question_hint')
+        }
+      }) %>
+
+      <%= govuk_date_input(f, @journey.current_step, :holiday_2_start_date, {
+        fieldset: {
+          legend: {
+            text: t('.holiday_2_start_date_question'),
+            classes: 'govuk-fieldset__legend--m'
+          },
+        },
+        hint: {
+          text: t('.holiday_2_start_date_question_hint')
+        }
+      }) %>
+
+      <%= govuk_date_input(f, @journey.current_step, :holiday_2_end_date, {
+        fieldset: {
+          legend: {
+            text: t('.holiday_2_end_date_question'),
+            classes: 'govuk-fieldset__legend--m'
+          },
+        },
+        hint: {
+          text: t('.holiday_2_end_date_question_hint')
+        }
+      }) %>
+
+      <%= govuk_date_input(f, @journey.current_step, :notice_date, {
+        fieldset: {
+          legend: {
+            text: t('.notice_date_question'),
+            classes: 'govuk-fieldset__legend--m'
+          },
+        },
+        hint: {
+          text: t('.notice_date_question_hint')
+        }
+      }) %>
+
+      <%= submit_tag t('common.submit'), class: "govuk-button" %>
+    <% end %>
+  </div>
+</div>

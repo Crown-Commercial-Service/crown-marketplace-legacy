@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'supply_teachers/rm3826/home/temp_to_perm_fee.html.erb' do
+RSpec.describe 'supply_teachers/calculations/temp_to_perm_fee.html.erb' do
   include_context 'with friendly dates'
 
   let(:contract_start_date) { start_of_1st_week }
@@ -10,7 +10,7 @@ RSpec.describe 'supply_teachers/rm3826/home/temp_to_perm_fee.html.erb' do
   let(:days_per_week) { 5 }
   let(:notice_date) { nil }
 
-  let(:i18n_key) { 'supply_teachers.rm3826.home.temp_to_perm_fee' }
+  let(:i18n_key) { 'supply_teachers.calculations.temp_to_perm_fee' }
 
   let(:calculator) do
     options = {
@@ -21,7 +21,7 @@ RSpec.describe 'supply_teachers/rm3826/home/temp_to_perm_fee.html.erb' do
       markup_rate: markup_rate,
       notice_date: notice_date
     }
-    SupplyTeachers::RM3826::TempToPermCalculator::Calculator.new(options)
+    SupplyTeachers::TempToPermCalculator::Calculator.new(options)
   end
 
   before do
@@ -160,7 +160,7 @@ RSpec.describe 'supply_teachers/rm3826/home/temp_to_perm_fee.html.erb' do
       end
 
       it 'displays the minimum and maximum fees that could be charged by the supplier' do
-        expect(rendered).to have_text(/you could be charged\n +between £0 and £200/)
+        expect(rendered).to have_text(/you could be charged\n +\n +between £0 and £200/)
       end
 
       it 'displays explanation' do
@@ -342,7 +342,7 @@ RSpec.describe 'supply_teachers/rm3826/home/temp_to_perm_fee.html.erb' do
       let(:notice_date) { nil }
 
       it 'displays the minimum and maximum fees that could be charged by the supplier' do
-        expect(rendered).to have_text(/you could be charged\n +between £100\.00 and £200\.00/)
+        expect(rendered).to have_text(/you could be charged\n + \n +between £100\.00 and £200\.00/)
       end
 
       it 'displays explanation' do
