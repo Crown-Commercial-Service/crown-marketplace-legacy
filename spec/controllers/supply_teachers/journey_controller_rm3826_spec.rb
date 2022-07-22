@@ -139,7 +139,7 @@ RSpec.describe SupplyTeachers::JourneyController, type: :controller do
 
       it 'redirects to master vendors path' do
         expect(response).to redirect_to(
-          supply_teachers_rm3826_master_vendors_path(
+          master_vendors_supply_teachers_rm3826_suppliers_path(
             journey: 'supply-teachers',
             managed_service_provider: managed_service_provider,
             looking_for: 'managed_service_provider'
