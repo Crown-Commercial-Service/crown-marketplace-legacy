@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_20_084351) do
+ActiveRecord::Schema.define(version: 2022_07_25_141935) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -100,6 +100,43 @@ ActiveRecord::Schema.define(version: 2022_07_20_084351) do
   create_table "legal_services_rm3788_uploads", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "legal_services_rm6240_rates", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "legal_services_rm6240_supplier_id"
+    t.string "lot_number", limit: 1, null: false
+    t.string "jurisdiction", limit: 1
+    t.string "position", limit: 1, null: false
+    t.integer "rate", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["legal_services_rm6240_supplier_id", "lot_number", "jurisdiction", "position"], name: "index_rates_on_supplier_id_lot_number_position_jurisdiction", unique: true
+    t.index ["legal_services_rm6240_supplier_id"], name: "index_ls_rm6240_rates_on_ls_rm6240_supplier_id"
+  end
+
+  create_table "legal_services_rm6240_service_offerings", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "legal_services_rm6240_supplier_id"
+    t.string "service_code", limit: 4, null: false
+    t.string "jurisdiction", limit: 1
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["legal_services_rm6240_supplier_id", "service_code", "jurisdiction"], name: "index_rates_on_supplier_id_and_service_code_and_jurisdiction", unique: true
+    t.index ["legal_services_rm6240_supplier_id"], name: "index_ls_rm6240_service_offerings_on_ls_rm6240_supplier_id"
+  end
+
+  create_table "legal_services_rm6240_suppliers", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.text "name", null: false
+    t.text "email"
+    t.text "phone_number"
+    t.text "website"
+    t.text "address"
+    t.boolean "sme"
+    t.integer "duns"
+    t.text "lot_1_prospectus_link"
+    t.text "lot_2_prospectus_link"
+    t.text "lot_3_prospectus_link"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "management_consultancy_rm6187_admin_uploads", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -330,6 +367,8 @@ ActiveRecord::Schema.define(version: 2022_07_20_084351) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "legal_services_rm3788_regional_availabilities", "legal_services_rm3788_suppliers"
   add_foreign_key "legal_services_rm3788_service_offerings", "legal_services_rm3788_suppliers"
+  add_foreign_key "legal_services_rm6240_rates", "legal_services_rm6240_suppliers"
+  add_foreign_key "legal_services_rm6240_service_offerings", "legal_services_rm6240_suppliers"
   add_foreign_key "management_consultancy_rm6187_rate_cards", "management_consultancy_rm6187_suppliers"
   add_foreign_key "management_consultancy_rm6187_service_offerings", "management_consultancy_rm6187_suppliers"
   add_foreign_key "supply_teachers_rm3826_branches", "supply_teachers_rm3826_suppliers"
