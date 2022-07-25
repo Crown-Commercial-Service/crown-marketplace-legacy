@@ -38,4 +38,8 @@ module Steppable
   def translate_input(key)
     I18n.t(key, scope: 'journey_step')
   end
+
+  def service_name
+    self.class.module_parent.module_parent
+  end
 end
