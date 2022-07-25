@@ -33,8 +33,8 @@ RSpec.describe SupplyTeachers::RM6238::SuppliersHelper, type: :helper do
     end
   end
 
-  describe '.managed_service_provider_rate_cell' do
-    let(:result) { helper.managed_service_provider_rate_cell(rate) }
+  describe '.agency_rate_cell' do
+    let(:result) { helper.agency_rate_cell(rate) }
 
     context 'when the rate is a percentage' do
       let(:rate) { create(:supply_teachers_rm6238_master_vendor_below_threshold_rate, job_type: 'fixed_term', rate: 4321) }
@@ -53,7 +53,7 @@ RSpec.describe SupplyTeachers::RM6238::SuppliersHelper, type: :helper do
     end
   end
 
-  describe '.managed_service_provider_sorted_rates' do
+  describe '.agency_sorted_rates' do
     let(:supplier) { create(:supply_teachers_rm6238_supplier) }
 
     let(:rate1) { create(:supply_teachers_rm6238_master_vendor_below_threshold_rate, supplier: supplier, job_type: 'teacher', term: 'daily') }
@@ -65,7 +65,7 @@ RSpec.describe SupplyTeachers::RM6238::SuppliersHelper, type: :helper do
     end
 
     it 'sorts the rates by the job tyoe' do
-      expect(helper.managed_service_provider_sorted_rates(supplier.rates)).to eq [
+      expect(helper.agency_sorted_rates(supplier.rates)).to eq [
         rate1,
         rate2
       ]

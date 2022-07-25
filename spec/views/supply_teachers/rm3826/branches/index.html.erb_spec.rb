@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'supply_teachers/rm3826/branches/index.html.erb' do
+RSpec.describe 'supply_teachers/branches/index.html.erb' do
   helper(TelephoneNumberHelper)
 
   let(:inputs) do
@@ -40,6 +40,7 @@ RSpec.describe 'supply_teachers/rm3826/branches/index.html.erb' do
     assign(:location, location)
     assign(:radius_in_miles, 26)
     assign(:alternative_radiuses, [3, 17])
+    assign(:form_path, '/supply-teachers/RM3826/branches')
 
     allow(first_supplier).to receive(:nominated_worker_rate).and_return(nominated_worker_rate)
     allow(second_supplier).to receive(:nominated_worker_rate).and_return(nominated_worker_rate)

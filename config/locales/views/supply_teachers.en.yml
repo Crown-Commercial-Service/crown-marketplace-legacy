@@ -322,6 +322,20 @@ en:
         upload:
           upload_name: 'Upload session #%{number}'
     branches:
+      branch:
+        branch: Branch
+        fee_or_markup:
+          rm3826: Mark-up
+          rm6238: Supplier fee
+        miles: Miles
+      daily_rate_calculator:
+        calculator:
+          agency_fee: Agency fee
+          daily_rate: Enter daily rate
+          error: 'Error:'
+          error_message: Daily rate is invalid
+          heading: 'Enter the quote from this agency to see what their fee will be:'
+          worker_cost: Cost of the worker
       fta_calculator:
         annual_salary: Enter annual salary
         error: 'Error:'
@@ -363,6 +377,14 @@ en:
         print: Print this page
         results_found_html: "<strong>%{results}</strong> found"
         results_found_with_location_html: "<strong>%{results}</strong> found within <strong>%{range}</strong> of <strong>%{postcode}</strong>."
+      show:
+        address: Address
+        branch_name: Branch
+        contact_email: Contact email
+        contact_name: Contact name
+        header: Agency details
+        phone_number: Phone number
+        region: Region
     gateway:
       index:
         dfe_signin:
@@ -420,27 +442,9 @@ en:
         question: Do you want an agency to supply the worker?
     rm3826:
       branches:
-        branch:
-          branch: Branch
-          calculator:
-            agency_fee: Agency fee
-            daily_rate: Enter daily rate
-            error: 'Error:'
-            error_message: Daily rate is invalid
-            heading: 'Enter the quote from this agency to see what their fee will be:'
-            worker_cost: Cost of the worker
-          markup: Mark-up
-          miles: Miles
-        show:
-          address: Address
-          branch_name: Branch
+        rates:
           column1: Job type
           column2: Agency mark-up
-          contact_email: Contact email
-          contact_name: Contact name
-          header: Agency details
-          phone_number: Phone number
-          region: Region
       home:
         fta_to_perm_fee:
           check_another_fixed_term_contract: Check another fixed term contract
@@ -611,11 +615,6 @@ en:
           one_vendor_found_html: There is only one neutral vendor on this framework.
           page_title: Neutral vendor managed service providers
     rm6238:
-      branches:
-        branch:
-          branch: Branch
-          miles: Miles
-          supplier_fee: Supplier fee
       home:
         index:
           accreditation_of_agencies: Accreditation of agencies
@@ -675,6 +674,10 @@ en:
           question: Is your contract likely to be worth more than £2.5 million?
           question_hint: DESCRIPTION TO EXPLAIN OPTIONS
       page_section: Find supply teachers and agency staff
+      shared:
+        rates_table:
+          column1: Job type
+          column2: Agency mark-up
       suppliers:
         education_technology_platform_vendor:
           agency_management:
@@ -688,9 +691,6 @@ en:
             what_to_do: WHAT TO DO NEXT
           header: Education technology platform service providers
           page_title: Education technology platform service providers
-        master_vendor:
-          column1: Job type
-          column2: Supplier fee
         master_vendors:
           do_next:
             competition_online_html: you can also do this online, <a href="%{esourcing_url}" class="govuk-link--no-visited-state">using CCS’s esourcing tool</a>

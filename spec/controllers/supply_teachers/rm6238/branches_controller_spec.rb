@@ -263,4 +263,24 @@ RSpec.describe SupplyTeachers::RM6238::BranchesController, type: :controller do
       end
     end
   end
+
+  describe 'GET show' do
+    login_st_buyer
+
+    let(:branch) { create(:supply_teachers_rm6238_branch, :with_rates) }
+
+    before { get :show, params: { id: branch.slug } }
+
+    it 'renders the show page' do
+      expect(response).to render_template(:show)
+    end
+
+    it 'sets the back path' do
+      expect(assigns(:back_path)).to eq :back
+    end
+
+    it 'sets the right branch' do
+      expect(assigns(:branch)).to eq branch
+    end
+  end
 end
