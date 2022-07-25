@@ -23,7 +23,7 @@ module SupplyTeachers
         when 'calculate_temp_to_perm_fee'
           # Journey::TempToPermCalculator
         when 'calculate_fta_to_perm_fee'
-          # Journey::FTAToPermContractStart
+          Journey::FTAToPermContractStart
         when 'all_suppliers'
           Journey::AllSuppliers
         end
