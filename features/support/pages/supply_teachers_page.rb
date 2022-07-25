@@ -1,7 +1,7 @@
 module Pages
   class SupplyTeachers < SitePrism::Page
     element :date_field, '#main-content'
-    element :'contract start', '#contract-start'
+    element :'contract start', '#contract-start-date'
     element :hire, '#hire-date'
     element :'holiday 1 start', '#holiday-1-start-date'
     element :'holiday 1 end', '#holiday-1-end-date'

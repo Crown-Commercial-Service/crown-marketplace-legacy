@@ -21,7 +21,7 @@ module SupplyTeachers
         when 'managed_service_provider'
           Journey::ManagedServiceProvider
         when 'calculate_temp_to_perm_fee'
-          # Journey::TempToPermCalculator
+          Journey::TempToPermCalculator
         when 'calculate_fta_to_perm_fee'
           Journey::FTAToPermContractStart
         when 'all_suppliers'

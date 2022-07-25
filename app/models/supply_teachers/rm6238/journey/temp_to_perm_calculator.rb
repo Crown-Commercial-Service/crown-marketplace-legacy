@@ -1,5 +1,5 @@
 module SupplyTeachers
-  module RM3826
+  module RM6238
     class Journey::TempToPermCalculator < SupplyTeachers::Journey::TempToPermCalculator
     end
   end

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe SupplyTeachers::RM3826::TempToPermCalculator::Calculator do
+RSpec.describe SupplyTeachers::TempToPermCalculator::Calculator do
   subject(:calculator) do
     described_class.new(
       contract_start_date: contract_start_date,

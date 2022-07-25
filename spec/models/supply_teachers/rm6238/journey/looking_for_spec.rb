@@ -51,7 +51,7 @@ RSpec.describe SupplyTeachers::RM6238::Journey::LookingFor, type: :model do
     context 'when looking for is calculate_temp_to_perm_fee' do
       let(:looking_for) { 'calculate_temp_to_perm_fee' }
 
-      pending 'returns Journey::TempToPermCalculator' do
+      it 'returns Journey::TempToPermCalculator' do
         expect(step.next_step_class).to be SupplyTeachers::RM6238::Journey::TempToPermCalculator
       end
     end
