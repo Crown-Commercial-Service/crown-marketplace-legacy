@@ -15,16 +15,16 @@ Feature: Supply Teachers - Master vendors - Below threshold
     And the caption is 'Contract worth less than £2.5 million'
     And there are 3 managed service provider agencies
     And the managed service provider agencies are:
-      | ONDRICKA LLC                  |
-      | MAGGIO GROUP                  |
-      | SHIELDS, HERZOG AND NITZSCHE  |
-    And the contact details for the managed service provider 'ONDRICKA LLC' are:
-      | Deirdre Pagac                   |
-      | 1-871-086-0283                  |
-      | ondricka_llc@ruecker-sipes.biz  |
-    And the master vendor agency 'ONDRICKA LLC' has the following rates:
-      | Teacher: (Incl. Qualified and Unqualified Teachers, Tutors) | £41.40  | £39.33  |
-      | Over 12 Week Reduction                                      | 5.0%    | £165.60 |
-      | Employed directly                                           | 24.8%   | 24.8%   |
+      | LUETTGEN-GUTMANN            |
+      | O'HARA LLC                  |
+      | BOGAN, REICHERT AND COLLIER |
+    And the contact details for the managed service provider 'LUETTGEN-GUTMANN' are:
+      | Adrian Hane                                   |
+      | 1-943-719-6600 x77799                         |
+      | luettgen.gutmann@wintheiser-breitenberg.name  |
+    And the master vendor agency 'LUETTGEN-GUTMANN' has the following rates:
+      | Teacher: (Incl. Qualified and Unqualified Teachers, Tutors) | £54.32  | £51.60  |
+      | Over 12 Week Reduction                                      | 0.0%	  | £217.28 |
+      | Employed directly                                           | 32.6%   | 32.6%   |
     And I click on 'Back'
     Then I am on the 'Is your contract likely to be worth more than £2.5 million?' page

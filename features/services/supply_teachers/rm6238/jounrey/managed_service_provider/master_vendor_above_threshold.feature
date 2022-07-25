@@ -15,16 +15,16 @@ Feature: Supply Teachers - Master vendors - Above threshold
     And the caption is 'Contract worth more than £2.5 million'
     And there are 3 managed service provider agencies
     And the managed service provider agencies are:
-      | MAGGIO GROUP                  |
-      | SHIELDS, HERZOG AND NITZSCHE  |
-      | EBERT AND SONS                |
-    And the contact details for the managed service provider 'MAGGIO GROUP' are:
-      | Dean Hackett              |
-      | 1-992-898-2027 x3413      |
-      | maggio_group@streich.info |
-    And the master vendor agency 'MAGGIO GROUP' has the following rates:
-      | Teacher: (Incl. Qualified and Unqualified Teachers, Tutors) | £36.65  | £34.81  |
-      | Over 12 Week Reduction                                      | 4.0%    | £146.60 |
-      | Employed directly                                           | 22.0%   | 22.0%   |
+      | O'HARA LLC                    |
+      | BOGAN, REICHERT AND COLLIER   |
+      | MCGLYNN, BAILEY AND NIKOLAUS  |
+    And the contact details for the managed service provider 'BOGAN, REICHERT AND COLLIER' are:
+      | Ok Kuphal                             |
+      | (670) 117-8868 x86891                 |
+      | bogan.and.collier.reichert@murray.net |
+    And the master vendor agency 'BOGAN, REICHERT AND COLLIER' has the following rates:
+      | Teacher: (Incl. Qualified and Unqualified Teachers, Tutors) | £57.16  | £54.30  |
+      | Over 12 Week Reduction                                      | 6.0%    | £228.64 |
+      | Employed directly                                           | 34.3%   | 34.3%   |
     And I click on 'Back'
     Then I am on the 'Is your contract likely to be worth more than £2.5 million?' page
