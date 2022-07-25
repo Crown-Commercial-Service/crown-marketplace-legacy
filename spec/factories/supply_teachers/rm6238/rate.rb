@@ -3,7 +3,7 @@ FactoryBot.define do
     association :supplier, factory: :supply_teachers_rm6238_supplier
     supply_teachers_rm6238_direct_provision
     job_type { 'nominated' }
-    rate { 30 }
+    rate { 3000 }
   end
 
   factory :supply_teachers_rm6238_master_vendor_below_threshold_rate, parent: :supply_teachers_rm6238_rate do

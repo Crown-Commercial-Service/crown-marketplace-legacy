@@ -1,5 +1,10 @@
 module GovUKHelper::ErrorMessage
   def govuk_error_message(model, attribute)
-    tag.p(model.errors[attribute].first, id: "#{attribute}-error", class: 'govuk-error-message')
+    tag.p(id: "#{attribute}-error", class: 'govuk-error-message') do
+      capture do
+        concat(tag.span('Error:', class: 'govuk-visually-hidden'))
+        concat(model.errors[attribute].first)
+      end
+    end
   end
 end

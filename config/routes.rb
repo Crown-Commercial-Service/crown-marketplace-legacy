@@ -140,6 +140,14 @@ Rails.application.routes.draw do
           get '/education-technology-platform-vendors', action: :education_technology_platform_vendors
         end
       end
+      resources :branches, path: '/branches', only: %i[index show]
+      resources :branches, path: '/', only: %i[] do
+        collection do
+          get '/nominated-worker-results', action: :index
+          get '/fixed-term-results', action: :index
+          get '/agency-payroll-results', action: :index
+        end
+      end
 
       namespace :admin, defaults: { service: 'supply_teachers/admin' } do
         get '/', to: 'uploads#index'

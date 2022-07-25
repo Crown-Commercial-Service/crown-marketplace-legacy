@@ -7,7 +7,6 @@ RSpec.describe 'legal_services/rm3788/journey/choose_organisation_type.html.erb'
 
   before do
     view.extend(ApplicationHelper)
-    view.extend(JourneyHelper)
     assign(:journey, journey)
     assign(:form_path, '/')
   end

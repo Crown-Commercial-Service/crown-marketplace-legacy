@@ -14,7 +14,7 @@ module SupplyTeachers::RM6238::SuppliersHelper
   end
 
   def managed_service_provider_sorted_rates(rates)
-    rates.sort_by { |rate| MANAGED_SERVICE_PROVIDER_SORT_ORDER.index(rate.tenure_type) }
+    rates.sort_by { |rate| MANAGED_SERVICE_PROVIDER_SORT_ORDER.index(rate.term) }
   end
 
   MANAGED_SERVICE_PROVIDER_SORT_ORDER = %w[daily six_weeks_plus].freeze

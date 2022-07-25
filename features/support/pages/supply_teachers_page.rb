@@ -10,7 +10,7 @@ module Pages
     element :notice, '#notice-date'
 
     section :agency_results, '#main-content' do
-      element :number_of_agencies, 'div.govuk-grid-row > div > form > div > div.govuk-grid-column-two-thirds > p > strong:nth-child(1)'
+      element :number_of_agencies, 'div.govuk-grid-row > div > form > div > div.govuk-grid-column-two-thirds > p:nth-child(1) > strong:nth-child(1)'
       elements :suppliers, '.supplier-record'
       elements :choices, '.cmp-sidebar > ul > li'
     end

@@ -1,6 +1,6 @@
 module SupplyTeachers
   module RM6238
-    class TenureType
+    class Term
       include StaticRecord
 
       attr_accessor :code, :description
@@ -14,6 +14,6 @@ module SupplyTeachers
       end
     end
 
-    TenureType.load_csv('supply_teachers/rm6238/tenure_type.csv')
+    Term.load_csv('supply_teachers/rm6238/term.csv')
   end
 end
