@@ -1,0 +1,114 @@
+<%= content_for :page_title, t('.page_title')  %>
+<%= content_for :page_section, t("supply_teachers.#{params[:framework].downcase}.page_section") %>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-xl cmp-page-heading">
+      <%= t('.header') %>
+    </h1>
+
+    <% if flash[:info] %>
+      <div class="govuk-inset-text cmp-inset-text--success">
+        <p class="govuk-body govuk-body-s"><%= flash[:info] %></p>
+      </div>
+    <% end %>
+
+    <%= form_with url: @form_path, method: :get, local: true, class: 'supplier-record__calculator-form', html: { specialvalidation: true, novalidate: true } do |f| %>
+      <%= hidden_fields_for_previous_steps_and_responses(@journey) %>
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <% if @location %>
+            <p class="govuk-body">
+              <%=
+                t('.results_found_with_location_html',
+                  results: number_to_human(@branches.count, units: :results),
+                  range: number_to_human(@radius_in_miles, units: :miles),
+                  postcode: @location.postcode
+                )
+              %>
+            </p>
+            <p class="govuk-body">
+              <strong><%= t('.other_radius') %></strong>
+              <% @alternative_radiuses.each do |radius| %>
+                <span class="st-supplier-page__radius-list-item">
+                  <%= link_to(
+                    number_to_human(radius, units: :miles),
+                    "/supply-teachers/#{params[:framework]}/branches?#{@journey.params.merge(radius: radius).to_query}",
+                    class: 'govuk-link',
+                    aria: { 
+                      label: t('.distance_aria_label_html', radius_setting:number_to_human(radius, units: :miles))
+                    }
+                  ) %>
+                </span>
+              <% end %>
+            </p>
+          <% else %>
+            <p class="govuk-body">
+              <%= t('.results_found_html', results: number_to_human(@branches.count, units: :results)) %>
+            </p>
+          <% end %>
+          <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible govuk-!-margin-bottom-8">
+          <% if @branches.any? %>
+            <%= render partial: 'supply_teachers/branches/branch', collection: @branches %>
+          <% end %>
+        </div>
+        <div class="govuk-grid-column-one-third">
+          <div class="cmp-sidebar">
+            <h2 class="govuk-heading-s">
+              <%= t('.inputs_header') %>
+            </h2>
+            <ul class="govuk-list govuk-list--bullet">
+              <% @journey.inputs.each do |question_key, answer| %>
+                <li class="cmp-inset-text__list-item"><%= t(".inputs.#{question_key}") %>: <%= answer %></li>
+              <% end %>
+            </ul>
+            <%= govuk_details(t('.do_next.header'), classes: 'govuk-!-margin-bottom-5') do %>
+              <ul class="govuk-list govuk-list--bullet">
+                <li>
+                  <%= t('.do_next.contact_supplier') %>
+                </li>
+                <li>
+                  <%=
+                    t('.do_next.sign_form_html',
+                      form_url: link_to(t('.do_next.short_order_form'), "https://assets.crowncommercial.gov.uk/wp-content/uploads/#{params[:framework]}-Order-form-template-short-form-V1.docx", class: 'govuk-link'),
+                      framework_url: link_to(t('.do_next.ccs_framework'), "https://ccs-agreements.cabinetoffice.gov.uk/contracts/#{params[:framework].downcase}", class: 'govuk-link')
+                    )
+                  %>
+                </li>
+              </ul>
+              <p class="govuk-body">
+                <%= t('.do_next.sign_once') %>
+              </p>
+              <p class="govuk-body">
+                <%= t('.do_next.different_supplier') %>
+              </p>
+            <% end %>
+            <p class="govuk-body cmp-inset-text__body--neutral">
+              <%= t('.mark_up_explanation') %>
+            </p>
+            <p class="govuk-body govuk-body-s supplier-record__print-option">
+              <%= link_to t('.print'), 'javascript:window.print()', class: 'govuk-link ga-print-link' %>
+            </p>
+            <p class="govuk-body govuk-body-s supplier-record__print-option">
+              <%= link_to t('.download'), "/supply-teachers/#{params[:framework]}/branches?#{@journey.params.merge(format: :xlsx).to_query}", class: 'supplier-record__file-download ga-download-shortlist', aria: { label: t('.download_aria_label') } %>
+            </p>
+            <% if link_to_calculator? %>
+              <p class="govuk-body govuk-body-s supplier-record__print-option">
+                <%= link_to t('.download_with_calculator'), "/supply-teachers/#{params[:framework]}/branches?#{@journey.params.merge(format: :xlsx, calculations: 'yes').to_query}", class: 'supplier-record__file-download ga-download-calculator', aria: { label: t('.download_with_calculator_aria_label') } %>
+              </p>
+              <div class="supplier-record__calculate-markup">
+                <h2 class="govuk-heading-s">
+                  <%= t('.calculate_markup_heading') %>
+                </h2>
+                <p class="govuk-body govuk-body-s">
+                  <%= t('.calculate_markup_description') %>
+                </p>
+                <%= submit_tag t('.calculate_markup_button_label'), class: "govuk-button govuk-!-margin-0" %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,4 +1,3 @@
-@RM3788
 Feature: Legal Services - Footer links
 
   Background: Navigate to start page

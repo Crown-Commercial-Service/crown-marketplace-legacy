@@ -58,7 +58,7 @@ RSpec.feature 'Agency workers', type: :feature, supply_teachers: true do
   end
 
   def yes
-    I18n.t('supply_teachers.rm3826.journey.worker_type.answer_agency_supplied')
+    I18n.t('supply_teachers.journey.worker_type.answer.agency_supplied')
   end
 
   def back
@@ -66,6 +66,6 @@ RSpec.feature 'Agency workers', type: :feature, supply_teachers: true do
   end
 
   def no
-    I18n.t('supply_teachers.rm3826.journey.worker_type.answer_nominated_worker')
+    I18n.t('supply_teachers.journey.worker_type.answer.nominated')
   end
 end

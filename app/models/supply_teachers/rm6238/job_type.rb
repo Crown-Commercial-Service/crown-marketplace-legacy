@@ -7,7 +7,7 @@ module SupplyTeachers
       attribute :code, String
       attribute :description, String
       attribute :role, Axiom::Types::Boolean
-      attribute :tenure_allowed, Axiom::Types::Boolean
+      attribute :term_allowed, Axiom::Types::Boolean
 
       def self.[](code)
         find_by(code: code).description
@@ -17,8 +17,8 @@ module SupplyTeachers
         find_by(code: code, role: true)
       end
 
-      def self.find_tenure_allowed_by(code:)
-        find_by(code: code, tenure_allowed: true)
+      def self.find_term_allowed_by(code:)
+        find_by(code: code, term_allowed: true)
       end
 
       def self.roles

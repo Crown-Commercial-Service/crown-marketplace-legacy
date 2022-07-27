@@ -1,4 +1,4 @@
-@RM3826 @geocode_london
+@geocode_london
 Feature: Supply Teachers - Agency results - Nominated worker - Agencies
 
   Background: Navigate to the Agency results page

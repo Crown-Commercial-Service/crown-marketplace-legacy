@@ -1,9 +1,7 @@
 module SupplyTeachers
   module RM3826
-    class SuppliersController < SupplyTeachers::FrameworkController
+    class SuppliersController < SupplyTeachers::SuppliersController
       before_action :set_end_of_journey, only: %i[master_vendors neutral_vendors]
-
-      helper :telephone_number
 
       def master_vendors
         @back_path = source_journey.previous_step_path
@@ -13,13 +11,6 @@ module SupplyTeachers
       def neutral_vendors
         @back_path = source_journey.current_step_path
         @suppliers = Supplier.with_neutral_vendor_rates
-      end
-
-      def all_suppliers
-        @back_path = source_journey.previous_step_path
-        all_branches = Branch.all.order(:slug)
-        @branches_count = all_branches.count
-        @branches = all_branches.page params[:page]
       end
 
       private

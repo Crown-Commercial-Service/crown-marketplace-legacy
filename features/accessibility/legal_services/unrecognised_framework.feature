@@ -1,4 +1,4 @@
-@RM3788 @accessibility @javascript
+@accessibility @javascript
 Feature: Legal Services - Start pages - With an unrecognised framework
 
   Scenario: Go to an unrecognised famework in the admin section

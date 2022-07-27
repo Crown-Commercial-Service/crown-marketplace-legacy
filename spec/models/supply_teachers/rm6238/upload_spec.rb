@@ -248,7 +248,7 @@ RSpec.describe SupplyTeachers::RM6238::Upload, type: :model do
           expect(supplier.rates.direct_provision).to include(
             an_object_having_attributes(
               job_type: 'nominated',
-              tenure_type: nil,
+              term: nil,
               rate: 3500
             )
           )
@@ -258,7 +258,7 @@ RSpec.describe SupplyTeachers::RM6238::Upload, type: :model do
           expect(supplier.rates.direct_provision).to include(
             an_object_having_attributes(
               job_type: 'fixed_term',
-              tenure_type: nil,
+              term: nil,
               rate: 3600
             )
           )
@@ -268,7 +268,7 @@ RSpec.describe SupplyTeachers::RM6238::Upload, type: :model do
           expect(supplier.rates.direct_provision).to include(
             an_object_having_attributes(
               job_type: 'teacher',
-              tenure_type: 'six_weeks_plus',
+              term: 'six_weeks_plus',
               rate: 4000
             )
           )
@@ -325,7 +325,7 @@ RSpec.describe SupplyTeachers::RM6238::Upload, type: :model do
           expect(supplier.rates.master_vendor(:below_threshold)).to include(
             an_object_having_attributes(
               job_type: 'nominated',
-              tenure_type: nil,
+              term: nil,
               rate: 3500
             )
           )
@@ -335,7 +335,7 @@ RSpec.describe SupplyTeachers::RM6238::Upload, type: :model do
           expect(supplier.rates.master_vendor(:above_threshold)).to include(
             an_object_having_attributes(
               job_type: 'nominated',
-              tenure_type: nil,
+              term: nil,
               rate: 2345
             )
           )
@@ -345,7 +345,7 @@ RSpec.describe SupplyTeachers::RM6238::Upload, type: :model do
           expect(supplier.rates.master_vendor(:below_threshold)).to include(
             an_object_having_attributes(
               job_type: 'fixed_term',
-              tenure_type: nil,
+              term: nil,
               rate: 3600
             )
           )
@@ -355,7 +355,7 @@ RSpec.describe SupplyTeachers::RM6238::Upload, type: :model do
           expect(supplier.rates.master_vendor(:above_threshold)).to include(
             an_object_having_attributes(
               job_type: 'fixed_term',
-              tenure_type: nil,
+              term: nil,
               rate: 4567
             )
           )
@@ -365,7 +365,7 @@ RSpec.describe SupplyTeachers::RM6238::Upload, type: :model do
           expect(supplier.rates.master_vendor(:below_threshold)).to include(
             an_object_having_attributes(
               job_type: 'teacher',
-              tenure_type: 'daily',
+              term: 'daily',
               rate: 4000
             )
           )
@@ -375,7 +375,7 @@ RSpec.describe SupplyTeachers::RM6238::Upload, type: :model do
           expect(supplier.rates.master_vendor(:above_threshold)).to include(
             an_object_having_attributes(
               job_type: 'teacher',
-              tenure_type: 'six_weeks_plus',
+              term: 'six_weeks_plus',
               rate: 6789
             )
           )
@@ -414,7 +414,7 @@ RSpec.describe SupplyTeachers::RM6238::Upload, type: :model do
           expect(supplier.rates.education_technology_platforms).to include(
             an_object_having_attributes(
               job_type: 'nominated',
-              tenure_type: nil,
+              term: nil,
               rate: 3500
             )
           )
@@ -424,7 +424,7 @@ RSpec.describe SupplyTeachers::RM6238::Upload, type: :model do
           expect(supplier.rates.education_technology_platforms).to include(
             an_object_having_attributes(
               job_type: 'agency_management',
-              tenure_type: 'daily',
+              term: 'daily',
               rate: 3600
             )
           )
@@ -434,7 +434,7 @@ RSpec.describe SupplyTeachers::RM6238::Upload, type: :model do
           expect(supplier.rates.education_technology_platforms).to include(
             an_object_having_attributes(
               job_type: 'agency_management',
-              tenure_type: 'six_weeks_plus',
+              term: 'six_weeks_plus',
               rate: 4000
             )
           )

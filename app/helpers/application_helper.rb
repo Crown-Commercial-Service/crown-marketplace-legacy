@@ -146,6 +146,10 @@ module ApplicationHelper
     date_object&.in_time_zone('London')&.strftime '%e %B %Y, %l:%M%P'
   end
 
+  def format_money(cost, precision = 2)
+    number_to_currency(cost, precision: precision, unit: '£')
+  end
+
   def cookie_policy_path
     "#{service_path_base}/cookie-policy"
   end
@@ -225,6 +229,10 @@ module ApplicationHelper
     uri.query = { service: service_name }.to_query if service_name
 
     link_to(link_text, uri.to_s, target: :blank)
+  end
+
+  def checked?(actual, expected)
+    actual == expected
   end
 end
 # rubocop:enable Metrics/ModuleLength

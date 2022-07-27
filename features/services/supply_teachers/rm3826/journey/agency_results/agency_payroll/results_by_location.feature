@@ -1,4 +1,3 @@
-@RM3826
 Feature: Supply Teachers - Agency results - Agency payroll - Results by location
 
   Background: Navigate to the postcode page

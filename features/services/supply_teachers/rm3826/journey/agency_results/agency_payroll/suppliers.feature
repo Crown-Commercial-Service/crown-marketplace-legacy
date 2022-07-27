@@ -1,4 +1,4 @@
-@RM3826 @geocode_liverpool
+@geocode_liverpool
 Feature: Supply Teachers - Agency results - Agency payroll - Agencies
 
   Background: Navigate to the Agency results page

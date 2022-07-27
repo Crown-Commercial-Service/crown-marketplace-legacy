@@ -1,0 +1,45 @@
+<div class="govuk-body">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <div class="govuk-panel govuk-panel--confirmation">
+        <h1 class="govuk-panel__title">
+          <%= t('.header') %>
+        </h1>
+        <div class="govuk-panel__body">
+          <%= t('.panel_body') %>
+          <% if @calculator.hiring_after_12_weeks? && @calculator.notice_date.blank? %>
+            <br>
+            <%= t('.between_fees_html', lower_bound: '£0', upper_bound: number_to_currency(@calculator.maximum_fee_for_lack_of_notice)) %>
+          <% elsif @calculator.hiring_between_9_and_12_weeks? && @calculator.notice_date.blank? && @calculator.fee < @calculator.maximum_fee_for_lack_of_notice %>
+            <br>
+            <%= t('.between_fees_html', lower_bound: number_to_currency(@calculator.fee), upper_bound: number_to_currency(@calculator.maximum_fee_for_lack_of_notice)) %>
+          <% else %>
+            <br><strong><%= number_to_currency(@calculator.fee) %></strong>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h2><%= t('.how_calculated') %></h2>
+
+      <% if @calculator.before_national_deal_began? %>
+        <p>
+          <%= t('.the_contract_start_date', date: @calculator.contract_start_date.to_formatted_s(:long)) %>
+        </p>
+      <% end %>
+
+      <p><%= t('.there_is_no_fee') %><p>
+      <ul>
+        <li><%= t('.the_worker') %></li>
+        <li><%= t('.you_give') %></li>
+      </ul>
+
+      <div id="temp-to-perm-result-information">
+        <%= render partial: determine_result_partial,
+                   locals: { calculator: @calculator } %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -29,7 +29,7 @@ RSpec.describe SupplyTeachers::RM3826::GatewayController, type: :controller do
 
       it 'redirects to the framework start page' do
         get :index
-        expect(response).to redirect_to(supply_teachers_path)
+        expect(response).to redirect_to(supply_teachers_rm3826_path)
       end
     end
   end

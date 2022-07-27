@@ -1,0 +1,26 @@
+<%= add_optional_error_prefix_to_page_title(@journey.errors) %>
+<%= content_for :page_title, t('.page_title') %>
+<%= content_for :page_section, t("supply_teachers.#{params[:framework].downcase}.page_section") %>
+
+<%= render partial: 'shared/error_summary', locals: { errors: @journey.errors } %>
+<%= form_with url: @form_path, method: :get, local: true, html: { specialvalidation: true, novalidate: true } do |f| %>
+  <%= hidden_fields_for_previous_steps_and_responses(@journey) %>
+  <%= govuk_text_input(f, @journey, :location, {
+    label: {
+      text: t('.question'),
+      classes: 'govuk-label--m',
+      page_heading?: true
+    },
+    hint: {
+      text: t('.question_hint')
+    },
+    input: {
+      classes: 'govuk-input--width-10',
+      placeholder: 'SW1A 1AA',
+      value: params[:postcode],
+      name: :postcode
+    }
+  })%>
+
+  <%= submit_tag t('common.submit'), class: "govuk-button" %>
+<% end %>

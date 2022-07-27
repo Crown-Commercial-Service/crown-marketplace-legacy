@@ -1,4 +1,4 @@
-@RM3826 @accessibility @javascript
+@accessibility @javascript
 Feature: Supply Teachers - All agencies - Accessibility
 
   Background: Login and then navigate to the all agencies page

@@ -1,0 +1,36 @@
+<% page_title_text, header, panel_body = if @previous_step.try(:no_fee_reason) %>
+  <% [
+    t('.page_title_no_fee'), 
+    t('.header_no_fee'),
+    t(".no_fee.#{@previous_step.no_fee_reason}")
+  ] %>
+<% else %>
+  <% [
+    t('.page_title'),
+    "#{t('.header')} #{number_to_currency(@calculator.fee)}",
+    t('.panel_body', date: @previous_step.hire_by_date.strftime('%d %b %Y'))
+  ] %>
+<% end %>
+
+<%= content_for :page_title, page_title_text %>
+<%= content_for :page_section, t("supply_teachers.#{params[:framework].downcase}.page_section") %>
+
+<div class="govuk-body">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <div class="govuk-panel govuk-panel--confirmation">
+        <h1 class="govuk-panel__title">
+          <%= header %>
+        </h1>
+        <div class="govuk-panel__body">
+          <%= panel_body %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds govuk-!-margin-top-7">
+      <%= link_to t('.check_another_fixed_term_contract'), supply_teachers_journey_question_path(slug: 'fta-to-perm-contract-start', looking_for: 'calculate_fta_to_perm_fee'),class: "govuk-button" %>
+    </div>
+  </div>
+</div>

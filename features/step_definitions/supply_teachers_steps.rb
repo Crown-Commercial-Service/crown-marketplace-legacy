@@ -67,12 +67,12 @@ Then('the following agencies have no errors:') do |agency_names|
   end
 end
 
-Then('there are {int} master vendor agencies') do |number_of_agencies|
-  expect(supply_teachers_page.master_vendors.number_of_agencies).to have_content("#{number_of_agencies} agencies")
+Then('there are {int} managed service provider agencies') do |number_of_agencies|
+  expect(supply_teachers_page.managed_service_providers.number_of_agencies).to have_content("#{number_of_agencies} agencies")
 end
 
-Then('the master vendor agencies are:') do |agencies|
-  agency_elements = supply_teachers_page.master_vendors.agencies
+Then('the managed service provider agencies are:') do |agencies|
+  agency_elements = supply_teachers_page.managed_service_providers.agencies
   agency_names = agencies.raw.flatten
 
   expect(agency_elements.length).to eq agency_names.length
@@ -82,13 +82,13 @@ Then('the master vendor agencies are:') do |agencies|
   end
 end
 
-Then('the contact details for the master vendor {string} are:') do |agency_name, contact_details|
+Then('the contact details for the managed service provider {string} are:') do |agency_name, contact_details|
   agency_contact_details = supply_teachers_page.find('h2', text: agency_name).find(:xpath, '../p')
   expected_contact_details = contact_details.raw.flatten
 
-  expect(agency_contact_details.find('.master-vendor-contact-details__name')).to have_content expected_contact_details[0]
-  expect(agency_contact_details.find('.master-vendor-contact-details__telephone')).to have_content expected_contact_details[1]
-  expect(agency_contact_details.find('.master-vendor-contact-details__email')).to have_content expected_contact_details[2]
+  expect(agency_contact_details.find('.managed-service-provider-contact-details__name')).to have_content expected_contact_details[0]
+  expect(agency_contact_details.find('.managed-service-provider-contact-details__telephone')).to have_content expected_contact_details[1]
+  expect(agency_contact_details.find('.managed-service-provider-contact-details__email')).to have_content expected_contact_details[2]
 end
 
 Then('the master vendor agency {string} has the following rates:') do |agency_name, raw_rates|
@@ -100,7 +100,18 @@ Then('the master vendor agency {string} has the following rates:') do |agency_na
 
     expect(rate_row.find(:xpath, './td[1]')).to have_content(rate[:one_week])
     expect(rate_row.find(:xpath, './td[2]')).to have_content(rate[:twelve_weeks])
-    expect(rate_row.find(:xpath, './td[3]')).to have_content(rate[:more_than_twelve_weeks])
+    expect(rate_row.find(:xpath, './td[3]')).to have_content(rate[:more_than_twelve_weeks]) if @framework == 'RM3826'
+  end
+end
+
+Then('the education technology platform agency {string} has the following rates:') do |agency_name, raw_rates|
+  rates = raw_rates.raw
+  rates_table = supply_teachers_page.find('h2', text: agency_name).find(:xpath, '../table/tbody')
+
+  rates.each do |job_type, rate|
+    rate_row = rates_table.find('th', text: job_type).find(:xpath, '..')
+
+    expect(rate_row.find(:xpath, './td[1]')).to have_content(rate)
   end
 end
 
@@ -226,7 +237,7 @@ Then('the agency has the following rates:') do |raw_rates|
 
     expect(rate_row.find(:xpath, './td[1]')).to have_content(rate[:one_week])
     expect(rate_row.find(:xpath, './td[2]')).to have_content(rate[:twelve_weeks])
-    expect(rate_row.find(:xpath, './td[3]')).to have_content(rate[:more_than_twelve_weeks])
+    expect(rate_row.find(:xpath, './td[3]')).to have_content(rate[:more_than_twelve_weeks]) if @framework == 'RM3826'
   end
 end
 

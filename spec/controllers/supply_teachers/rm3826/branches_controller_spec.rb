@@ -7,8 +7,8 @@ RSpec.describe SupplyTeachers::RM3826::BranchesController, type: :controller do
   include_context 'and RM6238 is live in the future'
 
   describe 'GET index' do
-    let(:first_branch) { create(:supply_teachers_rm3826_branch) }
-    let(:second_branch) { create(:supply_teachers_rm3826_branch) }
+    let(:first_branch) { create(:supply_teachers_rm3826_branch, :with_rates) }
+    let(:second_branch) { create(:supply_teachers_rm3826_branch, :with_rates) }
     let(:branches) { [first_branch, second_branch] }
 
     context 'when not logged in' do
@@ -30,19 +30,8 @@ RSpec.describe SupplyTeachers::RM3826::BranchesController, type: :controller do
       end
     end
 
-    context 'with a valid postcode' do
-      login_st_buyer
-
-      let(:postcode) { 'W1A 1AA' }
-      let(:params) do
-        {
-          journey: 'supply-teachers',
-          looking_for: 'worker',
-          worker_type: 'nominated',
-          postcode: postcode,
-          slug: 'nominated-worker-results'
-        }
-      end
+    shared_context 'and the postcode is valid' do
+      let(:postcode) { 'SW1A 1AA' }
 
       before do
         allow(SupplyTeachers::RM3826::Branch).to receive(:search).and_return(branches)
@@ -55,12 +44,6 @@ RSpec.describe SupplyTeachers::RM3826::BranchesController, type: :controller do
 
       after do
         Geocoder::Lookup::Test.reset
-      end
-
-      it 'assigns back_path to school-postcode-nominated-worker question path' do
-        expect(assigns(:back_path)).to eq(
-          journey_question_path(params.merge(slug: 'school-postcode-nominated-worker'))
-        )
       end
 
       it 'assigns BranchSearchResults to @branches' do
@@ -93,7 +76,7 @@ RSpec.describe SupplyTeachers::RM3826::BranchesController, type: :controller do
       end
 
       it 'responds to requests for spreadsheets' do
-        allow(SupplyTeachers::RM3826::Spreadsheet)
+        allow(SupplyTeachers::Spreadsheet)
           .to receive(:new)
           .and_return(instance_double('Spreadsheet', to_xlsx: 'spreadsheet-data'))
 
@@ -102,76 +85,202 @@ RSpec.describe SupplyTeachers::RM3826::BranchesController, type: :controller do
         expect(response.media_type)
           .to eq 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
       end
-
-      context 'when an AJAX request is made' do
-        before { get :index, params: params.merge(daily_rate: { first_branch.id => daily_rate }), xhr: true }
-
-        let(:daily_rate) { '500' }
-
-        it 'responds with the correct content type' do
-          expect(response.media_type).to eq 'text/javascript'
-        end
-
-        it 'returns the first matching branch' do
-          expect(JSON.parse(response.body)).to include(
-            'id' => first_branch.id,
-            'daily_rate' => '500'
-          )
-        end
-
-        context 'when no daily rate is provided' do
-          let(:daily_rate) { '' }
-
-          it 'returns nothing' do
-            expect(JSON.parse(response.body)).to be_nil
-          end
-        end
-      end
     end
 
-    context 'when postcode parsing fails' do
-      login_st_buyer
-      let(:params) do
-        {
-          journey: 'supply-teachers',
-          postcode: 'nonsense',
-          worker_type: 'nominated',
-          looking_for: 'worker'
-        }
-      end
+    shared_context 'and the postcode is nil' do
+      let(:postcode) { nil }
 
-      before do
-        get :index, params: params
-      end
-
-      it 'renders school-postcode-nominated-worker question' do
-        expect(response).to render_template('journey/school_postcode_nominated_worker')
-      end
+      before { get :index, params: params }
     end
 
-    context 'when postcode geocoding fails' do
-      login_st_buyer
+    shared_context 'and the postcode is invalid' do
       let(:postcode) { valid_fake_postcode }
 
       before do
         Geocoder::Lookup::Test.add_stub(
           postcode, [{ 'coordinates' => nil }]
         )
-        get :index, params: {
-          journey: 'supply-teachers',
-          postcode: postcode,
-          worker_type: 'nominated',
-          looking_for: 'worker'
-        }
+        get :index, params: params
       end
 
       after do
         Geocoder::Lookup::Test.reset
       end
+    end
 
-      it 'renders school-postcode-nominated-worker question' do
-        expect(response).to render_template('journey/school_postcode_nominated_worker')
+    context 'and these are the results for nominated worker' do
+      login_st_buyer
+
+      let(:params) do
+        {
+          journey: 'supply-teachers',
+          slug: 'nominated-worker-results',
+          looking_for: 'worker',
+          worker_type: 'nominated',
+          postcode: postcode
+        }
       end
+
+      context 'when the postcode is valid' do
+        include_context 'and the postcode is valid'
+
+        it 'assigns back_path to school-postcode-nominated-worker question path' do
+          expect(assigns(:back_path)).to eq(
+            journey_question_path(params.merge(slug: 'school-postcode-nominated-worker'))
+          )
+        end
+      end
+
+      context 'when postcode parsing fails' do
+        include_context 'and the postcode is nil'
+
+        it 'renders school-postcode-nominated-worker question' do
+          expect(response).to render_template('journey/school_postcode_nominated_worker')
+        end
+      end
+
+      context 'when postcode geocoding fails' do
+        include_context 'and the postcode is invalid'
+
+        it 'renders school-postcode-nominated-worker question' do
+          expect(response).to render_template('journey/school_postcode_nominated_worker')
+        end
+      end
+    end
+
+    context 'and these are the results for fixed term' do
+      login_st_buyer
+
+      let(:params) do
+        {
+          journey: 'supply-teachers',
+          slug: 'fixed-term-results',
+          looking_for: 'worker',
+          worker_type: 'agency_supplied',
+          payroll_provider: 'school',
+          contract_end_date_day: '1',
+          contract_end_date_month: '2',
+          contract_end_date_year: '2022',
+          contract_start_date_day: '1',
+          contract_start_date_month: '1',
+          contract_start_date_year: '2021',
+          salary: '1234',
+          postcode: postcode
+        }
+      end
+
+      context 'when the postcode is valid' do
+        include_context 'and the postcode is valid'
+
+        it 'assigns back_path to school-postcode-agency-supplied-worker question path' do
+          expect(assigns(:back_path)).to eq(
+            journey_question_path(params.merge(slug: 'school-postcode-agency-supplied-worker'))
+          )
+        end
+
+        context 'when an AJAX request is made' do
+          before { get :index, params: params.merge(annual_salary: { first_branch.id => annual_salary }), xhr: true }
+
+          let(:annual_salary) { '500' }
+
+          it 'responds with the correct content type' do
+            expect(response.media_type).to eq 'text/javascript'
+          end
+
+          it 'returns the first matching branch' do
+            expect(JSON.parse(response.body)).to include(
+              'id' => first_branch.id
+            )
+          end
+
+          context 'when no daily rate is provided' do
+            let(:annual_salary) { '' }
+
+            it 'returns nothing' do
+              expect(JSON.parse(response.body)).to be_nil
+            end
+          end
+        end
+      end
+
+      context 'when postcode parsing fails' do
+        include_context 'and the postcode is nil'
+
+        it 'renders school-postcode-agency-supplied-worker question' do
+          expect(response).to render_template('journey/school_postcode_agency_supplied_worker')
+        end
+      end
+
+      context 'when postcode geocoding fails' do
+        include_context 'and the postcode is invalid'
+
+        it 'renders school-postcode-agency-supplied-worker question' do
+          expect(response).to render_template('journey/school_postcode_agency_supplied_worker')
+        end
+      end
+    end
+
+    context 'and these are the results for agency payroll' do
+      login_st_buyer
+
+      let(:params) do
+        {
+          journey: 'supply-teachers',
+          slug: 'agency-payroll-results',
+          looking_for: 'worker',
+          worker_type: 'agency_supplied',
+          payroll_provider: 'agency',
+          job_type: 'qt',
+          term: '0_1',
+          postcode: postcode
+        }
+      end
+
+      context 'when the postcode is valid' do
+        include_context 'and the postcode is valid'
+
+        it 'assigns back_path to agency-payroll question path' do
+          expect(assigns(:back_path)).to eq(
+            journey_question_path(params.merge(slug: 'agency-payroll'))
+          )
+        end
+      end
+
+      context 'when postcode parsing fails' do
+        include_context 'and the postcode is nil'
+
+        it 'renders agency-payroll question' do
+          expect(response).to render_template('journey/agency_payroll')
+        end
+      end
+
+      context 'when postcode geocoding fails' do
+        include_context 'and the postcode is invalid'
+
+        it 'renders agency-payroll question' do
+          expect(response).to render_template('journey/agency_payroll')
+        end
+      end
+    end
+  end
+
+  describe 'GET show' do
+    login_st_buyer
+
+    let(:branch) { create(:supply_teachers_rm3826_branch, :with_rates) }
+
+    before { get :show, params: { id: branch.slug } }
+
+    it 'renders the show page' do
+      expect(response).to render_template(:show)
+    end
+
+    it 'sets the back path' do
+      expect(assigns(:back_path)).to eq :back
+    end
+
+    it 'sets the right branch' do
+      expect(assigns(:branch)).to eq branch
     end
   end
 end

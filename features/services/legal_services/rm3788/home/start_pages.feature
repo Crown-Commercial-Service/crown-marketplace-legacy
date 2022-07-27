@@ -1,4 +1,4 @@
-@RM3788 @pipeline
+@pipeline
 Feature: Legal Services - Start pages
 
   Scenario: Buyer sees start page

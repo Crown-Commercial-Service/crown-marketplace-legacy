@@ -91,9 +91,6 @@ en:
         the_recognised_are: 'The Legal Services frameworks are:'
     rm3788:
       admin:
-        sessions:
-          new:
-            email_hint_html: Enter the email address you used to set up your account.
         uploads:
           failed:
             below_is_a_list: Below is a list of the issues that have occurred with the file upload and details on how they might be fixed.
@@ -287,18 +284,6 @@ en:
           txt01: The
           txt02_link: General Legal Advice Services (RM3786)
           txt03: agreement provides legal advice services for central government and arms-length bodies.
-      registrations:
-        domain_not_on_safelist:
-          heading: You must use a public sector email address
-          lead_html: You must be employed by, or represent, a public sector organisation to create a <abbr title="Crown Commercial Service">CCS</abbr> account.
-          line_01: The email you used doesn't belong to a recognised public sector domain.
-          line_02_html: Create an account using a different email address or email <a href="mailto:info@crowncommercial.gov.uk">info@crowncommercial.gov.uk</a> if
-          list_01: you think your domain should be recognised
-          list_02: you still can't create an account
-      sessions:
-        new:
-          email_hint_html: Enter the email address you used to set up your account.
-          sign_in_header: Sign in to your legal services buyer account
       suppliers:
         download:
           back_to_start: Back to start

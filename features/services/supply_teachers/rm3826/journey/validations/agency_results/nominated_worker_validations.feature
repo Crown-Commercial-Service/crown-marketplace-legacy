@@ -1,4 +1,4 @@
-@RM3826 @pipeline @javascript @geocode_london
+@pipeline @javascript @geocode_london
 Feature: Supply Teachers - Agency results - Nominated worker - Validations
 
   Background: Navigate to the Agency results page

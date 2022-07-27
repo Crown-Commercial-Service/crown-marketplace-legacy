@@ -1,4 +1,4 @@
-@RM3826 @javascript @pipeline
+@javascript @pipeline
 Feature: Supply Teachers - Cookie settings
 
   Background: Go to start page

@@ -1,4 +1,4 @@
-@RM3788 @mobile @javascript @pipline
+@mobile @javascript @pipline
 Feature: Legal Services - Headers are responsive
 
   Scenario: Signed in and the navigation links are responsive

@@ -41,6 +41,7 @@ Rails.application.routes.draw do
         end
       end
       namespace 'rm6238', path: 'RM6238', defaults: { framework: 'RM6238' } do
+        concerns :authenticatable
         namespace :admin, defaults: { service: 'supply_teachers/admin' } do
           concerns :authenticatable
         end
@@ -100,27 +101,32 @@ Rails.application.routes.draw do
   end
 
   namespace 'supply_teachers', path: 'supply-teachers', defaults: { service: 'supply_teachers' } do
-    concerns :framework
-
-    namespace :admin, defaults: { service: 'supply_teachers/admin' } do
-      concerns %i[framework admin_frameworks]
-    end
-
-    namespace 'rm3826', path: 'RM3826', defaults: { framework: 'RM3826' } do
-      concerns %i[buyer_shared_pages shared_pages]
+    concern :gateway do
       get '/cognito', to: 'gateway#index', cognito_enabled: true
       get '/gateway', to: 'gateway#index'
-      get '/temp-to-perm-fee', to: 'home#temp_to_perm_fee'
-      get '/fta-to-perm-fee', to: 'home#fta_to_perm_fee'
-      get '/master-vendors', to: 'suppliers#master_vendors', as: 'master_vendors'
-      # get '/neutral-vendors', to: 'suppliers#neutral_vendors', as: 'neutral_vendors'
-      get '/all-suppliers', to: 'suppliers#all_suppliers', as: 'all_suppliers'
-      get '/agency-payroll-results', to: 'branches#index', slug: 'agency-payroll-results'
-      get '/fixed-term-results', to: 'branches#index', slug: 'fixed-term-results', as: 'fixed_term_results'
-      get '/nominated-worker-results', to: 'branches#index', slug: 'nominated-worker-results'
-      resources :branches, only: %i[index show]
-      resources :downloads, only: :index
+    end
 
+    concern :branches do
+      resources :branches, path: '/branches', only: %i[index show]
+      resources :branches, path: '/', only: %i[] do
+        collection do
+          get '/nominated-worker-results', action: :index
+          get '/fixed-term-results', action: :index
+          get '/agency-payroll-results', action: :index
+        end
+      end
+    end
+
+    concern :calculations do
+      resources :calculations, path: '/', only: %i[] do
+        collection do
+          get '/temp-to-perm-fee', action: :temp_to_perm_fee
+          get '/fta-to-perm-fee', action: :fta_to_perm_fee
+        end
+      end
+    end
+
+    concern :admin do
       namespace :admin, defaults: { service: 'supply_teachers/admin' } do
         get '/', to: 'uploads#index'
         resources :uploads, only: %i[index new create show destroy update]
@@ -128,11 +134,35 @@ Rails.application.routes.draw do
       end
     end
 
+    concerns :framework
+
+    namespace :admin, defaults: { service: 'supply_teachers/admin' } do
+      concerns %i[framework admin_frameworks]
+    end
+
+    namespace 'rm3826', path: 'RM3826', defaults: { framework: 'RM3826' } do
+      concerns %i[buyer_shared_pages shared_pages gateway branches admin calculations]
+
+      resources :suppliers, path: '/', only: %i[] do
+        collection do
+          get '/master-vendors', action: :master_vendors
+          # get '/neutral-vendors', action: :neutral_vendors
+          get '/all-suppliers', action: :all_suppliers
+        end
+      end
+
+      resources :downloads, only: :index
+    end
+
     namespace 'rm6238', path: 'RM6238', defaults: { framework: 'RM6238' } do
-      namespace :admin, defaults: { service: 'supply_teachers/admin' } do
-        get '/', to: 'uploads#index'
-        resources :uploads, only: %i[index new create show destroy update]
-        concerns :admin_shared_pages
+      concerns %i[buyer_shared_pages shared_pages gateway branches admin calculations]
+
+      resources :suppliers, path: '/', only: %i[] do
+        collection do
+          get '/master-vendors', action: :master_vendors
+          get '/education-technology-platform-vendors', action: :education_technology_platform_vendors
+          get '/all-suppliers', action: :all_suppliers
+        end
       end
     end
 

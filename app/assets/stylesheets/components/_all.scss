@@ -2,6 +2,7 @@
 @import "govuk-frontend/govuk/components/all";
 
 /* Override with my own components */
+@import "agency-record/agency-record";
 @import "button/button";
 @import "calculator-form/calculator-form";
 @import "details/details";
@@ -10,7 +11,6 @@
 @import "inset-text/inset-text";
 @import "label/label";
 @import "logo/logo";
-@import "master-vendor-record/master-vendor-record";
 @import "neutral-vendor-record/neutral-vendor-record";
 @import "sidebar/sidebar";
 @import "st-supplier-page/st-supplier-page";

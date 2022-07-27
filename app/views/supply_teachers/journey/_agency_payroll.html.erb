@@ -1,0 +1,65 @@
+<%= add_optional_error_prefix_to_page_title(@journey.errors) %>
+<%= content_for :page_title, t('.page_title') %>
+<%= content_for :page_section, t("supply_teachers.#{params[:framework].downcase}.page_section") %>
+
+<%= render partial: 'shared/error_summary', locals: { errors: @journey.errors } %>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">
+      <%= t('.page_title') %>
+    </h1>
+  </div>
+</div>
+<%= form_with url: @form_path, method: :get, local: true, html: { specialvalidation: true, novalidate: true } do |f| %>
+  <%= hidden_fields_for_previous_steps_and_responses(@journey) %>
+
+  <%= govuk_text_input(f, @journey, :location, {
+    label: {
+      text: t('.postcode_question'),
+      classes: 'govuk-label--m',
+    },
+    hint: {
+      text: t('.question_hint')
+    },
+    input: {
+      classes: 'govuk-input--width-10',
+      placeholder: 'SW1A 1AA',
+      value: params[:postcode],
+      name: :postcode
+    }
+  })%>
+
+  <%= govuk_radios(f, @journey, :job_type, {
+    fieldset: {
+      legend: {
+        text: t('.worker_type_question'),
+        classes: 'govuk-fieldset__legend--m',
+      }
+    },
+    items: job_type_class.roles.map do |job_type|
+      {
+        value: job_type.code,
+        text: job_type.description,
+        checked: checked?(params[:job_type], job_type.code)
+      }
+    end
+  }) %>
+
+  <%= govuk_radios(f, @journey, :term, {
+    fieldset: {
+      legend: {
+        text: t('.worker_term_question'),
+        classes: 'govuk-fieldset__legend--m',
+      }
+    },
+    items: term_type_class.all.map do |term|
+      {
+        value: term.code,
+        text: term.description,
+        checked: checked?(params[:term], term.code)
+      }
+    end
+  }) %>
+
+  <%= submit_tag t('common.submit'), class: "govuk-button" %>
+<% end %>

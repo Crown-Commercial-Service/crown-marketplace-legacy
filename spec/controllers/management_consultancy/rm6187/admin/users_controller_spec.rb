@@ -19,7 +19,7 @@ RSpec.describe ManagementConsultancy::RM6187::Admin::UsersController, type: :con
       let(:challenge_name) { 'NEW_PASSWORD_REQUIRED' }
 
       it 'renders the new_password_required partial' do
-        expect(response).to render_template('management_consultancy/rm6187/admin/users/_new_password_required')
+        expect(response).to render_template(partial: 'base/users/_new_password_required')
       end
     end
 
@@ -27,7 +27,7 @@ RSpec.describe ManagementConsultancy::RM6187::Admin::UsersController, type: :con
       let(:challenge_name) { 'SMS_MFA' }
 
       it 'renders the sms_mfa partial' do
-        expect(response).to render_template('management_consultancy/rm6187/admin/users/_sms_mfa')
+        expect(response).to render_template(partial: 'base/users/_sms_mfa')
       end
     end
   end

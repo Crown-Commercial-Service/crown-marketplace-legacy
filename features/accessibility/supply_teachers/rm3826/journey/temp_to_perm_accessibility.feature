@@ -1,4 +1,4 @@
-@RM3826 @accessibility @javascript
+@accessibility @javascript
 Feature: Supply Teachers - Temp to perm - Accessibility
 
   Background: Login and then navigate to the Temp to perm start page

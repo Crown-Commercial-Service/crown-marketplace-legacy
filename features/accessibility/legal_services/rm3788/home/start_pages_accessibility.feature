@@ -1,4 +1,4 @@
-@RM3788 @accessibility @javascript
+@accessibility @javascript
 Feature: Legal Services - Start pages accessibility
 
   Scenario: Service start page

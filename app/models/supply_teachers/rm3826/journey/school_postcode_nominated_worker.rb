@@ -1,12 +1,6 @@
 module SupplyTeachers
   module RM3826
-    class Journey::SchoolPostcodeNominatedWorker
-      include Steppable
-      include Geolocatable
-
-      def next_step_class
-        Journey::NominatedWorkerResults
-      end
+    class Journey::SchoolPostcodeNominatedWorker < SupplyTeachers::Journey::SchoolPostcodeNominatedWorker
     end
   end
 end

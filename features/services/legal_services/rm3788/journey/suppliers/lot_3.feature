@@ -1,4 +1,3 @@
-@RM3788
 Feature: Legal services - Lot 3 - Suppliers
 
   Background: Login and then navigate to the supplier results page

@@ -1,4 +1,4 @@
-@RM3788 @pipeline
+@pipeline
 Feature: Legal services - Lot 2 - Suppliers
 
   Background: Login and then navigate to the supplier results page

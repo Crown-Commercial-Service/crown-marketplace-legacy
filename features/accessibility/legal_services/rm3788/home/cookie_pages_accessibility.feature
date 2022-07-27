@@ -1,4 +1,4 @@
-@RM3788 @accessibility @javascript
+@accessibility @javascript
 Feature: Legal Services - Cookie pages accessibility
 
   Scenario: Start page with the banner

@@ -25,10 +25,10 @@ RSpec.describe SupplyTeachers::RM6238::Rate, type: :model do
   end
 
   context 'when considering the job type' do
-    let(:tenure_type) { rate.tenure_type }
+    let(:term) { rate.term }
     let(:job_type) { rate.job_type }
 
-    before { rate.assign_attributes(tenure_type: tenure_type, job_type: job_type) }
+    before { rate.assign_attributes(term: term, job_type: job_type) }
 
     context 'and the job_type is blank' do
       let(:job_type) { '' }
@@ -50,8 +50,8 @@ RSpec.describe SupplyTeachers::RM6238::Rate, type: :model do
     context 'and the job_type is teacher' do
       let(:job_type) { 'teacher' }
 
-      context 'and the tenure_type is daily' do
-        let(:tenure_type) { 'daily' }
+      context 'and the term is daily' do
+        let(:term) { 'daily' }
 
         it 'is valid' do
           expect(rate).to be_valid
@@ -62,8 +62,8 @@ RSpec.describe SupplyTeachers::RM6238::Rate, type: :model do
         end
       end
 
-      context 'and the tenure_type is six_weeks_plus' do
-        let(:tenure_type) { 'six_weeks_plus' }
+      context 'and the term is six_weeks_plus' do
+        let(:term) { 'six_weeks_plus' }
 
         it 'is valid' do
           expect(rate).to be_valid
@@ -74,16 +74,16 @@ RSpec.describe SupplyTeachers::RM6238::Rate, type: :model do
         end
       end
 
-      context 'and the tenure_type is blank' do
-        let(:tenure_type) { '' }
+      context 'and the term is blank' do
+        let(:term) { '' }
 
         it 'is not valid' do
           expect(rate).not_to be_valid
         end
       end
 
-      context 'and the tenure_type is not in the list' do
-        let(:tenure_type) { 'invalid-tenure-type' }
+      context 'and the term is not in the list' do
+        let(:term) { 'invalid-term-type' }
 
         it 'is not valid' do
           expect(rate).not_to be_valid
@@ -94,8 +94,8 @@ RSpec.describe SupplyTeachers::RM6238::Rate, type: :model do
     context 'and the job_type is support' do
       let(:job_type) { 'support' }
 
-      context 'and the tenure_type is daily' do
-        let(:tenure_type) { 'daily' }
+      context 'and the term is daily' do
+        let(:term) { 'daily' }
 
         it 'is valid' do
           expect(rate).to be_valid
@@ -106,8 +106,8 @@ RSpec.describe SupplyTeachers::RM6238::Rate, type: :model do
         end
       end
 
-      context 'and the tenure_type is six_weeks_plus' do
-        let(:tenure_type) { 'six_weeks_plus' }
+      context 'and the term is six_weeks_plus' do
+        let(:term) { 'six_weeks_plus' }
 
         it 'is valid' do
           expect(rate).to be_valid
@@ -118,16 +118,16 @@ RSpec.describe SupplyTeachers::RM6238::Rate, type: :model do
         end
       end
 
-      context 'and the tenure_type is blank' do
-        let(:tenure_type) { '' }
+      context 'and the term is blank' do
+        let(:term) { '' }
 
         it 'is not valid' do
           expect(rate).not_to be_valid
         end
       end
 
-      context 'and the tenure_type is not in the list' do
-        let(:tenure_type) { 'invalid-tenure-type' }
+      context 'and the term is not in the list' do
+        let(:term) { 'invalid-term-type' }
 
         it 'is not valid' do
           expect(rate).not_to be_valid
@@ -138,8 +138,8 @@ RSpec.describe SupplyTeachers::RM6238::Rate, type: :model do
     context 'and the job_type is senior' do
       let(:job_type) { 'senior' }
 
-      context 'and the tenure_type is daily' do
-        let(:tenure_type) { 'daily' }
+      context 'and the term is daily' do
+        let(:term) { 'daily' }
 
         it 'is valid' do
           expect(rate).to be_valid
@@ -150,8 +150,8 @@ RSpec.describe SupplyTeachers::RM6238::Rate, type: :model do
         end
       end
 
-      context 'and the tenure_type is six_weeks_plus' do
-        let(:tenure_type) { 'six_weeks_plus' }
+      context 'and the term is six_weeks_plus' do
+        let(:term) { 'six_weeks_plus' }
 
         it 'is valid' do
           expect(rate).to be_valid
@@ -162,16 +162,16 @@ RSpec.describe SupplyTeachers::RM6238::Rate, type: :model do
         end
       end
 
-      context 'and the tenure_type is blank' do
-        let(:tenure_type) { '' }
+      context 'and the term is blank' do
+        let(:term) { '' }
 
         it 'is not valid' do
           expect(rate).not_to be_valid
         end
       end
 
-      context 'and the tenure_type is not in the list' do
-        let(:tenure_type) { 'invalid-tenure-type' }
+      context 'and the term is not in the list' do
+        let(:term) { 'invalid-term-type' }
 
         it 'is not valid' do
           expect(rate).not_to be_valid
@@ -182,8 +182,8 @@ RSpec.describe SupplyTeachers::RM6238::Rate, type: :model do
     context 'and the job_type is other' do
       let(:job_type) { 'other' }
 
-      context 'and the tenure_type is daily' do
-        let(:tenure_type) { 'daily' }
+      context 'and the term is daily' do
+        let(:term) { 'daily' }
 
         it 'is valid' do
           expect(rate).to be_valid
@@ -194,16 +194,16 @@ RSpec.describe SupplyTeachers::RM6238::Rate, type: :model do
         end
       end
 
-      context 'and the tenure_type is six_weeks_plus' do
-        let(:tenure_type) { 'six_weeks_plus' }
+      context 'and the term is six_weeks_plus' do
+        let(:term) { 'six_weeks_plus' }
 
         it 'is valid' do
           expect(rate).to be_valid
         end
       end
 
-      context 'and the tenure_type is blank' do
-        let(:tenure_type) { '' }
+      context 'and the term is blank' do
+        let(:term) { '' }
 
         it 'is not valid' do
           expect(rate).not_to be_valid
@@ -214,8 +214,8 @@ RSpec.describe SupplyTeachers::RM6238::Rate, type: :model do
         end
       end
 
-      context 'and the tenure_type is not in the list' do
-        let(:tenure_type) { 'invalid-tenure-type' }
+      context 'and the term is not in the list' do
+        let(:term) { 'invalid-term-type' }
 
         it 'is not valid' do
           expect(rate).not_to be_valid
@@ -226,8 +226,8 @@ RSpec.describe SupplyTeachers::RM6238::Rate, type: :model do
     context 'and the job_type is over_12_week' do
       let(:job_type) { 'over_12_week' }
 
-      context 'and the tenure_type is daily' do
-        let(:tenure_type) { 'daily' }
+      context 'and the term is daily' do
+        let(:term) { 'daily' }
 
         it 'is valid' do
           expect(rate).to be_valid
@@ -238,8 +238,8 @@ RSpec.describe SupplyTeachers::RM6238::Rate, type: :model do
         end
       end
 
-      context 'and the tenure_type is six_weeks_plus' do
-        let(:tenure_type) { 'six_weeks_plus' }
+      context 'and the term is six_weeks_plus' do
+        let(:term) { 'six_weeks_plus' }
 
         it 'is valid' do
           expect(rate).to be_valid
@@ -250,16 +250,16 @@ RSpec.describe SupplyTeachers::RM6238::Rate, type: :model do
         end
       end
 
-      context 'and the tenure_type is blank' do
-        let(:tenure_type) { '' }
+      context 'and the term is blank' do
+        let(:term) { '' }
 
         it 'is not valid' do
           expect(rate).not_to be_valid
         end
       end
 
-      context 'and the tenure_type is not in the list' do
-        let(:tenure_type) { 'invalid-tenure-type' }
+      context 'and the term is not in the list' do
+        let(:term) { 'invalid-term-type' }
 
         it 'is not valid' do
           expect(rate).not_to be_valid
@@ -270,8 +270,8 @@ RSpec.describe SupplyTeachers::RM6238::Rate, type: :model do
     context 'and the job_type is nominated' do
       let(:job_type) { 'nominated' }
 
-      context 'and the tenure_type is blank' do
-        let(:tenure_type) { '' }
+      context 'and the term is blank' do
+        let(:term) { '' }
 
         it 'is valid' do
           expect(rate).to be_valid
@@ -282,8 +282,8 @@ RSpec.describe SupplyTeachers::RM6238::Rate, type: :model do
         end
       end
 
-      context 'and the tenure_type is not blank' do
-        let(:tenure_type) { 'daily' }
+      context 'and the term is not blank' do
+        let(:term) { 'daily' }
 
         it 'is valid' do
           expect(rate).not_to be_valid
@@ -294,8 +294,8 @@ RSpec.describe SupplyTeachers::RM6238::Rate, type: :model do
     context 'and the job_type is fixed_term' do
       let(:job_type) { 'fixed_term' }
 
-      context 'and the tenure_type is blank' do
-        let(:tenure_type) { '' }
+      context 'and the term is blank' do
+        let(:term) { '' }
 
         it 'is valid' do
           expect(rate).to be_valid
@@ -306,8 +306,8 @@ RSpec.describe SupplyTeachers::RM6238::Rate, type: :model do
         end
       end
 
-      context 'and the tenure_type is not blank' do
-        let(:tenure_type) { 'daily' }
+      context 'and the term is not blank' do
+        let(:term) { 'daily' }
 
         it 'is valid' do
           expect(rate).not_to be_valid
@@ -318,8 +318,8 @@ RSpec.describe SupplyTeachers::RM6238::Rate, type: :model do
     context 'and the job_type is agency_management' do
       let(:job_type) { 'agency_management' }
 
-      context 'and the tenure_type is daily' do
-        let(:tenure_type) { 'daily' }
+      context 'and the term is daily' do
+        let(:term) { 'daily' }
 
         it 'is valid' do
           expect(rate).to be_valid
@@ -330,8 +330,8 @@ RSpec.describe SupplyTeachers::RM6238::Rate, type: :model do
         end
       end
 
-      context 'and the tenure_type is six_weeks_plus' do
-        let(:tenure_type) { 'six_weeks_plus' }
+      context 'and the term is six_weeks_plus' do
+        let(:term) { 'six_weeks_plus' }
 
         it 'is valid' do
           expect(rate).to be_valid
@@ -342,16 +342,16 @@ RSpec.describe SupplyTeachers::RM6238::Rate, type: :model do
         end
       end
 
-      context 'and the tenure_type is blank' do
-        let(:tenure_type) { '' }
+      context 'and the term is blank' do
+        let(:term) { '' }
 
         it 'is not valid' do
           expect(rate).not_to be_valid
         end
       end
 
-      context 'and the tenure_type is not in the list' do
-        let(:tenure_type) { 'invalid-tenure-type' }
+      context 'and the term is not in the list' do
+        let(:term) { 'invalid-term-type' }
 
         it 'is not valid' do
           expect(rate).not_to be_valid
@@ -431,17 +431,17 @@ RSpec.describe SupplyTeachers::RM6238::Rate, type: :model do
         supplier: supplier,
         job_type: job_type,
         lot_number: lot_number,
-        tenure_type: tenure_type
+        term: term
       )
     end
     let(:supplier) { rate.supplier }
     let(:job_type) { rate.job_type }
     let(:lot_number) { rate.lot_number }
-    let(:tenure_type) { rate.tenure_type }
+    let(:term) { rate.term }
 
-    before { rate.update!(job_type: 'teacher', tenure_type: 'daily') }
+    before { rate.update!(job_type: 'teacher', term: 'daily') }
 
-    context 'when the supplier, job_type, lot_number and tenure_type are the same' do
+    context 'when the supplier, job_type, lot_number and term are the same' do
       it 'is not valid' do
         expect(new_rate).not_to be_valid
       end
@@ -471,8 +471,8 @@ RSpec.describe SupplyTeachers::RM6238::Rate, type: :model do
       end
     end
 
-    context 'when the tenure_type is different' do
-      let(:tenure_type) { 'six_weeks_plus' }
+    context 'when the term is different' do
+      let(:term) { 'six_weeks_plus' }
 
       it 'is valid' do
         expect(new_rate).to be_valid

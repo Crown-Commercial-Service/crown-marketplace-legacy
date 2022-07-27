@@ -177,4 +177,102 @@ RSpec.describe ApplicationHelper, type: :helper do
       end
     end
   end
+
+  describe '#format_money' do
+    context 'when no value is passed for precision' do
+      let(:result) { helper.format_money(123456.123456) }
+
+      it 'returns the cost to 2 dp' do
+        expect(result).to eq '£123,456.12'
+      end
+    end
+
+    context 'when a value is passed for precision' do
+      let(:result) { helper.format_money(123456.123456, precision) }
+
+      context 'and that value is 0' do
+        let(:precision) { 0 }
+
+        it 'returns the cost to 0 dp' do
+          expect(result).to eq '£123,456'
+        end
+      end
+
+      context 'and that value is 2' do
+        let(:precision) { 2 }
+
+        it 'returns the cost to 2 dp' do
+          expect(result).to eq '£123,456.12'
+        end
+      end
+
+      context 'and that value is 4' do
+        let(:precision) { 4 }
+
+        it 'returns the cost to 4 dp' do
+          expect(result).to eq '£123,456.1235'
+        end
+      end
+    end
+  end
+
+  describe '#checked?' do
+    let(:checked) { helper.checked?(actual, expected) }
+
+    context 'when expected is yes' do
+      let(:expected) { 'yes' }
+
+      context 'and actual is also yes' do
+        let(:actual) { 'yes' }
+
+        it 'returns truthy' do
+          expect(checked).to be_truthy
+        end
+      end
+
+      context 'and actual is no' do
+        let(:actual) { 'no' }
+
+        it 'returns falsey' do
+          expect(checked).to be_falsey
+        end
+      end
+
+      context 'and actual is nil' do
+        let(:actual) { nil }
+
+        it 'returns falsey' do
+          expect(checked).to be_falsey
+        end
+      end
+    end
+
+    context 'when expected is no' do
+      let(:expected) { 'no' }
+
+      context 'and actual is yes' do
+        let(:actual) { 'yes' }
+
+        it 'returns falsey' do
+          expect(checked).to be_falsey
+        end
+      end
+
+      context 'and actual is also no' do
+        let(:actual) { 'no' }
+
+        it 'returns truthy' do
+          expect(checked).to be_truthy
+        end
+      end
+
+      context 'and actual is nil' do
+        let(:actual) { nil }
+
+        it 'returns falsey' do
+          expect(checked).to be_falsey
+        end
+      end
+    end
+  end
 end

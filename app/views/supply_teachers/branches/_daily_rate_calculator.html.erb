@@ -1,0 +1,48 @@
+<div class="govuk-!-padding-3 supplier-record__calculator <%= 'supplier-record__calculator--muted' unless branch.worker_cost %>">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <h4 class="govuk-heading-s">
+        <%= t('.calculator.heading') %>
+      </h4>
+    </div>
+  </div>
+  <span class="govuk-error-message govuk-visually-hidden">
+    <span class="govuk-visually-hidden"><%= t('.calculator.error') %></span><%= t('.calculator.error_message') %>
+  </span>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">
+      <div class="govuk-form-group govuk-!-margin-0">
+        <%= label_tag "daily_rate_#{branch.id}", t('.calculator.daily_rate'), class: 'govuk-label govuk-!-font-size-16' %>
+        <div class="calculator-form__day-rate">
+          <%= govuk_input(:daily_rate, branch.id, false, {
+            classes: 'govuk-input--width-10 calculator-form__day-rate-input',
+            value: branch.daily_rate,
+            prefix: {
+              text: '£'
+            }
+          }) %>
+        </div>
+      </div>
+    </div>
+    <div class="govuk-grid-column-one-third">
+      <p class="govuk-body govuk-!-font-size-16 govuk-!-margin-0">
+        <%= t('.calculator.worker_cost') %>
+      </p>
+      <p class="govuk-body supplier-record__worker-cost">
+        <% if branch.worker_cost %>
+          <%= number_to_currency(branch.worker_cost) %>
+        <% end %>
+      </p>
+    </div>
+    <div class="govuk-grid-column-one-third">
+      <p class="govuk-body govuk-!-font-size-16 govuk-!-margin-0">
+        <%= t('.calculator.agency_fee') %>
+      </p>
+      <p class="govuk-body supplier-record__agency-fee">
+        <% if branch.agency_fee %>
+          <%= number_to_currency(branch.agency_fee) %>
+        <% end %>
+      </p>
+    </div>
+  </div>
+</div>

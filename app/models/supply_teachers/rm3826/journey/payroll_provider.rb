@@ -1,19 +1,6 @@
 module SupplyTeachers
   module RM3826
-    class Journey::PayrollProvider
-      include Steppable
-
-      attribute :payroll_provider
-      validates :payroll_provider, inclusion: ['school', 'agency']
-
-      def next_step_class
-        case payroll_provider
-        when 'school'
-          Journey::FTACalculatorContractStart
-        when 'agency'
-          Journey::AgencyPayroll
-        end
-      end
+    class Journey::PayrollProvider < SupplyTeachers::Journey::PayrollProvider
     end
   end
 end

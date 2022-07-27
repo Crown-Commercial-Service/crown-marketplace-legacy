@@ -54,16 +54,7 @@ Then('the header navigation links {string} visible') do |option|
 end
 
 Given('I go to the not permitted page for {string}') do |service|
-  service_and_framework_path = case service
-                               when 'management consultancy'
-                                 "/management-consultancy/#{Framework.management_consultancy.current_framework}"
-                               when 'legal services'
-                                 "/legal-services/#{Framework.legal_services.current_framework}"
-                               else
-                                 "/supply-teachers/#{Framework.supply_teachers.current_framework}"
-                               end
-
-  visit "#{service_and_framework_path}/not-permitted"
+  visit "#{service.gsub(' ', '-')}/#{@framework}/not-permitted"
 end
 
 Given('I enter {string} for my email') do |email|

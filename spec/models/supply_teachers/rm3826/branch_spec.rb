@@ -279,4 +279,46 @@ RSpec.describe SupplyTeachers::RM3826::Branch, type: :model do
       end
     end
   end
+
+  describe '.address_elements' do
+    let(:result) { branch.address_elements }
+
+    before do
+      branch.update(
+        address_1: 'The first address line',
+        address_2: address_2,
+        town: 'The town',
+        county: county,
+        postcode: 'The postcode'
+      )
+    end
+
+    context 'when all elements are present' do
+      let(:address_2) { 'The second address line' }
+      let(:county) { 'The county' }
+
+      it 'returns all the elemements' do
+        expect(result).to eq [
+          'The first address line',
+          'The second address line',
+          'The town',
+          'The county',
+          'The postcode'
+        ]
+      end
+    end
+
+    context 'when some elements are present' do
+      let(:address_2) { '' }
+      let(:county) { nil }
+
+      it 'returns just the present elements' do
+        expect(result).to eq [
+          'The first address line',
+          'The town',
+          'The postcode'
+        ]
+      end
+    end
+  end
 end

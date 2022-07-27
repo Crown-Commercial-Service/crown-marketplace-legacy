@@ -1,0 +1,27 @@
+<div class="agency-record">
+  <h2 class="govuk-heading-m"><%= master_vendor.name %></h2>
+
+  <% master_vendor_contact = managed_service_provider_contact(master_vendor, '2')%>
+
+  <% if master_vendor_contact.present? %>
+    <p class="govuk-body">
+      <span class="managed-service-provider-contact-details__name">
+        <strong><%= master_vendor_contact.contact_name %></strong>
+      </span>
+      <br />
+      <span class="managed-service-provider-contact-details__telephone">
+        <%= format_telephone_number(master_vendor_contact.telephone_number) %>
+      </span>
+      <br />
+      <span class="managed-service-provider-contact-details__email">
+        <%= mail_to(master_vendor_contact.contact_email,
+                   master_vendor_contact.contact_email,
+                   aria: {
+                     label: "Email #{master_vendor_contact.contact_name} from #{master_vendor.name}"
+                   }) %>
+      </span>
+    </p>
+  <% end %>
+
+  <%= render partial: 'supply_teachers/rm6238/shared/rates_table', locals: { grouped_rates: master_vendor.master_vendor_rates_grouped_by_job_type(threshold_position) } %>
+</div>

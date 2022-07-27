@@ -1,4 +1,4 @@
-@RM3826 @accessibility @javascript
+@accessibility @javascript
 Feature: Supply Teachers - Start pages - With an unrecognised framework
 
   Scenario: Go to an unrecognised famework in the admin section

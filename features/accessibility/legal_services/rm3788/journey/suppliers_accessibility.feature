@@ -1,4 +1,4 @@
-@RM3788 @accessibility @javascript
+@accessibility @javascript
 Feature: Legal services - Suppliers - Accessibility
 
   Background: Login and then navigate to the select the lot you need page

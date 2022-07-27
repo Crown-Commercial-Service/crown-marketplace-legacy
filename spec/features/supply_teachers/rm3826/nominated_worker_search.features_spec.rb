@@ -58,7 +58,7 @@ RSpec.feature 'Nominated workers', type: :feature, supply_teachers: true do
     choose I18n.t('supply_teachers.rm3826.journey.looking_for.answer_worker')
     click_on I18n.t('common.submit')
 
-    choose I18n.t('supply_teachers.rm3826.journey.worker_type.answer_nominated_worker')
+    choose I18n.t('supply_teachers.journey.worker_type.answer.nominated')
     click_on I18n.t('common.submit')
 
     fill_in 'postcode', with: 'WC2B 6TE'
@@ -90,7 +90,7 @@ RSpec.feature 'Nominated workers', type: :feature, supply_teachers: true do
     choose I18n.t('supply_teachers.rm3826.journey.looking_for.answer_worker')
     click_on I18n.t('common.submit')
 
-    choose I18n.t('supply_teachers.rm3826.journey.worker_type.answer_nominated_worker')
+    choose I18n.t('supply_teachers.journey.worker_type.answer.nominated')
     click_on I18n.t('common.submit')
 
     fill_in 'postcode', with: 'WC2B 6TE'
@@ -107,7 +107,7 @@ RSpec.feature 'Nominated workers', type: :feature, supply_teachers: true do
     choose I18n.t('supply_teachers.rm3826.journey.looking_for.answer_worker')
     click_on I18n.t('common.submit')
 
-    choose I18n.t('supply_teachers.rm3826.journey.worker_type.answer_nominated_worker')
+    choose I18n.t('supply_teachers.journey.worker_type.answer.nominated')
     click_on I18n.t('common.submit')
 
     fill_in 'postcode', with: 'WC2B 6TE'
@@ -116,7 +116,7 @@ RSpec.feature 'Nominated workers', type: :feature, supply_teachers: true do
     click_on I18n.t('layouts.application.back')
     click_on I18n.t('layouts.application.back')
 
-    expect(page).to have_checked_field(I18n.t('supply_teachers.rm3826.journey.worker_type.answer_nominated_worker'))
+    expect(page).to have_checked_field(I18n.t('supply_teachers.journey.worker_type.answer.nominated'))
   end
 
   scenario 'Buyer changes mind about postcode, nominated worker & hire via agency' do
@@ -125,7 +125,7 @@ RSpec.feature 'Nominated workers', type: :feature, supply_teachers: true do
     choose I18n.t('supply_teachers.rm3826.journey.looking_for.answer_worker')
     click_on I18n.t('common.submit')
 
-    choose I18n.t('supply_teachers.rm3826.journey.worker_type.answer_nominated_worker')
+    choose I18n.t('supply_teachers.journey.worker_type.answer.nominated')
     click_on I18n.t('common.submit')
 
     fill_in 'postcode', with: 'WC2B 6TE'
@@ -144,7 +144,7 @@ RSpec.feature 'Nominated workers', type: :feature, supply_teachers: true do
     choose I18n.t('supply_teachers.rm3826.journey.looking_for.answer_worker')
     click_on I18n.t('common.submit')
 
-    choose I18n.t('supply_teachers.rm3826.journey.worker_type.answer_nominated_worker')
+    choose I18n.t('supply_teachers.journey.worker_type.answer.nominated')
     click_on I18n.t('common.submit')
 
     fill_in 'postcode', with: 'XY1 2AB'

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_12_072302) do
+ActiveRecord::Schema.define(version: 2022_07_20_084351) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -293,10 +293,10 @@ ActiveRecord::Schema.define(version: 2022_07_12_072302) do
     t.string "lot_number", limit: 4, null: false
     t.integer "rate", null: false
     t.text "job_type", null: false
-    t.text "tenure_type"
+    t.text "term"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["supply_teachers_rm6238_supplier_id", "lot_number", "job_type", "tenure_type"], name: "index_rates_on_supplier_id_and_lot_number_and_job_and_tenure", unique: true
+    t.index ["supply_teachers_rm6238_supplier_id", "lot_number", "job_type", "term"], name: "index_rates_on_supplier_id_and_lot_number_and_job_and_tenure", unique: true
     t.index ["supply_teachers_rm6238_supplier_id"], name: "index_st_rm6238_rates_on_st_rm6238_supplier_id"
   end
 

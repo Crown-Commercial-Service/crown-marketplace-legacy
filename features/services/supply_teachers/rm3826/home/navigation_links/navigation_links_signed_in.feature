@@ -1,4 +1,3 @@
-@RM3826
 Feature: Supply Teachers - Navigation links when signed in
 
   Background: I navigate to the start page
@@ -24,7 +23,7 @@ Feature: Supply Teachers - Navigation links when signed in
       | Back to start |
       | Sign out      |
     And I click on 'Sign out'
-    And I am on the 'Sign in to find supply teachers and agency workers' page
+    And I am on the 'Find supply teachers and agency workers' page
 
   Scenario: Cookies policy - Back to start
     When I click on 'Cookie policy'
@@ -42,7 +41,7 @@ Feature: Supply Teachers - Navigation links when signed in
       | Back to start |
       | Sign out      |
     And I click on 'Sign out'
-    And I am on the 'Sign in to find supply teachers and agency workers' page
+    And I am on the 'Find supply teachers and agency workers' page
 
   Scenario: Cookies settings - Back to start
     When I click on 'Cookie settings'
@@ -60,7 +59,7 @@ Feature: Supply Teachers - Navigation links when signed in
       | Back to start |
       | Sign out      |
     And I click on 'Sign out'
-    And I am on the 'Sign in to find supply teachers and agency workers' page
+    And I am on the 'Find supply teachers and agency workers' page
 
   Scenario: Accessibility statement - Back to start
     When I click on 'Accessibility statement'
@@ -78,11 +77,11 @@ Feature: Supply Teachers - Navigation links when signed in
       | Back to start |
       | Sign out      |
     And I click on 'Sign out'
-    And I am on the 'Sign in to find supply teachers and agency workers' page
+    And I am on the 'Find supply teachers and agency workers' page
 
   Scenario: Home page - Sign out
     And I should see the following navigation links:
       | Back to start |
       | Sign out      |
     And I click on 'Sign out'
-    And I am on the 'Sign in to find supply teachers and agency workers' page
+    And I am on the 'Find supply teachers and agency workers' page

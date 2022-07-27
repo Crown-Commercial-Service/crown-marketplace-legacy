@@ -18,5 +18,9 @@ module SupplyTeachers
     end
 
     delegate :name, to: :supplier, prefix: true
+
+    def address_elements
+      [address_1, address_2, town, county, postcode].reject(&:blank?)
+    end
   end
 end

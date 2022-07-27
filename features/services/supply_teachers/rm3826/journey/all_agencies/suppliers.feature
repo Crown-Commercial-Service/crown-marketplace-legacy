@@ -1,4 +1,4 @@
-@RM3826 @pipeline
+@pipeline
 Feature: Supply Teachers - All agencies - suppliers
 
   Background: Navigate to the All agencies page 

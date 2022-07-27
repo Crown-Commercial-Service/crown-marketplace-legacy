@@ -38,8 +38,8 @@ module SupplyTeachers
         direct_provision_rates.fixed_term.first.value
       end
 
-      def rate_for(job_type:, tenure_type:)
-        direct_provision_rates.rate_for(job_type: job_type, tenure_type: tenure_type).first&.value
+      def rate_for(job_type:, term:)
+        direct_provision_rates.rate_for(job_type: job_type, term: term).first&.value
       end
 
       def master_vendor_rates_grouped_by_job_type(threshold_position)
@@ -48,6 +48,10 @@ module SupplyTeachers
 
       def education_technology_platforms_rates_grouped_by_job_type
         rates.education_technology_platforms.group_by(&:job_type)
+      end
+
+      def rates_grouped_by_job_type
+        rates.group_by(&:job_type)
       end
 
       def direct_provision_rates

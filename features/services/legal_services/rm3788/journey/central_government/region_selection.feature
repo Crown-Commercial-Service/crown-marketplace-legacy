@@ -1,4 +1,4 @@
-@RM3788 @javascript @pipeline
+@javascript @pipeline
 Feature: Legal services - Central governemnt - fees under £20,000 - region selection
 
   Background: Navigate to start page and select the lot

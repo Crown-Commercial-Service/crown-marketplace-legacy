@@ -1,7 +1,7 @@
 module Pages
   class SupplyTeachers < SitePrism::Page
     element :date_field, '#main-content'
-    element :'contract start', '#contract-start'
+    element :'contract start', '#contract-start-date'
     element :hire, '#hire-date'
     element :'holiday 1 start', '#holiday-1-start-date'
     element :'holiday 1 end', '#holiday-1-end-date'
@@ -10,14 +10,14 @@ module Pages
     element :notice, '#notice-date'
 
     section :agency_results, '#main-content' do
-      element :number_of_agencies, 'div.govuk-grid-row > div > form > div > div.govuk-grid-column-two-thirds > p > strong:nth-child(1)'
+      element :number_of_agencies, 'div.govuk-grid-row > div > form > div > div.govuk-grid-column-two-thirds > p:nth-child(1) > strong:nth-child(1)'
       elements :suppliers, '.supplier-record'
       elements :choices, '.cmp-sidebar > ul > li'
     end
 
-    section :master_vendors, '#main-content' do
+    section :managed_service_providers, '#main-content' do
       element :number_of_agencies, '> div.govuk-grid-row > div > p'
-      elements :agencies, '.master-vendor-record'
+      elements :agencies, '.agency-record'
     end
 
     section :all_agencies, '#main-content' do
@@ -33,7 +33,7 @@ module Pages
         element :'Contact name', 'div:nth-child(2) > p:nth-child(1)'
         element :'Contact email', 'div:nth-child(2) > p:nth-child(2)'
         element :'Phone number', 'div:nth-child(2) > p:nth-child(3)'
-        element :Address, 'div:nth-child(3) > p'
+        element :Address, 'div:nth-child(3) > ul'
       end
       element :agency_rates_table, 'table > tbody'
     end

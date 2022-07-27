@@ -873,4 +873,93 @@ RSpec.describe SupplyTeachers::RM3826::Journey::TempToPermCalculator, type: :mod
       )
     end
   end
+
+  describe '.next_step_class' do
+    it 'returns Journey::TempToPermFee' do
+      expect(step.next_step_class).to be SupplyTeachers::RM3826::Journey::TempToPermFee
+    end
+  end
+
+  # rubocop:disable RSpec/ExampleLength
+  describe '.permit_list' do
+    it 'returns a list of the permitted attributes' do
+      expect(described_class.permit_list).to eq [
+        :contract_start_date_day,
+        :contract_start_date_month,
+        :contract_start_date_year,
+        :days_per_week,
+        :day_rate,
+        :markup_rate,
+        :hire_date_day,
+        :hire_date_month,
+        :hire_date_year,
+        :holiday_1_start_date_day,
+        :holiday_1_start_date_month,
+        :holiday_1_start_date_year,
+        :holiday_1_end_date_day,
+        :holiday_1_end_date_month,
+        :holiday_1_end_date_year,
+        :holiday_2_start_date_day,
+        :holiday_2_start_date_month,
+        :holiday_2_start_date_year,
+        :holiday_2_end_date_day,
+        :holiday_2_end_date_month,
+        :holiday_2_end_date_year,
+        :notice_date_day,
+        :notice_date_month,
+        :notice_date_year,
+        {}
+      ]
+    end
+  end
+
+  describe '.permitted_keys' do
+    it 'returns a list of the permitted keys' do
+      expect(described_class.permitted_keys).to eq %i[
+        contract_start_date_day
+        contract_start_date_month
+        contract_start_date_year
+        days_per_week
+        day_rate
+        markup_rate
+        hire_date_day
+        hire_date_month
+        hire_date_year
+        holiday_1_start_date_day
+        holiday_1_start_date_month
+        holiday_1_start_date_year
+        holiday_1_end_date_day
+        holiday_1_end_date_month
+        holiday_1_end_date_year
+        holiday_2_start_date_day
+        holiday_2_start_date_month
+        holiday_2_start_date_year
+        holiday_2_end_date_day
+        holiday_2_end_date_month
+        holiday_2_end_date_year
+        notice_date_day
+        notice_date_month
+        notice_date_year
+      ]
+    end
+  end
+  # rubocop:enable RSpec/ExampleLength
+
+  describe '.slug' do
+    it 'returns temp-to-perm-calculator' do
+      expect(step.slug).to eq 'temp-to-perm-calculator'
+    end
+  end
+
+  describe '.template' do
+    it 'returns journey/temp_to_perm_calculator' do
+      expect(step.template).to eq 'journey/temp_to_perm_calculator'
+    end
+  end
+
+  describe '.final?' do
+    it 'returns false' do
+      expect(step.final?).to be false
+    end
+  end
 end

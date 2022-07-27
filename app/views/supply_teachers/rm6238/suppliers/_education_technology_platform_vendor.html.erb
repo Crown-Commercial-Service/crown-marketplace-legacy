@@ -1,0 +1,50 @@
+<div class="agency-record">
+  <h2 class="govuk-heading-m"><%= education_technology_platform_vendor.name %></h2>
+
+  <% education_technology_platform_vendor_contact = managed_service_provider_contact(education_technology_platform_vendor, '4')%>
+
+  <% if education_technology_platform_vendor_contact.present? %>
+    <p class="govuk-body">
+      <span class="managed-service-provider-contact-details__name">
+        <strong><%= education_technology_platform_vendor_contact.contact_name %></strong>
+      </span>
+      <br />
+      <span class="managed-service-provider-contact-details__telephone">
+        <%= format_telephone_number(education_technology_platform_vendor_contact.telephone_number) %>
+      </span>
+      <br />
+      <span class="managed-service-provider-contact-details__email">
+        <%= mail_to(education_technology_platform_vendor_contact.contact_email,
+                   education_technology_platform_vendor_contact.contact_email,
+                   aria: {
+                     label: "Email #{education_technology_platform_vendor_contact.contact_name} from #{education_technology_platform_vendor.name}"
+                   }) %>
+      </span>
+    </p>
+  <% end %>
+
+  <table class="govuk-table">
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th class="govuk-table__header" scope="col"><strong><%= t('.column1') %></strong></th>
+        <th class="govuk-table__header govuk-table__header--numeric agency-record__markup-column" scope="col"><strong><%= t('.column2') %></strong></th>
+      </tr>
+    </thead>
+    <tbody class="govuk-table__body">
+      <% education_technology_platform_vendor.education_technology_platforms_rates_grouped_by_job_type.each do |job_type, rates| %>
+        <% rates.each do |rate| %>
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="row">
+              <% if rates.length == 1 %>
+                <%= SupplyTeachers::RM6238::JobType[job_type] %>
+              <% else %>
+                <%= t(".agency_management.#{rate.term}") %>
+              <% end %>
+            </th>
+            <%= agency_rate_cell(rate) %>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -1,4 +1,4 @@
-"code","description","role","tenure_allowed"
+"code","description","role","term_allowed"
 "teacher","Teacher: (Incl. Qualified and Unqualified Teachers, Tutors)","true","true"
 "support","Educational Support Staff: (incl. Cover Supervisor, Teaching Assistants)","true","true"
 "senior","Senior Roles: Headteacher and Senior Leadership positions","true","true"

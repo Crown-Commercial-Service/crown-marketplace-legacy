@@ -1,0 +1,32 @@
+<%= content_for :page_title, t('.page_title') %>
+<%= content_for :page_section, t('supply_teachers.rm6238.page_section') %>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+  <%= add_optional_error_prefix_to_page_title(@journey.errors) %>
+
+  <%= render partial: 'shared/error_summary', locals: { errors: @journey.errors } %>
+    <%= form_with url: @form_path, method: :get, local: true, html: { specialvalidation: true, novalidate: true } do |f| %>
+    <%= hidden_fields_for_previous_steps_and_responses(@journey) %>
+      <%= govuk_radios(f, @journey, :threshold_position, {
+        fieldset: {
+          legend: {
+            text: t('.question'),
+            classes: 'govuk-fieldset__legend--m',
+            page_heading?: true
+          }
+        },
+        hint: {
+          text: t('.question_hint')
+        },
+        items: @journey.current_step.class::THRESHOLD_POSITIONS.map do |option|
+          {
+            value: option,
+            text: t(".answer.#{option.gsub('.', '_')}"),
+            checked: checked?(params[:threshold_position], option)
+          }
+        end
+      }) %>
+    <%= submit_tag t('common.submit'), class: "govuk-button" %>
+  <% end %>
+  </div>
+</div>

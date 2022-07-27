@@ -6,17 +6,17 @@ module SupplyTeachers
                  inverse_of: :rates
 
       validates :lot_number, presence: true,
-                             uniqueness: { scope: %i[supplier tenure_type job_type] },
+                             uniqueness: { scope: %i[supplier term job_type] },
                              inclusion: { in: Lot.all_numbers }
 
       validates :job_type, presence: true,
-                           uniqueness: { scope: %i[supplier tenure_type lot_number] },
+                           uniqueness: { scope: %i[supplier term lot_number] },
                            inclusion: { in: JobType.all_codes }
 
-      validates :tenure_type,
-                presence: { if: :tenure_type_required? },
-                absence: { unless: :tenure_type_required? },
-                inclusion: { in: TenureType.all_codes, allow_blank: true }
+      validates :term,
+                presence: { if: :term_required? },
+                absence: { unless: :term_required? },
+                inclusion: { in: Term.all_codes, allow_blank: true }
 
       validates :rate,
                 presence: true,
@@ -42,8 +42,8 @@ module SupplyTeachers
         where(lot_number: '4')
       end
 
-      def self.rate_for(job_type:, tenure_type:)
-        where(job_type: job_type, tenure_type: tenure_type)
+      def self.rate_for(job_type:, term:)
+        where(job_type: job_type&.code, term: term&.code)
       end
 
       def value
@@ -51,11 +51,11 @@ module SupplyTeachers
       end
 
       def percentage?
-        (job_type == 'over_12_week' || job_type == 'fixed_term') && tenure_type != 'six_weeks_plus'
+        (job_type == 'over_12_week' || job_type == 'fixed_term') && term != 'six_weeks_plus'
       end
 
-      def tenure_type_required?
-        JobType.find_tenure_allowed_by(code: job_type).present?
+      def term_required?
+        JobType.find_term_allowed_by(code: job_type).present?
       end
 
       THRESHOLD_POSITION_TO_LOT_NUMBER = {

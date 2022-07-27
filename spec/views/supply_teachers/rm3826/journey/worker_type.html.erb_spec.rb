@@ -7,9 +7,10 @@ RSpec.describe 'supply_teachers/rm3826/journey/worker_type.html.erb' do
 
   before do
     view.extend(ApplicationHelper)
-    view.extend(JourneyHelper)
     assign(:journey, journey)
     assign(:form_path, '/')
+    view.params[:framework] = 'RM3826'
+    allow(journey).to receive(:current_step).and_return(step)
   end
 
   it 'renders hidden fields containing previous questions and answers' do

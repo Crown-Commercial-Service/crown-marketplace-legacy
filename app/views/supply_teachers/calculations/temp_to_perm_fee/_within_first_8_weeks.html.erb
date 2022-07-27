@@ -1,0 +1,31 @@
+<p>
+  <%= t('.description') %>
+</p>
+<p>
+  <%= t('supply_teachers.calculations.temp_to_perm_fee.fees_are_negotiable') %>
+</p>
+
+<h2><%= t('supply_teachers.calculations.temp_to_perm_fee.calculation') %></h2>
+
+<ul>
+  <li>
+    <%= display_working_days_required %>
+  </li>
+  <li>
+    <%= display_working_days(calculator) %>
+  </li>
+  <li>
+    <%= display_chargeable_days_for_early_hire(calculator) %>
+  </li>
+  <li>
+    <%= display_suppliers_daily_fee(calculator) %>
+  </li>
+  <% if display_suppliers_pro_rata_daily_fee?(calculator) %>
+    <li>
+      <%= display_suppliers_pro_rata_daily_fee(calculator) %>
+    </li>
+  <% end %>
+  <li>
+    <%= display_total_fee(calculator) %>
+  </li>
+</ul>

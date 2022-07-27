@@ -1,9 +1,13 @@
 module Base
   class SessionsController < Devise::SessionsController
+    include Base::AuthenticationPathsConcern
+
     skip_forgery_protection
     before_action :authenticate_user!, except: %i[new create destroy]
     before_action :authorize_user, except: %i[new create destroy]
     before_action :validate_service, except: :destroy
+
+    helper_method :new_user_session_path, :new_user_password_path, :sign_up_path
 
     def new
       @result = Cognito::SignInUser.new(nil, nil, nil)
@@ -31,12 +35,8 @@ module Base
 
     protected
 
-    def after_sign_in_path_for(resource)
-      stored_location_for(resource) || gateway_url
-    end
-
     def after_sign_out_path_for(_resource)
-      gateway_url
+      service_path_base
     end
 
     def authorize_user
@@ -55,7 +55,7 @@ module Base
       if @result.needs_password_reset
         cookies[:crown_marketplace_reset_email] = { value: params[:user][:email], expires: 20.minutes, httponly: true }
 
-        redirect_to confirm_forgot_password_path
+        redirect_to edit_password_path
       elsif @result.needs_confirmation
         cookies[:crown_marketplace_confirmation_email] = { value: params[:user][:email], expires: 20.minutes, httponly: true }
 

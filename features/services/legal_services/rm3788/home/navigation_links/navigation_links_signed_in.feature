@@ -1,4 +1,3 @@
-@RM3788
 Feature: Legal Services - Navigation links when signed in
 
   Background: I navigate to the start page

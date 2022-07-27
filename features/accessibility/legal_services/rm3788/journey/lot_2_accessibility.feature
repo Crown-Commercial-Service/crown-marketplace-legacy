@@ -1,4 +1,4 @@
-@RM3788 @accessibility @javascript
+@accessibility @javascript
 Feature: Legal services - Non Central Government - Lot 2 - Accessibility
 
   Background: Login and then navigate to the Select the jurisdiction you need page

@@ -30,11 +30,11 @@ module Login
     private
 
     def school_type
-      SupplyTeachers::RM3826::SchoolType.find_by(id: @extra['school_type_id'].to_s)
+      SupplyTeachers::SchoolType.find_by(id: @extra['school_type_id'].to_s)
     end
 
     def organisation_category
-      SupplyTeachers::RM3826::OrganisationCategory.find_by(id: @extra['organisation_category'].to_s)
+      SupplyTeachers::OrganisationCategory.find_by(id: @extra['organisation_category'].to_s)
     end
 
     def safelisted?

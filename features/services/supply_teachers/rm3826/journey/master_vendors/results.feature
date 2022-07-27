@@ -1,4 +1,4 @@
-@RM3826 @pipeline
+@pipeline
 Feature: Supply Teachers - Master vendors
 
   Scenario: Master vendor results
@@ -6,13 +6,13 @@ Feature: Supply Teachers - Master vendors
     And I select "An agency to manage all my school's needs; a 'managed service provider - Master Vendor"
     And I click on 'Continue'
     Then I am on the 'Master vendor managed service providers' page
-    And there are 4 master vendor agencies
-    And the master vendor agencies are:
+    And there are 4 managed service provider agencies
+    And the managed service provider agencies are:
       | BOTSFORD AND SONS     |
       | KUVALIS-HARRIS        |
       | BODE, RUNTE AND RATH  |
       | EBERT AND SONS        |
-    And the contact details for the master vendor 'BODE, RUNTE AND RATH' are:
+    And the contact details for the managed service provider 'BODE, RUNTE AND RATH' are:
       | Amb. Silas Yundt                        |
       | 522-654-7009 x42847                     |
       | runte_rath_bode_and@anderson-bailey.com |

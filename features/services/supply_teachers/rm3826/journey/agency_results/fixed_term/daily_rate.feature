@@ -1,4 +1,4 @@
-@RM3826 @pipeline @javascript @geocode_liverpool
+@pipeline @javascript @geocode_liverpool
 Feature: Supply Teachers - Agency results - Fixed term - Daily rate
 
   Background: Navigate to the Agency results page
