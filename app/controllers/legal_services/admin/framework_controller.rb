@@ -15,7 +15,7 @@ module LegalServices
       protected
 
       def authorize_user
-        authorize! :manage, LegalServices::RM6187::Admin::Upload
+        authorize! :manage, LegalServices::Admin
       end
 
       def service_scope

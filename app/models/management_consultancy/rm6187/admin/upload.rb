@@ -15,8 +15,6 @@ module ManagementConsultancy
         def self.attributes
           %i[supplier_details_file supplier_rate_cards_file supplier_service_offerings_file]
         end
-
-        SERVICE = ManagementConsultancy::RM6187
       end
     end
   end

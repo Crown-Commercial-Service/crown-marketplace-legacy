@@ -5,6 +5,8 @@ module Admin::UploadsController
     skip_before_action :verify_authenticity_token, only: :create
     before_action :authenticate_user!, :authorize_user, only: %i[index show new create progress]
     before_action :set_upload, only: %i[show progress]
+
+    helper_method :service, :new_path, :index_path
   end
 
   def index
@@ -35,12 +37,20 @@ module Admin::UploadsController
 
   private
 
+  def new_path
+    "#{service_path_base}/uploads/new"
+  end
+
+  def index_path
+    "#{service_path_base}/uploads"
+  end
+
   def set_upload
     @upload = service::Admin::Upload.find(params[:id] || params[:upload_id])
   end
 
   def authorize_user
-    authorize! :manage, service::Admin::Upload
+    authorize! :manage, service.module_parent::Admin
   end
 
   def service

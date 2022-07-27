@@ -112,6 +112,7 @@ ignore_unused:
   - companies.*
   - legal_services.rm3788.journey.select_lot.extended_description.lot_*
   - legal_services.rm3788.job_titles.*
+  - legal_services.rm3788.admin.uploads.failed.error_details.*
   - supply_teachers.calculations.temp_to_perm_fee.calculations.*
   - home.cookie_policy.cookie_banner_cookies.row_*
   - home.cookie_policy.ga_cookies.row_*

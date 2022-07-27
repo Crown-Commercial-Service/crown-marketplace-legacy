@@ -27,8 +27,8 @@ class Ability
     can :read, :all
 
     if user.has_any_role? :mc_access, :ls_access
-      can :manage, ManagementConsultancy::RM6187::Admin::Upload
-      can :manage, LegalServices::RM3788::Admin::Upload
+      can :manage, ManagementConsultancy::Admin
+      can :manage, LegalServices::Admin
     end
 
     can :manage, SupplyTeachers::Admin if user.has_role? :st_access

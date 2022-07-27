@@ -1,10 +1,7 @@
 module LegalServices
   module RM3788
     module Admin
-      class UploadsController < LegalServices::Admin::FrameworkController
-        include SharedPagesConcern
-        include ::Admin::UploadsController
-
+      class UploadsController < LegalServices::Admin::UploadsController
         private
 
         def upload_params

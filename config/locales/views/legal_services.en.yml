@@ -69,6 +69,38 @@ en:
               too_large: The 'Supplier rate cards' file must be smaller than 10mb
               wrong_content_type: The 'Supplier rate cards' file does not contain the expected content type
               wrong_extension: The 'Supplier rate cards' file must be an XLSX
+        legal_services/rm6240/admin/upload:
+          attributes:
+            supplier_details_file:
+              malicious: The 'Supplier details' file contains a virus
+              not_attached: Select the 'Supplier details' file
+              too_large: The 'Supplier details' file must be smaller than 10mb
+              wrong_content_type: The 'Supplier details' file does not contain the expected content type
+              wrong_extension: The 'Supplier details' file must be an XLSX
+            supplier_lot_1_service_offerings_file:
+              malicious: The 'Supplier lot 1 service offerings' file contains a virus
+              not_attached: Select the 'Supplier lot 1 service offerings' file
+              too_large: The 'Supplier lot 1 service offerings' file must be smaller than 10mb
+              wrong_content_type: The 'Supplier lot 1 service offerings' file does not contain the expected content type
+              wrong_extension: The 'Supplier lot 1 service offerings' file must be an XLSX
+            supplier_lot_2_service_offerings_file:
+              malicious: The 'Supplier lot 2 service offerings' file contains a virus
+              not_attached: Select the 'Supplier lot 2 service offerings' file
+              too_large: The 'Supplier lot 2 service offerings' file must be smaller than 10mb
+              wrong_content_type: The 'Supplier lot 2 service offerings' file does not contain the expected content type
+              wrong_extension: The 'Supplier lot 2 service offerings' file must be an XLSX
+            supplier_lot_3_service_offerings_file:
+              malicious: The 'Supplier lot 3 service offerings' file contains a virus
+              not_attached: Select the 'Supplier lot 3 service offerings' file
+              too_large: The 'Supplier lot 3 service offerings' file must be smaller than 10mb
+              wrong_content_type: The 'Supplier lot 3 service offerings' file does not contain the expected content type
+              wrong_extension: The 'Supplier lot 3 service offerings' file must be an XLSX
+            supplier_rate_cards_file:
+              malicious: The 'Supplier rate cards' file contains a virus
+              not_attached: Select the 'Supplier rate cards' file
+              too_large: The 'Supplier rate cards' file must be smaller than 10mb
+              wrong_content_type: The 'Supplier rate cards' file does not contain the expected content type
+              wrong_extension: The 'Supplier rate cards' file must be an XLSX
   legal_services:
     admin:
       frameworks:
@@ -83,6 +115,65 @@ en:
           make_sure_listed: The framework in the web address is '%{framework}'. Make sure the web address contains one of the listed frameworks.
           page_title: Unrecognised framework
           the_recognised_are: 'The Legal Services frameworks are:'
+      uploads:
+        failed:
+          below_is_a_list: Below is a list of the issues that have occurred with the file upload and details on how they might be fixed.
+          details: Details
+          errors_with_upload: Errors with the upload
+          issue: Issue
+        index:
+          caption: Legal Services - %{framework}
+          create_new: Create a new data upload
+          current_data: Current published data
+          date: Date
+          download: Download
+          file_name:
+            supplier_details_file: Supplier details
+            supplier_lot_1_service_offerings_file: Supplier lot 1 service offerings
+            supplier_lot_2_service_offerings_file: Supplier lot 2 service offerings
+            supplier_lot_3_service_offerings_file: Supplier lot 3 service offerings
+            supplier_lot_4_service_offerings_file: Supplier lot 4 service offerings
+            supplier_rate_cards_file: Supplier rate cards
+          heading: Manage supplier data
+          name: Name
+          status: Status
+          table_caption: Previous uploads
+        new:
+          caption: Legal Services - %{framework}
+          download_templates: Download file templates
+          file_label:
+            supplier_details_file: Supplier details
+            supplier_lot_1_service_offerings_file: Supplier lot 1 service offerings
+            supplier_lot_2_service_offerings_file: Supplier lot 2 service offerings
+            supplier_lot_3_service_offerings_file: Supplier lot 3 service offerings
+            supplier_lot_4_service_offerings_file: Supplier lot 4 service offerings
+            supplier_rate_cards_file: Supplier rate cards
+          heading: New data upload
+          return: Return to 'Manage supplier data'
+          template_file_name: Download spreadsheet templates
+          template_file_path: legal-services/rm3788/Supplier spreadsheet templates.zip
+          upload_caption: Supported file format is .xlsx and maximum file size is 10mb
+          upload_data: Upload data
+          upload_title: Upload the supplier data
+          you_can_download: You can download a zip file containing an empty template for each of the spreadsheets
+        show:
+          caption: Legal Services - %{framework}
+          datetime: 'Date of file upload:'
+          download: Download
+          file_name:
+            supplier_details_file: Supplier details
+            supplier_lot_1_service_offerings_file: Supplier lot 1 service offerings
+            supplier_lot_2_service_offerings_file: Supplier lot 2 service offerings
+            supplier_lot_3_service_offerings_file: Supplier lot 3 service offerings
+            supplier_lot_4_service_offerings_file: Supplier lot 4 service offerings
+            supplier_rate_cards_file: Supplier rate cards
+          files: Uploaded files
+          heading: 'Upload session #%{number}'
+          name: File name
+          return: Return to 'Manage supplier data'
+          status: 'Status:'
+        upload:
+          upload_name: 'Upload session #%{number}'
     home:
       unrecognised_framework:
         heading: The web address contained an unrecognised framework
@@ -93,8 +184,6 @@ en:
       admin:
         uploads:
           failed:
-            below_is_a_list: Below is a list of the issues that have occurred with the file upload and details on how they might be fixed.
-            details: Details
             error_details:
               file_check_failed: Something went wrong when checking the files, please try uploading the files again
               file_process_failed: Something went wrong when processing the files, please try uploading the files again
@@ -145,61 +234,6 @@ en:
               supplier_rate_cards_has_incorrect_headers: There are sheets in 'Supplier rate cards' with incorrect headers
               supplier_rate_cards_missing_sheets: The 'Supplier rate cards' file is missing sheets
               upload_failed: Upload failed
-            errors_with_upload: Errors with the upload
-            issue: Issue
-          index:
-            caption: Legal Services
-            create_new: Create a new data upload
-            current_data: Current published data
-            date: Date
-            download: Download
-            file_name:
-              supplier_details_file: Supplier details
-              supplier_lot_1_service_offerings_file: Supplier lot 1 service offerings
-              supplier_lot_2_service_offerings_file: Supplier lot 2 service offerings
-              supplier_lot_3_service_offerings_file: Supplier lot 3 service offerings
-              supplier_lot_4_service_offerings_file: Supplier lot 4 service offerings
-              supplier_rate_cards_file: Supplier rate cards
-            heading: Manage supplier data
-            name: Name
-            status: Status
-            table_caption: Previous uploads
-          new:
-            caption: Legal Services
-            download_templates: Download file templates
-            file_label:
-              supplier_details_file: Supplier details
-              supplier_lot_1_service_offerings_file: Supplier lot 1 service offerings
-              supplier_lot_2_service_offerings_file: Supplier lot 2 service offerings
-              supplier_lot_3_service_offerings_file: Supplier lot 3 service offerings
-              supplier_lot_4_service_offerings_file: Supplier lot 4 service offerings
-              supplier_rate_cards_file: Supplier rate cards
-            heading: New data upload
-            return: Return to 'Manage supplier data'
-            template_file_name: Download spreadsheet templates
-            template_file_path: legal-services/rm3788/Supplier spreadsheet templates.zip
-            upload_caption: Supported file format is .xlsx and maximum file size is 10mb
-            upload_data: Upload data
-            upload_title: Upload the supplier data
-            you_can_download: You can download a zip file containing an empty template for each of the spreadsheets
-          show:
-            caption: Legal Services
-            datetime: 'Date of file upload:'
-            download: Download
-            file_name:
-              supplier_details_file: Supplier details
-              supplier_lot_1_service_offerings_file: Supplier lot 1 service offerings
-              supplier_lot_2_service_offerings_file: Supplier lot 2 service offerings
-              supplier_lot_3_service_offerings_file: Supplier lot 3 service offerings
-              supplier_lot_4_service_offerings_file: Supplier lot 4 service offerings
-              supplier_rate_cards_file: Supplier rate cards
-            files: Uploaded files
-            heading: 'Upload session #%{number}'
-            name: File name
-            return: Return to 'Manage supplier data'
-            status: 'Status:'
-          upload:
-            upload_name: 'Upload session #%{number}'
       home:
         index:
           heading: Find legal services for the wider public sector
