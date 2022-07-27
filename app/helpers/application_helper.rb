@@ -194,6 +194,8 @@ module ApplicationHelper
   end
 
   def get_error_details(service, error, details)
+    return t("#{service}.admin.uploads.failed.error_details.#{error}") unless details
+
     t("#{service}.admin.uploads.failed.error_details.#{error}_html", list: details_to_list(details))
   end
 

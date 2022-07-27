@@ -1,4 +1,4 @@
-module LegalServices::RM3788::Admin::UploadsHelper
+module LegalServices::Admin::UploadsHelper
   def upload_status_tag(status)
     case status
     when 'published'

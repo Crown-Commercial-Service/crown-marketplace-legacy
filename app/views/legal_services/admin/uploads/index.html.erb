@@ -2,14 +2,14 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
-    <span class="govuk-caption-xl"><%= t('.caption') %></span>
+    <span class="govuk-caption-xl"><%= t('.caption', framework: params[:framework]) %></span>
     <h1 class="govuk-heading-xl"><%= t('.heading') %></h1>
     <% if flash[:notice] %>
       <div class="govuk-inset-text cmp-inset-text--success">
         <p class="govuk-body govuk-body-s"><%= flash[:notice] %></p>
       </div>
     <% end %>
-    <%= link_to t('.create_new'), new_legal_services_rm3788_admin_upload_path, class: 'govuk-button'  %>
+    <%= link_to t('.create_new'), new_path, class: 'govuk-button'  %>
     <hr class="govuk-section-break govuk-section-break--m">
   </div>
 </div>
@@ -27,12 +27,12 @@
           </tr>
         </thead>
         <tbody class="govuk-table__body">
-          <% LegalServices::RM3788::Admin::Upload::ATTRIBUTES.each do |file| %>
+          <% service::Admin::Upload::ATTRIBUTES.each do |file| %>
             <% next unless @latest_upload.send(file).attached? %>
             <tr>
               <td class="govuk-table__cell"><%= t(".file_name.#{file}") %></td>
               <td class="govuk-table__cell"><%= format_date_time @latest_upload.created_at %></td>
-              <td class="govuk-table__cell"><%= link_to t('.download'), "#{rails_blob_path(@latest_upload.send(file), disposition: 'attachment', key: :ls_upload_id, value: @latest_upload.id)}&format=xlsx", download: '' %></td>
+              <td class="govuk-table__cell"><%= link_to t('.download'), "#{rails_blob_path(@latest_upload.send(file), disposition: 'attachment', key: :"ls_#{params[:framework].downcase}_upload_id", value: @latest_upload.id)}&format=xlsx", download: '' %></td>
             </tr>
           <% end %>
         </tbody>

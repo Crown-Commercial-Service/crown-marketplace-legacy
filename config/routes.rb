@@ -217,6 +217,12 @@ Rails.application.routes.draw do
       end
     end
 
+    namespace 'rm6240', path: 'RM6240', defaults: { framework: 'RM6240' } do
+      namespace :admin, defaults: { service: 'legal_services/admin' } do
+        concerns %i[admin_uploads admin_shared_pages]
+      end
+    end
+
     get '/:framework', to: 'home#index', as: 'index'
     get '/:framework/admin', to: 'admin/home#index', defaults: { service: 'legal_services/admin' }, as: 'admin_index'
     get '/:framework/start', to: 'journey#start', as: 'journey_start'

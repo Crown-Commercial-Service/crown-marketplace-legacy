@@ -2,7 +2,7 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
-    <span class="govuk-caption-xl"><%= t('.caption') %></span>
+    <span class="govuk-caption-xl"><%= t('.caption', framework: params[:framework]) %></span>
     <h1 class="govuk-heading-xl"><%= t('.heading') %></h1>
     <% if flash[:notice] %>
       <div class="govuk-inset-text cmp-inset-text--success">
@@ -32,7 +32,7 @@
             <tr>
               <td class="govuk-table__cell"><%= t(".file_name.#{file}") %></td>
               <td class="govuk-table__cell"><%= format_date_time @latest_upload.created_at %></td>
-              <td class="govuk-table__cell"><%= link_to t('.download'), "#{rails_blob_path(@latest_upload.send(file), disposition: 'attachment', key: :mc_upload_id, value: @latest_upload.id)}&format=xlsx", download: '' %></td>
+              <td class="govuk-table__cell"><%= link_to t('.download'), "#{rails_blob_path(@latest_upload.send(file), disposition: 'attachment', key: :"mc_#{params[:framework].downcase}_upload_id", value: @latest_upload.id)}&format=xlsx", download: '' %></td>
             </tr>
           <% end %>
         </tbody>

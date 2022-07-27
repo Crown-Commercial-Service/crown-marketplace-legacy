@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe LegalServices::RM3788::Admin::UploadsHelper, type: :helper do
+RSpec.describe LegalServices::Admin::UploadsHelper, type: :helper do
   describe 'get_error_details' do
     let(:error_details) { helper.get_error_details('legal_services.rm3788', error, details) }
 

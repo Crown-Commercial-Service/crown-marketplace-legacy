@@ -18,13 +18,11 @@
       <tbody class="govuk-table__body">
         <% @upload.import_errors.each do |error| %>
           <tr>
-            <td class="govuk-table__cell"><%= t(".error_name.#{error[:error]}") %></td>
             <td class="govuk-table__cell">
-              <% if error[:details] %>
-                <%= get_error_details('legal_services.rm3788', error[:error], error[:details]) %>
-              <% else %>
-                <%= t(".error_details.#{error[:error]}") %>
-              <% end %>
+              <%= t("legal_services.#{params[:framework].downcase}.admin.uploads.failed.error_name.#{error[:error]}") %>
+            </td>
+            <td class="govuk-table__cell">
+              <%= get_error_details("legal_services.#{params[:framework].downcase}", error[:error], error[:details]) %>
             </td>
           </tr>
         <% end %>
