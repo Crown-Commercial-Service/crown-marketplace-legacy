@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe LegalServices::Admin::FrameworksController do
   let(:default_params) { { service: 'legal_services/admin' } }
 
-  login_ls_admin
+  login_ccs_developer
 
   describe 'GET index' do
     it 'renders the index page' do
@@ -13,6 +13,15 @@ RSpec.describe LegalServices::Admin::FrameworksController do
 
     context 'when logged in as a buyer' do
       login_ls_buyer
+
+      it 'redirects to not permitted' do
+        get :index
+        expect(response).to redirect_to '/legal-services/RM6240/admin/not-permitted'
+      end
+    end
+
+    context 'when logged in as a normal admin' do
+      login_ls_admin
 
       it 'redirects to not permitted' do
         get :index

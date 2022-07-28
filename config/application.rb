@@ -168,8 +168,4 @@ module Marketplace
   def self.rails_env_url
     @rails_env_url ||= ENV.fetch('RAILS_ENV_URL', 'https://marketplace.service.crowncommercial.gov.uk')
   end
-
-  def self.can_edit_legacy_frameworks?
-    @can_edit_legacy_frameworks ||= rails_env_url != 'https://marketplace.service.crowncommercial.gov.uk'
-  end
 end

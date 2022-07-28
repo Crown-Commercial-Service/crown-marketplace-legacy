@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe ManagementConsultancy::Admin::FrameworksController do
   let(:default_params) { { service: 'management_consultancy/admin' } }
 
-  login_mc_admin
+  login_ccs_developer
 
   describe 'GET index' do
     it 'renders the index page' do
@@ -13,6 +13,15 @@ RSpec.describe ManagementConsultancy::Admin::FrameworksController do
 
     context 'when logged in as a buyer' do
       login_mc_buyer
+
+      it 'redirects to not permitted' do
+        get :index
+        expect(response).to redirect_to '/management-consultancy/RM6187/admin/not-permitted'
+      end
+    end
+
+    context 'when logged in as a normal admin' do
+      login_mc_admin
 
       it 'redirects to not permitted' do
         get :index
