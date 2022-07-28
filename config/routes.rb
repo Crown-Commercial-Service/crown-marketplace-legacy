@@ -90,7 +90,7 @@ Rails.application.routes.draw do
   end
 
   concern :admin_frameworks do
-    resources :frameworks, only: %i[index edit update] if Marketplace.can_edit_legacy_frameworks?
+    resources :frameworks, only: %i[index edit update]
   end
 
   concern :admin_uploads do

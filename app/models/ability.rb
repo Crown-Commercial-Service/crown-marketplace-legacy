@@ -31,8 +31,10 @@ class Ability
       can :manage, LegalServices::RM3788::Admin::Upload
     end
 
-    return unless user.has_role? :st_access
+    can :manage, SupplyTeachers::Admin if user.has_role? :st_access
 
-    can :manage, SupplyTeachers::Admin
+    return unless user.has_role? :ccs_developer
+
+    can :manage, Framework
   end
 end
