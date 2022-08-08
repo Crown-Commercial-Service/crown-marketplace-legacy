@@ -1,4 +1,4 @@
-class LegalServices::RM3788::FilesChecker
+class LegalServices::RM3788::Admin::FilesChecker
   include FilesImporterHelper
 
   def initialize(upload)
@@ -39,21 +39,21 @@ class LegalServices::RM3788::FilesChecker
   end
 
   def check_supplier_lot_1_service_offerings_spreadsheet(lot_1_worksheet)
-    check_sheets(lot_1_worksheet, map_sheets(LOT_1_SHEET_INDEX_TO_SERVICE_SHEET), 'supplier_lot_1_service_offerings') do |sheets_with_errors, empty_sheets, index|
-      if lot_1_worksheet.sheet(index).last_row != 15
-        sheets_with_errors << index_to_service_code(index, LOT_1_SHEET_INDEX_TO_SERVICE_SHEET)
-      elsif lot_1_worksheet.sheet(index).last_column == 1
-        empty_sheets << index_to_service_code(index, LOT_1_SHEET_INDEX_TO_SERVICE_SHEET)
-      end
-    end
+    check_supplier_service_offerings_spreadsheet(lot_1_worksheet, :'1')
   end
 
   def check_supplier_lot_2_service_offerings_spreadsheet(lot_2_worksheet)
-    check_sheets(lot_2_worksheet, map_sheets(LOT_2_SHEET_INDEX_TO_SERVICE_SHEET), 'supplier_lot_2_service_offerings') do |sheets_with_errors, empty_sheets, index|
-      if lot_2_worksheet.sheet(index).last_row != 36
-        sheets_with_errors << index_to_service_code(index, LOT_2_SHEET_INDEX_TO_SERVICE_SHEET)
-      elsif lot_2_worksheet.sheet(index).last_column == 1
-        empty_sheets << index_to_service_code(index, LOT_2_SHEET_INDEX_TO_SERVICE_SHEET)
+    check_supplier_service_offerings_spreadsheet(lot_2_worksheet, :'2')
+  end
+
+  def check_supplier_service_offerings_spreadsheet(worksheet, lot_number)
+    sheet_information = SERVICE_OFFERING_SHEETS_INFORMATION[lot_number]
+
+    check_sheets(worksheet, map_sheets(sheet_information[:sheets]), "supplier_lot_#{lot_number}_service_offerings") do |sheets_with_errors, empty_sheets, index|
+      if worksheet.sheet(index).last_row != sheet_information[:last_row]
+        sheets_with_errors << index_to_service_code(index, sheet_information[:sheets])
+      elsif worksheet.sheet(index).last_column == 1
+        empty_sheets << index_to_service_code(index, sheet_information[:sheets])
       end
     end
   end
@@ -85,8 +85,16 @@ class LegalServices::RM3788::FilesChecker
   end
 
   RATE_CARD_SHEET_INDEX_TO_SHEET = [{ sheet: 'Lot 1', columns: 13 }, { sheet: 'Lot 2a - England & Wales', columns: 16 }, { sheet: 'Lot 2b - Scotland', columns: 16 }, { sheet: 'Lot 2c - Northern Ireland', columns: 16 }, { sheet: 'Lot 3', columns: 16 }, { sheet: 'Lot 4', columns: 16 }].freeze
-  LOT_1_SHEET_INDEX_TO_SERVICE_SHEET = [{ sheet: 'Full UK Coverage' }, { sheet: 'North East England (NUTS C)' }, { sheet: 'North West England (NUTS D)' }, { sheet: 'Yorkshire & Humberside (NUTS E)' }, { sheet: 'East Midlands (NUTS F)' }, { sheet: 'West Midlands (NUTS G)' }, { sheet: 'East of England (NUTS H)' }, { sheet: 'Greater London (NUTS I)' }, { sheet: 'South East England (NUTS J)' }, { sheet: 'South West England (NUTS K)' }, { sheet: 'Wales (NUTS L)' }, { sheet: 'Scotland (NUTS M)' }, { sheet: 'Northern Ireland (NUTS N)' }].freeze
-  LOT_2_SHEET_INDEX_TO_SERVICE_SHEET = [{ sheet: 'Lot 2a - England & Wales' }, { sheet: 'Lot 2b - Scotland' }, { sheet: 'Lot 2c - Northern Ireland' }].freeze
+  SERVICE_OFFERING_SHEETS_INFORMATION = {
+    '1': {
+      sheets: [{ sheet: 'Full UK Coverage' }, { sheet: 'North East England (NUTS C)' }, { sheet: 'North West England (NUTS D)' }, { sheet: 'Yorkshire & Humberside (NUTS E)' }, { sheet: 'East Midlands (NUTS F)' }, { sheet: 'West Midlands (NUTS G)' }, { sheet: 'East of England (NUTS H)' }, { sheet: 'Greater London (NUTS I)' }, { sheet: 'South East England (NUTS J)' }, { sheet: 'South West England (NUTS K)' }, { sheet: 'Wales (NUTS L)' }, { sheet: 'Scotland (NUTS M)' }, { sheet: 'Northern Ireland (NUTS N)' }],
+      last_row: 15
+    },
+    '2': {
+      sheets: [{ sheet: 'Lot 2a - England & Wales' }, { sheet: 'Lot 2b - Scotland' }, { sheet: 'Lot 2c - Northern Ireland' }],
+      last_row: 36
+    }
+  }.freeze
 
   CHECK_FILES_AND_METHODS = {
     supplier_details_file: :check_supplier_details_spreadsheet,

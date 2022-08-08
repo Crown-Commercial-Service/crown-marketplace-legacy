@@ -64,6 +64,6 @@ class Admin::Upload < ApplicationRecord
   end
 
   def service
-    self.class.module_parent.module_parent
+    self.class.module_parent
   end
 end

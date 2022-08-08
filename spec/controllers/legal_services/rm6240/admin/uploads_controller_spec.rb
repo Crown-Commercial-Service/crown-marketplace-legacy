@@ -104,7 +104,7 @@ RSpec.describe LegalServices::RM6240::Admin::UploadsController, type: :controlle
       allow(upload).to receive(:save).and_return(valid)
       allow(upload).to receive(:save).with(context: :upload).and_return(valid)
       allow(LegalServices::RM6240::Admin::Upload).to receive(:new).with(anything).and_return(upload)
-      # allow(LegalServices::RM6240::FileUploadWorker).to receive(:perform_async).with(upload.id).and_return(true)
+      allow(LegalServices::RM6240::Admin::FileUploadWorker).to receive(:perform_async).with(upload.id).and_return(true)
       post :create, params: { legal_services_rm6240_admin_upload: { supplier_details_file: fake_file, supplier_rate_cards_file: fake_file, supplier_lot_1_service_offerings_file: fake_file, supplier_lot_2_service_offerings_file: fake_file, supplier_lot_3_service_offerings_file: fake_file, supplier_lot_4_service_offerings_file: fake_file } }
     end
 
@@ -115,11 +115,11 @@ RSpec.describe LegalServices::RM6240::Admin::UploadsController, type: :controlle
     context 'when the upload is valid' do
       let(:valid) { true }
 
-      pending 'redirects to the show page' do
+      it 'redirects to the show page' do
         expect(response).to redirect_to legal_services_rm6240_admin_upload_path(upload)
       end
 
-      pending 'changes the state to in_progress' do
+      it 'changes the state to in_progress' do
         expect(upload.in_progress?).to be true
       end
     end

@@ -104,7 +104,7 @@ RSpec.describe LegalServices::RM3788::Admin::UploadsController, type: :controlle
       allow(upload).to receive(:save).and_return(valid)
       allow(upload).to receive(:save).with(context: :upload).and_return(valid)
       allow(LegalServices::RM3788::Admin::Upload).to receive(:new).with(anything).and_return(upload)
-      allow(LegalServices::RM3788::FileUploadWorker).to receive(:perform_async).with(upload.id).and_return(true)
+      allow(LegalServices::RM3788::Admin::FileUploadWorker).to receive(:perform_async).with(upload.id).and_return(true)
       post :create, params: { legal_services_rm3788_admin_upload: { supplier_details_file: fake_file, supplier_rate_cards_file: fake_file, supplier_lot_1_service_offerings_file: fake_file, supplier_lot_2_service_offerings_file: fake_file, supplier_lot_3_service_offerings_file: fake_file, supplier_lot_4_service_offerings_file: fake_file } }
     end
 

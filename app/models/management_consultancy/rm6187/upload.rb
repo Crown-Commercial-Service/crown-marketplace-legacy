@@ -1,28 +1,7 @@
 module ManagementConsultancy
   module RM6187
-    class Upload < ApplicationRecord
-      def self.upload!(suppliers)
-        error = all_or_none(Supplier) do
-          Supplier.delete_all_with_dependents
-
-          suppliers.map do |supplier_data|
-            create_supplier!(supplier_data)
-          end
-          create!
-        end
-        raise error if error
-      end
-
-      def self.all_or_none(transaction_class)
-        error = nil
-        transaction_class.transaction do
-          yield
-        rescue ActiveRecord::RecordInvalid => e
-          error = e
-          raise ActiveRecord::Rollback
-        end
-        error
-      end
+    class Upload < Upload
+      self.table_name = 'management_consultancy_rm6187_uploads'
 
       def self.create_supplier!(data)
         supplier = Supplier.create!(

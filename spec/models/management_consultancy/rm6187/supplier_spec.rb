@@ -98,24 +98,33 @@ RSpec.describe ManagementConsultancy::RM6187::Supplier, type: :model do
     end
   end
 
-  describe '.delete_all_with_dependents' do
-    let(:supplier1) { create(:management_consultancy_rm6187_supplier, name: 'Supplier 1') }
-    let(:supplier2) { create(:management_consultancy_rm6187_supplier, name: 'Supplier 2') }
+  describe 'when the supplier is destroyed' do
+    let!(:supplier) { create(:management_consultancy_rm6187_supplier) }
+    let!(:rate_card) { create(:management_consultancy_rm6187_rate_card, supplier: supplier) }
+    let!(:service_offering) { create(:management_consultancy_rm6187_service_offering, supplier: supplier) }
 
-    before do
-      supplier2.service_offerings.create!(lot_number: 'MCF3.3', service_code: 'MCF3.3.1')
+    it 'destroys all suppliers' do
+      expect(described_class.find_by(id: supplier.id)).to eq supplier
+
+      supplier.destroy!
+
+      expect(described_class.find_by(id: supplier.id)).to be_nil
     end
 
-    it 'deletes all service offerings' do
-      described_class.delete_all_with_dependents
+    it 'destroys all rate cards' do
+      expect(ManagementConsultancy::RM6187::RateCard.find_by(id: rate_card.id)).to eq rate_card
 
-      expect(ManagementConsultancy::RM6187::ServiceOffering.count).to eq(0)
+      supplier.destroy!
+
+      expect(ManagementConsultancy::RM6187::RateCard.find_by(id: rate_card.id)).to be_nil
     end
 
-    it 'deletes all suppliers' do
-      described_class.delete_all_with_dependents
+    it 'destroys all service offerings' do
+      expect(ManagementConsultancy::RM6187::ServiceOffering.find_by(id: service_offering.id)).to eq service_offering
 
-      expect(described_class.count).to eq(0)
+      supplier.destroy!
+
+      expect(ManagementConsultancy::RM6187::ServiceOffering.find_by(id: service_offering.id)).to be_nil
     end
   end
 end

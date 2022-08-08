@@ -1,4 +1,4 @@
-class LegalServices::RM3788::FilesProcessor
+class LegalServices::RM3788::Admin::FilesProcessor
   include FilesImporterHelper
 
   def initialize(upload)

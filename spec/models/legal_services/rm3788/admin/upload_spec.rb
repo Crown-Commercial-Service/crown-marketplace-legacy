@@ -129,7 +129,7 @@ RSpec.describe LegalServices::RM3788::Admin::Upload, type: :model do
 
     context 'when start_upload is called' do
       before do
-        allow(LegalServices::RM3788::FileUploadWorker).to receive(:perform_async).with(upload.id).and_return(true)
+        allow(LegalServices::RM3788::Admin::FileUploadWorker).to receive(:perform_async).with(upload.id).and_return(true)
         upload.start_upload!
       end
 
@@ -138,7 +138,7 @@ RSpec.describe LegalServices::RM3788::Admin::Upload, type: :model do
       end
 
       it 'starts the worker' do
-        expect(LegalServices::RM3788::FileUploadWorker).to have_received(:perform_async).with(upload.id)
+        expect(LegalServices::RM3788::Admin::FileUploadWorker).to have_received(:perform_async).with(upload.id)
       end
     end
 
