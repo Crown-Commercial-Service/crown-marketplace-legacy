@@ -72,7 +72,7 @@ gem 'roo', '~> 2.9.0'
 gem 'jsonpath', '~> 1.1.2'
 
 # state machine
-gem 'aasm', '~> 5.2'
+gem 'aasm', '~> 5.3'
 
 # for running background jobs
 gem 'sidekiq', '~> 6.5.1'
