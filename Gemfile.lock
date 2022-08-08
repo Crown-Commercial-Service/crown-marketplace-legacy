@@ -78,7 +78,7 @@ GEM
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
     aes_key_wrap (1.1.0)
-    asset_sync (2.15.1)
+    asset_sync (2.15.2)
       activemodel (>= 4.1.0)
       fog-core
       mime-types (>= 2.99)
@@ -224,7 +224,7 @@ GEM
       railties (>= 3.2)
     dumb_delegator (1.0.0)
     erubi (1.10.0)
-    excon (0.92.3)
+    excon (0.92.4)
     execjs (2.7.0)
     factory_bot (6.2.1)
       activesupport (>= 5.0.0)
@@ -588,8 +588,8 @@ GEM
     uk_postcode (2.1.8)
     unf (0.1.4)
       unf_ext
-    unf_ext (0.0.8.1)
-    unf_ext (0.0.8.1-x64-mingw32)
+    unf_ext (0.0.8.2)
+    unf_ext (0.0.8.2-x64-mingw32)
     unicode-display_width (2.2.0)
     validate_email (0.1.6)
       activemodel (>= 3.0)
