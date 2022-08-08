@@ -1,10 +1,10 @@
 class FilesImporter
   IMPORT_PROCESS_ORDER = %i[check_files process_files check_processed_data publish_data].freeze
 
-  def initialize(upload, import_module, upload_module = import_module)
+  def initialize(upload)
     @upload = upload
-    @import_module = import_module
-    @upload_module = upload_module
+    @import_module = self.class.module_parent
+    @upload_module = @import_module.module_parent
   end
 
   def import_data
@@ -21,7 +21,7 @@ class FilesImporter
       @upload.publish!
     end
   rescue StandardError => e
-    @upload.update(import_errors: [{ error: 'upload_failed' }])
+    @upload.update(import_errors: [{ error: 'upload_failed', details: e.message }])
     @upload.fail!
 
     Rollbar.log('error', e)
@@ -33,24 +33,24 @@ class FilesImporter
     @errors = @import_module::FilesChecker.new(@upload).check_files
   rescue StandardError => e
     Rollbar.log('error', e)
-    @errors = [{ error: 'file_check_failed' }]
+    @errors = [{ error: 'file_check_failed', details: e.message }]
   end
 
   def process_files
     @supplier_data = @import_module::FilesProcessor.new(@upload).process_files
   rescue StandardError => e
     Rollbar.log('error', e)
-    @errors << { error: 'file_process_failed' }
+    @errors << { error: 'file_process_failed', details: e.message }
   end
 
   def check_processed_data
-    @errors += @upload_module::DataChecker.new(@supplier_data).check_data
+    @errors += @import_module::DataChecker.new(@supplier_data).check_data
   end
 
   def publish_data
     @upload_module::Upload.upload!(@supplier_data)
   rescue StandardError => e
     Rollbar.log('error', e)
-    @errors << { error: 'file_publish_failed' }
+    @errors << { error: 'file_publish_failed', details: e.message }
   end
 end

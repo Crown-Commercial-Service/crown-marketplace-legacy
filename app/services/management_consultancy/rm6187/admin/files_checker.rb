@@ -1,4 +1,4 @@
-class ManagementConsultancy::RM6187::FilesChecker
+class ManagementConsultancy::RM6187::Admin::FilesChecker
   include FilesImporterHelper
 
   def initialize(upload)

@@ -143,6 +143,7 @@ Metrics/ModuleLength:
     Exclude:
         - 'spec/models/**/*'
         - 'spec/controllers/**/*'
+        - 'spec/services/**/*'
 
 RSpec/MultipleMemoizedHelpers:
     Enabled: false

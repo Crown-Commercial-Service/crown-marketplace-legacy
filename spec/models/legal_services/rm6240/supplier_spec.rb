@@ -134,4 +134,34 @@ RSpec.describe LegalServices::RM6240::Supplier, type: :model do
       end
     end
   end
+
+  describe 'when the supplier is destroyed' do
+    let!(:supplier) { create(:legal_services_rm6240_supplier) }
+    let!(:rate) { create(:legal_services_rm6240_full_service_provision_rate, supplier: supplier) }
+    let!(:service_offering) { create(:legal_services_rm6240_full_service_provision_service_offering, supplier: supplier) }
+
+    it 'destroys all suppliers' do
+      expect(described_class.find_by(id: supplier.id)).to eq supplier
+
+      supplier.destroy!
+
+      expect(described_class.find_by(id: supplier.id)).to be_nil
+    end
+
+    it 'destroys all rates' do
+      expect(LegalServices::RM6240::Rate.find_by(id: rate.id)).to eq rate
+
+      supplier.destroy!
+
+      expect(LegalServices::RM6240::Rate.find_by(id: rate.id)).to be_nil
+    end
+
+    it 'destroys all service offerings' do
+      expect(LegalServices::RM6240::ServiceOffering.find_by(id: service_offering.id)).to eq service_offering
+
+      supplier.destroy!
+
+      expect(LegalServices::RM6240::ServiceOffering.find_by(id: service_offering.id)).to be_nil
+    end
+  end
 end

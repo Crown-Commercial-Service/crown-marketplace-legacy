@@ -73,8 +73,11 @@ en:
             details: Details
             error_details:
               file_check_failed: Something went wrong when checking the files, please try uploading the files again
+              file_check_failed_html: 'Something went wrong when checking the files, the following error was returned: <br> <strong>%{list}</strong>'
               file_process_failed: Something went wrong when processing the files, please try uploading the files again
+              file_process_failed_html: 'Something went wrong when processing the files, the following error was returned: <br> <strong>%{list}</strong>'
               file_publish_failed: Something went wrong when publishing the files, please try uploading the files again
+              file_publish_failed_html: 'Something went wrong when publishing the files, the following error was returned: <br> <strong>%{list}</strong>'
               supplier_details_has_empty_sheets_html: 'The following sheets have no data: %{list} Make sure all sheets for ''Supplier details'' have been filled in'
               supplier_details_has_incorrect_headers_html: 'The following sheets have incorrect headers: %{list} Make sure all sheets for ''Supplier details'' have the following headers: ''Supplier name'', ''Email address'', ''Phone number'', ''Website URL'', ''Postal address'', ''Is an SME?'', ''DUNS Number'''
               supplier_details_missing_sheets: 'The ''Supplier details'' file should have 1 sheet with the following name: ''MCF3'''
@@ -87,6 +90,7 @@ en:
               supplier_service_offerings_has_incorrect_headers_html: 'The following sheets have incorrect column headers: %{list} Make sure all sheets for ''Supplier service offerings'' have the correct services for their lot'
               supplier_service_offerings_missing_sheets: 'The ''Supplier service offerings'' file should have 9 sheets with the following names: ''MCF3 Lot 1'', ''MCF3 Lot 2'', ''MCF3 Lot 3'', ''MCF3 Lot 4'', ''MCF3 Lot 5'', ''MCF3 Lot 6'', ''MCF3 Lot 7'', ''MCF3 Lot 8'', ''MCF3 Lot 9'''
               upload_failed: Something went wrong with the file upload, please try uploading the files again
+              upload_failed_html: 'Something went wrong with the file upload, the following error was returned: <br> <strong>%{list}</strong>'
             error_name:
               file_check_failed: File check failed
               file_process_failed: File processing failed

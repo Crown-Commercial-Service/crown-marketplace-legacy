@@ -112,7 +112,7 @@ RSpec.describe ManagementConsultancy::RM6187::Admin::Upload, type: :model do
 
     context 'when start_upload is called' do
       before do
-        allow(ManagementConsultancy::RM6187::FileUploadWorker).to receive(:perform_async).with(upload.id).and_return(true)
+        allow(ManagementConsultancy::RM6187::Admin::FileUploadWorker).to receive(:perform_async).with(upload.id).and_return(true)
         upload.start_upload!
       end
 
@@ -121,7 +121,7 @@ RSpec.describe ManagementConsultancy::RM6187::Admin::Upload, type: :model do
       end
 
       it 'starts the worker' do
-        expect(ManagementConsultancy::RM6187::FileUploadWorker).to have_received(:perform_async).with(upload.id)
+        expect(ManagementConsultancy::RM6187::Admin::FileUploadWorker).to have_received(:perform_async).with(upload.id)
       end
     end
 

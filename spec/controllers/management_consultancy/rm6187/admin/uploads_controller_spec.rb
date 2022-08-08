@@ -105,7 +105,7 @@ RSpec.describe ManagementConsultancy::RM6187::Admin::UploadsController, type: :c
       allow(upload).to receive(:save).and_return(valid)
       allow(upload).to receive(:save).with(context: :upload).and_return(valid)
       allow(ManagementConsultancy::RM6187::Admin::Upload).to receive(:new).with(anything).and_return(upload)
-      allow(ManagementConsultancy::RM6187::FileUploadWorker).to receive(:perform_async).with(upload.id).and_return(true)
+      allow(ManagementConsultancy::RM6187::Admin::FileUploadWorker).to receive(:perform_async).with(upload.id).and_return(true)
       post :create, params: { management_consultancy_rm6187_admin_upload: { supplier_details_file: fake_file, supplier_rate_cards_file: fake_file, supplier_service_offerings_file: fake_file } }
     end
 

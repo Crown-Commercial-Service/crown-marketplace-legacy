@@ -1,4 +1,4 @@
-class ManagementConsultancy::RM6187::FilesProcessor
+class ManagementConsultancy::RM6187::Admin::FilesProcessor
   include FilesImporterHelper
 
   def initialize(upload)

@@ -12,7 +12,7 @@
     <h2 class="govuk-heading-m"><%= t('.download_templates') %></h2>
     <p><%= t('.you_can_download') %></p>
     <div>
-      <%= link_to_public_file_for_download(t('.template_file_path'), :zip, t('.template_file_name'), false, class: 'govuk-button govuk-button--secondary') %>
+      <%= link_to_public_file_for_download(t('.template_file_path', framework: params[:framework].downcase), :zip, t('.template_file_name'), false, class: 'govuk-button govuk-button--secondary') %>
     </div>
   </div>
 </div>

@@ -151,7 +151,7 @@ en:
           heading: New data upload
           return: Return to 'Manage supplier data'
           template_file_name: Download spreadsheet templates
-          template_file_path: legal-services/rm3788/Supplier spreadsheet templates.zip
+          template_file_path: legal-services/%{framework}/Supplier spreadsheet templates.zip
           upload_caption: Supported file format is .xlsx and maximum file size is 10mb
           upload_data: Upload data
           upload_title: Upload the supplier data
@@ -186,8 +186,11 @@ en:
           failed:
             error_details:
               file_check_failed: Something went wrong when checking the files, please try uploading the files again
+              file_check_failed_html: 'Something went wrong when checking the files, the following error was returned: <br> <strong>%{list}</strong>'
               file_process_failed: Something went wrong when processing the files, please try uploading the files again
+              file_process_failed_html: 'Something went wrong when processing the files, the following error was returned: <br> <strong>%{list}</strong>'
               file_publish_failed: Something went wrong when publishing the files, please try uploading the files again
+              file_publish_failed_html: 'Something went wrong when publishing the files, the following error was returned: <br> <strong>%{list}</strong>'
               supplier_details_has_empty_sheets: Make sure the sheet for 'Supplier details' have been filled in
               supplier_details_has_incorrect_headers: 'Make sure the sheet for ''Supplier details'' has the following headers: ''Supplier Name'', ''Email address'', ''Phone number'', ''Website URL'', ''Postal address'', ''Is an SME'', ''DUNS Number'', ''Lot 1: Prospectus Link'', ''Lot 2: Prospectus Link'', ''Lot 3: Prospectus Link'', ''Lot 4: Prospectus Link'', ''About the supplier'''
               supplier_details_missing_sheets: The 'Supplier details' file should have 1 sheet named 'All Suppliers'
@@ -209,6 +212,7 @@ en:
               supplier_rate_cards_has_incorrect_headers_html: 'The following sheets have incorrect headers: %{list} Make sure all sheets for ''Supplier rate cards'' have the right catagories for the rates'
               supplier_rate_cards_missing_sheets: 'The ''Supplier rate cards'' file should have 6 sheets with the following names: ''''Lot 1'', ''Lot 2a - England & Wales'', ''Lot 2b - Scotland'', ''Lot 2c - Northern Ireland'', ''Lot 3'', ''Lot 4'''
               upload_failed: Something went wrong with the file upload, please try uploading the files again
+              upload_failed_html: 'Something went wrong with the file upload, the following error was returned: <br> <strong>%{list}</strong>'
             error_name:
               file_check_failed: File check failed
               file_process_failed: File processing failed
@@ -355,3 +359,55 @@ en:
           position: Position
           rates: Rates
           supplier_prospectus_headline: Supplier prospectus
+    rm6240:
+      admin:
+        uploads:
+          failed:
+            error_details:
+              file_check_failed: Something went wrong when checking the files, please try uploading the files again
+              file_check_failed_html: 'Something went wrong when checking the files, the following error was returned: <br> <strong>%{list}</strong>'
+              file_process_failed: Something went wrong when processing the files, please try uploading the files again
+              file_process_failed_html: 'Something went wrong when processing the files, the following error was returned: <br> <strong>%{list}</strong>'
+              file_publish_failed: Something went wrong when publishing the files, please try uploading the files again
+              file_publish_failed_html: 'Something went wrong when publishing the files, the following error was returned: <br> <strong>%{list}</strong>'
+              supplier_details_has_empty_sheets: Make sure the sheet for 'Supplier details' have been filled in
+              supplier_details_has_incorrect_headers: 'Make sure the sheet for ''Supplier details'' has the following headers: ''Supplier Name'', ''Email address'', ''Phone number'', ''Website URL'', ''Postal address'', ''Is an SME'', ''DUNS Number'', ''Lot 1: Prospectus Link'', ''Lot 2: Prospectus Link'', ''Lot 3: Prospectus Link'''
+              supplier_details_missing_sheets: The 'Supplier details' file should have 1 sheet named 'All Suppliers'
+              supplier_lot_1_service_offerings_has_empty_sheets_html: 'The following sheets have no data: %{list} Make sure all sheets for ''Supplier lot 1 service offerings'' have been filled in'
+              supplier_lot_1_service_offerings_has_incorrect_headers_html: 'The following sheets have incorrect column headers: %{list} Make sure all sheets for ''Supplier lot 1 service offerings'' have the 40 expected services'
+              supplier_lot_1_service_offerings_missing_sheets: 'The ''Supplier lot 1 service offerings'' file should have 3 sheets with the following names: ''Lot 1a - England & Wales'', ''Lot 1b - Scotland'', ''Lot 1c - Northern Ireland'''
+              supplier_lot_2_service_offerings_has_empty_sheets_html: 'The following sheets have no data: %{list} Make sure all sheets for ''Supplier lot 2 service offerings'' have been filled in'
+              supplier_lot_2_service_offerings_has_incorrect_headers_html: 'The following sheets have incorrect column  headers: %{list} Make sure all sheets for ''Supplier lot 2 service offerings'' have the 15 expected services'
+              supplier_lot_2_service_offerings_missing_sheets: 'The ''Supplier lot 2 service offerings'' file should have 3 sheets with the following names: ''Lot 2a - England & Wales'', ''Lot 2b - Scotland'', ''Lot 2c - Northern Ireland'''
+              supplier_lot_3_service_offerings_has_empty_sheets_html: Make sure the sheet for 'Supplier lot 3 service offerings' have been filled in
+              supplier_lot_3_service_offerings_has_incorrect_headers_html: Make sure the sheet for 'Supplier lot 3 service offerings' only has the single service 'Transport (Rail) 3.1'
+              supplier_lot_3_service_offerings_missing_sheets: The ''Supplier lot 3 service offerings' file should have 1 sheet named 'All regions'
+              supplier_missing_lots_html: 'The following suppliers do not offer any lots: %{list} Make sure all the suppliers have the correct name and DUNS number'
+              supplier_missing_rate_cards_html: 'The following suppliers do not have any rate cards: %{list} Make sure all the suppliers have the correct name and DUNS number'
+              supplier_rate_cards_has_empty_sheets_html: 'The following sheets have no data: %{list} Make sure all sheets for ''Supplier rate cards'' have been filled in'
+              supplier_rate_cards_has_incorrect_headers_html: 'The following sheets have incorrect headers: %{list} Make sure all sheets for ''Supplier rate cards'' have the right catagories for the rates'
+              supplier_rate_cards_missing_sheets: 'The ''Supplier rate cards'' file should have 7 sheets with the following names: ''''Lot 1a - England & Wales'', ''Lot 1b - Scotland'', ''Lot 1c - Northern Ireland'', ''Lot 2a - England & Wales'', ''Lot 2b - Scotland'', ''Lot 2c - Northern Ireland'', ''Lot 3'''
+              upload_failed: Something went wrong with the file upload, please try uploading the files again
+              upload_failed_html: 'Something went wrong with the file upload, the following error was returned: <br> <strong>%{list}</strong>'
+            error_name:
+              file_check_failed: File check failed
+              file_process_failed: File processing failed
+              file_publish_failed: File publishing failed
+              supplier_details_has_empty_sheets: There are sheets in 'Supplier details' without any data
+              supplier_details_has_incorrect_headers: There are sheets in 'Supplier details' with incorrect headers
+              supplier_details_missing_sheets: The 'Supplier details' file is missing sheets
+              supplier_lot_1_service_offerings_has_empty_sheets: There are sheets in 'Supplier lot 1 service offerings' without any data
+              supplier_lot_1_service_offerings_has_incorrect_headers: There are sheets in 'Supplier lot 1 service offerings' with incorrect services
+              supplier_lot_1_service_offerings_missing_sheets: The 'Supplier lot 1 service offerings' file is missing sheets
+              supplier_lot_2_service_offerings_has_empty_sheets: There are sheets in 'Supplier lot 2 service offerings' without any data
+              supplier_lot_2_service_offerings_has_incorrect_headers: There are sheets in 'Supplier lot 2 service offerings' with incorrect services
+              supplier_lot_2_service_offerings_missing_sheets: The 'Supplier lot 2 service offerings' file is missing sheets
+              supplier_lot_3_service_offerings_has_empty_sheets: There are sheets in 'Supplier lot 3 service offerings' without any data
+              supplier_lot_3_service_offerings_has_incorrect_headers: There are sheets in 'Supplier lot 3 service offerings' with incorrect services
+              supplier_lot_3_service_offerings_missing_sheets: The 'Supplier lot 3 service offerings' file is missing sheets
+              supplier_missing_lots: There are suppliers without any lots
+              supplier_missing_rate_cards: There are suppliers without any rate cards
+              supplier_rate_cards_has_empty_sheets: There are sheets in 'Supplier rate cards' without any data
+              supplier_rate_cards_has_incorrect_headers: There are sheets in 'Supplier rate cards' with incorrect headers
+              supplier_rate_cards_missing_sheets: The 'Supplier rate cards' file is missing sheets
+              upload_failed: Upload failed
