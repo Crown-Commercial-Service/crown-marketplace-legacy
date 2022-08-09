@@ -65,6 +65,7 @@ Rails.application.routes.draw do
         end
       end
       namespace 'rm6240', path: 'RM6240', defaults: { framework: 'RM6240' } do
+        concerns %i[authenticatable registrable]
         namespace :admin, defaults: { service: 'legal_services/admin' } do
           concerns :authenticatable
         end
@@ -223,6 +224,8 @@ Rails.application.routes.draw do
     end
 
     namespace 'rm6240', path: 'RM6240', defaults: { framework: 'RM6240' } do
+      concerns %i[buyer_shared_pages shared_pages]
+
       namespace :admin, defaults: { service: 'legal_services/admin' } do
         concerns %i[admin_uploads admin_shared_pages]
       end
