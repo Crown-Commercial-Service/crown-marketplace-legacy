@@ -15,7 +15,7 @@ module ManagementConsultancy
       protected
 
       def authorize_user
-        authorize! :manage, ManagementConsultancy::RM6187::Admin::Upload
+        authorize! :manage, ManagementConsultancy::Admin
       end
 
       def service_scope

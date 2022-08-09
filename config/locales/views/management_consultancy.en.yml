@@ -106,7 +106,7 @@ en:
             errors_with_upload: Errors with the upload
             issue: Issue
           index:
-            caption: Management Consultancy
+            caption: Management Consultancy - %{framework}
             create_new: Create a new data upload
             current_data: Current published data
             date: Date
@@ -120,7 +120,7 @@ en:
             status: Status
             table_caption: Previous uploads
           new:
-            caption: Management Consultancy
+            caption: Management Consultancy - %{framework}
             download_templates: Download file templates
             file_label:
               supplier_details_file: Supplier details
@@ -135,7 +135,7 @@ en:
             upload_title: Upload the supplier data
             you_can_download: You can download a zip file containing an empty template for each of the spreadsheets
           show:
-            caption: Management consultancy
+            caption: Management consultancy - %{framework}
             datetime: 'Date of file upload:'
             download: Download
             file_name:
