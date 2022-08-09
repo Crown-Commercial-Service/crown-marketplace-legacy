@@ -64,6 +64,11 @@ Rails.application.routes.draw do
           concerns :authenticatable
         end
       end
+      namespace 'rm6240', path: 'RM6240', defaults: { framework: 'RM6240' } do
+        namespace :admin, defaults: { service: 'legal_services/admin' } do
+          concerns :authenticatable
+        end
+      end
     end
   end
 

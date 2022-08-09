@@ -5,7 +5,7 @@ RSpec.describe LegalServices::RM6240::Admin::UploadsController, type: :controlle
 
   describe 'GET index' do
     context 'when not logged in' do
-      pending 'redirects to the sign-in' do
+      it 'redirects to the sign-in' do
         get :index
         expect(response).to redirect_to legal_services_rm6240_admin_new_user_session_path
       end
