@@ -13,7 +13,7 @@ module LegalServices
       private
 
       def authorize_user
-        authorize! :manage, LegalServices::RM3788::Admin::Upload
+        authorize! :manage, Framework
       end
     end
   end

@@ -13,7 +13,7 @@ module ManagementConsultancy
       private
 
       def authorize_user
-        authorize! :manage, ManagementConsultancy::RM6187::Admin::Upload
+        authorize! :manage, Framework
       end
     end
   end
