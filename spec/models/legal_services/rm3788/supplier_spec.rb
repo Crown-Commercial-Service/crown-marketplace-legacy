@@ -159,33 +159,33 @@ RSpec.describe LegalServices::RM3788::Supplier, type: :model do
     end
   end
 
-  describe '.delete_all_with_dependents' do
-    let(:supplier1) { create(:legal_services_rm3788_supplier, name: 'Supplier 1') }
-    let(:supplier2) { create(:legal_services_rm3788_supplier, name: 'Supplier 2') }
+  describe 'when the supplier is destroyed' do
+    let!(:supplier) { create(:legal_services_rm3788_supplier) }
+    let!(:regional_availability) { create(:legal_services_rm3788_regional_availability, supplier: supplier, service_code: 'WPSLS.1.1', region_code: 'UKC') }
+    let!(:service_offering) { create(:legal_services_rm3788_service_offering, supplier: supplier, lot_number: '3', service_code: 'WPSLS.3.1') }
 
-    before do
-      supplier1.regional_availabilities.create!(service_code: 'WPSLS.1.1', region_code: 'UKC')
-      supplier1.service_offerings.create!(lot_number: '3', service_code: 'WPSLS.3.1')
-      supplier2.regional_availabilities.create!(service_code: 'WPSLS.1.1', region_code: 'UKD')
-      supplier2.service_offerings.create!(lot_number: '2a', service_code: 'WPSLS.2a.1')
+    it 'destroys all suppliers' do
+      expect(described_class.find_by(id: supplier.id)).to eq supplier
+
+      supplier.destroy!
+
+      expect(described_class.find_by(id: supplier.id)).to be_nil
     end
 
-    it 'deletes all regional availabilities' do
-      described_class.delete_all_with_dependents
+    it 'destroys all regional availabilities' do
+      expect(LegalServices::RM3788::RegionalAvailability.find_by(id: regional_availability.id)).to eq regional_availability
 
-      expect(LegalServices::RM3788::RegionalAvailability.count).to eq(0)
+      supplier.destroy!
+
+      expect(LegalServices::RM3788::RegionalAvailability.find_by(id: regional_availability.id)).to be_nil
     end
 
-    it 'deletes all service offerings' do
-      described_class.delete_all_with_dependents
+    it 'destroys all service offerings' do
+      expect(LegalServices::RM3788::ServiceOffering.find_by(id: service_offering.id)).to eq service_offering
 
-      expect(LegalServices::RM3788::ServiceOffering.count).to eq(0)
-    end
+      supplier.destroy!
 
-    it 'deletes all suppliers' do
-      described_class.delete_all_with_dependents
-
-      expect(described_class.count).to eq(0)
+      expect(LegalServices::RM3788::ServiceOffering.find_by(id: service_offering.id)).to be_nil
     end
   end
 end

@@ -37,12 +37,6 @@ module LegalServices
         supplying_regions(service_codes, region_codes)
       end
 
-      def self.delete_all_with_dependents
-        RegionalAvailability.delete_all
-        ServiceOffering.delete_all
-        delete_all
-      end
-
       def services_in_lot(lot_number)
         service_offerings.select { |so| so.lot_number == lot_number }.map(&:service)
       end

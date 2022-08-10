@@ -124,16 +124,16 @@ RSpec.describe LegalServices::RM6240::Admin::Upload, type: :model do
 
     context 'when start_upload is called' do
       before do
-        allow(LegalServices::RM6240::FileUploadWorker).to receive(:perform_async).with(upload.id).and_return(true)
+        allow(LegalServices::RM6240::Admin::FileUploadWorker).to receive(:perform_async).with(upload.id).and_return(true)
         upload.start_upload!
       end
 
-      pending 'changes the state to in_progress' do
+      it 'changes the state to in_progress' do
         expect(upload.in_progress?).to be true
       end
 
-      pending 'starts the worker' do
-        expect(LegalServices::RM6240::FileUploadWorker).to have_received(:perform_async).with(upload.id)
+      it 'starts the worker' do
+        expect(LegalServices::RM6240::Admin::FileUploadWorker).to have_received(:perform_async).with(upload.id)
       end
     end
 

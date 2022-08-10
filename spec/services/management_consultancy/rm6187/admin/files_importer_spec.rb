@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe ManagementConsultancy::RM6187::FilesImporter do
+RSpec.describe ManagementConsultancy::RM6187::Admin::FilesImporter do
   let(:upload) do
     create(:management_consultancy_rm6187_admin_upload, aasm_state: 'in_progress') do |admin_upload|
       admin_upload.supplier_details_file.attach(io: File.open(supplier_details_file_path), filename: 'test_supplier_details_file.xlsx')
