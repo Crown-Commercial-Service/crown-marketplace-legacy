@@ -13,7 +13,10 @@ module GovUKHelper::Fieldset
   def govuk_legend(govuk_legend_options)
     tag.legend(class: "govuk-fieldset__legend #{govuk_legend_options[:classes]}") do
       if govuk_legend_options[:page_heading?]
-        tag.h1(govuk_legend_options[:text], class: 'govuk-fieldset__heading')
+        capture do
+          concat(tag.span(govuk_legend_options[:caption][:text], class: govuk_legend_options[:caption][:classes])) if govuk_legend_options[:caption]
+          concat(tag.h1(govuk_legend_options[:text], class: 'govuk-fieldset__heading'))
+        end
       else
         govuk_legend_options[:text]
       end

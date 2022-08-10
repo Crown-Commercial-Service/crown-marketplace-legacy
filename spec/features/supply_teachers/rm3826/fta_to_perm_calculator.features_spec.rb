@@ -142,7 +142,7 @@ RSpec.feature 'FTA to Perm fee calculator', type: :feature, supply_teachers: tru
   def visit_fta_to_perm_calculator
     visit_supply_teachers_rm3826_start
 
-    choose I18n.t('supply_teachers.rm3826.journey.looking_for.answer_calculate_fta_to_perm_fee')
+    choose I18n.t('supply_teachers.rm3826.journey.looking_for.answer.calculate_fta_to_perm_fee')
     click_on I18n.t('common.submit')
   end
 

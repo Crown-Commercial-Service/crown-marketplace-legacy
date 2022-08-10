@@ -3,45 +3,35 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-
     <%= render partial: 'shared/error_summary', locals: { errors: @journey.errors } %>
 
-    <%= form_tag @form_path, method: :get do %>
+    <%= form_with url: @form_path, method: :get, local: true, html: { specialvalidation: true, novalidate: true } do |f| %>
+      <%= hidden_fields_for_previous_steps_and_responses(@journey) %>
 
-      <%= govuk_form_group_with_optional_error(@journey, :jurisdiction) do %>
-        <%= govuk_fieldset_with_optional_error(@journey, :jurisdiction) do %>
+      <%= govuk_radios(f, @journey, :jurisdiction, {
+        fieldset: {
+          legend: {
+            text: t('.question'),
+            classes: 'govuk-fieldset__legend--m',
+            page_heading?: true,
+            caption: {
+              text: t('.heading'),
+              classes: 'govuk-caption-m'
+            }
+          }
+        },
+        items: @journey.current_step.class::JURISDICTIONS.map do |option|
+          {
+            value: option,
+            checked: checked?(params[:jurisdiction], option),
+            label: {
+              text: t(".answer.#{option}")
+            }
+          }
+        end
+      }) %>
 
-          <%= hidden_fields_for_previous_steps_and_responses(@journey) %>
-
-          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m govuk-!-margin-bottom-1">
-            <span class="govuk-caption-m">
-              <%= t('.heading') %>
-            </span>
-            <h1 class="govuk-fieldset__heading">
-              <%= t('.question') %>
-            </h1>
-          </legend>
-
-          <%= display_error(@journey, :jurisdiction) %>
-
-          <div class="govuk-radios">
-            <div class="govuk-radios__item">
-              <%= radio_button_tag :jurisdiction, 'a', checked?(params[:jurisdiction], 'a'), class: 'govuk-radios__input'%>
-              <%= label_tag :jurisdiction_a, t('england_wales'), class: 'govuk-label govuk-radios__label' %>
-            </div>
-            <div class="govuk-radios__item">
-              <%= radio_button_tag :jurisdiction, 'b', checked?(params[:jurisdiction], 'b'), class: 'govuk-radios__input' %>
-              <%= label_tag :jurisdiction_b, t('scotland'), class: 'govuk-label govuk-radios__label'%>
-            </div>
-            <div class="govuk-radios__item">
-              <%= radio_button_tag :jurisdiction, 'c', checked?(params[:jurisdiction], 'c'), class: 'govuk-radios__input' %>
-              <%= label_tag :jurisdiction_c, t('northern_ireland'), class: 'govuk-label govuk-radios__label' %>
-            </div>
-          </div>
-
-        <% end %>
-      <% end %>
-      <%= submit_tag t('common.submit'), id: "submit", class: "govuk-button govuk-!-margin-top-1 govuk-!-padding-left-7 govuk-!-padding-right-7", name: 'Continue' %>
+      <%= submit_tag t('common.submit'), id: "submit", class: "govuk-button govuk-!-padding-left-7 govuk-!-padding-right-7", name: t('common.submit') %>
     <% end %>
   </div>
 </div>

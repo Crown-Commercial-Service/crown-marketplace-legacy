@@ -230,7 +230,7 @@ module ApplicationHelper
     uri = URI(Marketplace.support_form_link)
     uri.query = { service: service_name }.to_query if service_name
 
-    link_to(link_text, uri.to_s, target: :blank)
+    link_to(link_text, uri.to_s, target: :blank, class: 'govuk-link')
   end
 
   def checked?(actual, expected)

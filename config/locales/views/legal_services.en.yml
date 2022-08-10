@@ -5,12 +5,12 @@ en:
       models:
         legal_services/rm3788/journey/check_suitability:
           attributes:
-            under_threshold:
+            service_suitable:
               inclusion: Select yes if the fees will be under £20,000
         legal_services/rm3788/journey/choose_jurisdiction:
           attributes:
             jurisdiction:
-              blank: Select the jurisdiction you need
+              inclusion: Select the jurisdiction you need
         legal_services/rm3788/journey/choose_organisation_type:
           attributes:
             central_government:
@@ -286,6 +286,10 @@ en:
           heading: Will the fees be under £20,000 per matter?
           multiple_transaction_advice: Where multiple individual "transactional" matters make up the requirement, the £20,000 fees relate to each individual matter and not the full contract value.
         choose_jurisdiction:
+          answer:
+            a: England and Wales
+            b: Scotland
+            c: Northern Ireland
           heading: Lot 2 - Full-service firms
           question: Select the jurisdiction you need
         choose_organisation_type:
@@ -317,11 +321,11 @@ en:
             lot_4: Suppliers in lot 4 provide legal services for transport rail across the UK.
           heading: Select the lot you need
         sorry:
+          back_to_start: Back to start
+          general_advice: General Legal Advice Services (RM3786)
           heading: Sorry, this panel isn't suitable for you
           lead: This panel supports a range of legal services primarily for the wider public sector
-          txt01: The
-          txt02_link: General Legal Advice Services (RM3786)
-          txt03: agreement provides legal advice services for central government and arms-length bodies.
+          text_html: The %{general_advice_link} agreement provides legal advice services for central government and arms-length bodies.
       suppliers:
         download:
           back_to_start: Back to start

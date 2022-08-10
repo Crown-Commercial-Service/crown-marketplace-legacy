@@ -2,60 +2,48 @@
 <%= content_for :page_title, t('.question') %>
 
 <div id="ccs-dynamic-accordian" class="govuk-grid-row">
-
   <%= render partial: 'shared/error_summary', locals: { errors: @journey.errors } %>
-  <%= form_tag @form_path, method: :get do %>
-    <div class="govuk-grid-column-two-thirds">
-      <%= hidden_fields_for_previous_steps_and_responses(@journey) %>
-      <%= govuk_form_group_with_optional_error(@journey, :region_codes) do %>
-        <%= govuk_fieldset_with_optional_error(@journey, :region_codes) do %>
-          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-            <span class="govuk-caption-m">
-              <%= lot_full_description(@journey.current_step.lot(@journey.params['lot'])) %>
-            </span>
-            <h1 class="govuk-fieldset__heading">
-              <%= t('.question') %>
-            </h1>
-            <p><%= link_to(t('.view_locations'), asset_path('NUTS1map.pdf'), target: '_blank') %></p>
-            <%= display_error(@journey, :region_codes) %>
-          </legend>
-          <div id="selection-checkboxes">
-            <div class="govuk-form-group">
-              <div class="govuk-checkboxes">
-                <% Nuts1Region.all.each do |region| %>
-                  <div class="govuk-checkboxes__item">
-                    <%= check_box_tag(
-                      "region_codes[]",
-                      region.code,
-                      @journey.current_step.regions.include?(region),
-                      class: "govuk-checkboxes__input",
-                      id: "region_#{region.code}"
-                    ) %>
-                    <label class="govuk-label govuk-checkboxes__label" for="region_<%= region.code %>">
-                      <%= region_name(region.name) %>
-                    </label>
-                  </div>
-                <% end %>
-                <p><%= t('.or') %></p>
-                <div class="govuk-checkboxes__item">
-                  <%= check_box_tag(
-                    "region_codes[]",
-                    "UK",
-                    @journey.current_step.regions.include?('UK'),
-                    class: "govuk-checkboxes__input",
-                    id: "region_UK"
-                  ) %>
-                  <label class="govuk-label govuk-checkboxes__label" for="region_UK">
-                    <%= t('.full_national_coverage') %>
-                  </label>
-                </div>
-              </div>
-            </div>
-          </div>
-        <% end %>
-      <% end %>
+
+  <%= form_with url: @form_path, method: :get, local: true, html: { specialvalidation: true, novalidate: true } do |f| %>
+    <%= hidden_fields_for_previous_steps_and_responses(@journey) %>
+
+    <div class="govuk-grid-column-two-thirds" id="selection-checkboxes">
+      <%= govuk_checkboxes(f, @journey, :region_codes, {
+        fieldset: {
+          legend: {
+            text: t('.question'),
+            classes: 'govuk-fieldset__legend--m',
+            page_heading?: true,
+            caption: {
+              text: lot_full_description(@journey.current_step.lot(@journey.params['lot'])),
+              classes: 'govuk-caption-m'
+            }
+          }
+        },
+        hint: {
+          text: link_to(t('.view_locations'), asset_path('NUTS1map.pdf'), target: '_blank')
+        },
+        classes: 'govuk-radios--inline',
+        items: Nuts1Region.all.map do |region|
+          {
+            value: region.code,
+            text: region_name(region.name),
+            checked: @journey.current_step.region_codes.include?(region.code)
+          }
+        end + [
+          {
+            divider: t('.or')
+          },
+          {
+            value: 'UK',
+            text: t('.full_national_coverage'),
+            checked: @journey.current_step.region_codes.include?('UK')
+          }
+        ]
+      }) %>
     </div>
-    <div class="govuk-grid-column-one-third govuk-!-margin-top-9">
+
+    <div class="govuk-grid-column-one-third">
       <%= render partial: 'shared/basket', locals: { data_text_1:  t('.regions_selected'), data_text_2: t('.no_regions_selected'), data_text_3: t('.region_selected') } %>
     </div>
   <% end %>
