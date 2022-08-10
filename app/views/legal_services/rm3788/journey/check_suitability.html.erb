@@ -5,37 +5,34 @@
   <div class="govuk-grid-column-two-thirds">
     <%= render partial: 'shared/error_summary', locals: { errors: @journey.errors } %>
 
-    <%= form_tag @form_path, method: :get do %>
+    <%= form_with url: @form_path, method: :get, local: true, html: { specialvalidation: true, novalidate: true } do |f| %>
       <%= hidden_fields_for_previous_steps_and_responses(@journey) %>
-      <% if @journey.errors.empty? %> 
-        <input type='hidden' name='lot' id='lot' value='1' > 
-      <% end %>
-      <%= govuk_form_group_with_optional_error(@journey, :under_threshold) do %>
-        <%= govuk_fieldset_with_optional_error(@journey, :under_threshold) do %>
-          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m govuk-!-font-weight-bold">
-            <h1 class="govuk-fieldset__heading">
-              <%= t('.heading') %>
-            </h1>
-          </legend>
+      <%= hidden_field_tag(:lot, '1') if @journey.errors.empty? %>
 
-          <%= display_error(@journey, :under_threshold) %>
+      <%= govuk_radios(f, @journey, :service_suitable, {
+        fieldset: {
+          legend: {
+            text: t('.heading'),
+            classes: 'govuk-fieldset__legend--m',
+            page_heading?: true
+          }
+        },
+        classes: 'govuk-radios--inline',
+        items: @journey.current_step.class::SUITABILITY_OPTIONS.map do |option|
+          {
+            value: option,
+            checked: checked?(params[:service_suitable], option),
+            label: {
+              text: t(option)
+            }
+          }
+        end
+      }) %>
 
-          <div class="govuk-radios--inline">
-            <div class="govuk-radios__item">
-              <%= radio_button_tag :under_threshold, 'yes', checked?(params[:under_threshold], 'yes'), class: 'govuk-radios__input' %>
-              <%= label_tag :under_threshold_yes, t('yes'), class: 'govuk-label govuk-radios__label' %>
-            </div>
-            <div class="govuk-radios__item">
-              <%= radio_button_tag :under_threshold, 'no', checked?(params[:under_threshold], 'no'), class: 'govuk-radios__input' %>
-              <%= label_tag :under_threshold_no, t('no'), class: 'govuk-label govuk-radios__label' %>
-            </div>
-          </div>
-          <p><%= t('.advice') %></p>
-          <p><%= t('.multiple_transaction_advice') %></p>
-        <% end %>
-      <% end %>
-      <%= submit_tag t('common.submit'), id: "submit", class: "govuk-button govuk-!-padding-left-7 govuk-!-padding-right-7", name: 'Continue' %>
+      <p><%= t('.advice') %></p>
+      <p><%= t('.multiple_transaction_advice') %></p>
+
+      <%= submit_tag t('common.submit'), id: "submit", class: "govuk-button govuk-!-padding-left-7 govuk-!-padding-right-7", name: t('common.submit') %>
     <% end %>
-
   </div>
 </div>

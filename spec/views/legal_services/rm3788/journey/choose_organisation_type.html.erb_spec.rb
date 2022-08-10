@@ -9,11 +9,12 @@ RSpec.describe 'legal_services/rm3788/journey/choose_organisation_type.html.erb'
     view.extend(ApplicationHelper)
     assign(:journey, journey)
     assign(:form_path, '/')
+    allow(journey).to receive(:current_step).and_return(step)
   end
 
-  it 'does not include aria-describedby attribute' do
+  it 'does not display the error summary' do
     render
-    expect(rendered).not_to have_css('fieldset[aria-describedby]')
+    expect(rendered).not_to have_css('.govuk-error-summary')
   end
 
   it 'does not set the page title prefix' do

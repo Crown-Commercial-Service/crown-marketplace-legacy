@@ -42,7 +42,7 @@ RSpec.feature 'Supplier mark-up calculator', type: :feature, supply_teachers: tr
   scenario 'Buyer can calculate the agency mark-up' do
     visit_supply_teachers_rm3826_start
 
-    choose I18n.t('supply_teachers.rm3826.journey.looking_for.answer_worker')
+    choose I18n.t('supply_teachers.rm3826.journey.looking_for.answer.worker')
     click_on I18n.t('common.submit')
 
     choose 'Yes'
@@ -72,7 +72,7 @@ RSpec.feature 'Supplier mark-up calculator', type: :feature, supply_teachers: tr
   scenario 'Buyer can calculate the agency mark-up via AJAX', js: true, driver: :poltergeist_no_errors do
     visit_supply_teachers_rm3826_start
 
-    choose I18n.t('supply_teachers.rm3826.journey.looking_for.answer_worker'), visible: false
+    choose I18n.t('supply_teachers.rm3826.journey.looking_for.answer.worker'), visible: false
     click_on I18n.t('common.submit')
 
     choose 'Yes', visible: false

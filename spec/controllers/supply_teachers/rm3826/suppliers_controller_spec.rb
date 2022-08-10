@@ -17,8 +17,7 @@ RSpec.describe SupplyTeachers::RM3826::SuppliersController, type: :controller do
         .to receive(:with_master_vendor_rates).and_return(suppliers)
       get :master_vendors, params: {
         journey: 'supply-teachers',
-        looking_for: 'managed_service_provider',
-        managed_service_provider: 'master_vendor'
+        looking_for: 'master_vendor'
       }
     end
 
@@ -34,8 +33,7 @@ RSpec.describe SupplyTeachers::RM3826::SuppliersController, type: :controller do
       expected_path = journey_question_path(
         journey: 'supply-teachers',
         slug: 'looking-for',
-        looking_for: 'managed_service_provider',
-        managed_service_provider: 'master_vendor'
+        looking_for: 'master_vendor'
       )
       expect(assigns(:back_path)).to eq(expected_path)
     end

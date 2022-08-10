@@ -12,7 +12,7 @@ RSpec.describe LegalServices::JourneyHelper, type: :helper do
 
   describe '#lot_legal_services' do
     it 'returns text containing the correct lot number' do
-      expect(helper.lot_legal_services(lot)).to eq("Lot #{lot_number} legal services")
+      expect(helper.lot_legal_services(lot_number)).to eq("Lot #{lot_number} legal services")
     end
   end
 

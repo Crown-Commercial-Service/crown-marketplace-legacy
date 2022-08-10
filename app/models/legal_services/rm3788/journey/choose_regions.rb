@@ -7,10 +7,6 @@ module LegalServices
       validates :region_codes, length: { minimum: 1 }
       validate :full_national_coverage_or_selected_regions
 
-      def regions
-        Nuts1Region.where(code: region_codes)
-      end
-
       def lot(lot_number)
         LegalServices::RM3788::Lot.find_by(number: lot_number)
       end
@@ -22,7 +18,7 @@ module LegalServices
       def full_national_coverage_or_selected_regions
         return true unless region_codes.include?('UK')
 
-        return true if region_codes.include?('UK') && region_codes.size == 1
+        return true if region_codes == ['UK']
 
         errors.add(:region_codes, :full_national_coverage)
       end

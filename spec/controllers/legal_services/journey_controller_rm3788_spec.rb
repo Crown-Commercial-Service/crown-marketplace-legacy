@@ -60,7 +60,7 @@ RSpec.describe LegalServices::JourneyController, type: :controller do
         journey: 'legal-services',
         slug: 'sorry',
         central_government: 'yes',
-        under_threshold: 'no'
+        service_suitable: 'no'
       }
 
       expect(response).to render_template('sorry')
@@ -99,7 +99,7 @@ RSpec.describe LegalServices::JourneyController, type: :controller do
           journey: 'legal-services',
           slug: 'choose-services',
           central_government: 'yes',
-          under_threshold: 'yes',
+          service_suitable: 'yes',
           lot: '1'
         }
 

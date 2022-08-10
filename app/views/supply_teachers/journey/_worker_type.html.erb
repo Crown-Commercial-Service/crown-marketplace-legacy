@@ -16,8 +16,10 @@
     items: @journey.current_step.class::WORKER_TYPES.map do |option|
       {
         value: option,
-        text: t(".answer.#{option}"),
-        checked: checked?(params[:worker_type], option)
+        checked: checked?(params[:worker_type], option),
+        label: {
+          text: t(".answer.#{option}")
+        }
       }
     end
   }) %>

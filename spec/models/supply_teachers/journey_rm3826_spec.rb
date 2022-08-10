@@ -213,45 +213,17 @@ RSpec.describe SupplyTeachers::Journey, type: :model do
       end
     end
 
-    context 'when looking for a managed service provider' do
+    context 'when looking for master vendor' do
       let(:slug) { 'looking-for' }
-      let(:params) { { 'looking_for' => 'managed_service_provider' } }
+      let(:params) { { 'looking_for' => 'master_vendor' } }
 
       it { is_expected.to have_attributes(current_slug: slug) }
       it { is_expected.to have_attributes(previous_slug: nil) }
-      it { is_expected.to have_attributes(next_slug: 'managed-service-provider') }
+      it { is_expected.to have_attributes(next_slug: 'master-vendors') }
       it { is_expected.to be_valid }
 
       it 'collects the supplied parameters' do
         expect(journey.params).to eq(params)
-      end
-
-      context 'when looking for a master vendor' do
-        let(:slug) { 'managed-service-provider' }
-        let(:params) { super().merge('managed_service_provider' => 'master_vendor') }
-
-        it { is_expected.to have_attributes(current_slug: slug) }
-        it { is_expected.to have_attributes(previous_slug: 'looking-for') }
-        it { is_expected.to have_attributes(next_slug: 'master-vendor-managed-service') }
-        it { is_expected.to be_valid }
-
-        it 'collects the supplied parameters' do
-          expect(journey.params).to eq(params)
-        end
-      end
-
-      context 'when looking for a neutral vendor' do
-        let(:slug) { 'managed-service-provider' }
-        let(:params) { super().merge('managed_service_provider' => 'neutral_vendor') }
-
-        it { is_expected.to have_attributes(current_slug: slug) }
-        it { is_expected.to have_attributes(previous_slug: 'looking-for') }
-        it { is_expected.to have_attributes(next_slug: 'neutral-vendor-managed-service') }
-        it { is_expected.to be_valid }
-
-        it 'collects the supplied parameters' do
-          expect(journey.params).to eq(params)
-        end
       end
     end
   end

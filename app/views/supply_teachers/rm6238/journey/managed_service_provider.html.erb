@@ -21,9 +21,11 @@
         items: @journey.current_step.class::MANAGED_SERVICE_PROVIDERS.map do |option|
           {
             value: option,
-            text: t(".answer.#{option}"),
+            checked: checked?(params[:managed_service_provider], option),
+            label: {
+              text: t(".answer.#{option}")
+            },
             hint: t(".hint.#{option}"),
-            checked: checked?(params[:managed_service_provider], option)
           }
         end
       }) %>
