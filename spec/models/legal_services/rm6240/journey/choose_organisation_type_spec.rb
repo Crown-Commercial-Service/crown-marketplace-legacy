@@ -35,7 +35,7 @@ RSpec.describe LegalServices::RM6240::Journey::ChooseOrganisationType, type: :mo
     context 'and the central government is yes' do
       let(:central_government) { 'yes' }
 
-      pending 'returns Journey::CheckSuitability' do
+      it 'returns Journey::CheckSuitability' do
         expect(step.next_step_class).to be LegalServices::RM6240::Journey::CheckSuitability
       end
     end
@@ -74,7 +74,7 @@ RSpec.describe LegalServices::RM6240::Journey::ChooseOrganisationType, type: :mo
   end
 
   describe '.final?' do
-    pending 'returns false' do
+    it 'returns false' do
       expect(step.final?).to be false
     end
   end
