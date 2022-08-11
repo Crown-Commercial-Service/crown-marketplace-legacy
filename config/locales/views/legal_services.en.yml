@@ -460,3 +460,10 @@ en:
           advice: INFORMATION TO MAKE THE DECISION
           heading: Is this service suitable for your requirements?
           question: Do your requirements allow you to continue to select lot?
+        sorry:
+          back_to_start: Back to start
+          general_advice: General Legal Advice Services (RM6240)
+          heading: Sorry, this panel isn't suitable for you
+          lead: This panel supports a range of legal services primarily for the wider public sector
+          more_information: POSSIBLY MORE INFORMATION ON THIS SCREEN
+          text_html: The %{general_advice_link} agreement provides legal advice services for central government and arms-length bodies.
