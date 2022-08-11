@@ -28,6 +28,10 @@ en:
           attributes:
             lot:
               blank: Select the lot you need
+        legal_services/rm6240/journey/check_suitability:
+          attributes:
+            service_suitable:
+              inclusion: Select yes if your requirements allow you to continue
         legal_services/rm6240/journey/choose_jurisdiction:
           attributes:
             jurisdiction:
@@ -451,3 +455,8 @@ en:
             para05_html: To use this service you need to be a recognised public sector body listed in the <a href="https://assets.crowncommercial.gov.uk/wp-content/uploads/RM6240-Contract-Notice-Authorised-Customer-List.docx">authorised customer list</a>.
           wps_link_text: WPS Legal Services panel specification
           wps_url: https://www.crowncommercial.gov.uk/agreements/RM6240
+      journey:
+        check_suitability:
+          advice: INFORMATION TO MAKE THE DECISION
+          heading: Is this service suitable for your requirements?
+          question: Do your requirements allow you to continue to select lot?

@@ -1,10 +1,10 @@
 module LegalServices
-  module RM3788
+  module RM6240
     class Journey::CheckSuitability < LegalServices::Journey::CheckSuitability
       def next_step_class
         case service_suitable
         when 'yes'
-          Journey::ChooseServices
+          Journey::SelectLot
         when 'no'
           Journey::Sorry
         end
