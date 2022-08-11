@@ -16,7 +16,10 @@ module LegalServices
                 inclusion: { in: Jurisdiction.all_codes, allow_blank: true }
 
       def self.supplier_ids_for_service_codes_and_jurisdiction(service_codes, jurisdiction = nil)
-        where(service_code: service_codes, jurisdiction: jurisdiction).distinct.pluck(:legal_services_rm6240_supplier_id)
+        where(service_code: service_codes, jurisdiction: jurisdiction)
+          .group(:legal_services_rm6240_supplier_id)
+          .having("COUNT(service_code) = #{service_codes.count}")
+          .pluck(:legal_services_rm6240_supplier_id)
       end
 
       private

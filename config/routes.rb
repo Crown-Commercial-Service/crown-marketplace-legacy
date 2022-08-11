@@ -207,17 +207,21 @@ Rails.application.routes.draw do
   namespace 'legal_services', path: 'legal-services', defaults: { service: 'legal_services' } do
     concerns :framework
 
+    concern :suppliers do
+      resources :suppliers, only: %i[index show] do
+        collection do
+          get '/download', action: :download
+        end
+      end
+    end
+
     namespace :admin, defaults: { service: 'legal_services/admin' } do
       concerns %i[framework admin_frameworks]
     end
 
     namespace 'rm3788', path: 'RM3788', defaults: { framework: 'RM3788' } do
-      concerns %i[buyer_shared_pages shared_pages]
-      get '/service-not-suitable', to: 'home#service_not_suitable'
-      get '/suppliers/download', to: 'suppliers#download'
-      get '/suppliers/no-suppliers-found', to: 'suppliers#no_suppliers_found'
-      get '/suppliers/cg-no-suppliers-found', to: 'suppliers#cg_no_suppliers_found'
-      resources :suppliers, only: %i[index show]
+      concerns %i[buyer_shared_pages shared_pages suppliers]
+
       resources :downloads, only: :index
       namespace :admin, defaults: { service: 'legal_services/admin' } do
         concerns %i[admin_uploads admin_shared_pages]
@@ -225,7 +229,7 @@ Rails.application.routes.draw do
     end
 
     namespace 'rm6240', path: 'RM6240', defaults: { framework: 'RM6240' } do
-      concerns %i[buyer_shared_pages shared_pages]
+      concerns %i[buyer_shared_pages shared_pages suppliers]
 
       namespace :admin, defaults: { service: 'legal_services/admin' } do
         concerns %i[admin_uploads admin_shared_pages]

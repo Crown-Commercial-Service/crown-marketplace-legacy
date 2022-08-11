@@ -12,7 +12,7 @@
     </p>
 
     <p class="govuk-body">
-      <%= link_to_generated_file_for_download(legal_services_rm3788_suppliers_download_path(lot: params[:lot], services: params[:services], jurisdiction: params[:jurisdiction], region_codes: params[:region_codes], central_government: params['central_government']), :xlsx, t('.download_supplier_shortlist_link'), true) %>
+      <%= link_to_generated_file_for_download(download_legal_services_rm3788_suppliers_path(lot: params[:lot], services: params[:services], jurisdiction: params[:jurisdiction], region_codes: params[:region_codes], central_government: params['central_government']), :xlsx, t('.download_supplier_shortlist_link'), true) %>
     </p>
 
     <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">

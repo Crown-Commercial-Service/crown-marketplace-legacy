@@ -15,14 +15,5 @@ module LegalServices
     def start_path
       legal_services_index_path(@framework)
     end
-
-    def next_step_path
-      case next_slug
-      when 'suppliers'
-        legal_services_rm3788_suppliers_path(journey: self.class.journey_name, params: params)
-      else
-        super
-      end
-    end
   end
 end

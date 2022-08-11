@@ -305,9 +305,6 @@ en:
             para05_html: To use this service you need to be a recognised public sector body listed in the <a href="https://assets.crowncommercial.gov.uk/wp-content/uploads/RM3788-Contract-Notice-Authorised-Customer-List.docx">authorised customer list</a>.
           wps_link_text: WPS Legal Services panel specification
           wps_url: https://www.crowncommercial.gov.uk/agreements/RM3788
-        service_not_suitable:
-          better_suited_framework_html: The <a href="https://www.crowncommercial.gov.uk/agreements/rm3786" target="_blank">General Legal Advice Services (RM3786)</a> agreement provides legal advice services for central government and arms-length bodies.
-          heading: You need a different framework
       job_titles:
         lot_1:
           junior: Legal Support Practitioner/Executive
@@ -352,42 +349,14 @@ en:
           lead: This panel supports a range of legal services primarily for the wider public sector
           text_html: The %{general_advice_link} agreement provides legal advice services for central government and arms-length bodies.
       suppliers:
-        download:
-          back_to_start: Back to start
-          download_statement: The spreadsheet includes the selections you made, for your records and audit trail
-          download_supplier_shortlist_link: Download supplier shortlist
-          heading: Download the supplier shortlist
-        index:
-          can_provide_legal_services: can provide legal services that meet your requirements.
-          download_suppliers_list: Download the supplier list
-          heading: Supplier results
-          no_suppliers_found:
-            contact_html: "%{contact_link} for help."
-            contact_link_text: Contact CCS Support
-            general_legal_advice_services_link_text: General Legal Advice Services (RM3786)
-            general_legal_advice_services_link_url: https://www.crowncommercial.gov.uk/agreements/RM3786
-            heading: No suppliers were found
-            text: There are no suppliers on this panel that can provide the law services you need
-            text_central_government_users_html: The %{general_legal_advice_service_link} agreement provides legal services for central government and arms-length bodies.
-          page_title: Supplier results
-          supplier: supplier
-        show:
-          contact_details:
-            address: Address
-            email: Email
-            heading: Contact details
-            phone_number: Phone number
-            website: Website
+        rates_table:
           daily: Daily
-          fee_advice: You are also able to use alternative fee arrangements such as fixed or capped fees, which may deliver greater value.
           fixed_until: Fixed until September 2021 and based on an 8 hour working day.
           further_competition: These are the maximum rates the supplier charges for a direct award. You may get a cheaper rate by running a further competition.
           hourly: Hourly
-          is_an_sme: This supplier is a small or medium-sized enterprise
           monthly: Monthly
           position: Position
           rates: Rates
-          supplier_prospectus_headline: Supplier prospectus
     rm6240:
       admin:
         uploads:
@@ -467,3 +436,41 @@ en:
           lead: This panel supports a range of legal services primarily for the wider public sector
           more_information: POSSIBLY MORE INFORMATION ON THIS SCREEN
           text_html: The %{general_advice_link} agreement provides legal advice services for central government and arms-length bodies.
+      suppliers:
+        rates_table:
+          daily: Daily
+          fixed_until: Fixed until September 2024 and based on an 8 hour working day.
+          further_competition: These are the maximum rates the supplier charges for a direct award. You may get a cheaper rate by running a further competition.
+          position: Position
+          rates: Rates
+    suppliers:
+      download:
+        back_to_start: Back to start
+        download_statement: The spreadsheet includes the selections you made, for your records and audit trail
+        download_supplier_shortlist_link: Download supplier shortlist
+        heading: Download the supplier shortlist
+      index:
+        back_to_start: Back to start
+        can_provide_legal_services: can provide legal services that meet your requirements.
+        download_suppliers_list: Download the supplier list
+        heading: Supplier results
+        no_suppliers_found:
+          contact_html: "%{contact_link} for help."
+          contact_link_text: Contact CCS Support
+          general_legal_advice_services_link_text: General Legal Advice Services (RM3786)
+          general_legal_advice_services_link_url: https://www.crowncommercial.gov.uk/agreements/RM3786
+          heading: No suppliers were found
+          text: There are no suppliers on this panel that can provide the law services you need
+          text_central_government_users_html: The %{general_legal_advice_service_link} agreement provides legal services for central government and arms-length bodies.
+        page_title: Supplier results
+        supplier: supplier
+      show:
+        contact_details:
+          address: Address
+          email: Email
+          heading: Contact details
+          phone_number: Phone number
+          website: Website
+        fee_advice: You are also able to use alternative fee arrangements such as fixed or capped fees, which may deliver greater value.
+        is_an_sme: This supplier is a small or medium-sized enterprise
+        supplier_prospectus_headline: Supplier prospectus

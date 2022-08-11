@@ -42,7 +42,7 @@ RSpec.describe LegalServices::RM6240::Journey::SelectLot, type: :model do
     context 'and the lot_number is 3' do
       let(:lot_number) { '3' }
 
-      pending 'returns Journey::Suppliers' do
+      it 'returns Journey::Suppliers' do
         expect(step.next_step_class).to be LegalServices::RM6240::Journey::Suppliers
       end
     end
