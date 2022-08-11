@@ -13,9 +13,8 @@ module LegalServices
         case lot
         when '1', '2'
           Journey::ChooseServices
-          # TODO: Re-add later
-          # else
-          # Journey::Suppliers
+        else
+          Journey::Suppliers
         end
       end
     end

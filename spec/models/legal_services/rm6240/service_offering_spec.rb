@@ -154,8 +154,8 @@ RSpec.describe LegalServices::RM6240::ServiceOffering, type: :model do
     context 'when we pass multiple service codes' do
       let(:service_codes) { ['1.1', '1.2'] }
 
-      it 'returns both suppliers once each' do
-        expect(result).to match_array([supplier1_id, supplier2_id])
+      it 'returns the second supplier' do
+        expect(result).to match_array([supplier2_id])
       end
     end
 

@@ -33,8 +33,8 @@ RSpec.describe LegalServices::RM6240::Journey::ChooseJurisdiction, type: :model 
   end
 
   describe '.next_step_class' do
-    pending 'returns Journey::ChooseSuppliers' do
-      expect(step.next_step_class).to be LegalServices::RM6240::Journey::ChooseSuppliers
+    it 'returns Journey::Suppliers' do
+      expect(step.next_step_class).to be LegalServices::RM6240::Journey::Suppliers
     end
   end
 
@@ -63,7 +63,7 @@ RSpec.describe LegalServices::RM6240::Journey::ChooseJurisdiction, type: :model 
   end
 
   describe '.final?' do
-    pending 'returns false' do
+    it 'returns false' do
       expect(step.final?).to be false
     end
   end
