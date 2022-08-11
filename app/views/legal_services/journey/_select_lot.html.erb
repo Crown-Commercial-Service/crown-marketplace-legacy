@@ -1,0 +1,42 @@
+<%= add_optional_error_prefix_to_page_title(@journey.errors) %>
+<%= content_for :page_title, t('.heading') %>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <%= render partial: 'shared/error_summary', locals: { errors: @journey.errors } %>
+    <%= form_with url: @form_path, method: :get, local: true, html: { specialvalidation: true, novalidate: true } do |f| %>
+      <%= hidden_fields_for_previous_steps_and_responses(@journey) %>
+      <%= govuk_radios(f, @journey, :lot, {
+        fieldset: {
+          legend: {
+            text: t('.heading'),
+            classes: 'govuk-fieldset__legend--m',
+            page_heading?: true
+          }
+        },
+        items: @journey.current_step.class.lots.map do |lot|
+          {
+            value: lot.number,
+            checked: checked?(params[:lot], lot.number),
+            label: {
+              text: lot_full_description(lot),
+              classes: 'govuk-!-font-weight-bold'
+            }
+          }
+        end
+      }) do |lot_number| %>
+        <%= t(".extended_description.#{params[:framework].downcase}.lot_#{lot_number}") %>
+        <% if ['1', '2'].include? lot_number %>
+          <%= govuk_details(lot_legal_services(lot_number), classes: 'govuk-!-margin-top-2 govuk-!-margin-bottom-5') do %>
+            <ul class="govuk-list">
+              <% @journey.current_step.service_name::Service.services_for_lot(lot_number).each do |service| %>
+                <li><%= service.name %></li>
+              <% end %>
+            </ul>
+          <% end %>
+        <% end %>
+      <% end %>
+      <%= submit_tag t('common.submit'), id: "submit", class: "govuk-button govuk-!-margin-top-2 govuk-!-padding-left-7 govuk-!-padding-right-7", name: t('common.submit') %>
+    <% end %>
+  </div>
+</div>

@@ -40,17 +40,17 @@ lot_number,service_number,name,central_government
 1,39,Public Inquests and Inquiries ,FALSE
 1,40,Mental Health Law,FALSE
 2,1,Property and Construction ,FALSE
-2,2,Social Housing,FALSE
+2,2,Social Housing,TRUE
 2,3,Child Law,FALSE
 2,4,Court of Protection,FALSE
-2,5,Education Law,FALSE
+2,5,Education Law,TRUE
 2,6,Debt Recovery,FALSE
-2,7,Planning and Environment,FALSE
+2,7,Planning and Environment,TRUE
 2,8,Licensing,FALSE
 2,9,Pensions,FALSE
 2,10,Litigation / Dispute Resolution,FALSE
 2,11,Intellectual Property,FALSE
-2,12,Employment,FALSE
+2,12,Employment,TRUE
 2,13,Healthcare,FALSE
 2,14,Primary Care,FALSE
 2,15,Mental Health Law,FALSE

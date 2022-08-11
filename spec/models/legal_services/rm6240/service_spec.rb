@@ -35,7 +35,7 @@ RSpec.describe LegalServices::RM6240::Service, type: :model do
   end
 
   it 'to only have some services available to central government buyers' do
-    expect(available_to_central_government.count).to eq(5)
+    expect(available_to_central_government.count).to eq(9)
   end
 
   describe '.all_service_code' do

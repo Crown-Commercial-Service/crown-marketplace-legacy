@@ -110,7 +110,7 @@ ignore_unused:
   - results.*
   - suppliers.*
   - companies.*
-  - legal_services.rm3788.journey.select_lot.extended_description.lot_*
+  - legal_services.journey.select_lot.extended_description.rm*.lot_*
   - legal_services.rm3788.job_titles.*
   - legal_services.rm3788.admin.uploads.failed.error_details.*
   - legal_services.rm6240.admin.uploads.failed.error_details.*

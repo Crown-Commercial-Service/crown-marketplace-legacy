@@ -1,10 +1,10 @@
 require 'rails_helper'
 
-RSpec.describe LegalServices::RM3788::Journey::ChooseJurisdiction, type: :model do
+RSpec.describe LegalServices::RM6240::Journey::ChooseJurisdiction, type: :model do
   subject(:step) { described_class.new(jurisdiction: jurisdiction, lot: lot_number) }
 
   let(:jurisdiction) { 'a' }
-  let(:lot_number) { '2' }
+  let(:lot_number) { '1' }
 
   describe 'validations' do
     context 'when no jurisdiction is provided' do
@@ -33,8 +33,8 @@ RSpec.describe LegalServices::RM3788::Journey::ChooseJurisdiction, type: :model 
   end
 
   describe '.next_step_class' do
-    it 'returns Journey::ChooseServices' do
-      expect(step.next_step_class).to be LegalServices::RM3788::Journey::ChooseServices
+    pending 'returns Journey::ChooseSuppliers' do
+      expect(step.next_step_class).to be LegalServices::RM6240::Journey::ChooseSuppliers
     end
   end
 
@@ -63,7 +63,7 @@ RSpec.describe LegalServices::RM3788::Journey::ChooseJurisdiction, type: :model 
   end
 
   describe '.final?' do
-    it 'returns false' do
+    pending 'returns false' do
       expect(step.final?).to be false
     end
   end
@@ -73,13 +73,13 @@ RSpec.describe LegalServices::RM3788::Journey::ChooseJurisdiction, type: :model 
 
     context 'when the lot exists' do
       it 'returns the lot' do
-        expect(result.number).to eq '2'
-        expect(result.description).to eq 'Full-service firms'
+        expect(result.number).to eq '1'
+        expect(result.description).to eq 'Full service provision'
       end
     end
 
     context 'when the lot does not exist' do
-      let(:lot_number) { '5' }
+      let(:lot_number) { '4' }
 
       it 'returns nil' do
         expect(result).to be_nil

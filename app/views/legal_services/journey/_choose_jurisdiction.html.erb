@@ -1,0 +1,38 @@
+<%= add_optional_error_prefix_to_page_title(@journey.errors) %>
+<%= content_for :page_title, t('.question') %>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <%= render partial: 'shared/error_summary', locals: { errors: @journey.errors } %>
+
+    <%= form_with url: @form_path, method: :get, local: true, html: { specialvalidation: true, novalidate: true } do |f| %>
+      <%= hidden_fields_for_previous_steps_and_responses(@journey) %>
+      <%= hidden_field_tag(:lot, @journey.params['lot']) %>
+
+      <%= govuk_radios(f, @journey, :jurisdiction, {
+        fieldset: {
+          legend: {
+            text: t('.question'),
+            classes: 'govuk-fieldset__legend--m',
+            page_heading?: true,
+            caption: {
+              text: lot_full_description(@journey.current_step.selected_lot),
+              classes: 'govuk-caption-m'
+            }
+          }
+        },
+        items: @journey.current_step.class::JURISDICTIONS.map do |option|
+          {
+            value: option,
+            checked: checked?(params[:jurisdiction], option),
+            label: {
+              text: t(".answer.#{option}")
+            }
+          }
+        end
+      }) %>
+
+      <%= submit_tag t('common.submit'), id: "submit", class: "govuk-button govuk-!-padding-left-7 govuk-!-padding-right-7", name: t('common.submit') %>
+    <% end %>
+  </div>
+</div>

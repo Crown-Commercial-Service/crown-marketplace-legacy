@@ -28,6 +28,22 @@ en:
           attributes:
             lot:
               blank: Select the lot you need
+        legal_services/rm6240/journey/choose_jurisdiction:
+          attributes:
+            jurisdiction:
+              inclusion: Select the jurisdiction you need
+        legal_services/rm6240/journey/choose_organisation_type:
+          attributes:
+            central_government:
+              inclusion: Select yes if you work for central government
+        legal_services/rm6240/journey/choose_services:
+          attributes:
+            services:
+              blank: Select at least one legal service
+        legal_services/rm6240/journey/select_lot:
+          attributes:
+            lot:
+              blank: Select the lot you need
   activerecord:
     errors:
       models:
@@ -180,6 +196,38 @@ en:
         make_sure_listed: The framework in the web address is '%{framework}'. Make sure the web address contains one of the listed frameworks.
         page_title: Unrecognised framework
         the_recognised_are: 'The Legal Services frameworks are:'
+    journey:
+      choose_jurisdiction:
+        answer:
+          a: England and Wales
+          b: Scotland
+          c: Northern Ireland
+        question: Select the jurisdiction you need
+      choose_organisation_type:
+        question: Do you work for central government?
+        search_central_government_html: Search %{central_government_search_link} if you're unsure.
+        txt_link_text: central government departments, agencies and public bodies
+      choose_services:
+        ccs_support_link_text: Contact CCS Support (opens in new tab)
+        general_legal_advice_services_html: If the services you need aren't listed here, the %{general_legal_advice_services_link} agreement provides legal services for central government and arms-length bodies. %{ccs_support_link} for help.
+        general_legal_advice_services_link: https://www.crowncommercial.gov.uk/agreements/%{framework}
+        general_legal_advice_services_link_text: General Legal Advice Services (%{framework})
+        no_services_selected: No services selected
+        question: Select the legal services you need
+        service_selected: service selected
+        services_selected: services selected
+      select_lot:
+        extended_description:
+          rm3788:
+            lot_1: Select lot 1 if your requirements have a regional focus or your budget is below £200,000. These suppliers provide services across 14 legal specialisms within at least one of the 13 UK NUTS regions.
+            lot_2: Select lot 2 if your requirements needs a full-service supplier or your budget is over £200,000. Full-service firms can provide services in 35 specialisms. Suppliers have said which jurisdictional area of the UK they serve.
+            lot_3: Suppliers in lot 3 provide legal services for large property developments and projects across the UK. You can also select lot 3 if you need a specialist understanding of the property sector. Property law is available in lot 1 and lot 2.
+            lot_4: Suppliers in lot 4 provide legal services for transport rail across the UK.
+          rm6240:
+            lot_1: REASON FOR SELECTING LOT 1
+            lot_2: REASON FOR SELECTING LOT 2
+            lot_3: Suppliers in lot 3 provide legal services for transport rail across the UK.
+        heading: Select the lot you need
     rm3788:
       admin:
         uploads:
@@ -285,17 +333,6 @@ en:
           advice: Please note that the £20,000 includes Legal Fees only, disbursements and other charges are to be excluded.
           heading: Will the fees be under £20,000 per matter?
           multiple_transaction_advice: Where multiple individual "transactional" matters make up the requirement, the £20,000 fees relate to each individual matter and not the full contract value.
-        choose_jurisdiction:
-          answer:
-            a: England and Wales
-            b: Scotland
-            c: Northern Ireland
-          heading: Lot 2 - Full-service firms
-          question: Select the jurisdiction you need
-        choose_organisation_type:
-          question: Do you work for central government?
-          search_central_government_html: Search %{central_government_search_link} if you're unsure.
-          txt_link_text: central government departments, agencies and public bodies
         choose_regions:
           full_national_coverage: Full national coverage
           no_regions_selected: No regions selected
@@ -304,22 +341,6 @@ en:
           region_selected: region selected
           regions_selected: regions selected
           view_locations: View locations (PDF 266 KB)
-        choose_services:
-          ccs_support_link_text: Contact CCS Support (opens in new tab)
-          general_legal_advice_services_html: If the services you need aren't listed here, the %{general_legal_advice_services_link} agreement provides legal services for central government and arms-length bodies. %{ccs_support_link} for help.
-          general_legal_advice_services_link: https://www.crowncommercial.gov.uk/agreements/RM3786
-          general_legal_advice_services_link_text: General Legal Advice Services (RM3786)
-          no_services_selected: No services selected
-          question: Select the legal services you need
-          service_selected: service selected
-          services_selected: services selected
-        select_lot:
-          extended_description:
-            lot_1: Select lot 1 if your requirements have a regional focus or your budget is below £200,000. These suppliers provide services across 14 legal specialisms within at least one of the 13 UK NUTS regions.
-            lot_2: Select lot 2 if your requirements needs a full-service supplier or your budget is over £200,000. Full-service firms can provide services in 35 specialisms. Suppliers have said which jurisdictional area of the UK they serve.
-            lot_3: Suppliers in lot 3 provide legal services for large property developments and projects across the UK. You can also select lot 3 if you need a specialist understanding of the property sector. Property law is available in lot 1 and lot 2.
-            lot_4: Suppliers in lot 4 provide legal services for transport rail across the UK.
-          heading: Select the lot you need
         sorry:
           back_to_start: Back to start
           general_advice: General Legal Advice Services (RM3786)
