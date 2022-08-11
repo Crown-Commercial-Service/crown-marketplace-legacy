@@ -1,14 +1,13 @@
 module LegalServices
-  module RM3788
+  module RM6240
     class Journey::SelectLot < LegalServices::Journey::SelectLot
       def next_step_class
         case lot
-        when '1'
+        when '1', '2'
           Journey::ChooseServices
-        when '2'
-          Journey::ChooseJurisdiction
-        else
-          Journey::Suppliers
+          # TODO: Re-add later
+          # else
+          # Journey::Suppliers
         end
       end
     end
