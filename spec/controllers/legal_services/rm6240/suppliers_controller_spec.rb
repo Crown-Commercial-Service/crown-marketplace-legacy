@@ -107,7 +107,7 @@ RSpec.describe LegalServices::RM6240::SuppliersController, type: :controller do
         get :download, params: params.merge(format: 'xlsx')
       end
 
-      pending 'download a spreadsheet' do
+      it 'download a spreadsheet' do
         expect(response.media_type).to eq 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
 
         expect(response.headers['Content-Disposition']).to include 'filename="Shortlist of WPS Legal Services Suppliers.xlsx"'

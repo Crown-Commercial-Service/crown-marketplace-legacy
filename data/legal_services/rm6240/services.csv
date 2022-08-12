@@ -6,7 +6,7 @@ lot_number,service_number,name,central_government
 1,5,Corporate Law,FALSE
 1,6,Data Protection and Information Law,FALSE
 1,7,Employment,TRUE
-1,8,Information Technology ,TRUE
+1,8,Information Technology,TRUE
 1,9,Infrastructure,FALSE
 1,10,Intellectual Property,FALSE
 1,11,Litigation and Dispute Resolution,FALSE
@@ -37,9 +37,9 @@ lot_number,service_number,name,central_government
 1,36,Islamic Finance / Sukuk,FALSE
 1,37,Media Law,FALSE
 1,38,Immigration,FALSE
-1,39,Public Inquests and Inquiries ,FALSE
+1,39,Public Inquests and Inquiries,FALSE
 1,40,Mental Health Law,FALSE
-2,1,Property and Construction ,FALSE
+2,1,Property and Construction,FALSE
 2,2,Social Housing,TRUE
 2,3,Child Law,FALSE
 2,4,Court of Protection,FALSE
