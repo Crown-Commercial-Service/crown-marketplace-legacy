@@ -43,7 +43,7 @@ RSpec.describe LegalServices::RM6240::Journey::CheckSuitability, type: :model do
     context 'and the service_suitable is no' do
       let(:service_suitable) { 'no' }
 
-      pending 'returns Journey::Sorry' do
+      it 'returns Journey::Sorry' do
         expect(step.next_step_class).to be LegalServices::RM6240::Journey::Sorry
       end
     end
