@@ -1,7 +1,7 @@
 module GenerateTestData
-  module RM3826
+  module ST
     # rubocop:disable Metrics/ModuleLength
-    module ST
+    module RM3826
       def self.generate_data
         generate_suppliers
         generate_master_vendor_data
@@ -150,10 +150,10 @@ module GenerateTestData
 end
 
 namespace :generate_test_data do
-  namespace :rm3826 do
+  namespace :st do
     desc 'Generate test data for  Management Consultancy'
-    task st: :environment do
-      GenerateTestData::RM3826::ST.generate_data
+    task rm3826: :environment do
+      GenerateTestData::ST::RM3826.generate_data
     end
   end
 end

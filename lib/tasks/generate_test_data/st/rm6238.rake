@@ -1,7 +1,7 @@
 module GenerateTestData
-  module RM6238
+  module ST
     # rubocop:disable Metrics/ModuleLength
-    module ST
+    module RM6238
       def self.generate_data
         generate_suppliers
         generate_managed_service_provider_data((0..3), :master_vendor)
@@ -202,10 +202,10 @@ module GenerateTestData
 end
 
 namespace :generate_test_data do
-  namespace :rm6238 do
+  namespace :st do
     desc 'Generate test data for  Management Consultancy'
-    task st: :environment do
-      GenerateTestData::RM6238::ST.generate_data
+    task rm6238: :environment do
+      GenerateTestData::ST::RM6238.generate_data
     end
   end
 end
