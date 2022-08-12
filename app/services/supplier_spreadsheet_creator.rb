@@ -17,8 +17,7 @@ class SupplierSpreadsheetCreator
   private
 
   def add_services(sheet)
-    services = []
-    @params['services'].each { |service| services << @service_model.find_by(code: service).name }
+    services = @params['services'].map { |service_code| @service_model.find_by(code: service_code).name }
     sheet.add_row ['Services', services.join(', ')]
   end
 end
