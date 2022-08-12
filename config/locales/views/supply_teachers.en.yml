@@ -645,21 +645,16 @@ en:
           your_schools_postcode: your school’s postcode
       journey:
         looking_for:
-          all_suppliers: A list of all agencies
-          answer_calculate_fta_to_perm_fee: To work out what fixed-term worker transfer fee I could be charged
-          answer_calculate_temp_to_perm_fee: To calculate the fee my school will be charged if I make an agency worker permanent
-          answer_managed_service_provider: An agency to manage all my school's needs; a 'managed service provider - Master Vendor'
-          answer_worker: An agency who can provide my school with an individual worker
+          answer:
+            all_suppliers: A list of all agencies
+            calculate_fta_to_perm_fee: To work out what fixed-term worker transfer fee I could be charged
+            calculate_temp_to_perm_fee: To calculate the fee my school will be charged if I make an agency worker permanent
+            master_vendor: An agency to manage all my school's needs; a 'managed service provider - Master Vendor'
+            worker: An agency who can provide my school with an individual worker
           page_title: What is your school looking for?
           question: What is your school looking for?
         managed_service_provider:
-          answer_master_vendor: Master vendor managed service
-          answer_neutral_vendor: Neutral vendor managed service
           master_vendor_hint: These supply whatever candidates they can. Where they don’t have a suitable candidate themselves, they find other agencies who do.
-          neutral_vendor_hint: A neutral vendor only provides candidates from other agencies - they have no candidates of their own.
-          page_title: What type of managed service do you want?
-          question: What type of managed service do you want?
-          question_hint: A managed service provider is a company that can manage all your temporary staff needs.
       page_section: Find supply teachers and agency staff
       suppliers:
         master_vendor:
@@ -674,17 +669,6 @@ en:
             sign_form_html: select an agency and <a href="%{form_url}">sign the full version order form</a> listed in the documents section of the <a href="%{framework_url}">CCS framework</a> as ‘RM3826 Order form template full version v1.docx’
           header: Master vendor managed service providers
           page_title: Master vendor managed service providers
-        neutral_vendors:
-          daily_fee_html: A %{daily_fee} daily fee is charged each day in addition to this mark-up rate. This is charged if the agency finds you a worker, or if they take on someone you have them to manage (a ‘nominated worker’).
-          do_next:
-            contact_supplier: contact the agency for this worker and for all your future temporary recruitment needs
-            header: What to do next
-            sign_form_html: sign the <a href="%{form_url}">full version order form</a> (also available in the documents section of the <a href="%{framework_url}">CCS framework</a> as ‘RM3826 Order form template full version v1.docx’)
-          header: Neutral vendor managed service providers
-          mark_up_explanation_html: The mark-up varies for all other workers. Contact the agency to find out the mark-up rate for the type of worker you need.
-          mark_up_html: A %{mark_up} mark-up is charged if you use the agency to hire a specific person for you (a ‘nominated worker’).
-          one_vendor_found_html: There is only one neutral vendor on this framework.
-          page_title: Neutral vendor managed service providers
     rm6238:
       home:
         index:

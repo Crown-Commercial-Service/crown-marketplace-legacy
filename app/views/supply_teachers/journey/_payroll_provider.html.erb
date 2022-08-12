@@ -16,8 +16,10 @@
     items: @journey.current_step.class::PAYROLL_PROVIDERS.map do |option|
       {
         value: option,
-        text: t(".answer.#{option}"),
-        checked: checked?(params[:payroll_provider], option)
+        checked: checked?(params[:payroll_provider], option),
+        label: {
+          text: t(".answer.#{option}")
+        }
       }
     end
   }) %>

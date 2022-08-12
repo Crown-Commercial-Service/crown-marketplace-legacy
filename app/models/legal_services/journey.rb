@@ -4,7 +4,7 @@ module LegalServices
 
     def initialize(framework, slug, params)
       paths = JourneyPaths.new(self.class.journey_name)
-      first_step_class = FIRST_STEP_CLASS[framework]
+      first_step_class = "LegalServices::#{framework}::Journey::ChooseOrganisationType".constantize
       super(first_step_class, framework, slug, params, paths)
     end
 
@@ -13,7 +13,7 @@ module LegalServices
     end
 
     def start_path
-      legal_services_rm3788_path
+      legal_services_index_path(@framework)
     end
 
     def next_step_path
@@ -24,9 +24,5 @@ module LegalServices
         super
       end
     end
-
-    FIRST_STEP_CLASS = {
-      'RM3788' => LegalServices::RM3788::Journey::ChooseOrganisationType
-    }.freeze
   end
 end

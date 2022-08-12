@@ -3,8 +3,10 @@ module LegalServices
     class Journey::ChooseJurisdiction
       include Steppable
 
+      JURISDICTIONS = %w[a b c].freeze
+
       attribute :jurisdiction
-      validates :jurisdiction, presence: true
+      validates :jurisdiction, inclusion: JURISDICTIONS
 
       def next_step_class
         Journey::ChooseServices

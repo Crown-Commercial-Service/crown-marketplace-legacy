@@ -120,6 +120,8 @@ ignore_unused:
   - home.cookie_policy.reg_and_sign_in_cookie.row_*
   - common.type_*
   - common.title_*
+  - 'no'
+  - 'yes'
 # - 'activerecord.attributes.*'
 # - '{devise,kaminari,will_paginate}.*'
   - 'devise.*'

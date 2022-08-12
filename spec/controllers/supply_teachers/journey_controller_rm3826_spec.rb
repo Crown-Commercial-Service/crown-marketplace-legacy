@@ -70,16 +70,12 @@ RSpec.describe SupplyTeachers::JourneyController, type: :controller do
       end
     end
 
-    context 'when looking to hire a managed service provider' do
-      let(:looking_for) { 'managed_service_provider' }
+    context 'when looking to hire a master vendor' do
+      let(:looking_for) { 'master_vendor' }
 
-      it 'redirects to managed service providers outcome' do
+      it 'redirects to master vendor outcome' do
         expect(response).to redirect_to(
-          journey_question_path(
-            journey: 'supply-teachers',
-            slug: 'managed-service-provider',
-            looking_for: 'managed_service_provider'
-          )
+          journey_question_path(journey: 'supply-teachers', slug: 'master-vendors', looking_for: 'master_vendor')
         )
       end
     end
@@ -106,66 +102,7 @@ RSpec.describe SupplyTeachers::JourneyController, type: :controller do
       end
 
       it 'sets back_path' do
-        expect(assigns(:back_path)).to eq(supply_teachers_path)
-      end
-    end
-  end
-
-  describe 'GET #question for managed-service-provider' do
-    login_st_buyer
-    it 'renders template' do
-      get :question, params: {
-        journey: 'supply-teachers',
-        slug: 'managed-service-provider',
-        looking_for: 'managed_service_provider'
-      }
-      expect(response).to render_template('managed_service_provider')
-    end
-  end
-
-  describe 'GET #answer for managed-service-provider' do
-    login_st_buyer
-    before do
-      get :answer, params: {
-        journey: 'supply-teachers',
-        slug: 'managed-service-provider',
-        managed_service_provider: managed_service_provider,
-        looking_for: 'managed_service_provider'
-      }
-    end
-
-    context 'when looking for a master vendor' do
-      let(:managed_service_provider) { 'master_vendor' }
-
-      it 'redirects to master vendors path' do
-        expect(response).to redirect_to(
-          master_vendors_supply_teachers_rm3826_suppliers_path(
-            journey: 'supply-teachers',
-            managed_service_provider: managed_service_provider,
-            looking_for: 'managed_service_provider'
-          )
-        )
-      end
-    end
-
-    context 'when answer is blank' do
-      let(:managed_service_provider) { '' }
-
-      it 'renders managed-service-provider question' do
-        expect(response).to render_template('managed_service_provider')
-      end
-
-      it 'sets back_path' do
-        expect(assigns(:back_path)).to eq(
-          journey_question_path(
-            journey: 'supply-teachers',
-            slug: 'looking-for',
-            params: {
-              looking_for: 'managed_service_provider',
-              managed_service_provider: ''
-            }
-          )
-        )
+        expect(assigns(:back_path)).to eq(supply_teachers_rm3826_path)
       end
     end
   end

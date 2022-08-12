@@ -4,7 +4,7 @@ module ManagementConsultancy
 
     def initialize(framework, slug, params)
       paths = JourneyPaths.new(self.class.journey_name)
-      first_step_class = FIRST_STEP_CLASS[framework]
+      first_step_class = "ManagementConsultancy::#{framework}::Journey::ImportantChanges".constantize
       super(first_step_class, framework, slug, params, paths)
     end
 
@@ -24,9 +24,5 @@ module ManagementConsultancy
         super
       end
     end
-
-    FIRST_STEP_CLASS = {
-      'RM6187' => ManagementConsultancy::RM6187::Journey::ImportantChanges
-    }.freeze
   end
 end

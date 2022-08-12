@@ -4,7 +4,7 @@ module SupplyTeachers
 
     def initialize(framework, slug, params)
       paths = JourneyPaths.new(self.class.journey_name)
-      first_step_class = FIRST_STEP_CLASS[framework]
+      first_step_class = "SupplyTeachers::#{framework}::Journey::LookingFor".constantize
       super(first_step_class, framework, slug, params, paths)
     end
 
@@ -13,7 +13,7 @@ module SupplyTeachers
     end
 
     def start_path
-      supply_teachers_path
+      supply_teachers_index_path(@framework)
     end
 
     def next_step_path
@@ -30,10 +30,5 @@ module SupplyTeachers
         super
       end
     end
-
-    FIRST_STEP_CLASS = {
-      'RM3826' => SupplyTeachers::RM3826::Journey::LookingFor,
-      'RM6238' => SupplyTeachers::RM6238::Journey::LookingFor
-    }.freeze
   end
 end

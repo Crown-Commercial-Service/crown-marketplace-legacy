@@ -39,8 +39,10 @@
     items: job_type_class.roles.map do |job_type|
       {
         value: job_type.code,
-        text: job_type.description,
-        checked: checked?(params[:job_type], job_type.code)
+        checked: checked?(params[:job_type], job_type.code),
+        label: {
+          text: job_type.description
+        }
       }
     end
   }) %>
@@ -55,8 +57,10 @@
     items: term_type_class.all.map do |term|
       {
         value: term.code,
-        text: term.description,
-        checked: checked?(params[:term], term.code)
+        checked: checked?(params[:term], term.code),
+        label: {
+          text: term.description
+        }
       }
     end
   }) %>

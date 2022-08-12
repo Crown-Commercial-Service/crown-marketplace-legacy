@@ -42,7 +42,7 @@ RSpec.feature 'Agency workers', type: :feature, supply_teachers: true do
   end
 
   def a_managed_service_provider
-    I18n.t('supply_teachers.rm3826.journey.looking_for.answer_managed_service_provider')
+    I18n.t('supply_teachers.rm3826.journey.looking_for.answer.master_vendor')
   end
 
   def continue
@@ -50,11 +50,11 @@ RSpec.feature 'Agency workers', type: :feature, supply_teachers: true do
   end
 
   def an_individual_worker
-    I18n.t('supply_teachers.rm3826.journey.looking_for.answer_worker')
+    I18n.t('supply_teachers.rm3826.journey.looking_for.answer.worker')
   end
 
   def a_managed_service_provider
-    I18n.t('supply_teachers.rm3826.journey.looking_for.answer_managed_service_provider')
+    I18n.t('supply_teachers.rm3826.journey.looking_for.answer.master_vendor')
   end
 
   def yes

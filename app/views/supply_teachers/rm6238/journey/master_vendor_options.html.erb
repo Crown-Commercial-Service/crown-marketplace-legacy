@@ -21,8 +21,10 @@
         items: @journey.current_step.class::THRESHOLD_POSITIONS.map do |option|
           {
             value: option,
-            text: t(".answer.#{option.gsub('.', '_')}"),
-            checked: checked?(params[:threshold_position], option)
+            checked: checked?(params[:threshold_position], option),
+            label: {
+              text: t(".answer.#{option.gsub('.', '_')}")
+            },
           }
         end
       }) %>

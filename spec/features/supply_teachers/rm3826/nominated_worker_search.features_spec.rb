@@ -55,7 +55,7 @@ RSpec.feature 'Nominated workers', type: :feature, supply_teachers: true do
 
     visit_supply_teachers_rm3826_start
 
-    choose I18n.t('supply_teachers.rm3826.journey.looking_for.answer_worker')
+    choose I18n.t('supply_teachers.rm3826.journey.looking_for.answer.worker')
     click_on I18n.t('common.submit')
 
     choose I18n.t('supply_teachers.journey.worker_type.answer.nominated')
@@ -87,7 +87,7 @@ RSpec.feature 'Nominated workers', type: :feature, supply_teachers: true do
   scenario 'Buyer changes mind about postcode' do
     visit_supply_teachers_rm3826_start
 
-    choose I18n.t('supply_teachers.rm3826.journey.looking_for.answer_worker')
+    choose I18n.t('supply_teachers.rm3826.journey.looking_for.answer.worker')
     click_on I18n.t('common.submit')
 
     choose I18n.t('supply_teachers.journey.worker_type.answer.nominated')
@@ -104,7 +104,7 @@ RSpec.feature 'Nominated workers', type: :feature, supply_teachers: true do
   scenario 'Buyer changes mind about postcode and nominated worker' do
     visit_supply_teachers_rm3826_start
 
-    choose I18n.t('supply_teachers.rm3826.journey.looking_for.answer_worker')
+    choose I18n.t('supply_teachers.rm3826.journey.looking_for.answer.worker')
     click_on I18n.t('common.submit')
 
     choose I18n.t('supply_teachers.journey.worker_type.answer.nominated')
@@ -122,7 +122,7 @@ RSpec.feature 'Nominated workers', type: :feature, supply_teachers: true do
   scenario 'Buyer changes mind about postcode, nominated worker & hire via agency' do
     visit_supply_teachers_rm3826_start
 
-    choose I18n.t('supply_teachers.rm3826.journey.looking_for.answer_worker')
+    choose I18n.t('supply_teachers.rm3826.journey.looking_for.answer.worker')
     click_on I18n.t('common.submit')
 
     choose I18n.t('supply_teachers.journey.worker_type.answer.nominated')
@@ -135,13 +135,13 @@ RSpec.feature 'Nominated workers', type: :feature, supply_teachers: true do
     click_on I18n.t('layouts.application.back')
     click_on I18n.t('layouts.application.back')
 
-    expect(page).to have_checked_field(I18n.t('supply_teachers.rm3826.journey.looking_for.answer_worker'))
+    expect(page).to have_checked_field(I18n.t('supply_teachers.rm3826.journey.looking_for.answer.worker'))
   end
 
   scenario 'Buyer enters invalid postcode' do
     visit_supply_teachers_rm3826_start
 
-    choose I18n.t('supply_teachers.rm3826.journey.looking_for.answer_worker')
+    choose I18n.t('supply_teachers.rm3826.journey.looking_for.answer.worker')
     click_on I18n.t('common.submit')
 
     choose I18n.t('supply_teachers.journey.worker_type.answer.nominated')

@@ -134,6 +134,15 @@ Rails.application.routes.draw do
       end
     end
 
+    concern :suppliers do
+      resources :suppliers, path: '/', only: %i[] do
+        collection do
+          get '/master-vendors', action: :master_vendors
+          get '/all-suppliers', action: :all_suppliers
+        end
+      end
+    end
+
     concern :admin do
       namespace :admin, defaults: { service: 'supply_teachers/admin' } do
         get '/', to: 'uploads#index'
@@ -149,27 +158,17 @@ Rails.application.routes.draw do
     end
 
     namespace 'rm3826', path: 'RM3826', defaults: { framework: 'RM3826' } do
-      concerns %i[buyer_shared_pages shared_pages gateway branches admin calculations]
-
-      resources :suppliers, path: '/', only: %i[] do
-        collection do
-          get '/master-vendors', action: :master_vendors
-          # get '/neutral-vendors', action: :neutral_vendors
-          get '/all-suppliers', action: :all_suppliers
-        end
-      end
+      concerns %i[buyer_shared_pages shared_pages gateway branches admin calculations suppliers]
 
       resources :downloads, only: :index
     end
 
     namespace 'rm6238', path: 'RM6238', defaults: { framework: 'RM6238' } do
-      concerns %i[buyer_shared_pages shared_pages gateway branches admin calculations]
+      concerns %i[buyer_shared_pages shared_pages gateway branches admin calculations suppliers]
 
       resources :suppliers, path: '/', only: %i[] do
         collection do
-          get '/master-vendors', action: :master_vendors
           get '/education-technology-platform-vendors', action: :education_technology_platform_vendors
-          get '/all-suppliers', action: :all_suppliers
         end
       end
     end
