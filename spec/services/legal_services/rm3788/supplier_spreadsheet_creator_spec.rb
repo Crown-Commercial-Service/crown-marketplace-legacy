@@ -11,7 +11,6 @@ RSpec.describe LegalServices::RM3788::SupplierSpreadsheetCreator do
 
   let(:suppliers) { LegalServices::RM3788::Supplier.all.order(:name) }
   let(:lot_number) { '1' }
-  let(:lot) { LegalServices::RM3788::Lot.find_by(number: lot_number) }
   let(:services) { LegalServices::RM3788::Service.all.sample(5).sort_by(&:code) }
   let(:service_codes) { services.map(&:code) }
   let(:region_codes) { Nuts1Region.all.sample(5).map(&:code) }
@@ -25,7 +24,7 @@ RSpec.describe LegalServices::RM3788::SupplierSpreadsheetCreator do
 
   before do
     allow(LegalServices::RM3788::Supplier).to receive(:offering_services_in_regions)
-      .with(lot_number, services, nil, region_codes).and_return(suppliers)
+      .with(lot_number, service_codes, nil, region_codes).and_return(suppliers)
 
     supplier_details.each do |supplier_detail|
       create(:legal_services_rm3788_supplier, **supplier_detail)

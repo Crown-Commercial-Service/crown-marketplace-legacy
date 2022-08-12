@@ -6,6 +6,6 @@ module LegalServices
 
     attribute :service_suitable
     attribute :lot
-    validates :service_suitable, inclusion: ['yes', 'no']
+    validates :service_suitable, inclusion: SUITABILITY_OPTIONS
   end
 end
