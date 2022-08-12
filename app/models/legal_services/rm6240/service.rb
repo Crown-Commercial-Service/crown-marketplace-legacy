@@ -9,6 +9,8 @@ module LegalServices
       attribute :name, String
       attribute :central_government, Axiom::Types::Boolean
 
+      alias_method :code, :service_number
+
       def self.all_service_code
         all.map(&:service_code)
       end
