@@ -411,3 +411,18 @@ en:
               supplier_rate_cards_has_incorrect_headers: There are sheets in 'Supplier rate cards' with incorrect headers
               supplier_rate_cards_missing_sheets: The 'Supplier rate cards' file is missing sheets
               upload_failed: Upload failed
+      home:
+        index:
+          heading: Find legal services for the wider public sector
+          ojeu_link_text: OJEU contract notice
+          ojeu_url_html: https://assets.crowncommercial.gov.uk/wp-content/uploads/RM6240%20Contract%20notice%20OJEU.pdf
+          use_this_service:
+            before_heading: Before you start
+            guidance_heading: Guidance and other useful documents
+            para01: Use this service to download a shortlist of suppliers that provide the legal services you need.
+            para02: Using this service means you're following the public sector procurement procedures.
+            para03_html: Central government can use this service to buy transactional property and litigation services if your contract budget is &pound;20,000 or less per matter. The wider public sector is able to use this panel in its entirety.
+            para04_html: If you need legal services in a non-UK jurisdiction, contact <a href="mailto:info@crowncommercial.gov.uk">info@crowncommercial.gov.uk</a> for help.
+            para05_html: To use this service you need to be a recognised public sector body listed in the <a href="https://assets.crowncommercial.gov.uk/wp-content/uploads/RM6240-Contract-Notice-Authorised-Customer-List.docx">authorised customer list</a>.
+          wps_link_text: WPS Legal Services panel specification
+          wps_url: https://www.crowncommercial.gov.uk/agreements/RM6240
