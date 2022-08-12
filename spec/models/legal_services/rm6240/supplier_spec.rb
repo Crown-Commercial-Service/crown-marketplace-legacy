@@ -101,8 +101,8 @@ RSpec.describe LegalServices::RM6240::Supplier, type: :model do
     context 'when we pass multiple service numbers' do
       let(:service_numbers) { %w[1 2] }
 
-      it 'returns both suppliers once each' do
-        expect(result).to match_array([supplier1, supplier2])
+      it 'returns the second supplier' do
+        expect(result).to match_array([supplier2])
       end
     end
 
@@ -110,7 +110,7 @@ RSpec.describe LegalServices::RM6240::Supplier, type: :model do
       let(:lot_number) { '2' }
       let(:service_numbers) { %w[1] }
 
-      it 'returns an emoty array' do
+      it 'returns an empty array' do
         expect(result).to be_empty
       end
     end

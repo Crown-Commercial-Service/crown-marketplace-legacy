@@ -28,7 +28,7 @@
               <%=t('.no_suppliers_found.text') %>
             </p>
           <% end %>
-          <%= link_to 'Back to start', legal_services_rm3788_path, class: 'govuk-button govuk-!-margin-top-4 govuk-!-padding-left-4 govuk-!-padding-right-4', name: 'Back to start' %>
+          <%= link_to t('.back_to_start'), legal_services_index_path, class: 'govuk-button govuk-!-margin-top-4 govuk-!-padding-left-4 govuk-!-padding-right-4', name: t('.back_to_start') %>
         </div>
       </div>
     <% else %>
@@ -50,13 +50,7 @@
         <div class="govuk-grid-column-full">
           <%= link_to(
             t('.download_suppliers_list'),
-              legal_services_rm3788_suppliers_download_path(
-              lot: params[:lot],
-              services: params[:services],
-              region_codes: params[:region_codes],
-              jurisdiction: params[:jurisdiction],
-              central_government: params[:central_government]
-              ),
+              download_legal_services_suppliers_path,
               class: 'govuk-button',
               name: 'Download the supplier list'
             ) %>

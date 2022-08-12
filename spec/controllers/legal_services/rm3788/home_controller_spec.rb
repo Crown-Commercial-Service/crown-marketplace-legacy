@@ -112,11 +112,4 @@ RSpec.describe LegalServices::RM3788::HomeController, type: :controller do
       end
     end
   end
-
-  describe 'GET service_not_suitable' do
-    it 'renders the service not suitable page' do
-      get :service_not_suitable
-      expect(response).to render_template(:service_not_suitable)
-    end
-  end
 end
