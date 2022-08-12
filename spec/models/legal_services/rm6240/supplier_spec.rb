@@ -115,9 +115,9 @@ RSpec.describe LegalServices::RM6240::Supplier, type: :model do
       end
     end
 
-    context 'when we pass 3 for the lot number and 1 for the service number' do
+    context 'when we pass 3 for the lot number and nil for the service number' do
       let(:lot_number) { '3' }
-      let(:service_numbers) { %w[1] }
+      let(:service_numbers) { nil }
       let(:jurisdiction) { nil }
 
       it 'returns the second supplier' do

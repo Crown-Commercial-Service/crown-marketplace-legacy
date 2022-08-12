@@ -21,6 +21,8 @@ module LegalServices
       end
 
       def self.set_service_codes(lot_number, service_numbers)
+        service_numbers = ['1'] if lot_number == '3'
+
         Service.where(lot_number: lot_number, service_number: service_numbers).map(&:service_code)
       end
     end
