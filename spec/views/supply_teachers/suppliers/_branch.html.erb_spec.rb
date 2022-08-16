@@ -6,12 +6,12 @@ RSpec.describe 'supply_teachers/suppliers/_branch.html.erb' do
 
   before do
     view.params[:framework] = 'RM3826'
+    view.extend(TelephoneNumberHelper)
 
     render 'supply_teachers/suppliers/branch', branch: branch
   end
 
-  it 'displays supplier and branch name' do
-    expect(rendered).to have_text(supplier.name)
+  it 'displays branch name' do
     expect(rendered).to have_text(branch.name)
   end
 end

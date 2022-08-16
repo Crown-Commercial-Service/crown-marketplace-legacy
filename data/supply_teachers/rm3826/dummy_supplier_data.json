@@ -140,7 +140,7 @@
         "fee": 0.092
       }
     ],
-    "master_vendor_contact": {
+    "master_vendor_contacts": {
       "name": "Sirena Koss",
       "telephone": "904-964-7463 x6565",
       "email": "sons.and.botsford@bednar.com"
@@ -287,7 +287,7 @@
         "fee": 0.091
       }
     ],
-    "master_vendor_contact": {
+    "master_vendor_contacts": {
       "name": "Willene Smitham",
       "telephone": "1-611-798-1921 x53116",
       "email": "kuvalis.harris@waters.net"
@@ -434,7 +434,7 @@
         "fee": 0.098
       }
     ],
-    "master_vendor_contact": {
+    "master_vendor_contacts": {
       "name": "Amb. Silas Yundt",
       "telephone": "522-654-7009 x42847",
       "email": "runte_rath_bode_and@anderson-bailey.com"
@@ -581,7 +581,7 @@
         "fee": 0.122
       }
     ],
-    "master_vendor_contact": {
+    "master_vendor_contacts": {
       "name": "Shanon Rolfson",
       "telephone": "(508) 436-4808 x936",
       "email": "sons.and.ebert@heller.io"
@@ -763,7 +763,7 @@
     "master_vendor_pricing": [
 
     ],
-    "master_vendor_contact": {
+    "master_vendor_contacts": {
     }
   },
   {
@@ -942,7 +942,7 @@
     "master_vendor_pricing": [
 
     ],
-    "master_vendor_contact": {
+    "master_vendor_contacts": {
     }
   },
   {
@@ -1121,7 +1121,7 @@
     "master_vendor_pricing": [
 
     ],
-    "master_vendor_contact": {
+    "master_vendor_contacts": {
     }
   },
   {
@@ -1300,7 +1300,7 @@
     "master_vendor_pricing": [
 
     ],
-    "master_vendor_contact": {
+    "master_vendor_contacts": {
     }
   },
   {
@@ -1479,7 +1479,7 @@
     "master_vendor_pricing": [
 
     ],
-    "master_vendor_contact": {
+    "master_vendor_contacts": {
     }
   },
   {
@@ -1583,7 +1583,7 @@
     "master_vendor_pricing": [
 
     ],
-    "master_vendor_contact": {
+    "master_vendor_contacts": {
     }
   },
   {
@@ -1687,7 +1687,7 @@
     "master_vendor_pricing": [
 
     ],
-    "master_vendor_contact": {
+    "master_vendor_contacts": {
     }
   },
   {
@@ -1791,7 +1791,7 @@
     "master_vendor_pricing": [
 
     ],
-    "master_vendor_contact": {
+    "master_vendor_contacts": {
     }
   },
   {
@@ -1895,7 +1895,7 @@
     "master_vendor_pricing": [
 
     ],
-    "master_vendor_contact": {
+    "master_vendor_contacts": {
     }
   },
   {
@@ -2014,7 +2014,7 @@
     "master_vendor_pricing": [
 
     ],
-    "master_vendor_contact": {
+    "master_vendor_contacts": {
     }
   }
 ]

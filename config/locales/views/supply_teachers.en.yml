@@ -608,10 +608,6 @@ en:
         page_title: Do you want an agency to supply the worker?
         question: Do you want an agency to supply the worker?
     rm3826:
-      branches:
-        rates:
-          column1: Job type
-          column2: Agency mark-up
       home:
         index:
           accreditation_of_agencies: Accreditation of agencies
@@ -656,10 +652,11 @@ en:
         managed_service_provider:
           master_vendor_hint: These supply whatever candidates they can. Where they don’t have a suitable candidate themselves, they find other agencies who do.
       page_section: Find supply teachers and agency staff
-      suppliers:
-        master_vendor:
+      shared:
+        rates_table:
           column1: Job type
           column2: Agency mark-up
+      suppliers:
         master_vendors:
           do_next:
             competition_online_html: you can also do this online, <a href="%{esourcing_url}">using CCS’s esourcing tool</a>
@@ -759,8 +756,20 @@ en:
             above_threshold: Contract worth more than £2.5 million
             below_threshold: Contract worth less than £2.5 million
     suppliers:
+      agencies_table:
+        agency: Agency
+        no_agencies_found: No agencies found
       all_suppliers:
-        branch: Branch
+        enter_an_agency_name: Enter an agency and click 'Search' to see if it is in the agency list.
+        find_an_agency: Find an agency
         header: All agencies
         page_title: All agencies
         results_found_with_location_html: There are <strong>%{results} agencies</strong> currently available
+        search: Search
+      show:
+        address: Address
+        branch_name: Branch
+        contact_email: Contact email
+        contact_name: Contact name
+        header: Agency details
+        phone_number: Phone number

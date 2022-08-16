@@ -6,42 +6,41 @@ Feature: Supply Teachers - All agencies - suppliers
     And I select "A list of all agencies"
     And I click on 'Continue'
     Then I am on the 'All agencies' page
-    And a list of 20 agencies are shown
+    And a list of 10 agencies are shown
 
   Scenario Outline: Can view supplier details
-    Given I click on the supplier '<agency_name>' and it's branch '<branch>'
+    Given I click on '<agency_name>'
     Then I am on the '<agency_name>' page
     And the sub title is Agency details
-    And the 'Branch' is '<branch>'
+    And the branches are:
+      | <branch_1>  |
+      | <branch_2>  |
     And I click on 'Back'
     Then I am on the 'All agencies' page
 
   Examples:
-    | agency_name                   | branch          |
-    | CREMIN, SCHUSTER AND LUBOWITZ | Southend-on-Sea |
-    | CREMIN, SCHUSTER AND LUBOWITZ | Liverpool       |
-    | NIKOLAUS AND SONS             | London          |
-    | PFANNERSTILL-KUTCH            | Manchester      |
-    | VANDERVORT, CRONA AND TRANTOW | Liverpool       |
+    | agency_name                   | branch_1  | branch_2        |
+    | CREMIN, SCHUSTER AND LUBOWITZ | Liverpool | Southend-on-Sea |
+    | NIKOLAUS AND SONS             | London    | Manchester      |
+    | PFANNERSTILL-KUTCH            | London    |Manchester       |
 
   Scenario: Supplier details are correct
-    Given I click on the supplier 'BOSCO INC' and it's branch 'Liverpool'
+    Given I click on 'BOSCO INC'
     Then I am on the 'BOSCO INC' page
     And the sub title is Agency details
-    And the 'Branch' is 'Liverpool'
-    And the 'Region' is 'Merseyside'
-    And the 'Contact name' is 'Miss Emanuel Jerde'
-    And the 'Contact email' is 'emanuel.jerde.miss@ritchie-cruickshank.info'
-    And the 'Phone number' is '1-327-673-9781'
-    And the address is:
-      | Anfield     |
-      | Anfield Rd  |
-      | Liverpool   |
-      | Merseyside  |
-      | L4 0TH      |
     And the agency has the following rates:
       | Qualified teacher: SEN roles                                                              | 21.5% | 20.4% | 19.3% |
       | Educational support staff: SEN roles (including cover supervisor and teaching assistant)  | 26.6% | 25.2% | 23.9% |
       | Unqualified teacher: non-SEN roles                                                        | 26.6% | 25.2% | 23.9% |
       | Employed directly                                                                         | 13.3% | 13.3% | 13.3% |
       | A specific person                                                                         | 13.3% | 13.3% | 13.3% |
+    And the 'Branch' is 'Liverpool - Merseyside' for the 'Liverpool' branch
+    And the 'Contact name' is 'Miss Emanuel Jerde' for the 'Liverpool' branch
+    And the 'Contact email' is 'emanuel.jerde.miss@ritchie-cruickshank.info' for the 'Liverpool' branch
+    And the 'Phone number' is '1-327-673-9781' for the 'Liverpool' branch
+    And the address for the 'Liverpool' branch is:
+      | Anfield     |
+      | Anfield Rd  |
+      | Liverpool   |
+      | Merseyside  |
+      | L4 0TH      |

@@ -53,12 +53,12 @@ RSpec.describe SupplyTeachers::RM3826::Upload, type: :model do
           'pricing' => pricing,
           'master_vendor_pricing' => master_vendor_pricing,
           'neutral_vendor_pricing' => neutral_vendor_pricing,
-          'master_vendor_contact' => {
+          'master_vendor_contacts' => {
             'name' => 'Mr. Joelle Littel',
             'telephone' => '0800 966090',
             'email' => 'shawnna@ohara.biz'
           },
-          'neutral_vendor_contact' => {
+          'neutral_vendor_contacts' => {
             'name' => 'Ms. Retta Stehr',
             'telephone' => '01677 32220',
             'email' => 'tyree@hoppe.co'

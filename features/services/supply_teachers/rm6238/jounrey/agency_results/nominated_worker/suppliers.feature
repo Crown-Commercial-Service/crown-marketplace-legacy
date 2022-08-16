@@ -55,7 +55,7 @@ Feature: Supply Teachers - Agency results - Nominated worker - Agencies
     And I click on 'Continue'
     Then I am on the 'Agency results' page
     And there are 8 agencies
-    And the listed agencies for 'agency results' are:
+    And the listed agencies for agency results are:
       | BARTOLETTI, KOEPP AND NIENOW  | London      |
       | MCGLYNN GROUP                 | London      |
       | STANTON, FADEL AND BOSCO      | Twickenham  |

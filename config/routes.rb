@@ -139,8 +139,10 @@ Rails.application.routes.draw do
         collection do
           get '/master-vendors', action: :master_vendors
           get '/all-suppliers', action: :all_suppliers
+          get '/all-suppliers/search', action: :search_all_suppliers
         end
       end
+      resources :suppliers, only: %i[show]
     end
 
     concern :admin do

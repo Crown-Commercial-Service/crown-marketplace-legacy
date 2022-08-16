@@ -60,7 +60,7 @@ Feature: Supply Teachers - Agency results - Nominated worker - Agencies
     And I click on 'Continue'
     Then I am on the 'Agency results' page
     And there are 8 agencies
-    And the listed agencies for 'agency results' are:
+    And the listed agencies for agency results are:
       | BOSCO INC                     | Twickenham  |
       | BEATTY-DICKENS                | London      |
       | VANDERVORT, CRONA AND TRANTOW | Twickenham  |
