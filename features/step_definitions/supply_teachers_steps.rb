@@ -93,7 +93,7 @@ end
 
 Then('the master vendor agency {string} has the following rates:') do |agency_name, raw_rates|
   rates = raw_rates.raw.map { |rate| [rate[0], { one_week: rate[1], twelve_weeks: rate[2], more_than_twelve_weeks: rate[3] }] }.to_h
-  rates_table = supply_teachers_page.find('h2', text: agency_name).find(:xpath, '../table/tbody')
+  rates_table = supply_teachers_page.find('h2', text: agency_name).find(:xpath, '..').find('table.agency_rates > tbody')
 
   rates.each do |job_type, rate|
     rate_row = rates_table.find('th', text: job_type).find(:xpath, '..')
@@ -119,13 +119,14 @@ Then('a list of {int} agencies are shown') do |number_of_agencies|
   expect(supply_teachers_page.all_agencies.number_of_agencies).to have_content("There are #{number_of_agencies} agencies currently available")
 end
 
-Then('the listed agencies for {string} are:') do |option, raw_agency_name_and_branch|
-  agencies = case option
-             when 'agency results'
-               supply_teachers_page.agency_results.suppliers
-             when 'all agencies'
-               supply_teachers_page.all_agencies.agencies
-             end
+Then('I enter {string} for the agency search') do |agency_name|
+  supply_teachers_page.supplier_search.input.fill_in with: "#{agency_name}\n"
+  supply_teachers_page.supplier_search.search.click
+end
+
+Then('the listed agencies for agency results are:') do |raw_agency_name_and_branch|
+  agencies = supply_teachers_page.agency_results.suppliers
+
   agency_name_and_branch = raw_agency_name_and_branch.raw.map { |agency| { name: agency[0], branch: agency[1] } }
 
   expect(agencies.length).to eq agency_name_and_branch.length
@@ -133,6 +134,18 @@ Then('the listed agencies for {string} are:') do |option, raw_agency_name_and_br
   agencies.zip(agency_name_and_branch).each do |actual, expected|
     expect(actual.find('h2')).to have_content expected[:name]
     expect(actual.find('.supplier-record__branch-name')).to have_content expected[:branch]
+  end
+end
+
+Then('the listed agencies for all agencies are:') do |raw_agency_name|
+  agencies = supply_teachers_page.all_agencies.agencies
+
+  agency_names = raw_agency_name.raw.flatten
+
+  expect(agencies.length).to eq agency_names.length
+
+  agencies.zip(agency_names).each do |actual, expected|
+    expect(actual.find('h2')).to have_content expected
   end
 end
 
@@ -208,16 +221,19 @@ Then('the choices used to generate the list are:') do |choices_table|
   end
 end
 
-Given("I click on the supplier {string} and it's branch {string}") do |agency_name, branch|
-  supply_teachers_page.all('h2', text: agency_name)
-                      .map { |element| element.find(:xpath, '..') }
-                      .find { |agency_element| agency_element.find('.supplier-record__branch-name').has_content?(branch) }
-                      .find('a')
-                      .click
-end
-
 Then('the sub title is Agency details') do
   expect(supply_teachers_page.agency_details.sub_title).to have_content 'Agency details'
+end
+
+Then('the branches are:') do |raw_branches|
+  branches_elements = supply_teachers_page.agency_details.branches_table.map(&:Branch)
+  branches = raw_branches.raw.flatten
+
+  expect(branches_elements.length).to eq branches.length
+
+  branches_elements.zip(branches).each do |actual, expected|
+    expect(actual).to have_content expected
+  end
 end
 
 Then('the {string} is {string}') do |contact_detail, value|
@@ -226,6 +242,14 @@ end
 
 Then('the address is:') do |address|
   expect(supply_teachers_page.agency_details.branch_details.Address).to have_content address.raw.flatten.join(' ')
+end
+
+Then('the {string} is {string} for the {string} branch') do |contact_detail, value, branch|
+  expect(supply_teachers_page.agency_details.branches_table.find { |branch_element| branch_element.Branch.text.include?(branch) }.send(contact_detail)).to have_content value
+end
+
+Then('the address for the {string} branch is:') do |branch, address|
+  expect(supply_teachers_page.agency_details.branches_table.find { |branch_element| branch_element.Branch.text.include?(branch) }.Address).to have_content address.raw.flatten.join(' ')
 end
 
 Then('the agency has the following rates:') do |raw_rates|

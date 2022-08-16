@@ -179,7 +179,7 @@ module GenerateTestData
           # < 10 mile
           { town: 'London', address_1: 'Buckingham Palace', region: 'Inner London - West', postcode: 'SW1A 1AA', lat: 51.50306085083827, lon: -0.1447072660356099 },
           # < 25 miles
-          { town: 'Twickenham', county: 'London', address_1: 'Twickenham Stadium', address_2: '200 Whitton Rd', region: 'IOuter London - West and North West', postcode: 'TW2 7BA', lat: 51.46190833253159, lon: -0.340934872716188 },
+          { town: 'Twickenham', county: 'London', address_1: 'Twickenham Stadium', address_2: '200 Whitton Rd', region: 'Outer London - West and North West', postcode: 'TW2 7BA', lat: 51.46190833253159, lon: -0.340934872716188 },
           # < 50 miles
           { town: 'Southend-on-Sea', county: 'Essex', address_1: 'Roots Hall', address_2: 'Victoria Ave', region: 'Essex', postcode: 'SS2 6NQ', lat: 51.549072447921404, lon: 0.7016791349027106 }
         ],

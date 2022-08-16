@@ -1,7 +1,7 @@
 module SupplyTeachers::RM3826::SuppliersHelper
-  def master_vendor_sorted_rates(rates)
-    rates.sort_by { |rate| MASTER_VENDOR_SORT_ORDER.index(rate.term) }
-  end
+  include SupplyTeachers::RM3826::SharedHelper
 
-  MASTER_VENDOR_SORT_ORDER = %w[one_week twelve_weeks more_than_twelve_weeks].freeze
+  def show_path(supplier)
+    supply_teachers_rm3826_supplier_path(id: supplier.supply_teachers_rm3826_supplier_id)
+  end
 end

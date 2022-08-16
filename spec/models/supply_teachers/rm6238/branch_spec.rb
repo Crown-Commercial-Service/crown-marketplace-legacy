@@ -321,4 +321,70 @@ RSpec.describe SupplyTeachers::RM6238::Branch, type: :model do
       end
     end
   end
+
+  shared_context 'and I have suppliers and branches' do
+    before do
+      ('a'..'z').each do |supplier_name|
+        supplier = create(:supply_teachers_rm6238_supplier, name: supplier_name * 3)
+
+        create(:supply_teachers_rm6238_branch, slug: "branch-#{supplier_name}a", supplier: supplier)
+        create(:supply_teachers_rm6238_branch, slug: "branch-#{supplier_name}b", supplier: supplier)
+      end
+    end
+  end
+
+  describe '.distinct_suppliers_count' do
+    include_context 'and I have suppliers and branches'
+
+    it 'returns the correct number of suppliers' do
+      expect(described_class.distinct_suppliers_count).to eq 26
+    end
+  end
+
+  describe '.distinct_suppliers' do
+    include_context 'and I have suppliers and branches'
+
+    let(:page) { nil }
+    let(:supplier_names) { described_class.distinct_suppliers({ agency_name: agency_name, page: page }).map(&:name) }
+
+    context 'when nothing is searched' do
+      let(:agency_name) { nil }
+
+      it 'has the first 25 suppliers in the list' do
+        expect(supplier_names).to match_array(('a'..'y').map { |letter| letter * 3 })
+      end
+
+      context 'when the page param passed is 2' do
+        let(:page) { 2 }
+
+        it 'has the first last 1 supplier in the list' do
+          expect(supplier_names).to match_array ['zzz']
+        end
+      end
+    end
+
+    context 'when "a" is searched' do
+      let(:agency_name) { 'a' }
+
+      it 'has just aaa in the list' do
+        expect(supplier_names).to match_array ['aaa']
+      end
+    end
+
+    context 'when "z" is searched' do
+      let(:agency_name) { 'z' }
+
+      it 'has just zzz in the list' do
+        expect(supplier_names).to match_array ['zzz']
+      end
+    end
+
+    context 'when "hello" is searched' do
+      let(:agency_name) { 'hello' }
+
+      it 'has no suppliers in the list' do
+        expect(supplier_names).to be_empty
+      end
+    end
+  end
 end

@@ -41,7 +41,7 @@ Feature: Supply Teachers - Agency results - Agency payroll - Results by role
     And I click on 'Continue'
     Then I am on the 'Agency results' page
     And there are 4 agencies
-    And the listed agencies for 'agency results' are:
+    And the listed agencies for agency results are:
       | BARTOLETTI, KOEPP AND NIENOW  | London      | £24.83  | 6.0 |
       | MCGLYNN GROUP                 | London      | £35.85  | 5.2 |
       | EMARD AND SONS                | Twickenham  | £52.51  | 9.0 |
@@ -61,7 +61,7 @@ Feature: Supply Teachers - Agency results - Agency payroll - Results by role
     And I click on 'Continue'
     Then I am on the 'Agency results' page
     And there are 6 agencies
-    And the listed agencies for 'agency results' are:
+    And the listed agencies for agency results are:
       | BARTOLETTI, KOEPP AND NIENOW  | London      | £30.34  | 6.0 |
       | MCGLYNN GROUP                 | London      | £43.82  | 5.2 |
       | DIETRICH-BORER                | London      | £46.92  | 6.0 |
@@ -82,7 +82,7 @@ Feature: Supply Teachers - Agency results - Agency payroll - Results by role
     And I click on 'Continue'
     Then I am on the 'Agency results' page
     And there are 6 agencies
-    And the listed agencies for 'agency results' are:
+    And the listed agencies for agency results are:
       | BARTOLETTI, KOEPP AND NIENOW  | London      | £26.21  | 6.0 |
       | MCGLYNN GROUP                 | London      | £37.84  | 5.2 |
       | HAGENES-BECHTELAR             | London      | £47.48  | 5.2 |

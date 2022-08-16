@@ -72,8 +72,8 @@ RSpec.describe SupplyTeachers::RM6238::SuppliersController, type: :controller do
   end
 
   describe 'GET all suppliers' do
-    let(:branch) { create(:supply_teachers_rm6238_branch,  slug: 'branch-a') }
-    let(:branch1) { create(:supply_teachers_rm6238_branch, slug: 'branch-b') }
+    let!(:branch_1) { create(:supply_teachers_rm6238_branch) }
+    let!(:branch_2) { create(:supply_teachers_rm6238_branch) }
 
     before do
       get :all_suppliers, params: {
@@ -86,9 +86,21 @@ RSpec.describe SupplyTeachers::RM6238::SuppliersController, type: :controller do
       expect(response).to render_template('all_suppliers')
     end
 
-    it 'assigns branches' do
-      expect(assigns(:branches)).to eq([branch, branch1])
+    # rubocop:disable RSpec/ExampleLength
+    it 'assigns paginated_suppliers' do
+      expect(assigns(:paginated_suppliers).map do |supplier|
+        {
+          supplier_id: supplier.supply_teachers_rm6238_supplier_id,
+          name: supplier.name
+        }
+      end).to match_array([branch_1, branch_2].map do |supplier|
+        {
+          supplier_id: supplier.supply_teachers_rm6238_supplier_id,
+          name: supplier.supplier.name
+        }
+      end)
     end
+    # rubocop:enable RSpec/ExampleLength
 
     it 'sets the back path to the looking-for question' do
       expected_path = journey_question_path(
@@ -105,6 +117,67 @@ RSpec.describe SupplyTeachers::RM6238::SuppliersController, type: :controller do
       it 'renders the unrecognised framework page with the right http status' do
         expect(response).to render_template('supply_teachers/home/unrecognised_framework')
         expect(response).to have_http_status(:bad_request)
+      end
+    end
+  end
+
+  describe 'GET search_all_suppliers' do
+    let(:supplier_1) { create(:supply_teachers_rm6238_supplier, name: 'aaa') }
+    let(:supplier_2) { create(:supply_teachers_rm6238_supplier, name: 'zzz') }
+    let(:paginated_supplier_names) { assigns(:paginated_suppliers).map(&:name) }
+
+    before do
+      create(:supply_teachers_rm6238_branch, slug: 'branch-a', supplier: supplier_1)
+      create(:supply_teachers_rm6238_branch, slug: 'branch-z', supplier: supplier_2)
+
+      get :search_all_suppliers, params: { agency_name: agency_name }, xhr: true
+    end
+
+    context 'when nothing is searched' do
+      let(:agency_name) { nil }
+
+      it 'renders the search_all_suppliers page' do
+        expect(response).to render_template(:search_all_suppliers)
+      end
+
+      it 'has all suppliers in the list' do
+        expect(paginated_supplier_names).to match_array ['aaa', 'zzz']
+      end
+    end
+
+    context 'when "a" is searched' do
+      let(:agency_name) { 'a' }
+
+      it 'renders the search_all_suppliers page' do
+        expect(response).to render_template(:search_all_suppliers)
+      end
+
+      it 'has just aaa in the list' do
+        expect(paginated_supplier_names).to match_array ['aaa']
+      end
+    end
+
+    context 'when "z" is searched' do
+      let(:agency_name) { 'z' }
+
+      it 'renders the search_all_suppliers page' do
+        expect(response).to render_template(:search_all_suppliers)
+      end
+
+      it 'has just zzz in the list' do
+        expect(paginated_supplier_names).to match_array ['zzz']
+      end
+    end
+
+    context 'when "l" is searched' do
+      let(:agency_name) { 'l' }
+
+      it 'renders the search_all_suppliers page' do
+        expect(response).to render_template(:search_all_suppliers)
+      end
+
+      it 'has no suppliers in the list' do
+        expect(paginated_supplier_names).to be_empty
       end
     end
   end

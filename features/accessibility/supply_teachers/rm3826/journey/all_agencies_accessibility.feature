@@ -11,16 +11,14 @@ Feature: Supply Teachers - All agencies - Accessibility
   Scenario: All agencies page
     Then the page should be axe clean
   
-  Scenario: Agecny details page - all roles
-    Given I click on the supplier 'JOHNS, GLEASON AND WHITE' and it's branch 'Liverpool'
+  Scenario: Agency details page - all roles
+    Given I click on 'JOHNS, GLEASON AND WHITE'
     Then I am on the 'JOHNS, GLEASON AND WHITE' page
     And the sub title is Agency details
-    And the 'Branch' is 'Liverpool'
     Then the page should be axe clean
 
-  Scenario: Agecny details page - some roles
-    Given I click on the supplier 'BOSCO INC' and it's branch 'Twickenham'
+  Scenario: Agency details page - some roles
+    Given I click on 'BOSCO INC'
     Then I am on the 'BOSCO INC' page
     And the sub title is Agency details
-    And the 'Branch' is 'Twickenham'
     Then the page should be axe clean

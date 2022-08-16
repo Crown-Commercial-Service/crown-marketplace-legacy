@@ -20,7 +20,7 @@ Feature: Supply Teachers - Agency results - Agency payroll - Results by location
     And I click on 'Continue'
     Then I am on the 'Agency results' page
     And there are 5 agencies
-    And the listed agencies for 'agency results' are:
+    And the listed agencies for agency results are:
       | BARTOLETTI, KOEPP AND NIENOW  | London      |
       | MCGLYNN GROUP                 | London      |
       | STANTON, FADEL AND BOSCO      | Twickenham  |
@@ -37,7 +37,7 @@ Feature: Supply Teachers - Agency results - Agency payroll - Results by location
     And I click on '1 mile'
     Then I am on the 'Agency results' page
     And there are 1 agencies
-    And the listed agencies for 'agency results' are:
+    And the listed agencies for agency results are:
       | FEEST-MULLER                  | London      |
     And the choices used to generate the list are:
       | Looking for: Individual worker                                        |
@@ -50,7 +50,7 @@ Feature: Supply Teachers - Agency results - Agency payroll - Results by location
     And I click on '5 miles'
     Then I am on the 'Agency results' page
     And there are 1 agencies
-    And the listed agencies for 'agency results' are:
+    And the listed agencies for agency results are:
       | FEEST-MULLER                  | London      |
     And the choices used to generate the list are:
       | Looking for: Individual worker                                        |
@@ -63,7 +63,7 @@ Feature: Supply Teachers - Agency results - Agency payroll - Results by location
     And I click on '10 miles'
     Then I am on the 'Agency results' page
     And there are 5 agencies
-    And the listed agencies for 'agency results' are:
+    And the listed agencies for agency results are:
       | BARTOLETTI, KOEPP AND NIENOW  | London      |
       | MCGLYNN GROUP                 | London      |
       | STANTON, FADEL AND BOSCO      | Twickenham  |
@@ -80,7 +80,7 @@ Feature: Supply Teachers - Agency results - Agency payroll - Results by location
     And I click on '50 miles'
     Then I am on the 'Agency results' page
     And there are 6 agencies
-    And the listed agencies for 'agency results' are:
+    And the listed agencies for agency results are:
       | BARTOLETTI, KOEPP AND NIENOW  | London          |
       | MCGLYNN GROUP                 | London          |
       | STANTON, FADEL AND BOSCO      | Twickenham      |
@@ -102,7 +102,7 @@ Feature: Supply Teachers - Agency results - Agency payroll - Results by location
     And I click on 'Continue'
     Then I am on the 'Agency results' page
     And there are 5 agencies
-    And the listed agencies for 'agency results' are:
+    And the listed agencies for agency results are:
       | BARTOLETTI, KOEPP AND NIENOW  | Southport   |
       | STANTON, FADEL AND BOSCO      | Liverpool   |
       | KERLUKE, TORP AND HEATHCOTE   | Liverpool   |
@@ -119,7 +119,7 @@ Feature: Supply Teachers - Agency results - Agency payroll - Results by location
     And I click on '1 mile'
     Then I am on the 'Agency results' page
     And there are 1 agencies
-    And the listed agencies for 'agency results' are:
+    And the listed agencies for agency results are:
       | KERLUKE, TORP AND HEATHCOTE   | Liverpool   |
     And the choices used to generate the list are:
       | Looking for: Individual worker                                        |
@@ -132,7 +132,7 @@ Feature: Supply Teachers - Agency results - Agency payroll - Results by location
     And I click on '5 miles'
     Then I am on the 'Agency results' page
     And there are 3 agencies
-    And the listed agencies for 'agency results' are:
+    And the listed agencies for agency results are:
       | STANTON, FADEL AND BOSCO      | Liverpool   |
       | KERLUKE, TORP AND HEATHCOTE   | Liverpool   |
       | EMARD AND SONS                | Liverpool   |
@@ -147,7 +147,7 @@ Feature: Supply Teachers - Agency results - Agency payroll - Results by location
     And I click on '10 miles'
     Then I am on the 'Agency results' page
     And there are 4 agencies
-    And the listed agencies for 'agency results' are:
+    And the listed agencies for agency results are:
       | STANTON, FADEL AND BOSCO      | Liverpool   |
       | KERLUKE, TORP AND HEATHCOTE   | Liverpool   |
       | EMARD AND SONS                | Liverpool   |
@@ -163,7 +163,7 @@ Feature: Supply Teachers - Agency results - Agency payroll - Results by location
     And I click on '50 miles'
     Then I am on the 'Agency results' page
     And there are 6 agencies
-    And the listed agencies for 'agency results' are:
+    And the listed agencies for agency results are:
       | BARTOLETTI, KOEPP AND NIENOW  | Southport   |
       | MCGLYNN GROUP                 | Manchester  |
       | STANTON, FADEL AND BOSCO      | Liverpool   |

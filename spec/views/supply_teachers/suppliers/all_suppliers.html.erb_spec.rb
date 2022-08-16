@@ -6,9 +6,10 @@ RSpec.describe 'supply_teachers/suppliers/all_suppliers.html.erb' do
 
   before do
     view.params[:framework] = 'RM3826'
+    view.extend(SupplyTeachers::BranchesHelper)
 
-    assign(:branches, SupplyTeachers::RM3826::Branch.all.page)
-    assign(:branches_count, 10)
+    assign(:paginated_suppliers, SupplyTeachers::RM3826::Branch.all.page)
+    assign(:suppliers_count, 10)
   end
 
   it 'displays all agencies page' do
