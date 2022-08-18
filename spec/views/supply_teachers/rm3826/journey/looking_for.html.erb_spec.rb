@@ -9,6 +9,7 @@ RSpec.describe 'supply_teachers/rm3826/journey/looking_for.html.erb' do
     view.extend(ApplicationHelper)
     assign(:journey, journey)
     assign(:form_path, '/')
+    allow(journey).to receive(:current_step).and_return(step)
   end
 
   it 'does not display the error summary' do

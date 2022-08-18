@@ -113,7 +113,11 @@ module Marketplace
   # :nocov:
 
   def self.google_analytics_tracking_id
-    @google_analytics_tracking_id ||= ENV['GA_TRACKING_ID']
+    @google_analytics_tracking_id ||= ENV.fetch('GA_TRACKING_ID', nil)
+  end
+
+  def self.google_tag_manager_tracking_id
+    @google_tag_manager_tracking_id ||= ENV.fetch('GTM_TRACKING_ID', nil)
   end
 
   def self.google_geocoding_api_key
@@ -167,9 +171,5 @@ module Marketplace
 
   def self.rails_env_url
     @rails_env_url ||= ENV.fetch('RAILS_ENV_URL', 'https://marketplace.service.crowncommercial.gov.uk')
-  end
-
-  def self.can_edit_legacy_frameworks?
-    @can_edit_legacy_frameworks ||= rails_env_url != 'https://marketplace.service.crowncommercial.gov.uk'
   end
 end

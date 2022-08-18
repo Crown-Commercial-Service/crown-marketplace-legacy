@@ -72,15 +72,15 @@ gem 'roo', '~> 2.9.0'
 gem 'jsonpath', '~> 1.1.2'
 
 # state machine
-gem 'aasm', '~> 5.2'
+gem 'aasm', '~> 5.3'
 
 # for running background jobs
-gem 'sidekiq', '~> 6.5.1'
+gem 'sidekiq', '~> 6.5.3'
 gem 'sinatra', '~> 2.2.0', require: false
 gem 'slim', '~> 4.1.0'
 
 # for authorization
-gem 'cancancan', '~> 3.3.0'
+gem 'cancancan', '~> 3.4.0'
 
 gem 'role_model', '~> 0.8.2'
 

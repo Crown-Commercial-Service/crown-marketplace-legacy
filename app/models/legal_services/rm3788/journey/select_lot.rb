@@ -1,12 +1,8 @@
 module LegalServices
   module RM3788
-    class Journey::SelectLot
-      include Steppable
-      attribute :lot
-      validates :lot, presence: true
-
-      def self.lots
-        LegalServices::RM3788::Lot.all.sort_by(&:number)
+    class Journey::SelectLot < LegalServices::Journey::SelectLot
+      def self.lots(_central_government)
+        Lot.all.sort_by(&:number)
       end
 
       def next_step_class

@@ -1,0 +1,57 @@
+lot_number,service_number,name,central_government
+1,1,Administrative and Public Law,TRUE
+1,2,Non-Complex Finance and Investment,TRUE
+1,3,Contracts,TRUE
+1,4,Competition Law,FALSE
+1,5,Corporate Law,FALSE
+1,6,Data Protection and Information Law,FALSE
+1,7,Employment,TRUE
+1,8,Information Technology,TRUE
+1,9,Infrastructure,FALSE
+1,10,Intellectual Property,FALSE
+1,11,Litigation and Dispute Resolution,FALSE
+1,12,Partnerships,FALSE
+1,13,Pensions,FALSE
+1,14,Public Procurement,FALSE
+1,15,"Property, Real Estate and Construction",FALSE
+1,16,"Energy, Natural Resources and Climate Change",FALSE
+1,17,Retained EU Law and EU Law,FALSE
+1,18,Planning,FALSE
+1,19,Projects,FALSE
+1,20,Restructuring and Insolvency,FALSE
+1,21,Education Law,FALSE
+1,22,Children and Vulnerable Adults,FALSE
+1,23,"Food, Rural and Environmental Affairs",FALSE
+1,24,Franchise Law,FALSE
+1,25,"Health, Healthcare and Social Care",FALSE
+1,26,Life Sciences,FALSE
+1,27,Telecommunications,FALSE
+1,28,"International Trade, Investment and Regulation",FALSE
+1,29,Public International Law,FALSE
+1,30,Charities Law,FALSE
+1,31,Health and Safety,FALSE
+1,32,Licensing Law,FALSE
+1,33,Transport Law (excluding Rail),FALSE
+1,34,Tax,FALSE
+1,35,Outsourcing / Insourcing,FALSE
+1,36,Islamic Finance / Sukuk,FALSE
+1,37,Media Law,FALSE
+1,38,Immigration,FALSE
+1,39,Public Inquests and Inquiries,FALSE
+1,40,Mental Health Law,FALSE
+2,1,Property and Construction,FALSE
+2,2,Social Housing,TRUE
+2,3,Child Law,FALSE
+2,4,Court of Protection,FALSE
+2,5,Education Law,TRUE
+2,6,Debt Recovery,FALSE
+2,7,Planning and Environment,TRUE
+2,8,Licensing,FALSE
+2,9,Pensions,FALSE
+2,10,Litigation / Dispute Resolution,FALSE
+2,11,Intellectual Property,FALSE
+2,12,Employment,TRUE
+2,13,Healthcare,FALSE
+2,14,Primary Care,FALSE
+2,15,Mental Health Law,FALSE
+3,1,Transport (Rail),FALSE

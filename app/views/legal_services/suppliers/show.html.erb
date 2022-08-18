@@ -1,0 +1,54 @@
+<%= content_for :page_title, @supplier.name.html_safe  %>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <span class="govuk-caption-xl">
+      <%= full_lot_description(@lot.number, @lot.description) if @lot %>
+    </span>
+    <h1 class="govuk-heading-xl">
+      <%= @supplier.name %>
+      <% if @supplier.sme? %>
+        <span class="govuk-!-font-size-19 govuk-!-font-weight-bold ccs-tag"><%= t(:sme) %></span>
+      <% end %>
+    </h1>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds govuk-!-padding-right-8">
+    <% if @rate_card.present? %>
+      <%= render partial: "legal_services/#{params[:framework].downcase}/suppliers/rates_table" %>
+    <% end %>
+    <p><%= t('.fee_advice') %></p>
+    <% if params[:lot] && prospectus_link.present? %>
+      <h2 class="govuk-heading-m govuk-!-margin-bottom-1"><%= t('.supplier_prospectus_headline') %></h2>
+      <div class="govuk-!-margin-bottom-3">
+        <% if prospectus_link_a_url? %>
+          <%= link_to prospectus_link, url_formatter(prospectus_link), class: 'govuk-link govuk-!-font-size-19' %>
+        <% else %>
+          <%= tag.p prospectus_link %>
+        <% end %>
+      </div>
+    <% end %>
+    <% if @supplier.sme? %>
+      <p class="govuk-body">
+        <span class="govuk-!-font-size-19 govuk-!-font-weight-bold ccs-tag"><%= t(:sme) %></span> <%= t('.is_an_sme') %>
+      </p>
+    <% end %>
+  </div>
+  <div class="govuk-grid-column-one-third">
+    <div class="ccs-info-panel ccs-info-panel--pull-up">
+      <h3 class="govuk-heading-m"><%= t('.contact_details.heading') %></h3>
+      <dl class="ccs-contact-details">
+        <dt><%= t('.contact_details.email') %></dt>
+        <dd><%= mail_to(@supplier.email) %></dd>
+        <dt><%= t('.contact_details.phone_number') %></dt>
+        <dd><%= @supplier.phone_number %></dd>
+        <dt><%= t('.contact_details.website') %></dt>
+        <dd><%= link_to(@supplier.website, url_formatter(@supplier.website)) if @supplier.website %></dd>
+        <dt><%= t('.contact_details.address') %></dt>
+        <dd><%= @supplier.address %></dd>
+      </dl>
+    </div>
+  </div>
+</div>

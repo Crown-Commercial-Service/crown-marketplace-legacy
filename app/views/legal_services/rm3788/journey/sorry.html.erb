@@ -13,8 +13,8 @@
     </p>
 
     <p class="govuk-body">
-      <%= t('.txt01') %> <a href="<%= t('common.general_legal_advice_services_url') %>"><%= t('.txt02_link') %></a> <%= t('.txt03') %>
+      <%= t('.text_html', general_advice_link: link_to(t('.general_advice'), t('common.general_legal_advice_services_url', framework: params[:framework]), class: 'govuk-link')) %>
     </p>
-    <%= link_to 'Back to start', legal_services_rm3788_path, class: 'govuk-button govuk-!-margin-top-4 govuk-!-padding-left-4 govuk-!-padding-right-4', name: 'Back to start' %>
+    <%= link_to t('.back_to_start'), legal_services_rm3788_path, class: 'govuk-button govuk-!-margin-top-4 govuk-!-padding-left-4 govuk-!-padding-right-4', name: t('.back_to_start') %>
   </div>
 </div>

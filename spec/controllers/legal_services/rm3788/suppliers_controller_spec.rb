@@ -21,9 +21,7 @@ RSpec.describe LegalServices::RM3788::SuppliersController, type: :controller do
   end
 
   describe 'GET index' do
-    before do
-      get :index, params: params
-    end
+    before { get :index, params: params }
 
     context 'when the lot answer is lot1' do
       let(:lot_number) { '1' }
@@ -74,10 +72,6 @@ RSpec.describe LegalServices::RM3788::SuppliersController, type: :controller do
   end
 
   describe 'GET download' do
-    before do
-      get :download, params: params
-    end
-
     let(:lot_number) { '1' }
 
     let(:params) do
@@ -90,24 +84,43 @@ RSpec.describe LegalServices::RM3788::SuppliersController, type: :controller do
       }
     end
 
-    it 'renders the download template' do
-      expect(response).to render_template('download')
+    context 'and the request format is html' do
+      before { get :download, params: params }
+
+      it 'renders the download template' do
+        expect(response).to render_template('download')
+      end
+
+      context 'when the framework is not the current framework' do
+        let(:framework) { 'RM6240' }
+
+        it 'renders the unrecognised framework page with the right http status' do
+          expect(response).to render_template('legal_services/home/unrecognised_framework')
+          expect(response).to have_http_status(:bad_request)
+        end
+      end
     end
 
-    context 'when the framework is not the current framework' do
-      let(:framework) { 'RM6240' }
+    context 'and the request format us xlsx' do
+      let(:spreadsheet_builder) { instance_double('Spreadsheet builder', { build: spreadsheet }) }
+      let(:spreadsheet) { instance_double('Spreadsheet', { to_stream: spreadsheet_stream }) }
+      let(:spreadsheet_stream) { instance_double('Spreadsheet stream', { read: 'spreadsheet-data' }) }
 
-      it 'renders the unrecognised framework page with the right http status' do
-        expect(response).to render_template('legal_services/home/unrecognised_framework')
-        expect(response).to have_http_status(:bad_request)
+      before do
+        allow(LegalServices::RM3788::SupplierSpreadsheetCreator).to receive(:new).and_return(spreadsheet_builder)
+        get :download, params: params.merge(format: 'xlsx')
+      end
+
+      it 'download a spreadsheet' do
+        expect(response.media_type).to eq 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+
+        expect(response.headers['Content-Disposition']).to include 'filename="Shortlist of WPS Legal Services Suppliers.xlsx"'
       end
     end
   end
 
   describe 'GET show' do
-    before do
-      get :show, params: { id: supplier.id, lot: lot }
-    end
+    before { get :show, params: { id: supplier.id, lot: lot } }
 
     context 'when the lot answer is lot1' do
       let(:lot_number) { '1' }

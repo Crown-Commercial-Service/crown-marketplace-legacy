@@ -63,6 +63,60 @@ RSpec.describe LegalServices::RM3788::Admin::UploadsController, type: :controlle
     end
   end
 
+  describe 'PUT update_cookie_settings' do
+    context 'when enableing the cookies' do
+      before do
+        %i[_ga_cookie _gi_cookie _cls_cookie].each do |cookie_name|
+          cookies[cookie_name] = { value: 'test_cookie', domain: '.crowncommercial.gov.uk', path: '/' }
+        end
+
+        put :update_cookie_settings, params: { ga_cookie_usage: 'true' }
+      end
+
+      it 'sets the cookie' do
+        expect(cookies[:crown_marketplace_google_analytics_enabled]).to eq('true')
+
+        %i[_ga_cookie _gi_cookie _cls_cookie].each do |cookie_name|
+          expect(cookies[cookie_name]).to eq 'test_cookie'
+        end
+      end
+
+      it 'updates the cookies_updated param' do
+        expect(controller.params[:cookies_updated]).to be true
+      end
+
+      it 'renders the cookie_settings template' do
+        expect(response).to render_template('home/cookie_settings')
+      end
+    end
+
+    context 'when disabling the cookies' do
+      before do
+        cookies[:crown_marketplace_google_analytics_enabled] = { value: 'true' }
+
+        %i[_ga_cookie _gi_cookie _cls_cookie].each do |cookie_name|
+          cookies[cookie_name] = { value: 'test_cookie', domain: '.crowncommercial.gov.uk', path: '/' }
+        end
+
+        put :update_cookie_settings, params: { ga_cookie_usage: 'false' }
+      end
+
+      it 'deletes the cookie' do
+        %w[_ga_cookie _gi_cookie _cls_cookie crown_marketplace_google_analytics_enabled].each do |cookie_name|
+          expect(response.cookies[cookie_name]).to be_nil
+        end
+      end
+
+      it 'updates the cookies_updated param' do
+        expect(controller.params[:cookies_updated]).to be true
+      end
+
+      it 'renders the cookie_settings template' do
+        expect(response).to render_template('home/cookie_settings')
+      end
+    end
+  end
+
   describe 'GET not_permitted' do
     it 'renders the not_permitted page' do
       get :not_permitted
@@ -104,7 +158,7 @@ RSpec.describe LegalServices::RM3788::Admin::UploadsController, type: :controlle
       allow(upload).to receive(:save).and_return(valid)
       allow(upload).to receive(:save).with(context: :upload).and_return(valid)
       allow(LegalServices::RM3788::Admin::Upload).to receive(:new).with(anything).and_return(upload)
-      allow(LegalServices::RM3788::FileUploadWorker).to receive(:perform_async).with(upload.id).and_return(true)
+      allow(LegalServices::RM3788::Admin::FileUploadWorker).to receive(:perform_async).with(upload.id).and_return(true)
       post :create, params: { legal_services_rm3788_admin_upload: { supplier_details_file: fake_file, supplier_rate_cards_file: fake_file, supplier_lot_1_service_offerings_file: fake_file, supplier_lot_2_service_offerings_file: fake_file, supplier_lot_3_service_offerings_file: fake_file, supplier_lot_4_service_offerings_file: fake_file } }
     end
 
@@ -166,7 +220,7 @@ RSpec.describe LegalServices::RM3788::Admin::UploadsController, type: :controlle
 
       it 'renders the show template and the failed partial' do
         expect(response).to render_template(:show)
-        expect(response).to render_template(partial: 'legal_services/rm3788/admin/uploads/_failed')
+        expect(response).to render_template(partial: 'legal_services/admin/uploads/_failed')
       end
     end
   end

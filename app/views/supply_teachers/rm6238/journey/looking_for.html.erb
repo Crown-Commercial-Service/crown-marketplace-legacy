@@ -18,8 +18,10 @@
         items: @journey.current_step.class::LOOKING_FOR_OPTIONS.map do |option|
           {
             value: option,
-            text: t(".answer.#{option}"),
-            checked: checked?(params[:looking_for], option)
+            checked: checked?(params[:looking_for], option),
+            label: {
+              text: t(".answer.#{option}")
+            }
           }
         end
       }) %>

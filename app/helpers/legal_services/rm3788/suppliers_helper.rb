@@ -1,17 +1,18 @@
 module LegalServices::RM3788::SuppliersHelper
-  def full_lot_description(lot_number, description)
-    "Lot #{lot_number} - #{description}"
+  include LegalServices::SuppliersHelper
+
+  def download_legal_services_suppliers_path
+    download_legal_services_rm3788_suppliers_path(
+      lot: params[:lot],
+      services: params[:services],
+      region_codes: params[:region_codes],
+      jurisdiction: params[:jurisdiction],
+      central_government: params[:central_government]
+    )
   end
 
-  def prospectus_link_a_url?
-    URI.parse(prospectus_link)
-    true
-  rescue StandardError
-    false
-  end
-
-  def prospectus_link
-    @prospectus_link ||= @supplier.send(:"lot_#{params[:lot]}_prospectus_link")
+  def legal_services_supplier_path(supplier)
+    legal_services_rm3788_supplier_path(supplier, lot: params[:lot], jurisdiction: params[:jurisdiction])
   end
 
   def positions

@@ -1,11 +1,6 @@
 module LegalServices
   module RM3788
-    class Journey::ChooseJurisdiction
-      include Steppable
-
-      attribute :jurisdiction
-      validates :jurisdiction, presence: true
-
+    class Journey::ChooseJurisdiction < LegalServices::Journey::ChooseJurisdiction
       def next_step_class
         Journey::ChooseServices
       end

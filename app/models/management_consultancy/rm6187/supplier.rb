@@ -27,12 +27,6 @@ module ManagementConsultancy
         where(id: ids)
       end
 
-      def self.delete_all_with_dependents
-        ServiceOffering.delete_all
-        RateCard.delete_all
-        delete_all
-      end
-
       def services_in_lot(lot_number)
         service_offerings.select { |so| so.lot_number == lot_number }.map(&:service)
       end

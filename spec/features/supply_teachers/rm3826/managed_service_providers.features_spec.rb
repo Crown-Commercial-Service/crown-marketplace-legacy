@@ -39,7 +39,7 @@ RSpec.feature 'Managed service providers', type: :feature do
 
     visit_supply_teachers_rm3826_start
 
-    choose I18n.t('supply_teachers.rm3826.journey.looking_for.answer_managed_service_provider')
+    choose I18n.t('supply_teachers.rm3826.journey.looking_for.answer.master_vendor')
     click_on I18n.t('common.submit')
 
     expect(page).to have_css('h1', text: 'Master vendor managed service')
@@ -54,12 +54,12 @@ RSpec.feature 'Managed service providers', type: :feature do
   scenario 'Buyer changes mind about hiring a managed service provider' do
     visit_supply_teachers_rm3826_start
 
-    choose I18n.t('supply_teachers.rm3826.journey.looking_for.answer_managed_service_provider')
+    choose I18n.t('supply_teachers.rm3826.journey.looking_for.answer.master_vendor')
     click_on I18n.t('common.submit')
 
     click_on I18n.t('layouts.application.back')
 
-    expect(page).to have_checked_field(I18n.t('supply_teachers.rm3826.journey.looking_for.answer_managed_service_provider'))
+    expect(page).to have_checked_field(I18n.t('supply_teachers.rm3826.journey.looking_for.answer.master_vendor'))
   end
 
   private

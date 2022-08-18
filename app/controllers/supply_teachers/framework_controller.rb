@@ -1,8 +1,8 @@
 module SupplyTeachers
   class FrameworkController < ::ApplicationController
+    before_action :raise_if_not_live_framework
     before_action :authenticate_user!
     before_action :authorize_user
-    before_action :raise_if_not_live_framework
 
     rescue_from UnrecognisedLiveFrameworkError do
       @unrecognised_framework = params[:framework]

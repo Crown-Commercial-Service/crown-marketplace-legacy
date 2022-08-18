@@ -64,6 +64,12 @@ Rails.application.routes.draw do
           concerns :authenticatable
         end
       end
+      namespace 'rm6240', path: 'RM6240', defaults: { framework: 'RM6240' } do
+        concerns %i[authenticatable registrable]
+        namespace :admin, defaults: { service: 'legal_services/admin' } do
+          concerns :authenticatable
+        end
+      end
     end
   end
 
@@ -76,6 +82,7 @@ Rails.application.routes.draw do
     get '/accessibility-statement', to: 'home#accessibility_statement'
     get '/cookie-policy', to: 'home#cookie_policy'
     get '/cookie-settings', to: 'home#cookie_settings'
+    put '/cookie-settings', to: 'home#update_cookie_settings'
   end
 
   concern :admin_shared_pages do
@@ -83,6 +90,7 @@ Rails.application.routes.draw do
     get '/accessibility-statement', to: 'uploads#accessibility_statement'
     get '/cookie-policy', to: 'uploads#cookie_policy'
     get '/cookie-settings', to: 'uploads#cookie_settings'
+    put '/cookie-settings', to: 'uploads#update_cookie_settings'
   end
 
   concern :framework do
@@ -90,7 +98,7 @@ Rails.application.routes.draw do
   end
 
   concern :admin_frameworks do
-    resources :frameworks, only: %i[index edit update] if Marketplace.can_edit_legacy_frameworks?
+    resources :frameworks, only: %i[index edit update]
   end
 
   concern :admin_uploads do
@@ -126,6 +134,15 @@ Rails.application.routes.draw do
       end
     end
 
+    concern :suppliers do
+      resources :suppliers, path: '/', only: %i[] do
+        collection do
+          get '/master-vendors', action: :master_vendors
+          get '/all-suppliers', action: :all_suppliers
+        end
+      end
+    end
+
     concern :admin do
       namespace :admin, defaults: { service: 'supply_teachers/admin' } do
         get '/', to: 'uploads#index'
@@ -141,27 +158,17 @@ Rails.application.routes.draw do
     end
 
     namespace 'rm3826', path: 'RM3826', defaults: { framework: 'RM3826' } do
-      concerns %i[buyer_shared_pages shared_pages gateway branches admin calculations]
-
-      resources :suppliers, path: '/', only: %i[] do
-        collection do
-          get '/master-vendors', action: :master_vendors
-          # get '/neutral-vendors', action: :neutral_vendors
-          get '/all-suppliers', action: :all_suppliers
-        end
-      end
+      concerns %i[buyer_shared_pages shared_pages gateway branches admin calculations suppliers]
 
       resources :downloads, only: :index
     end
 
     namespace 'rm6238', path: 'RM6238', defaults: { framework: 'RM6238' } do
-      concerns %i[buyer_shared_pages shared_pages gateway branches admin calculations]
+      concerns %i[buyer_shared_pages shared_pages gateway branches admin calculations suppliers]
 
       resources :suppliers, path: '/', only: %i[] do
         collection do
-          get '/master-vendors', action: :master_vendors
           get '/education-technology-platform-vendors', action: :education_technology_platform_vendors
-          get '/all-suppliers', action: :all_suppliers
         end
       end
     end
@@ -200,18 +207,30 @@ Rails.application.routes.draw do
   namespace 'legal_services', path: 'legal-services', defaults: { service: 'legal_services' } do
     concerns :framework
 
+    concern :suppliers do
+      resources :suppliers, only: %i[index show] do
+        collection do
+          get '/download', action: :download
+        end
+      end
+    end
+
     namespace :admin, defaults: { service: 'legal_services/admin' } do
       concerns %i[framework admin_frameworks]
     end
 
     namespace 'rm3788', path: 'RM3788', defaults: { framework: 'RM3788' } do
-      concerns %i[buyer_shared_pages shared_pages]
-      get '/service-not-suitable', to: 'home#service_not_suitable'
-      get '/suppliers/download', to: 'suppliers#download'
-      get '/suppliers/no-suppliers-found', to: 'suppliers#no_suppliers_found'
-      get '/suppliers/cg-no-suppliers-found', to: 'suppliers#cg_no_suppliers_found'
-      resources :suppliers, only: %i[index show]
+      concerns %i[buyer_shared_pages shared_pages suppliers]
+
       resources :downloads, only: :index
+      namespace :admin, defaults: { service: 'legal_services/admin' } do
+        concerns %i[admin_uploads admin_shared_pages]
+      end
+    end
+
+    namespace 'rm6240', path: 'RM6240', defaults: { framework: 'RM6240' } do
+      concerns %i[buyer_shared_pages shared_pages suppliers]
+
       namespace :admin, defaults: { service: 'legal_services/admin' } do
         concerns %i[admin_uploads admin_shared_pages]
       end

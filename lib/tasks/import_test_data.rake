@@ -28,12 +28,21 @@ module ImportTestData
         supplier_data = JSON.parse(file.read)
         LegalServices::RM3788::Upload.upload!(supplier_data)
       end
+
+      File.open('data/legal_services/rm6240/dummy_supplier_data.json', 'r') do |file|
+        supplier_data = JSON.parse(file.read)
+        LegalServices::RM6240::Upload.upload!(supplier_data)
+      end
     end
 
     def self.empty_tables
       LegalServices::RM3788::RegionalAvailability.destroy_all
       LegalServices::RM3788::ServiceOffering.destroy_all
       LegalServices::RM3788::Supplier.destroy_all
+
+      LegalServices::RM6240::Rate.destroy_all
+      LegalServices::RM6240::ServiceOffering.destroy_all
+      LegalServices::RM6240::Supplier.destroy_all
     end
   end
 

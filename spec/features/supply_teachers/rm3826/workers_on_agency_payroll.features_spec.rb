@@ -62,7 +62,7 @@ RSpec.feature 'Workers on agency payroll', type: :feature, supply_teachers: true
 
     visit_supply_teachers_rm3826_start
 
-    choose I18n.t('supply_teachers.rm3826.journey.looking_for.answer_worker')
+    choose I18n.t('supply_teachers.rm3826.journey.looking_for.answer.worker')
     click_on I18n.t('common.submit')
 
     choose 'Yes'

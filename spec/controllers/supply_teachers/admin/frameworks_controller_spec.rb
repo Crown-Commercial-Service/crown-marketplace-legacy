@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe SupplyTeachers::Admin::FrameworksController do
   let(:default_params) { { service: 'supply_teachers/admin' } }
 
-  login_st_admin
+  login_ccs_developer
 
   describe 'GET index' do
     it 'renders the index page' do
@@ -13,6 +13,15 @@ RSpec.describe SupplyTeachers::Admin::FrameworksController do
 
     context 'when logged in as a buyer' do
       login_st_buyer
+
+      it 'redirects to not permitted' do
+        get :index
+        expect(response).to redirect_to '/supply-teachers/RM6238/admin/not-permitted'
+      end
+    end
+
+    context 'when logged in as a normal admin' do
+      login_st_admin
 
       it 'redirects to not permitted' do
         get :index

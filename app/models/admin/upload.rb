@@ -20,7 +20,7 @@ class Admin::Upload < ApplicationRecord
     event :start_upload do
       transitions from: :not_started, to: :in_progress
       after do
-        self.class::SERVICE::FileUploadWorker.perform_async(id)
+        service::FileUploadWorker.perform_async(id)
       end
     end
     event :check_files do
@@ -61,5 +61,9 @@ class Admin::Upload < ApplicationRecord
         errors.add(file, :not_attached)
       end
     end
+  end
+
+  def service
+    self.class.module_parent
   end
 end

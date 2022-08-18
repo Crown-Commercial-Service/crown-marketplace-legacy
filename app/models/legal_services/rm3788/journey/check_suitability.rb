@@ -1,13 +1,8 @@
 module LegalServices
   module RM3788
-    class Journey::CheckSuitability
-      include Steppable
-      attribute :under_threshold
-      attribute :lot
-      validates :under_threshold, inclusion: ['yes', 'no']
-
+    class Journey::CheckSuitability < LegalServices::Journey::CheckSuitability
       def next_step_class
-        case under_threshold
+        case service_suitable
         when 'yes'
           Journey::ChooseServices
         when 'no'

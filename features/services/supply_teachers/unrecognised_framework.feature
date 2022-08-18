@@ -14,7 +14,7 @@ Feature: Supply Teachers - Start pages - With an unrecognised framework
       | RM3826    |
       | RM6238    |
 
-  Scenario: Go to unrecognised famework in the buyer section - logged out
+  Scenario Outline: Go to unrecognised famework in the buyer section - logged out
     Given I sign in and navigate to the start page for the '<framework>' framework in 'supply teachers'
     And I go to the 'supply teachers' start page for 'RM0172'
     Then I am on the 'The web address contained an unrecognised framework' page
@@ -29,7 +29,7 @@ Feature: Supply Teachers - Start pages - With an unrecognised framework
       | RM6238    |
 
 
-  Scenario: Go to an unrecognised famework in the admin section - logged out
+  Scenario Outline: Go to an unrecognised famework in the admin section - logged out
     When I go to '/supply-teachers/RM0172/admin'
     Then I am on the 'The web address contained an unrecognised framework' page
     And the unrecognised framework is 'RM0172'
@@ -42,7 +42,7 @@ Feature: Supply Teachers - Start pages - With an unrecognised framework
       | RM3826    |
       | RM6238    |
 
-  Scenario: Go to an unrecognised famework in the admin section - logged in
+  Scenario Outline: Go to an unrecognised famework in the admin section - logged in
     Given I sign in as an admin for the '<framework>' framework in 'supply teachers'
     Then I am on the 'Supply teachers and agency workers' page
     When I go to '/supply-teachers/RM0172/admin'
