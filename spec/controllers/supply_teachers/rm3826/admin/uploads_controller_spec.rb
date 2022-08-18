@@ -359,4 +359,22 @@ RSpec.describe SupplyTeachers::RM3826::Admin::UploadsController, type: :controll
       expect { upload.reload }.to raise_error ActiveRecord::RecordNotFound
     end
   end
+
+  describe 'GET progress' do
+    let(:upload) do
+      build(:supply_teachers_rm3826_admin_upload, aasm_state: 'files_processed') do |admin_upload|
+        admin_upload.lot_1_and_lot_2_comparisons = fake_file
+        admin_upload.save
+      end
+    end
+
+    login_st_admin
+
+    before { get :progress, params: { id: upload.id } }
+
+    it 'renders the aasm_state as JSON' do
+      expect(response.content_type).to eq('application/json; charset=utf-8')
+      expect(JSON.parse(response.body)).to eq 'import_status' => 'files_processed'
+    end
+  end
 end
