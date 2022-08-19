@@ -32,12 +32,12 @@ Feature: Legal services -  Central governemnt - Lot 1 - Suppliers
     Given I click on 'HALEY-FAY'
     Then I am on the 'HALEY-FAY' page
     Then the supplier 'is' an SME
-    And the 'Partner' daily rate is '£210.00'
-    And the 'Senior Solicitor, Senior Associate' daily rate is '£180.00'
-    And the 'Solicitor, Associate' daily rate is '£150.00'
-    And the 'NQ Solicitor/Associate, Junior Solicitor/Associate' daily rate is '£120.00'
-    And the 'Trainee' daily rate is '£90.00'
-    And the 'Paralegal, Legal Assistant' daily rate is '£60.00'
+    And the 'Partner' hourly rate is '£210.00'
+    And the 'Senior Solicitor, Senior Associate' hourly rate is '£180.00'
+    And the 'Solicitor, Associate' hourly rate is '£150.00'
+    And the 'NQ Solicitor/Associate, Junior Solicitor/Associate' hourly rate is '£120.00'
+    And the 'Trainee' hourly rate is '£90.00'
+    And the 'Paralegal, Legal Assistant' hourly rate is '£60.00'
     And the contact details for the supplier are:
       | fay.haley@walsh.name                              |
       | 1-558-665-2572                                    |
@@ -48,12 +48,12 @@ Feature: Legal services -  Central governemnt - Lot 1 - Suppliers
     Given I click on 'MERTZ-HOMENICK'
     Then I am on the 'MERTZ-HOMENICK' page
     Then the supplier 'is not' an SME
-    And the 'Partner' daily rate is '£175.00'
-    And the 'Senior Solicitor, Senior Associate' daily rate is '£150.00'
-    And the 'Solicitor, Associate' daily rate is '£125.00'
-    And the 'NQ Solicitor/Associate, Junior Solicitor/Associate' daily rate is '£100.00'
-    And the 'Trainee' daily rate is '£75.00'
-    And the 'Paralegal, Legal Assistant' daily rate is '£50.00'
+    And the 'Partner' hourly rate is '£175.00'
+    And the 'Senior Solicitor, Senior Associate' hourly rate is '£150.00'
+    And the 'Solicitor, Associate' hourly rate is '£125.00'
+    And the 'NQ Solicitor/Associate, Junior Solicitor/Associate' hourly rate is '£100.00'
+    And the 'Trainee' hourly rate is '£75.00'
+    And the 'Paralegal, Legal Assistant' hourly rate is '£50.00'
     And the contact details for the supplier are:
       | homenick.mertz@feest-hamill.com             |
       | 245.023.1441 x39360                         |

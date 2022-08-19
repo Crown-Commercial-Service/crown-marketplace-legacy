@@ -98,7 +98,7 @@ module LegalServices
 
         SHEETS = ['Lot 1a - England & Wales', 'Lot 1b - Scotland', 'Lot 1c - Northern Ireland', 'Lot 2a - England & Wales', 'Lot 2b - Scotland', 'Lot 2c - Northern Ireland', 'Lot 3'].freeze
         HEADERS_1 = [nil, 'Position:', 'Partner', 'Senior Solicitor, Senior Associate', 'Solicitor, Associate', 'NQ Solicitor/Associate, Junior Solicitor/Associate', 'Trainee', 'Paralegal, Legal Assistant'].freeze
-        HEADERS_2 = ['Supplier name', 'DUNS', 'Daily rate', 'Daily rate', 'Daily rate', 'Daily rate', 'Daily rate', 'Daily rate'].freeze
+        HEADERS_2 = ['Supplier name', 'DUNS', 'Hourly rate', 'Hourly rate', 'Hourly rate', 'Hourly rate', 'Hourly rate', 'Hourly rate'].freeze
         PRICES = [1330, 1295, 1225, 1120, 700, 450].freeze
 
         def self.sheets_with_extra_headers(sheets_with_extra_headers)

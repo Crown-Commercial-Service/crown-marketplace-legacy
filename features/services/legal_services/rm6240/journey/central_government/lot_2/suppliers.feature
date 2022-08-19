@@ -31,12 +31,12 @@ Feature: Legal services -  Central governemnt - Lot 2 - Suppliers
     Given I click on 'WEHNER, STEHR AND KULAS'
     Then I am on the 'WEHNER, STEHR AND KULAS ' page
     Then the supplier 'is' an SME
-    And the 'Partner' daily rate is '£175.00'
-    And the 'Senior Solicitor, Senior Associate' daily rate is '£150.00'
-    And the 'Solicitor, Associate' daily rate is '£125.00'
-    And the 'NQ Solicitor/Associate, Junior Solicitor/Associate' daily rate is '£100.00'
-    And the 'Trainee' daily rate is '£75.00'
-    And the 'Paralegal, Legal Assistant' daily rate is '£50.00'
+    And the 'Partner' hourly rate is '£175.00'
+    And the 'Senior Solicitor, Senior Associate' hourly rate is '£150.00'
+    And the 'Solicitor, Associate' hourly rate is '£125.00'
+    And the 'NQ Solicitor/Associate, Junior Solicitor/Associate' hourly rate is '£100.00'
+    And the 'Trainee' hourly rate is '£75.00'
+    And the 'Paralegal, Legal Assistant' hourly rate is '£50.00'
     And the contact details for the supplier are:
       | stehr.wehner.kulas.and@crona.net          |
       | 1-118-604-7899 x39161                     |
@@ -47,12 +47,12 @@ Feature: Legal services -  Central governemnt - Lot 2 - Suppliers
     Given I click on 'TREUTEL, GERLACH AND SPORER'
     Then I am on the 'TREUTEL, GERLACH AND SPORER' page
     Then the supplier 'is not' an SME
-    And the 'Partner' daily rate is '£210.00'
-    And the 'Senior Solicitor, Senior Associate' daily rate is '£180.00'
-    And the 'Solicitor, Associate' daily rate is '£150.00'
-    And the 'NQ Solicitor/Associate, Junior Solicitor/Associate' daily rate is '£120.00'
-    And the 'Trainee' daily rate is '£90.00'
-    And the 'Paralegal, Legal Assistant' daily rate is '£60.00'
+    And the 'Partner' hourly rate is '£210.00'
+    And the 'Senior Solicitor, Senior Associate' hourly rate is '£180.00'
+    And the 'Solicitor, Associate' hourly rate is '£150.00'
+    And the 'NQ Solicitor/Associate, Junior Solicitor/Associate' hourly rate is '£120.00'
+    And the 'Trainee' hourly rate is '£90.00'
+    And the 'Paralegal, Legal Assistant' hourly rate is '£60.00'
     And the contact details for the supplier are:
       | and_gerlach_sporer_treutel@osinski.org            |
       | (428) 979-0794 x788                               |

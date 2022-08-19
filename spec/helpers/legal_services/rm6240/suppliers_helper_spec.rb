@@ -10,6 +10,37 @@ RSpec.describe LegalServices::RM6240::SuppliersHelper, type: :helper do
     end
   end
 
+  describe '.prospectus_link_present?' do
+    before do
+      params[:lot] = '1'
+      @supplier = create(:legal_services_rm6240_supplier, lot_1_prospectus_link: lot_1_prospectus_link)
+    end
+
+    context 'when the link is nil' do
+      let(:lot_1_prospectus_link) { nil }
+
+      it 'returns false' do
+        expect(helper.prospectus_link_present?).to be false
+      end
+    end
+
+    context 'when the link is N/A' do
+      let(:lot_1_prospectus_link) { 'N/A' }
+
+      it 'returns false' do
+        expect(helper.prospectus_link_present?).to be false
+      end
+    end
+
+    context 'when the link is a link' do
+      let(:lot_1_prospectus_link) { Faker::Internet.unique.url }
+
+      it 'returns true' do
+        expect(helper.prospectus_link_present?).to be true
+      end
+    end
+  end
+
   describe '#prospectus_link_a_url?' do
     let(:link_url) { Faker::Internet.unique.url }
 
@@ -72,13 +103,13 @@ RSpec.describe LegalServices::RM6240::SuppliersHelper, type: :helper do
 
   describe '#display_rate' do
     let(:result) { helper.display_rate(position) }
-    let(:daily_partner) { Faker::Number.number(digits: 5) * 100 }
-    let(:daily_trainee) { Faker::Number.number(digits: 3) * 100 }
+    let(:hourly_partner) { Faker::Number.number(digits: 5) * 100 }
+    let(:hourly_trainee) { Faker::Number.number(digits: 3) * 100 }
     let(:supplier) { create(:legal_services_rm6240_supplier) }
 
     before do
-      create(:legal_services_rm6240_full_service_provision_rate, supplier: supplier, rate: daily_partner, position: '1')
-      create(:legal_services_rm6240_full_service_provision_rate, supplier: supplier, rate: daily_trainee, position: '5')
+      create(:legal_services_rm6240_full_service_provision_rate, supplier: supplier, rate: hourly_partner, position: '1')
+      create(:legal_services_rm6240_full_service_provision_rate, supplier: supplier, rate: hourly_trainee, position: '5')
 
       @rate_card = supplier.rates
     end
@@ -87,7 +118,7 @@ RSpec.describe LegalServices::RM6240::SuppliersHelper, type: :helper do
       let(:position) { '1' }
 
       it 'returns the partner rate in punds and pence' do
-        expect(result).to eq "£#{(daily_partner / 100).to_s(:delimited)}.00"
+        expect(result).to eq "£#{(hourly_partner / 100).to_s(:delimited)}.00"
       end
     end
 
@@ -95,7 +126,7 @@ RSpec.describe LegalServices::RM6240::SuppliersHelper, type: :helper do
       let(:position) { '5' }
 
       it 'returns the partner rate in punds and pence' do
-        expect(result).to eq "£#{(daily_trainee / 100).to_s(:delimited)}.00"
+        expect(result).to eq "£#{(hourly_trainee / 100).to_s(:delimited)}.00"
       end
     end
   end

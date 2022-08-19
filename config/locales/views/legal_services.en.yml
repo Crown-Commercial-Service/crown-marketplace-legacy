@@ -438,9 +438,9 @@ en:
           text_html: The %{general_advice_link} agreement provides legal advice services for central government and arms-length bodies.
       suppliers:
         rates_table:
-          daily: Daily
           fixed_until: Fixed until September 2024 and based on an 8 hour working day.
           further_competition: These are the maximum rates the supplier charges for a direct award. You may get a cheaper rate by running a further competition.
+          hourly: Hourly
           position: Position
           rates: Rates
     suppliers:

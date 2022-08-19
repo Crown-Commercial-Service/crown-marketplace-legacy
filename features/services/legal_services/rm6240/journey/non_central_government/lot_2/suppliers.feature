@@ -30,12 +30,12 @@ Feature: Legal services -  Non central governemnt - Lot 2 - Suppliers
     Given I click on 'GUSIKOWSKI, BOSCO AND CRIST'
     Then I am on the 'GUSIKOWSKI, BOSCO AND CRIST' page
     Then the supplier 'is' an SME
-    And the 'Partner' daily rate is '£175.00'
-    And the 'Senior Solicitor, Senior Associate' daily rate is '£150.00'
-    And the 'Solicitor, Associate' daily rate is '£125.00'
-    And the 'NQ Solicitor/Associate, Junior Solicitor/Associate' daily rate is '£100.00'
-    And the 'Trainee' daily rate is '£75.00'
-    And the 'Paralegal, Legal Assistant' daily rate is '£50.00'
+    And the 'Partner' hourly rate is '£175.00'
+    And the 'Senior Solicitor, Senior Associate' hourly rate is '£150.00'
+    And the 'Solicitor, Associate' hourly rate is '£125.00'
+    And the 'NQ Solicitor/Associate, Junior Solicitor/Associate' hourly rate is '£100.00'
+    And the 'Trainee' hourly rate is '£75.00'
+    And the 'Paralegal, Legal Assistant' hourly rate is '£50.00'
     And the contact details for the supplier are:
       | gusikowski.bosco.crist.and@schoen.net             |
       | 555.493.0253 x3505                                |
@@ -46,12 +46,12 @@ Feature: Legal services -  Non central governemnt - Lot 2 - Suppliers
     Given I click on 'WILLIAMSON-BERGSTROM'
     Then I am on the 'WILLIAMSON-BERGSTROM' page
     Then the supplier 'is not' an SME
-    And the 'Partner' daily rate is '£245.00'
-    And the 'Senior Solicitor, Senior Associate' daily rate is '£210.00'
-    And the 'Solicitor, Associate' daily rate is '£175.00'
-    And the 'NQ Solicitor/Associate, Junior Solicitor/Associate' daily rate is '£140.00'
-    And the 'Trainee' daily rate is '£105.00'
-    And the 'Paralegal, Legal Assistant' daily rate is '£70.00'
+    And the 'Partner' hourly rate is '£245.00'
+    And the 'Senior Solicitor, Senior Associate' hourly rate is '£210.00'
+    And the 'Solicitor, Associate' hourly rate is '£175.00'
+    And the 'NQ Solicitor/Associate, Junior Solicitor/Associate' hourly rate is '£140.00'
+    And the 'Trainee' hourly rate is '£105.00'
+    And the 'Paralegal, Legal Assistant' hourly rate is '£70.00'
     And the contact details for the supplier are:
       | williamson_bergstrom@volkman-johnston.name  |
       | (951) 158-9443                              |

@@ -3,6 +3,10 @@ module LegalServices::SuppliersHelper
     "Lot #{lot_number} - #{description}"
   end
 
+  def prospectus_link_present?
+    prospectus_link.present? && prospectus_link.downcase != 'n/a'
+  end
+
   def prospectus_link_a_url?
     URI.parse(prospectus_link)
     true

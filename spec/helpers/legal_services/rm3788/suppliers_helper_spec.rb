@@ -10,6 +10,37 @@ RSpec.describe LegalServices::RM3788::SuppliersHelper, type: :helper do
     end
   end
 
+  describe '.prospectus_link_present?' do
+    before do
+      params[:lot] = '1'
+      @supplier = create(:legal_services_rm3788_supplier, lot_1_prospectus_link: lot_1_prospectus_link)
+    end
+
+    context 'when the link is nil' do
+      let(:lot_1_prospectus_link) { nil }
+
+      it 'returns false' do
+        expect(helper.prospectus_link_present?).to be false
+      end
+    end
+
+    context 'when the link is N/A' do
+      let(:lot_1_prospectus_link) { 'N/A' }
+
+      it 'returns false' do
+        expect(helper.prospectus_link_present?).to be false
+      end
+    end
+
+    context 'when the link is a link' do
+      let(:lot_1_prospectus_link) { Faker::Internet.unique.url }
+
+      it 'returns true' do
+        expect(helper.prospectus_link_present?).to be true
+      end
+    end
+  end
+
   describe '#prospectus_link_a_url?' do
     let(:lot_number) { rand(2..4).to_s }
     let(:link_url) { Faker::Internet.unique.url }
