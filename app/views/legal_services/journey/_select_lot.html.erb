@@ -14,7 +14,7 @@
             page_heading?: true
           }
         },
-        items: @journey.current_step.class.lots(@journey.params['central_government']).map do |lot|
+        items: @journey.current_step.class.lots.map do |lot|
           {
             value: lot.number,
             checked: checked?(params[:lot], lot.number),

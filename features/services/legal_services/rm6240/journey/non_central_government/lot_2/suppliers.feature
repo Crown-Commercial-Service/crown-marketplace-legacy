@@ -1,5 +1,5 @@
 @pipeline
-Feature: Legal services -  Non central governemnt - Lot 2 - Suppliers
+Feature: Legal services - Non central governemnt - Lot 2 - Suppliers
 
   Background: Navigate to start page and complete the journey
     Given I sign in and navigate to the start page for the 'RM6240' framework in 'legal services'

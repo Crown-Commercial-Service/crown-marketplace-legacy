@@ -17,11 +17,46 @@ Feature: Legal services - Central governemnt - Lot 1 - Service selection
 
   Scenario: The correct options are available
     Then I should see the following options for the lot:
-      | Administrative and Public Law       |
-      | Contracts                           |
-      | Employment                          |
-      | Information Technology              |
-      | Non-Complex Finance and Investment  |
+      | Administrative and Public Law                   |
+      | Charities Law                                   |
+      | Children and Vulnerable Adults                  |
+      | Competition Law                                 |
+      | Contracts                                       |
+      | Corporate Law                                   |
+      | Data Protection and Information Law             |
+      | Education Law                                   |
+      | Employment                                      |
+      | Energy, Natural Resources and Climate Change    |
+      | Food, Rural and Environmental Affairs           |
+      | Franchise Law                                   |
+      | Health and Safety                               |
+      | Health, Healthcare and Social Care              |
+      | Immigration                                     |
+      | Information Technology                          |
+      | Infrastructure                                  |
+      | Intellectual Property                           |
+      | International Trade, Investment and Regulation  |
+      | Islamic Finance / Sukuk                         |
+      | Licensing Law                                   |
+      | Life Sciences                                   |
+      | Litigation and Dispute Resolution               |
+      | Media Law                                       |
+      | Mental Health Law                               |
+      | Non-Complex Finance and Investment              |
+      | Outsourcing / Insourcing                        |
+      | Partnerships                                    |
+      | Pensions                                        |
+      | Planning                                        |
+      | Projects                                        |
+      | Property, Real Estate and Construction          |
+      | Public Inquests and Inquiries                   |
+      | Public International Law                        |
+      | Public Procurement                              |
+      | Restructuring and Insolvency                    |
+      | Retained EU Law and EU Law                      |
+      | Tax                                             |
+      | Telecommunications                              |
+      | Transport Law (excluding Rail)                  |
 
   Scenario: Service selection appears in basked
     Then the basket should say 'No services selected'

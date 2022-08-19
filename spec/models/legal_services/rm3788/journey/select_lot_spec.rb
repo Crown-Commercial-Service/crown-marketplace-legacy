@@ -87,22 +87,10 @@ RSpec.describe LegalServices::RM3788::Journey::SelectLot, type: :model do
   end
 
   describe '.lots' do
-    let(:result) { described_class.lots(central_government) }
+    let(:result) { described_class.lots }
 
-    context 'when central government is yes' do
-      let(:central_government) { 'yes' }
-
-      it 'returns the 4 lots sorted' do
-        expect(result.map(&:number)).to eq %w[1 2 3 4]
-      end
-    end
-
-    context 'when central government is no' do
-      let(:central_government) { 'no' }
-
-      it 'returns the 4 lots sorted' do
-        expect(result.map(&:number)).to eq %w[1 2 3 4]
-      end
+    it 'returns the 4 lots sorted' do
+      expect(result.map(&:number)).to eq %w[1 2 3 4]
     end
   end
 end

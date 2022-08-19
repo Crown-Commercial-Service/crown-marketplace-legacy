@@ -160,6 +160,49 @@ Feature: Legal services - Suppliers - Accessibility
       | Lot 1 - Full service provision    | Information Technology  | 4                   |
       | Lot 2 - General service provision | Employment              | 3                   |
 
+  Scenario: Results page - central govenrment - Lot 3
+    And I select 'Yes'
+    And I click on 'Continue'
+    Then I am on the 'Is this service suitable for your requirements?' page
+    And I select 'Yes'
+    And I click on 'Continue'
+    Then I am on the 'Select the lot you need' page
+    And I select 'Lot 3 - Transport rail legal services'
+    And I click on 'Continue'
+    Then I am on the 'Supplier results' page
+    And I should see that '8' suppliers can provide legal services
+    Then the page should be axe clean
+
+  Scenario: Supplier page - central govenrment - Lot 3
+    And I select 'Yes'
+    And I click on 'Continue'
+    Then I am on the 'Is this service suitable for your requirements?' page
+    And I select 'Yes'
+    And I click on 'Continue'
+    Then I am on the 'Select the lot you need' page
+    And I select 'Lot 3 - Transport rail legal services'
+    And I click on 'Continue'
+    Then I am on the 'Supplier results' page
+    And I should see that '8' suppliers can provide legal services
+    And I click on 'LUETTGEN LLC'
+    Then I am on the 'LUETTGEN LLC' page
+    Then the page should be axe clean
+
+  Scenario: Download supplier list page - central govenrment - Lot 3
+    And I select 'Yes'
+    And I click on 'Continue'
+    Then I am on the 'Is this service suitable for your requirements?' page
+    And I select 'Yes'
+    And I click on 'Continue'
+    Then I am on the 'Select the lot you need' page
+    And I select 'Lot 3 - Transport rail legal services'
+    And I click on 'Continue'
+    Then I am on the 'Supplier results' page
+    And I should see that '8' suppliers can provide legal services
+    Given I click on 'Download the supplier list'
+    Then I am on the 'Download the supplier shortlist' page
+    Then the page should be axe clean
+
   Scenario: Results page - non central govenrment - Lot 3
     And I select 'No'
     And I click on 'Continue'

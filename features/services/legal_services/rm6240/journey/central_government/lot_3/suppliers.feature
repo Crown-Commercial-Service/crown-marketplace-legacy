@@ -1,9 +1,12 @@
-Feature: Legal services - Non central governemnt - Lot 3 - Suppliers
+Feature: Legal services -  Central governemnt - Lot 3 - Suppliers
 
   Background: Login and then navigate to the supplier results page
     Given I sign in and navigate to the start page for the 'RM6240' framework in 'legal services'
     Then I am on the 'Do you work for central government?' page
-    And I select 'No'
+    And I select 'Yes'
+    And I click on 'Continue'
+    Then I am on the 'Is this service suitable for your requirements?' page
+    And I select 'Yes'
     And I click on 'Continue'
     Then I am on the 'Select the lot you need' page
     And I select 'Lot 3 - Transport rail legal services'
