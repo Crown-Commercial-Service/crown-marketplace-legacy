@@ -88,11 +88,11 @@ RSpec.describe LegalServices::RM6240::Journey::ChooseServices, type: :model do
       context 'and central_government is yes' do
         let(:central_government) { 'yes' }
 
-        it 'returns a list of 5 services' do
-          expect(result.length).to eq(5)
+        it 'returns a list of 40 services' do
+          expect(result.length).to eq(40)
         end
 
-        it 'the first service is Administrative and Public Law' do
+        it 'sets the first service is Administrative and Public Law' do
           expect(result.first.code).to eq('1')
           expect(result.first.name).to eq('Administrative and Public Law')
         end
@@ -103,7 +103,7 @@ RSpec.describe LegalServices::RM6240::Journey::ChooseServices, type: :model do
           expect(result.length).to eq(40)
         end
 
-        it 'the first service is Administrative and Public Law' do
+        it 'sets the first service is Administrative and Public Law' do
           expect(result.first.code).to eq('1')
           expect(result.first.name).to eq('Administrative and Public Law')
         end
@@ -116,13 +116,13 @@ RSpec.describe LegalServices::RM6240::Journey::ChooseServices, type: :model do
       context 'and central_government is yes' do
         let(:central_government) { 'yes' }
 
-        it 'returns a list of 4 services' do
-          expect(result.length).to eq(4)
+        it 'returns a list of 15 services' do
+          expect(result.length).to eq(15)
         end
 
-        it 'the first service is Education Law' do
-          expect(result.first.code).to eq('5')
-          expect(result.first.name).to eq('Education Law')
+        it 'sets the first service is Child Law' do
+          expect(result.first.code).to eq('3')
+          expect(result.first.name).to eq('Child Law')
         end
       end
 
@@ -131,7 +131,7 @@ RSpec.describe LegalServices::RM6240::Journey::ChooseServices, type: :model do
           expect(result.length).to eq(15)
         end
 
-        it 'the first service is Child Law' do
+        it 'sets the first service is Child Law' do
           expect(result.first.code).to eq('3')
           expect(result.first.name).to eq('Child Law')
         end

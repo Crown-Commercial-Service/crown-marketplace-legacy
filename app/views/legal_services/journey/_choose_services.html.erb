@@ -31,7 +31,7 @@
         end
       }) %>
 
-      <% if params['central_government'] == 'yes' %>
+      <% if params['central_government'] == 'yes' && params[:framework] == 'RM3788' %>
         <p>
           <%= t(
             '.general_legal_advice_services_html',

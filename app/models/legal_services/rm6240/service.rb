@@ -7,7 +7,6 @@ module LegalServices
       attribute :lot_number, String
       attribute :service_number, String
       attribute :name, String
-      attribute :central_government, Axiom::Types::Boolean
 
       alias_method :code, :service_number
 
