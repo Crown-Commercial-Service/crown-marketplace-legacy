@@ -40,11 +40,19 @@ RSpec.describe SupplyTeachers::RM6238::Journey::LookingFor, type: :model do
       end
     end
 
-    context 'when looking for is managed_service_provider' do
-      let(:looking_for) { 'managed_service_provider' }
+    context 'when looking for is master_vendor' do
+      let(:looking_for) { 'master_vendor' }
 
-      it 'returns Journey::ManagedServiceProvider' do
-        expect(step.next_step_class).to be SupplyTeachers::RM6238::Journey::ManagedServiceProvider
+      it 'returns Journey::MasterVendorOptions' do
+        expect(step.next_step_class).to be SupplyTeachers::RM6238::Journey::MasterVendorOptions
+      end
+    end
+
+    context 'when looking for is education_technology_platform' do
+      let(:looking_for) { 'education_technology_platform' }
+
+      it 'returns Journey::EducationTechnologyPlatformVendors' do
+        expect(step.next_step_class).to be SupplyTeachers::RM6238::Journey::EducationTechnologyPlatformVendors
       end
     end
 
