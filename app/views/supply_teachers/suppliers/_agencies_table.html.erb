@@ -1,0 +1,26 @@
+<%= paginate paginated_suppliers, views_prefix: 'shared', window: 0, outer_window: 2, params: { controller: :suppliers, action: :all_suppliers } %>
+<table class="govuk-table">
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th class="govuk-table__header govuk-!-font-weight-bold" scope="col"><%= t('.agency') %></th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <% if paginated_suppliers.empty? %>
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell govuk-!-padding-right-2"><%= t('.no_agencies_found') %></td>
+      </tr>
+    <% else %>
+      <% paginated_suppliers.each do |supplier| %>
+        <tr class="govuk-table__row agency-row">
+          <td class="govuk-table__cell govuk-!-padding-right-2">
+            <h2 class="govuk-heading-m govuk-!-margin-bottom-0">
+              <%= link_to supplier.name, show_path(supplier), class: 'govuk-link ccs-no-underline' %>
+            </h2>
+          </td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+<%= paginate paginated_suppliers, views_prefix: 'shared', window: 0, outer_window: 2, params: { controller: :suppliers, action: :all_suppliers } %>

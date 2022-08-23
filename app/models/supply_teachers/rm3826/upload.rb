@@ -17,8 +17,8 @@ module SupplyTeachers
       end
 
       def self.supplier_attributes(data)
-        master_vendor_contact = data.fetch('master_vendor_contact', {})
-        neutral_vendor_contact = data.fetch('neutral_vendor_contact', {})
+        master_vendor_contact = data.fetch('master_vendor_contacts', {})
+        neutral_vendor_contact = data.fetch('neutral_vendor_contacts', {})
 
         {
           id: data['supplier_id'],

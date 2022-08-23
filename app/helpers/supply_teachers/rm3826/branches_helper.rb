@@ -1,4 +1,6 @@
 module SupplyTeachers::RM3826::BranchesHelper
+  include SupplyTeachers::RM3826::SharedHelper
+
   def link_to_calculator?
     params[:payroll_provider] != 'school'
   end

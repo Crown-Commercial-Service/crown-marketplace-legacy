@@ -28,7 +28,6 @@ Feature: Supply Teachers - Agency results - Agency payroll - Agencies
       | PAGAC INC                     | Southport | 40.6% | 17.2  |
       | JOHNS, GLEASON AND WHITE      | Liverpool | 46.5% | 7.3   |
 
-
   Scenario Outline: I can naviagte to the agency details
     Given I click on '<agency_name>'
     Then I am on the '<agency_name>' page
@@ -63,7 +62,7 @@ Feature: Supply Teachers - Agency results - Agency payroll - Agencies
     And I click on 'Continue'
     Then I am on the 'Agency results' page
     And there are 5 agencies
-    And the listed agencies for 'agency results' are:
+    And the listed agencies for agency results are:
       | CREMIN, SCHUSTER AND LUBOWITZ | Liverpool |
       | BEATTY-DICKENS                | Southport |
       | VANDERVORT, CRONA AND TRANTOW | Liverpool |

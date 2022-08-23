@@ -4,4 +4,8 @@ module SupplyTeachers::RM6238::SuppliersHelper
   def managed_service_provider_contact(supplier, lot_number)
     supplier.managed_service_providers.find_by(lot_number: lot_number)
   end
+
+  def show_path(supplier)
+    supply_teachers_rm6238_supplier_path(id: supplier.supply_teachers_rm6238_supplier_id)
+  end
 end
