@@ -16,7 +16,7 @@ RSpec.describe SupplyTeachers::RM6238::SuppliersController, type: :controller do
       allow(SupplyTeachers::RM6238::Supplier).to receive(:with_master_vendor_rates).and_return(suppliers)
 
       get :master_vendors, params: {
-        looking_for: 'managed_service_provider', managed_service_provider: 'master_vendor', threshold_position: 'above_threshold'
+        looking_for: 'master_vendor', threshold_position: 'above_threshold'
       }
     end
 
@@ -32,8 +32,7 @@ RSpec.describe SupplyTeachers::RM6238::SuppliersController, type: :controller do
       expected_path = journey_question_path(
         journey: 'supply-teachers',
         slug: 'master-vendor-options',
-        looking_for: 'managed_service_provider',
-        managed_service_provider: 'master_vendor',
+        looking_for: 'master_vendor',
         threshold_position: 'above_threshold'
       )
       expect(assigns(:back_path)).to eq(expected_path)
@@ -48,7 +47,7 @@ RSpec.describe SupplyTeachers::RM6238::SuppliersController, type: :controller do
       allow(SupplyTeachers::RM6238::Supplier).to receive(:with_education_technology_platforms_rates).and_return(suppliers)
 
       get :education_technology_platform_vendors, params: {
-        looking_for: 'managed_service_provider', managed_service_provider: 'education_technology_platform'
+        looking_for: 'education_technology_platform'
       }
     end
 
@@ -60,12 +59,11 @@ RSpec.describe SupplyTeachers::RM6238::SuppliersController, type: :controller do
       expect(assigns(:suppliers)).to eq(suppliers)
     end
 
-    it 'sets the back path to the managed-service-provider question' do
+    it 'sets the back path to the looking-for question' do
       expected_path = journey_question_path(
         journey: 'supply-teachers',
-        slug: 'managed-service-provider',
-        looking_for: 'managed_service_provider',
-        managed_service_provider: 'education_technology_platform'
+        slug: 'looking-for',
+        looking_for: 'education_technology_platform'
       )
       expect(assigns(:back_path)).to eq(expected_path)
     end
