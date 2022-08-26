@@ -3,7 +3,7 @@ Feature: Supply Teachers - Managed service providers - Accessibility
 
   Background: Navigate to What type of managed service do you want?
     Given I sign in and navigate to the start page for the 'RM6238' framework in 'supply teachers'
-    And I select "An agency to manage all my school's needs; a 'managed service provider - Master Vendor'"
+    And I select "An agency to manage all my school's needs; a 'managed service provider'"
     And I click on 'Continue'
     Then I am on the 'Is your contract likely to be worth more than £2.5 million?' page
 

@@ -1,0 +1,13 @@
+<%= govuk_details(t('.do_next.header'), classes: 'govuk-!-margin-bottom-5') do %>
+  <ul class="govuk-list govuk-list--bullet">
+    <li>
+      <%= t('.do_next.further_competition') %>
+    </li>
+    <li>
+      <%= t('.do_next.select_an_agency_html', ccs_website_link: link_to(t('.do_next.ccs_framework'), 'https://www.crowncommercial.gov.uk/agreements/rm6238', class: 'govuk-link govuk-link--no-visited-state')) %>
+    </li>
+  </ul>
+  <p class="govuk-body">
+    <%= t('.do_next.more_help_html', supply_teachers_email: mail_to(t('.do_next.supply_teachers_email'), t('.do_next.supply_teachers_email'), class: 'govuk-link')) %>
+  </p>
+<% end %>
