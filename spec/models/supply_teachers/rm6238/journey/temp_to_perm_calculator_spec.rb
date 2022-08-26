@@ -10,8 +10,7 @@ RSpec.describe SupplyTeachers::RM6238::Journey::TempToPermCalculator, type: :mod
       hire_date_month: hire_date_month,
       hire_date_year: hire_date_year,
       days_per_week: days_per_week,
-      day_rate: day_rate,
-      markup_rate: markup_rate,
+      daily_fee: daily_fee,
       notice_date_day: notice_date_day,
       notice_date_month: notice_date_month,
       notice_date_year: notice_date_year,
@@ -60,9 +59,7 @@ RSpec.describe SupplyTeachers::RM6238::Journey::TempToPermCalculator, type: :mod
 
   let(:days_per_week) { 5 }
 
-  let(:day_rate) { 500 }
-
-  let(:markup_rate) { 40 }
+  let(:daily_fee) { 25 }
 
   it { is_expected.to be_valid }
 
@@ -508,56 +505,44 @@ RSpec.describe SupplyTeachers::RM6238::Journey::TempToPermCalculator, type: :mod
     it { is_expected.to be_invalid }
   end
 
-  context 'with a missing day_rate' do
-    let(:day_rate) { nil }
+  context 'with a missing daily_fee' do
+    let(:daily_fee) { nil }
 
     it { is_expected.to be_invalid }
   end
 
-  context 'with a non-numeric day_rate' do
-    let(:day_rate) { 'abc' }
+  context 'with a non-numeric daily_fee' do
+    let(:daily_fee) { 'abc' }
 
     it { is_expected.to be_invalid }
   end
 
-  context 'with a negative day_rate' do
-    let(:day_rate) { '-100' }
+  context 'with a negative daily_fee' do
+    let(:daily_fee) { '-100' }
 
     it { is_expected.to be_invalid }
   end
 
-  context 'with a zero day_rate' do
-    let(:day_rate) { '0' }
+  context 'with a zero daily_fee' do
+    let(:daily_fee) { '0' }
 
     it { is_expected.to be_invalid }
   end
 
-  context 'with a non-integer day_rate' do
-    let(:day_rate) { '123.50' }
+  context 'with a non-integer daily_fee with 1 decimal place' do
+    let(:daily_fee) { '123.5' }
 
-    it { is_expected.to be_invalid }
+    it { is_expected.to be_valid }
   end
 
-  context 'with a missing markup_rate' do
-    let(:markup_rate) { nil }
+  context 'with a non-integer daily_fee with 2 decimal place' do
+    let(:daily_fee) { '123.50' }
 
-    it { is_expected.to be_invalid }
+    it { is_expected.to be_valid }
   end
 
-  context 'with a non-numeric markup_rate' do
-    let(:markup_rate) { 'abc' }
-
-    it { is_expected.to be_invalid }
-  end
-
-  context 'with a markup_rate greater than 100' do
-    let(:markup_rate) { 110 }
-
-    it { is_expected.to be_invalid }
-  end
-
-  context 'with a markup_rate less than 0' do
-    let(:markup_rate) { -10 }
+  context 'with a non-integer daily_fee with 3 decimal place' do
+    let(:daily_fee) { '123.501' }
 
     it { is_expected.to be_invalid }
   end
@@ -888,8 +873,6 @@ RSpec.describe SupplyTeachers::RM6238::Journey::TempToPermCalculator, type: :mod
         :contract_start_date_month,
         :contract_start_date_year,
         :days_per_week,
-        :day_rate,
-        :markup_rate,
         :hire_date_day,
         :hire_date_month,
         :hire_date_year,
@@ -908,6 +891,7 @@ RSpec.describe SupplyTeachers::RM6238::Journey::TempToPermCalculator, type: :mod
         :notice_date_day,
         :notice_date_month,
         :notice_date_year,
+        :daily_fee,
         {}
       ]
     end
@@ -920,8 +904,6 @@ RSpec.describe SupplyTeachers::RM6238::Journey::TempToPermCalculator, type: :mod
         contract_start_date_month
         contract_start_date_year
         days_per_week
-        day_rate
-        markup_rate
         hire_date_day
         hire_date_month
         hire_date_year
@@ -940,6 +922,7 @@ RSpec.describe SupplyTeachers::RM6238::Journey::TempToPermCalculator, type: :mod
         notice_date_day
         notice_date_month
         notice_date_year
+        daily_fee
       ]
     end
   end

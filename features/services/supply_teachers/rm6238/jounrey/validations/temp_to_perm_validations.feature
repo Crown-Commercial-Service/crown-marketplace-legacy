@@ -10,8 +10,7 @@ Feature: Supply Teachers - Temp to perm - Validations
   Scenario Outline: Contract start date validation
     Given I enter '<date>' for the 'contract start' date
     And I enter '5' for the 'days per week'
-    And I enter '150' for the 'day rate'
-    And I enter '20' for the 'markup rate'
+    And I enter '25' for the 'daily fee'
     And I enter a date 0 years and 5 months into the future for the 'hire' date
     And I click on 'Continue'
     Then I should see the following error messages:
@@ -27,8 +26,7 @@ Feature: Supply Teachers - Temp to perm - Validations
   Scenario Outline: Days per week validation
     Given I enter 'today' for the 'contract start' date
     And I enter '<days_per_week>' for the 'days per week'
-    And I enter '150' for the 'day rate'
-    And I enter '20' for the 'markup rate'
+    And I enter '25' for the 'daily fee'
     And I enter a date 0 years and 5 months into the future for the 'hire' date
     And I click on 'Continue'
     Then I should see the following error messages:
@@ -45,41 +43,24 @@ Feature: Supply Teachers - Temp to perm - Validations
   Scenario Outline: Days rate validation
     Given I enter 'today' for the 'contract start' date
     And I enter '5' for the 'days per week'
-    And I enter '<day_rate>' for the 'day rate'
-    And I enter '20' for the 'markup rate'
+    And I enter '<daily_fee>' for the 'daily fee'
     And I enter a date 0 years and 5 months into the future for the 'hire' date
     And I click on 'Continue'
     Then I should see the following error messages:
       | <error_message> |
 
     Examples:
-      | day_rate  | error_message                                             |
-      |           | Enter the number of pounds charged per day                |
-      | -1        | The number of pounds charged per day must be more than 0  |
-      | so fern   | The number of pounds charged per day must be a number     |
-
-  Scenario Outline: Mark up rate validation
-    Given I enter 'today' for the 'contract start' date
-    And I enter '5' for the 'days per week'
-    And I enter '150' for the 'day rate'
-    And I enter '<mark_up_rate>' for the 'markup rate'
-    And I enter a date 0 years and 5 months into the future for the 'hire' date
-    And I click on 'Continue'
-    Then I should see the following error messages:
-      | <error_message> |
-
-    Examples:
-      | mark_up_rate  | error_message                                     |
-      |               | Enter a mark-up percentage                        |
-      | -1            | The mark-up percentage must be between 0 and 100  |
-      | 101           | The mark-up percentage must be between 0 and 100  |
-      | mio           | The mark-up percentage must be a number           |
+      | daily_fee | error_message                                                                                                 |
+      |           | Enter the number of pounds charged per day                                                                    |
+      | -1        | The number of pounds charged per day must be more than 0                                                      |
+      | so fern   | The number of pounds charged per day must be a number                                                         |
+      | .50       | The number of pounds charged per day must be in the format of a currency with no more than two decimal places |
+      | 20.543    | The number of pounds charged per day must be in the format of a currency with no more than two decimal places |
 
   Scenario Outline: Hire date date validation
     Given I enter 'today' for the 'contract start' date
     And I enter '5' for the 'days per week'
-    And I enter '150' for the 'day rate'
-    And I enter '20' for the 'markup rate'
+    And I enter '25' for the 'daily fee'
     And I enter '<date>' for the 'hire' date
     And I click on 'Continue'
     Then I should see the following error messages:
@@ -96,8 +77,7 @@ Feature: Supply Teachers - Temp to perm - Validations
   Scenario Outline: Holiday 1 start date validation
     Given I enter 'yesterday' for the 'contract start' date
     And I enter '5' for the 'days per week'
-    And I enter '150' for the 'day rate'
-    And I enter '20' for the 'markup rate'
+    And I enter '25' for the 'daily fee'
     And I enter a date 0 years and 5 months into the future for the 'hire' date
     Given I enter '<date>' for the 'holiday 1 start' date
     And I enter a date 0 years and 3 months into the future for the 'holiday 1 end' date
@@ -115,8 +95,7 @@ Feature: Supply Teachers - Temp to perm - Validations
   Scenario Outline: Holiday 1 end date validation
     Given I enter 'yesterday' for the 'contract start' date
     And I enter '5' for the 'days per week'
-    And I enter '150' for the 'day rate'
-    And I enter '20' for the 'markup rate'
+    And I enter '25' for the 'daily fee'
     And I enter a date 0 years and 5 months into the future for the 'hire' date
     Given I enter 'today' for the 'holiday 1 start' date
     Given I enter '<date>' for the 'holiday 1 end' date
@@ -135,8 +114,7 @@ Feature: Supply Teachers - Temp to perm - Validations
   Scenario Outline: Holiday 2 start date validation
     Given I enter 'yesterday' for the 'contract start' date
     And I enter '5' for the 'days per week'
-    And I enter '150' for the 'day rate'
-    And I enter '20' for the 'markup rate'
+    And I enter '25' for the 'daily fee'
     And I enter a date 0 years and 5 months into the future for the 'hire' date
     Given I enter '<date>' for the 'holiday 2 start' date
     And I enter a date 0 years and 3 months into the future for the 'holiday 2 end' date
@@ -154,8 +132,7 @@ Feature: Supply Teachers - Temp to perm - Validations
   Scenario Outline: Holiday 2 end date validation
     Given I enter 'yesterday' for the 'contract start' date
     And I enter '5' for the 'days per week'
-    And I enter '150' for the 'day rate'
-    And I enter '20' for the 'markup rate'
+    And I enter '25' for the 'daily fee'
     And I enter a date 0 years and 5 months into the future for the 'hire' date
     Given I enter 'today' for the 'holiday 2 start' date
     Given I enter '<date>' for the 'holiday 2 end' date
@@ -174,8 +151,7 @@ Feature: Supply Teachers - Temp to perm - Validations
   Scenario Outline: Notice date format validation
     Given I enter 'yesterday' for the 'contract start' date
     And I enter '5' for the 'days per week'
-    And I enter '150' for the 'day rate'
-    And I enter '20' for the 'markup rate'
+    And I enter '25' for the 'daily fee'
     And I enter a date 0 years and 5 months into the future for the 'hire' date
     Given I enter '<date>' for the 'notice' date
     And I click on 'Continue'
@@ -191,8 +167,7 @@ Feature: Supply Teachers - Temp to perm - Validations
   Scenario Outline: Notice date reletive to other dates validation
     And I enter a date 0 years and 2 months into the future for the 'contract start' date
     And I enter '5' for the 'days per week'
-    And I enter '150' for the 'day rate'
-    And I enter '20' for the 'markup rate'
+    And I enter '25' for the 'daily fee'
     And I enter a date 0 years and 5 months into the future for the 'hire' date
     And I enter a date 0 years and <months> months into the future for the 'notice' date
     And I click on 'Continue'

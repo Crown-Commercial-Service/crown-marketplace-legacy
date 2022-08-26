@@ -4,7 +4,6 @@ module SupplyTeachers::TempToPermCalculator
     WORKING_DAYS_AFTER_WHICH_LATE_NOTICE_FEE_CAN_BE_CHARGED = 40
     WORKING_DAYS_NOTICE_PERIOD_REQUIRED_TO_AVOID_LATE_NOTICE_FEE = 20
     MAXIMUM_NUMBER_OF_WORKING_DAYS_PER_WEEK = 5
-    DATE_NATIONAL_DEAL_BEGAN = Date.parse('23 Aug 2018')
 
     attr_reader :day_rate, :days_per_week, :contract_start_date, :hire_date, :markup_rate, :notice_date
 
@@ -14,6 +13,7 @@ module SupplyTeachers::TempToPermCalculator
       contract_start_date:,
       hire_date:,
       markup_rate:,
+      daily_fee:,
       notice_date: nil,
       holiday_1_start_date: nil,
       holiday_1_end_date: nil,
@@ -29,6 +29,7 @@ module SupplyTeachers::TempToPermCalculator
       @contract_start_date = contract_start_date
       @hire_date = hire_date
       @markup_rate = markup_rate
+      @daily_fee = daily_fee
       @notice_date = notice_date
       @working_days = WorkingDays.new(holiday_1_start_date, holiday_1_end_date, holiday_2_start_date, holiday_2_end_date)
     end
@@ -101,10 +102,6 @@ module SupplyTeachers::TempToPermCalculator
       @working_days.between(notice_date_based_on_hire_date, @notice_date)
     end
 
-    def daily_supplier_fee
-      @day_rate - (@day_rate / (1 + @markup_rate))
-    end
-
     def pro_rata_daily_supplier_fee
       daily_supplier_fee * (@days_per_week / MAXIMUM_NUMBER_OF_WORKING_DAYS_PER_WEEK.to_f)
     end
@@ -122,7 +119,7 @@ module SupplyTeachers::TempToPermCalculator
     end
 
     def before_national_deal_began?
-      contract_start_date < DATE_NATIONAL_DEAL_BEGAN
+      contract_start_date < self.class::DATE_NATIONAL_DEAL_BEGAN
     end
 
     def notice_date_based_on_hire_date

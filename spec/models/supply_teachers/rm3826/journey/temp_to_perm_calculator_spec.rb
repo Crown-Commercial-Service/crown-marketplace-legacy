@@ -888,8 +888,6 @@ RSpec.describe SupplyTeachers::RM3826::Journey::TempToPermCalculator, type: :mod
         :contract_start_date_month,
         :contract_start_date_year,
         :days_per_week,
-        :day_rate,
-        :markup_rate,
         :hire_date_day,
         :hire_date_month,
         :hire_date_year,
@@ -908,6 +906,8 @@ RSpec.describe SupplyTeachers::RM3826::Journey::TempToPermCalculator, type: :mod
         :notice_date_day,
         :notice_date_month,
         :notice_date_year,
+        :day_rate,
+        :markup_rate,
         {}
       ]
     end
@@ -920,8 +920,6 @@ RSpec.describe SupplyTeachers::RM3826::Journey::TempToPermCalculator, type: :mod
         contract_start_date_month
         contract_start_date_year
         days_per_week
-        day_rate
-        markup_rate
         hire_date_day
         hire_date_month
         hire_date_year
@@ -940,6 +938,8 @@ RSpec.describe SupplyTeachers::RM3826::Journey::TempToPermCalculator, type: :mod
         notice_date_day
         notice_date_month
         notice_date_year
+        day_rate
+        markup_rate
       ]
     end
   end
