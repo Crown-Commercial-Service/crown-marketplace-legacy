@@ -3,7 +3,7 @@ Feature: Supply Teachers - Education technology platforms
 
   Scenario: Education technology platform results
     Given I sign in and navigate to the start page for the 'RM6238' framework in 'supply teachers'
-    And I select 'Education technology platform service'
+    And I select 'A supplier that will provide a digital platform to create a pool of workers'
     And I click on 'Continue'
     Then I am on the 'Education technology platform service providers' page
     And there are 4 managed service provider agencies

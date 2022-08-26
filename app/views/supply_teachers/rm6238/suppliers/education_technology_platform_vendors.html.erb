@@ -7,11 +7,7 @@
       <%= t('.header') %>
     </h1>
 
-    <%= govuk_details(t('.do_next.header'), classes: 'govuk-!-margin-bottom-5') do %>
-      <p>
-        <%= t('.do_next.what_to_do') %>
-      </p>
-    <% end %>
+    <%= render partial: 'what_to_do_next' %>
 
     <p class="govuk-body"><%= number_to_human(@suppliers.count, units: :suppliers) %></p>
     <%= render partial: 'education_technology_platform_vendor', collection: @suppliers %>
