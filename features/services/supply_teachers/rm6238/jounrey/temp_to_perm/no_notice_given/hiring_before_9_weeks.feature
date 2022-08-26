@@ -7,8 +7,7 @@ Feature: Supply Teachers - Temp to perm - No notice given - hiring before 9 week
     Then I am on the 'Find out how much you’ll be charged if you make an agency worker permanent' page
     Given I enter '3/4/2021' for the 'contract start' date
     And I enter '5' for the 'days per week'
-    And I enter '150' for the 'day rate'
-    And I enter '20' for the 'markup rate'
+    And I enter '25' for the 'daily fee'
     Given I enter '31/05/2021' for the 'hire' date
 
   @pipeline
@@ -42,35 +41,16 @@ Feature: Supply Teachers - Temp to perm - No notice given - hiring before 9 week
       | 5             | £550.00 |
 
   @pipeline
-  Scenario Outline: Changing the day rate changes the result
-    And I enter '<day_rate>' for the 'day rate'
+  Scenario Outline: Changing the daily fee changes the result
+    And I enter '<daily_fee>' for the 'daily fee'
     And I click on 'Continue'
     Then I am on the 'Temp-to-perm fee' page
     And my temp to perm fee is '<fee>'
 
     Examples:
-      | day_rate  | fee         |
-      | 50        | £183.33     |
-      | 123       | £451.00     |
-      | 150       | £550.00     |
-      | 235       | £861.67     |
-      | 4321      | £15,843.67  |
-
-  Scenario Outline: Changing the markup rate changes the result
-    And I enter '<markup_rate>' for the 'markup rate'
-    And I click on 'Continue'
-    Then I am on the 'Temp-to-perm fee' page
-    And my temp to perm fee is '<fee>'
-
-    Examples:
-      | markup_rate | fee       |
-      | 12.5        | £366.67   |
-      | 20          | £550.00   |
-      | 47.99       | £1,070.12 |
-      | 100         | £1,650.00 |
-
-  Scenario: When the markup rate is 0%, the result is £0
-    And I enter '0' for the 'markup rate'
-    And I click on 'Continue'
-    Then I am on the 'Temp-to-perm fee' page
-    And my temp to perm fee is '£0'
+      | daily_fee | fee         |
+      | 25        | £550.00     |
+      | 30        | £660.00     |
+      | 35        | £770.00     |
+      | 35.50     | £781.00     |
+      | 261.99    | £5,763.78   |

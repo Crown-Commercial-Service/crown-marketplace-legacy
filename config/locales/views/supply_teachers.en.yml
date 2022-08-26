@@ -192,11 +192,11 @@ en:
             contract_start_date:
               blank: Enter the contract start date, including the day, month and year
               invalid: Enter a real date
-            day_rate:
+            daily_fee:
               blank: Enter the number of pounds charged per day
               greater_than: The number of pounds charged per day must be more than 0
+              invalid: The number of pounds charged per day must be in the format of a currency with no more than two decimal places
               not_a_number: The number of pounds charged per day must be a number
-              not_an_integer: The number of pounds charged per day must be a whole number
             days_per_week:
               blank: Enter the number of days worked per week
               greater_than: The number of days worked per week must be between 0 and 5
@@ -220,11 +220,6 @@ en:
             holiday_2_start_date:
               blank: Enter the date the second school holiday started, including the day, month and year
               invalid: Enter a real date
-            markup_rate:
-              blank: Enter a mark-up percentage
-              greater_than_or_equal_to: The mark-up percentage must be between 0 and 100
-              less_than_or_equal_to: The mark-up percentage must be between 0 and 100
-              not_a_number: The mark-up percentage must be a number
             notice_date:
               after_hire_date: The date you notified the agency that you wish to hire the worker must be before the date you want to take the worker on permanently
               before_contract_start_date: The date you notified the agency that you wish to hire the worker must be after the date the worker’s current contract started
@@ -491,6 +486,7 @@ en:
         calculation: Calculation
         calculations:
           daily_supplier_fee: 'Agency’s daily fee for the worker: %{fee} (based on the %{markup_rate} mark-up of the %{day_rate} daily cost for the worker)'
+          daily_supplier_fee_no_markup: 'Agency’s daily fee for the worker: %{fee}'
           daily_supplier_fee_pro_rata: 'Pro rata supplier daily fee for the worker: %{fee} (based on the worker working %{days_per_week} days per week)'
           early_hire_chargeable_days:
             one: 'Difference: 1 working day'
@@ -585,6 +581,8 @@ en:
       temp_to_perm_calculator:
         contract_start_question: When did the worker’s current contract start?
         contract_start_question_hint: For example, 31 3 1980
+        daily_fee_question: What fee does the agency charge you per day for the worker?
+        daily_fee_question_hint: An amount in pounds. For example, 20
         day_rate_question: What does the agency charge you per day for the worker?
         day_rate_question_hint: An amount in pounds. For example, 150
         days_per_week_question: How many days per week is the worker contracted for?
