@@ -15,7 +15,7 @@ Feature: Supply Teachers - Agency results - Fixed term - Daily rate
     And I enter 'tomorrow' for the date
     And I click on 'Continue'
     Then I am on the 'What date do you want the employee to stop working?' page
-    And I enter a date 0 years and 3 months into the future
+    And I enter a date 2 and a half months into the future
     And I click on 'Continue'
     Then I am on the "What would the employee's annual salary be?" page
     And I enter '28000' for the 'salary'
