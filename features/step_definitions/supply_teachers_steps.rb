@@ -16,6 +16,12 @@ Then('I enter a date {int} years and {int} months into the future') do |years, m
   add_dates(:date_field, *date.strftime('%d/%m/%Y').split('/'))
 end
 
+Then('I enter a date {int} and a half months into the future') do |months|
+  date = Time.zone.today + months.months + 20.days
+
+  add_dates(:date_field, *date.strftime('%d/%m/%Y').split('/'))
+end
+
 Then('I enter a date {int} years and {int} months into the past') do |years, months|
   date = Time.zone.today - years.years - months.months
 
