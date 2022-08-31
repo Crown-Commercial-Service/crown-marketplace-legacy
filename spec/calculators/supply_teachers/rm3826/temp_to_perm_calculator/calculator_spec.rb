@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe SupplyTeachers::TempToPermCalculator::Calculator do
+RSpec.describe SupplyTeachers::RM3826::TempToPermCalculator::Calculator, type: :calculator do
   subject(:calculator) do
     described_class.new(
       contract_start_date: contract_start_date,
@@ -16,7 +16,9 @@ RSpec.describe SupplyTeachers::TempToPermCalculator::Calculator do
     )
   end
 
-  include_context 'with friendly dates'
+  include_context 'with friendly dates RM3826'
+
+  stub_bank_holiday_json
 
   let(:contract_start_date) { start_of_1st_week }
   let(:day_rate) { 110 }

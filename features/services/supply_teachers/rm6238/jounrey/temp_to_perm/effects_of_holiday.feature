@@ -7,8 +7,7 @@ Feature: Supply Teachers - Temp to perm - Effects of holiday
     Then I am on the 'Find out how much you’ll be charged if you make an agency worker permanent' page
     Given I enter '3/02/2021' for the 'contract start' date
     And I enter '5' for the 'days per week'
-    And I enter '150' for the 'day rate'
-    And I enter '20' for the 'markup rate'
+    And I enter '25' for the 'daily fee'
     Given I enter '29/03/2021' for the 'hire' date
 
   @pipeline

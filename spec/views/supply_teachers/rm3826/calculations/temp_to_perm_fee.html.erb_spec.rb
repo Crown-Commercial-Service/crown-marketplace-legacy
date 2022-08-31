@@ -1,7 +1,11 @@
 require 'rails_helper'
 
-RSpec.describe 'supply_teachers/calculations/temp_to_perm_fee.html.erb' do
-  include_context 'with friendly dates'
+RSpec.describe 'supply_teachers/calculations/temp_to_perm_fee.html.erb', type: :view do
+  extend APIRequestStubs
+
+  stub_bank_holiday_json
+
+  include_context 'with friendly dates RM3826'
 
   let(:contract_start_date) { start_of_1st_week }
   let(:hire_date) { nil }
@@ -21,11 +25,12 @@ RSpec.describe 'supply_teachers/calculations/temp_to_perm_fee.html.erb' do
       markup_rate: markup_rate,
       notice_date: notice_date
     }
-    SupplyTeachers::TempToPermCalculator::Calculator.new(options)
+    SupplyTeachers::RM3826::TempToPermCalculator::Calculator.new(options)
   end
 
   before do
     assign(:calculator, calculator)
+    view.params[:framework] = 'RM3826'
   end
 
   describe 'national deal explanation' do
