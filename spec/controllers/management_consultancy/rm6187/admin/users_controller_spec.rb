@@ -6,8 +6,6 @@ RSpec.describe ManagementConsultancy::RM6187::Admin::UsersController, type: :con
   describe 'GET challenge_new' do
     let(:user) { create(:user, cognito_uuid: SecureRandom.uuid, phone_number: Faker::PhoneNumber.cell_phone) }
 
-    render_views
-
     before do
       cookies[:crown_marketplace_challenge_username] = user.cognito_uuid
       get :challenge_new, params: { challenge_name: challenge_name }
