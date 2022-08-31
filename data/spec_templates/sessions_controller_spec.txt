@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe LegalServices::RM3788::SessionsController, type: :controller do
-  let(:default_params) { { service: 'legal_services', framework: 'RM3788' } }
+RSpec.describe <module_service_name>::SessionsController, type: :controller do
+  let(:default_params) { { service: '<service_param_name>', framework: '<FRAMEWORK>' } }
 
   before { request.env['devise.mapping'] = Devise.mappings[:user] }
 
@@ -46,8 +46,8 @@ RSpec.describe LegalServices::RM3788::SessionsController, type: :controller do
       context 'when the password needs to be reset' do
         let(:exception) { Aws::CognitoIdentityProvider::Errors::PasswordResetRequiredException.new('oops', 'Oops') }
 
-        it 'redirects to legal_services_rm3788_edit_user_password_path' do
-          expect(response).to redirect_to legal_services_rm3788_edit_user_password_path
+        it 'redirects to <service_name>_<framework><admin>_edit_user_password_path' do
+          expect(response).to redirect_to <service_name>_<framework><admin>_edit_user_password_path
         end
 
         it 'sets the crown_marketplace_reset_email cookie' do
@@ -58,8 +58,8 @@ RSpec.describe LegalServices::RM3788::SessionsController, type: :controller do
       context 'when the user needs confirmation' do
         let(:exception) { Aws::CognitoIdentityProvider::Errors::UserNotConfirmedException.new('oops', 'Oops') }
 
-        it 'redirects to legal_services_rm3788_edit_user_password_path' do
-          expect(response).to redirect_to legal_services_rm3788_users_confirm_path
+        it 'redirects to <service_name>_<framework><admin>_edit_user_password_path' do
+          expect(response).to redirect_to <service_name>_<framework><admin>_users_confirm_path
         end
 
         it 'sets the crown_marketplace_confirmation_email cookie' do
@@ -73,8 +73,8 @@ RSpec.describe LegalServices::RM3788::SessionsController, type: :controller do
       let(:session) { 'I_AM_THE_SESSION' }
       let(:cognito_groups) do
         OpenStruct.new(groups: [
-                         OpenStruct.new(group_name: 'buyer'),
-                         OpenStruct.new(group_name: 'ls_access')
+                         OpenStruct.new(group_name: '<role>'),
+                         OpenStruct.new(group_name: '<service_code>_access')
                        ])
       end
 
@@ -90,16 +90,16 @@ RSpec.describe LegalServices::RM3788::SessionsController, type: :controller do
       context 'and there is no challenge' do
         let(:challenge_name) { nil }
 
-        it 'redirects to legal_services_journey_start_path' do
-          expect(response).to redirect_to legal_services_journey_start_path
+        it 'redirects to <start_path>' do
+          expect(response).to redirect_to <start_path>
         end
       end
 
       context 'and there is a challenge' do
         let(:challenge_name) { 'NEW_PASSWORD_REQUIRED' }
 
-        it 'redirects to legal_services_rm3788_users_challenge_path' do
-          expect(response).to redirect_to legal_services_rm3788_users_challenge_path(challenge_name: challenge_name)
+        it 'redirects to <service_name>_<framework><admin>_users_challenge_path' do
+          expect(response).to redirect_to <service_name>_<framework><admin>_users_challenge_path(challenge_name: challenge_name)
         end
 
         it 'the cookies are updated correctly' do
@@ -111,7 +111,7 @@ RSpec.describe LegalServices::RM3788::SessionsController, type: :controller do
   end
 
   describe 'DELETE destroy' do
-    login_ls_buyer
+    login_<service_code>_<role_type>
 
     it 'signs the user out' do
       expect(controller.current_user).not_to be nil

@@ -6,11 +6,9 @@ RSpec.describe LegalServices::RM3788::Admin::SessionsController, type: :controll
   before { request.env['devise.mapping'] = Devise.mappings[:user] }
 
   describe 'GET new' do
-    before { get :new }
-
-    render_views
-
     it 'renders the new page' do
+      get :new
+
       expect(response).to render_template(:new)
     end
   end
@@ -23,6 +21,9 @@ RSpec.describe LegalServices::RM3788::Admin::SessionsController, type: :controll
     before do
       cookies['test_marketplace_session'] = 'I AM THE SESSION COOKIE'
       allow(Aws::CognitoIdentityProvider::Client).to receive(:new).and_return(aws_client)
+      # rubocop:disable RSpec/AnyInstance
+      allow_any_instance_of(Cognito::SignInUser).to receive(:sleep)
+      # rubocop:enable RSpec/AnyInstance
     end
 
     context 'when the log in attempt is unsuccessful' do
@@ -51,6 +52,18 @@ RSpec.describe LegalServices::RM3788::Admin::SessionsController, type: :controll
 
         it 'sets the crown_marketplace_reset_email cookie' do
           expect(cookies[:crown_marketplace_reset_email]).to eq email
+        end
+      end
+
+      context 'when the user needs confirmation' do
+        let(:exception) { Aws::CognitoIdentityProvider::Errors::UserNotConfirmedException.new('oops', 'Oops') }
+
+        it 'redirects to legal_services_rm3788_admin_edit_user_password_path' do
+          expect(response).to redirect_to legal_services_rm3788_admin_users_confirm_path
+        end
+
+        it 'sets the crown_marketplace_confirmation_email cookie' do
+          expect(cookies[:crown_marketplace_confirmation_email]).to eq email
         end
       end
     end
