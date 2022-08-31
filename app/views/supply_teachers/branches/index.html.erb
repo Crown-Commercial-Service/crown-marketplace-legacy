@@ -69,7 +69,7 @@
                 </li>
                 <li>
                   <%=
-                    t('.do_next.sign_form_html',
+                    t(".do_next.#{params[:framework].downcase}.sign_form_html",
                       form_url: link_to(t('.do_next.short_order_form'), "https://assets.crowncommercial.gov.uk/wp-content/uploads/#{params[:framework]}-Order-form-template-short-form-V1.docx", class: 'govuk-link'),
                       framework_url: link_to(t('.do_next.ccs_framework'), "https://ccs-agreements.cabinetoffice.gov.uk/contracts/#{params[:framework].downcase}", class: 'govuk-link')
                     )
@@ -77,7 +77,7 @@
                 </li>
               </ul>
               <p class="govuk-body">
-                <%= t('.do_next.sign_once') %>
+                <%= t(".do_next.#{params[:framework].downcase}.sign_once") %>
               </p>
               <p class="govuk-body">
                 <%= t('.do_next.different_supplier') %>

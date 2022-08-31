@@ -419,9 +419,13 @@ en:
           contact_supplier: contact the agency of your choice from the list below to find a suitable, available worker and their daily rate
           different_supplier: If you use a different agency later on, you will need to sign another short order form.
           header: What to do next
+          rm3826:
+            sign_form_html: sign the %{form_url} (also available in the documents section of the %{framework_url} as ‘RM3826 Supply Teachers - Order Form Template (Short Form).docx’)
+            sign_once: You only need to sign the form once to use this agency for the duration of the framework (which runs until 29 August 2022).
+          rm6238:
+            sign_form_html: sign the short order form (also available in the documents section of the %{framework_url} as ‘RM6238 Short order form.docx’)
+            sign_once: You only need to sign the form once to use this agency for the duration of the framework (which runs until 4 July 2025).
           short_order_form: short order form
-          sign_form_html: sign the %{form_url} (also available in the documents section of the %{framework_url} as ‘RM3826 Supply Teachers - Order Form Template (Short Form).docx’)
-          sign_once: You only need to sign the form once to use this agency for the duration of the framework (which runs until 29 August 2022).
         download: Download shortlist of agencies
         download_aria_label: Download shortlist as Microsoft Excel file
         download_with_calculator: Download shortlist (with markup calculator)
@@ -689,10 +693,11 @@ en:
             create_a_shortlist: create a shortlist of agencies based on your needs and download it
             find_a_managed_service_provider: find a managed service provider, who can take on all your temporary staff needs
             find_and_hire_a_worker: find and hire a worker using an agency
+            find_education_tech_platforms: find a supplier that will provide a digital platform to create a pool of workers
             hire_a_specific_person: hire a specific person using an agency (a ‘nominated worker’)
             title: 'Use this service to:'
             view_all_suppliers: view a list of all the agencies
-            view_the_rates: view the rates and breakdown of rates the agencies charge
+            view_the_rates: view the rates agencies charge
           you_cant_use_the_service_if: You can’t use this service if you’re an independent school, unless you have charitable status.
           you_must_tell_your_employees: You must tell your employees of the confidential nature of the information and must also agree to the requirements. No agents, sub-contractors, third parties nor other non-employees can have access to the confidential information.
           you_will_need_to_have: 'You will need to have:'
@@ -704,8 +709,8 @@ en:
             all_suppliers: A list of all agencies
             calculate_fta_to_perm_fee: To work out what fixed-term worker transfer fee I could be charged
             calculate_temp_to_perm_fee: To calculate the fee my school will be charged if I make an agency worker permanent
-            education_technology_platform: Education technology platform service
-            master_vendor: An agency to manage all my school's needs; a 'managed service provider - Master Vendor'
+            education_technology_platform: A supplier that will provide a digital platform to create a pool of workers
+            master_vendor: An agency to manage all my school's needs; a 'managed service provider'
             worker: An agency who can provide my school with an individual worker
           page_title: What is your school looking for?
           question: What is your school looking for?
@@ -725,7 +730,7 @@ en:
             below_threshold: 'No'
           page_title: Is your contract likely to be worth more than £2.5 million?
           question: Is your contract likely to be worth more than £2.5 million?
-          question_hint: DESCRIPTION TO EXPLAIN OPTIONS
+          question_hint: If the total value over the lifetime of the contract is likely to exceed £2.5m, or you require a Gold Standard contract, please select Yes.
       page_section: Find supply teachers and agency staff
       shared:
         rates_table:
@@ -739,23 +744,22 @@ en:
           column1: Job type
           column2: Supplier fee
         education_technology_platform_vendors:
-          do_next:
-            header: What to do next
-            what_to_do: WHAT TO DO NEXT
           header: Education technology platform service providers
           page_title: Education technology platform service providers
         master_vendors:
-          do_next:
-            competition_online_html: you can also do this online, <a href="%{esourcing_url}" class="govuk-link--no-visited-state">using CCS’s esourcing tool</a>
-            further_competition_html: run a further competition to select an agency - there is <a href="%{advice_url}" class="govuk-link--no-visited-state">advice from CCS</a> on how to do this -
-            header: What to do next
-            more_help: Contact supplyteachers@crowncommercial.gov.uk if you need more help running a further competition.
-            sign_form_html: select an agency and <a href="%{form_url}" class="govuk-link--no-visited-state">sign the full version order form</a> listed in the documents section of the <a href="%{framework_url}" class="govuk-link--no-visited-state">CCS framework</a> as ‘RM6238 Order form template full version v1.docx’
           header: Master vendor managed service providers
           page_title: Master vendor managed service providers
           threshold_position:
             above_threshold: Contract worth more than £2.5 million
             below_threshold: Contract worth less than £2.5 million
+        what_to_do_next:
+          do_next:
+            ccs_framework: CCS framework
+            further_competition: run a further competition to select an agency
+            header: What to do next
+            more_help_html: Contact %{supply_teachers_email} if you need more help running a further competition.
+            select_an_agency_html: select an agency and sign the full version order form listed in the documents section of the %{ccs_website_link} as ‘RM6238 Order form template full version v1.docx’
+            supply_teachers_email: supplyteachers@crowncommercial.gov.uk
     suppliers:
       agencies_table:
         agency: Agency
