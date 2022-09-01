@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe LegalServices::RM3788::RegistrationsController, type: :controller do
-  let(:default_params) { { service: 'legal_services', framework: 'RM3788' } }
+RSpec.describe <module_service_name>::RegistrationsController, type: :controller do
+  let(:default_params) { { service: '<service_param_name>', framework: '<FRAMEWORK>' } }
 
   before { request.env['devise.mapping'] = Devise.mappings[:user] }
 
@@ -14,8 +14,8 @@ RSpec.describe LegalServices::RM3788::RegistrationsController, type: :controller
       expect(response).to render_template(:new)
     end
 
-    it 'gives the user the buyer and ls_access roles' do
-      expect(assigns(:result).roles).to eq(%i[buyer ls_access])
+    it 'gives the user the buyer and <service_code>_access roles' do
+      expect(assigns(:result).roles).to eq(%i[buyer <service_code>_access])
     end
   end
 
@@ -38,8 +38,8 @@ RSpec.describe LegalServices::RM3788::RegistrationsController, type: :controller
       context 'when the emaildomain is not on the allow list' do
         let(:email) { 'test@fake-testemail.com' }
 
-        it 'redirects to legal_services_rm3788_domain_not_on_safelist_path' do
-          expect(response).to redirect_to legal_services_rm3788_domain_not_on_safelist_path
+        it 'redirects to <service_name>_<framework>_domain_not_on_safelist_path' do
+          expect(response).to redirect_to <service_name>_<framework>_domain_not_on_safelist_path
         end
       end
 
@@ -52,8 +52,8 @@ RSpec.describe LegalServices::RM3788::RegistrationsController, type: :controller
       end
 
       context 'when all the information is valid' do
-        it 'redirects to legal_services_rm3788_users_confirm_path' do
-          expect(response).to redirect_to legal_services_rm3788_users_confirm_path
+        it 'redirects to <service_name>_<framework>_users_confirm_path' do
+          expect(response).to redirect_to <service_name>_<framework>_users_confirm_path
         end
 
         it 'sets the crown_marketplace_confirmation_email cookie' do
@@ -76,8 +76,8 @@ RSpec.describe LegalServices::RM3788::RegistrationsController, type: :controller
       context 'and the error is UsernameExistsException' do
         let(:error) { Aws::CognitoIdentityProvider::Errors::UsernameExistsException }
 
-        it 'redirects to legal_services_rm3788_users_confirm_path' do
-          expect(response).to redirect_to legal_services_rm3788_users_confirm_path
+        it 'redirects to <service_name>_<framework>_users_confirm_path' do
+          expect(response).to redirect_to <service_name>_<framework>_users_confirm_path
         end
 
         it 'sets the crown_marketplace_confirmation_email cookie' do

@@ -6,11 +6,9 @@ RSpec.describe LegalServices::RM6240::SessionsController, type: :controller do
   before { request.env['devise.mapping'] = Devise.mappings[:user] }
 
   describe 'GET new' do
-    before { get :new }
-
-    render_views
-
     it 'renders the new page' do
+      get :new
+
       expect(response).to render_template(:new)
     end
   end
@@ -23,6 +21,9 @@ RSpec.describe LegalServices::RM6240::SessionsController, type: :controller do
     before do
       cookies['test_marketplace_session'] = 'I AM THE SESSION COOKIE'
       allow(Aws::CognitoIdentityProvider::Client).to receive(:new).and_return(aws_client)
+      # rubocop:disable RSpec/AnyInstance
+      allow_any_instance_of(Cognito::SignInUser).to receive(:sleep)
+      # rubocop:enable RSpec/AnyInstance
     end
 
     context 'when the log in attempt is unsuccessful' do
