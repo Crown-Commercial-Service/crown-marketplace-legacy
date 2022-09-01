@@ -4,6 +4,6 @@
 "senior","Senior Roles: Headteacher and Senior Leadership positions","true","true"
 "other","Other Roles: (Invigilators, Admin & Clerical, IT Staff, Finance Staff, Cleaners etc.)","true","true"
 "over_12_week","Over 12 Week Reduction","false","true"
-"nominated","A specific person","false","false"
-"fixed_term","Employed directly","false","false"
+"nominated","Nominated Worker","false","false"
+"fixed_term","Fixed Term","false","false"
 "agency_management","Agency Management","false","true"
