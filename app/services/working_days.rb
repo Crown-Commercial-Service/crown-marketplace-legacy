@@ -28,7 +28,7 @@ class WorkingDays
   end
 
   def working_day?(date)
-    date.on_weekday? && Holidays.on(date, :gb_eng).empty? && !@school_holidays.include?(date)
+    date.on_weekday? && england_and_wales_bank_holiday?(date) && !@school_holidays.include?(date)
   end
 
   def generate_school_holidays(holiday_1_start_date, holiday_1_end_date, holiday_2_start_date, holiday_2_end_date)
@@ -36,5 +36,17 @@ class WorkingDays
     @school_holidays += (holiday_1_start_date..holiday_1_end_date).to_a if holiday_1_start_date && holiday_1_end_date
     @school_holidays += (holiday_2_start_date..holiday_2_end_date).to_a if holiday_2_start_date && holiday_2_end_date
     @school_holidays
+  end
+
+  def england_and_wales_bank_holiday?(date)
+    england_and_wales_bank_holidays.exclude? date
+  end
+
+  def england_and_wales_bank_holidays
+    @england_and_wales_bank_holidays ||= bank_holiday_json['england-and-wales']['events'].map { |date| DateTime.parse(date['date']).in_time_zone('London') }
+  end
+
+  def bank_holiday_json
+    JSON.parse(Net::HTTP.get(URI('https://www.gov.uk/bank-holidays.json')))
   end
 end

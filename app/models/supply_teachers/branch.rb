@@ -8,6 +8,29 @@ module SupplyTeachers
     validates :contact_name, presence: true
     validates :contact_email, presence: true
 
+    def self.distinct_suppliers_count
+      framework = name[16..21]
+
+      select("supply_teachers_#{framework}_supplier_id")
+        .distinct
+        .count
+    end
+
+    def self.distinct_suppliers(agency_params)
+      framework = name[16..21]
+
+      select("supply_teachers_#{framework}_supplier_id")
+        .distinct
+        .joins(:supplier)
+        .select(
+          "supply_teachers_#{framework}_suppliers.name",
+          "lower(supply_teachers_#{framework}_suppliers.name)"
+        )
+        .order("lower(supply_teachers_#{framework}_suppliers.name)")
+        .where(["lower(supply_teachers_#{framework}_suppliers.name) LIKE ?", "%#{agency_params[:agency_name]&.downcase}%"])
+        .page(agency_params[:page])
+    end
+
     def self.near(point, within_metres:)
       where(
         [

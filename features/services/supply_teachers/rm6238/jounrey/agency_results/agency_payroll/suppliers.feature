@@ -57,7 +57,7 @@ Feature: Supply Teachers - Agency results - Agency payroll - Agencies
     And I click on 'Continue'
     Then I am on the 'Agency results' page
     And there are 5 agencies
-    And the listed agencies for 'agency results' are:
+    And the listed agencies for agency results are:
       | BARTOLETTI, KOEPP AND NIENOW  | Southport |
       | STANTON, FADEL AND BOSCO      | Liverpool |
       | KERLUKE, TORP AND HEATHCOTE   | Liverpool |

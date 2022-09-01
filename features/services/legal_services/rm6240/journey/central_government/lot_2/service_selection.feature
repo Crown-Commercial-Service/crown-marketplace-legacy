@@ -18,10 +18,21 @@ Feature: Legal services - Central governemnt - Lot 2 - Service selection
   @pipeline
   Scenario: The correct options are available
     Then I should see the following options for the lot:
-      | Education Law             |
-      | Employment                |
-      | Planning and Environment  |
-      | Social Housing            |
+      | Child Law                       |
+      | Court of Protection             |
+      | Debt Recovery                   |
+      | Education Law                   |
+      | Employment                      |
+      | Healthcare                      |
+      | Intellectual Property           |
+      | Licensing                       |
+      | Litigation / Dispute Resolution |
+      | Mental Health Law               |
+      | Pensions                        |
+      | Planning and Environment        |
+      | Primary Care                    |
+      | Property and Construction       |
+      | Social Housing                  |
 
   Scenario: Service selection appears in basked
     Then the basket should say 'No services selected'

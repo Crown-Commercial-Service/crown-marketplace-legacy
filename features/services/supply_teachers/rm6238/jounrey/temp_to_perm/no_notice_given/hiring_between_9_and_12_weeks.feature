@@ -7,8 +7,7 @@ Feature: Supply Teachers - Temp to perm - No notice given - hiring between 9 and
     Then I am on the 'Find out how much you’ll be charged if you make an agency worker permanent' page
     Given I enter '3/4/2021' for the 'contract start' date
     And I enter '5' for the 'days per week'
-    And I enter '150' for the 'day rate'
-    And I enter '20' for the 'markup rate'
+    And I enter '25' for the 'daily fee'
     Given I enter '19/06/2021' for the 'hire' date
 
   @pipeline
@@ -41,36 +40,16 @@ Feature: Supply Teachers - Temp to perm - No notice given - hiring between 9 and
       | 4             | £160.00 | £400    |
       | 5             | £200.00 | £500    |
 
-  Scenario Outline: Changing the day rate changes the result
-    And I enter '<day_rate>' for the 'day rate'
-    And I click on 'Continue'
-    Then I am on the 'Temp-to-perm fee' page
-    And my temp to perm fee is between '<min_fee>' and '<max_fee>'
-
-    Examples:
-      | day_rate  | min_fee   | max_fee     |
-      | 50        | £66.67    | £166.67     |
-      | 123       | £164.00   | £410.00     |
-      | 150       | £200.00   | £500.00     |
-      | 235       | £313.33   | £783.33     |
-      | 4321      | £5,761.33 | £14,403.33  |
-
   @pipeline
-  Scenario Outline: Changing the markup rate changes the result
-    And I enter '<markup_rate>' for the 'markup rate'
+  Scenario Outline: Changing the daily fee changes the result
+    And I enter '<daily_fee>' for the 'daily fee'
     And I click on 'Continue'
     Then I am on the 'Temp-to-perm fee' page
     And my temp to perm fee is between '<min_fee>' and '<max_fee>'
 
     Examples:
-      | markup_rate | min_fee | max_fee   |
-      | 12.5        | £133.33 | £333.33   |
-      | 20          | £200.00 | £500.00   |
-      | 47.99       | £389.13 | £972.84   |
-      | 100         | £600.00 | £1,500.00 |
-
-  Scenario: When the markup rate is 0%, the result is £0
-    And I enter '0' for the 'markup rate'
-    And I click on 'Continue'
-    Then I am on the 'Temp-to-perm fee' page
-    And my temp to perm fee is '£0'
+      | daily_fee | min_fee | max_fee   |
+      | 12.5      | £100.00 | £250.00   |
+      | 20        | £160.00 | £400.00   |
+      | 47.99     | £383.92 | £959.80   |
+      | 100       | £800.00 | £2,000.00 |

@@ -3,10 +3,7 @@ Feature: Supply Teachers - Education technology platforms
 
   Scenario: Education technology platform results
     Given I sign in and navigate to the start page for the 'RM6238' framework in 'supply teachers'
-    And I select "An agency to manage all my school's needs; a 'managed service provider'"
-    And I click on 'Continue'
-    Then I am on the 'What type of managed service do you want?' page
-    And I select 'Education technology platform service'
+    And I select 'A supplier that will provide a digital platform to create a pool of workers'
     And I click on 'Continue'
     Then I am on the 'Education technology platform service providers' page
     And there are 4 managed service provider agencies
@@ -25,4 +22,4 @@ Feature: Supply Teachers - Education technology platforms
       | A specific person                                                             | £12.66  |
       | Employed directly                                                             | 14.0%   |
     And I click on 'Back'
-    Then I am on the 'What type of managed service do you want?' page
+    Then I am on the 'What is your school looking for?' page

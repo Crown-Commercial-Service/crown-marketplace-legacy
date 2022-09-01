@@ -7,8 +7,7 @@ Feature: Supply Teachers - Temp to perm - Results
     Then I am on the 'Find out how much you’ll be charged if you make an agency worker permanent' page
     Given I enter '3/4/2021' for the 'contract start' date
     And I enter '5' for the 'days per week'
-    And I enter '150' for the 'day rate'
-    And I enter '20' for the 'markup rate'
+    And I enter '25.50' for the 'daily fee'
 
   @pipeline
   Scenario: Hiring after 12 weeks - no notice

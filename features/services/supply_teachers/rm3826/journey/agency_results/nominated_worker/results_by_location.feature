@@ -15,7 +15,7 @@ Feature: Supply Teachers - Agency results - Nominated worker - Results by locati
     And I click on 'Continue'
     Then I am on the 'Agency results' page
     And there are 8 agencies
-    And the listed agencies for 'agency results' are:
+    And the listed agencies for agency results are:
       | BOSCO INC                     | Twickenham  |
       | BEATTY-DICKENS                | London      |
       | VANDERVORT, CRONA AND TRANTOW | Twickenham  |
@@ -32,7 +32,7 @@ Feature: Supply Teachers - Agency results - Nominated worker - Results by locati
     And I click on '1 mile'
     Then I am on the 'Agency results' page
     And there are 2 agencies
-    And the listed agencies for 'agency results' are:
+    And the listed agencies for agency results are:
       | JOHNS, GLEASON AND WHITE      | London      |
       | MOSCISKI-ROHAN                | London      |
     And the choices used to generate the list are:
@@ -43,7 +43,7 @@ Feature: Supply Teachers - Agency results - Nominated worker - Results by locati
     And I click on '5 miles'
     Then I am on the 'Agency results' page
     And there are 2 agencies
-    And the listed agencies for 'agency results' are:
+    And the listed agencies for agency results are:
       | JOHNS, GLEASON AND WHITE      | London      |
       | MOSCISKI-ROHAN                | London      |
     And the choices used to generate the list are:
@@ -54,7 +54,7 @@ Feature: Supply Teachers - Agency results - Nominated worker - Results by locati
     And I click on '10 miles'
     Then I am on the 'Agency results' page
     And there are 8 agencies
-    And the listed agencies for 'agency results' are:
+    And the listed agencies for agency results are:
       | BOSCO INC                     | Twickenham  |
       | BEATTY-DICKENS                | London      |
       | VANDERVORT, CRONA AND TRANTOW | Twickenham  |
@@ -71,7 +71,7 @@ Feature: Supply Teachers - Agency results - Nominated worker - Results by locati
     And I click on '50 miles'
     Then I am on the 'Agency results' page
     And there are 10 agencies
-    And the listed agencies for 'agency results' are:
+    And the listed agencies for agency results are:
       | CREMIN, SCHUSTER AND LUBOWITZ | Southend-on-Sea |
       | BOSCO INC                     | Twickenham      |
       | BEATTY-DICKENS                | London          |
@@ -94,7 +94,7 @@ Feature: Supply Teachers - Agency results - Nominated worker - Results by locati
     And I click on 'Continue'
     Then I am on the 'Agency results' page
     And there are 8 agencies
-    And the listed agencies for 'agency results' are:
+    And the listed agencies for agency results are:
       | CREMIN, SCHUSTER AND LUBOWITZ | Liverpool   |
       | BOSCO INC                     | Liverpool   |
       | BEATTY-DICKENS                | Southport   |
@@ -111,7 +111,7 @@ Feature: Supply Teachers - Agency results - Nominated worker - Results by locati
     And I click on '1 mile'
     Then I am on the 'Agency results' page
     And there are 2 agencies
-    And the listed agencies for 'agency results' are:
+    And the listed agencies for agency results are:
       | CREMIN, SCHUSTER AND LUBOWITZ | Liverpool   |
       | KULAS-OKUNEVA                 | Liverpool   |
     And the choices used to generate the list are:
@@ -122,7 +122,7 @@ Feature: Supply Teachers - Agency results - Nominated worker - Results by locati
     And I click on '5 miles'
     Then I am on the 'Agency results' page
     And there are 4 agencies
-    And the listed agencies for 'agency results' are:
+    And the listed agencies for agency results are:
       | CREMIN, SCHUSTER AND LUBOWITZ | Liverpool   |
       | BOSCO INC                     | Liverpool   |
       | VANDERVORT, CRONA AND TRANTOW | Liverpool   |
@@ -135,7 +135,7 @@ Feature: Supply Teachers - Agency results - Nominated worker - Results by locati
     And I click on '10 miles'
     Then I am on the 'Agency results' page
     And there are 6 agencies
-    And the listed agencies for 'agency results' are:
+    And the listed agencies for agency results are:
       | CREMIN, SCHUSTER AND LUBOWITZ | Liverpool   |
       | BOSCO INC                     | Liverpool   |
       | VANDERVORT, CRONA AND TRANTOW | Liverpool   |
@@ -150,7 +150,7 @@ Feature: Supply Teachers - Agency results - Nominated worker - Results by locati
     And I click on '50 miles'
     Then I am on the 'Agency results' page
     And there are 10 agencies
-    And the listed agencies for 'agency results' are:
+    And the listed agencies for agency results are:
       | CREMIN, SCHUSTER AND LUBOWITZ | Liverpool   |
       | BOSCO INC                     | Liverpool   |
       | BEATTY-DICKENS                | Southport   |

@@ -1,7 +1,11 @@
 require 'rails_helper'
 
 RSpec.feature 'Temp to Perm fee calculator', type: :feature, supply_teachers: true do
-  include_context 'with friendly dates'
+  extend APIRequestStubs
+
+  stub_bank_holiday_json
+
+  include_context 'with friendly dates RM3826'
   include_context 'and RM6238 is live in the future'
 
   scenario 'Making a worker permanent after 12 weeks and giving at least 4 weeks notice' do

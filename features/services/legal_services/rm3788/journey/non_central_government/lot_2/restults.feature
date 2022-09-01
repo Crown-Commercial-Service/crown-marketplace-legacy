@@ -1,5 +1,5 @@
 @pipeline
-Feature: Legal services -  Non central governemnt - Lot 2 - Results
+Feature: Legal services - Non central governemnt - Lot 2 - Results
 
   Background: Navigate to start page and complete the journey
     Given I sign in and navigate to the start page for the 'RM3788' framework in 'legal services'

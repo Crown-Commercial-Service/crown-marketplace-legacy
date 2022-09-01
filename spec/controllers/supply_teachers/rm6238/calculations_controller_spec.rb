@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe SupplyTeachers::RM6238::CalculationsController, type: :controller do
+  extend APIRequestStubs
+
+  stub_bank_holiday_json
+
   let(:default_params) { { service: 'supply_teachers', framework: 'RM6238' } }
 
   include_context 'and RM3826 has expired'
@@ -11,7 +15,7 @@ RSpec.describe SupplyTeachers::RM6238::CalculationsController, type: :controller
     def request
       get :temp_to_perm_fee, params: {
         looking_for: 'calculate_temp_to_perm_fee',
-        day_rate: '600',
+        daily_fee: '20.55',
         days_per_week: '5',
         contract_start_date_year: '2018',
         contract_start_date_month: '12',
@@ -19,7 +23,6 @@ RSpec.describe SupplyTeachers::RM6238::CalculationsController, type: :controller
         hire_date_year: '2018',
         hire_date_month: '12',
         hire_date_day: '10',
-        markup_rate: '30.5',
         holiday_1_start_date_year: '2018',
         holiday_1_start_date_month: '12',
         holiday_1_start_date_day: '2',
@@ -46,11 +49,10 @@ RSpec.describe SupplyTeachers::RM6238::CalculationsController, type: :controller
       request
 
       expect(SupplyTeachers::TempToPermCalculator::Calculator).to have_received(:new).with(
-        day_rate: 600,
+        daily_fee: 20.55,
         days_per_week: 5,
         contract_start_date: Date.new(2018, 12, 1),
         hire_date: Date.new(2018, 12, 10),
-        markup_rate: 0.305,
         notice_date: nil,
         holiday_1_start_date: Date.new(2018, 12, 2),
         holiday_1_end_date: Date.new(2018, 12, 3),

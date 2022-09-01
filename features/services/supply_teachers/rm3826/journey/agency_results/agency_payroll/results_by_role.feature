@@ -21,7 +21,7 @@ Feature: Supply Teachers - Agency results - Agency payroll - Results by role
     And I click on 'Continue'
     Then I am on the 'Agency results' page
     And there are 6 agencies
-    And the listed agencies for 'agency results' are:
+    And the listed agencies for agency results are:
       | BEATTY-DICKENS                | London      |
       | VANDERVORT, CRONA AND TRANTOW | Twickenham  |
       | NIKOLAUS AND SONS             | London      |
@@ -42,7 +42,7 @@ Feature: Supply Teachers - Agency results - Agency payroll - Results by role
     And I click on 'Continue'
     Then I am on the 'Agency results' page
     And there are 5 agencies
-    And the listed agencies for 'agency results' are:
+    And the listed agencies for agency results are:
       | BOSCO INC                     | Twickenham  |
       | BEATTY-DICKENS                | London      |
       | VANDERVORT, CRONA AND TRANTOW | Twickenham  |
@@ -62,7 +62,7 @@ Feature: Supply Teachers - Agency results - Agency payroll - Results by role
     And I click on 'Continue'
     Then I am on the 'Agency results' page
     And there are 6 agencies
-    And the listed agencies for 'agency results' are:
+    And the listed agencies for agency results are:
       | BOSCO INC                     | Twickenham  |
       | BEATTY-DICKENS                | London      |
       | VANDERVORT, CRONA AND TRANTOW | Twickenham  |
@@ -84,7 +84,7 @@ Feature: Supply Teachers - Agency results - Agency payroll - Results by role
     And I click on 'Continue'
     Then I am on the 'Agency results' page
     And there are 4 agencies
-    And the listed agencies for 'agency results' are:
+    And the listed agencies for agency results are:
       | BEATTY-DICKENS                | London      |
       | VANDERVORT, CRONA AND TRANTOW | Twickenham  |
       | NIKOLAUS AND SONS             | London      |
@@ -103,7 +103,7 @@ Feature: Supply Teachers - Agency results - Agency payroll - Results by role
     And I click on 'Continue'
     Then I am on the 'Agency results' page
     And there are 6 agencies
-    And the listed agencies for 'agency results' are:
+    And the listed agencies for agency results are:
       | BEATTY-DICKENS                | London      |
       | VANDERVORT, CRONA AND TRANTOW | Twickenham  |
       | NIKOLAUS AND SONS             | London      |
@@ -124,7 +124,7 @@ Feature: Supply Teachers - Agency results - Agency payroll - Results by role
     And I click on 'Continue'
     Then I am on the 'Agency results' page
     And there are 6 agencies
-    And the listed agencies for 'agency results' are:
+    And the listed agencies for agency results are:
       | BOSCO INC                     | Twickenham  |
       | BEATTY-DICKENS                | London      |
       | VANDERVORT, CRONA AND TRANTOW | Twickenham  |
@@ -146,7 +146,7 @@ Feature: Supply Teachers - Agency results - Agency payroll - Results by role
     And I click on 'Continue'
     Then I am on the 'Agency results' page
     And there are 6 agencies
-    And the listed agencies for 'agency results' are:
+    And the listed agencies for agency results are:
       | BEATTY-DICKENS                | London      |
       | VANDERVORT, CRONA AND TRANTOW | Twickenham  |
       | NIKOLAUS AND SONS             | London      |
@@ -167,7 +167,7 @@ Feature: Supply Teachers - Agency results - Agency payroll - Results by role
     And I click on 'Continue'
     Then I am on the 'Agency results' page
     And there are 5 agencies
-    And the listed agencies for 'agency results' are:
+    And the listed agencies for agency results are:
       | BEATTY-DICKENS                | London      |
       | VANDERVORT, CRONA AND TRANTOW | Twickenham  |
       | NIKOLAUS AND SONS             | London      |

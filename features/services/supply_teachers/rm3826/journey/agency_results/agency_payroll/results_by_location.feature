@@ -20,7 +20,7 @@ Feature: Supply Teachers - Agency results - Agency payroll - Results by location
     And I click on 'Continue'
     Then I am on the 'Agency results' page
     And there are 6 agencies
-    And the listed agencies for 'agency results' are:
+    And the listed agencies for agency results are:
       | BEATTY-DICKENS                | London      |
       | VANDERVORT, CRONA AND TRANTOW | Twickenham  |
       | NIKOLAUS AND SONS             | London      |
@@ -38,7 +38,7 @@ Feature: Supply Teachers - Agency results - Agency payroll - Results by location
     And I click on '1 mile'
     Then I am on the 'Agency results' page
     And there are 1 agencies
-    And the listed agencies for 'agency results' are:
+    And the listed agencies for agency results are:
       | JOHNS, GLEASON AND WHITE      | London      |
       And the choices used to generate the list are:
       | Looking for: Individual worker              |
@@ -51,7 +51,7 @@ Feature: Supply Teachers - Agency results - Agency payroll - Results by location
     And I click on '5 miles'
     Then I am on the 'Agency results' page
     And there are 1 agencies
-    And the listed agencies for 'agency results' are:
+    And the listed agencies for agency results are:
       | JOHNS, GLEASON AND WHITE      | London      |
     And the choices used to generate the list are:
       | Looking for: Individual worker              |
@@ -64,7 +64,7 @@ Feature: Supply Teachers - Agency results - Agency payroll - Results by location
     And I click on '10 miles'
     Then I am on the 'Agency results' page
     And there are 6 agencies
-    And the listed agencies for 'agency results' are:
+    And the listed agencies for agency results are:
       | BEATTY-DICKENS                | London      |
       | VANDERVORT, CRONA AND TRANTOW | Twickenham  |
       | NIKOLAUS AND SONS             | London      |
@@ -82,7 +82,7 @@ Feature: Supply Teachers - Agency results - Agency payroll - Results by location
     And I click on '50 miles'
     Then I am on the 'Agency results' page
     And there are 7 agencies
-    And the listed agencies for 'agency results' are:
+    And the listed agencies for agency results are:
       | CREMIN, SCHUSTER AND LUBOWITZ | Southend-on-Sea |
       | BEATTY-DICKENS                | London          |
       | VANDERVORT, CRONA AND TRANTOW | Twickenham      |
@@ -105,7 +105,7 @@ Feature: Supply Teachers - Agency results - Agency payroll - Results by location
     And I click on 'Continue'
     Then I am on the 'Agency results' page
     And there are 5 agencies
-    And the listed agencies for 'agency results' are:
+    And the listed agencies for agency results are:
       | CREMIN, SCHUSTER AND LUBOWITZ | Liverpool   |
       | BEATTY-DICKENS                | Southport   |
       | VANDERVORT, CRONA AND TRANTOW | Liverpool   |
@@ -122,7 +122,7 @@ Feature: Supply Teachers - Agency results - Agency payroll - Results by location
     And I click on '1 mile'
     Then I am on the 'Agency results' page
     And there are 1 agencies
-    And the listed agencies for 'agency results' are:
+    And the listed agencies for agency results are:
       | CREMIN, SCHUSTER AND LUBOWITZ | Liverpool   |
     And the choices used to generate the list are:
       | Looking for: Individual worker              |
@@ -135,7 +135,7 @@ Feature: Supply Teachers - Agency results - Agency payroll - Results by location
     And I click on '5 miles'
     Then I am on the 'Agency results' page
     And there are 2 agencies
-    And the listed agencies for 'agency results' are:
+    And the listed agencies for agency results are:
       | CREMIN, SCHUSTER AND LUBOWITZ | Liverpool   |
       | VANDERVORT, CRONA AND TRANTOW | Liverpool   |
     And the choices used to generate the list are:
@@ -149,7 +149,7 @@ Feature: Supply Teachers - Agency results - Agency payroll - Results by location
     And I click on '10 miles'
     Then I am on the 'Agency results' page
     And there are 3 agencies
-    And the listed agencies for 'agency results' are:
+    And the listed agencies for agency results are:
       | CREMIN, SCHUSTER AND LUBOWITZ | Liverpool   |
       | VANDERVORT, CRONA AND TRANTOW | Liverpool   |
       | JOHNS, GLEASON AND WHITE      | Liverpool   |
@@ -164,7 +164,7 @@ Feature: Supply Teachers - Agency results - Agency payroll - Results by location
     And I click on '50 miles'
     Then I am on the 'Agency results' page
     And there are 7 agencies
-    And the listed agencies for 'agency results' are:
+    And the listed agencies for agency results are:
       | CREMIN, SCHUSTER AND LUBOWITZ | Liverpool   |
       | BEATTY-DICKENS                | Southport   |
       | VANDERVORT, CRONA AND TRANTOW | Liverpool   |

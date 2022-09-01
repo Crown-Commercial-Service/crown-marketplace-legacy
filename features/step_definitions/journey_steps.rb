@@ -109,10 +109,10 @@ Then('the {string} rates are {string}, {string} and {string}') do |role, hourly_
   expect(table_row.monthly_rate).to have_content(monthly_rate)
 end
 
-Then('the {string} daily rate is {string}') do |role, daily_rate|
+Then('the {string} hourly rate is {string}') do |role, hourly_rate|
   table_row = journey_page.supplier_rates_table.rows[LS_RM6240_ROLES.index(role)]
 
-  expect(table_row.rate).to have_content(daily_rate)
+  expect(table_row.rate).to have_content(hourly_rate)
 end
 
 MC_ROLES = ['Analyst / Junior Consultant', 'Consultant', 'Senior Consultant / Engagement Manager / Project Lead', 'Principal Consultant / Associate Director', 'Managing Consultant / Director', 'Partner'].freeze

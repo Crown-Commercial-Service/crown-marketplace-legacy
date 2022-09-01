@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.describe LegalServices::RM6240::Service, type: :model do
   subject(:services) { described_class.all }
 
-  let(:available_to_central_government) { described_class.where(central_government: true) }
   let(:first_service) { services.first }
   let(:all_service_code) { described_class.all_service_code }
 
@@ -16,8 +15,7 @@ RSpec.describe LegalServices::RM6240::Service, type: :model do
       {
         lot_number: '1',
         service_number: '1',
-        name: 'Administrative and Public Law',
-        central_government: true
+        name: 'Administrative and Public Law'
       }
     )
   end
@@ -28,14 +26,6 @@ RSpec.describe LegalServices::RM6240::Service, type: :model do
 
   it 'all have names' do
     expect(services.select { |s| s.name.blank? }).to be_empty
-  end
-
-  it 'all to say if they are available to central government' do
-    expect(services.select { |s| s.central_government.nil? }).to be_empty
-  end
-
-  it 'to only have some services available to central government buyers' do
-    expect(available_to_central_government.count).to eq(9)
   end
 
   describe '.all_service_code' do

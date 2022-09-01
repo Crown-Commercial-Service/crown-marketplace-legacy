@@ -41,7 +41,7 @@ gem 'holidays'
 gem 'virtus'
 gem 'jquery-rails', '~> 4.5.0'
 
-gem 'rollbar', '~> 3.3.0'
+gem 'rollbar', '~> 3.3.1'
 
 # for dfe sign in
 gem 'omniauth', '~> 2.1.0'
@@ -75,7 +75,7 @@ gem 'jsonpath', '~> 1.1.2'
 gem 'aasm', '~> 5.3'
 
 # for running background jobs
-gem 'sidekiq', '~> 6.5.3'
+gem 'sidekiq', '~> 6.5.5'
 gem 'sinatra', '~> 2.2.0', require: false
 gem 'slim', '~> 4.1.0'
 

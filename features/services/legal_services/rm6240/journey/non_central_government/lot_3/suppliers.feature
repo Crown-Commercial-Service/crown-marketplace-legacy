@@ -1,4 +1,4 @@
-Feature: Legal services - Lot 3 - Suppliers
+Feature: Legal services - Non central governemnt - Lot 3 - Suppliers
 
   Background: Login and then navigate to the supplier results page
     Given I sign in and navigate to the start page for the 'RM6240' framework in 'legal services'
@@ -26,12 +26,12 @@ Feature: Legal services - Lot 3 - Suppliers
     Given I click on 'WITTING-OLSON'
     Then I am on the 'WITTING-OLSON' page
     Then the supplier 'is' an SME
-    And the 'Partner' daily rate is '£245.00'
-    And the 'Senior Solicitor, Senior Associate' daily rate is '£210.00'
-    And the 'Solicitor, Associate' daily rate is '£175.00'
-    And the 'NQ Solicitor/Associate, Junior Solicitor/Associate' daily rate is '£140.00'
-    And the 'Trainee' daily rate is '£105.00'
-    And the 'Paralegal, Legal Assistant' daily rate is '£70.00'
+    And the 'Partner' hourly rate is '£245.00'
+    And the 'Senior Solicitor, Senior Associate' hourly rate is '£210.00'
+    And the 'Solicitor, Associate' hourly rate is '£175.00'
+    And the 'NQ Solicitor/Associate, Junior Solicitor/Associate' hourly rate is '£140.00'
+    And the 'Trainee' hourly rate is '£105.00'
+    And the 'Paralegal, Legal Assistant' hourly rate is '£70.00'
     And the contact details for the supplier are:
       | witting.olson@buckridge.name  |
       | 1-249-089-2797 x3771          |
@@ -43,12 +43,12 @@ Feature: Legal services - Lot 3 - Suppliers
     Given I click on 'JACOBSON-NIENOW'
     Then I am on the 'JACOBSON-NIENOW' page
     Then the supplier 'is not' an SME
-    And the 'Partner' daily rate is '£175.00'
-    And the 'Senior Solicitor, Senior Associate' daily rate is '£150.00'
-    And the 'Solicitor, Associate' daily rate is '£125.00'
-    And the 'NQ Solicitor/Associate, Junior Solicitor/Associate' daily rate is '£100.00'
-    And the 'Trainee' daily rate is '£75.00'
-    And the 'Paralegal, Legal Assistant' daily rate is '£50.00'
+    And the 'Partner' hourly rate is '£175.00'
+    And the 'Senior Solicitor, Senior Associate' hourly rate is '£150.00'
+    And the 'Solicitor, Associate' hourly rate is '£125.00'
+    And the 'NQ Solicitor/Associate, Junior Solicitor/Associate' hourly rate is '£100.00'
+    And the 'Trainee' hourly rate is '£75.00'
+    And the 'Paralegal, Legal Assistant' hourly rate is '£50.00'
     And the contact details for the supplier are:
       | nienow.jacobson@mosciski.com            |
       | 1-748-527-1159 x93482                   |
