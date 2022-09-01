@@ -34,8 +34,8 @@ Feature: Supply Teachers - All agencies - suppliers
       | Senior Roles: Headteacher and Senior Leadership positions                             | £64.18  | £60.97  |
       | Other Roles: (Invigilators, Admin & Clerical, IT Staff, Finance Staff, Cleaners etc.) | £55.43  | £52.65  |
       | Over 12 Week Reduction                                                                | 3.0%    | £233.40 |
-      | A specific person                                                                     | £46.68  | £46.68  |
-      | Employed directly                                                                     | 35.0%   | 35.0%   |
+      | Nominated Worker                                                                      | £46.68  | £46.68  |
+      | Fixed Term                                                                            | 35.0%   | 35.0%   |
     And the 'Branch' is 'Liverpool - Merseyside' for the 'Liverpool' branch
     And the 'Contact name' is 'Patricia Bashirian CPA' for the 'Liverpool' branch
     And the 'Contact email' is 'bashirian.patricia.cpa@kris.com' for the 'Liverpool' branch

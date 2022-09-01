@@ -19,7 +19,7 @@ Feature: Supply Teachers - Education technology platforms
     And the education technology platform agency 'LEFFLER AND SONS' has the following rates:
       | Agency Management Fee: Daily supply worker (per worker, per day)              | £14.07  |
       | Agency Management Fee: Long term assignment (6 weeks+) (per worker, per day)  | £13.36  |
-      | A specific person                                                             | £12.66  |
-      | Employed directly                                                             | 14.0%   |
+      | Nominated Worker                                                              | £12.66  |
+      | Fixed Term                                                                    | 14.0%   |
     And I click on 'Back'
     Then I am on the 'What is your school looking for?' page
