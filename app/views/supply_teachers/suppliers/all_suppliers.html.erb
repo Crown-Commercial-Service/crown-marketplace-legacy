@@ -1,22 +1,20 @@
-<%= content_for :page_title, t('.page_title') %>
+<%= content_for :page_title, t('.header') %>
 <%= content_for :page_section, t("supply_teachers.#{params[:framework].downcase}.page_section") %>
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-xl govuk-!-margin-bottom-3 cmp-page-heading"><%= t('.header') %></h1>
-
-    <p class="govuk-body govuk-!-margin-bottom-8"><%= t('.results_found_with_location_html', results: @suppliers_count) %></p>
+    <%= form_with url: "/supply-teachers/#{params[:framework]}/all-suppliers/search", method: :get, remote: true, html: { specialvalidation: true } do |f| %>
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-3 cmp-page-heading">
+        <%= f.label :agency_name, t('.header'), class: 'govuk-label govuk-label--l' %>
+      </h1>
     
-    <div id="agency-search-container">
-      <%= form_with url: "/supply-teachers/#{params[:framework]}/all-suppliers/search", method: :get, remote: true, html: { specialvalidation: true } do |f| %>
-        <%= f.label :agency_name, t('.find_an_agency'), class: 'govuk-label--m' %>
-        <p class="govuk-hint" id="agency-search-hint">
-          <%= t('.enter_an_agency_name') %>
-        </p>
+      <div id="agency-search-container">
         <%= f.text_field :agency_name, class: 'govuk-input govuk-!-width-three-quarters govuk-!-margin-right-2', type: 'search', value: params[:agency_name], aria: { describedby: 'agency-search-hint' } %>
         <%= f.submit t('.search'), class: 'govuk-button govuk-button--secondary' %>
-      <% end %>
-    </div>
+      </div>
+
+      <p class="govuk-body govuk-!-margin-bottom-8"><%= t('.results_found_with_location_html', results: @suppliers_count) %></p>
+    <% end %>
   </div>
 </div>
 

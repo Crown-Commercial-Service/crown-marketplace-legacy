@@ -12,9 +12,9 @@ RSpec.describe 'supply_teachers/suppliers/all_suppliers.html.erb' do
     assign(:suppliers_count, 10)
   end
 
-  it 'displays all agencies page' do
+  it 'displays find an agency page' do
     render
-    expect(rendered).to have_text(/All agencies/)
+    expect(rendered).to have_text(/Find an agency/)
     expect(rendered).to have_text(/There are 10 agencies currently available/)
   end
 end

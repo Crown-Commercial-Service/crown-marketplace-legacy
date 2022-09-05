@@ -5,7 +5,7 @@ Feature: Supply Teachers - All agencies
     Given I sign in and navigate to the start page for the 'RM3826' framework in 'supply teachers'
     And I select "A list of all agencies"
     And I click on 'Continue'
-    Then I am on the 'All agencies' page
+    Then I am on the 'Find an agency' page
     And a list of 10 agencies are shown
     And the listed agencies for all agencies are:
       | BEATTY-DICKENS                |

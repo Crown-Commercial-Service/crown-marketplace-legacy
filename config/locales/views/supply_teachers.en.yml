@@ -763,11 +763,8 @@ en:
         agency: Agency
         no_agencies_found: No agencies found
       all_suppliers:
-        enter_an_agency_name: Enter an agency and click 'Search' to see if it is in the agency list.
-        find_an_agency: Find an agency
-        header: All agencies
-        page_title: All agencies
-        results_found_with_location_html: There are <strong>%{results} agencies</strong> currently available
+        header: Find an agency
+        results_found_with_location_html: There are <strong>%{results} agencies</strong> currently available in lot 1
         search: Search
       show:
         address: Address
