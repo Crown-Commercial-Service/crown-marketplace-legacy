@@ -51,7 +51,7 @@ module SupplyTeachers
       end
 
       def percentage?
-        (job_type == 'over_12_week' || job_type == 'fixed_term') && term != 'six_weeks_plus'
+        job_type == 'over_12_week' || job_type == 'fixed_term'
       end
 
       def term_required?

@@ -7,7 +7,7 @@
     </tr>
   </thead>
   <tbody class="govuk-table__body">
-    <% grouped_rates.each do |job_type, rates| %>
+    <% grouped_rates_sorted_by_job_type(grouped_rates).each do |job_type, rates| %>
       <tr class="govuk-table__row">
         <th class="govuk-table__header" scope="row"><%= SupplyTeachers::RM6238::JobType[job_type] %></th>
         <% if rates.length == 1 %>

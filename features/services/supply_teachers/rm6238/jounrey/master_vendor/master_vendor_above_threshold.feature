@@ -21,7 +21,7 @@ Feature: Supply Teachers - Master vendors - Above threshold
       | bogan.and.collier.reichert@murray.net |
     And the master vendor agency 'BOGAN, REICHERT AND COLLIER' has the following rates:
       | Teacher: (Incl. Qualified and Unqualified Teachers, Tutors) | £57.16  | £54.30  |
-      | Over 12 Week Reduction                                      | 6.0%    | £228.64 |
+      | Over 12 Week Reduction                                      | 6.0%    | 6.0%    |
       | Fixed Term                                                  | 34.3%   | 34.3%   |
     And I click on 'Back'
     Then I am on the 'Is your contract likely to be worth more than £2.5 million?' page

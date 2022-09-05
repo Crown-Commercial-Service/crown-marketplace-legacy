@@ -33,7 +33,7 @@ Feature: Supply Teachers - All agencies - suppliers
       | Educational Support Staff: (incl. Cover Supervisor, Teaching Assistants)              | £52.51  | £49.88  |
       | Senior Roles: Headteacher and Senior Leadership positions                             | £64.18  | £60.97  |
       | Other Roles: (Invigilators, Admin & Clerical, IT Staff, Finance Staff, Cleaners etc.) | £55.43  | £52.65  |
-      | Over 12 Week Reduction                                                                | 3.0%    | £233.40 |
+      | Over 12 Week Reduction                                                                | 3.0%    | 3.0%    |
       | Nominated Worker                                                                      | £46.68  | £46.68  |
       | Fixed Term                                                                            | 35.0%   | 35.0%   |
     And the 'Branch' is 'Liverpool - Merseyside' for the 'Liverpool' branch
