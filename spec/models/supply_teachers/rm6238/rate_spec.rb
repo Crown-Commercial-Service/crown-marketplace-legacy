@@ -226,8 +226,8 @@ RSpec.describe SupplyTeachers::RM6238::Rate, type: :model do
     context 'and the job_type is over_12_week' do
       let(:job_type) { 'over_12_week' }
 
-      context 'and the term is daily' do
-        let(:term) { 'daily' }
+      context 'and the term is blank' do
+        let(:term) { '' }
 
         it 'is valid' do
           expect(rate).to be_valid
@@ -238,30 +238,10 @@ RSpec.describe SupplyTeachers::RM6238::Rate, type: :model do
         end
       end
 
-      context 'and the term is six_weeks_plus' do
-        let(:term) { 'six_weeks_plus' }
+      context 'and the term is not blank' do
+        let(:term) { 'daily' }
 
         it 'is valid' do
-          expect(rate).to be_valid
-        end
-
-        it 'is not a percentage' do
-          expect(rate.percentage?).to be false
-        end
-      end
-
-      context 'and the term is blank' do
-        let(:term) { '' }
-
-        it 'is not valid' do
-          expect(rate).not_to be_valid
-        end
-      end
-
-      context 'and the term is not in the list' do
-        let(:term) { 'invalid-term-type' }
-
-        it 'is not valid' do
           expect(rate).not_to be_valid
         end
       end

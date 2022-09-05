@@ -5,7 +5,7 @@ module SupplyTeachers
     helper :telephone_number
 
     def all_suppliers
-      @back_path = source_journey.previous_step_path
+      @back_path = "/supply-teachers/#{params[:framework]}/looking-for?looking_for=all_suppliers"
       @suppliers_count = service_name::Branch.distinct_suppliers_count
     end
 

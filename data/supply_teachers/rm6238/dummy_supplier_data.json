@@ -57,14 +57,8 @@
       {
         "lot_number": "2.1",
         "job_type": "over_12_week",
-        "term": "daily",
+        "term": null,
         "fee": 0
-      },
-      {
-        "lot_number": "2.1",
-        "job_type": "over_12_week",
-        "term": "six_weeks_plus",
-        "fee": 21728
       },
       {
         "lot_number": "2.1",
@@ -145,14 +139,8 @@
       {
         "lot_number": "2.1",
         "job_type": "over_12_week",
-        "term": "daily",
+        "term": null,
         "fee": 0
-      },
-      {
-        "lot_number": "2.1",
-        "job_type": "over_12_week",
-        "term": "six_weeks_plus",
-        "fee": 11296
       },
       {
         "lot_number": "2.1",
@@ -217,14 +205,8 @@
       {
         "lot_number": "2.2",
         "job_type": "over_12_week",
-        "term": "daily",
+        "term": null,
         "fee": 800
-      },
-      {
-        "lot_number": "2.2",
-        "job_type": "over_12_week",
-        "term": "six_weeks_plus",
-        "fee": 20756
       },
       {
         "lot_number": "2.2",
@@ -305,14 +287,8 @@
       {
         "lot_number": "2.1",
         "job_type": "over_12_week",
-        "term": "daily",
+        "term": null,
         "fee": 0
-      },
-      {
-        "lot_number": "2.1",
-        "job_type": "over_12_week",
-        "term": "six_weeks_plus",
-        "fee": 12120
       },
       {
         "lot_number": "2.1",
@@ -377,14 +353,8 @@
       {
         "lot_number": "2.2",
         "job_type": "over_12_week",
-        "term": "daily",
+        "term": null,
         "fee": 600
-      },
-      {
-        "lot_number": "2.2",
-        "job_type": "over_12_week",
-        "term": "six_weeks_plus",
-        "fee": 22864
       },
       {
         "lot_number": "2.2",
@@ -465,14 +435,8 @@
       {
         "lot_number": "2.2",
         "job_type": "over_12_week",
-        "term": "daily",
+        "term": null,
         "fee": 1000
-      },
-      {
-        "lot_number": "2.2",
-        "job_type": "over_12_week",
-        "term": "six_weeks_plus",
-        "fee": 22552
       },
       {
         "lot_number": "2.2",
@@ -588,14 +552,8 @@
       {
         "lot_number": "1",
         "job_type": "over_12_week",
-        "term": "daily",
+        "term": null,
         "fee": 100
-      },
-      {
-        "lot_number": "1",
-        "job_type": "over_12_week",
-        "term": "six_weeks_plus",
-        "fee": 15936
       },
       {
         "lot_number": "1",
@@ -708,14 +666,8 @@
       {
         "lot_number": "1",
         "job_type": "over_12_week",
-        "term": "daily",
+        "term": null,
         "fee": 100
-      },
-      {
-        "lot_number": "1",
-        "job_type": "over_12_week",
-        "term": "six_weeks_plus",
-        "fee": 11036
       },
       {
         "lot_number": "1",
@@ -828,14 +780,8 @@
       {
         "lot_number": "1",
         "job_type": "over_12_week",
-        "term": "daily",
+        "term": null,
         "fee": 1000
-      },
-      {
-        "lot_number": "1",
-        "job_type": "over_12_week",
-        "term": "six_weeks_plus",
-        "fee": 23820
       },
       {
         "lot_number": "1",
@@ -948,14 +894,8 @@
       {
         "lot_number": "1",
         "job_type": "over_12_week",
-        "term": "daily",
+        "term": null,
         "fee": 300
-      },
-      {
-        "lot_number": "1",
-        "job_type": "over_12_week",
-        "term": "six_weeks_plus",
-        "fee": 23340
       },
       {
         "lot_number": "1",
@@ -1068,14 +1008,8 @@
       {
         "lot_number": "1",
         "job_type": "over_12_week",
-        "term": "daily",
+        "term": null,
         "fee": 600
-      },
-      {
-        "lot_number": "1",
-        "job_type": "over_12_week",
-        "term": "six_weeks_plus",
-        "fee": 19176
       },
       {
         "lot_number": "1",
@@ -1152,14 +1086,8 @@
       {
         "lot_number": "1",
         "job_type": "over_12_week",
-        "term": "daily",
+        "term": null,
         "fee": 100
-      },
-      {
-        "lot_number": "1",
-        "job_type": "over_12_week",
-        "term": "six_weeks_plus",
-        "fee": 19992
       },
       {
         "lot_number": "1",
@@ -1236,14 +1164,8 @@
       {
         "lot_number": "1",
         "job_type": "over_12_week",
-        "term": "daily",
+        "term": null,
         "fee": 600
-      },
-      {
-        "lot_number": "1",
-        "job_type": "over_12_week",
-        "term": "six_weeks_plus",
-        "fee": 17064
       },
       {
         "lot_number": "1",
@@ -1332,14 +1254,8 @@
       {
         "lot_number": "1",
         "job_type": "over_12_week",
-        "term": "daily",
+        "term": null,
         "fee": 200
-      },
-      {
-        "lot_number": "1",
-        "job_type": "over_12_week",
-        "term": "six_weeks_plus",
-        "fee": 21428
       },
       {
         "lot_number": "1",
@@ -1416,14 +1332,8 @@
       {
         "lot_number": "1",
         "job_type": "over_12_week",
-        "term": "daily",
+        "term": null,
         "fee": 100
-      },
-      {
-        "lot_number": "1",
-        "job_type": "over_12_week",
-        "term": "six_weeks_plus",
-        "fee": 16580
       },
       {
         "lot_number": "1",
@@ -1524,14 +1434,8 @@
       {
         "lot_number": "1",
         "job_type": "over_12_week",
-        "term": "daily",
+        "term": null,
         "fee": 500
-      },
-      {
-        "lot_number": "1",
-        "job_type": "over_12_week",
-        "term": "six_weeks_plus",
-        "fee": 15792
       },
       {
         "lot_number": "1",
