@@ -51,7 +51,7 @@ module SupplyTeachers
       end
 
       def rates_grouped_by_job_type
-        rates.group_by(&:job_type)
+        rates.direct_provision.group_by(&:job_type)
       end
 
       def direct_provision_rates
