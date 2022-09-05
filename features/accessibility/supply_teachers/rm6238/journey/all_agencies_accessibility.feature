@@ -6,7 +6,7 @@ Feature: Supply Teachers - All agencies - Accessibility
     Then I am on the 'What is your school looking for?' page
     And I select 'A list of all agencies'
     And I click on 'Continue'
-    Then I am on the 'All agencies' page
+    Then I am on the 'Find an agency' page
   
   Scenario: All agencies page
     Then the page should be axe clean

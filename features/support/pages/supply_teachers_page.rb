@@ -26,7 +26,7 @@ module Pages
     end
 
     section :all_agencies, '#main-content' do
-      element :number_of_agencies, 'div:nth-child(2) > div > p'
+      element :number_of_agencies, 'div:nth-child(2) > div > form > p'
       elements :agencies, '.agency-row'
     end
 
