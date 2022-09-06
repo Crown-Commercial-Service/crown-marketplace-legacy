@@ -78,7 +78,7 @@ GEM
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
     aes_key_wrap (1.1.0)
-    asset_sync (2.15.2)
+    asset_sync (2.16.0)
       activemodel (>= 4.1.0)
       fog-core
       mime-types (>= 2.99)
