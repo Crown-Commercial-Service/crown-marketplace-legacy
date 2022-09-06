@@ -44,7 +44,7 @@ class LegalServices::RM6240::Admin::FilesProcessor
   end
 
   def add_lot_services_per_supplier(lot_services)
-    (0..2).each do |sheet_number|
+    3.times do |sheet_number|
       sheet = lot_services.sheet(sheet_number)
       service_codes = sheet.column(2)[2..].map(&:to_s)
       jurisdiction = ('a'..'c').to_a[sheet_number]
@@ -81,7 +81,7 @@ class LegalServices::RM6240::Admin::FilesProcessor
   end
 
   def add_rate_cards_to_suppliers(rate_cards_workbook)
-    (0..6).each do |sheet_number|
+    7.times do |sheet_number|
       sheet = rate_cards_workbook.sheet(sheet_number)
 
       (3..sheet.last_row).each do |row_number|

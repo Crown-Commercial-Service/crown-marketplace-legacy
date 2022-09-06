@@ -42,11 +42,11 @@ class LegalServices::RM3788::Admin::FilesProcessor
     end
   end
 
-  # rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity
+  # rubocop:disable Metrics/AbcSize
   def add_lot_1_services_per_supplier(lot_1_services)
     @supplier_data.each { |supplier| supplier['lot_1_services'] = [] }
 
-    (0..12).each do |sheet_number|
+    13.times do |sheet_number|
       sheet = lot_1_services.sheet(sheet_number)
       service_names = sheet.column(1)
       region_code = extract_nuts_code(sheet.default_sheet)
@@ -71,7 +71,7 @@ class LegalServices::RM3788::Admin::FilesProcessor
   def add_lot_2_services_per_supplier(lot_2_services)
     @supplier_data.each { |supplier| supplier['lots'] = [] }
 
-    (0..2).each do |sheet_number|
+    3.times do |sheet_number|
       sheet = lot_2_services.sheet(sheet_number)
       lot_number = extract_lot_number(sheet.default_sheet)
       service_names = sheet.column(1)
@@ -95,7 +95,7 @@ class LegalServices::RM3788::Admin::FilesProcessor
       end
     end
   end
-  # rubocop:enable Metrics/AbcSize, Metrics/CyclomaticComplexity
+  # rubocop:enable Metrics/AbcSize
 
   def add_lot_3_services_per_supplier(lot_3_services)
     add_lot_3_and_4_services_per_supplier(lot_3_services, 3, 'WPSLS.3.1')
@@ -122,7 +122,7 @@ class LegalServices::RM3788::Admin::FilesProcessor
     @supplier_data.each { |supplier| supplier['rate_cards'] = [] }
     lot_numbers = ['1', '2a', '2b', '2c', '3', '4']
 
-    (0..5).each do |sheet_number|
+    6.times do |sheet_number|
       sheet = rate_cards_workbook.sheet(sheet_number)
 
       (3..sheet.last_row).each do |row_number|
