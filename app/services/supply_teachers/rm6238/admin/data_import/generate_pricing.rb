@@ -36,7 +36,7 @@ module SupplyTeachers
 
         def normalize_pricing(row)
           case row[:job_type]
-          when :nominated, :fixed_term
+          when :nominated, :fixed_term, :over_12_week
             row.merge(fee: row[:fee1])
           when :agency_management_daily
             row.merge(term: :daily, fee: row[:fee1])
@@ -65,7 +65,7 @@ module SupplyTeachers
         end
 
         def percentage?(row)
-          row[:job_type] == :fixed_term || (row[:job_type] == :over_12_week && row[:term] == :daily)
+          row[:job_type] == :fixed_term || row[:job_type] == :over_12_week
         end
       end
     end
