@@ -5,7 +5,7 @@ Feature: Supply Teachers - All agencies - suppliers
     Given I sign in and navigate to the start page for the 'RM3826' framework in 'supply teachers'
     And I select "A list of all agencies"
     And I click on 'Continue'
-    Then I am on the 'All agencies' page
+    Then I am on the 'Find an agency' page
     And a list of 10 agencies are shown
 
   Scenario Outline: Can view supplier details
@@ -16,7 +16,7 @@ Feature: Supply Teachers - All agencies - suppliers
       | <branch_1>  |
       | <branch_2>  |
     And I click on 'Back'
-    Then I am on the 'All agencies' page
+    Then I am on the 'Find an agency' page
 
   Examples:
     | agency_name                   | branch_1  | branch_2        |
