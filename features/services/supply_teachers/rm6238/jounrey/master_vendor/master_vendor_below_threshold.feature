@@ -21,7 +21,7 @@ Feature: Supply Teachers - Master vendors - Below threshold
       | luettgen.gutmann@wintheiser-breitenberg.name  |
     And the master vendor agency 'LUETTGEN-GUTMANN' has the following rates:
       | Teacher: (Incl. Qualified and Unqualified Teachers, Tutors) | £54.32  | £51.60  |
-      | Over 12 Week Reduction                                      | 0.0%	  | £217.28 |
-      | Employed directly                                           | 32.6%   | 32.6%   |
+      | Over 12 Week Reduction                                      | 0.0%    | 0.0%    |
+      | Fixed Term                                                  | 32.6%   | 32.6%   |
     And I click on 'Back'
     Then I am on the 'Is your contract likely to be worth more than £2.5 million?' page

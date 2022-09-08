@@ -247,6 +247,33 @@ RSpec.describe SupplyTeachers::RM6238::Supplier, type: :model do
     end
   end
 
+  describe '.rates_grouped_by_job_type' do
+    let(:supplier) { create(:supply_teachers_rm6238_supplier) }
+    let!(:rate_teacher_1) { create(:supply_teachers_rm6238_rate, supplier: supplier, job_type: 'teacher', term: 'daily') }
+    let!(:rate_teacher_2) { create(:supply_teachers_rm6238_rate, supplier: supplier, job_type: 'teacher', term: 'six_weeks_plus') }
+    let!(:rate_support_1) { create(:supply_teachers_rm6238_rate, supplier: supplier, job_type: 'support', term: 'daily') }
+    let!(:rate_support_2) { create(:supply_teachers_rm6238_rate, supplier: supplier, job_type: 'support', term: 'six_weeks_plus') }
+    let!(:rate_nominated) { create(:supply_teachers_rm6238_rate, supplier: supplier, job_type: 'nominated') }
+
+    let(:lot_1_grouped_rates) do
+      {
+        'teacher' => [rate_teacher_1, rate_teacher_2],
+        'support' => [rate_support_1, rate_support_2],
+        'nominated' => [rate_nominated]
+      }
+    end
+
+    before do
+      create(:supply_teachers_rm6238_master_vendor_below_threshold_rate, supplier: supplier, job_type: 'teacher', term: 'daily')
+      create(:supply_teachers_rm6238_master_vendor_below_threshold_rate, supplier: supplier, job_type: 'teacher', term: 'six_weeks_plus')
+      create(:supply_teachers_rm6238_education_technology_platforms_rate, supplier: supplier, job_type: 'agency_management', term: 'daily')
+    end
+
+    it 'returns only the rates in lot 1 gouped by job' do
+      expect(supplier.rates_grouped_by_job_type).to eq(lot_1_grouped_rates)
+    end
+  end
+
   describe '.rate_for' do
     let(:rate) { supplier.rate_for(job_type: SupplyTeachers::RM6238::JobType.find_role_by(code: job_type), term: SupplyTeachers::RM6238::Term.find_by(code: term)) }
 

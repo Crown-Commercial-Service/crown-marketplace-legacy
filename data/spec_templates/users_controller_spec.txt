@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe LegalServices::RM6240::UsersController, type: :controller do
-  let(:default_params) { { service: 'legal_services', framework: 'RM6240' } }
-
+RSpec.describe <module_service_name>::UsersController, type: :controller do
+  let(:default_params) { { service: '<service_param_name>', framework: '<FRAMEWORK>' } }
+<registration_only>
   describe 'GET confirm_new' do
     before { get :confirm_new }
 
@@ -41,8 +41,8 @@ RSpec.describe LegalServices::RM6240::UsersController, type: :controller do
       end
 
       context 'when the information is valid' do
-        it 'redirects to legal_services_journey_start_path' do
-          expect(response).to redirect_to legal_services_journey_start_path
+        it 'redirects to <start_path>' do
+          expect(response).to redirect_to <start_path>
         end
 
         it 'deletes the crown_marketplace_confirmation_email cookie' do
@@ -95,11 +95,11 @@ RSpec.describe LegalServices::RM6240::UsersController, type: :controller do
       post :resend_confirmation_email, params: { email: email }
     end
 
-    it 'redirects to legal_services_rm6240_users_confirm_path' do
-      expect(response).to redirect_to legal_services_rm6240_users_confirm_path
+    it 'redirects to <service_name>_<framework><admin>_users_confirm_path' do
+      expect(response).to redirect_to <service_name>_<framework><admin>_users_confirm_path
     end
   end
-
+</registration_only>
   describe 'GET challenge_new' do
     let(:user) { create(:user, cognito_uuid: SecureRandom.uuid, phone_number: Faker::PhoneNumber.cell_phone) }
 
@@ -171,8 +171,8 @@ RSpec.describe LegalServices::RM6240::UsersController, type: :controller do
         context 'and there is an additional challange' do
           let(:new_challenge_name) { 'SMS_MFA' }
 
-          it 'redirects to legal_services_rm6240_users_challenge_path' do
-            expect(response).to redirect_to legal_services_rm6240_users_challenge_path(challenge_name: new_challenge_name)
+          it 'redirects to <service_name>_<framework><admin>_users_challenge_path' do
+            expect(response).to redirect_to <service_name>_<framework><admin>_users_challenge_path(challenge_name: new_challenge_name)
           end
 
           it 'the cookies are updated correctly' do
@@ -182,8 +182,8 @@ RSpec.describe LegalServices::RM6240::UsersController, type: :controller do
         end
 
         context 'and there is no additional challange' do
-          it 'redirects to legal_services_journey_start_path' do
-            expect(response).to redirect_to legal_services_journey_start_path
+          it 'redirects to <start_path>' do
+            expect(response).to redirect_to <start_path>
           end
 
           it 'deletes the cookies' do
@@ -222,8 +222,8 @@ RSpec.describe LegalServices::RM6240::UsersController, type: :controller do
       end
 
       context 'and it is valid' do
-        it 'redirects to legal_services_journey_start_path' do
-          expect(response).to redirect_to legal_services_journey_start_path
+        it 'redirects to <start_path>' do
+          expect(response).to redirect_to <start_path>
         end
 
         it 'deletes the cookies' do
