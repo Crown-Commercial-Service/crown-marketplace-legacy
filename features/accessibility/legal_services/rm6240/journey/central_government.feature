@@ -8,16 +8,16 @@ Feature: Legal services - Central government - Accessibility
   Scenario: Do you work for central government?
     Then the page should be axe clean
     
-  Scenario: Is this service suitable for your requirements?
+  Scenario: Do you hold an approval secured from the Government Legal Department (GLD) to use this framework?
     And I select 'Yes'
     And I click on 'Continue'
-    Then I am on the 'Is this service suitable for your requirements?' page
+    Then I am on the 'Do you hold an approval secured from the Government Legal Department (GLD) to use this framework?' page
     Then the page should be axe clean
 
   Scenario: Sorry, this panel isn't suitable for you
     And I select 'Yes'
     And I click on 'Continue'
-    Then I am on the 'Is this service suitable for your requirements?' page
+    Then I am on the 'Do you hold an approval secured from the Government Legal Department (GLD) to use this framework?' page
     And I select 'No'
     And I click on 'Continue'
     Then I am on the "Sorry, this panel isn't suitable for you" page
@@ -26,7 +26,7 @@ Feature: Legal services - Central government - Accessibility
   Scenario: Select the lot you need
     And I select 'Yes'
     And I click on 'Continue'
-    Then I am on the 'Is this service suitable for your requirements?' page
+    Then I am on the 'Do you hold an approval secured from the Government Legal Department (GLD) to use this framework?' page
     And I select 'Yes'
     And I click on 'Continue'
     Then I am on the 'Select the lot you need' page
@@ -35,7 +35,7 @@ Feature: Legal services - Central government - Accessibility
   Scenario Outline: Select the legal services you need
     And I select 'Yes'
     And I click on 'Continue'
-    Then I am on the 'Is this service suitable for your requirements?' page
+    Then I am on the 'Do you hold an approval secured from the Government Legal Department (GLD) to use this framework?' page
     And I select 'Yes'
     And I click on 'Continue'
     Then I am on the 'Select the lot you need' page
@@ -53,7 +53,7 @@ Feature: Legal services - Central government - Accessibility
   Scenario Outline: Select the Select the jurisdiction you need you need
     And I select 'Yes'
     And I click on 'Continue'
-    Then I am on the 'Is this service suitable for your requirements?' page
+    Then I am on the 'Do you hold an approval secured from the Government Legal Department (GLD) to use this framework?' page
     And I select 'Yes'
     And I click on 'Continue'
     Then I am on the 'Select the lot you need' page
