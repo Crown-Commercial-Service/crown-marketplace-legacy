@@ -6,7 +6,7 @@ Feature: Legal services - Central governemnt - fees over £20,000
     Given I am on the 'Do you work for central government?' page
     And I select 'Yes'
     And I click on 'Continue'
-    Then I am on the 'Is this service suitable for your requirements?' page
+    Then I am on the 'Do you hold an approval secured from the Government Legal Department (GLD) to use this framework?' page
     And I select 'No'
     When I click on 'Continue'
     Then I am on the "Sorry, this panel isn't suitable for you" page
