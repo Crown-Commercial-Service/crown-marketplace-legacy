@@ -228,8 +228,8 @@ en:
             lot_3: Suppliers in lot 3 provide legal services for large property developments and projects across the UK. You can also select lot 3 if you need a specialist understanding of the property sector. Property law is available in lot 1 and lot 2.
             lot_4: Suppliers in lot 4 provide legal services for transport rail across the UK.
           rm6240:
-            lot_1: REASON FOR SELECTING LOT 1
-            lot_2: REASON FOR SELECTING LOT 2
+            lot_1: This Lot will be suited to legal service requirements that require more than one of the listed specialisms, or where the value of the requirement is likely to incur more than £250,000 of net professional fees, or where the required legal specialism only appears within this Lot.   This note is for guidance only and you should also consider whether better value could be achieved via Lot 2.
+            lot_2: This Lot will be suited to legal service requirements that require only one of the listed specialisms, or where the value of the requirement is likely to incur less than £250,000 of net professional fees, or where the required legal specialism only appears within this Lot.  This note is for guidance only and you should also consider whether better value could be achieved via Lot 1.
             lot_3: Suppliers in lot 3 provide legal services for transport rail across the UK.
         heading: Select the lot you need
     rm3788:
@@ -419,23 +419,25 @@ en:
             guidance_heading: Guidance and other useful documents
             para01: Use this service to download a shortlist of suppliers that provide the legal services you need.
             para02: Using this service means you're following the public sector procurement procedures.
-            para03_html: Central government can use this service to buy transactional property and litigation services if your contract budget is &pound;20,000 or less per matter. The wider public sector is able to use this panel in its entirety.
+            para03_html: The Wider Public Sector is able to use this framework in its entirety. Central Government departments are enabled to access this framework where they have secured approval through the Government Legal Department’s (GLD) Exception process.
             para04_html: If you need legal services in a non-UK jurisdiction, contact <a href="mailto:info@crowncommercial.gov.uk">info@crowncommercial.gov.uk</a> for help.
             para05_html: To use this service you need to be a recognised public sector body listed in the <a href="https://assets.crowncommercial.gov.uk/wp-content/uploads/RM6240-Contract-Notice-Authorised-Customer-List.docx">authorised customer list</a>.
           wps_link_text: WPS Legal Services panel specification
           wps_url: https://www.crowncommercial.gov.uk/agreements/RM6240
       journey:
         check_suitability:
-          advice: INFORMATION TO MAKE THE DECISION
-          heading: Is this service suitable for your requirements?
-          question: Do your requirements allow you to continue to select lot?
+          question: Do you hold an approval secured from the Government Legal Department (GLD) to use this framework?
         sorry:
           back_to_start: Back to start
-          general_advice: General Legal Advice Services (RM6240)
           heading: Sorry, this panel isn't suitable for you
           lead: This panel supports a range of legal services primarily for the wider public sector
-          more_information: POSSIBLY MORE INFORMATION ON THIS SCREEN
-          text_html: The %{general_advice_link} agreement provides legal advice services for central government and arms-length bodies.
+          more_information_html: Central Government Departments must use %{rm6179_link} as their default route to market for legal services, or %{rm6204_link} for rail related legal support.
+          rm6179_link:
+            text: RM6179 Legal Services Panel
+            url: https://www.crowncommercial.gov.uk/agreements/RM6179
+          rm6204_link:
+            text: RM6204 Rail Legal Services
+            url: https://www.crowncommercial.gov.uk/agreements/RM6204
       suppliers:
         rates_table:
           fixed_until: Fixed until September 2024 and based on an 8 hour working day.

@@ -6,7 +6,7 @@ Feature: Legal services - Central governemnt - Lot 2 - Service selection
     Then I am on the 'Do you work for central government?' page
     And I select 'Yes'
     And I click on 'Continue'
-    Then I am on the 'Is this service suitable for your requirements?' page
+    Then I am on the 'Do you hold an approval secured from the Government Legal Department (GLD) to use this framework?' page
     And I select 'Yes'
     And I click on 'Continue'
     Then I am on the 'Select the lot you need' page
