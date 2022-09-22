@@ -250,6 +250,12 @@ Rails.application.routes.draw do
   get '/500', to: 'errors#internal_error', as: :errors_500
   get '/503', to: 'errors#service_unavailable', as: :errors_503
 
+  namespace :api, defaults: { format: :json } do
+    namespace :v2 do
+      put '/update-cookie-settings', to: 'cookie_settings#update_cookie_settings'
+    end
+  end
+
   if Marketplace.dfe_signin_enabled?
     post '/auth/dfe', as: :dfe_sign_in
     get '/auth/dfe/callback' => 'auth#callback'

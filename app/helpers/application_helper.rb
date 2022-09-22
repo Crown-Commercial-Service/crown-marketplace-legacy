@@ -236,5 +236,13 @@ module ApplicationHelper
   def checked?(actual, expected)
     actual == expected
   end
+
+  def cookie_preferences_settings
+    @cookie_preferences_settings ||= begin
+      current_cookie_preferences = JSON.parse(cookies[Marketplace.cookie_settings_name] || '{}')
+
+      current_cookie_preferences.empty? ? Marketplace.default_cookie_options : current_cookie_preferences
+    end
+  end
 end
 # rubocop:enable Metrics/ModuleLength

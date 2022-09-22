@@ -1,11 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe LegalServices::RM3788::HomeController, type: :controller do
-  let(:default_params) { { service: 'legal_services', framework: 'RM3788' } }
+RSpec.describe LegalServices::RM6240::HomeController, type: :controller do
+  let(:default_params) { { service: 'legal_services', framework: 'RM6240' } }
 
   login_ls_buyer
-
-  include_context 'and RM6240 is live in the future'
 
   describe 'GET index' do
     it 'renders the index template' do
