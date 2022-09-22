@@ -63,6 +63,148 @@ RSpec.describe LegalServices::RM6240::Admin::UploadsController, type: :controlle
     end
   end
 
+  describe 'PUT update_cookie_settings' do
+    let(:cookie_names) { response.cookies.map { |cookie_name, _| cookie_name } }
+
+    before do
+      %i[_ga_cookie _gi_cookie _cls_cookie].each do |cookie_name|
+        cookies[cookie_name] = { value: 'test_cookie', domain: '.crowncommercial.gov.uk', path: '/' }
+      end
+
+      put :update_cookie_settings, params: update_params
+    end
+
+    context 'when enableing the ga cookies and disableing the glassbox cookies' do
+      let(:update_params) { { ga_cookie_usage: 'true', glassbox_cookie_usage: 'false' } }
+
+      it 'updates the cookie preferences' do
+        expect(JSON.parse(response.cookies['crown_marketplace_cookie_options_v1'])).to eq(
+          {
+            'settings_viewed' => true,
+            'google_analytics_enabled' => true,
+            'glassbox_enabled' => false
+          }
+        )
+      end
+
+      it 'does not delete the ga cookies' do
+        %w[_ga_cookie _gi_cookie].each do |cookie_name|
+          expect(cookie_names).not_to include cookie_name
+        end
+      end
+
+      it 'does delete the glassbox cookies' do
+        %w[_cls_cookie].each do |cookie_name|
+          expect(cookie_names).to include cookie_name
+
+          expect(response.cookies[cookie_name]).to be_nil
+        end
+      end
+
+      it 'updates the cookies_updated param' do
+        expect(controller.params[:cookies_updated]).to be true
+      end
+
+      it 'renders the cookie_settings template' do
+        expect(response).to render_template('home/cookie_settings')
+      end
+    end
+
+    context 'when enableing the glassbox cookies and disableing the ga cookies' do
+      let(:update_params) { { ga_cookie_usage: 'false', glassbox_cookie_usage: 'true' } }
+
+      it 'updates the cookie preferences' do
+        expect(JSON.parse(response.cookies['crown_marketplace_cookie_options_v1'])).to eq(
+          {
+            'settings_viewed' => true,
+            'google_analytics_enabled' => false,
+            'glassbox_enabled' => true
+          }
+        )
+      end
+
+      it 'does not delete the glassbox cookies' do
+        %w[_cls_cookie].each do |cookie_name|
+          expect(cookie_names).not_to include cookie_name
+        end
+      end
+
+      it 'does delete the ga cookies' do
+        %w[_ga_cookie _gi_cookie].each do |cookie_name|
+          expect(cookie_names).to include cookie_name
+
+          expect(response.cookies[cookie_name]).to be_nil
+        end
+      end
+
+      it 'updates the cookies_updated param' do
+        expect(controller.params[:cookies_updated]).to be true
+      end
+
+      it 'renders the cookie_settings template' do
+        expect(response).to render_template('home/cookie_settings')
+      end
+    end
+
+    context 'when enableing the ga cookies and the glassbox cookies' do
+      let(:update_params) { { ga_cookie_usage: 'true', glassbox_cookie_usage: 'true' } }
+
+      it 'updates the cookie preferences' do
+        expect(JSON.parse(response.cookies['crown_marketplace_cookie_options_v1'])).to eq(
+          {
+            'settings_viewed' => true,
+            'google_analytics_enabled' => true,
+            'glassbox_enabled' => true
+          }
+        )
+      end
+
+      it 'does not delete the ga and glassbox cookies' do
+        %w[_ga_cookie _gi_cookie _cls_cookie].each do |cookie_name|
+          expect(cookie_names).not_to include cookie_name
+        end
+      end
+
+      it 'updates the cookies_updated param' do
+        expect(controller.params[:cookies_updated]).to be true
+      end
+
+      it 'renders the cookie_settings template' do
+        expect(response).to render_template('home/cookie_settings')
+      end
+    end
+
+    context 'when disableing the ga cookies and the glassbox cookies' do
+      let(:update_params) { { ga_cookie_usage: 'false', glassbox_cookie_usage: 'false' } }
+
+      it 'updates the cookie preferences' do
+        expect(JSON.parse(response.cookies['crown_marketplace_cookie_options_v1'])).to eq(
+          {
+            'settings_viewed' => true,
+            'google_analytics_enabled' => false,
+            'glassbox_enabled' => false
+          }
+        )
+      end
+
+      it 'does delete the ga and glassbox cookies' do
+        %w[_ga_cookie _gi_cookie _cls_cookie].each do |cookie_name|
+          expect(cookie_names).to include cookie_name
+
+          expect(response.cookies[cookie_name]).to be_nil
+        end
+      end
+
+      it 'updates the cookies_updated param' do
+        expect(controller.params[:cookies_updated]).to be true
+      end
+
+      it 'renders the cookie_settings template' do
+        expect(response).to render_template('home/cookie_settings')
+      end
+    end
+  end
+
   describe 'GET not_permitted' do
     it 'renders the not_permitted page' do
       get :not_permitted
