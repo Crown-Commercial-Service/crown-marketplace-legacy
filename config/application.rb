@@ -172,4 +172,16 @@ module Marketplace
   def self.rails_env_url
     @rails_env_url ||= ENV.fetch('RAILS_ENV_URL', 'https://marketplace.service.crowncommercial.gov.uk')
   end
+
+  def self.cookie_settings_name
+    :crown_marketplace_cookie_options_v1
+  end
+
+  def self.default_cookie_options
+    {
+      settings_viewed: false,
+      google_analytics_enabled: false,
+      glassbox_enabled: false
+    }.stringify_keys
+  end
 end
