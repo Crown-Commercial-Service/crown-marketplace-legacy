@@ -4,10 +4,12 @@ class Ability
   def initialize(user)
     user ||= User.new # guest user (not logged in)
     cannot :manage, :all
-    if user.has_role? :ccs_admin
-      can :manage, :all
-    elsif user.has_role? :ccs_employee
-      admin_tool_specific_auth(user)
+
+    if user.has_role? :ccs_employee
+      can :read, :all
+
+      super_admin_specific_auth(user)
+      service_admin_specific_auth(user)
     else
       service_specific_auth(user)
     end
@@ -23,18 +25,13 @@ class Ability
     can :read, SupplyTeachers if user.has_role? :st_access
   end
 
-  def admin_tool_specific_auth(user)
-    can :read, :all
-
-    if user.has_any_role? :mc_access, :ls_access
-      can :manage, ManagementConsultancy::Admin
-      can :manage, LegalServices::Admin
-    end
-
+  def service_admin_specific_auth(user)
+    can :manage, ManagementConsultancy::Admin if user.has_role? :mc_access
+    can :manage, LegalServices::Admin if user.has_role? :ls_access
     can :manage, SupplyTeachers::Admin if user.has_role? :st_access
+  end
 
-    return unless user.has_role? :ccs_developer
-
-    can :manage, Framework
+  def super_admin_specific_auth(user)
+    can :manage, Framework if user.has_role? :ccs_developer
   end
 end
