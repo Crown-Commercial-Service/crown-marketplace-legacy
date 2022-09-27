@@ -3,8 +3,8 @@ module SupplyTeachers
     class UploadsController < SupplyTeachers::Admin::FrameworkController
       include SharedPagesConcern
 
-      before_action :authenticate_user!, :authorize_user, only: %i[index show new create update destroy]
-      before_action :set_upload, only: %i[show update destroy]
+      before_action :authenticate_user!, :authorize_user, only: %i[index show new create update destroy progress]
+      before_action :set_upload, only: %i[show update destroy progress]
 
       helper_method :service, :new_path, :index_path
 
@@ -48,6 +48,10 @@ module SupplyTeachers
         @upload.destroy
 
         redirect_to index_path
+      end
+
+      def progress
+        render json: { import_status: @upload.aasm_state }
       end
 
       private

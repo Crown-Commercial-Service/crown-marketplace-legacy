@@ -12,9 +12,4 @@
 //= require jquery3
 //= require rails-ujs
 //= require govuk-frontend/govuk/all
-//= require google_analytics
-//= require cookie_banner
-//= require supply_teachers/rm3826/supplier_markup_calculator.js
-//= require cp/cp-sign-in.js
-//= require global/global.js
-//= require global/upload_progress.js
+//= require_tree ./dist

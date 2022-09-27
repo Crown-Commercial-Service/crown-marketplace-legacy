@@ -148,7 +148,11 @@ Rails.application.routes.draw do
     concern :admin do
       namespace :admin, defaults: { service: 'supply_teachers/admin' } do
         get '/', to: 'uploads#index'
-        resources :uploads, only: %i[index new create show destroy update]
+        resources :uploads, only: %i[index new create show destroy update] do
+          member do
+            get :progress, action: :progress
+          end
+        end
         concerns :admin_shared_pages
       end
     end
