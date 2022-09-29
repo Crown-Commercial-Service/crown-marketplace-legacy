@@ -1,6 +1,8 @@
 module LegalServices
   module Admin
     class Upload < ::Admin::Upload
+      self.abstract_class = true
+
       has_one_attached :supplier_details_file
       has_one_attached :supplier_rate_cards_file
       has_one_attached :supplier_lot_1_service_offerings_file

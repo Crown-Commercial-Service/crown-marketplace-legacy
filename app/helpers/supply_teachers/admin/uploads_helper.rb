@@ -22,10 +22,6 @@ module SupplyTeachers::Admin::UploadsHelper
     end
   end
 
-  def get_file_extension(file)
-    file.filename.extension_without_delimiter.to_sym
-  end
-
   def upload_status_tag(status)
     colour = case status
              when 'published', 'files_processed'
@@ -37,10 +33,6 @@ module SupplyTeachers::Admin::UploadsHelper
              end
 
     [colour, t("supply_teachers.admin.uploads.state.#{status}")]
-  end
-
-  def st_file_link(upload, attachment)
-    "#{rails_blob_path(attachment, disposition: 'attachment', key: "st_#{params[:framework].downcase}_upload_id".to_sym, value: upload.id)}&format=#{get_file_extension(attachment)}"
   end
 
   def expected_file_type(attachment)
