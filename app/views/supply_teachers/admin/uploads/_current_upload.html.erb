@@ -3,6 +3,6 @@
     <td class="govuk-table__cell"><%= current_upload[:attribute_name].to_s.humanize %></td>
     <td class="govuk-table__cell"><%= link_to t('.upload_name', number: current_upload[:upload].short_uuid), current_upload[:upload] %></td>
     <td class="govuk-table__cell"><%= format_date_time current_upload[:upload].created_at %></td>
-    <td class="govuk-table__cell"><%= link_to 'Download', st_file_link(current_upload[:upload], current_upload[:attachment]), download: '' %></td>
+    <td class="govuk-table__cell"><%= link_to 'Download', admin_upload_file(current_upload[:upload], current_upload[:attachment], :st, params[:framework].downcase), download: '' %></td>
   </tr>
 <% end %>

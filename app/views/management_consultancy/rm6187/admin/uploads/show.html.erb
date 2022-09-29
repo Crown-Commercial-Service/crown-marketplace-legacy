@@ -46,7 +46,7 @@
           <% next unless @upload.send(file).attached? %>
           <tr>
             <td class="govuk-table__cell"><%= t(".file_name.#{file}") %></td>
-            <td class="govuk-table__cell"><%= link_to t('.download'), "#{rails_blob_path(@upload.send(file), disposition: 'attachment', key: :"mc_#{params[:framework].downcase}_upload_id", value: @upload.id)}&format=xlsx", download: '' %></td>
+            <td class="govuk-table__cell"><%= link_to t('.download'), admin_upload_file(@upload, @upload.send(file), :mc, params[:framework].downcase), download: '' %></td>
           </tr>
         <% end %>
       </tbody>
