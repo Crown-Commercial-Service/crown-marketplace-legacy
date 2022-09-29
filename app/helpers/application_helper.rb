@@ -244,5 +244,13 @@ module ApplicationHelper
       current_cookie_preferences.empty? ? Marketplace.default_cookie_options : current_cookie_preferences
     end
   end
+
+  def admin_upload_file(upload, attachment, service, framework)
+    "#{rails_blob_path(attachment, disposition: 'attachment', key: "#{service}_#{framework}_upload_id".to_sym, value: upload.id)}&format=#{get_file_extension(attachment)}"
+  end
+
+  def get_file_extension(file)
+    file.filename.extension_without_delimiter.to_sym
+  end
 end
 # rubocop:enable Metrics/ModuleLength

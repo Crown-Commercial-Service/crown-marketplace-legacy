@@ -61,7 +61,7 @@
         <% if @upload.send(attribute).attached? %>
           <tr class="govuk-table__row">
             <th class="govuk-table__header" scope="row"><%= t(".#{attribute.to_s}") %></th>
-            <td class="govuk-table__cell"><%= link_to 'Download', st_file_link(@upload, @upload.send(attribute)), download: '' %></td>
+            <td class="govuk-table__cell"><%= link_to 'Download', admin_upload_file(@upload, @upload.send(attribute), :st, params[:framework].downcase), download: '' %></td>
           </tr>
         <% end %>
       <% end %>
