@@ -13,9 +13,13 @@
   </thead>
   <tbody class="govuk-table__body">
     <% LegalServices::RM6240::Position.all.sort_by(&:code).each do |position| %>
+      <% rate = display_rate(position.code)%>
+
+      <% next if rate.nil? %>
+
       <tr class="govuk-table__row">
         <th class="govuk-table__header govuk-!-width-one-half" scope="row"><%= position.name %></th>
-        <td class="govuk-table__cell govuk-!-width-one-sixth"><%= display_rate position.code %></td>
+        <td class="govuk-table__cell govuk-!-width-one-sixth"><%= rate %></td>
       </tr>
     <% end %>
   </tbody>

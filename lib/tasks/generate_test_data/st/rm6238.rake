@@ -203,7 +203,7 @@ end
 
 namespace :generate_test_data do
   namespace :st do
-    desc 'Generate test data for  Management Consultancy'
+    desc 'Generate test data for Supply Teachers RM6238'
     task rm6238: :environment do
       GenerateTestData::ST::RM6238.generate_data
     end
