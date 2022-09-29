@@ -200,7 +200,7 @@ end
 
 namespace :generate_test_data do
   namespace :ls do
-    desc 'Generate test data for  Management Consultancy'
+    desc 'Generate test data for Legal Services RM3788'
     task rm3788: :environment do
       GenerateTestData::LS::RM3788.generate_data
     end

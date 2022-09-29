@@ -32,7 +32,7 @@ class LegalServices::RM6240::Admin::FilesChecker
     check_sheets(rate_cards_workbook, RATE_CARD_SHEETS, 'supplier_rate_cards') do |sheets_with_errors, empty_sheets, index|
       current_sheet = RATE_CARD_SHEETS[index]
 
-      if rate_cards_workbook.sheet(index).last_column != 8
+      if rate_cards_workbook.sheet(index).last_column != 9
         sheets_with_errors << current_sheet
       elsif rate_cards_workbook.sheet(index).last_row == 2
         empty_sheets << current_sheet

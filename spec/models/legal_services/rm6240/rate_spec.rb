@@ -91,7 +91,7 @@ RSpec.describe LegalServices::RM6240::Rate, type: :model do
       end
 
       context 'and it is not in the list of positions' do
-        let(:position) { '7' }
+        let(:position) { '8' }
 
         it 'is not valid' do
           expect(rate).not_to be_valid

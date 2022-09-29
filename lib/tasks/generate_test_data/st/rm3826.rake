@@ -151,7 +151,7 @@ end
 
 namespace :generate_test_data do
   namespace :st do
-    desc 'Generate test data for  Management Consultancy'
+    desc 'Generate test data for Supply Teachers RM3826'
     task rm3826: :environment do
       GenerateTestData::ST::RM3826.generate_data
     end
