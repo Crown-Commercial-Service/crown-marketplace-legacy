@@ -14,7 +14,7 @@ Feature: Legal services - Jounrey validations
     Given I am on the 'Do you work for central government?' page
     And I select 'Yes'
     And I click on 'Continue'
-    Then I am on the 'Is this service suitable for your requirements?' page
+    Then I am on the 'Do you hold an approval secured from the Government Legal Department (GLD) to use this framework?' page
     When I click on 'Continue'
     Then I should see the following error messages:
       | Select yes if your requirements allow you to continue |
@@ -23,7 +23,7 @@ Feature: Legal services - Jounrey validations
     Given I am on the 'Do you work for central government?' page
     And I select 'Yes'
     And I click on 'Continue'
-    Then I am on the 'Is this service suitable for your requirements?' page
+    Then I am on the 'Do you hold an approval secured from the Government Legal Department (GLD) to use this framework?' page
     And I select 'Yes'
     And I click on 'Continue'
     Then I am on the 'Select the lot you need' page
@@ -44,7 +44,7 @@ Feature: Legal services - Jounrey validations
     Given I am on the 'Do you work for central government?' page
     And I select 'Yes'
     And I click on 'Continue'
-    Then I am on the 'Is this service suitable for your requirements?' page
+    Then I am on the 'Do you hold an approval secured from the Government Legal Department (GLD) to use this framework?' page
     And I select 'Yes'
     And I click on 'Continue'
     Then I am on the 'Select the lot you need' page
@@ -71,7 +71,7 @@ Feature: Legal services - Jounrey validations
     Given I am on the 'Do you work for central government?' page
     And I select 'Yes'
     And I click on 'Continue'
-    Then I am on the 'Is this service suitable for your requirements?' page
+    Then I am on the 'Do you hold an approval secured from the Government Legal Department (GLD) to use this framework?' page
     And I select 'Yes'
     And I click on 'Continue'
     Then I am on the 'Select the lot you need' page

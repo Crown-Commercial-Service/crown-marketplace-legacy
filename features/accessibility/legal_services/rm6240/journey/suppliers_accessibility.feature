@@ -8,7 +8,7 @@ Feature: Legal services - Suppliers - Accessibility
   Scenario Outline: Results page - central govenrment - Lots 1 and 2
     And I select 'Yes'
     And I click on 'Continue'
-    Then I am on the 'Is this service suitable for your requirements?' page
+    Then I am on the 'Do you hold an approval secured from the Government Legal Department (GLD) to use this framework?' page
     And I select 'Yes'
     And I click on 'Continue'
     Then I am on the 'Select the lot you need' page
@@ -57,7 +57,7 @@ Feature: Legal services - Suppliers - Accessibility
   Scenario Outline: Supplier page - central govenrment - Lots 1 and 2
     And I select 'Yes'
     And I click on 'Continue'
-    Then I am on the 'Is this service suitable for your requirements?' page
+    Then I am on the 'Do you hold an approval secured from the Government Legal Department (GLD) to use this framework?' page
     And I select 'Yes'
     And I click on 'Continue'
     Then I am on the 'Select the lot you need' page
@@ -110,7 +110,7 @@ Feature: Legal services - Suppliers - Accessibility
   Scenario Outline: Download supplier list page - central govenrment - Lots 1 and 2
     And I select 'Yes'
     And I click on 'Continue'
-    Then I am on the 'Is this service suitable for your requirements?' page
+    Then I am on the 'Do you hold an approval secured from the Government Legal Department (GLD) to use this framework?' page
     And I select 'Yes'
     And I click on 'Continue'
     Then I am on the 'Select the lot you need' page
@@ -163,7 +163,7 @@ Feature: Legal services - Suppliers - Accessibility
   Scenario: Results page - central govenrment - Lot 3
     And I select 'Yes'
     And I click on 'Continue'
-    Then I am on the 'Is this service suitable for your requirements?' page
+    Then I am on the 'Do you hold an approval secured from the Government Legal Department (GLD) to use this framework?' page
     And I select 'Yes'
     And I click on 'Continue'
     Then I am on the 'Select the lot you need' page
@@ -176,7 +176,7 @@ Feature: Legal services - Suppliers - Accessibility
   Scenario: Supplier page - central govenrment - Lot 3
     And I select 'Yes'
     And I click on 'Continue'
-    Then I am on the 'Is this service suitable for your requirements?' page
+    Then I am on the 'Do you hold an approval secured from the Government Legal Department (GLD) to use this framework?' page
     And I select 'Yes'
     And I click on 'Continue'
     Then I am on the 'Select the lot you need' page
@@ -191,7 +191,7 @@ Feature: Legal services - Suppliers - Accessibility
   Scenario: Download supplier list page - central govenrment - Lot 3
     And I select 'Yes'
     And I click on 'Continue'
-    Then I am on the 'Is this service suitable for your requirements?' page
+    Then I am on the 'Do you hold an approval secured from the Government Legal Department (GLD) to use this framework?' page
     And I select 'Yes'
     And I click on 'Continue'
     Then I am on the 'Select the lot you need' page

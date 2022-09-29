@@ -148,7 +148,11 @@ Rails.application.routes.draw do
     concern :admin do
       namespace :admin, defaults: { service: 'supply_teachers/admin' } do
         get '/', to: 'uploads#index'
-        resources :uploads, only: %i[index new create show destroy update]
+        resources :uploads, only: %i[index new create show destroy update] do
+          member do
+            get :progress, action: :progress
+          end
+        end
         concerns :admin_shared_pages
       end
     end
@@ -249,6 +253,12 @@ Rails.application.routes.draw do
   get '/422', to: 'errors#unacceptable', as: :errors_422
   get '/500', to: 'errors#internal_error', as: :errors_500
   get '/503', to: 'errors#service_unavailable', as: :errors_503
+
+  namespace :api, defaults: { format: :json } do
+    namespace :v2 do
+      put '/update-cookie-settings', to: 'cookie_settings#update_cookie_settings'
+    end
+  end
 
   if Marketplace.dfe_signin_enabled?
     post '/auth/dfe', as: :dfe_sign_in

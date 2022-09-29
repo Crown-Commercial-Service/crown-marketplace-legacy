@@ -77,7 +77,7 @@ RUN bundle install
 
 # Install Node.js dependencies
 COPY package.json yarn.lock ./
-RUN yarn install --frozen-lockfile --production --no-cache
+RUN yarn install --frozen-lockfile --production --no-cache --ignore-scripts
 
 COPY . .
 
