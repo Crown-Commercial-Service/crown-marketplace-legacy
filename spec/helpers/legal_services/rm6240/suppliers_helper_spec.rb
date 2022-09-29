@@ -105,11 +105,13 @@ RSpec.describe LegalServices::RM6240::SuppliersHelper, type: :helper do
     let(:result) { helper.display_rate(position) }
     let(:hourly_partner) { Faker::Number.number(digits: 5) * 100 }
     let(:hourly_trainee) { Faker::Number.number(digits: 3) * 100 }
+    let(:hourly_lmp) { 0 }
     let(:supplier) { create(:legal_services_rm6240_supplier) }
 
     before do
       create(:legal_services_rm6240_full_service_provision_rate, supplier: supplier, rate: hourly_partner, position: '1')
       create(:legal_services_rm6240_full_service_provision_rate, supplier: supplier, rate: hourly_trainee, position: '5')
+      create(:legal_services_rm6240_full_service_provision_rate, supplier: supplier, rate: hourly_lmp, position: '7')
 
       @rate_card = supplier.rates
     end
@@ -127,6 +129,22 @@ RSpec.describe LegalServices::RM6240::SuppliersHelper, type: :helper do
 
       it 'returns the partner rate in punds and pence' do
         expect(result).to eq "£#{(hourly_trainee / 100).to_s(:delimited)}.00"
+      end
+    end
+
+    context 'when the position is LMP (Legal project manager) (7)' do
+      let(:position) { '7' }
+
+      it 'returns nil' do
+        expect(result).to be_nil
+      end
+    end
+
+    context 'when the position is out of range' do
+      let(:position) { '8' }
+
+      it 'returns nil' do
+        expect(result).to be_nil
       end
     end
   end

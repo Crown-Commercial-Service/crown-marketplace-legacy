@@ -119,13 +119,13 @@ module LegalServices::RM6240::Admin
     describe 'import_data' do
       let(:expected_supplier_results) do
         {
-          'NOAH LTD': { service_offerings: 78, rates: 18 },
-          'MIO CORP': { service_offerings: 81, rates: 18 },
-          'REKU LTD': { service_offerings: 111, rates: 36 },
-          'GUERNICA EXEC CORP': { service_offerings: 30, rates: 18 },
-          'ETHEL LTD': { service_offerings: 31, rates: 24 },
-          'LANZ CORP': { service_offerings: 1, rates: 6 },
-          'EUNIE CORP': { service_offerings: 1, rates: 6 }
+          'NOAH LTD': { service_offerings: 78, rates: 21 },
+          'MIO CORP': { service_offerings: 81, rates: 21 },
+          'REKU LTD': { service_offerings: 111, rates: 42 },
+          'GUERNICA EXEC CORP': { service_offerings: 30, rates: 21 },
+          'ETHEL LTD': { service_offerings: 31, rates: 28 },
+          'LANZ CORP': { service_offerings: 1, rates: 7 },
+          'EUNIE CORP': { service_offerings: 1, rates: 7 }
         }
       end
 
