@@ -362,4 +362,47 @@ RSpec.describe ApplicationHelper, type: :helper do
       end
     end
   end
+
+  describe 'admin upload methods' do
+    let(:upload) do
+      admin_upload = build(:supply_teachers_rm6238_admin_upload)
+      admin_upload.update(current_accredited_suppliers: create_file(*FILE_PARAMS[:valid_xlsx]))
+      admin_upload.update(master_vendor_contacts: create_file(*FILE_PARAMS[:valid_csv]))
+      admin_upload
+    end
+
+    let(:created_files) { [] }
+
+    def create_file(extension, content)
+      temp_file = Tempfile.new(['supplier_data', ".#{extension}"])
+      created_files << temp_file
+
+      fixture_file_upload(temp_file.path, content)
+    end
+
+    after { created_files.each(&:unlink) }
+
+    context 'when considering admin_upload_file' do
+      it 'the path has the expected params' do
+        uri_params = CGI.parse(URI.parse(helper.admin_upload_file(upload, upload.current_accredited_suppliers, :st, 'RM6238')).query)
+
+        expect(uri_params).to eq({
+                                   'disposition' => ['attachment'],
+                                   'key' => ['st_RM6238_upload_id'],
+                                   'value' => [upload.id],
+                                   'format' => ['xlsx']
+                                 })
+      end
+    end
+
+    context 'when considering get_file_extension' do
+      it 'returns xlsx for current_accredited_suppliers' do
+        expect(helper.get_file_extension(upload.current_accredited_suppliers)).to eq :xlsx
+      end
+
+      it 'returns csv for master_vendor_contacts' do
+        expect(helper.get_file_extension(upload.master_vendor_contacts)).to eq :csv
+      end
+    end
+  end
 end
