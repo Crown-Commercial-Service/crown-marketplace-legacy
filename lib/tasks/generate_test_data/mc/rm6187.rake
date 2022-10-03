@@ -83,7 +83,7 @@ end
 
 namespace :generate_test_data do
   namespace :mc do
-    desc 'Generate test data for  Management Consultancy'
+    desc 'Generate test data for  Management Consultancy RM6187'
     task rm6187: :environment do
       GenerateTestData::MC::RM6187.generate_data
     end

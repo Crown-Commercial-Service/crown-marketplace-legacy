@@ -35,6 +35,7 @@ Feature: Legal services -  Central governemnt - Lot 3 - Suppliers
     And the 'NQ Solicitor/Associate, Junior Solicitor/Associate' hourly rate is '£140.00'
     And the 'Trainee' hourly rate is '£105.00'
     And the 'Paralegal, Legal Assistant' hourly rate is '£70.00'
+    And the 'LMP (Legal project manager)' hourly rate is '£192.50'
     And the contact details for the supplier are:
       | witting.olson@buckridge.name  |
       | 1-249-089-2797 x3771          |
@@ -52,6 +53,7 @@ Feature: Legal services -  Central governemnt - Lot 3 - Suppliers
     And the 'NQ Solicitor/Associate, Junior Solicitor/Associate' hourly rate is '£100.00'
     And the 'Trainee' hourly rate is '£75.00'
     And the 'Paralegal, Legal Assistant' hourly rate is '£50.00'
+    And the 'LMP (Legal project manager)' hourly rate is '165.00'
     And the contact details for the supplier are:
       | nienow.jacobson@mosciski.com            |
       | 1-748-527-1159 x93482                   |

@@ -15,6 +15,10 @@ module LegalServices::RM6240::SuppliersHelper
   end
 
   def display_rate(position)
-    number_to_currency(@rate_card.find { |rate| rate.position == position }.value, precision: 2)
+    found_rate = @rate_card.find { |rate| rate.position == position }
+
+    return if found_rate.nil? || found_rate.rate.zero?
+
+    number_to_currency(found_rate.value, precision: 2)
   end
 end
