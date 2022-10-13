@@ -14,7 +14,7 @@ Feature: Management Consultancy - Navigation links when signed out
 
   Scenario: Sign in page 
     And I click on 'Start now'
-    Then I am on the 'Sign in to your management consultancy buyer account' page
+    Then I am on the 'Sign in to your management consultancy account' page
     And I should see the following navigation links:
       | Back to start |
     And I click on 'Back to start'

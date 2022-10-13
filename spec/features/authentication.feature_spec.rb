@@ -26,7 +26,7 @@ RSpec.feature 'Authentication', type: :feature do
     OmniAuth.config.test_mode = false
     visit '/management-consultancy/RM6187/start'
 
-    expect(page).to have_text('Sign in to your management consultancy buyer account')
+    expect(page).to have_text('Sign in to your management consultancy account')
   end
 
   scenario 'Users can sign in using AWS Cognito' do
@@ -59,7 +59,7 @@ RSpec.feature 'Authentication', type: :feature do
     click_on 'Sign out'
 
     visit '/management-consultancy/RM6187/start'
-    expect(page).to have_text('Sign in to your management consultancy buyer account')
+    expect(page).to have_text('Sign in to your management consultancy account')
   end
 
   scenario 'Users can sign in using DfE sign-in', dfe: true do

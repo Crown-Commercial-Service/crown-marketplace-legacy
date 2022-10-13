@@ -14,7 +14,7 @@ Feature: Management Consultancy - Cookie settings
     When I click on 'Accept analytics cookies'
     Then the cookie banner shows I have 'accepted' the cookies
     And I click on 'Start now'
-    Then I am on the 'Sign in to your management consultancy buyer account' page
+    Then I am on the 'Sign in to your management consultancy account' page
     And the cookie banner 'is not' visible
     And the cookies have been saved
     And the 'ga' cookies have been 'accepted'
@@ -24,7 +24,7 @@ Feature: Management Consultancy - Cookie settings
     When I click on 'Reject analytics cookies'
     Then the cookie banner shows I have 'rejected' the cookies
     And I click on 'Start now'
-    Then I am on the 'Sign in to your management consultancy buyer account' page
+    Then I am on the 'Sign in to your management consultancy account' page
     And the cookie banner 'is not' visible
     And the cookies have been saved
     And the 'ga' cookies have been 'rejected'
