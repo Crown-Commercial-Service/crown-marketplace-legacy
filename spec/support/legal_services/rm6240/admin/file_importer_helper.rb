@@ -99,7 +99,7 @@ module LegalServices
         SHEETS = ['Lot 1a - England & Wales', 'Lot 1b - Scotland', 'Lot 1c - Northern Ireland', 'Lot 2a - England & Wales', 'Lot 2b - Scotland', 'Lot 2c - Northern Ireland', 'Lot 3'].freeze
         HEADERS_1 = [nil, 'Position:', 'Partner', 'Senior Solicitor, Senior Associate', 'Solicitor, Associate', 'NQ Solicitor/Associate, Junior Solicitor/Associate', 'Trainee', 'Paralegal, Legal Assistant', 'LMP (Legal project manager)'].freeze
         HEADERS_2 = ['Supplier name', 'DUNS', 'Hourly rate', 'Hourly rate', 'Hourly rate', 'Hourly rate', 'Hourly rate', 'Hourly rate', 'Hourly rate'].freeze
-        PRICES = [1330, 1295, 1225, 1120, 700, 450, 1200].freeze
+        PRICES = [1330, 1295, 1225, 1120, 700, 450].freeze
 
         def self.sheets_with_extra_headers(sheets_with_extra_headers)
           self::SHEETS.map do |sheet|
@@ -121,11 +121,11 @@ module LegalServices
             sheet.add_row header_row[1]
             next if @empty
 
-            supplier_details.each do |supplier_detail|
+            supplier_details.each_with_index do |supplier_detail, index|
               supplier_name = supplier_detail[0]
               supplier_duns = @supplier_duns[supplier_name.to_sym] || supplier_detail[6]
 
-              sheet.add_row [supplier_name, supplier_duns] + PRICES
+              sheet.add_row [supplier_name, supplier_duns] + PRICES + [final_rate(index)]
             end
           end
         end
@@ -137,6 +137,17 @@ module LegalServices
             SUPPLIERS_LOT_2
           else
             SUPPLIERS_LOT_1
+          end
+        end
+
+        def final_rate(index)
+          case index
+          when 0
+            1200
+          when 1
+            nil
+          when 2
+            ''
           end
         end
       end
