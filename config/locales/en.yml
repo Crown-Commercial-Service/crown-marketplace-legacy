@@ -36,6 +36,7 @@ en:
             new_password:
               blank: Enter a password
               invalid_no_capitals: Password must include a capital letter
+              invalid_no_number: Password must include a number
               invalid_no_symbol: Password must include a special character
               too_short: Password must be 8 characters or more
             new_password_confirmation:
@@ -121,8 +122,15 @@ en:
         enter_your_password: Enter your password
         forgotten_password_html: I’ve forgotten my password
         heading:
-          legal_services: Sign in to your legal services buyer account
-          management_consultancy: Sign in to your management consultancy buyer account
+          legal_services:
+            admin: Sign in to your legal services admin account
+            buyer: Sign in to your legal services account
+          management_consultancy:
+            admin: Sign in to your management consultancy admin account
+            buyer: Sign in to your management consultancy account
+          supply_teachers:
+            admin: Sign in to your supply teachers admin account
+            buyer: Sign in to your supply teachers account
         password: Password
         please_enter_a_valid_email_address: You must provide your email address in the correct format, like name@example.com
         problems_signing_in: Problems signing in
