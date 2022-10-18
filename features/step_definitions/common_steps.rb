@@ -23,17 +23,6 @@ Given('I sign in and navigate to the start page for the {string} framework in {s
   step "I am on the '#{start_page_title}' page"
 end
 
-When('I go to the {string} start page') do |service|
-  case service
-  when 'legal services'
-    visit legal_services_rm3788_path
-  when 'management consultancy'
-    visit management_consultancy_rm6187_path
-  when 'supply teachers'
-    visit supply_teachers_path
-  end
-end
-
 When('I go to the {string} start page for {string}') do |service, framework|
   case service
   when 'legal services'
