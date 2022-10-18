@@ -14,7 +14,6 @@
 ActiveSupport::Inflector.inflections(:en) do |inflect|
   inflect.acronym 'RM6187'
   inflect.acronym 'RM3788'
-  inflect.acronym 'RM3826'
   inflect.acronym 'RM6238'
   inflect.acronym 'RM6240'
 end

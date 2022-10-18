@@ -34,42 +34,6 @@
         }
       })%>
 
-      <% if params[:framework] == 'RM3826' %>
-        <%= govuk_text_input(f, @journey, :day_rate, {
-          label: {
-            text: t('.day_rate_question'),
-            classes: 'govuk-label--m'
-          },
-          hint: {
-            text: t('.day_rate_question_hint')
-          },
-          input: {
-            classes: 'govuk-input--width-10',
-            value: params[:day_rate],
-            prefix: {
-              text: '£'
-            }
-          }
-        })%>
-
-        <%= govuk_text_input(f, @journey, :markup_rate, {
-          label: {
-            text: t('.markup_rate_question'),
-            classes: 'govuk-label--m'
-          },
-          hint: {
-            text: t('.markup_rate_question_hint')
-          },
-          input: {
-            classes: 'govuk-input--width-10',
-            value: params[:markup_rate],
-            suffix: {
-              text: '%'
-            }
-          }
-        })%>
-      <% end %>
-
       <% if params[:framework] == 'RM6238' %>
         <%= govuk_text_input(f, @journey, :daily_fee, {
           label: {

@@ -4,15 +4,6 @@ RSpec.describe SupplyTeachers::Admin::HomeController, type: :controller do
   let(:default_params) { { service: 'supply_teachers/admin' } }
 
   describe 'GET framework' do
-    context 'when RM3826 is live' do
-      include_context 'and RM6238 is live in the future'
-
-      it 'redirects to the RM3826 admin home page' do
-        get :framework
-        expect(response).to redirect_to supply_teachers_rm3826_admin_path
-      end
-    end
-
     context 'when RM6238 is live' do
       it 'redirects to the RM6238 admin home page' do
         get :framework
@@ -23,7 +14,7 @@ RSpec.describe SupplyTeachers::Admin::HomeController, type: :controller do
 
   describe 'GET index' do
     context 'when RM6238 is live' do
-      context 'and the framework is not RM3826 or RM6238' do
+      context 'and the framework is not RM6238' do
         it 'renders the unrecognised framework page with the right http status' do
           get :index, params: { framework: 'RM6187' }
 
@@ -41,20 +32,12 @@ RSpec.describe SupplyTeachers::Admin::HomeController, type: :controller do
           end.to raise_error(ActionController::MissingExactTemplate)
         end
       end
-
-      context 'and the framework is RM3826' do
-        it 'raises the MissingExactTemplate error' do
-          expect do
-            get :index, params: { framework: 'RM3826' }
-          end.to raise_error(ActionController::MissingExactTemplate)
-        end
-      end
     end
 
     context 'when RM6238 is not live' do
       include_context 'and RM6238 is live in the future'
 
-      context 'and the framework is not RM3826 or RM6238' do
+      context 'and the framework is not RM6238' do
         it 'renders the unrecognised framework page with the right http status' do
           get :index, params: { framework: 'RM6187' }
 
@@ -67,14 +50,6 @@ RSpec.describe SupplyTeachers::Admin::HomeController, type: :controller do
         it 'raises the MissingExactTemplate error' do
           expect do
             get :index, params: { framework: 'RM6238' }
-          end.to raise_error(ActionController::MissingExactTemplate)
-        end
-      end
-
-      context 'and the framework is RM3826' do
-        it 'raises the MissingExactTemplate error' do
-          expect do
-            get :index, params: { framework: 'RM3826' }
           end.to raise_error(ActionController::MissingExactTemplate)
         end
       end

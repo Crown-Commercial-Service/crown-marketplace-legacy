@@ -106,7 +106,6 @@ Then('the master vendor agency {string} has the following rates:') do |agency_na
 
     expect(rate_row.find(:xpath, './td[1]')).to have_content(rate[:one_week])
     expect(rate_row.find(:xpath, './td[2]')).to have_content(rate[:twelve_weeks])
-    expect(rate_row.find(:xpath, './td[3]')).to have_content(rate[:more_than_twelve_weeks]) if @framework == 'RM3826'
   end
 end
 
@@ -267,7 +266,6 @@ Then('the agency has the following rates:') do |raw_rates|
 
     expect(rate_row.find(:xpath, './td[1]')).to have_content(rate[:one_week])
     expect(rate_row.find(:xpath, './td[2]')).to have_content(rate[:twelve_weeks])
-    expect(rate_row.find(:xpath, './td[3]')).to have_content(rate[:more_than_twelve_weeks]) if @framework == 'RM3826'
   end
 end
 
