@@ -52,12 +52,6 @@ Rails.application.routes.draw do
     end
 
     namespace 'legal_services', path: 'legal-services', defaults: { service: 'legal_services' } do
-      namespace 'rm3788', path: 'RM3788', defaults: { framework: 'RM3788' } do
-        concerns %i[authenticatable registrable]
-        namespace :admin, defaults: { service: 'legal_services/admin' } do
-          concerns :authenticatable
-        end
-      end
       namespace 'rm6240', path: 'RM6240', defaults: { framework: 'RM6240' } do
         concerns %i[authenticatable registrable]
         namespace :admin, defaults: { service: 'legal_services/admin' } do
@@ -211,15 +205,6 @@ Rails.application.routes.draw do
 
     namespace :admin, defaults: { service: 'legal_services/admin' } do
       concerns %i[framework admin_frameworks]
-    end
-
-    namespace 'rm3788', path: 'RM3788', defaults: { framework: 'RM3788' } do
-      concerns %i[buyer_shared_pages shared_pages suppliers]
-
-      resources :downloads, only: :index
-      namespace :admin, defaults: { service: 'legal_services/admin' } do
-        concerns %i[admin_uploads admin_shared_pages]
-      end
     end
 
     namespace 'rm6240', path: 'RM6240', defaults: { framework: 'RM6240' } do

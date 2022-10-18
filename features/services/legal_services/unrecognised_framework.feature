@@ -11,7 +11,6 @@ Feature: Legal Services - Start pages - With an unrecognised framework
   
     Examples:
       | framework |
-      | RM3788    |
       | RM6240    |
 
   Scenario Outline: Go to unrecognised famework in the buyer section - logged out
@@ -25,7 +24,6 @@ Feature: Legal Services - Start pages - With an unrecognised framework
 
     Examples:
       | framework |
-      | RM3788    |
       | RM6240    |
 
   Scenario Outline: Go to an unrecognised famework in the admin section - logged out
@@ -38,7 +36,6 @@ Feature: Legal Services - Start pages - With an unrecognised framework
 
     Examples:
       | framework |
-      | RM3788    |
       | RM6240    |
 
   Scenario Outline: Go to an unrecognised famework in the admin section - logged in
@@ -53,5 +50,4 @@ Feature: Legal Services - Start pages - With an unrecognised framework
 
     Examples:
       | framework |
-      | RM3788    |
       | RM6240    |

@@ -103,18 +103,6 @@ module GenerateAuthenticationSpecs
 
   SERVICE_AND_FRAMEWORKS = [
     {
-      name: 'Legal services RM3788 user',
-      service_name: 'legal_services',
-      framework: 'RM3788',
-      registration: true
-    },
-    {
-      name: 'Legal services RM3788 admin',
-      service_name: 'legal_services',
-      framework: 'RM3788',
-      admin: true
-    },
-    {
       name: 'Legal services RM6240 user',
       service_name: 'legal_services',
       framework: 'RM6240',

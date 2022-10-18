@@ -111,8 +111,6 @@ ignore_unused:
   - suppliers.*
   - companies.*
   - legal_services.journey.select_lot.extended_description.rm*.lot_*
-  - legal_services.rm3788.job_titles.*
-  - legal_services.rm3788.admin.uploads.failed.error_details.*
   - legal_services.rm6240.admin.uploads.failed.error_details.*
   - supply_teachers.calculations.temp_to_perm_fee.calculations.*
   - home.cookie_policy.cookie_banner_cookies.row_*

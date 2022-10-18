@@ -10,8 +10,6 @@ RSpec.describe LegalServices::RM6240::SuppliersController, type: :controller do
   let(:jurisdiction) { nil }
   let(:central_government) { 'no' }
 
-  include_context 'and RM3788 has expired'
-
   login_ls_buyer
 
   before do
