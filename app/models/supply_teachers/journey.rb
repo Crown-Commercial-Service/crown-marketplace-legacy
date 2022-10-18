@@ -18,10 +18,6 @@ module SupplyTeachers
 
     def next_step_path
       case next_slug
-      when 'results'
-        supply_teachers_rm3826_branches_path(params: params)
-      when 'master-vendor-managed-service'
-        master_vendors_supply_teachers_rm3826_suppliers_path(journey: self.class.journey_name, params: params)
       when 'neutral-vendor-managed-service'
         supply_teachers_neutral_vendors_path(journey: self.class.journey_name, params: params)
       when 'calculate-temp-to-perm-fee'

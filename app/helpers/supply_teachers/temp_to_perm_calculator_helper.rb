@@ -20,11 +20,6 @@ module SupplyTeachers::TempToPermCalculatorHelper
 
   def display_suppliers_daily_fee(calculator)
     case params[:framework]
-    when 'RM3826'
-      t("#{TRANSLATION_SCOPE}.daily_supplier_fee",
-        fee: number_to_currency(calculator.daily_supplier_fee),
-        markup_rate: number_to_percentage(calculator.markup_rate * 100, precision: 1),
-        day_rate: number_to_currency(calculator.day_rate))
     when 'RM6238'
       t("#{TRANSLATION_SCOPE}.daily_supplier_fee_no_markup",
         fee: number_to_currency(calculator.daily_supplier_fee))

@@ -1,12 +1,4 @@
 module Frameworks
-  def self.rm3826_expires_at
-    if Rails.env.test?
-      Time.zone.now + 1.year
-    else
-      Time.new(2022, 9, 12).in_time_zone('London')
-    end
-  end
-
   def self.rm6238_expires_at
     if Rails.env.test?
       Time.zone.now + 1.year
@@ -35,7 +27,6 @@ module Frameworks
 
   def self.add_frameworks
     ActiveRecord::Base.connection.truncate_tables(:frameworks)
-    Framework.create(service: 'supply_teachers', framework: 'RM3826', live_at: Time.new(2020, 6, 26).in_time_zone('London'), expires_at: rm3826_expires_at)
     Framework.create(service: 'supply_teachers', framework: 'RM6238', live_at: Time.new(2022, 9, 12).in_time_zone('London'), expires_at: rm6238_expires_at)
     Framework.create(service: 'management_consultancy', framework: 'RM6187', live_at: Time.new(2021, 9, 4).in_time_zone('London'), expires_at: Time.new(2025, 9, 4).in_time_zone('London'))
     Framework.create(service: 'legal_services', framework: 'RM3788', live_at: Time.new(2020, 6, 26).in_time_zone('London'), expires_at: rm3788_expires_at)

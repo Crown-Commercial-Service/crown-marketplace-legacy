@@ -6,8 +6,6 @@ RSpec.describe SupplyTeachers::RM6238::SuppliersController, type: :controller do
 
   login_st_buyer
 
-  include_context 'and RM3826 has expired'
-
   describe 'GET master_vendors' do
     let(:supplier) { build(:supply_teachers_rm6238_supplier) }
     let(:suppliers) { [supplier] }

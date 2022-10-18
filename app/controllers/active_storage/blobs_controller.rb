@@ -6,7 +6,7 @@ class ActiveStorage::BlobsController < ActiveStorage::BaseController
   include ActiveStorage::SetBlob
 
   rescue_from CanCan::AccessDenied do
-    redirect_to supply_teachers_rm3826_not_permitted_path
+    redirect_to supply_teachers_rm6238_not_permitted_path
   end
 
   def show
@@ -27,7 +27,6 @@ class ActiveStorage::BlobsController < ActiveStorage::BaseController
   end
 
   KEY_TO_MODEL = {
-    st_rm3826_upload_id: SupplyTeachers::RM3826::Admin::Upload,
     st_rm6238_upload_id: SupplyTeachers::RM6238::Admin::Upload,
     mc_rm6187_upload_id: ManagementConsultancy::RM6187::Admin::Upload,
     ls_rm3788_upload_id: LegalServices::RM3788::Admin::Upload,

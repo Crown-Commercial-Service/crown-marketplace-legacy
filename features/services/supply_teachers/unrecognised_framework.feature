@@ -11,7 +11,6 @@ Feature: Supply Teachers - Start pages - With an unrecognised framework
   
     Examples:
       | framework |
-      | RM3826    |
       | RM6238    |
 
   Scenario Outline: Go to unrecognised famework in the buyer section - logged out
@@ -25,7 +24,6 @@ Feature: Supply Teachers - Start pages - With an unrecognised framework
 
     Examples:
       | framework |
-      | RM3826    |
       | RM6238    |
 
 
@@ -39,7 +37,6 @@ Feature: Supply Teachers - Start pages - With an unrecognised framework
 
     Examples:
       | framework |
-      | RM3826    |
       | RM6238    |
 
   Scenario Outline: Go to an unrecognised famework in the admin section - logged in
@@ -54,5 +51,4 @@ Feature: Supply Teachers - Start pages - With an unrecognised framework
 
     Examples:
       | framework |
-      | RM3826    |
       | RM6238    |
