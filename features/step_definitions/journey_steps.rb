@@ -93,22 +93,6 @@ Then('the contact details for the supplier are:') do |contact_details|
   end
 end
 
-Then('the {string} lot 1 rates are {string}, {string} and {string}') do |role, hourly_rate, daily_rate, monthly_rate|
-  table_row = journey_page.supplier_rates_table.rows[LS_RM3788_LOT_1_ROLES.index(role)]
-
-  expect(table_row.hourly_rate).to have_content(hourly_rate)
-  expect(table_row.daily_rate).to have_content(daily_rate)
-  expect(table_row.monthly_rate).to have_content(monthly_rate)
-end
-
-Then('the {string} rates are {string}, {string} and {string}') do |role, hourly_rate, daily_rate, monthly_rate|
-  table_row = journey_page.supplier_rates_table.rows[LS_RM3788_ROLES.index(role)]
-
-  expect(table_row.hourly_rate).to have_content(hourly_rate)
-  expect(table_row.daily_rate).to have_content(daily_rate)
-  expect(table_row.monthly_rate).to have_content(monthly_rate)
-end
-
 Then('the {string} hourly rate is {string}') do |role, hourly_rate|
   table_row = journey_page.supplier_rates_table.rows[LS_RM6240_ROLES.index(role)]
 
@@ -120,6 +104,4 @@ Then('there is no LMP \(Legal project manager) hourly rate') do
 end
 
 MC_ROLES = ['Analyst / Junior Consultant', 'Consultant', 'Senior Consultant / Engagement Manager / Project Lead', 'Principal Consultant / Associate Director', 'Managing Consultant / Director', 'Partner'].freeze
-LS_RM3788_LOT_1_ROLES = ['Managing Practitioner', 'Senior Practitioner', 'Solicitor/Associate', 'Legal Support Practitioner/Executive'].freeze
-LS_RM3788_ROLES = ['Partner including Managing Partner', 'Senior Solicitor/Senior Associate/Legal Director', 'Solicitor/Associate', 'Junior Solicitor', 'Trainee/Paralegal'].freeze
 LS_RM6240_ROLES = ['Partner', 'Senior Solicitor, Senior Associate', 'Solicitor, Associate', 'NQ Solicitor/Associate, Junior Solicitor/Associate', 'Trainee', 'Paralegal, Legal Assistant', 'LMP (Legal project manager)'].freeze

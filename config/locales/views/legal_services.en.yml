@@ -3,31 +3,6 @@ en:
   activemodel:
     errors:
       models:
-        legal_services/rm3788/journey/check_suitability:
-          attributes:
-            service_suitable:
-              inclusion: Select yes if the fees will be under £20,000
-        legal_services/rm3788/journey/choose_jurisdiction:
-          attributes:
-            jurisdiction:
-              inclusion: Select the jurisdiction you need
-        legal_services/rm3788/journey/choose_organisation_type:
-          attributes:
-            central_government:
-              inclusion: Select yes if you work for central government
-        legal_services/rm3788/journey/choose_regions:
-          attributes:
-            region_codes:
-              full_national_coverage: Select full national coverage or the region or regions you require the services in
-              too_short: Select the region or regions you require the services in
-        legal_services/rm3788/journey/choose_services:
-          attributes:
-            services:
-              blank: Select at least one legal service
-        legal_services/rm3788/journey/select_lot:
-          attributes:
-            lot:
-              blank: Select the lot you need
         legal_services/rm6240/journey/check_suitability:
           attributes:
             service_suitable:
@@ -51,44 +26,6 @@ en:
   activerecord:
     errors:
       models:
-        legal_services/rm3788/admin/upload:
-          attributes:
-            supplier_details_file:
-              malicious: The 'Supplier details' file contains a virus
-              not_attached: Select the 'Supplier details' file
-              too_large: The 'Supplier details' file must be smaller than 10mb
-              wrong_content_type: The 'Supplier details' file does not contain the expected content type
-              wrong_extension: The 'Supplier details' file must be an XLSX
-            supplier_lot_1_service_offerings_file:
-              malicious: The 'Supplier lot 1 service offerings' file contains a virus
-              not_attached: Select the 'Supplier lot 1 service offerings' file
-              too_large: The 'Supplier lot 1 service offerings' file must be smaller than 10mb
-              wrong_content_type: The 'Supplier lot 1 service offerings' file does not contain the expected content type
-              wrong_extension: The 'Supplier lot 1 service offerings' file must be an XLSX
-            supplier_lot_2_service_offerings_file:
-              malicious: The 'Supplier lot 2 service offerings' file contains a virus
-              not_attached: Select the 'Supplier lot 2 service offerings' file
-              too_large: The 'Supplier lot 2 service offerings' file must be smaller than 10mb
-              wrong_content_type: The 'Supplier lot 2 service offerings' file does not contain the expected content type
-              wrong_extension: The 'Supplier lot 2 service offerings' file must be an XLSX
-            supplier_lot_3_service_offerings_file:
-              malicious: The 'Supplier lot 3 service offerings' file contains a virus
-              not_attached: Select the 'Supplier lot 3 service offerings' file
-              too_large: The 'Supplier lot 3 service offerings' file must be smaller than 10mb
-              wrong_content_type: The 'Supplier lot 3 service offerings' file does not contain the expected content type
-              wrong_extension: The 'Supplier lot 3 service offerings' file must be an XLSX
-            supplier_lot_4_service_offerings_file:
-              malicious: The 'Supplier lot 4 service offerings' file contains a virus
-              not_attached: Select the 'Supplier lot 4 service offerings' file
-              too_large: The 'Supplier lot 4 service offerings' file must be smaller than 10mb
-              wrong_content_type: The 'Supplier lot 4 service offerings' file does not contain the expected content type
-              wrong_extension: The 'Supplier lot 4 service offerings' file must be an XLSX
-            supplier_rate_cards_file:
-              malicious: The 'Supplier rate cards' file contains a virus
-              not_attached: Select the 'Supplier rate cards' file
-              too_large: The 'Supplier rate cards' file must be smaller than 10mb
-              wrong_content_type: The 'Supplier rate cards' file does not contain the expected content type
-              wrong_extension: The 'Supplier rate cards' file must be an XLSX
         legal_services/rm6240/admin/upload:
           attributes:
             supplier_details_file:
@@ -212,151 +149,17 @@ en:
         search_central_government_html: Search %{central_government_search_link} if you're unsure.
         txt_link_text: central government departments, agencies and public bodies
       choose_services:
-        ccs_support_link_text: Contact CCS Support (opens in new tab)
-        general_legal_advice_services_html: If the services you need aren't listed here, the %{general_legal_advice_services_link} agreement provides legal services for central government and arms-length bodies. %{ccs_support_link} for help.
-        general_legal_advice_services_link: https://www.crowncommercial.gov.uk/agreements/%{framework}
-        general_legal_advice_services_link_text: General Legal Advice Services (%{framework})
         no_services_selected: No services selected
         question: Select the legal services you need
         service_selected: service selected
         services_selected: services selected
       select_lot:
         extended_description:
-          rm3788:
-            lot_1: Select lot 1 if your requirements have a regional focus or your budget is below £200,000. These suppliers provide services across 14 legal specialisms within at least one of the 13 UK NUTS regions.
-            lot_2: Select lot 2 if your requirements needs a full-service supplier or your budget is over £200,000. Full-service firms can provide services in 35 specialisms. Suppliers have said which jurisdictional area of the UK they serve.
-            lot_3: Suppliers in lot 3 provide legal services for large property developments and projects across the UK. You can also select lot 3 if you need a specialist understanding of the property sector. Property law is available in lot 1 and lot 2.
-            lot_4: Suppliers in lot 4 provide legal services for transport rail across the UK.
           rm6240:
             lot_1: This Lot will be suited to legal service requirements that require more than one of the listed specialisms, or where the value of the requirement is likely to incur more than £250,000 of net professional fees, or where the required legal specialism only appears within this Lot.   This note is for guidance only and you should also consider whether better value could be achieved via Lot 2.
             lot_2: This Lot will be suited to legal service requirements that require only one of the listed specialisms, or where the value of the requirement is likely to incur less than £250,000 of net professional fees, or where the required legal specialism only appears within this Lot.  This note is for guidance only and you should also consider whether better value could be achieved via Lot 1.
             lot_3: Suppliers in lot 3 provide legal services for transport rail across the UK.
         heading: Select the lot you need
-    rm3788:
-      admin:
-        uploads:
-          failed:
-            error_details:
-              file_check_failed: Something went wrong when checking the files, please try uploading the files again
-              file_check_failed_html: 'Something went wrong when checking the files, the following error was returned: <br> <strong>%{list}</strong>'
-              file_process_failed: Something went wrong when processing the files, please try uploading the files again
-              file_process_failed_html: 'Something went wrong when processing the files, the following error was returned: <br> <strong>%{list}</strong>'
-              file_publish_failed: Something went wrong when publishing the files, please try uploading the files again
-              file_publish_failed_html: 'Something went wrong when publishing the files, the following error was returned: <br> <strong>%{list}</strong>'
-              supplier_details_has_empty_sheets: Make sure the sheet for 'Supplier details' have been filled in
-              supplier_details_has_incorrect_headers: 'Make sure the sheet for ''Supplier details'' has the following headers: ''Supplier Name'', ''Email address'', ''Phone number'', ''Website URL'', ''Postal address'', ''Is an SME'', ''DUNS Number'', ''Lot 1: Prospectus Link'', ''Lot 2: Prospectus Link'', ''Lot 3: Prospectus Link'', ''Lot 4: Prospectus Link'', ''About the supplier'''
-              supplier_details_missing_sheets: The 'Supplier details' file should have 1 sheet named 'All Suppliers'
-              supplier_lot_1_service_offerings_has_empty_sheets_html: 'The following sheets have no data: %{list} Make sure all sheets for ''Supplier lot 1 service offerings'' have been filled in'
-              supplier_lot_1_service_offerings_has_incorrect_headers_html: 'The following sheets have incorrect column headers: %{list} Make sure all sheets for ''Supplier lot 1 service offerings'' have the 14 expected services'
-              supplier_lot_1_service_offerings_missing_sheets: 'The ''Supplier lot 1 service offerings'' file should have 13 sheets with the following names: ''Full UK Coverage'', ''North East England (NUTS C)'', ''North West England (NUTS D)'', ''Yorkshire & Humberside (NUTS E)'', ''East Midlands (NUTS F)'', ''West Midlands (NUTS G)'', ''East of England (NUTS H)'', ''Greater London (NUTS I)'', ''South East England (NUTS J)'', ''South West England (NUTS K)'', ''Wales (NUTS L)'', ''Scotland (NUTS M)'', ''Northern Ireland (NUTS N)'''
-              supplier_lot_2_service_offerings_has_empty_sheets_html: 'The following sheets have no data: %{list} Make sure all sheets for ''Supplier lot 2 service offerings'' have been filled in'
-              supplier_lot_2_service_offerings_has_incorrect_headers_html: 'The following sheets have incorrect column  headers: %{list} Make sure all sheets for ''Supplier lot 2 service offerings'' have the 35 expected services'
-              supplier_lot_2_service_offerings_missing_sheets: 'The ''Supplier lot 2 service offerings'' file should have 3 sheets with the following names: ''Lot 2a - England & Wales'', ''Lot 2b - Scotland'', ''Lot 2c - Northern Ireland'''
-              supplier_lot_3_service_offerings_has_empty_sheets: Make sure the sheet for 'Supplier lot 3 service offerings' have been filled in
-              supplier_lot_3_service_offerings_has_incorrect_headers: Make sure the sheet for 'Supplier lot 3 service offerings' only has the single service 'WPSLS.3.1'
-              supplier_lot_3_service_offerings_missing_sheets: The ''Supplier lot 3 service offerings' file should have 1 sheet named 'All regions'
-              supplier_lot_4_service_offerings_has_empty_sheets: Make sure the sheet for 'Supplier lot 4 service offerings' have been filled in
-              supplier_lot_4_service_offerings_has_incorrect_headers: Make sure the sheet for 'Supplier lot 4 service offerings' only has the single service 'WPSLS.4.1'
-              supplier_lot_4_service_offerings_missing_sheets: The ''Supplier lot 4 service offerings' file should have 1 sheet named 'All regions'
-              supplier_missing_lots_html: 'The following suppliers do not offer any lots: %{list} Make sure all the suppliers have the correct name and DUNS number'
-              supplier_missing_rate_cards_html: 'The following suppliers do not have any rate cards: %{list} Make sure all the suppliers have the correct name and DUNS number'
-              supplier_rate_cards_has_empty_sheets_html: 'The following sheets have no data: %{list} Make sure all sheets for ''Supplier rate cards'' have been filled in'
-              supplier_rate_cards_has_incorrect_headers_html: 'The following sheets have incorrect headers: %{list} Make sure all sheets for ''Supplier rate cards'' have the right catagories for the rates'
-              supplier_rate_cards_missing_sheets: 'The ''Supplier rate cards'' file should have 6 sheets with the following names: ''''Lot 1'', ''Lot 2a - England & Wales'', ''Lot 2b - Scotland'', ''Lot 2c - Northern Ireland'', ''Lot 3'', ''Lot 4'''
-              upload_failed: Something went wrong with the file upload, please try uploading the files again
-              upload_failed_html: 'Something went wrong with the file upload, the following error was returned: <br> <strong>%{list}</strong>'
-            error_name:
-              file_check_failed: File check failed
-              file_process_failed: File processing failed
-              file_publish_failed: File publishing failed
-              supplier_details_has_empty_sheets: There are sheets in 'Supplier details' without any data
-              supplier_details_has_incorrect_headers: There are sheets in 'Supplier details' with incorrect headers
-              supplier_details_missing_sheets: The 'Supplier details' file is missing sheets
-              supplier_lot_1_service_offerings_has_empty_sheets: There are sheets in 'Supplier lot 1 service offerings' without any data
-              supplier_lot_1_service_offerings_has_incorrect_headers: There are sheets in 'Supplier lot 1 service offerings' with incorrect services
-              supplier_lot_1_service_offerings_missing_sheets: The 'Supplier lot 1 service offerings' file is missing sheets
-              supplier_lot_2_service_offerings_has_empty_sheets: There are sheets in 'Supplier lot 2 service offerings' without any data
-              supplier_lot_2_service_offerings_has_incorrect_headers: There are sheets in 'Supplier lot 2 service offerings' with incorrect services
-              supplier_lot_2_service_offerings_missing_sheets: The 'Supplier lot 2 service offerings' file is missing sheets
-              supplier_lot_3_service_offerings_has_empty_sheets: There are sheets in 'Supplier lot 3 service offerings' without any data
-              supplier_lot_3_service_offerings_has_incorrect_headers: There are sheets in 'Supplier lot 3 service offerings' with incorrect services
-              supplier_lot_3_service_offerings_missing_sheets: The 'Supplier lot 3 service offerings' file is missing sheets
-              supplier_lot_4_service_offerings_has_empty_sheets: There are sheets in 'Supplier lot 4 service offerings' without any data
-              supplier_lot_4_service_offerings_has_incorrect_headers: There are sheets in 'Supplier lot 4 service offerings' with incorrect services
-              supplier_lot_4_service_offerings_missing_sheets: The 'Supplier lot 4 service offerings' file is missing sheets
-              supplier_missing_lots: There are suppliers without any lots
-              supplier_missing_rate_cards: There are suppliers without any rate cards
-              supplier_rate_cards_has_empty_sheets: There are sheets in 'Supplier rate cards' without any data
-              supplier_rate_cards_has_incorrect_headers: There are sheets in 'Supplier rate cards' with incorrect headers
-              supplier_rate_cards_missing_sheets: The 'Supplier rate cards' file is missing sheets
-              upload_failed: Upload failed
-      home:
-        index:
-          heading: Find legal services for the wider public sector
-          ojeu_link_text: OJEU contract notice
-          ojeu_url_html: https://assets.crowncommercial.gov.uk/wp-content/uploads/RM3788%20Contract%20notice%20OJEU.pdf
-          use_this_service:
-            before_heading: Before you start
-            guidance_heading: Guidance and other useful documents
-            para01: Use this service to download a shortlist of suppliers that provide the legal services you need.
-            para02: Using this service means you're following the public sector procurement procedures.
-            para03_html: Central government can use this service to buy transactional property and litigation services if your contract budget is &pound;20,000 or less per matter. The wider public sector is able to use this panel in its entirety.
-            para04_html: If you need legal services in a non-UK jurisdiction, contact <a href="mailto:info@crowncommercial.gov.uk">info@crowncommercial.gov.uk</a> for help.
-            para05_html: To use this service you need to be a recognised public sector body listed in the <a href="https://assets.crowncommercial.gov.uk/wp-content/uploads/RM3788-Contract-Notice-Authorised-Customer-List.docx">authorised customer list</a>.
-          wps_link_text: WPS Legal Services panel specification
-          wps_url: https://www.crowncommercial.gov.uk/agreements/RM3788
-      job_titles:
-        lot_1:
-          junior: Legal Support Practitioner/Executive
-          managing: Managing Practitioner
-          senior: Senior Practitioner
-          solicitor: Solicitor/Associate
-        lot_2:
-          junior: Junior Solicitor
-          managing: Partner including Managing Partner
-          senior: Senior Solicitor/Senior Associate/Legal Director
-          solicitor: Solicitor/Associate
-          trainee: Trainee/Paralegal
-        lot_3:
-          junior: Junior Solicitor
-          managing: Partner including Managing Partner
-          senior: Senior Solicitor/Senior Associate/Legal Director
-          solicitor: Solicitor/Associate
-          trainee: Trainee/Paralegal
-        lot_4:
-          junior: Junior Solicitor
-          managing: Partner including Managing Partner
-          senior: Senior Solicitor/Senior Associate/Legal Director
-          solicitor: Solicitor/Associate
-          trainee: Trainee/Paralegal
-      journey:
-        check_suitability:
-          advice: Please note that the £20,000 includes Legal Fees only, disbursements and other charges are to be excluded.
-          heading: Will the fees be under £20,000 per matter?
-          multiple_transaction_advice: Where multiple individual "transactional" matters make up the requirement, the £20,000 fees relate to each individual matter and not the full contract value.
-        choose_regions:
-          full_national_coverage: Full national coverage
-          no_regions_selected: No regions selected
-          or: or
-          question: Select the regions where you need legal services
-          region_selected: region selected
-          regions_selected: regions selected
-          view_locations: View locations (PDF 266 KB)
-        sorry:
-          back_to_start: Back to start
-          general_advice: General Legal Advice Services (RM3786)
-          heading: Sorry, this panel isn't suitable for you
-          lead: This panel supports a range of legal services primarily for the wider public sector
-          text_html: The %{general_advice_link} agreement provides legal advice services for central government and arms-length bodies.
-      suppliers:
-        rates_table:
-          daily: Daily
-          fixed_until: Fixed until September 2021 and based on an 8 hour working day.
-          further_competition: These are the maximum rates the supplier charges for a direct award. You may get a cheaper rate by running a further competition.
-          hourly: Hourly
-          monthly: Monthly
-          position: Position
-          rates: Rates
     rm6240:
       admin:
         uploads:
