@@ -1,28 +1,3 @@
-Given 'I sign in and navigate to the start page for {string}' do |service|
-  start_page_title = ''
-
-  case service
-  when 'legal services'
-    create_buyer_user('ls')
-    start_page_title = 'Do you work for central government?'
-    visit legal_services_rm3788_new_user_session_path
-  when 'management consultancy'
-    create_buyer_user('mc')
-    start_page_title = 'Select the lot you need'
-    visit management_consultancy_rm6187_new_user_session_path
-  when 'supply teachers'
-    create_buyer_user('st')
-    start_page_title = 'What is your school looking for?'
-    visit supply_teachers_rm3826_new_user_session_path
-  end
-
-  update_banner_cookie(true) if @javascript
-  fill_in 'email', with: @user.email
-  fill_in 'password', with: 'ValidPassword'
-  click_on 'Sign in'
-  step "I am on the '#{start_page_title}' page"
-end
-
 Given('I sign in and navigate to the start page for the {string} framework in {string}') do |framework, service|
   start_page_title = ''
 

@@ -34,12 +34,6 @@ Rails.application.routes.draw do
     delete '/sign-out', to: 'base/sessions#destroy', as: :destroy_user_session
 
     namespace 'supply_teachers', path: 'supply-teachers', defaults: { service: 'supply_teachers' } do
-      namespace 'rm3826', path: 'RM3826', defaults: { framework: 'RM3826' } do
-        concerns :authenticatable
-        namespace :admin, defaults: { service: 'supply_teachers/admin' } do
-          concerns :authenticatable
-        end
-      end
       namespace 'rm6238', path: 'RM6238', defaults: { framework: 'RM6238' } do
         concerns :authenticatable
         namespace :admin, defaults: { service: 'supply_teachers/admin' } do
@@ -161,12 +155,6 @@ Rails.application.routes.draw do
 
     namespace :admin, defaults: { service: 'supply_teachers/admin' } do
       concerns %i[framework admin_frameworks]
-    end
-
-    namespace 'rm3826', path: 'RM3826', defaults: { framework: 'RM3826' } do
-      concerns %i[buyer_shared_pages shared_pages gateway branches admin calculations suppliers]
-
-      resources :downloads, only: :index
     end
 
     namespace 'rm6238', path: 'RM6238', defaults: { framework: 'RM6238' } do

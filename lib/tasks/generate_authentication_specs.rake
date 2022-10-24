@@ -139,17 +139,6 @@ module GenerateAuthenticationSpecs
       admin: true
     },
     {
-      name: 'Supply teachers RM3826 user',
-      service_name: 'supply_teachers',
-      framework: 'RM3826',
-    },
-    {
-      name: 'Supply teachers RM3826 admin',
-      service_name: 'supply_teachers',
-      framework: 'RM3826',
-      admin: true
-    },
-    {
       name: 'Supply teachers RM6238 user',
       service_name: 'supply_teachers',
       framework: 'RM6238',
