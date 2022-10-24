@@ -1,4 +1,4 @@
-class RemoveLegalServicesRM3788 < ActiveRecord::Migration[6.0]
+class RemoveLegalServicesRm3788 < ActiveRecord::Migration[6.0]
   # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
   def change
     drop_table 'legal_services_rm3788_admin_uploads', id: :uuid, default: -> { 'gen_random_uuid()' }, force: :cascade do |t|
