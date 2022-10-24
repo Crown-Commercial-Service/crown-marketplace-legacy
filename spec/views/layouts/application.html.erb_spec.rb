@@ -4,20 +4,9 @@ RSpec.describe 'layouts/application.html.erb' do
   let(:support_link_feedback_address) { 'https://www.smartsurvey.co.uk/s/MIIJB/' }
 
   before do
-    view.extend(ApplicationHelper)
     allow(view).to receive(:user_signed_in?).and_return(false)
-    allow(view).to receive(:cookies_path).and_return('/action_view/cookies')
-    allow(view).to receive(:accessibility_statement_path).and_return('/action_view/accessibility_statement')
-    controller.singleton_class.class_eval do
-      def ccs_homepage_url
-        'https://CCSHOMEPAGE'
-      end
-
-      def service_path_base
-        '/supply-teachers'
-      end
-      helper_method :ccs_homepage_url, :service_path_base
-    end
+    allow(view).to receive(:ccs_homepage_url).and_return('https://CCSHOMEPAGE')
+    allow(view).to receive(:service_path_base).and_return('/supply-teachers')
 
     cookies[:crown_marketplace_cookie_options_v1] = {
       value: {
