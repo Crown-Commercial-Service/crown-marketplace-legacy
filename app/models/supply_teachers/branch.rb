@@ -19,15 +19,15 @@ module SupplyTeachers
     def self.distinct_suppliers(agency_params)
       framework = name[16..21]
 
-      select("supply_teachers_#{framework}_supplier_id")
-        .distinct
-        .joins(:supplier)
+      module_parent::Supplier
+        .where(id: distinct.pluck("supply_teachers_#{framework}_supplier_id"))
         .select(
-          "supply_teachers_#{framework}_suppliers.name",
-          "lower(supply_teachers_#{framework}_suppliers.name)"
+          'id',
+          'name',
+          'lower(name)'
         )
-        .order("lower(supply_teachers_#{framework}_suppliers.name)")
-        .where(["lower(supply_teachers_#{framework}_suppliers.name) LIKE ?", "%#{agency_params[:agency_name]&.downcase}%"])
+        .order('lower(name)')
+        .where(['lower(name) LIKE ?', "%#{agency_params[:agency_name]&.downcase}%"])
         .page(agency_params[:page])
     end
 
