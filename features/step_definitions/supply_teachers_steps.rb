@@ -35,8 +35,8 @@ Given('I enter a date {int} years and {int} months into the future for the {stri
   add_dates(field, *@dates[field].strftime('%d/%m/%Y').split('/'))
 end
 
-Then('the date I need to wait until is {int} months into the future in the {string}') do |months, option|
-  date_text = (Time.zone.today + months.months).strftime('%d %b %Y')
+Then('the date I need to wait until is six months after {int} months ago in the {string}') do |months, option|
+  date_text = (Time.zone.today - months.months + 6.months).strftime('%d %b %Y')
 
   case option
   when 'title'
