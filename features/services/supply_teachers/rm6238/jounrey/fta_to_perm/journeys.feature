@@ -69,13 +69,13 @@ Feature: Supply Teachers - FTA to perm - results
     And I enter a date 0 years and 2 months into the future
     And I click on 'Continue'
     Then I am on the 'If you wait and do not employ' page
-    And the date I need to wait until is 5 months into the future in the 'title'
+    And the date I need to wait until is six months after 1 months ago in the 'title'
     And I click on "I don't want to wait that long - continue to calculate fee"
     Then I am on the 'What fixed term fee did you pay the worker?' page
     And I enter '500' for the 'fixed term fee'
     And I click on 'Continue'
     Then I am on the 'You could be charged £700.00' page
-    And the date I need to wait until is 5 months into the future in the 'panel'
+    And the date I need to wait until is six months after 1 months ago in the 'panel'
     And I click on 'Check another fixed term contract'
     And I am on the 'What date did the workers fixed term contract start?' page
 
