@@ -3,8 +3,6 @@ require 'rails_helper'
 RSpec.describe SupplyTeachers::RM6238::HomeController, type: :controller do
   let(:default_params) { { service: 'supply_teachers', framework: 'RM6238' } }
 
-  include_context 'and RM3826 has expired'
-
   login_st_buyer
 
   describe 'GET index' do

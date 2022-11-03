@@ -74,10 +74,9 @@ RSpec.describe SupplyTeachers::RM6238::SuppliersHelper, type: :helper do
 
   describe 'show_path' do
     let(:supplier) { create(:supply_teachers_rm6238_supplier) }
-    let(:branch) { create(:supply_teachers_rm6238_branch, supplier: supplier) }
 
     it 'returns the show path for the supplier' do
-      expect(helper.show_path(branch)).to eq supply_teachers_rm6238_supplier_path(supplier)
+      expect(helper.show_path(supplier)).to eq supply_teachers_rm6238_supplier_path(supplier)
     end
   end
 end

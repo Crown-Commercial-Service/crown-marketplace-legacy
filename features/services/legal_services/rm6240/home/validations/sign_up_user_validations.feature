@@ -5,7 +5,7 @@ Feature: Legal Services - Sign up user
     Given I go to the 'legal services' start page for 'RM6240'
     And I am on the 'Find legal services for the wider public sector' page
     When I click on 'Start now'
-    Then I am on the 'Sign in to your legal services buyer account' page
+    Then I am on the 'Sign in to your legal services account' page
     And I click on 'Create an account'
     Then I am on the 'Create a CCS account' page
 
@@ -16,7 +16,7 @@ Feature: Legal Services - Sign up user
     When I click on 'Create account'
     Then I should see the following error messages:
       | <error_message> |
-    
+
     Examples:
       | email         | error_message                                                       |
       |               | Enter an email address in the correct format, like name@example.com |

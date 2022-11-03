@@ -6,8 +6,6 @@ RSpec.describe SupplyTeachers::RM6238::SuppliersController, type: :controller do
 
   login_st_buyer
 
-  include_context 'and RM3826 has expired'
-
   describe 'GET master_vendors' do
     let(:supplier) { build(:supply_teachers_rm6238_supplier) }
     let(:suppliers) { [supplier] }
@@ -88,7 +86,7 @@ RSpec.describe SupplyTeachers::RM6238::SuppliersController, type: :controller do
     it 'assigns paginated_suppliers' do
       expect(assigns(:paginated_suppliers).map do |supplier|
         {
-          supplier_id: supplier.supply_teachers_rm6238_supplier_id,
+          supplier_id: supplier.id,
           name: supplier.name
         }
       end).to match_array([branch_1, branch_2].map do |supplier|

@@ -6,6 +6,6 @@ module SupplyTeachers::RM6238::SuppliersHelper
   end
 
   def show_path(supplier)
-    supply_teachers_rm6238_supplier_path(id: supplier.supply_teachers_rm6238_supplier_id)
+    supply_teachers_rm6238_supplier_path(id: supplier.id)
   end
 end

@@ -30,17 +30,6 @@
           }
         end
       }) %>
-
-      <% if params['central_government'] == 'yes' && params[:framework] == 'RM3788' %>
-        <p>
-          <%= t(
-            '.general_legal_advice_services_html',
-            general_legal_advice_services_link: link_to(t('.general_legal_advice_services_link_text', framework: params[:framework]), t('.general_legal_advice_services_link', framework: params[:framework]), class: 'govuk-link'),
-            ccs_support_link: contact_link(t('.ccs_support_link_text'))
-            )
-          %>
-        </p>
-      <% end %>
     </div>
 
     <div class="govuk-grid-column-one-third">

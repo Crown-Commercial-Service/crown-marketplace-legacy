@@ -4,15 +4,6 @@ RSpec.describe SupplyTeachers::HomeController, type: :controller do
   let(:default_params) { { service: 'supply_teachers' } }
 
   describe 'GET framework' do
-    context 'when RM3826 is live' do
-      include_context 'and RM6238 is live in the future'
-
-      it 'redirects to the RM3826 home page' do
-        get :framework
-        expect(response).to redirect_to supply_teachers_rm3826_path
-      end
-    end
-
     context 'when RM6238 is live' do
       it 'redirects to the RM6238 home page' do
         get :framework
@@ -23,7 +14,7 @@ RSpec.describe SupplyTeachers::HomeController, type: :controller do
 
   describe 'GET index' do
     context 'when RM6238 is live' do
-      context 'and the framework is not RM3826 or RM6238' do
+      context 'and the framework is not RM6238' do
         it 'renders the unrecognised framework page with the right http status' do
           get :index, params: { framework: 'RM6187' }
 
@@ -41,33 +32,12 @@ RSpec.describe SupplyTeachers::HomeController, type: :controller do
           end.to raise_error(ActionController::MissingExactTemplate)
         end
       end
-
-      context 'and the framework is RM3826' do
-        it 'raises the MissingExactTemplate error' do
-          expect do
-            get :index, params: { framework: 'RM3826' }
-          end.to raise_error(ActionController::MissingExactTemplate)
-        end
-
-        # rubocop:disable RSpec/NestedGroups
-        context 'and RM3826 framework expires today' do
-          include_context 'and RM3826 has expired'
-
-          it 'renders the unrecognised framework page with the right http status' do
-            get :index, params: { framework: 'RM3826' }
-
-            expect(response).to render_template('supply_teachers/home/unrecognised_framework')
-            expect(response).to have_http_status(:bad_request)
-          end
-        end
-        # rubocop:enable RSpec/NestedGroups
-      end
     end
 
     context 'when RM6238 is not live' do
       include_context 'and RM6238 is live in the future'
 
-      context 'and the framework is not RM3826 or RM6238' do
+      context 'and the framework is not RM6238' do
         it 'renders the unrecognised framework page with the right http status' do
           get :index, params: { framework: 'RM6187' }
 
@@ -82,14 +52,6 @@ RSpec.describe SupplyTeachers::HomeController, type: :controller do
 
           expect(response).to render_template('supply_teachers/home/unrecognised_framework')
           expect(response).to have_http_status(:bad_request)
-        end
-      end
-
-      context 'and the framework is RM3826' do
-        it 'raises the MissingExactTemplate error' do
-          expect do
-            get :index, params: { framework: 'RM3826' }
-          end.to raise_error(ActionController::MissingExactTemplate)
         end
       end
     end

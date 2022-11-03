@@ -18,7 +18,7 @@ module Login
     end
 
     def logout_url(routable)
-      routable.supply_teachers_rm3826_gateway_url
+      routable.supply_teachers_rm6238_gateway_url
     end
 
     def permit?(framework)

@@ -108,7 +108,7 @@ class LegalServices::RM6240::Admin::FilesProcessor
   end
 
   def convert_rate_to_pence(rate)
-    (rate * 100).to_i
+    rate&.*(100).to_i
   end
 
   LOT_NUMBERS = ['1a', '1b', '1c', '2a', '2b', '2c', '3'].freeze

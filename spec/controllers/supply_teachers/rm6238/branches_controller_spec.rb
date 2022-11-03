@@ -4,8 +4,6 @@ RSpec.describe SupplyTeachers::RM6238::BranchesController, type: :controller do
   let(:default_params) { { service: 'supply_teachers', framework: framework } }
   let(:framework) { 'RM6238' }
 
-  include_context 'and RM3826 has expired'
-
   describe 'GET index' do
     let(:first_branch) { create(:supply_teachers_rm6238_branch, :with_rates) }
     let(:second_branch) { create(:supply_teachers_rm6238_branch, :with_rates) }

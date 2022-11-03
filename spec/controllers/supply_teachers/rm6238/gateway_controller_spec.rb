@@ -4,8 +4,6 @@ RSpec.describe SupplyTeachers::RM6238::GatewayController, type: :controller do
   let(:default_params) { { service: 'supply_teachers', framework: framework } }
   let(:framework) { 'RM6238' }
 
-  include_context 'and RM3826 has expired'
-
   describe 'GET index' do
     context 'when not signed in' do
       before { get :index }

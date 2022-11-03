@@ -7,7 +7,7 @@ RSpec.describe LegalServices::RM6240::Position, type: :model do
   let(:all_codes) { described_class.all_codes }
 
   it 'loads positions from CSV' do
-    expect(positions.count).to eq(6)
+    expect(positions.count).to eq(7)
   end
 
   it 'populates attributes of first position' do

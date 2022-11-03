@@ -34,12 +34,6 @@ Rails.application.routes.draw do
     delete '/sign-out', to: 'base/sessions#destroy', as: :destroy_user_session
 
     namespace 'supply_teachers', path: 'supply-teachers', defaults: { service: 'supply_teachers' } do
-      namespace 'rm3826', path: 'RM3826', defaults: { framework: 'RM3826' } do
-        concerns :authenticatable
-        namespace :admin, defaults: { service: 'supply_teachers/admin' } do
-          concerns :authenticatable
-        end
-      end
       namespace 'rm6238', path: 'RM6238', defaults: { framework: 'RM6238' } do
         concerns :authenticatable
         namespace :admin, defaults: { service: 'supply_teachers/admin' } do
@@ -58,12 +52,6 @@ Rails.application.routes.draw do
     end
 
     namespace 'legal_services', path: 'legal-services', defaults: { service: 'legal_services' } do
-      namespace 'rm3788', path: 'RM3788', defaults: { framework: 'RM3788' } do
-        concerns %i[authenticatable registrable]
-        namespace :admin, defaults: { service: 'legal_services/admin' } do
-          concerns :authenticatable
-        end
-      end
       namespace 'rm6240', path: 'RM6240', defaults: { framework: 'RM6240' } do
         concerns %i[authenticatable registrable]
         namespace :admin, defaults: { service: 'legal_services/admin' } do
@@ -163,12 +151,6 @@ Rails.application.routes.draw do
       concerns %i[framework admin_frameworks]
     end
 
-    namespace 'rm3826', path: 'RM3826', defaults: { framework: 'RM3826' } do
-      concerns %i[buyer_shared_pages shared_pages gateway branches admin calculations suppliers]
-
-      resources :downloads, only: :index
-    end
-
     namespace 'rm6238', path: 'RM6238', defaults: { framework: 'RM6238' } do
       concerns %i[buyer_shared_pages shared_pages gateway branches admin calculations suppliers]
 
@@ -223,15 +205,6 @@ Rails.application.routes.draw do
 
     namespace :admin, defaults: { service: 'legal_services/admin' } do
       concerns %i[framework admin_frameworks]
-    end
-
-    namespace 'rm3788', path: 'RM3788', defaults: { framework: 'RM3788' } do
-      concerns %i[buyer_shared_pages shared_pages suppliers]
-
-      resources :downloads, only: :index
-      namespace :admin, defaults: { service: 'legal_services/admin' } do
-        concerns %i[admin_uploads admin_shared_pages]
-      end
     end
 
     namespace 'rm6240', path: 'RM6240', defaults: { framework: 'RM6240' } do

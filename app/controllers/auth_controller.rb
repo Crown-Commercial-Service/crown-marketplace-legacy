@@ -13,7 +13,7 @@ class AuthController < ApplicationController
   protected
 
   def find_or_create(login)
-    user = User.find_or_initialize_by(email: login.email)
+    user = User.find_or_initialize_by(email: login.email.downcase)
     user.new_record?
     user.roles = %i[buyer st_access]
     user.save

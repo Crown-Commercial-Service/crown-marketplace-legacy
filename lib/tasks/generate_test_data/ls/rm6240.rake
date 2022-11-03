@@ -95,7 +95,7 @@ module GenerateTestData
           JURISDICTIONS.rotate(index)[..1].each do |jurisdiction|
             min_rate = rand(5..7) * 1000
 
-            ('1'..'6').each do |position|
+            ('1'..'7').each do |position|
               supplier[:rates] << {
                 lot_number: lot_number,
                 jurisdiction: jurisdiction,
@@ -111,7 +111,7 @@ module GenerateTestData
         @suppliers[7..].each do |supplier|
           min_rate = rand(5..7) * 1000
 
-          ('1'..'6').each do |position|
+          ('1'..'7').each do |position|
             supplier[:rates] << {
               lot_number: '3',
               position: position,
@@ -122,6 +122,8 @@ module GenerateTestData
       end
 
       def self.position_rate(min_rate, position)
+        return 0 if position == '7' && rand > 0.75
+
         (min_rate * POSITION_FACTOR[position]).to_i
       end
 
@@ -131,7 +133,8 @@ module GenerateTestData
         '3' => 2.5,
         '4' => 2,
         '5' => 1.5,
-        '6' => 1
+        '6' => 1,
+        '7' => 2.75
       }.freeze
 
       def self.write_to_file
@@ -146,7 +149,7 @@ end
 
 namespace :generate_test_data do
   namespace :ls do
-    desc 'Generate test data for  Management Consultancy'
+    desc 'Generate test data for Legal Services RM6240'
     task rm6240: :environment do
       GenerateTestData::LS::RM6240.generate_data
     end

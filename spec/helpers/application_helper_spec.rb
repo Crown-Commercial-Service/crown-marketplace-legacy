@@ -278,34 +278,87 @@ RSpec.describe ApplicationHelper, type: :helper do
 
   describe '.cookie_preferences_settings' do
     let(:result) { helper.cookie_preferences_settings }
+    let(:default_cookie_settings) do
+      {
+        'settings_viewed' => false,
+        'google_analytics_enabled' => false,
+        'glassbox_enabled' => false
+      }
+    end
 
     context 'when the cookie has not been set' do
-      let(:expected_cookie_settings) do
-        {
-          'settings_viewed' => false,
-          'google_analytics_enabled' => false,
-          'glassbox_enabled' => false
-        }
-      end
-
       it 'returns the default settings' do
-        expect(result).to eq(expected_cookie_settings)
+        expect(result).to eq(default_cookie_settings)
       end
     end
 
     context 'when the cookie has been set' do
-      let(:expected_cookie_settings) do
-        {
-          'settings_viewed' => true,
-          'google_analytics_enabled' => true,
-          'glassbox_enabled' => false
-        }
+      before { helper.request.cookies['crown_marketplace_cookie_options_v1'] = cookie_settings }
+
+      context 'and it is a hash' do
+        let(:expected_cookie_settings) do
+          {
+            'settings_viewed' => true,
+            'google_analytics_enabled' => true,
+            'glassbox_enabled' => false
+          }
+        end
+        let(:cookie_settings) { expected_cookie_settings.to_json }
+
+        it 'returns the settings from the cookie' do
+          expect(result).to eq(expected_cookie_settings)
+        end
       end
 
-      it 'returns the settings from the cookie' do
-        helper.request.cookies['crown_marketplace_cookie_options_v1'] = expected_cookie_settings.to_json
+      context 'and it is not a hash' do
+        let(:cookie_settings) { '123' }
 
-        expect(result).to eq(expected_cookie_settings)
+        it 'returns the default settings' do
+          expect(result).to eq(default_cookie_settings)
+        end
+      end
+    end
+  end
+
+  describe 'admin upload methods' do
+    let(:upload) do
+      admin_upload = build(:supply_teachers_rm6238_admin_upload)
+      admin_upload.update(current_accredited_suppliers: create_file(*FILE_PARAMS[:valid_xlsx]))
+      admin_upload.update(master_vendor_contacts: create_file(*FILE_PARAMS[:valid_csv]))
+      admin_upload
+    end
+
+    let(:created_files) { [] }
+
+    def create_file(extension, content)
+      temp_file = Tempfile.new(['supplier_data', ".#{extension}"])
+      created_files << temp_file
+
+      fixture_file_upload(temp_file.path, content)
+    end
+
+    after { created_files.each(&:unlink) }
+
+    context 'when considering admin_upload_file' do
+      it 'the path has the expected params' do
+        uri_params = CGI.parse(URI.parse(helper.admin_upload_file(upload, upload.current_accredited_suppliers, :st, 'RM6238')).query)
+
+        expect(uri_params).to eq({
+                                   'disposition' => ['attachment'],
+                                   'key' => ['st_RM6238_upload_id'],
+                                   'value' => [upload.id],
+                                   'format' => ['xlsx']
+                                 })
+      end
+    end
+
+    context 'when considering get_file_extension' do
+      it 'returns xlsx for current_accredited_suppliers' do
+        expect(helper.get_file_extension(upload.current_accredited_suppliers)).to eq :xlsx
+      end
+
+      it 'returns csv for master_vendor_contacts' do
+        expect(helper.get_file_extension(upload.master_vendor_contacts)).to eq :csv
       end
     end
   end

@@ -4,14 +4,14 @@ require 'rails_helper'
 RSpec.describe Framework, type: :model do
   describe '.frameworks' do
     context 'when no scope is provided' do
-      it 'returns RM3826, RM6238, RM6187 and RM3788' do
-        expect(described_class.frameworks).to eq %w[RM3826 RM6238 RM6187 RM3788 RM6240]
+      it 'returns RM6238, RM6187 and RM6240' do
+        expect(described_class.frameworks).to eq %w[RM6238 RM6187 RM6240]
       end
     end
 
     context 'when the supply_teachers scope is provided' do
-      it 'returns RM3826 and RM6238' do
-        expect(described_class.supply_teachers.frameworks).to eq %w[RM3826 RM6238]
+      it 'returns RM6238' do
+        expect(described_class.supply_teachers.frameworks).to eq %w[RM6238]
       end
     end
 
@@ -22,8 +22,8 @@ RSpec.describe Framework, type: :model do
     end
 
     context 'when the legal_services scope is provided' do
-      it 'returns RM3788' do
-        expect(described_class.legal_services.frameworks).to eq %w[RM3788 RM6240]
+      it 'returns and RM6240' do
+        expect(described_class.legal_services.frameworks).to eq %w[RM6240]
       end
     end
   end
@@ -32,27 +32,13 @@ RSpec.describe Framework, type: :model do
     context 'when RM6238 goes live tomorrow' do
       include_context 'and RM6238 is live in the future'
 
-      it 'returns RM3826, RM6187, RM3788 and RM6240' do
-        expect(described_class.live_frameworks).to eq %w[RM3826 RM6187 RM3788 RM6240]
+      it 'returns RM6187 and RM6240' do
+        expect(described_class.live_frameworks).to eq %w[RM6187 RM6240]
       end
 
       context 'and the supply_teachers scope is provided' do
-        it 'returns RM3826' do
-          expect(described_class.supply_teachers.live_frameworks).to eq %w[RM3826]
-        end
-      end
-
-      context 'and RM3826 framework expires today' do
-        include_context 'and RM3826 has expired'
-
-        it 'returns RM6187, RM3788 and RM6240' do
-          expect(described_class.live_frameworks).to eq %w[RM6187 RM3788 RM6240]
-        end
-
-        context 'and the supply_teachers scope is provided' do
-          it 'returns an empty array' do
-            expect(described_class.supply_teachers.live_frameworks).to eq %w[]
-          end
+        it 'returns an empty array' do
+          expect(described_class.supply_teachers.live_frameworks).to eq %w[]
         end
       end
     end
@@ -60,27 +46,13 @@ RSpec.describe Framework, type: :model do
     context 'when RM6240 goes live tomorrow' do
       include_context 'and RM6240 is live in the future'
 
-      it 'returns RM3826, RM6238, RM6187 and RM3788, ' do
-        expect(described_class.live_frameworks).to eq %w[RM3826 RM6238 RM6187 RM3788]
+      it 'returns RM6238 and RM6187, ' do
+        expect(described_class.live_frameworks).to eq %w[RM6238 RM6187]
       end
 
       context 'and the legal_services scope is provided' do
-        it 'returns RM3788' do
-          expect(described_class.legal_services.live_frameworks).to eq %w[RM3788]
-        end
-      end
-
-      context 'and RM3788 framework expires today' do
-        include_context 'and RM3788 has expired'
-
-        it 'returns RM3826, RM6238 and RM6187' do
-          expect(described_class.live_frameworks).to eq %w[RM3826 RM6238 RM6187]
-        end
-
-        context 'and the legal_services scope is provided' do
-          it 'returns an empty array' do
-            expect(described_class.legal_services.live_frameworks).to eq %w[]
-          end
+        it 'returns an empty array' do
+          expect(described_class.legal_services.live_frameworks).to eq %w[]
         end
       end
     end
@@ -88,27 +60,13 @@ RSpec.describe Framework, type: :model do
     context 'when RM6238 is live today' do
       include_context 'and RM6238 is live today'
 
-      it 'returns RM3826, RM6238, RM6187, RM6240 and RM3788' do
-        expect(described_class.live_frameworks).to eq %w[RM3826 RM6187 RM3788 RM6240 RM6238]
+      it 'returns RM6238, RM6187 and RM6240' do
+        expect(described_class.live_frameworks).to eq %w[RM6187 RM6240 RM6238]
       end
 
       context 'and the supply_teachers scope is provided' do
-        it 'returns RM3826 and RM6238' do
-          expect(described_class.supply_teachers.live_frameworks).to eq %w[RM3826 RM6238]
-        end
-      end
-
-      context 'and RM3826 framework expires today' do
-        include_context 'and RM3826 has expired'
-
-        it 'returns RM6238, RM6187, RM6240 and RM3788' do
-          expect(described_class.live_frameworks).to eq %w[RM6187 RM3788 RM6240 RM6238]
-        end
-
-        context 'and the supply_teachers scope is provided' do
-          it 'returns RM6238' do
-            expect(described_class.supply_teachers.live_frameworks).to eq %w[RM6238]
-          end
+        it 'returns RM6238' do
+          expect(described_class.supply_teachers.live_frameworks).to eq %w[RM6238]
         end
       end
     end
@@ -116,79 +74,37 @@ RSpec.describe Framework, type: :model do
     context 'when RM6240 is live today' do
       include_context 'and RM6240 is live today'
 
-      it 'returns RM3826, RM6238, RM6187, RM3788 and RM6240' do
-        expect(described_class.live_frameworks).to eq %w[RM3826 RM6238 RM6187 RM3788 RM6240]
+      it 'returns RM6238, RM6187 and RM6240' do
+        expect(described_class.live_frameworks).to eq %w[RM6238 RM6187 RM6240]
       end
 
       context 'and the legal_services scope is provided' do
-        it 'returns RM3788 and RM6240' do
-          expect(described_class.legal_services.live_frameworks).to eq %w[RM3788 RM6240]
-        end
-      end
-
-      context 'and RM3788 framework expires today' do
-        include_context 'and RM3788 has expired'
-
-        it 'returns RM3826, RM6238, RM6187 and RM6240' do
-          expect(described_class.live_frameworks).to eq %w[RM3826 RM6238 RM6187 RM6240]
-        end
-
-        context 'and the legal_services scope is provided' do
-          it 'returns RM6240' do
-            expect(described_class.legal_services.live_frameworks).to eq %w[RM6240]
-          end
+        it 'returns RM6240' do
+          expect(described_class.legal_services.live_frameworks).to eq %w[RM6240]
         end
       end
     end
 
     context 'when RM6238 went live yesterday' do
-      it 'returns RM3826, RM6238, RM6187, RM3788 and RM6240' do
-        expect(described_class.live_frameworks).to eq %w[RM3826 RM6238 RM6187 RM3788 RM6240]
+      it 'returns RM6238, RM6187 and RM6240' do
+        expect(described_class.live_frameworks).to eq %w[RM6238 RM6187 RM6240]
       end
 
       context 'and the supply_teachers scope is provided' do
-        it 'returns RM3826 and RM6238' do
-          expect(described_class.supply_teachers.live_frameworks).to eq %w[RM3826 RM6238]
-        end
-      end
-
-      context 'and RM3826 framework expires today' do
-        include_context 'and RM3826 has expired'
-
-        it 'returns RM6238, RM6187, RM3788 and RM6240' do
-          expect(described_class.live_frameworks).to eq %w[RM6238 RM6187 RM3788 RM6240]
-        end
-
-        context 'and the supply_teachers scope is provided' do
-          it 'returns RM6238' do
-            expect(described_class.supply_teachers.live_frameworks).to eq %w[RM6238]
-          end
+        it 'returns RM6238' do
+          expect(described_class.supply_teachers.live_frameworks).to eq %w[RM6238]
         end
       end
     end
 
     context 'when RM6240 went live yesterday' do
-      it 'returns RM3826, RM6240, RM6187, RM3788 and RM6240' do
-        expect(described_class.live_frameworks).to eq %w[RM3826 RM6238 RM6187 RM3788 RM6240]
+      it 'returns RM6240, RM6187 and RM6240' do
+        expect(described_class.live_frameworks).to eq %w[RM6238 RM6187 RM6240]
       end
 
       context 'and the legal_services scope is provided' do
-        it 'returns RM3788 and RM6240' do
-          expect(described_class.legal_services.live_frameworks).to eq %w[RM3788 RM6240]
-        end
-      end
-
-      context 'and RM3788 framework expires today' do
-        include_context 'and RM3788 has expired'
-
-        it 'returns RM3826, RM6238, RM6187 and RM6240' do
-          expect(described_class.live_frameworks).to eq %w[RM3826 RM6238 RM6187 RM6240]
-        end
-
-        context 'and the legal_services scope is provided' do
-          it 'returns RM6240' do
-            expect(described_class.legal_services.live_frameworks).to eq %w[RM6240]
-          end
+        it 'returns  RM6240' do
+          expect(described_class.legal_services.live_frameworks).to eq %w[RM6240]
         end
       end
     end
@@ -199,16 +115,8 @@ RSpec.describe Framework, type: :model do
       context 'when RM6238 goes live tomorrow' do
         include_context 'and RM6238 is live in the future'
 
-        it 'returns RM3826' do
-          expect(described_class.supply_teachers.current_framework).to eq 'RM3826'
-        end
-
-        context 'and RM3826 framework expires today' do
-          include_context 'and RM3826 has expired'
-
-          it 'returns nil' do
-            expect(described_class.supply_teachers.current_framework).to be nil
-          end
+        it 'returns nil' do
+          expect(described_class.supply_teachers.current_framework).to be nil
         end
       end
 
@@ -218,27 +126,11 @@ RSpec.describe Framework, type: :model do
         it 'returns RM6238' do
           expect(described_class.supply_teachers.current_framework).to eq 'RM6238'
         end
-
-        context 'and RM3826 framework expires today' do
-          include_context 'and RM3826 has expired'
-
-          it 'returns RM6238' do
-            expect(described_class.supply_teachers.current_framework).to eq 'RM6238'
-          end
-        end
       end
 
       context 'when RM6238 went live yesterday' do
         it 'returns RM6238' do
           expect(described_class.supply_teachers.current_framework).to eq 'RM6238'
-        end
-
-        context 'and RM3826 framework expires today' do
-          include_context 'and RM3826 has expired'
-
-          it 'returns RM6238' do
-            expect(described_class.supply_teachers.current_framework).to eq 'RM6238'
-          end
         end
       end
     end
@@ -253,16 +145,8 @@ RSpec.describe Framework, type: :model do
       context 'when RM6240 goes live tomorrow' do
         include_context 'and RM6240 is live in the future'
 
-        it 'returns RM3788' do
-          expect(described_class.legal_services.current_framework).to eq 'RM3788'
-        end
-
-        context 'and RM3788 framework expires today' do
-          include_context 'and RM3788 has expired'
-
-          it 'returns nil' do
-            expect(described_class.legal_services.current_framework).to be nil
-          end
+        it 'returns nil' do
+          expect(described_class.legal_services.current_framework).to be nil
         end
       end
 
@@ -272,27 +156,11 @@ RSpec.describe Framework, type: :model do
         it 'returns RM6240' do
           expect(described_class.legal_services.current_framework).to eq 'RM6240'
         end
-
-        context 'and RM3788 framework expires today' do
-          include_context 'and RM3788 has expired'
-
-          it 'returns RM6240' do
-            expect(described_class.legal_services.current_framework).to eq 'RM6240'
-          end
-        end
       end
 
       context 'when RM6240 went live yesterday' do
         it 'returns RM6240' do
           expect(described_class.legal_services.current_framework).to eq 'RM6240'
-        end
-
-        context 'and RM3788 framework expires today' do
-          include_context 'and RM3788 has expired'
-
-          it 'returns RM6240' do
-            expect(described_class.legal_services.current_framework).to eq 'RM6240'
-          end
         end
       end
     end
@@ -301,56 +169,6 @@ RSpec.describe Framework, type: :model do
   describe '.live_framework?' do
     context 'when the supply_teachers scope is provided' do
       let(:result) { described_class.supply_teachers.live_framework?(framework) }
-
-      context 'when the framework passed is RM3826' do
-        let(:framework) { 'RM3826' }
-
-        context 'and RM6238 goes live tomorrow' do
-          include_context 'and RM6238 is live in the future'
-
-          it 'returns true' do
-            expect(result).to be true
-          end
-
-          context 'and RM3826 framework expires today' do
-            include_context 'and RM3826 has expired'
-
-            it 'returns false' do
-              expect(result).to be false
-            end
-          end
-        end
-
-        context 'when RM6238 is live today' do
-          include_context 'and RM6238 is live today'
-
-          it 'returns true' do
-            expect(result).to be true
-          end
-
-          context 'and RM3826 framework expires today' do
-            include_context 'and RM3826 has expired'
-
-            it 'returns false' do
-              expect(result).to be false
-            end
-          end
-        end
-
-        context 'and RM6238 went live yesterday' do
-          it 'returns true' do
-            expect(result).to be true
-          end
-
-          context 'and RM3826 framework expires today' do
-            include_context 'and RM3826 has expired'
-
-            it 'returns false' do
-              expect(result).to be false
-            end
-          end
-        end
-      end
 
       context 'when the framework passed is RM6238' do
         let(:framework) { 'RM6238' }
@@ -361,14 +179,6 @@ RSpec.describe Framework, type: :model do
           it 'returns false' do
             expect(result).to be false
           end
-
-          context 'and RM3826 framework expires today' do
-            include_context 'and RM3826 has expired'
-
-            it 'returns false' do
-              expect(result).to be false
-            end
-          end
         end
 
         context 'when RM6238 is live today' do
@@ -377,32 +187,16 @@ RSpec.describe Framework, type: :model do
           it 'returns true' do
             expect(result).to be true
           end
-
-          context 'and RM3826 framework expires today' do
-            include_context 'and RM3826 has expired'
-
-            it 'returns true' do
-              expect(result).to be true
-            end
-          end
         end
 
         context 'and RM6238 went live yesterday' do
           it 'returns true' do
             expect(result).to be true
           end
-
-          context 'and RM3826 framework expires today' do
-            include_context 'and RM3826 has expired'
-
-            it 'returns true' do
-              expect(result).to be true
-            end
-          end
         end
       end
 
-      context 'when the framework is neither RM3826 or RM6238' do
+      context 'when the framework is not RM6238' do
         let(:framework) { 'RM6187' }
 
         it 'returns false' do
@@ -428,56 +222,6 @@ RSpec.describe Framework, type: :model do
     context 'when the legal_services scope is provided' do
       let(:result) { described_class.legal_services.live_framework?(framework) }
 
-      context 'when the framework passed is RM3788' do
-        let(:framework) { 'RM3788' }
-
-        context 'and RM6240 goes live tomorrow' do
-          include_context 'and RM6240 is live in the future'
-
-          it 'returns true' do
-            expect(result).to be true
-          end
-
-          context 'and RM3788 framework expires today' do
-            include_context 'and RM3788 has expired'
-
-            it 'returns false' do
-              expect(result).to be false
-            end
-          end
-        end
-
-        context 'when RM6240 is live today' do
-          include_context 'and RM6240 is live today'
-
-          it 'returns true' do
-            expect(result).to be true
-          end
-
-          context 'and RM3788 framework expires today' do
-            include_context 'and RM3788 has expired'
-
-            it 'returns false' do
-              expect(result).to be false
-            end
-          end
-        end
-
-        context 'and RM6240 went live yesterday' do
-          it 'returns true' do
-            expect(result).to be true
-          end
-
-          context 'and RM3788 framework expires today' do
-            include_context 'and RM3788 has expired'
-
-            it 'returns false' do
-              expect(result).to be false
-            end
-          end
-        end
-      end
-
       context 'when the framework passed is RM6240' do
         let(:framework) { 'RM6240' }
 
@@ -487,14 +231,6 @@ RSpec.describe Framework, type: :model do
           it 'returns false' do
             expect(result).to be false
           end
-
-          context 'and RM3788 framework expires today' do
-            include_context 'and RM3788 has expired'
-
-            it 'returns false' do
-              expect(result).to be false
-            end
-          end
         end
 
         context 'when RM6240 is live today' do
@@ -503,32 +239,16 @@ RSpec.describe Framework, type: :model do
           it 'returns true' do
             expect(result).to be true
           end
-
-          context 'and RM3788 framework expires today' do
-            include_context 'and RM3788 has expired'
-
-            it 'returns true' do
-              expect(result).to be true
-            end
-          end
         end
 
         context 'and RM6240 went live yesterday' do
           it 'returns true' do
             expect(result).to be true
           end
-
-          context 'and RM3788 framework expires today' do
-            include_context 'and RM3788 has expired'
-
-            it 'returns true' do
-              expect(result).to be true
-            end
-          end
         end
       end
 
-      context 'when the framework is neither RM3788 or RM6240' do
+      context 'when the framework is not RM6240' do
         let(:framework) { 'RM6187' }
 
         it 'returns false' do
@@ -542,110 +262,36 @@ RSpec.describe Framework, type: :model do
     let(:result) { described_class.find_by(framework: framework).status }
 
     context 'when considering supply_teacher frameworks' do
-      context 'when the framework passed is RM3826' do
-        context 'and RM6238 goes live tomorrow' do
-          include_context 'and RM6238 is live in the future'
+      context 'and RM6238 goes live tomorrow' do
+        include_context 'and RM6238 is live in the future'
 
-          context 'and the frameworks is RM3826' do
-            let(:framework) { 'RM3826' }
+        context 'and the frameworks is RM6238' do
+          let(:framework) { 'RM6238' }
 
-            it 'returns live' do
-              expect(result).to eq :live
-            end
-
-            context 'and RM3826 framework expires today' do
-              include_context 'and RM3826 has expired'
-
-              it 'returns expired' do
-                expect(result).to eq :expired
-              end
-            end
-          end
-
-          context 'and the frameworks is RM6238' do
-            let(:framework) { 'RM6238' }
-
-            it 'returns coming' do
-              expect(result).to eq :coming
-            end
-
-            context 'and RM3826 framework expires today' do
-              include_context 'and RM3826 has expired'
-
-              it 'returns coming' do
-                expect(result).to eq :coming
-              end
-            end
+          it 'returns coming' do
+            expect(result).to eq :coming
           end
         end
+      end
 
-        context 'when RM6238 is live today' do
-          include_context 'and RM6238 is live today'
+      context 'when RM6238 is live today' do
+        include_context 'and RM6238 is live today'
 
-          context 'and the frameworks is RM3826' do
-            let(:framework) { 'RM3826' }
+        context 'and the frameworks is RM6238' do
+          let(:framework) { 'RM6238' }
 
-            it 'returns live' do
-              expect(result).to eq :live
-            end
-
-            context 'and RM3826 framework expires today' do
-              include_context 'and RM3826 has expired'
-
-              it 'returns expired' do
-                expect(result).to eq :expired
-              end
-            end
-          end
-
-          context 'and the frameworks is RM6238' do
-            let(:framework) { 'RM6238' }
-
-            it 'returns live' do
-              expect(result).to eq :live
-            end
-
-            context 'and RM3826 framework expires today' do
-              include_context 'and RM3826 has expired'
-
-              it 'returns live' do
-                expect(result).to eq :live
-              end
-            end
+          it 'returns live' do
+            expect(result).to eq :live
           end
         end
+      end
 
-        context 'and RM6238 went live yesterday' do
-          context 'and the frameworks is RM3826' do
-            let(:framework) { 'RM3826' }
+      context 'and RM6238 went live yesterday' do
+        context 'and the frameworks is RM6238' do
+          let(:framework) { 'RM6238' }
 
-            it 'returns live' do
-              expect(result).to eq :live
-            end
-
-            context 'and RM3826 framework expires today' do
-              include_context 'and RM3826 has expired'
-
-              it 'returns expired' do
-                expect(result).to eq :expired
-              end
-            end
-          end
-
-          context 'and the frameworks is RM6238' do
-            let(:framework) { 'RM6238' }
-
-            it 'returns live' do
-              expect(result).to eq :live
-            end
-
-            context 'and RM3826 framework expires today' do
-              include_context 'and RM3826 has expired'
-
-              it 'returns live' do
-                expect(result).to eq :live
-              end
-            end
+          it 'returns live' do
+            expect(result).to eq :live
           end
         end
       end
@@ -660,110 +306,36 @@ RSpec.describe Framework, type: :model do
     end
 
     context 'when considering legal_services frameworks' do
-      context 'when the framework passed is RM3788' do
-        context 'and RM6240 goes live tomorrow' do
-          include_context 'and RM6240 is live in the future'
+      context 'and RM6240 goes live tomorrow' do
+        include_context 'and RM6240 is live in the future'
 
-          context 'and the frameworks is RM3788' do
-            let(:framework) { 'RM3788' }
+        context 'and the frameworks is RM6240' do
+          let(:framework) { 'RM6240' }
 
-            it 'returns live' do
-              expect(result).to eq :live
-            end
-
-            context 'and RM3788 framework expires today' do
-              include_context 'and RM3788 has expired'
-
-              it 'returns expired' do
-                expect(result).to eq :expired
-              end
-            end
-          end
-
-          context 'and the frameworks is RM6240' do
-            let(:framework) { 'RM6240' }
-
-            it 'returns coming' do
-              expect(result).to eq :coming
-            end
-
-            context 'and RM3788 framework expires today' do
-              include_context 'and RM3788 has expired'
-
-              it 'returns expired' do
-                expect(result).to eq :coming
-              end
-            end
+          it 'returns coming' do
+            expect(result).to eq :coming
           end
         end
+      end
 
-        context 'when RM6240 is live today' do
-          include_context 'and RM6240 is live today'
+      context 'when RM6240 is live today' do
+        include_context 'and RM6240 is live today'
 
-          context 'and the frameworks is RM3788' do
-            let(:framework) { 'RM3788' }
+        context 'and the frameworks is RM6240' do
+          let(:framework) { 'RM6240' }
 
-            it 'returns live' do
-              expect(result).to eq :live
-            end
-
-            context 'and RM3788 framework expires today' do
-              include_context 'and RM3788 has expired'
-
-              it 'returns expired' do
-                expect(result).to eq :expired
-              end
-            end
-          end
-
-          context 'and the frameworks is RM6240' do
-            let(:framework) { 'RM6240' }
-
-            it 'returns live' do
-              expect(result).to eq :live
-            end
-
-            context 'and RM3788 framework expires today' do
-              include_context 'and RM3788 has expired'
-
-              it 'returns live' do
-                expect(result).to eq :live
-              end
-            end
+          it 'returns live' do
+            expect(result).to eq :live
           end
         end
+      end
 
-        context 'and RM6240 went live yesterday' do
-          context 'and the frameworks is RM3788' do
-            let(:framework) { 'RM3788' }
+      context 'and RM6240 went live yesterday' do
+        context 'and the frameworks is RM6240' do
+          let(:framework) { 'RM6240' }
 
-            it 'returns live' do
-              expect(result).to eq :live
-            end
-
-            context 'and RM3788 framework expires today' do
-              include_context 'and RM3788 has expired'
-
-              it 'returns expired' do
-                expect(result).to eq :expired
-              end
-            end
-          end
-
-          context 'and the frameworks is RM6240' do
-            let(:framework) { 'RM6240' }
-
-            it 'returns live' do
-              expect(result).to eq :live
-            end
-
-            context 'and RM3788 framework expires today' do
-              include_context 'and RM3788 has expired'
-
-              it 'returns live' do
-                expect(result).to eq :live
-              end
-            end
+          it 'returns live' do
+            expect(result).to eq :live
           end
         end
       end

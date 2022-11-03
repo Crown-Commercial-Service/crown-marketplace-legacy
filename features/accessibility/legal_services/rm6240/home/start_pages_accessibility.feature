@@ -10,7 +10,7 @@ Feature: Legal Services - Start pages accessibility
     When I go to the 'legal services' start page for 'RM6240'
     Then I am on the 'Find legal services for the wider public sector' page
     When I click on 'Start now'
-    Then I am on the 'Sign in to your legal services buyer account' page
+    Then I am on the 'Sign in to your legal services account' page
     Then the page should be axe clean
 
   Scenario: Start page

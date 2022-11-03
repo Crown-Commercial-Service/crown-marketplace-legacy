@@ -4,15 +4,6 @@ RSpec.describe LegalServices::HomeController, type: :controller do
   let(:default_params) { { service: 'legal_services' } }
 
   describe 'GET framework' do
-    context 'when RM3788 is live' do
-      include_context 'and RM6240 is live in the future'
-
-      it 'redirects to the RM3788 home page' do
-        get :framework
-        expect(response).to redirect_to legal_services_rm3788_path
-      end
-    end
-
     context 'when RM6240 is live' do
       it 'redirects to the RM6240 home page' do
         get :framework
@@ -23,7 +14,7 @@ RSpec.describe LegalServices::HomeController, type: :controller do
 
   describe 'GET index' do
     context 'when RM6240 is live' do
-      context 'and the framework is not RM3788 or RM6240' do
+      context 'and the framework is not RM6240' do
         it 'renders the unrecognised framework page with the right http status' do
           get :index, params: { framework: 'RM3826' }
 
@@ -41,33 +32,12 @@ RSpec.describe LegalServices::HomeController, type: :controller do
           end.to raise_error(ActionController::MissingExactTemplate)
         end
       end
-
-      context 'and the framework is RM3788' do
-        it 'raises the MissingExactTemplate error' do
-          expect do
-            get :index, params: { framework: 'RM3788' }
-          end.to raise_error(ActionController::MissingExactTemplate)
-        end
-
-        # rubocop:disable RSpec/NestedGroups
-        context 'and RM3788 framework expires today' do
-          include_context 'and RM3788 has expired'
-
-          it 'renders the unrecognised framework page with the right http status' do
-            get :index, params: { framework: 'RM3788' }
-
-            expect(response).to render_template('legal_services/home/unrecognised_framework')
-            expect(response).to have_http_status(:bad_request)
-          end
-        end
-        # rubocop:enable RSpec/NestedGroups
-      end
     end
 
     context 'when RM6240 is not live' do
       include_context 'and RM6240 is live in the future'
 
-      context 'and the framework is not RM3788 or RM6240' do
+      context 'and the framework is not RM6240' do
         it 'renders the unrecognised framework page with the right http status' do
           get :index, params: { framework: 'RM3826' }
 
@@ -82,14 +52,6 @@ RSpec.describe LegalServices::HomeController, type: :controller do
 
           expect(response).to render_template('legal_services/home/unrecognised_framework')
           expect(response).to have_http_status(:bad_request)
-        end
-      end
-
-      context 'and the framework is RM3788' do
-        it 'raises the MissingExactTemplate error' do
-          expect do
-            get :index, params: { framework: 'RM3788' }
-          end.to raise_error(ActionController::MissingExactTemplate)
         end
       end
     end

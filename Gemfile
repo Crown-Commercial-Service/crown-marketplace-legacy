@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.7.6'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.0.5', '>= 6.0.5.1'
+gem 'rails', '~> 6.1.7'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
@@ -31,7 +31,7 @@ gem 'jbuilder', '~> 2.11', '>= 2.11.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'geocoder', '>= 1.6.1'
-gem 'activerecord-postgis-adapter', '>= 5.2.2'
+gem 'activerecord-postgis-adapter', '>= 6.0.3'
 gem 'uk_postcode'
 gem 'rubyzip', '>= 1.2.1'
 gem 'caxlsx', '>= 3.2.0'
@@ -72,11 +72,11 @@ gem 'roo', '~> 2.9.0'
 gem 'jsonpath', '~> 1.1.2'
 
 # state machine
-gem 'aasm', '~> 5.3'
+gem 'aasm', '~> 5.4'
 
 # for running background jobs
-gem 'sidekiq', '~> 6.5.6'
-gem 'sinatra', '~> 2.2.2', require: false
+gem 'sidekiq', '~> 6.5.7'
+gem 'sinatra', '~> 3.0.2', require: false
 gem 'slim', '~> 4.1.0'
 
 # for authorization
@@ -121,7 +121,7 @@ group :development, :test do
   gem 'poltergeist', '>= 1.18.1'
   gem 'wdm', '>= 0.1.0', platforms: %i[x64_mingw]
   gem 'tzinfo-data', platforms: %i[x64_mingw]
-  gem 'faker', '~> 2.21.0'
+  gem 'faker', '~> 2.23.0'
 end
 
 group :development do
