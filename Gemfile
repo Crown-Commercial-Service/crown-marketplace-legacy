@@ -98,7 +98,7 @@ gem 'asset_sync'
 gem 'fog-aws', '>= 3.14.0'
 
 # Reuired for the ST import
-gem 'capybara', '>= 3.37.1'
+gem 'capybara', '>= 3.38.0'
 
 # for date layout
 gem 'gov_uk_date_fields', '>= 4.2.0'
