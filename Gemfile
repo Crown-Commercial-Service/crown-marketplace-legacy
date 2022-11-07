@@ -8,7 +8,7 @@ gem 'rails', '~> 6.1.7'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
-gem 'puma', '~> 5.6'
+gem 'puma', '~> 6.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.1', '>= 5.1.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -98,7 +98,7 @@ gem 'asset_sync'
 gem 'fog-aws', '>= 3.14.0'
 
 # Reuired for the ST import
-gem 'capybara', '>= 3.37.1'
+gem 'capybara', '>= 3.38.0'
 
 # for date layout
 gem 'gov_uk_date_fields', '>= 4.2.0'
