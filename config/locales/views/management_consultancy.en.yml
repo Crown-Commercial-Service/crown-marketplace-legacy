@@ -180,44 +180,40 @@ en:
             section_1:
               heading: What is happening?
               paragraphs:
-                paragraph_1: The way you access and use the digital tool for Management Consultancy Framework Three (MCF3) is changing.
-                paragraph_2: During the summer of 2022, we will launch a new digital service called the Public Procurement Gateway.
-                paragraph_3: Public Procurement Gateway will provide you with a single point of entry to access multiple CCS services and will help you to manage your information in a secure and simple way.
+                paragraph_1: The way you select service lines to filter supplies and access supplier’s maximum framework rates is changing. The new system is called Contract Award Service (CAS).
+                paragraph_2: The intention is to switch this supplier filtering system off following a short transition period to CAS.
+                paragraph_3: In order to access CAS you will need to register for Public Procurement Gateway (PPG) which provides you with a single point of entry to access multiple CCS services.
             section_2:
-              heading: How does this affect me?
+              heading: What is CAS?
               list:
-                item_1: filter and engage with suppliers
-                item_2: view supplier pricing
-                item_3: go to market
-                item_4: evaluate responses
-                item_5: award contracts
-                title: 'Through the new Contract Award service, buyers will be able to:'
+                item_1: filter suppliers based on service lines
+                item_2: carry out pre market engagement
+                item_3: view a supplier’s maximum framework rates
+                item_4: go to market through a further competition or a direct award
+                item_5: evaluate supplier responses
+                item_6: award contracts
+                title: 'CAS will allow you to:'
               paragraphs:
-                paragraph_1: The first service that will go live on Public Procurement Gateway is Contract Award Service.
-                paragraph_2: One of the first commercial agreements on this new service will be MCF3 which is due to go live in the summer 2022.
-                paragraph_3: We designed Contract Award Service to help buyers understand what steps they need to take to put in place a compliant and cost effective call-off contract.
-                paragraph_4: The service does not impact any of your own tendering systems that you may currently access.
-                paragraph_5: Once MCF3 is live in summer, the current filtering tool for MCF3 will no longer be available.
+                paragraph_1: You are still able to use your own esourcing system.
             section_3:
               guidance_document_text: read the guidance document to find out what being an administrator involves
               guidance_document_url: https://www.crowncommercial.gov.uk/ppg_training/course/en/assets/6239a39d57a6700a058bb61d/file.pdf
+              guides_text: guides available to help you with this
+              guides_url: https://www.crowncommercial.gov.uk/public-procurement-gateway-guides
               heading: What do I need to do?
               paragraphs:
-                paragraph_1: To use the new service you will need to request access to the Public Procurement Gateway.
-                paragraph_2: Go to 'create an account' on the CCS website and enter your personal details and organisation information.
-                paragraph_3: If your organisation is registered, you will be prompted to request access from your lead administrator, who will receive a notification of your request and will approve, as appropriate.
-                paragraph_4: If your organisation is not registered, you will be offered the opportunity to become the lead administrator and will then be able to register your organisation. Alternatively, you can nominate another colleague.
+                paragraph_1_html: To use CAS you will need to %{register_on_ppg_link}.
+                paragraph_2_html: Every organisation must have an administrator to register for the PPG before individuals can create an account and access CAS. If you need more support, there are %{guides_link}.
+                paragraph_3: If your organisation is registered in PPG, you will be prompted to request access from your lead administrator, who will receive a notification of your request and will approve, as appropriate.
+                paragraph_4: If your organisation is not registered in PPG, you will be offered the opportunity to become the lead administrator and will then be able to register your organisation.
                 paragraph_5_html: Before registering as the administrator, you should %{guidance_document_link}.
-                paragraph_6_html: Every organisation must have an administrator to register for the Public Procurement Gateway before individuals can create an account and access Contract Award Service. If you need more support, %{support_link}.
-              ppg_url: https://identify.crowncommercial.gov.uk/manage-org/register
-              support_text: guides available to help you with this
-              support_url: https://www.crowncommercial.gov.uk/public-procurement-gateway-guides
+              register_on_ppg_text: register for Public Procurement Gateway
+              register_on_ppg_url: https://identify.crowncommercial.gov.uk/manage-org/register
             section_4:
               email_link: info@crowncommercial.gov.uk
               heading: Find out more
               paragraphs:
-                paragraph_1: We will be holding a number of customer events to talk through the new digital service.
-                paragraph_2_html: If you have any questions about Public Procurement Gateway or Contract Award Service, email %{email_link}.
+                paragraph_1_html: If you have any questions about PPG or CAS, email %{email_link}.
         management_consultancy_lots:
           service_lines: Service lines
       suppliers:
