@@ -24,12 +24,6 @@
       <h2 class="govuk-heading-m">
         <%= t('.sections.section_2.heading') %>
       </h2>
-      <p>
-        <%= t('.sections.section_2.paragraphs.paragraph_1') %>
-      </p>
-      <p>
-        <%= t('.sections.section_2.paragraphs.paragraph_2') %>
-      </p>
       <p class="govuk-body"><%= t('.sections.section_2.list.title')%></p>
       <ul class="govuk-list govuk-list--bullet">
         <li><%= t('.sections.section_2.list.item_1') %></li>
@@ -37,15 +31,10 @@
         <li><%= t('.sections.section_2.list.item_3') %></li>
         <li><%= t('.sections.section_2.list.item_4') %></li>
         <li><%= t('.sections.section_2.list.item_5') %></li>
+        <li><%= t('.sections.section_2.list.item_6') %></li>
       </ul>
       <p>
-        <%= t('.sections.section_2.paragraphs.paragraph_3') %>
-      </p>
-      <p>
-        <%= t('.sections.section_2.paragraphs.paragraph_4') %>
-      </p>
-      <p>
-        <%= t('.sections.section_2.paragraphs.paragraph_5') %>
+        <%= t('.sections.section_2.paragraphs.paragraph_1') %>
       </p>
     </section>
     <section>
@@ -53,10 +42,10 @@
         <%= t('.sections.section_3.heading') %>
       </h2>
       <p>
-        <%= t('.sections.section_3.paragraphs.paragraph_1') %>
+        <%= t('.sections.section_3.paragraphs.paragraph_1_html', register_on_ppg_link: link_to(t('.sections.section_3.register_on_ppg_text'), t('.sections.section_3.register_on_ppg_url'), class: 'govuk-link govuk-link--no-visited-state')) %>
       </p>
       <p>
-        <%= link_to(t('.sections.section_3.paragraphs.paragraph_2'), t('.sections.section_3.ppg_url'), class: 'govuk-link--no-visited-state') %>
+        <%= t('.sections.section_3.paragraphs.paragraph_2_html', guides_link: link_to(t('.sections.section_3.guides_text'), t('.sections.section_3.guides_url'), class: 'govuk-link govuk-link--no-visited-state')) %>
       </p>
       <p>
         <%= t('.sections.section_3.paragraphs.paragraph_3') %>
@@ -65,10 +54,7 @@
         <%= t('.sections.section_3.paragraphs.paragraph_4') %>
       </p>
       <p>
-        <%= t('.sections.section_3.paragraphs.paragraph_5_html', guidance_document_link: link_to(t('.sections.section_3.guidance_document_text'), t('.sections.section_3.guidance_document_url'), class: 'govuk-link--no-visited-state')) %>
-      </p>
-      <p>
-        <%= t('.sections.section_3.paragraphs.paragraph_6_html', support_link: link_to(t('.sections.section_3.support_text'), t('.sections.section_3.support_url'), class: 'govuk-link--no-visited-state')) %>
+        <%= t('.sections.section_3.paragraphs.paragraph_5_html', guidance_document_link: link_to(t('.sections.section_3.guidance_document_text'), t('.sections.section_3.guidance_document_url'), class: 'govuk-link govuk-link--no-visited-state')) %>
       </p>
     </section>
     <section>
@@ -76,10 +62,7 @@
         <%= t('.sections.section_4.heading') %>
       </h2>
       <p>
-        <%= t('.sections.section_4.paragraphs.paragraph_1') %>
-      </p>
-      <p>
-        <%= t('.sections.section_4.paragraphs.paragraph_2_html', email_link: mail_to(t('.sections.section_4.email_link'), t('.sections.section_4.email_link'), class: 'govuk-link--no-visited-state')) %>
+        <%= t('.sections.section_4.paragraphs.paragraph_1_html', email_link: mail_to(t('.sections.section_4.email_link'), t('.sections.section_4.email_link'), class: 'govuk-link govuk-link--no-visited-state')) %>
       </p>
     </section>
 
