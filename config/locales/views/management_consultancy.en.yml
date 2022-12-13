@@ -193,6 +193,8 @@ en:
                 item_5: evaluate supplier responses
                 item_6: award contracts
                 title: 'CAS will allow you to:'
+              paragraphs:
+                paragraph_1: You are still able to use your own esourcing system.
             section_3:
               guidance_document_text: read the guidance document to find out what being an administrator involves
               guidance_document_url: https://www.crowncommercial.gov.uk/ppg_training/course/en/assets/6239a39d57a6700a058bb61d/file.pdf
