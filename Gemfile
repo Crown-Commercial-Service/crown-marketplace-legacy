@@ -121,7 +121,7 @@ group :development, :test do
   gem 'poltergeist', '>= 1.18.1'
   gem 'wdm', '>= 0.1.0', platforms: %i[x64_mingw]
   gem 'tzinfo-data', platforms: %i[x64_mingw]
-  gem 'faker', '~> 3.0.0'
+  gem 'faker', '~> 3.1.0'
 end
 
 group :development do
