@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.7.7'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.1.7'
+gem 'rails', '~> 6.1.7', '>= 6.1.7.1'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
@@ -31,7 +31,7 @@ gem 'jbuilder', '~> 2.11', '>= 2.11.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'geocoder', '>= 1.6.1'
-gem 'activerecord-postgis-adapter', '>= 6.0.3'
+gem 'activerecord-postgis-adapter', '>= 7.1.1'
 gem 'uk_postcode'
 gem 'rubyzip', '>= 1.2.1'
 gem 'caxlsx', '>= 3.2.0'
@@ -50,7 +50,7 @@ gem 'omniauth-rails_csrf_protection', '>= 1.0.1'
 # The omniauth_openid_connect is no longer maintained so does not work with omniauth 2.0.
 # This is a custom gem to make omniauth_openid_connect work with omniauth 2.0.
 gem 'ccs_omniauth_openid_connect', '~> 0.4.0', git: 'https://github.com/Crown-Commercial-Service/ccs_omniauth_openid_connect.git'
-gem 'json-jwt', '>= 1.11.0'
+gem 'json-jwt', '>= 1.16.1'
 
 # for authentication
 gem 'devise', '~> 4.8.1'
@@ -88,8 +88,8 @@ gem 'sprockets', '>= 3.7.2'
 gem 'sprockets-bumble_d', '>= 2.2.0'
 
 # for clamav
-gem 'ratonvirus', '>= 0.1.1'
-gem 'ratonvirus-clamby', '>= 0.1.0'
+gem 'ratonvirus', '>= 0.3.2'
+gem 'ratonvirus-clamby', '>= 0.3.0'
 # for active storage validation
 gem 'active_storage_validations', '>= 1.0.3'
 
@@ -112,7 +112,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'rails-controller-testing', '>= 1.0.5'
   gem 'rspec-rails', '>= 6.0.1'
-  gem 'shoulda-matchers', '>= 4.2.0'
+  gem 'shoulda-matchers', '>= 5.3.0'
   gem 'rubocop'
   gem 'rubocop-rspec'
   gem 'rubocop-rails', require: false
