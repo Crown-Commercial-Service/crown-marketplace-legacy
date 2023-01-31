@@ -41,10 +41,10 @@ gem 'holidays'
 gem 'virtus'
 gem 'jquery-rails', '~> 4.5.1'
 
-gem 'rollbar', '~> 3.3.2'
+gem 'rollbar', '~> 3.4.0'
 
 # for dfe sign in
-gem 'omniauth', '~> 2.1.0'
+gem 'omniauth', '~> 2.1.1'
 gem 'omniauth-oauth2', '~> 1.8.0'
 gem 'omniauth-rails_csrf_protection', '>= 1.0.1'
 # The omniauth_openid_connect is no longer maintained so does not work with omniauth 2.0.
@@ -76,7 +76,7 @@ gem 'aasm', '~> 5.4'
 
 # for running background jobs
 gem 'sidekiq', '~> 6.5.7'
-gem 'sinatra', '~> 3.0.4', require: false
+gem 'sinatra', '~> 3.0.5', require: false
 gem 'slim', '~> 4.1.0'
 
 # for authorization
@@ -91,7 +91,7 @@ gem 'sprockets-bumble_d', '>= 2.2.0'
 gem 'ratonvirus', '>= 0.1.1'
 gem 'ratonvirus-clamby', '>= 0.1.0'
 # for active storage validation
-gem 'active_storage_validations', '>= 0.9.8'
+gem 'active_storage_validations', '>= 1.0.3'
 
 # asset sync
 gem 'asset_sync'
@@ -106,27 +106,27 @@ gem 'gov_uk_date_fields', '>= 4.2.0'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
-  gem 'dotenv-rails', '>= 2.7.6'
+  gem 'dotenv-rails', '>= 2.8.1'
   gem 'factory_bot_rails', '>= 6.2.0'
   gem 'launchy', '>= 2.5.0'
   gem 'pry-rails'
   gem 'rails-controller-testing', '>= 1.0.5'
-  gem 'rspec-rails', '>= 5.1.2'
+  gem 'rspec-rails', '>= 6.0.1'
   gem 'shoulda-matchers', '>= 4.2.0'
   gem 'rubocop'
   gem 'rubocop-rspec'
   gem 'rubocop-rails', require: false
   gem 'rubyXL', '>= 3.4.23'
-  gem 'i18n-tasks', '>= 1.0.10'
+  gem 'i18n-tasks', '>= 1.0.12'
   gem 'poltergeist', '>= 1.18.1'
   gem 'wdm', '>= 0.1.0', platforms: %i[x64_mingw]
   gem 'tzinfo-data', platforms: %i[x64_mingw]
-  gem 'faker', '~> 3.0.0'
+  gem 'faker', '~> 3.1.0'
 end
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  gem 'listen', '>= 3.0.5', '< 3.8'
+  gem 'listen', '>= 3.0.5', '< 3.9'
   gem 'pry-byebug'
   gem 'pry-rescue'
   gem 'pry-stack_explorer'
@@ -136,7 +136,7 @@ group :test do
   gem 'webmock', '>= 3.12.2'
   gem 'simplecov', '>= 0.16.1', require: false
   gem 'selenium-webdriver', '>= 3.142.3'
-  gem 'cucumber-rails', '>= 2.5.1', require: false
+  gem 'cucumber-rails', '>= 2.6.1', require: false
   gem 'database_cleaner', '>= 2.0.1'
   gem 'site_prism', '>= 3.7.3'
   gem 'axe-core-capybara', '>= 4.2.1'
