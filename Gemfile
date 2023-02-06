@@ -77,7 +77,7 @@ gem 'aasm', '~> 5.4'
 # for running background jobs
 gem 'sidekiq', '~> 6.5.7'
 gem 'sinatra', '~> 3.0.5', require: false
-gem 'slim', '~> 4.1.0'
+gem 'slim', '~> 5.0.0'
 
 # for authorization
 gem 'cancancan', '~> 3.4.0'
