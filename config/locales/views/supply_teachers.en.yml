@@ -216,7 +216,7 @@ en:
           supplier_lookup: Supplier lookup
         state:
           canceled: Cancelled session
-          failed: Faild
+          failed: Failed
           files_processed: Waiting to publish
           in_progress: Processing files
           processing_files: Processing files
