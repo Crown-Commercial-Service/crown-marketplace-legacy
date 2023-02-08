@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe SupplyTeachers::RM6238::Branch, type: :model do
+RSpec.describe SupplyTeachers::RM6238::Branch do
   subject(:branch) { build(:supply_teachers_rm6238_branch) }
 
   let(:model_key) { 'activerecord.errors.models.supply_teachers/rm6238/branch' }

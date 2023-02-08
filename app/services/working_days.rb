@@ -28,7 +28,7 @@ class WorkingDays
   end
 
   def working_day?(date)
-    date.on_weekday? && england_and_wales_bank_holiday?(date) && !@school_holidays.include?(date)
+    date.on_weekday? && england_and_wales_bank_holiday?(date) && @school_holidays.exclude?(date)
   end
 
   def generate_school_holidays(holiday_1_start_date, holiday_1_end_date, holiday_2_start_date, holiday_2_end_date)

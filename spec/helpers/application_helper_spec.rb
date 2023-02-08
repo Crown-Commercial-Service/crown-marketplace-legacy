@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe ApplicationHelper, type: :helper do
+RSpec.describe ApplicationHelper do
   describe '#page_title' do
     context 'when there is no prefix' do
       it 'returns title stored in locale file' do
@@ -76,7 +76,7 @@ RSpec.describe ApplicationHelper, type: :helper do
           'question-2' => 'answer-2'
         }
       end
-      let(:journey) { instance_double('Journey', previous_questions_and_answers: questions_and_answers) }
+      let(:journey) { instance_double(GenericJourney, previous_questions_and_answers: questions_and_answers) }
       let(:html) { helper.hidden_fields_for_previous_steps_and_responses(journey) }
 
       it 'renders hidden field for question 1' do

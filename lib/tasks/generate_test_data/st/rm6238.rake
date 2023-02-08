@@ -61,9 +61,7 @@ module GenerateTestData
       end
 
       def self.write_to_file
-        File.open('data/supply_teachers/rm6238/dummy_supplier_data.json', 'w') do |file|
-          file.write(JSON.pretty_generate(@suppliers))
-        end
+        File.write('data/supply_teachers/rm6238/dummy_supplier_data.json', JSON.pretty_generate(@suppliers))
       end
 
       def self.add_pricing_for_supplier(supplier, base_rate, lot_number, supplier_index = nil)
@@ -137,7 +135,7 @@ module GenerateTestData
       end
 
       def self.get_branch_data(location, index)
-        address_index = location == 'London' ? index % 5 : 4 - index % 5
+        address_index = location == 'London' ? index % 5 : 4 - (index % 5)
 
         address = LONDON_AND_LIVERPOOL_ADDRESSES[location][address_index]
         contact_name = Faker::Name.unique.name

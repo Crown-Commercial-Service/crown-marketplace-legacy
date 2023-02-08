@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe SupplyTeachers::RM6238::CalculationsController, type: :controller do
+RSpec.describe SupplyTeachers::RM6238::CalculationsController do
   extend APIRequestStubs
 
   stub_bank_holiday_json
@@ -38,7 +38,7 @@ RSpec.describe SupplyTeachers::RM6238::CalculationsController, type: :controller
 
     # rubocop:disable RSpec/ExampleLength
     it 'calls the calculator with the correct parameters' do
-      calculator = instance_double('SupplyTeachers::TempToPermCalculator::Calculator')
+      calculator = instance_double(SupplyTeachers::TempToPermCalculator::Calculator)
       allow(calculator).to receive(:fee).and_return(500)
       allow(SupplyTeachers::TempToPermCalculator::Calculator)
         .to receive(:new)
@@ -106,8 +106,8 @@ RSpec.describe SupplyTeachers::RM6238::CalculationsController, type: :controller
 
         expect(calculator).to be_a(SupplyTeachers::FTAToPermCalculator::Calculator)
 
-        expect(calculator.current_contract_length).to be nil
-        expect(calculator.fixed_term_contract_fee).to be nil
+        expect(calculator.current_contract_length).to be_nil
+        expect(calculator.fixed_term_contract_fee).to be_nil
       end
 
       it 'renders the template' do
@@ -149,8 +149,8 @@ RSpec.describe SupplyTeachers::RM6238::CalculationsController, type: :controller
 
         expect(calculator).to be_a(SupplyTeachers::FTAToPermCalculator::Calculator)
 
-        expect(calculator.current_contract_length).not_to be nil
-        expect(calculator.fixed_term_contract_fee).not_to be nil
+        expect(calculator.current_contract_length).not_to be_nil
+        expect(calculator.fixed_term_contract_fee).not_to be_nil
       end
 
       it 'renders the template' do

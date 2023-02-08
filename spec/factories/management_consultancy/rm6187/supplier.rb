@@ -7,7 +7,7 @@ FactoryBot.define do
 
     after :create do |supplier|
       (1..9).each do |lot|
-        create_list :management_consultancy_rm6187_rate_card, 1, supplier: supplier, contact_name: supplier.contact_name, lot: "MCF3.#{lot}"
+        create_list(:management_consultancy_rm6187_rate_card, 1, supplier: supplier, contact_name: supplier.contact_name, lot: "MCF3.#{lot}")
       end
     end
   end

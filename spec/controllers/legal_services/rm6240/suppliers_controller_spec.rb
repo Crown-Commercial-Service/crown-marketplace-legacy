@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe LegalServices::RM6240::SuppliersController, type: :controller do
+RSpec.describe LegalServices::RM6240::SuppliersController do
   let(:default_params) { { service: 'legal_services', framework: framework } }
   let(:framework) { 'RM6240' }
   let(:supplier) { create(:legal_services_rm6240_supplier) }
@@ -96,9 +96,9 @@ RSpec.describe LegalServices::RM6240::SuppliersController, type: :controller do
     end
 
     context 'and the request format us xlsx' do
-      let(:spreadsheet_builder) { instance_double('Spreadsheet builder', { build: spreadsheet }) }
-      let(:spreadsheet) { instance_double('Spreadsheet', { to_stream: spreadsheet_stream }) }
-      let(:spreadsheet_stream) { instance_double('Spreadsheet stream', { read: 'spreadsheet-data' }) }
+      let(:spreadsheet_builder) { instance_double(LegalServices::RM6240::SupplierSpreadsheetCreator, { build: spreadsheet }) }
+      let(:spreadsheet) { instance_double(Axlsx::Package, { to_stream: spreadsheet_stream }) }
+      let(:spreadsheet_stream) { instance_double(StringIO, { read: 'spreadsheet-data' }) }
 
       before do
         allow(LegalServices::RM6240::SupplierSpreadsheetCreator).to receive(:new).and_return(spreadsheet_builder)

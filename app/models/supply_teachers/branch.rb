@@ -43,7 +43,7 @@ module SupplyTeachers
     delegate :name, to: :supplier, prefix: true
 
     def address_elements
-      [address_1, address_2, town, county, postcode].reject(&:blank?)
+      [address_1, address_2, town, county, postcode].compact_blank
     end
   end
 end

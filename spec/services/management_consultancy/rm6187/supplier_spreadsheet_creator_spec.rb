@@ -19,7 +19,7 @@ RSpec.describe ManagementConsultancy::RM6187::SupplierSpreadsheetCreator do
   let(:spreadsheet_creator) { described_class.new(suppliers, params) }
 
   let(:work_book) do
-    IO.write('/tmp/mc_supplier_spreadsheet.xlsx', spreadsheet_creator.build.to_stream.read, binmode: true)
+    File.write('/tmp/mc_supplier_spreadsheet.xlsx', spreadsheet_creator.build.to_stream.read, binmode: true)
     Roo::Excelx.new('/tmp/mc_supplier_spreadsheet.xlsx')
   end
 

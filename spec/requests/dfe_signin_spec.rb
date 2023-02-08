@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'DfE sign-in', type: :request do
+RSpec.describe 'DfE sign-in' do
   describe 'GET /auth/dfe/callback' do
     it 'redirects to dfe sign in when requested outside of openid connect exchange' do
       OmniAuth.config.test_mode = false

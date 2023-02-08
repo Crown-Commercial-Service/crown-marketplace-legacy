@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe SupplyTeachers::RM6238::HomeController, type: :controller do
+RSpec.describe SupplyTeachers::RM6238::HomeController do
   let(:default_params) { { service: 'supply_teachers', framework: 'RM6238' } }
 
   login_st_buyer

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe SupplyTeachers::RM6238::Journey::MasterVendorOptions, type: :model do
+RSpec.describe SupplyTeachers::RM6238::Journey::MasterVendorOptions do
   subject(:step) { described_class.new(managed_service_provider: 'master_vendor', threshold_position: threshold_position) }
 
   let(:threshold_position) { 'above_threshold' }

@@ -112,7 +112,7 @@ module GenerateAuthenticationSpecs
       name: 'Legal services RM6240 admin',
       service_name: 'legal_services',
       framework: 'RM6240',
-      registration: true
+      admin: true
     },
     {
       name: 'Management consultancy RM6187 user',

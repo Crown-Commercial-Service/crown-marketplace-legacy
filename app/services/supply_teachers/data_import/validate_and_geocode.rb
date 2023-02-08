@@ -43,9 +43,7 @@ module SupplyTeachers
 
       @suppliers = @suppliers.sort_by { |s| s[:supplier_name] }
 
-      File.open(geocoder_cache_path, 'w') do |file|
-        file.write(YAML.dump(@geocoder_cache))
-      end
+      File.write(geocoder_cache_path, YAML.dump(@geocoder_cache))
     end
     # rubocop:enable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
 
@@ -59,13 +57,13 @@ module SupplyTeachers
           @geocoder_cache = YAML.safe_load(file.read)
         end
       else
-        FileUtils.mkdir_p(geocoder_cache_path.dirname) unless File.exist?(geocoder_cache_path.dirname)
+        FileUtils.mkdir_p(geocoder_cache_path.dirname)
         FileUtils.touch(geocoder_cache_path)
       end
 
       Geocoder.configure(
         lookup: :google,
-        api_key: ENV['GOOGLE_GEOCODING_API_KEY'],
+        api_key: ENV.fetch('GOOGLE_GEOCODING_API_KEY', nil),
         units: :mi,
         distance: :spherical,
         cache: @geocoder_cache

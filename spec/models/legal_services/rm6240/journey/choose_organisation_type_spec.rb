@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe LegalServices::RM6240::Journey::ChooseOrganisationType, type: :model do
+RSpec.describe LegalServices::RM6240::Journey::ChooseOrganisationType do
   subject(:step) { described_class.new(central_government: central_government) }
 
   let(:central_government) { 'yes' }

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe ManagementConsultancy::RM6187::Admin::UploadsController, type: :controller do
+RSpec.describe ManagementConsultancy::RM6187::Admin::UploadsController do
   let(:default_params) { { service: 'management_consultancy/admin', framework: framework } }
   let(:framework) { 'RM6187' }
 

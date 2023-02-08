@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe LegalServices::RM6240::Position, type: :model do
+RSpec.describe LegalServices::RM6240::Position do
   subject(:positions) { described_class.all }
 
   let(:first_position) { positions.first }
