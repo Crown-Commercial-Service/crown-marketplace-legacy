@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Login::BaseLogin, type: :model do
+RSpec.describe Login::BaseLogin do
   subject(:login) do
     described_class.new(email: 'user@example.com', extra: {})
   end

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe ManagementConsultancy::RM6187::Upload, type: :model do
+RSpec.describe ManagementConsultancy::RM6187::Upload do
   describe 'create' do
     let(:supplier_name) { Faker::Name.unique.name }
     let(:supplier_id) { SecureRandom.uuid }
@@ -145,7 +145,7 @@ RSpec.describe ManagementConsultancy::RM6187::Upload, type: :model do
             ignoring_exception(ActiveRecord::RecordInvalid) do
               described_class.upload!(suppliers)
             end
-          end.to change(described_class, :count).by(0)
+          end.not_to change(described_class, :count)
         end
 
         it 'leaves existing data intact' do

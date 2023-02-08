@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe SupplyTeachers::CalculationsHelper, type: :helper do
+RSpec.describe SupplyTeachers::CalculationsHelper do
   describe 'determine_result_partial' do
     let(:result) { helper.determine_result_partial }
-    let(:calculator) { instance_double('SupplyTeachers::TempToPermCalculator::Calculator') }
+    let(:calculator) { instance_double(SupplyTeachers::TempToPermCalculator::Calculator) }
     let(:hiring_after_12_weeks) { false }
     let(:hiring_between_9_and_12_weeks) { false }
     let(:notice_date) { Time.now.in_time_zone('London') }

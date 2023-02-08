@@ -10,7 +10,7 @@ module APIRequestStubs
             'User-Agent' => 'Ruby'
           }
         )
-        .to_return(status: 200, body: File.read(Rails.root.join('data', 'bank_holidays.json')), headers: {})
+        .to_return(status: 200, body: Rails.root.join('data', 'bank_holidays.json').read, headers: {})
     end
   end
 end

@@ -100,7 +100,7 @@ module ApplicationHelper
       content_for(title_bit)
     end
     title += [t('layouts.application.title')]
-    title.reject(&:blank?).map(&:strip).join(': ')
+    title.compact_blank.map(&:strip).join(': ')
   end
 
   def add_optional_error_prefix_to_page_title(errors)

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe LegalServices::RM6240::Journey::Sorry, type: :model do
+RSpec.describe LegalServices::RM6240::Journey::Sorry do
   subject(:step) { described_class.new }
 
   it { is_expected.to be_valid }

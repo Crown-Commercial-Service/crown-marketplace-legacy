@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe SupplyTeachers::RM6238::BranchesHelper, type: :helper do
+RSpec.describe SupplyTeachers::RM6238::BranchesHelper do
   describe '.link_to_calculator?' do
     it 'returns false' do
       expect(helper.link_to_calculator?).to be false

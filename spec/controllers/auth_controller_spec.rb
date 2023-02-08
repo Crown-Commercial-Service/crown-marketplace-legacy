@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe AuthController, type: :controller do
+RSpec.describe AuthController do
   describe 'GET #callback' do
     before do
       OmniAuth.config.test_mode = false

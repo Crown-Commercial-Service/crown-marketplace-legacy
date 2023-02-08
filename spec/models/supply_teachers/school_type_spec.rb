@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe SupplyTeachers::SchoolType, type: :model do
+RSpec.describe SupplyTeachers::SchoolType do
   let(:school_types) { described_class.all }
   let(:all_ids) { school_types.map(&:id) }
 

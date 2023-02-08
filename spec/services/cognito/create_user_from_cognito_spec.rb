@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Cognito::CreateUserFromCognito do
+  include_context 'with cognito structs'
+
   describe '#call' do
     let(:username) { '123456' }
     let(:email) { 'user@email.com' }
@@ -8,21 +10,23 @@ RSpec.describe Cognito::CreateUserFromCognito do
     let(:family_name) { 'Doo' }
     let(:phone_number) { '+447500594946' }
     let(:cognito_user) do
-      OpenStruct.new(
+      admin_get_user_resp_struct.new(
         user_attributes: [
-          OpenStruct.new(name: 'sub', value: username),
-          OpenStruct.new(name: 'email', value: email),
-          OpenStruct.new(name: 'name', value: name),
-          OpenStruct.new(name: 'family_name', value: family_name),
-          OpenStruct.new(name: 'phone_number', value: phone_number)
+          cognito_user_attribute_struct.new(name: 'sub', value: username),
+          cognito_user_attribute_struct.new(name: 'email', value: email),
+          cognito_user_attribute_struct.new(name: 'name', value: name),
+          cognito_user_attribute_struct.new(name: 'family_name', value: family_name),
+          cognito_user_attribute_struct.new(name: 'phone_number', value: phone_number)
         ]
       )
     end
     let(:cognito_groups) do
-      OpenStruct.new(groups: [
-                       OpenStruct.new(group_name: 'buyer'),
-                       OpenStruct.new(group_name: 'st_access')
-                     ])
+      admin_list_groups_for_user_resp_struct.new(
+        groups: [
+          cognito_group_struct.new(group_name: 'buyer'),
+          cognito_group_struct.new(group_name: 'st_access')
+        ]
+      )
     end
     let(:roles) { %i[buyer st_access] }
 
@@ -66,33 +70,33 @@ RSpec.describe Cognito::CreateUserFromCognito do
 
       it 'returns the newly created resource with the buyer and st_access role' do
         response = described_class.call(username)
-        expect(response.user.has_role?(:buyer)).to eq true
-        expect(response.user.has_role?(:st_access)).to eq true
+        expect(response.user.has_role?(:buyer)).to be true
+        expect(response.user.has_role?(:st_access)).to be true
       end
 
       it 'returns the newly created resource with no fm_access role' do
         response = described_class.call(username)
-        expect(response.user.has_role?(:fm_access)).to eq false
+        expect(response.user.has_role?(:fm_access)).to be false
       end
 
       it 'returns the newly created resource with no ls_access role' do
         response = described_class.call(username)
-        expect(response.user.has_role?(:ls_access)).to eq false
+        expect(response.user.has_role?(:ls_access)).to be false
       end
 
       it 'returns the newly created resource with no mc_access role' do
         response = described_class.call(username)
-        expect(response.user.has_role?(:mc_access)).to eq false
+        expect(response.user.has_role?(:mc_access)).to be false
       end
 
       it 'returns success' do
         response = described_class.call(username)
-        expect(response.success?).to eq true
+        expect(response.success?).to be true
       end
 
       it 'returns no error' do
         response = described_class.call(username)
-        expect(response.error).to eq nil
+        expect(response.error).to be_nil
       end
     end
 
@@ -105,7 +109,7 @@ RSpec.describe Cognito::CreateUserFromCognito do
       end
 
       it 'does not create a new user' do
-        expect { described_class.call(username) }.to change(User, :count).by 0
+        expect { described_class.call(username) }.not_to change(User, :count)
       end
 
       it 'updates cognito_uuid' do
@@ -115,8 +119,8 @@ RSpec.describe Cognito::CreateUserFromCognito do
 
       it 'updates roles' do
         response = described_class.call(username)
-        expect(response.user.has_role?(:st_access)).to eq true
-        expect(response.user.has_role?(:buyer)).to eq true
+        expect(response.user.has_role?(:st_access)).to be true
+        expect(response.user.has_role?(:buyer)).to be true
       end
     end
 
@@ -132,12 +136,12 @@ RSpec.describe Cognito::CreateUserFromCognito do
 
       it 'does not return user' do
         response = described_class.call(username)
-        expect(response.user).to eq nil
+        expect(response.user).to be_nil
       end
 
       it 'does not return success' do
         response = described_class.call(username)
-        expect(response.success?).to eq false
+        expect(response.success?).to be false
       end
 
       it 'returns an error' do

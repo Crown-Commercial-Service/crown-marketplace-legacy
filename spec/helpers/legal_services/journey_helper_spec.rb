@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe LegalServices::JourneyHelper, type: :helper do
+RSpec.describe LegalServices::JourneyHelper do
   let(:lot_number) { rand(1..3).to_s }
   let(:lot) { LegalServices::RM6240::Lot.find_by(number: lot_number) }
 

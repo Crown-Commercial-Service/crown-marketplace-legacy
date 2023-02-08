@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe ManagementConsultancy::RM6187::Supplier, type: :model do
+RSpec.describe ManagementConsultancy::RM6187::Supplier do
   subject(:supplier) { build(:management_consultancy_rm6187_supplier) }
 
   it { is_expected.to be_valid }
