@@ -78,15 +78,15 @@ module Marketplace
   end
 
   def self.st_survey_link
-    ENV['ST_SURVEY_LINK']
+    ENV.fetch('ST_SURVEY_LINK', nil)
   end
 
   def self.ls_survey_link
-    ENV['LS_SURVEY_LINK']
+    ENV.fetch('LS_SURVEY_LINK', nil)
   end
 
   def self.mc_survey_link
-    ENV['MC_SURVEY_LINK']
+    ENV.fetch('MC_SURVEY_LINK', nil)
   end
 
   def self.support_telephone_number
@@ -125,7 +125,7 @@ module Marketplace
   end
 
   def self.dfe_signin_url
-    @dfe_signin_url ||= ENV['DFE_SIGNIN_URL']
+    @dfe_signin_url ||= ENV.fetch('DFE_SIGNIN_URL', nil)
   end
 
   def self.dfe_signin_enabled?

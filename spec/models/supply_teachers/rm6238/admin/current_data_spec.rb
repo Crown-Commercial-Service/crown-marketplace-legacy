@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe SupplyTeachers::RM6238::Admin::CurrentData, type: :model do
+RSpec.describe SupplyTeachers::RM6238::Admin::CurrentData do
   describe '#validations' do
     context 'when no instances exist' do
       it 'validation fails' do

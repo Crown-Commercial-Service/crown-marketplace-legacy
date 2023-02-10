@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe LegalServices::RM6240::Lot, type: :model do
+RSpec.describe LegalServices::RM6240::Lot do
   subject(:lots) { described_class.all }
 
   let(:first_lot) { lots.first }

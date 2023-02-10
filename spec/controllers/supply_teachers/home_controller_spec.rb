@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe SupplyTeachers::HomeController, type: :controller do
+RSpec.describe SupplyTeachers::HomeController do
   let(:default_params) { { service: 'supply_teachers' } }
 
   describe 'GET framework' do

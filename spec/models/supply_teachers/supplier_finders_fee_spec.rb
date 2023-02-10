@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe SupplyTeachers::SupplierFindersFee, type: :model do
+RSpec.describe SupplyTeachers::SupplierFindersFee do
   let(:supplier_finders_fee) { described_class.new(fixed_term_length: fixed_term_length, salary: salary, fixed_term_rate: fixed_term_rate) }
   let(:fixed_term_rate) { 0.085 }
   let(:fixed_term_length) { 12 }

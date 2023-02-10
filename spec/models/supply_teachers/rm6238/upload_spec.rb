@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe SupplyTeachers::RM6238::Upload, type: :model do
+RSpec.describe SupplyTeachers::RM6238::Upload do
   describe 'create' do
     let(:branch_name) { 'Head Office' }
     let(:branch_town) { 'Guildford' }
@@ -114,7 +114,7 @@ RSpec.describe SupplyTeachers::RM6238::Upload, type: :model do
         end
 
         it 'assigns master vendor contact information' do
-          managed_service_provider = SupplyTeachers::RM6238::Supplier.last.managed_service_providers.find_by('lot_number': '2')
+          managed_service_provider = SupplyTeachers::RM6238::Supplier.last.managed_service_providers.find_by(lot_number: '2')
           expect(managed_service_provider).to have_attributes(
             contact_name: 'Mr. Joelle Littel',
             telephone_number: '0800 966090',
@@ -123,7 +123,7 @@ RSpec.describe SupplyTeachers::RM6238::Upload, type: :model do
         end
 
         it 'assigns education technology platforms contact information' do
-          managed_service_provider = SupplyTeachers::RM6238::Supplier.last.managed_service_providers.find_by('lot_number': '4')
+          managed_service_provider = SupplyTeachers::RM6238::Supplier.last.managed_service_providers.find_by(lot_number: '4')
           expect(managed_service_provider).to have_attributes(
             contact_name: 'Ms. Retta Stehr',
             telephone_number: '01677 32220',
@@ -473,7 +473,7 @@ RSpec.describe SupplyTeachers::RM6238::Upload, type: :model do
             ignoring_exception(ActiveRecord::RecordInvalid) do
               described_class.upload!(suppliers)
             end
-          end.to change(described_class, :count).by(0)
+          end.not_to change(described_class, :count)
         end
 
         it 'leaves existing data intact' do

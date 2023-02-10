@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe SupplyTeachers::RM6238::Admin::UploadsController, type: :controller do
+RSpec.describe SupplyTeachers::RM6238::Admin::UploadsController do
   let(:default_params) { { service: 'supply_teachers/admin', framework: 'RM6238' } }
   let(:file) { Tempfile.new(['valid_file', '.xlsx']) }
   let(:fake_file) { fixture_file_upload(file.path, 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet') }

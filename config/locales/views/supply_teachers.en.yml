@@ -281,6 +281,8 @@ en:
         print: Print this page
         results_found_html: "<strong>%{results}</strong> found"
         results_found_with_location_html: "<strong>%{results}</strong> found within <strong>%{range}</strong> of <strong>%{postcode}</strong>."
+      render_branches:
+        calculated_mark_up: Calculated mark-up updated
       show:
         address: Address
         branch_name: Branch

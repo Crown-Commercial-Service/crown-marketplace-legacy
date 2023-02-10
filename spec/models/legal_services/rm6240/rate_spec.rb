@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe LegalServices::RM6240::Rate, type: :model do
+RSpec.describe LegalServices::RM6240::Rate do
   subject(:rate) { build(:legal_services_rm6240_full_service_provision_rate) }
 
   it { is_expected.to be_valid }

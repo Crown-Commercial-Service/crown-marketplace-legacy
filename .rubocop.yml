@@ -5,7 +5,7 @@ require:
   - './lib/cop/all'
 
 AllCops:
-    NewCops: disable
+    NewCops: enable
     TargetRubyVersion: 2.7
     Exclude:
         - 'db/schema.rb'
@@ -111,6 +111,7 @@ RSpec/DescribeClass:
         - 'spec/models/db_seeds_spec.rb'
         - 'spec/views/**/*'
         - 'spec/i18n_spec.rb'
+        - 'spec/requests/dfe_signin_spec.rb'
 
 RSpec/Capybara:
     Exclude:

@@ -248,11 +248,11 @@ RSpec.describe SupplyTeachers::RM6238::TempToPermCalculator::Calculator, type: :
     end
 
     it 'indicates that the school is not required to give any notice' do
-      expect(calculator.notice_period_required?).to eq(false)
+      expect(calculator.notice_period_required?).to be(false)
     end
 
     it 'does not calculate an ideal notice date as notice is not required' do
-      expect(calculator.notice_date_based_on_hire_date).to eq(nil)
+      expect(calculator.notice_date_based_on_hire_date).to be_nil
     end
 
     it 'calculates the fee as the number of chargeable working days multiplied by the daily supplier fee' do
@@ -292,7 +292,7 @@ RSpec.describe SupplyTeachers::RM6238::TempToPermCalculator::Calculator, type: :
     end
 
     it 'indicates that the school is required to give 4 weeks notice' do
-      expect(calculator.notice_period_required?).to eq(true)
+      expect(calculator.notice_period_required?).to be(true)
     end
 
     it 'calculates the ideal notice date as 4 weeks before the hire date' do
@@ -486,7 +486,7 @@ RSpec.describe SupplyTeachers::RM6238::TempToPermCalculator::Calculator, type: :
     end
 
     it 'indicates that the school is required to give 4 weeks notice' do
-      expect(calculator.notice_period_required?).to eq(true)
+      expect(calculator.notice_period_required?).to be(true)
     end
 
     it 'calculates the ideal notice date as 4 weeks before the hire date' do

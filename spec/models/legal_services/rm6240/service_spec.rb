@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe LegalServices::RM6240::Service, type: :model do
+RSpec.describe LegalServices::RM6240::Service do
   subject(:services) { described_class.all }
 
   let(:first_service) { services.first }

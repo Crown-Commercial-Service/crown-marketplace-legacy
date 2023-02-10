@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe LegalServices::RM6240::Admin::UploadsController, type: :controller do
+RSpec.describe LegalServices::RM6240::Admin::UploadsController do
   let(:default_params) { { service: 'legal_services/admin', framework: 'RM6240' } }
 
   describe 'GET index' do

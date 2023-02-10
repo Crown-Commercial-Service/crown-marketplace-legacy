@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe SupplyTeachers::RM6238::Journey::FTAToPermFixedTermFee, type: :model do
+RSpec.describe SupplyTeachers::RM6238::Journey::FTAToPermFixedTermFee do
   subject(:step) do
     described_class.new(
       fixed_term_fee: fixed_term_fee,

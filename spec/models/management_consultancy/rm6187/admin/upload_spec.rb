@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe ManagementConsultancy::RM6187::Admin::Upload, type: :model do
+RSpec.describe ManagementConsultancy::RM6187::Admin::Upload do
   let(:upload) { create(:management_consultancy_rm6187_admin_upload) }
   let(:valid_file) { Tempfile.new(['valid_file', '.xlsx']) }
   let(:text_file) { Tempfile.new(['text_file', '.txt']) }
