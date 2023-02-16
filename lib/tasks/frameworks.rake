@@ -28,7 +28,7 @@ end
 namespace :db do
   desc 'add the frameworks into the database'
   task legacy_frameworks: :environment do
-    p 'Loading Legacy Frameworks'
+    puts 'Loading Legacy Frameworks'
     DistributedLocks.distributed_lock(157) do
       Frameworks.add_frameworks
     end
