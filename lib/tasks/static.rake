@@ -21,11 +21,11 @@ module CCS
 
   def self.load_nuts_data(directory)
     DistributedLocks.distributed_lock(150) do
-      p "Loading NUTS static data, Environment: #{Rails.env}"
+      puts "Loading NUTS static data, Environment: #{Rails.env}"
       CCS.csv_to_nuts_regions "#{directory}nuts1_regions.csv"
       CCS.csv_to_nuts_regions "#{directory}nuts2_regions.csv"
       CCS.csv_to_nuts_regions "#{directory}nuts3_regions.csv"
-      p "Finished loading NUTS codes into db #{Rails.application.config.database_configuration[Rails.env]['database']}"
+      puts "Finished loading NUTS codes into db #{Rails.application.config.database_configuration[Rails.env]['database']}"
     end
   end
 
@@ -37,7 +37,7 @@ end
 namespace :db do
   desc 'add NUTS static data to the database'
   task static: :environment do
-    p 'Loading NUTS static'
+    puts 'Loading NUTS static'
     CCS.load_static
   end
 
