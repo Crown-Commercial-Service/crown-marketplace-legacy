@@ -75,7 +75,7 @@ gem 'jsonpath', '~> 1.1.2'
 gem 'aasm', '~> 5.5'
 
 # for running background jobs
-gem 'sidekiq', '~> 7.0.3'
+gem 'sidekiq', '~> 7.0.5'
 gem 'sinatra', '~> 3.0.5', require: false
 gem 'slim', '~> 5.0.0'
 
