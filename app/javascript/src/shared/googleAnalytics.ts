@@ -1,5 +1,7 @@
-interface Window {
-  gaTrackingId: string
+declare global {
+  interface Window {
+    gaTrackingId: string
+  }
 }
 
 declare function gtag(config: string, gaTrackingId: string, params: {[key: string]: string|boolean}): void
@@ -36,4 +38,4 @@ const initGoogleAnalytics = (): void => {
   }
 }
 
-$(() => initGoogleAnalytics())
+export default initGoogleAnalytics

@@ -37,7 +37,7 @@ const passwordStrength = ($input: JQuery<HTMLElement>): void => {
   $input.on('keyup', () => runTests($input))
 }
 
-const passwordStrengthInit = (): void => {
+const initPasswordStrength = (): void => {
   const form: JQuery<HTMLElement> = $('#main-content form.ccs-form')
   
   if (form.length) {
@@ -51,4 +51,4 @@ const passwordStrengthInit = (): void => {
   }
 }
 
-$(() => passwordStrengthInit())
+export default initPasswordStrength
