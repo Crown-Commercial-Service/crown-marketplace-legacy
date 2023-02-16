@@ -146,3 +146,5 @@ class FileUploadProgressWithoutBar extends FileUploadProgress {
     }
   }
 }
+
+export { StateToProgressWithProgressBar, StateToProgressWithoutProgressBar, FileUploadProgressWithBar, FileUploadProgressWithoutBar }

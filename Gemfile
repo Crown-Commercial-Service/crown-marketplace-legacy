@@ -11,10 +11,12 @@ gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 6.1'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.1', '>= 5.1.0'
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
+
+gem 'webpacker', '~> 5.0'
+
+gem 'turbolinks', '~> 5'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.11', '>= 2.11.5'
@@ -39,7 +41,6 @@ gem 'caxlsx_rails', '>= 0.6.3'
 gem 'phonejack'
 gem 'holidays'
 gem 'virtus'
-gem 'jquery-rails', '~> 4.5.1'
 
 gem 'rollbar', '~> 3.4.0'
 
@@ -85,7 +86,6 @@ gem 'cancancan', '~> 3.4.0'
 gem 'role_model', '~> 0.8.2'
 
 gem 'sprockets', '>= 3.7.2'
-gem 'sprockets-bumble_d', '>= 2.2.0'
 
 # for clamav
 gem 'ratonvirus', '>= 0.1.1'

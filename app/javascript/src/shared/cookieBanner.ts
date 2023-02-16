@@ -1,3 +1,5 @@
+import * as Cookies from 'js-cookie'
+
 type CookieBannerFormData = {
   [key: string]: string
 }
@@ -120,4 +122,4 @@ const initCookieBanner = (): void => {
   })
 }
 
-$(() => initCookieBanner())
+export default initCookieBanner

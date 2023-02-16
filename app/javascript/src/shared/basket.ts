@@ -190,6 +190,8 @@ class Basket implements BasketInterface {
 
 }
 
-$(() => {
+const initBasket = () => {
   if ($('#selection-checkboxes').length > 0) new Basket()
-})
+}
+
+export default initBasket
