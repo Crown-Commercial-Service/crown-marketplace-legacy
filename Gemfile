@@ -53,7 +53,7 @@ gem 'ccs_omniauth_openid_connect', '~> 0.4.0', git: 'https://github.com/Crown-Co
 gem 'json-jwt', '>= 1.11.0'
 
 # for authentication
-gem 'devise', '~> 4.8.1'
+gem 'devise', '~> 4.9.0'
 # for cognito
 gem 'aws-sdk-cognitoidentityprovider', '~> 1.73.0'
 
