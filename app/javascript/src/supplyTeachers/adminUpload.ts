@@ -1,4 +1,4 @@
-import { FileUploadProgressWithoutBar, StateToProgressWithoutProgressBar } from '../shared/uploadProgress'
+import { FileUploadProgressWithoutBar, type StateToProgressWithoutProgressBar } from '../shared/uploadProgress'
 
 const supplyTeachersProcessingStateToProgress: StateToProgressWithoutProgressBar = {
   not_started: {
@@ -46,10 +46,10 @@ const supplyTeachersUploadingStateToProgress: StateToProgressWithoutProgressBar 
   }
 }
 
-const initSupplyTeachersAdminUpload = () => {
+const initSupplyTeachersAdminUpload = (): void => {
   const $supplyTeachersUploadState: JQuery<HTMLInputElement> = $('#supply_teachers_admin_upload_state')
 
-  if($supplyTeachersUploadState.length > 0) {
+  if ($supplyTeachersUploadState.length > 0) {
     if ($supplyTeachersUploadState.val() === 'processing_files') new FileUploadProgressWithoutBar(supplyTeachersProcessingStateToProgress, 'not_started')
     if ($supplyTeachersUploadState.val() === 'uploading') new FileUploadProgressWithoutBar(supplyTeachersUploadingStateToProgress, 'files_processed')
   }
