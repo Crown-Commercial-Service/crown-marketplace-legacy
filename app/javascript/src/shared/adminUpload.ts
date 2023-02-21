@@ -1,3 +1,4 @@
+import { FileUploadProgressWithBar, StateToProgressWithProgressBar } from './uploadProgress'
 
 const adminStateToProgress: StateToProgressWithProgressBar = {
   not_started: {
@@ -46,6 +47,8 @@ const adminStateToProgress: StateToProgressWithProgressBar = {
   },
 }
 
-$(() => {
+const initAdminUpload = () => {
   if ($('#admin-import-progress').length) new FileUploadProgressWithBar(adminStateToProgress, 'in_progress')
-})
+}
+
+export default initAdminUpload

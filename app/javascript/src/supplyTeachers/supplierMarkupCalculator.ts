@@ -86,30 +86,34 @@ const processResults = (result: Result, $calculator: JQuery<HTMLElement>, formEl
   }
 }
 
-$('.supplier-record__calculator input').on('change', (event: JQuery.ChangeEvent) => {
-  const $input: JQuery<HTMLElement> = $(event.currentTarget)
-  const $form: JQuery<HTMLFormElement> = $input.parents('form')
-  const $calculator: JQuery<HTMLElement> = $input.parents('.supplier-record__calculator')
-  const url: string = $form.attr('action') as string
-  const data = `${$form.find('input[type="hidden"]').serialize()}&${$input.serialize()}`
-  let formElements: FormElements
+const initSupplyTeachersSupplierMarkupCalculator = () => {
+  $('.supplier-record__calculator input').on('change', (event: JQuery.ChangeEvent) => {
+    const $input: JQuery<HTMLElement> = $(event.currentTarget)
+    const $form: JQuery<HTMLFormElement> = $input.parents('form')
+    const $calculator: JQuery<HTMLElement> = $input.parents('.supplier-record__calculator')
+    const url: string = $form.attr('action') as string
+    const data = `${$form.find('input[type="hidden"]').serialize()}&${$input.serialize()}`
+    let formElements: FormElements
+  
+    if ($('.supplier-record__finders-fee').length) {
+      formElements = fixedTermCalculator
+    } else {
+      formElements = agencyList
+    }
+  
+    $.get(url, data, (result) => {
+      processResults(result, $calculator, formElements)
+    }, 'json')
+      .fail(() => {
+        showErrors($calculator, formElements)
+      })
+  })
+  
+  $('.supplier-record__calculate-markup').hide()
+  
+  $('.supplier-record__calculator-form').on('submit', (event: JQuery.SubmitEvent) => {
+    event.preventDefault()
+  })
+}
 
-  if ($('.supplier-record__finders-fee').length) {
-    formElements = fixedTermCalculator
-  } else {
-    formElements = agencyList
-  }
-
-  $.get(url, data, (result) => {
-    processResults(result, $calculator, formElements)
-  }, 'json')
-    .fail(() => {
-      showErrors($calculator, formElements)
-    })
-})
-
-$('.supplier-record__calculate-markup').hide()
-
-$('.supplier-record__calculator-form').on('submit', (event: JQuery.SubmitEvent) => {
-  event.preventDefault()
-})
+export default initSupplyTeachersSupplierMarkupCalculator

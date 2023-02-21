@@ -93,7 +93,7 @@ bundle exec sidekiq
 bundle exec rails s
 ```
 
-Visit [localhost:3000](http://localhost:3000).
+Visit [localhost:4000](http://localhost:4000).
 
 Note, if you are not running background jobs then you do not need to run redis or sidekiq
 
