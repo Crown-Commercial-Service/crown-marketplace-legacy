@@ -1,16 +1,16 @@
-type FormElements = {
+interface FormElements {
   input: string
   outputs: FormElementsOutputs[]
 }
 
-type FormElementsOutputs = {
+interface FormElementsOutputs {
   class: string
   output: ResultOutput
 }
 
 type ResultOutput = 'worker_cost' | 'agency_fee' | 'finders_fee'
 
-type Result = {
+interface Result {
   error: string
   worker_cost: number
   agency_fee: number
@@ -26,13 +26,13 @@ const agencyList: FormElements = {
   outputs: [
     {
       class: '.supplier-record__worker-cost',
-      output: 'worker_cost',
+      output: 'worker_cost'
     },
     {
       class: '.supplier-record__agency-fee',
-      output: 'agency_fee',
-    },
-  ],
+      output: 'agency_fee'
+    }
+  ]
 }
 
 const fixedTermCalculator: FormElements = {
@@ -40,9 +40,9 @@ const fixedTermCalculator: FormElements = {
   outputs: [
     {
       class: '.supplier-record__finders-fee',
-      output: 'finders_fee',
-    },
-  ],
+      output: 'finders_fee'
+    }
+  ]
 }
 
 const showErrors = ($calculator: JQuery<HTMLElement>, formElements: FormElements): void => {
@@ -86,7 +86,7 @@ const processResults = (result: Result, $calculator: JQuery<HTMLElement>, formEl
   }
 }
 
-const initSupplyTeachersSupplierMarkupCalculator = () => {
+const initSupplyTeachersSupplierMarkupCalculator = (): void => {
   $('.supplier-record__calculator input').on('change', (event: JQuery.ChangeEvent) => {
     const $input: JQuery<HTMLElement> = $(event.currentTarget)
     const $form: JQuery<HTMLFormElement> = $input.parents('form')
@@ -94,23 +94,25 @@ const initSupplyTeachersSupplierMarkupCalculator = () => {
     const url: string = $form.attr('action') as string
     const data = `${$form.find('input[type="hidden"]').serialize()}&${$input.serialize()}`
     let formElements: FormElements
-  
+
     if ($('.supplier-record__finders-fee').length) {
       formElements = fixedTermCalculator
     } else {
       formElements = agencyList
     }
-  
+
     $.get(url, data, (result) => {
       processResults(result, $calculator, formElements)
     }, 'json')
       .fail(() => {
         showErrors($calculator, formElements)
+      }).catch(() => {
+        showErrors($calculator, formElements)
       })
   })
-  
+
   $('.supplier-record__calculate-markup').hide()
-  
+
   $('.supplier-record__calculator-form').on('submit', (event: JQuery.SubmitEvent) => {
     event.preventDefault()
   })
