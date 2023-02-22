@@ -1,23 +1,18 @@
 <div class="govuk-body">
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
-      <div class="govuk-panel govuk-panel--confirmation">
-        <h1 class="govuk-panel__title">
-          <%= t('.header') %>
-        </h1>
-        <div class="govuk-panel__body">
-          <%= t('.panel_body') %>
-          <% if @calculator.hiring_after_12_weeks? && @calculator.notice_date.blank? %>
-            <br>
-            <%= t('.between_fees_html', lower_bound: '£0', upper_bound: number_to_currency(@calculator.maximum_fee_for_lack_of_notice)) %>
-          <% elsif @calculator.hiring_between_9_and_12_weeks? && @calculator.notice_date.blank? && @calculator.fee < @calculator.maximum_fee_for_lack_of_notice %>
-            <br>
-            <%= t('.between_fees_html', lower_bound: number_to_currency(@calculator.fee), upper_bound: number_to_currency(@calculator.maximum_fee_for_lack_of_notice)) %>
-          <% else %>
-            <br><strong><%= number_to_currency(@calculator.fee) %></strong>
-          <% end %>
-        </div>
-      </div>
+      <%= govuk_panel(t('.header')) do %>
+        <%= t('.panel_body') %>
+        <% if @calculator.hiring_after_12_weeks? && @calculator.notice_date.blank? %>
+          <br>
+          <%= t('.between_fees_html', lower_bound: '£0', upper_bound: number_to_currency(@calculator.maximum_fee_for_lack_of_notice)) %>
+        <% elsif @calculator.hiring_between_9_and_12_weeks? && @calculator.notice_date.blank? && @calculator.fee < @calculator.maximum_fee_for_lack_of_notice %>
+          <br>
+          <%= t('.between_fees_html', lower_bound: number_to_currency(@calculator.fee), upper_bound: number_to_currency(@calculator.maximum_fee_for_lack_of_notice)) %>
+        <% else %>
+          <br><strong><%= number_to_currency(@calculator.fee) %></strong>
+        <% end %>
+      <% end %>
     </div>
   </div>
   <div class="govuk-grid-row">

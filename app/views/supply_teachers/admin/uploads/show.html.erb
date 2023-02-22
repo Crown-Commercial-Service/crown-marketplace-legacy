@@ -13,35 +13,39 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <dl class="govuk-summary-list govuk-summary-list--no-border">
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          <%= t('.status') %>
-        </dt>
-        <dd class="govuk-summary-list__value">
-          <%= hidden_field_tag :supply_teachers_admin_upload_state, @upload.aasm_state %>
-          <%= govuk_tag_with_text(*upload_status_tag(@upload.aasm_state)) %>
-        </dd>
-      </div>
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          <%= t('.datetime') %>
-        </dt>
-        <dd class="govuk-summary-list__value">
-          <%= format_date_time @upload.created_at %>
-        </dd>
-      </div>
-    </dl>
+    <%= hidden_field_tag :supply_teachers_admin_upload_state, @upload.aasm_state %>
+
+    <%= govuk_summary_list(
+      [
+        {
+          key: {
+            text: t('.status')
+          },
+          value: {
+            text: govuk_tag(*upload_status_tag(@upload.aasm_state))
+          }
+        },
+        {
+          key: {
+            text: t('.datetime')
+          },
+          value: {
+            text: format_date_time(@upload.created_at)
+          }
+        }
+      ],
+      classes: 'govuk-summary-list--no-border'
+    ) %>
 
     <% if @upload.fail_reason.present? %>
-      <div class="govuk-inset-text">
+      <%= govuk_inset_text do %>
         <h2>
           <%= t('.error_heading') %>
         </h2>
         <p class="govuk-body govuk-body-s govuk-error-message">
           <%= @upload.fail_reason %>
         </p>
-      </div>
+      <% end %>
     <% end %>
   </div>
 </div>

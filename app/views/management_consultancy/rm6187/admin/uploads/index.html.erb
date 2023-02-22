@@ -5,9 +5,9 @@
     <span class="govuk-caption-xl"><%= t('.caption', framework: params[:framework]) %></span>
     <h1 class="govuk-heading-xl"><%= t('.heading') %></h1>
     <% if flash[:notice] %>
-      <div class="govuk-inset-text cmp-inset-text--success">
+      <%= govuk_inset_text(classes: 'cmp-inset-text--success') do %>
         <p class="govuk-body govuk-body-s"><%= flash[:notice] %></p>
-      </div>
+      <% end %>
     <% end %>
     <%= link_to t('.create_new'), new_management_consultancy_rm6187_admin_upload_path, class: 'govuk-button'  %>
     <hr class="govuk-section-break govuk-section-break--m">

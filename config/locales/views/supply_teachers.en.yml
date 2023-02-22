@@ -223,6 +223,7 @@ en:
           failed: Failed
           files_processed: Waiting to publish
           in_progress: Processing files
+          not_started: Not started
           processing_files: Processing files
           published: Published on live
           rejected: Cancelled session

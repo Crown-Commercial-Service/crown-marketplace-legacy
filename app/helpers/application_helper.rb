@@ -1,5 +1,6 @@
 # rubocop:disable Metrics/ModuleLength
 module ApplicationHelper
+  include CCS::FrontendHelpers
   include GovUKHelper
   include HeaderNavigationLinksHelper
 
@@ -59,28 +60,6 @@ module ApplicationHelper
     tag.span(id: "#{id_prefix}#{error_id(attribute)}", class: "govuk-error-message #{'govuk-!-margin-top-3' if margin}") do
       error.to_s
     end
-  end
-
-  ERROR_TYPES = {
-    too_long: 'maxlength',
-    too_short: 'minlength',
-    blank: 'required',
-    inclusion: 'required',
-    after: 'max',
-    greater_than: 'min',
-    greater_than_or_equal_to: 'min',
-    before: 'min',
-    less_than: 'max',
-    less_than_or_equal_to: 'max',
-    not_a_date: 'pattern',
-    not_a_number: 'number',
-    not_an_integer: 'number'
-  }.freeze
-
-  def get_client_side_error_type_from_errors(errors, attribute)
-    return ERROR_TYPES[errors.details[attribute].first[:error]] if ERROR_TYPES.key?(errors.details[attribute].try(:first)[:error])
-
-    errors.details[attribute].first[:error].to_sym unless ERROR_TYPES.key?(errors.details[attribute].first[:error])
   end
 
   def css_classes_for_input(journey, attribute, extra_classes = [])
@@ -166,16 +145,6 @@ module ApplicationHelper
     ['sign-in', 'forgot-password', 'fixed-term-results', 'master-vendors', 'temp-to-perm-calculator?looking_for=calculate_temp_to_perm_fee', 'branches/3d-recruit'].map { |link| "https://marketplace.service.crowncommercial.gov.uk/supply-teachers/#{link}" }
   end
 
-  def govuk_tag_with_text(colour, text)
-    extra_classes = {
-      grey: 'govuk-tag--grey',
-      blue: 'govuk-tag',
-      red: 'govuk-tag--red'
-    }
-
-    tag.strong(text, class: ['govuk-tag'] << extra_classes[colour])
-  end
-
   def link_to_public_file_for_download(filename, file_type, text, show_doc_image, **)
     link_to_file_for_download("/#{filename}?format=#{file_type}", file_type, text, show_doc_image, **)
   end
@@ -251,18 +220,6 @@ module ApplicationHelper
 
   def get_file_extension(file)
     file.filename.extension_without_delimiter.to_sym
-  end
-
-  def warning_text(text)
-    tag.div(class: 'govuk-warning-text') do
-      concat(tag.span('!', class: 'govuk-warning-text__icon', aria: { hidden: true }))
-      concat(
-        tag.strong(class: 'govuk-warning-text__text') do
-          concat(tag.span('Warning', class: 'govuk-warning-text__assistive'))
-          concat(text)
-        end
-      )
-    end
   end
 end
 # rubocop:enable Metrics/ModuleLength

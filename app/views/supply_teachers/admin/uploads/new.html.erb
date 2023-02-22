@@ -10,8 +10,8 @@
     <h1 class="govuk-heading-xl">
       <%= t('.heading') %>
     </h1>
-    
-    <%= warning_text(warning_details(@uploads_in_progress)) if @uploads_in_progress.any? %>
+
+    <%= govuk_warning_text(warning_details(@uploads_in_progress)) if @uploads_in_progress.any? %>
   </div>
 </div>
 
