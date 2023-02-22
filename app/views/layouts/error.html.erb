@@ -29,7 +29,7 @@
     <% end -%>
 
     <div class="error-content">    
-      <%= link_to t('layouts.application.skip'), '#main-content', class: 'govuk-skip-link', data: { module: 'govuk-skip-link', turbolinks: false } %>
+      <%= govuk_skip_link(t('layouts.application.skip'), '#main-content') %>
       <%= render partial: '/layouts/cookie-banner' unless cookie_preferences_settings['settings_viewed'] || controller.action_name == 'cookie_settings' %>
       <%= render partial: '/layouts/header' %>
 

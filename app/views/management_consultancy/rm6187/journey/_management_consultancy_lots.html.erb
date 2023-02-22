@@ -5,20 +5,13 @@
     <div class="govuk-radios__item">
       <%= radio_button_tag :lot, lot.number, checked?(params[:lot], lot.number), class: 'govuk-radios__input' %>
       <%= label_tag :"lot_#{lot.number}", "#{lot_number_and_description(lot.number,lot.description)}", class: 'govuk-label govuk-radios__label' %>
-      <details class="govuk-details">
-        <summary class="govuk-details__summary">
-          <span class="govuk-details__summary-text">
-            <%= t('.service_lines') %>
-          </span>
-        </summary>
-        <div class="govuk-details__text">
-          <ul class="govuk-list">
-            <% lot.services.each do |service| %>
-              <li><%= service.name %></li>
-            <% end %>
-          </ul>
-        </div>
-      </details>
+      <%= govuk_details(t('.service_lines')) do %>
+        <ul class="govuk-list">
+          <% lot.services.each do |service| %>
+            <li><%= service.name %></li>
+          <% end %>
+        </ul>
+      <% end %>
     </div>
   <% end %>
 <% end %>

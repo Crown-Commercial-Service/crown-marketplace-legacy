@@ -109,6 +109,9 @@ gem 'capybara', '>= 3.38.0'
 # for date layout
 gem 'gov_uk_date_fields', '>= 4.2.0'
 
+# Use CCS Frontend Helpers
+gem 'ccs-frontend_helpers', '~> 0.1.1'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
