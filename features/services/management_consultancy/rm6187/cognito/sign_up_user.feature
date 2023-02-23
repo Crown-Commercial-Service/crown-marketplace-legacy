@@ -6,7 +6,7 @@ Feature: Sign up to management consultancy - RM6187
     Then I am on the 'Find management consultants' page
     When I click on 'Start now'
     And I am on the 'Sign in to your management consultancy account' page
-    And I click on 'Create an account'
+    And I click on the Create an account link
     Then I am on the 'Create a CCS account' page
     And I am able to create an 'mc' account
     Then I am on the 'Activate your account' page

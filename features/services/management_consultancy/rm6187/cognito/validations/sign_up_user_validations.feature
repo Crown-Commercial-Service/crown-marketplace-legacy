@@ -6,7 +6,7 @@ Feature: Sign up user - Management Consultancy - RM6187 - Validations
     Then I am on the 'Find management consultants' page
     When I click on 'Start now'
     Then I am on the 'Sign in to your management consultancy account' page
-    And I click on 'Create an account'
+    And I click on the Create an account link
     Then I am on the 'Create a CCS account' page
 
   Scenario: Email validations
