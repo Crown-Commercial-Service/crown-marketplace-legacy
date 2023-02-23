@@ -9,5 +9,5 @@ Feature: Legal services - Central governemnt - fees over £20,000
     And I select 'No'
     When I click on 'Continue'
     Then I am on the "Sorry, this panel isn't suitable for you" page
-    And I click on the 'Back to start' button
+    And I click on the Back to start button
     Then I am on the 'Find legal services for the wider public sector' page
