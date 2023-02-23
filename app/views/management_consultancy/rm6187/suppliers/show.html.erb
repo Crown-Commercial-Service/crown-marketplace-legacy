@@ -20,41 +20,74 @@
       <h2 class="govuk-heading-m govuk-!-margin-bottom-1"><%= t('.maximum_day_rates') %></h2>
       <p class="govuk-body"><%= t('.rates_are_fixed') %></p>
       <p class="govuk-body"><%= t('.rates_are_maximum') %></p>
-      <table class="govuk-table">
-        <caption class="govuk-table__caption govuk-visually-hidden"><%= t('.day_rates') %></caption>
-        <thead class="govuk-table__head">
-          <tr class="govuk-table__row">
-            <th class="govuk-table__header govuk-!-font-weight-bold" scope="col"></th>
-            <th class="govuk-table__header govuk-!-font-weight-bold govuk-!-width-one-quarter" scope="col"><%= t('.max_day_rate') %></th>
-          </tr>
-        </thead>
-        <tbody class="govuk-table__body">
-          <tr class="govuk-table__row">
-            <th class="govuk-table__header" scope="row"><%= t('.job_titles.junior') %></th>
-            <td class="govuk-table__cell"><%= number_to_currency(@rate_card.junior_rate_in_pence/100, precision: 0) %></td>
-          </tr>
-          <tr class="govuk-table__row">
-            <th class="govuk-table__header" scope="row"><%= t('.job_titles.standard') %></th>
-            <td class="govuk-table__cell"><%= number_to_currency(@rate_card.standard_rate_in_pence/100, precision: 0) %></td>
-          </tr>
-          <tr class="govuk-table__row">
-            <th class="govuk-table__header" scope="row"><%= t('.job_titles.senior') %></th>
-            <td class="govuk-table__cell"><%= number_to_currency(@rate_card.senior_rate_in_pence/100, precision: 0) %></td>
-          </tr>
-          <tr class="govuk-table__row">
-            <th class="govuk-table__header" scope="row"><%= t('.job_titles.principal') %></th>
-            <td class="govuk-table__cell"><%= number_to_currency(@rate_card.principal_rate_in_pence/100, precision: 0) %></td>
-          </tr>
-          <tr class="govuk-table__row">
-            <th class="govuk-table__header" scope="row"><%= t('.job_titles.managing') %></th>
-            <td class="govuk-table__cell"><%= number_to_currency(@rate_card.managing_rate_in_pence/100, precision: 0) %></td>
-          </tr>
-          <tr class="govuk-table__row">
-            <th class="govuk-table__header" scope="row"><%= t('.job_titles.director') %></th>
-            <td class="govuk-table__cell"><%= number_to_currency(@rate_card.director_rate_in_pence/100, precision: 0) %></td>
-          </tr>
-        </tbody>
-      </table>
+
+      <%= govuk_table(
+        [
+          {
+            text: t('.position')
+          },
+          {
+            text: t('.max_day_rate'),
+            classes: 'govuk-!-width-one-quarter'
+          }
+        ],
+        [
+          [
+            {
+              text: t('.job_titles.junior')
+            },
+            {
+              text: number_to_currency(@rate_card.junior_rate_in_pence/100, precision: 0)
+            }
+          ],
+          [
+            {
+              text: t('.job_titles.standard')
+            },
+            {
+              text: number_to_currency(@rate_card.standard_rate_in_pence/100, precision: 0)
+            }
+          ],
+          [
+            {
+              text: t('.job_titles.senior')
+            },
+            {
+              text: number_to_currency(@rate_card.senior_rate_in_pence/100, precision: 0)
+            }
+          ],
+          [
+            {
+              text: t('.job_titles.principal')
+            },
+            {
+              text: number_to_currency(@rate_card.principal_rate_in_pence/100, precision: 0)
+            }
+          ],
+          [
+            {
+              text: t('.job_titles.managing')
+            },
+            {
+              text: number_to_currency(@rate_card.managing_rate_in_pence/100, precision: 0)
+            }
+          ],
+          [
+            {
+              text: t('.job_titles.director')
+            },
+            {
+              text: number_to_currency(@rate_card.director_rate_in_pence/100, precision: 0)
+            }
+          ]
+        ],
+        caption: {
+          text: t('.day_rates'),
+          classes: 'govuk-visually-hidden'
+        },
+        first_cell_is_header: true
+      ) %>
+
     <% end %>
     <% if @supplier.sme? %>
       <p class="govuk-body">

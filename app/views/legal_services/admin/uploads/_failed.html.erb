@@ -8,25 +8,28 @@
 </div>
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
-    <table class="govuk-table">
-      <thead class="govuk-table__head">
-        <tr class="govuk-table__row">
-          <th class="govuk-table__header" scope="col" width="25%"><%= t('.issue') %></th>
-          <th class="govuk-table__header" scope="col"><%= t('.details') %></th>
-        </tr>
-      </thead>
-      <tbody class="govuk-table__body">
-        <% @upload.import_errors.each do |error| %>
-          <tr>
-            <td class="govuk-table__cell">
-              <%= t("legal_services.#{params[:framework].downcase}.admin.uploads.failed.error_name.#{error[:error]}") %>
-            </td>
-            <td class="govuk-table__cell">
-              <%= get_error_details("legal_services.#{params[:framework].downcase}", error[:error], error[:details]) %>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+    <%= govuk_table(
+      [
+        {
+          text: t('.issue'),
+          attributes: {
+            width: '25%'
+          }
+        },
+        {
+          text: t('.details')
+        }
+      ],
+      @upload.import_errors.map do |error|
+        [
+          {
+            text: t("legal_services.#{params[:framework].downcase}.admin.uploads.failed.error_name.#{error[:error]}"),
+          },
+          {
+            text: get_error_details("legal_services.#{params[:framework].downcase}", error[:error], error[:details]),
+          },
+        ]
+      end
+    ) %>
   </div>
 </div>
