@@ -103,5 +103,9 @@ Then('there is no LMP \(Legal project manager) hourly rate') do
   expect(journey_page.supplier_rates_table.rows.length).to eq(6)
 end
 
+Then 'I click on the Back to start button' do
+  page.find_by_id('main-content').click_on('Back to start')
+end
+
 MC_ROLES = ['Analyst / Junior Consultant', 'Consultant', 'Senior Consultant / Engagement Manager / Project Lead', 'Principal Consultant / Associate Director', 'Managing Consultant / Director', 'Partner'].freeze
 LS_RM6240_ROLES = ['Partner', 'Senior Solicitor, Senior Associate', 'Solicitor, Associate', 'NQ Solicitor/Associate, Junior Solicitor/Associate', 'Trainee', 'Paralegal, Legal Assistant', 'LMP (Legal project manager)'].freeze

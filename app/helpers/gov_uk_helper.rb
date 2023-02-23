@@ -5,7 +5,6 @@ module GovUKHelper
   include ErrorMessage
   include Fieldset
   include FormGroup
-  include Header
   include Hint
   include Pagination
   include Radios

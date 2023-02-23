@@ -19,7 +19,7 @@ Given('I sign in and navigate to the start page for the {string} framework in {s
   update_banner_cookie(true) if @javascript
   fill_in 'email', with: @user.email
   fill_in 'password', with: 'ValidPassword'
-  click_on 'Sign in'
+  click_button 'Sign in'
   step "I am on the '#{start_page_title}' page"
 end
 
@@ -55,7 +55,7 @@ Given('I sign in as an admin for the {string} framework in {string}') do |framew
   update_banner_cookie(true) if @javascript
   fill_in 'email', with: @user.email
   fill_in 'password', with: 'ValidPassword'
-  click_on 'Sign in'
+  click_button 'Sign in'
   step "I am on the '#{admin_dashboard_title}' page"
 end
 
@@ -85,7 +85,7 @@ end
 Then('I sign in') do
   fill_in 'email', with: @user.email
   fill_in 'password', with: 'ValidPassword'
-  click_on 'Sign in'
+  click_button 'Sign in'
 end
 
 Then('I should see the following error messages:') do |table|
@@ -118,7 +118,7 @@ Given('I click on the {string} back link') do |link_text|
 end
 
 Then('I click on the {string} button') do |button_text|
-  page.find('.govuk-button', text: button_text).click
+  page.click_button(button_text, class: 'govuk-button')
 end
 
 Then('the spreadsheet {string} is downloaded') do |spreadsheet_name|
