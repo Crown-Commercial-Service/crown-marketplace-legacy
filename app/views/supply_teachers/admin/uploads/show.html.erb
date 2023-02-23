@@ -52,25 +52,32 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <table class="govuk-table govuk-!-margin-top-4">
-      <caption class="govuk-table__caption"><%= t('.files') %></caption>
-      <thead class="govuk-table__head">
-        <tr class="govuk-table__row">
-          <th class="govuk-table__header" scope="col"><%= t('.spreadsheet') %></th>
-          <td class="govuk-table__header"></td>
-        </tr>
-      </thead>
-      <tbody class="govuk-table__body">
-      <% @attributes.each do |attribute| %>
-        <% if @upload.send(attribute).attached? %>
-          <tr class="govuk-table__row">
-            <th class="govuk-table__header" scope="row"><%= t(".#{attribute.to_s}") %></th>
-            <td class="govuk-table__cell"><%= link_to 'Download', admin_upload_file(@upload, @upload.send(attribute), :st, params[:framework].downcase), download: '' %></td>
-          </tr>
-        <% end %>
-      <% end %>
-      </tbody>
-    </table>
+    <%= govuk_table(
+      [
+        {
+          text: t('.spreadsheet'),
+        },
+        {
+          text: t('.download')
+        }
+      ],
+      @attributes.select do |attribute|
+        @upload.send(attribute).attached?
+      end.map do |attribute|
+        [
+          {
+            text: t(".#{attribute.to_s}")
+          },
+          {
+            text: link_to(t('.download'), admin_upload_file(@upload, @upload.send(attribute), :st, params[:framework].downcase), download: '')
+          }
+        ]
+      end,
+      caption: {
+        text: t('.files')
+      },
+      first_cell_is_header: true
+    ) %>
   </div>
 </div>
 

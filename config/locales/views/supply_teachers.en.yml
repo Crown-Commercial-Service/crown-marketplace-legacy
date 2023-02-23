@@ -171,19 +171,19 @@ en:
           page_title: Unrecognised framework
           the_recognised_are: 'The Supply Teachers frameworks are:'
       uploads:
-        current_upload:
-          upload_name: 'Upload session #%{number}'
         index:
           caption: Manage supplier data
           create_new: Set up upload session
           current_table_caption: Data currently used
           date: Date and time
+          download: Download
           heading: Supply teachers and agency workers
           name: Name
           no_of_files: Number of files
           spreadsheet: Spreadsheet
           status: Status
           table_caption: Upload sessions
+          upload_name: 'Upload session #%{number}'
           upload_session: Upload session
         new:
           caption: Supply teachers and agency workers
@@ -204,6 +204,7 @@ en:
           current_accredited_suppliers: Current accredited suppliers
           datetime: 'Date and time:'
           delete: Delete session
+          download: Download
           education_technology_platform_contacts: Education technology platform contacts
           error_heading: There is a problem
           files: Files
@@ -228,8 +229,6 @@ en:
           published: Published on live
           rejected: Cancelled session
           uploading: Publishing files
-        upload:
-          upload_name: 'Upload session #%{number}'
     branches:
       branch:
         branch: Branch
