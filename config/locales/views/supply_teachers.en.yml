@@ -53,10 +53,6 @@ en:
           attributes:
             looking_for:
               inclusion: Select individual worker, managed service provider, or calculate temp-to-perm fee
-        supply_teachers/rm6238/journey/managed_service_provider:
-          attributes:
-            managed_service_provider:
-              inclusion: Select master vendor or education technology platform service
         supply_teachers/rm6238/journey/master_vendor_options:
           attributes:
             threshold_position:
@@ -190,6 +186,13 @@ en:
           extension_type:
             csv: This file must be a CSV
             xlsx: This file must be an XLSX
+          file_label:
+            current_accredited_suppliers: Current accredited suppliers
+            education_technology_platform_contacts: Education technology platform contacts
+            geographical_data_all_suppliers: Geographical data all suppliers
+            master_vendor_contacts: Master vendor contacts
+            pricing_for_tool: Pricing for tool
+            supplier_lookup: Supplier lookup
           heading: Set up a new upload session
           return: Return to manage supplier data
           upload_button: Upload spreadsheets
@@ -494,16 +497,6 @@ en:
             worker: An agency who can provide my school with an individual worker
           page_title: What is your school looking for?
           question: What is your school looking for?
-        managed_service_provider:
-          answer:
-            education_technology_platform: Education technology platform service
-            master_vendor: Master vendor managed service
-          hint:
-            education_technology_platform: DESCRIPTION FOR EDUCATION TECH PLATFORMS
-            master_vendor: These supply whatever candidates they can. Where they don’t have a suitable candidate themselves, they find other agencies who do.
-          page_title: What type of managed service do you want?
-          question: What type of managed service do you want?
-          question_hint: A managed service provider is a company that can manage all your temporary staff needs.
         master_vendor_options:
           answer:
             above_threshold: 'Yes'

@@ -2,23 +2,15 @@
 <%= content_for :page_section, t('supply_teachers.rm6238.page_section') %>
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-  <%= add_optional_error_prefix_to_page_title(@journey.errors) %>
+    <%= add_optional_error_prefix_to_page_title(@journey.errors) %>
 
-  <%= render partial: 'shared/error_summary', locals: { errors: @journey.errors } %>
+    <%= render partial: 'shared/error_summary', locals: { errors: @journey.errors } %>
     <%= form_with url: @form_path, method: :get, html: { specialvalidation: true, novalidate: true } do |f| %>
-    <%= hidden_fields_for_previous_steps_and_responses(@journey) %>
-      <%= govuk_radios(f, @journey, :threshold_position, {
-        fieldset: {
-          legend: {
-            text: t('.question'),
-            classes: 'govuk-fieldset__legend--m',
-            page_heading?: true
-          }
-        },
-        hint: {
-          text: t('.question_hint')
-        },
-        items: @journey.current_step.class::THRESHOLD_POSITIONS.map do |option|
+      <%= hidden_fields_for_previous_steps_and_responses(@journey) %>
+
+      <%= govuk_radios(
+        :threshold_position,
+        @journey.current_step.class::THRESHOLD_POSITIONS.map do |option|
           {
             value: option,
             checked: checked?(params[:threshold_position], option),
@@ -26,9 +18,21 @@
               text: t(".answer.#{option.gsub('.', '_')}")
             },
           }
-        end
-      }) %>
-    <%= govuk_button(t('common.submit'), form: f) %>
-  <% end %>
+        end,
+        model: @journey.current_step,
+        fieldset: {
+          legend: {
+            text: t('.question'),
+            classes: 'govuk-fieldset__legend--m',
+            is_page_heading: true
+          }
+        },
+        hint: {
+          text: t('.question_hint')
+        }
+      ) %>
+
+      <%= govuk_button(t('common.submit'), form: f) %>
+    <% end %>
   </div>
 </div>
