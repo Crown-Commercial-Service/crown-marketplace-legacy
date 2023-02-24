@@ -28,7 +28,7 @@
         end
       }) %>
 
-      <%= submit_tag t('common.submit'), id: "submit", class: "govuk-button govuk-!-padding-left-7 govuk-!-padding-right-7", name: t('common.submit') %>
+      <%= govuk_button(t('common.submit'), form: f, classes: 'govuk-!-padding-left-7 govuk-!-padding-right-7', attributes: { id: 'submit', name: t('common.submit') }) %>
     <% end %>
   </div>
 </div>

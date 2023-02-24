@@ -33,7 +33,7 @@
     </div>
 
     <div class="govuk-grid-column-one-third">
-      <%= render partial: 'shared/basket', locals: { data_text_1:  t('.services_selected'), data_text_2: t('.no_services_selected'), data_text_3: t('.service_selected') } %>
+      <%= render partial: 'shared/basket', locals: { form: f, data_text_1:  t('.services_selected'), data_text_2: t('.no_services_selected'), data_text_3: t('.service_selected') } %>
     </div>
   <% end %>
 </div>

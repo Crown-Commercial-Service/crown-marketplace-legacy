@@ -12,7 +12,7 @@
     <h2 class="govuk-heading-m"><%= t('.download_templates') %></h2>
     <p><%= t('.you_can_download') %></p>
     <div>
-      <%= link_to_public_file_for_download(t('.template_file_path', framework: params[:framework].downcase), :zip, t('.template_file_name'), false, class: 'govuk-button govuk-button--secondary') %>
+      <%= link_to_public_file_for_download(t('.template_file_path', framework: params[:framework].downcase), :zip, t('.template_file_name'), false, classes: 'govuk-button--secondary') %>
     </div>
   </div>
 </div>
@@ -34,7 +34,7 @@
           </div>
         <% end  %>
       <% end %>
-      <%= f.submit t('.upload_data'), class: 'govuk-button', name: t('.upload_data') %>
+      <%= govuk_button(t('.upload_data'), form: f, attributes: { name: t('.upload_data') }) %>
       <br/>
       <%= link_to t('.return'),  index_path, class: 'govuk-link--no-visited-state govuk-!-font-size-19' %>
     <% end %>

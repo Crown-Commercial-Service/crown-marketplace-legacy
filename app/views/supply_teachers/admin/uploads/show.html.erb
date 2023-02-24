@@ -86,13 +86,15 @@
     <% if @upload.files_processed? %>
       <%= form_with model: @upload, method: :put, html: { specialvalidation: true, novalidate: true } do |f| %>
         <p class="govuk-body govuk-!-margin-top-8"><%= t('.confirm_changes') %></p>
-        <%= f.submit t('.approve'), class: 'govuk-button govuk-!-margin-right-4', name: :approve %>
-        <%= f.submit t('.reject'), class: 'govuk-button  govuk-button--warning', name: :reject %>
+        <div class="govuk-button-group">
+          <%= govuk_button(t('.approve'), form: f, attributes: { name: :approve }) %>
+          <%= govuk_button(t('.reject'), form: f, classes: 'govuk-button--warning', attributes: { name: :reject }) %>
+        </div>
       <% end %>
     <% end %>
     <% if @upload.processing_files? %>
       <%= form_with model: @upload, method: :delete, html: { specialvalidation: true, novalidate: true } do |f| %>
-        <%= f.submit t('.delete'), class: 'govuk-button  govuk-button--warning', name: :delete %>
+        <%= govuk_button(t('.delete'), form: f, classes: 'govuk-button--warning', attributes: { name: :delete }) %>
       <% end %>
     <% end %>
     <p>
