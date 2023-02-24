@@ -168,13 +168,12 @@ en:
         choose_lot:
           mcf3_heading: Management Consultancy Framework 3 (MCF3)
           question: Select the lot you need
+          service_lines: Service lines
         choose_services:
           no_services_selected: No services selected
           question: Select the services you need
           service_selected: service selected
           services_selected: services selected
-        management_consultancy_lots:
-          service_lines: Service lines
       suppliers:
         download:
           download_supplier_shortlist: Download supplier shortlist
