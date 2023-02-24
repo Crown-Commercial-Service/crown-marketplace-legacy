@@ -8,7 +8,10 @@
     <h1 class="govuk-heading-l cmp-page-heading"><%= t('.header') %></h1>
     <%= form_with url: @form_path, method: :get, html: { specialvalidation: true, novalidate: true } do |f| %>
       <%= hidden_fields_for_previous_steps_and_responses(@journey) %>
-      <%= govuk_date_input(f, @journey.current_step, :contract_start_date, {
+
+      <%= govuk_date_input(
+        :contract_start_date,
+        model: @journey.current_step,
         fieldset: {
           legend: {
             text: t('.contract_start_question'),
@@ -17,10 +20,15 @@
         },
         hint: {
           text: t('.contract_start_question_hint')
+        },
+        attributes: {
+          id: 'contract-start-date'
         }
-      }) %>
+      ) %>
 
-      <%= govuk_text_input(f, @journey, :days_per_week, {
+      <%= govuk_input(
+        :days_per_week,
+        model: @journey.current_step,
         label: {
           text: t('.days_per_week_question'),
           classes: 'govuk-label--m'
@@ -28,14 +36,13 @@
         hint: {
           text: t('.days_per_week_question_hint')
         },
-        input: {
-          classes: 'govuk-input--width-3',
-          value: params[:days_per_week]
-        }
-      })%>
+        classes: 'govuk-input--width-3'
+      ) %>
 
       <% if params[:framework] == 'RM6238' %>
-        <%= govuk_text_input(f, @journey, :daily_fee, {
+        <%= govuk_input(
+          :daily_fee,
+          model: @journey.current_step,
           label: {
             text: t('.daily_fee_question'),
             classes: 'govuk-label--m'
@@ -43,17 +50,16 @@
           hint: {
             text: t('.daily_fee_question_hint')
           },
-          input: {
-            classes: 'govuk-input--width-10',
-            value: params[:daily_fee],
-            prefix: {
-              text: '£'
-            }
+          classes: 'govuk-input--width-10',
+          prefix: {
+            text: '£'
           }
-        })%>
+        ) %>
       <% end %>
 
-      <%= govuk_date_input(f, @journey.current_step, :hire_date, {
+      <%= govuk_date_input(
+        :hire_date,
+        model: @journey.current_step,
         fieldset: {
           legend: {
             text: t('.hire_date_question'),
@@ -62,10 +68,15 @@
         },
         hint: {
           text: t('.hire_date_question_hint')
+        },
+        attributes: {
+          id: 'hire-date'
         }
-      }) %>
+      ) %>
 
-      <%= govuk_date_input(f, @journey.current_step, :holiday_1_start_date, {
+      <%= govuk_date_input(
+        :holiday_1_start_date,
+        model: @journey.current_step,
         fieldset: {
           legend: {
             text: t('.holiday_1_start_date_question'),
@@ -74,10 +85,15 @@
         },
         hint: {
           text: t('.holiday_1_start_date_question_hint')
+        },
+        attributes: {
+          id: 'holiday-1-start-date'
         }
-      }) %>
+      ) %>
 
-      <%= govuk_date_input(f, @journey.current_step, :holiday_1_end_date, {
+      <%= govuk_date_input(
+        :holiday_1_end_date,
+        model: @journey.current_step,
         fieldset: {
           legend: {
             text: t('.holiday_1_end_date_question'),
@@ -86,10 +102,15 @@
         },
         hint: {
           text: t('.holiday_1_end_date_question_hint')
+        },
+        attributes: {
+          id: 'holiday-1-end-date'
         }
-      }) %>
+      ) %>
 
-      <%= govuk_date_input(f, @journey.current_step, :holiday_2_start_date, {
+      <%= govuk_date_input(
+        :holiday_2_start_date,
+        model: @journey.current_step,
         fieldset: {
           legend: {
             text: t('.holiday_2_start_date_question'),
@@ -98,10 +119,15 @@
         },
         hint: {
           text: t('.holiday_2_start_date_question_hint')
+        },
+        attributes: {
+          id: 'holiday-2-start-date'
         }
-      }) %>
+      ) %>
 
-      <%= govuk_date_input(f, @journey.current_step, :holiday_2_end_date, {
+      <%= govuk_date_input(
+        :holiday_2_end_date,
+        model: @journey.current_step,
         fieldset: {
           legend: {
             text: t('.holiday_2_end_date_question'),
@@ -110,10 +136,15 @@
         },
         hint: {
           text: t('.holiday_2_end_date_question_hint')
+        },
+        attributes: {
+          id: 'holiday-2-end-date'
         }
-      }) %>
+      ) %>
 
-      <%= govuk_date_input(f, @journey.current_step, :notice_date, {
+      <%= govuk_date_input(
+        :notice_date,
+        model: @journey.current_step,
         fieldset: {
           legend: {
             text: t('.notice_date_question'),
@@ -122,8 +153,11 @@
         },
         hint: {
           text: t('.notice_date_question_hint')
+        },
+        attributes: {
+          id: 'notice-date'
         }
-      }) %>
+      ) %>
 
       <%= govuk_button(t('common.submit'), form: f) %>
     <% end %>

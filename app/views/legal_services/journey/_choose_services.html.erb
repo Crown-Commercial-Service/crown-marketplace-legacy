@@ -9,27 +9,29 @@
     <%= hidden_field_tag(:lot, @journey.params['lot']) %>
 
     <div class="govuk-grid-column-two-thirds" id="selection-checkboxes">
-      <%= govuk_checkboxes(f, @journey, :services, {
+      <%= govuk_checkboxes(
+        :services,
+        @journey.current_step.services_for_lot(@journey.params['lot'], @journey.params['jurisdiction'], @journey.params['central_government']).map do |service|
+          {
+            value: service.code,
+            label: {
+              text: service.name
+            }
+          }
+        end,
+        model: @journey.current_step,
         fieldset: {
           legend: {
             text: t('.question'),
             classes: 'govuk-fieldset__legend--m',
-            page_heading?: true,
+            is_page_heading: true,
             caption: {
               text: lot_full_description(@journey.current_step.selected_lot),
               classes: 'govuk-caption-m'
             }
           }
-        },
-        classes: 'govuk-radios--inline',
-        items: @journey.current_step.services_for_lot(@journey.params['lot'], @journey.params['jurisdiction'], @journey.params['central_government']).map do |service|
-          {
-            value: service.code,
-            text: service.name,
-            checked: @journey.current_step.services.include?(service.code)
-          }
-        end
-      }) %>
+        }
+      ) %>
     </div>
 
     <div class="govuk-grid-column-one-third">
