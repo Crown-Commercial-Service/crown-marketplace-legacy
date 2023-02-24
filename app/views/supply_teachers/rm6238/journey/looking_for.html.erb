@@ -7,24 +7,26 @@
     <%= render partial: 'shared/error_summary', locals: { errors: @journey.errors } %>
     <%= form_with url: @form_path, method: :get, html: { specialvalidation: true, novalidate: true } do |f| %>
       <%= hidden_fields_for_previous_steps_and_responses(@journey) %>
-      <%= govuk_radios(f, @journey, :looking_for, {
-        fieldset: {
-          legend: {
-            text: t('.question'),
-            classes: 'govuk-fieldset__legend--m',
-            page_heading?: true
-          }
-        },
-        items: @journey.current_step.class::LOOKING_FOR_OPTIONS.map do |option|
+      <%= govuk_radios(
+        :looking_for,
+        @journey.current_step.class::LOOKING_FOR_OPTIONS.map do |option|
           {
             value: option,
-            checked: checked?(params[:looking_for], option),
             label: {
               text: t(".answer.#{option}")
             }
           }
-        end
-      }) %>
+        end,
+        model: @journey.current_step,
+        fieldset: {
+          legend: {
+            text: t('.question'),
+            classes: 'govuk-fieldset__legend--m',
+            is_page_heading: true
+          }
+        }
+      ) %>
+
       <%= govuk_button(t('common.submit'), form: f) %>
     <% end %>
   </div>
