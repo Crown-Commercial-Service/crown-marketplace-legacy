@@ -9,12 +9,35 @@
   <h1 class="govuk-heading-xl">
       <%= t('.question') %>
   </h1>
-  <div class="ccs-titles-checkboxes">
-    <%= govuk_form_group_with_optional_error(@journey, :lot) do %>
-      <div class="govuk-radios">
-        <%= render partial: 'management_consultancy/rm6187/journey/management_consultancy_lots', locals: { legend_heading: t('.mcf3_heading'), lots: ManagementConsultancy::RM6187::Journey::ChooseLot.mcf3_lots } %>
-      </div>
-    <% end %>
-    <%= govuk_button(t('common.submit'), form: f, attributes: { name: t('common.submit') }) %>
-  </div>
+
+  <%= govuk_radios(
+    :lot,
+    ManagementConsultancy::RM6187::Journey::ChooseLot.mcf3_lots.map do |lot|
+      {
+        value: lot.number,
+        label: {
+          text: lot_number_and_description(lot.number,lot.description),
+          classes: 'govuk-!-font-weight-bold'
+        },
+        hint: {
+          text: govuk_details(t('.service_lines')) do
+            tag.ul(class: 'govuk-list') do
+              lot.services.each do |service|
+                concat(tag.li(service.name))
+              end
+            end
+          end
+        }
+      }
+    end,
+    model: @journey.current_step,
+    fieldset: {
+      legend: {
+        text: t('.mcf3_heading'),
+        classes: 'govuk-fieldset__legend--m'
+      }
+    }
+  ) %>
+
+  <%= govuk_button(t('common.submit'), form: f, attributes: { name: t('common.submit') }) %>
 <% end %>
