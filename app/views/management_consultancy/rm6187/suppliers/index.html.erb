@@ -21,15 +21,7 @@
               number: @all_suppliers.count,
               suppliers: number_to_human(@all_suppliers.count, units: :companies, format: '%u')) %>
       </p>
-      <%= link_to(
-        t('.download_suppliers_list'),
-        management_consultancy_rm6187_suppliers_download_path(
-          lot: params[:lot],
-          services: params[:services]
-          ),
-          class: 'govuk-button', 
-          name: 'Download the supplier list'
-        ) %>
+      <%= govuk_button(t('.download_suppliers_list'), href: management_consultancy_rm6187_suppliers_download_path(lot: params[:lot], services: params[:services])) %>
       <br>
       <div class="govuk-grid-row">
         <section class="govuk-grid-column-two-thirds ccs-search-results">
