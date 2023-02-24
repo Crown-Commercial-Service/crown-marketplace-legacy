@@ -11,6 +11,7 @@ en:
           page_title: Framework 'live at' date
           return_to_frameworks: Return to %{service_name} frameworks
           save_and_return: Save and return
+          update_the_framework_dates: Update the framework dates
         index:
           change: Change
           coming: coming
