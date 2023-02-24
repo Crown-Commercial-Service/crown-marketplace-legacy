@@ -10,7 +10,7 @@
     
       <div id="agency-search-container">
         <%= f.text_field :agency_name, class: 'govuk-input govuk-!-width-three-quarters govuk-!-margin-right-2', type: 'search', value: params[:agency_name], aria: { describedby: 'agency-search-hint' } %>
-        <%= f.submit t('.search'), class: 'govuk-button govuk-button--secondary' %>
+        <%= govuk_button(t('.search'), form: f, classes: 'govuk-button--secondary') %>
       </div>
 
       <p class="govuk-body govuk-!-margin-bottom-8"><%= t('.results_found_with_location_html', results: @suppliers_count) %></p>

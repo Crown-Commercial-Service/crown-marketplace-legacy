@@ -38,7 +38,7 @@
           <% end %>
         <% end %>
       </fieldset>
-      <%= f.submit t('.upload_button'), class: 'govuk-button' %>
+      <%= govuk_button(t('.upload_button'), form: f) %>
       <p>
         <%= link_to t('.return'), index_path, class: 'govuk-link govuk-link--no-visited-state' %> 
       </p>

@@ -4,17 +4,17 @@
 
 
 <%= render partial: 'shared/error_summary', locals: { errors: @journey.errors } %>
-<%= form_tag @form_path, method: :get do %>
-<%= hidden_fields_for_previous_steps_and_responses(@journey) %>
-<h1 class="govuk-heading-xl">
-    <%= t('.question') %>
-</h1>
-<div class="ccs-titles-checkboxes">
+<%= form_tag @form_path, method: :get do |f|%>
+  <%= hidden_fields_for_previous_steps_and_responses(@journey) %>
+  <h1 class="govuk-heading-xl">
+      <%= t('.question') %>
+  </h1>
+  <div class="ccs-titles-checkboxes">
     <%= govuk_form_group_with_optional_error(@journey, :lot) do %>
-        <div class="govuk-radios">
-            <%= render partial: 'management_consultancy/rm6187/journey/management_consultancy_lots', locals: { legend_heading: t('.mcf3_heading'), lots: ManagementConsultancy::RM6187::Journey::ChooseLot.mcf3_lots } %>
-        </div>
+      <div class="govuk-radios">
+        <%= render partial: 'management_consultancy/rm6187/journey/management_consultancy_lots', locals: { legend_heading: t('.mcf3_heading'), lots: ManagementConsultancy::RM6187::Journey::ChooseLot.mcf3_lots } %>
+      </div>
     <% end %>
-    <%= submit_tag t('common.submit'), class: "govuk-button", name: "Continue" %>
+    <%= govuk_button(t('common.submit'), form: f, attributes: { name: t('common.submit') }) %>
   </div>
 <% end %>

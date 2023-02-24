@@ -9,7 +9,7 @@
         <p class="govuk-body govuk-body-s"><%= flash[:notice] %></p>
       <% end %>
     <% end %>
-    <%= link_to t('.create_new'), new_management_consultancy_rm6187_admin_upload_path, class: 'govuk-button'  %>
+    <%= govuk_button(t('.create_new'), href: new_management_consultancy_rm6187_admin_upload_path) %>
     <hr class="govuk-section-break govuk-section-break--m">
   </div>
 </div>

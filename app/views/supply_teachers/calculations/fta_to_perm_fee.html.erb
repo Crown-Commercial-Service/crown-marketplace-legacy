@@ -23,7 +23,7 @@
   </div>
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds govuk-!-margin-top-7">
-      <%= link_to t('.check_another_fixed_term_contract'), supply_teachers_journey_question_path(slug: 'fta-to-perm-contract-start', looking_for: 'calculate_fta_to_perm_fee'),class: "govuk-button" %>
+      <%= govuk_button(t('.check_another_fixed_term_contract'), href: supply_teachers_journey_question_path(slug: 'fta-to-perm-contract-start', looking_for: 'calculate_fta_to_perm_fee')) %>
     </div>
   </div>
 </div>
