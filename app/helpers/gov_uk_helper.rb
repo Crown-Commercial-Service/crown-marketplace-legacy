@@ -5,7 +5,6 @@ module GovUKHelper
   include Fieldset
   include FormGroup
   include Hint
-  include Pagination
   include Radios
   include TextInput
 end
