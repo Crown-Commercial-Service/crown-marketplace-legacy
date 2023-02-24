@@ -1,7 +1,6 @@
 # rubocop:disable Metrics/ModuleLength
 module ApplicationHelper
   include CCS::FrontendHelpers
-  include GovUKHelper
   include HeaderNavigationLinksHelper
 
   ADMIN_CONTROLLERS = ['supply_teachers/admin', 'management_consultancy/admin', 'legal_services/admin'].freeze
@@ -31,7 +30,7 @@ module ApplicationHelper
     Marketplace.support_telephone_number
   end
 
-  def govuk_form_group_with_optional_error(journey, *attributes, &)
+  def govuk_form_group_old_with_optional_error(journey, *attributes, &)
     attributes_with_errors = attributes.select { |a| journey.errors[a].any? }
 
     css_classes = ['govuk-form-group']
@@ -40,7 +39,7 @@ module ApplicationHelper
     tag.div(class: css_classes, &)
   end
 
-  def govuk_fieldset_with_optional_error(journey, attribute, &)
+  def govuk_fieldset_old_with_optional_error(journey, attribute, &)
     attribute_has_errors = journey.errors[attribute].any?
 
     options = { class: 'govuk-fieldset' }
@@ -267,5 +266,35 @@ module ApplicationHelper
     parameters
   end
   # rubocop:enable Metrics/AbcSize
+
+  GOVUK_DATE_ITEMS = [
+    {
+      name: 'dd',
+      input: {
+        classes: 'govuk-input--width-2'
+      },
+      label: {
+        text: I18n.t('date.day')
+      }
+    },
+    {
+      name: 'mm',
+      input: {
+        classes: 'govuk-input--width-2'
+      },
+      label: {
+        text: I18n.t('date.month')
+      }
+    },
+    {
+      name: 'yyyy',
+      input: {
+        classes: 'govuk-input--width-4'
+      },
+      label: {
+        text: I18n.t('date.year')
+      }
+    }
+  ].freeze
 end
 # rubocop:enable Metrics/ModuleLength
