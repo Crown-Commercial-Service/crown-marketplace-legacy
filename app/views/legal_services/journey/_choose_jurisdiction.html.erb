@@ -9,28 +9,29 @@
       <%= hidden_fields_for_previous_steps_and_responses(@journey) %>
       <%= hidden_field_tag(:lot, @journey.params['lot']) %>
 
-      <%= govuk_radios(f, @journey, :jurisdiction, {
+      <%= govuk_radios(
+        :jurisdiction,
+        @journey.current_step.class::JURISDICTIONS.map do |option|
+          {
+            value: option,
+            label: {
+              text: t(".answer.#{option}")
+            }
+          }
+        end,
+        model: @journey.current_step,
         fieldset: {
           legend: {
             text: t('.question'),
             classes: 'govuk-fieldset__legend--m',
-            page_heading?: true,
+            is_page_heading: true,
             caption: {
               text: lot_full_description(@journey.current_step.selected_lot),
               classes: 'govuk-caption-m'
             }
           }
-        },
-        items: @journey.current_step.class::JURISDICTIONS.map do |option|
-          {
-            value: option,
-            checked: checked?(params[:jurisdiction], option),
-            label: {
-              text: t(".answer.#{option}")
-            }
-          }
-        end
-      }) %>
+        }
+      ) %>
 
       <%= govuk_button(t('common.submit'), form: f, classes: 'govuk-!-padding-left-7 govuk-!-padding-right-7', attributes: { id: 'submit', name: t('common.submit') }) %>
     <% end %>
