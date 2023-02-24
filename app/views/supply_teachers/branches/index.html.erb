@@ -103,7 +103,7 @@
                 <p class="govuk-body govuk-body-s">
                   <%= t('.calculate_markup_description') %>
                 </p>
-                <%= submit_tag t('.calculate_markup_button_label'), class: "govuk-button govuk-!-margin-0" %>
+                <%= govuk_button(t('.calculate_markup_button_label'), form: f, classes: 'govuk-!-margin-0') %>
               </div>
             <% end %>
           </div>

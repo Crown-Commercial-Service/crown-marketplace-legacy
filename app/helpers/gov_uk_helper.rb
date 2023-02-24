@@ -1,5 +1,4 @@
 module GovUKHelper
-  include Button
   include Checkboxes
   include DateInput
   include ErrorMessage

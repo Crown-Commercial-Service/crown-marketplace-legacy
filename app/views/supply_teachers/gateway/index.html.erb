@@ -9,7 +9,8 @@
           <%= t('.dfe_signin.instructions') %>
         </p>
 
-        <%= govuk_button_start(t('shared.gateway.sign_in_with_dfe'), dfe_sign_in_path, class: 'govuk-!-margin-top-2 govuk-!-margin-bottom-8 ga-auth-dfe', aria: { label: t('shared.gateway.sign_in_with_dfe') }, method: 'post') %>
+        <%= govuk_button(t('shared.gateway.sign_in_with_dfe'), href: dfe_sign_in_path, is_start_button: true, classes: 'govuk-!-margin-top-2 govuk-!-margin-bottom-8 ga-auth-dfe', attributes: { aria: { label: t('shared.gateway.start_now') },  method: 'post' } ) %>
+
         <h2 class="govuk-heading-l"><%= t(".subheading") %></h2>
 
         <p>
@@ -30,7 +31,7 @@
         </p>
       <% end %>
 
-      <%= govuk_button_start(t('shared.gateway.sign_in_with_cognito'), new_user_session_path, class: 'govuk-!-margin-top-2 govuk-!-margin-bottom-8 ga-auth-cognito', aria: { label: t('shared.gateway.sign_in_with_cognito') }) %>
+      <%= govuk_button(t('shared.gateway.sign_in_with_cognito'), href: new_user_session_path, is_start_button: true, classes: 'govuk-!-margin-top-2 govuk-!-margin-bottom-8 ga-auth-cognito', attributes: { aria: { label: t('shared.gateway.sign_in_with_cognito') } } ) %>
     </div>
   </div>
 </div>
