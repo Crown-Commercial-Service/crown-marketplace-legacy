@@ -6,6 +6,6 @@ Feature: Sign up to legal services - RM6240 - Accessibility
     Then I am on the 'Find legal services for the wider public sector' page
     When I click on 'Start now'
     And I am on the 'Sign in to your legal services account' page
-    And I click on the Create an account link
+    And I click on 'Create a CCS account'
     Then I am on the 'Create a CCS account' page
     Then the page should be axe clean

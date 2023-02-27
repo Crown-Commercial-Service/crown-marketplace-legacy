@@ -30,45 +30,6 @@ module ApplicationHelper
     Marketplace.support_telephone_number
   end
 
-  def govuk_form_group_old_with_optional_error(journey, *attributes, &)
-    attributes_with_errors = attributes.select { |a| journey.errors[a].any? }
-
-    css_classes = ['govuk-form-group']
-    css_classes += ['govuk-form-group--error'] if attributes_with_errors.any?
-
-    tag.div(class: css_classes, &)
-  end
-
-  def govuk_fieldset_old_with_optional_error(journey, attribute, &)
-    attribute_has_errors = journey.errors[attribute].any?
-
-    options = { class: 'govuk-fieldset' }
-    options[:aria] = { describedby: error_id(attribute) } if attribute_has_errors
-
-    tag.fieldset(**options, &)
-  end
-
-  def display_errors(journey, *attributes)
-    safe_join(attributes.map { |a| display_error(journey, a) })
-  end
-
-  def display_error(journey, attribute, margin = true, id_prefix = '')
-    error = journey.errors[attribute].first
-    return if error.blank?
-
-    tag.span(id: "#{id_prefix}#{error_id(attribute)}", class: "govuk-error-message #{'govuk-!-margin-top-3' if margin}") do
-      error.to_s
-    end
-  end
-
-  def css_classes_for_input(journey, attribute, extra_classes = [])
-    error = journey.errors[attribute].first
-
-    css_classes = ['govuk-input'] + extra_classes
-    css_classes += ['govuk-input--error'] if error.present?
-    css_classes
-  end
-
   def error_id(attribute)
     "#{attribute}-error"
   end
@@ -98,22 +59,6 @@ module ApplicationHelper
       end
     end
     html
-  end
-
-  def landing_or_admin_page
-    (PLATFORM_LANDINGPAGES.include?(controller.class.controller_path) && controller.action_name == 'index') || controller.action_name == 'landing_page' || ADMIN_CONTROLLERS.include?(controller.class.module_parent_name.try(:underscore))
-  end
-
-  def passwords_page
-    controller.controller_name == 'passwords'
-  end
-
-  def cookies_page
-    controller.action_name == 'cookie_policy' || controller.action_name == 'cookie_settings'
-  end
-
-  def not_permitted_page
-    controller.action_name == 'not_permitted'
   end
 
   def format_date(date_object)
