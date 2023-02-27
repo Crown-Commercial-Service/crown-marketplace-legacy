@@ -74,7 +74,7 @@ Given('I go to the not permitted page for {string}') do |service|
 end
 
 Given('I enter {string} for my email') do |email|
-  fill_in 'email', with: email
+  fill_in 'Email address', with: email
 end
 
 Given('I enter {string} for the password') do |password|
