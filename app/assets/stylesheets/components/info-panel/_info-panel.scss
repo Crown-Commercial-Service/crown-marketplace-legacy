@@ -1,0 +1,29 @@
+.ccs-info-panel {
+  background-color: ccs-colour("light-grey");
+  padding: govuk-spacing(3);
+
+  @include govuk-media-query($from: tablet) {
+    &.ccs-info-panel--pull-up {
+      margin-top: -#{govuk-spacing(4)} !important;
+    }
+  }
+
+  dl.ccs-contact-details {
+    margin-bottom: govuk-spacing(0);
+
+    dt,
+    dd {
+      width: 100%;
+      display: inline-block;
+      margin: 0;
+    }
+
+    dt {
+      padding-bottom: govuk-spacing(0);
+    }
+
+    dd {
+      padding-top: govuk-spacing(0);
+    }
+  }
+}

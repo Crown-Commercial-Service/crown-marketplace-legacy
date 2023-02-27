@@ -1,9 +1,19 @@
-.cmp-sidebar {
-	background-color: ccs-colour("grey-4");
+.ccs-sidebar {
+	background-color: ccs-colour("light-grey");
 	padding: 25px;
 }
+
+.ccs-sidebar__body--neutral {
+	font-size: 16px;
+	font-weight: 400;
+}
+
+.ccs-sidebar__list-item {
+	font-size: 16px;
+}
+
 @media print {
-	.cmp-sidebar a[href]:after { 
+	.ccs-sidebar a[href]:after { 
 		content: none !important; 
 	}
 }
