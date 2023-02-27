@@ -27,6 +27,10 @@ en:
               invalid: Invalid verification code provided, please try again
               invalid_format: Confirmation code must contain numeric characters only
               invalid_length: Confirmation code must be 6 characters
+        cognito/forgot_password:
+          attributes:
+            email:
+              invalid: Enter your email address in the correct format, like name@example.com
         cognito/respond_to_challenge:
           attributes:
             access_code:
@@ -83,17 +87,17 @@ en:
     passwords:
       edit:
         confirm_new_password: Confirm new password
+        email_has_been_sent: A reset email has been sent.
         heading: Reset your password
-        heading1: A reset email has been sent.
-        lead: Reset password for
-        lead1: If the email address you’ve entered belongs to a Crown Commercial Service account, we’ll send instructions to reset the password.
+        if_the_email_address_entered: If the email address you’ve entered belongs to a Crown Commercial Service account, we’ll send instructions to reset the password.
         new_password: New password
-        password: Your password must have
+        password: 'Your password must have:'
+        reset_password_for_html: Reset password for %{email_link}
         text_html: If you don’t receive this, email <a href="mailto:support@crowncommercial.gov.uk" class="govuk-link govuk-link--no-visited-state">support@crowncommercial.gov.uk</a>
         verify_code: Verification code
       new:
         email: Email address
-        email_hint_html: This is the email address you used to set up your account.
+        email_hint: This is the email address you used to set up your account.
         heading: Reset password
         lead: Enter your email address and we’ll send you a verification code so you can reset your password. Password reset verification codes are only valid for 24 hours.
       password_reset_success:
@@ -101,6 +105,7 @@ en:
         lead: You can now sign in to your Crown Commercial Service account
     registrations:
       domain_not_on_safelist:
+        back_to_create: Back to create a CCS account
         heading: You must use a public sector email address
         lead_html: You must be employed by, or represent, a public sector organisation to create a <abbr title="Crown Commercial Service">CCS</abbr> account.
         line_01: The email you used doesn't belong to a recognised public sector domain.
@@ -112,15 +117,16 @@ en:
         create_password: Create a password you'll remember
         email: Email address
         email_hint: We will send a confirmation code to this address.
+        heading: Create a CCS account
         heading_html: Create a <abbr title="Crown Commercial Service">CCS</abbr> account
         lead: You must be employed by, or represent, a public sector organisation.
+        your_password_must_have: 'Your password must have:'
     sessions:
       new:
-        create_ccs_account_html: Create an account
+        create_ccs_account: Create a CCS account
         email_address: Email address
-        email_hint_html: Enter the email address you used to set up your account.
-        enter_your_password: Enter your password
-        forgotten_password_html: I’ve forgotten my password
+        email_hint: Enter the email address you used to set up your account.
+        forgotten_password: I’ve forgotten my password
         heading:
           legal_services:
             admin: Sign in to your legal services admin account
@@ -132,7 +138,6 @@ en:
             admin: Sign in to your supply teachers admin account
             buyer: Sign in to your supply teachers account
         password: Password
-        please_enter_a_valid_email_address: You must provide your email address in the correct format, like name@example.com
         problems_signing_in: Problems signing in
         session_expired: Sorry, your session has timed out due to 30 minutes of inactivity. To continue using this service, you need to sign in again.
     users:
@@ -140,8 +145,8 @@ en:
         confirmation_code: Confirmation code
         email: Email address
         heading: Activate your account
-        lead_end: containing your confirmation code.
-        lead_start: An email has been sent to
+        lead_html: An email has been sent to %{email_link} containing your confirmation code.
+        lead_no_email: An email has been sent to the email you provided containing your confirmation code.
         resend_the_confirmation_email: Resend the email
       new_password_required:
         change_password_and_sign_in: Change password and sign in
@@ -155,15 +160,11 @@ en:
         heading: Enter your access code
         lead: 'We just sent a 6 digit access code by text to:'
         resend_the_confirmation_code_html: To receive a new access code, <a href="%{link}" class="govuk-link--no-visited-state"> sign in</a> again.
-  cognito/cog_forgot_password_request:
-    attributes:
-      please_enter_a_valid_email_address: Enter your email address in the correct format, like name@example.com
   common:
     back_to_start: Back to start
     ccs_contact_url: https://www.crowncommercial.gov.uk/contact
     continue: Continue
     create_account: Create account
-    error_summary_title: There is a problem
     feedback: feedback
     passcap: at least one capital letter
     passeight: at least 8 characters
