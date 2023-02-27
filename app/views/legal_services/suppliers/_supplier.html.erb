@@ -1,8 +1,8 @@
-<li class="govuk-list govuk-grid-row">
-  <h2 class="govuk-heading-m govuk-!-margin-top-0">
+<li>
+  <h2 class="govuk-heading-m">
     <%= link_to supplier.name, legal_services_supplier_path(supplier), class: 'govuk-link ccs-no-underline' %>
     <% if supplier.sme %>
-      <span class="ccs-tag"><%= t('sme') %></span>
+      <%= govuk_tag(t('sme'), 'dark-grey', classes: 'ccs-tag') %>
     <% end %>
   </h2>
 </li>
