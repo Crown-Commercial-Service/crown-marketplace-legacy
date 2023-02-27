@@ -12,7 +12,7 @@ module Pages
     section :agency_results, '#main-content' do
       element :number_of_agencies, 'div.govuk-grid-row > div > form > div > div.govuk-grid-column-two-thirds > p:nth-child(1) > strong:nth-child(1)'
       elements :suppliers, '.supplier-record'
-      elements :choices, '.cmp-sidebar > ul > li'
+      elements :choices, '.ccs-sidebar > ul > li'
     end
 
     section :managed_service_providers, '#main-content' do
