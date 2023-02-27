@@ -7,10 +7,11 @@
   [
     {
       text: t('.position'),
-      classes: 'govuk-!-width-one-half'
+      classes: 'govuk-!-width-three-quarters'
     },
     {
-      text: t('.hourly')
+      text: t('.hourly'),
+      classes: 'govuk-!-width-one-quarter'
     }
   ],
   LegalServices::RM6240::Position.all.sort_by(&:code).map do |position|
@@ -20,8 +21,7 @@
 
     [
       {
-        text: position.name,
-        classes: 'govuk-!-width-one-half'
+        text: position.name
       },
       {
         text: rate
@@ -32,6 +32,7 @@
     text: t('.rates'),
     classes: 'govuk-visually-hidden'
   },
-  first_cell_is_header: true
+  first_cell_is_header: true,
+  classes: 'ccs-rates-table'
 ) %>
 
