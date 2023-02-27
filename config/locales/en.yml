@@ -169,7 +169,7 @@ en:
     passcap: at least one capital letter
     passeight: at least 8 characters
     passnum: at least one number
-    passsymbol_html: at least one symbol (eg </span>?<span class="ccs-remove">, </span>!<span class="ccs-remove">, </span>&pound;<span class="ccs-remove">, </span>&percnt;)
+    passsymbol_html: at least one symbol (eg ?, !, &pound;, &percnt;)
     reset_password: Reset password
     send_reset_email: Send reset email
     sign_in: Sign in
@@ -378,7 +378,7 @@ en:
           expires: 20 minutes
           name: crown_marketplace_confirmation_email
           purpose: This cookie holds the email of the user when activating their account
-      reg_and_sign_in_cookies: These cookies are sometimes required to complete the regestration and sign in process.
+      reg_and_sign_in_cookies: These cookies are sometimes required to complete the registration and sign in process.
       what_are_cookies: Crown Marketplace puts small files (known as ‘cookies’) onto your computer to collect information about how you browse the site. Find out more about the cookies we use, what they’re for and when they expire.
       you_may_see_a_banner: You may see a banner when you visit Crown Marketplace inviting you to accept cookies or review your settings. We’ll set cookies so that your computer knows you’ve seen it and not to show it again, and also to store your settings.
     cookie_settings:

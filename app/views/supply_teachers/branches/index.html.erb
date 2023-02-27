@@ -7,12 +7,6 @@
       <%= t('.header') %>
     </h1>
 
-    <% if flash[:info] %>
-      <%= govuk_inset_text(classes: 'cmp-inset-text--success') do %>
-        <p class="govuk-body govuk-body-s"><%= flash[:info] %></p>
-      <% end %>
-    <% end %>
-
     <%= form_with url: @form_path, method: :get, class: 'supplier-record__calculator-form', html: { specialvalidation: true, novalidate: true } do |f| %>
       <%= hidden_fields_for_previous_steps_and_responses(@journey) %>
       <div class="govuk-grid-row">
@@ -53,13 +47,13 @@
           <% end %>
         </div>
         <div class="govuk-grid-column-one-third">
-          <div class="cmp-sidebar">
+          <div class="ccs-sidebar">
             <h2 class="govuk-heading-s">
               <%= t('.inputs_header') %>
             </h2>
             <ul class="govuk-list govuk-list--bullet">
               <% @journey.inputs.each do |question_key, answer| %>
-                <li class="cmp-inset-text__list-item"><%= t(".inputs.#{question_key}") %>: <%= answer %></li>
+                <li class="ccs-sidebar__list-item"><%= t(".inputs.#{question_key}") %>: <%= answer %></li>
               <% end %>
             </ul>
             <%= govuk_details(t('.do_next.header'), classes: 'govuk-!-margin-bottom-5') do %>
@@ -83,7 +77,7 @@
                 <%= t('.do_next.different_supplier') %>
               </p>
             <% end %>
-            <p class="govuk-body cmp-inset-text__body--neutral">
+            <p class="govuk-body ccs-sidebar__body--neutral">
               <%= t('.mark_up_explanation') %>
             </p>
             <p class="govuk-body govuk-body-s supplier-record__print-option">
