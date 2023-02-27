@@ -1,7 +1,7 @@
 Then 'I sign in with cognito' do
   update_banner_cookie(true) if @javascript
-  fill_in 'email', with: @user_email
-  fill_in 'password', with: 'ValidPassword'
+  fill_in 'Email address', with: @user_email
+  fill_in 'Password', with: 'ValidPassword'
   click_button 'Sign in'
 end
 
@@ -21,10 +21,6 @@ end
 
 Then 'I click on the Sign in link' do
   page.find_by_id('main-content').click_on('Sign in')
-end
-
-Then 'I click on the Create an account link' do
-  page.find_by_id('main-content').click_on('Create an account')
 end
 
 When('my cookies are disabled') do

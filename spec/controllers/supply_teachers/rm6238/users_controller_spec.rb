@@ -74,7 +74,7 @@ RSpec.describe SupplyTeachers::RM6238::UsersController do
 
       context 'when the framework is live' do
         before do
-          post :challenge, params: { challenge_name: challenge_name, username: username, session: session, new_password: password, new_password_confirmation: password }
+          post :challenge, params: { challenge_name: challenge_name, cognito_respond_to_challenge: { username: username, session: session, new_password: password, new_password_confirmation: password } }
           cookies.update(response.cookies)
         end
 
@@ -122,7 +122,7 @@ RSpec.describe SupplyTeachers::RM6238::UsersController do
         include_context 'and RM6238 has expired'
 
         it 'renders the unrecognised framework page with the right http status' do
-          post :challenge, params: { challenge_name: 'SMS_MFA', username: username, session: session }
+          post :challenge, params: { challenge_name: challenge_name, cognito_respond_to_challenge: { username:, session: } }
 
           expect(response).to render_template('home/unrecognised_framework')
           expect(response).to have_http_status(:bad_request)
@@ -143,7 +143,7 @@ RSpec.describe SupplyTeachers::RM6238::UsersController do
 
       context 'when the framework is live' do
         before do
-          post :challenge, params: { challenge_name:, username:, session:, access_code: }
+          post :challenge, params: { challenge_name: challenge_name, cognito_respond_to_challenge: { username:, session:, access_code: } }
           cookies.update(response.cookies)
         end
 
@@ -176,7 +176,7 @@ RSpec.describe SupplyTeachers::RM6238::UsersController do
         include_context 'and RM6238 has expired'
 
         it 'renders the unrecognised framework page with the right http status' do
-          post :challenge, params: { challenge_name: 'SMS_MFA', username: username, session: session }
+          post :challenge, params: { challenge_name: challenge_name, cognito_respond_to_challenge: { username:, session: } }
 
           expect(response).to render_template('home/unrecognised_framework')
           expect(response).to have_http_status(:bad_request)
