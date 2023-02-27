@@ -374,7 +374,7 @@ RSpec.describe SupplyTeachers::RM6238::Admin::UploadsController do
 
     it 'renders the aasm_state as JSON' do
       expect(response.content_type).to eq('application/json; charset=utf-8')
-      expect(JSON.parse(response.body)).to eq 'import_status' => 'files_processed'
+      expect(response.parsed_body).to eq 'import_status' => 'files_processed'
     end
   end
 end
