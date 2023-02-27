@@ -6,7 +6,7 @@ Feature: Sign up user - Legal Services - RM6240 - Validations
     Then I am on the 'Find legal services for the wider public sector' page
     When I click on 'Start now'
     Then I am on the 'Sign in to your legal services account' page
-    And I click on the Create an account link
+    And I click on 'Create a CCS account'
     Then I am on the 'Create a CCS account' page
 
   Scenario: Email validations
