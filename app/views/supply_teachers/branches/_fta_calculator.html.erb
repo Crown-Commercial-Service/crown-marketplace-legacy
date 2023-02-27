@@ -6,9 +6,17 @@
       </h4>
     </div>
   </div>
-  <span class="govuk-error-message govuk-visually-hidden">
-    <span class="govuk-visually-hidden"><%= t('.error') %></span><%= t('.error_message') %>
-  </span>
+
+  <%= govuk_error_message(
+    t('.error_message'),
+    :annual_salary,
+    visually_hidden_text: t('.error'),
+    classes: 'govuk-visually-hidden',
+    attributes: {
+      id: "annual_salary_#{branch.id}-error"
+    }
+  ) %>
+
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-one-third">
       <%= govuk_input(

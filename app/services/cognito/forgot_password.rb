@@ -11,21 +11,17 @@ module Cognito
     end
 
     def call
-      if valid?
-        forgot_password
-      else
-        @error = I18n.t('cognito/cog_forgot_password_request.attributes.please_enter_a_valid_email_address')
-      end
+      forgot_password if valid?
     rescue Aws::CognitoIdentityProvider::Errors::UserNotFoundException
-      @error = nil
+      # To prevent user enumeration, continue if the email does not exist
     rescue Aws::CognitoIdentityProvider::Errors::InvalidParameterException
-      @error = I18n.t('cognito/cog_forgot_password_request.attributes.please_enter_a_valid_email_address')
+      errors.add(:email, :invalid)
     rescue Aws::CognitoIdentityProvider::Errors::ServiceError => e
-      @error = e.message
+      errors.add(:base, e.message)
     end
 
     def success?
-      error.nil?
+      errors.none?
     end
 
     private
