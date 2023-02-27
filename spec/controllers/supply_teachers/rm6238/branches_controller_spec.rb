@@ -186,7 +186,7 @@ RSpec.describe SupplyTeachers::RM6238::BranchesController do
           end
 
           it 'returns the first matching branch' do
-            expect(JSON.parse(response.body)).to include(
+            expect(JSON.parse(response.parsed_body)).to include(
               'id' => first_branch.id
             )
           end
@@ -195,7 +195,7 @@ RSpec.describe SupplyTeachers::RM6238::BranchesController do
             let(:annual_salary) { '' }
 
             it 'returns nothing' do
-              expect(JSON.parse(response.body)).to be_nil
+              expect(JSON.parse(response.parsed_body)).to be_nil
             end
           end
         end
