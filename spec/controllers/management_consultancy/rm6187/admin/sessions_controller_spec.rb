@@ -10,10 +10,22 @@ RSpec.describe ManagementConsultancy::RM6187::Admin::SessionsController do
   before { request.env['devise.mapping'] = Devise.mappings[:user] }
 
   describe 'GET new' do
-    it 'renders the new page' do
-      get :new
+    context 'when the framework is live' do
+      it 'renders the new page' do
+        get :new
 
-      expect(response).to render_template(:new)
+        expect(response).to render_template(:new)
+      end
+    end
+
+    context 'when the framework is not live' do
+      include_context 'and RM6187 has expired'
+
+      it 'renders the new page' do
+        get :new
+
+        expect(response).to render_template(:new)
+      end
     end
   end
 
@@ -114,6 +126,35 @@ RSpec.describe ManagementConsultancy::RM6187::Admin::SessionsController do
           expect(cookies[:crown_marketplace_challenge_session]).to eq(session)
           expect(cookies[:crown_marketplace_challenge_username]).to eq(username)
         end
+      end
+    end
+
+    context 'when the framework is not live' do
+      include_context 'and RM6187 has expired'
+      include_context 'with cognito structs'
+
+      let(:username) { user.cognito_uuid }
+      let(:session) { 'I_AM_THE_SESSION' }
+      let(:cognito_groups) do
+        admin_list_groups_for_user_resp_struct.new(
+          groups: [
+            cognito_group_struct.new(group_name: 'ccs_employee'),
+            cognito_group_struct.new(group_name: 'mc_access')
+          ]
+        )
+      end
+
+      before do
+        allow(aws_client).to receive(:initiate_auth).and_return(initiate_auth_resp_struct.new(challenge_name: nil, session: session, challenge_parameters: { 'USER_ID_FOR_SRP' => username }))
+        allow(aws_client).to receive(:admin_list_groups_for_user).and_return(cognito_groups)
+        allow(Cognito::CreateUserFromCognito).to receive(:call).and_return(admin_create_user_resp_struct.new(user: user))
+
+        post :create, params: { user: { email: email, password: 'Password12345!' } }
+        cookies.update(response.cookies)
+      end
+
+      it 'redirects to management_consultancy_rm6187_admin_uploads_path' do
+        expect(response).to redirect_to management_consultancy_rm6187_admin_uploads_path
       end
     end
   end
