@@ -10,7 +10,6 @@ Feature: Supply Teachers - Temp to perm - Effects of holiday
     And I enter '25' for the 'daily fee'
     Given I enter '29/03/2021' for the 'hire' date
 
-  @pipeline
   Scenario: Adding one week of holiday has the same affect as reducing the hire date by one week
     Given I enter '07/03/2021' for the 'holiday 1 start' date
     And I enter '13/03/2021' for the 'holiday 1 end' date

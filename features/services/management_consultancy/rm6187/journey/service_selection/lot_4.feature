@@ -10,7 +10,6 @@ Feature: Management Consultancy - Lot 4 - Finance - Service selection
     Then I am on the 'Select the services you need' page
     And the sub title is 'MCF3 lot 4 - Finance'
   
-  @pipeline
   Scenario: The correct options are available
     Then I should see the following options for the lot:
       | Actuarial services                                        |
@@ -139,7 +138,6 @@ Feature: Management Consultancy - Lot 4 - Finance - Service selection
     When I click on 'Remove all'
     Then the basket should say 'No services selected'
 
-  @pipeline
   Scenario: Go back from supplier results and change selection
     When I check the following items:
       | Business analysis                                         |

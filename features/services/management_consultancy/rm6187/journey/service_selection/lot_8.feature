@@ -10,7 +10,6 @@ Feature: Management Consultancy - Lot 8 - Infrastructure including Transport - S
     Then I am on the 'Select the services you need' page
     And the sub title is 'MCF3 lot 8 - Infrastructure including Transport'
   
-  @pipeline
   Scenario: The correct options are available
     Then I should see the following options for the lot:
       | Aviation                                        |
@@ -22,7 +21,6 @@ Feature: Management Consultancy - Lot 8 - Infrastructure including Transport - S
       | Smart infrastructure                            |
       | Towns and cities                                |
 
-  @pipeline
   Scenario: Service selection appears in basked
     Then the basket should say 'No services selected'
     And the remove all link should not be visible

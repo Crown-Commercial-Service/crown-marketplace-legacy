@@ -1,4 +1,3 @@
-@pipeline
 Feature: Forgot my password - Supply Teachers - RM6238 - Validations
 
   Background: Navigate to forgot password

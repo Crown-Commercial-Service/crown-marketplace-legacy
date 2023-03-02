@@ -105,7 +105,7 @@ Feature: Supply Teachers - Agency results - Fixed term - Results by location
       | Postcode: SW1A 1AA              |
       | Search distance: 50 miles       |
 
-  @geocode_liverpool @pipeline
+  @geocode_liverpool
   Scenario: Liverpool postcode results
     And I enter 'L3 4AA' for the 'postcode'
     And I click on 'Continue'

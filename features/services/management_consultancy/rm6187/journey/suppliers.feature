@@ -1,4 +1,3 @@
-@pipeline
 Feature: Management Consultancy - Suppliers
 
   Background: Login and then navigate to the supplier results page

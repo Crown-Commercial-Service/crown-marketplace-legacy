@@ -12,7 +12,6 @@ Feature: Legal services - Non central governemnt - Lot 1 - Service selection
     Then I am on the 'Select the legal services you need' page
     And the sub title is 'Lot 1 - Full service provision'
 
-  @pipeline
   Scenario: The correct options are available
     Then I should see the following options for the lot:
       | Administrative and Public Law                   |

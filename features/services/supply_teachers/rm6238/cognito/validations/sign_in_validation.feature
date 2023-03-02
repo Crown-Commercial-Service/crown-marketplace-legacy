@@ -1,4 +1,3 @@
-@pipeline
 Feature: Sign in to my account - Supply Teachers - RM6238 - Validations
 
   Background: Navigate to the sign in page
