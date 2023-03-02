@@ -1,4 +1,3 @@
-@pipeline
 Feature: Forgot my password - Management Consultancy - RM6187
 
   Scenario: I forgot my password

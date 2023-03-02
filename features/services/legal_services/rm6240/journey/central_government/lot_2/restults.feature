@@ -1,4 +1,3 @@
-@pipeline
 Feature: Legal services -  Central governemnt - Lot 2 - Results
 
   Background: Navigate to start page and complete the journey

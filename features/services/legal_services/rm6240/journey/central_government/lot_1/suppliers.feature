@@ -1,4 +1,3 @@
-@pipeline
 Feature: Legal services -  Central governemnt - Lot 1 - Suppliers
 
   Background: Navigate to start page and complete the journey

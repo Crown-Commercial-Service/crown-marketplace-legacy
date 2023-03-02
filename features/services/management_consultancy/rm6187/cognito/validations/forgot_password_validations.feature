@@ -1,4 +1,3 @@
-@pipeline
 Feature: Forgot my password - Management Consultancy - RM6187 - Validations
 
   Background: Navigate to forgot password

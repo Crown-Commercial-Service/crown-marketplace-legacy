@@ -10,7 +10,6 @@ Feature: Supply Teachers - Temp to perm - No notice given - hiring after 12 week
     And I enter '25' for the 'daily fee'
     Given I enter '03/08/2021' for the 'hire' date
 
-  @pipeline
   Scenario Outline: Changing the length of the current contract does not change the result
     Given I enter '<date>' for the 'hire' date
     And I click on 'Continue'
@@ -24,7 +23,6 @@ Feature: Supply Teachers - Temp to perm - No notice given - hiring after 12 week
       | 03/09/2021  |
       | 03/10/2021  |
 
-  @pipeline
   Scenario Outline: Changing the number of days per week changes the result
     And I enter '<days_per_week>' for the 'days per week'
     And I click on 'Continue'

@@ -1,4 +1,3 @@
-@pipeline
 Feature: Supply Teachers - Education technology platforms
 
   Scenario: Education technology platform results

@@ -1,4 +1,3 @@
-@pipeline
 Feature: Supply Teachers - FTA to perm - Validations
 
   Background: Navigate to the FTA to perm section
