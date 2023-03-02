@@ -10,10 +10,23 @@ RSpec.describe ManagementConsultancy::RM6187::SessionsController do
   before { request.env['devise.mapping'] = Devise.mappings[:user] }
 
   describe 'GET new' do
-    it 'renders the new page' do
-      get :new
+    context 'when the framework is live' do
+      it 'renders the new page' do
+        get :new
 
-      expect(response).to render_template(:new)
+        expect(response).to render_template(:new)
+      end
+    end
+
+    context 'when the framework is not live' do
+      include_context 'and RM6187 has expired'
+
+      it 'renders the unrecognised framework page with the right http status' do
+        get :new
+
+        expect(response).to render_template('home/unrecognised_framework')
+        expect(response).to have_http_status(:bad_request)
+      end
     end
   end
 
@@ -114,6 +127,17 @@ RSpec.describe ManagementConsultancy::RM6187::SessionsController do
           expect(cookies[:crown_marketplace_challenge_session]).to eq(session)
           expect(cookies[:crown_marketplace_challenge_username]).to eq(username)
         end
+      end
+    end
+
+    context 'when the framework is not live' do
+      include_context 'and RM6187 has expired'
+
+      it 'renders the unrecognised framework page with the right http status' do
+        post :create, params: { user: { email: email, password: 'Password12345!' } }
+
+        expect(response).to render_template('home/unrecognised_framework')
+        expect(response).to have_http_status(:bad_request)
       end
     end
   end
