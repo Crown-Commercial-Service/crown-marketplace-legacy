@@ -1,4 +1,3 @@
-@pipeline
 Feature: Legal services - Jounrey validations
 
   Background: Navigate to start page

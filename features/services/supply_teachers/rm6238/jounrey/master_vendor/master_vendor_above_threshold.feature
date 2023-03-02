@@ -1,4 +1,3 @@
-@pipeline
 Feature: Supply Teachers - Master vendors - Above threshold
 
   Scenario: Master vendors - Above threshold results

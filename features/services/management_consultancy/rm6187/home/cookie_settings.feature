@@ -1,4 +1,4 @@
-@javascript @pipeline
+@javascript
 Feature: Management Consultancy - Cookie settings
 
   Background: Go to start page

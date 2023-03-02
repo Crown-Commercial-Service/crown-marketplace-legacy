@@ -10,7 +10,6 @@ Feature: Management Consultancy - Lot 6 - Procurement and Supply Chain - Service
     Then I am on the 'Select the services you need' page
     And the sub title is 'MCF3 lot 6 - Procurement and Supply Chain'
   
-  @pipeline
   Scenario: The correct options are available
     Then I should see the following options for the lot:
       | Category management             |
@@ -53,7 +52,6 @@ Feature: Management Consultancy - Lot 6 - Procurement and Supply Chain - Service
       | Supply chain and logistics      |
       | Tender development and analysis |
 
-  @pipeline
   Scenario: Changing the selection will change the basket
     When I check the following items:
       | Category management         |

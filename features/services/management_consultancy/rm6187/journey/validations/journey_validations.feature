@@ -1,4 +1,3 @@
-@pipeline
 Feature: Management Consultancy - Jounrey validations
 
   Background: Navigate to start page

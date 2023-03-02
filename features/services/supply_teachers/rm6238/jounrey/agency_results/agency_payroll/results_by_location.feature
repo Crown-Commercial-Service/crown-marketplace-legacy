@@ -14,7 +14,7 @@ Feature: Supply Teachers - Agency results - Agency payroll - Results by location
     And I select 'Teacher: (Incl. Qualified and Unqualified Teachers, Tutors)'
     And I select 'Daily Supply'
 
-  @geocode_london @pipeline
+  @geocode_london
   Scenario: London postcode results
     And I enter 'SW1A 1AA' for the 'postcode'
     And I click on 'Continue'

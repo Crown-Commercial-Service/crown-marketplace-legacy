@@ -10,7 +10,6 @@ Feature: Management Consultancy - Lot 3 - Complex and Transformation - Service s
     Then I am on the 'Select the services you need' page
     And the sub title is 'MCF3 lot 3 - Complex and Transformation'
   
-  @pipeline
   Scenario: The correct options are available
     Then I should see the following options for the lot:
       | Business                            |
@@ -53,7 +52,6 @@ Feature: Management Consultancy - Lot 3 - Complex and Transformation - Service s
       | Supplier side services and delivery |
       | Transformation management.          |
 
-  @pipeline
   Scenario: Changing the selection will change the basket
     When I check the following items:
       | Change management                   |

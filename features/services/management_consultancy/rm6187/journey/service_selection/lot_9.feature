@@ -10,7 +10,6 @@ Feature: Management Consultancy - Lot 9 - Environmental Sustainability and Socio
     Then I am on the 'Select the services you need' page
     And the sub title is 'MCF3 lot 9 - Environmental Sustainability and Socio-economic Development'
   
-  @pipeline
   Scenario: The correct options are available
     Then I should see the following options for the lot:
       | Air quality                                   |
@@ -65,7 +64,6 @@ Feature: Management Consultancy - Lot 9 - Environmental Sustainability and Socio
       | Social value                                  |
       | Sustainability                                |
 
-  @pipeline
   Scenario: Changing the selection will change the basket
     When I check the following items:
       | Air quality                                   |
