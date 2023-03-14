@@ -9,8 +9,8 @@ module SupplyTeachers::TempToPermCalculatorHelper
   def display_notice_period_given(calculator)
     t("#{TRANSLATION_SCOPE}.notice_period_given",
       days: calculator.days_notice_given,
-      notice_date: calculator.notice_date.to_s(:long_with_day),
-      hire_date: calculator.hire_date.to_s(:long_with_day))
+      notice_date: calculator.notice_date.to_fs(:long_with_day),
+      hire_date: calculator.hire_date.to_fs(:long_with_day))
   end
 
   def display_chargeable_days_for_lack_of_notice(calculator)
@@ -44,8 +44,8 @@ module SupplyTeachers::TempToPermCalculatorHelper
   def display_working_days(calculator)
     t("#{TRANSLATION_SCOPE}.working_days",
       days: calculator.working_days_count,
-      contract_start_date: calculator.contract_start_date.to_s(:long_with_day),
-      hire_date: calculator.hire_date.to_s(:long_with_day))
+      contract_start_date: calculator.contract_start_date.to_fs(:long_with_day),
+      hire_date: calculator.hire_date.to_fs(:long_with_day))
   end
 
   def display_chargeable_days_for_early_hire(calculator)
