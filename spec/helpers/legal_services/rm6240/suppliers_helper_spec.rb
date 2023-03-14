@@ -120,7 +120,7 @@ RSpec.describe LegalServices::RM6240::SuppliersHelper do
       let(:position) { '1' }
 
       it 'returns the partner rate in punds and pence' do
-        expect(result).to eq "£#{(hourly_partner / 100).to_s(:delimited)}.00"
+        expect(result).to eq "£#{(hourly_partner / 100).to_fs(:delimited)}.00"
       end
     end
 
@@ -128,7 +128,7 @@ RSpec.describe LegalServices::RM6240::SuppliersHelper do
       let(:position) { '5' }
 
       it 'returns the partner rate in punds and pence' do
-        expect(result).to eq "£#{(hourly_trainee / 100).to_s(:delimited)}.00"
+        expect(result).to eq "£#{(hourly_trainee / 100).to_fs(:delimited)}.00"
       end
     end
 
