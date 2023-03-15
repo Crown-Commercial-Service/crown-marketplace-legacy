@@ -30,22 +30,22 @@ module ApplicationHelper
     Marketplace.support_telephone_number
   end
 
-  def govuk_form_group_with_optional_error(journey, *attributes, &block)
+  def govuk_form_group_with_optional_error(journey, *attributes, &)
     attributes_with_errors = attributes.select { |a| journey.errors[a].any? }
 
     css_classes = ['govuk-form-group']
     css_classes += ['govuk-form-group--error'] if attributes_with_errors.any?
 
-    tag.div(class: css_classes, &block)
+    tag.div(class: css_classes, &)
   end
 
-  def govuk_fieldset_with_optional_error(journey, attribute, &block)
+  def govuk_fieldset_with_optional_error(journey, attribute, &)
     attribute_has_errors = journey.errors[attribute].any?
 
     options = { class: 'govuk-fieldset' }
     options[:aria] = { describedby: error_id(attribute) } if attribute_has_errors
 
-    tag.fieldset(**options, &block)
+    tag.fieldset(**options, &)
   end
 
   def display_errors(journey, *attributes)

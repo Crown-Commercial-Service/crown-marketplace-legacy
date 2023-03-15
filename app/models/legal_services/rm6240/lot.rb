@@ -6,7 +6,7 @@ module LegalServices
       attr_accessor :number, :description
 
       def self.[](number)
-        Lot.find_by(number: number)
+        Lot.find_by(number:)
       end
 
       def self.all_numbers

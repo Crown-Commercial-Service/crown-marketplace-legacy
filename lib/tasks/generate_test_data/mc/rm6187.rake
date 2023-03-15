@@ -30,8 +30,8 @@ module GenerateTestData
         @suppliers[..2].each do |supplier|
           mcf3_lots_and_services.each do |lot_number, services|
             supplier[:lots] << {
-              lot_number: lot_number,
-              services: services
+              lot_number:,
+              services:
             }
           end
         end

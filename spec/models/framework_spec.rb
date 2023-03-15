@@ -259,7 +259,7 @@ RSpec.describe Framework do
   end
 
   describe '.status' do
-    let(:result) { described_class.find_by(framework: framework).status }
+    let(:result) { described_class.find_by(framework:).status }
 
     context 'when considering supply_teacher frameworks' do
       context 'and RM6238 goes live tomorrow' do
