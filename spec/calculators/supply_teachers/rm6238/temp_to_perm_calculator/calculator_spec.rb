@@ -3,15 +3,15 @@ require 'rails_helper'
 RSpec.describe SupplyTeachers::RM6238::TempToPermCalculator::Calculator, type: :calculator do
   subject(:calculator) do
     described_class.new(
-      contract_start_date: contract_start_date,
-      days_per_week: days_per_week,
-      daily_fee: daily_fee,
-      hire_date: hire_date,
-      notice_date: notice_date,
-      holiday_1_start_date: holiday_1_start_date,
-      holiday_1_end_date: holiday_1_end_date,
-      holiday_2_start_date: holiday_2_start_date,
-      holiday_2_end_date: holiday_2_end_date
+      contract_start_date:,
+      days_per_week:,
+      daily_fee:,
+      hire_date:,
+      notice_date:,
+      holiday_1_start_date:,
+      holiday_1_end_date:,
+      holiday_2_start_date:,
+      holiday_2_end_date:
     )
   end
 

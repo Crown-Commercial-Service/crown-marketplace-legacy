@@ -24,7 +24,7 @@ module SupplyTeachers::RM6238::Admin::DataImport::Helper
                  @errors << "#{row[:supplier_name]}: Unknown job type in '#{spreadsheet}.xlsx': #{row[:job_type].inspect}" if supplier_accredited?(row[:supplier_name])
                  :unknown
                end
-    row.merge(job_type: job_type)
+    row.merge(job_type:)
   end
   # rubocop:enable Metrics/CyclomaticComplexity
 

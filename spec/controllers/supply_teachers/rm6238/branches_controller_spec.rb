@@ -37,7 +37,7 @@ RSpec.describe SupplyTeachers::RM6238::BranchesController do
         Geocoder::Lookup::Test.add_stub(
           postcode, [{ 'coordinates' => [51.5149666, -0.119098] }]
         )
-        get :index, params: params
+        get :index, params:
       end
 
       after do
@@ -88,7 +88,7 @@ RSpec.describe SupplyTeachers::RM6238::BranchesController do
     shared_context 'and the postcode is nil' do
       let(:postcode) { nil }
 
-      before { get :index, params: params }
+      before { get :index, params: }
     end
 
     shared_context 'and the postcode is invalid' do
@@ -98,7 +98,7 @@ RSpec.describe SupplyTeachers::RM6238::BranchesController do
         Geocoder::Lookup::Test.add_stub(
           postcode, [{ 'coordinates' => nil }]
         )
-        get :index, params: params
+        get :index, params:
       end
 
       after do

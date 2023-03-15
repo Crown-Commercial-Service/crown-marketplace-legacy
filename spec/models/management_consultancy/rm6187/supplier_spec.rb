@@ -100,8 +100,8 @@ RSpec.describe ManagementConsultancy::RM6187::Supplier do
 
   describe 'when the supplier is destroyed' do
     let!(:supplier) { create(:management_consultancy_rm6187_supplier) }
-    let!(:rate_card) { create(:management_consultancy_rm6187_rate_card, supplier: supplier) }
-    let!(:service_offering) { create(:management_consultancy_rm6187_service_offering, supplier: supplier) }
+    let!(:rate_card) { create(:management_consultancy_rm6187_rate_card, supplier:) }
+    let!(:service_offering) { create(:management_consultancy_rm6187_service_offering, supplier:) }
 
     it 'destroys all suppliers' do
       expect(described_class.find_by(id: supplier.id)).to eq supplier

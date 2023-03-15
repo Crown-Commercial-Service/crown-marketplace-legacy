@@ -345,7 +345,7 @@ RSpec.describe SupplyTeachers::RM6238::Branch do
     include_context 'and I have suppliers and branches'
 
     let(:page) { nil }
-    let(:supplier_names) { described_class.distinct_suppliers({ agency_name: agency_name, page: page }).map(&:name) }
+    let(:supplier_names) { described_class.distinct_suppliers({ agency_name:, page: }).map(&:name) }
 
     context 'when nothing is searched' do
       let(:agency_name) { nil }
