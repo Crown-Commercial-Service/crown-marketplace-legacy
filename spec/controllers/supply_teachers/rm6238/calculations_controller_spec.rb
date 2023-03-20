@@ -74,7 +74,7 @@ RSpec.describe SupplyTeachers::RM6238::CalculationsController do
   end
 
   describe 'GET fta_to_perm_fee' do
-    before { get :fta_to_perm_fee, params: params }
+    before { get :fta_to_perm_fee, params: }
 
     context 'when no transfer fee is required' do
       let(:contract_start_date) { contract_end_date - 1.year }

@@ -35,7 +35,7 @@ module SupplyTeachers
       where(
         [
           'ST_DWithin(location, :point, :within_metres)',
-          { point: point, within_metres: within_metres }
+          { point:, within_metres: }
         ]
       )
     end

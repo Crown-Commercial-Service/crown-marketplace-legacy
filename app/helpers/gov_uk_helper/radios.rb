@@ -1,5 +1,5 @@
 module GovUKHelper::Radios
-  def govuk_radios(form, model, attribute, govuk_radios_options, &block)
+  def govuk_radios(form, model, attribute, govuk_radios_options, &)
     govuk_form_group(model, attribute) do |error_message|
       govuk_radios_options[:fieldset][:attributes] = if error_message
                                                        { aria: { describedby: "#{attribute}-error" } }
@@ -14,7 +14,7 @@ module GovUKHelper::Radios
         concat(error_message)
         concat(tag.div(class: "govuk-radios #{govuk_radios_options[:classes]}", data: { module: 'govuk-radios' }) do
           capture do
-            govuk_radios_options[:items].each { |radio_item| concat(govuk_radio_item(form, attribute, radio_item, &block)) }
+            govuk_radios_options[:items].each { |radio_item| concat(govuk_radio_item(form, attribute, radio_item, &)) }
           end
         end)
       end
@@ -23,7 +23,7 @@ module GovUKHelper::Radios
 
   private
 
-  def govuk_radio_item(form, attribute, radio_item, &block)
+  def govuk_radio_item(form, attribute, radio_item, &)
     aria_options = if radio_item[:hint]
                      {
                        aria: {
@@ -38,7 +38,7 @@ module GovUKHelper::Radios
       capture do
         concat(form.radio_button(attribute, radio_item[:value], checked: radio_item[:checked], class: 'govuk-radios__input', **aria_options))
         concat(form.label(attribute, radio_item[:label][:text], value: radio_item[:value], class: "govuk-label govuk-radios__label #{radio_item[:label][:classes]}"))
-        govuk_radio_hint(attribute, radio_item, &block)
+        govuk_radio_hint(attribute, radio_item, &)
       end
     end
   end

@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe SupplyTeachers::RM6238::Spreadsheet do
   let(:telephone_number) { '0121 496 0123' }
-  let(:branch1) { build(:supply_teachers_branch_search_result, telephone_number: telephone_number) }
+  let(:branch1) { build(:supply_teachers_branch_search_result, telephone_number:) }
   let(:branch2) { build(:supply_teachers_branch_search_result, telephone_number: '029 2018 0999') }
 
   before do

@@ -126,7 +126,7 @@ RSpec.describe SupplyTeachers::RM6238::SuppliersController do
       create(:supply_teachers_rm6238_branch, slug: 'branch-a', supplier: supplier_1)
       create(:supply_teachers_rm6238_branch, slug: 'branch-z', supplier: supplier_2)
 
-      get :search_all_suppliers, params: { agency_name: agency_name }, xhr: true
+      get :search_all_suppliers, params: { agency_name: }, xhr: true
     end
 
     context 'when nothing is searched' do

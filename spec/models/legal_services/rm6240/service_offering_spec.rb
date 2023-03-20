@@ -8,7 +8,7 @@ RSpec.describe LegalServices::RM6240::ServiceOffering do
   # rubocop:disable RSpec/NestedGroups
   describe 'validations' do
     context 'when validating the service code' do
-      before { service_offering.assign_attributes(service_code: service_code) }
+      before { service_offering.assign_attributes(service_code:) }
 
       context 'and it is blank' do
         let(:service_code) { nil }
@@ -28,7 +28,7 @@ RSpec.describe LegalServices::RM6240::ServiceOffering do
     end
 
     context 'when validating the jurisdiction' do
-      before { service_offering.assign_attributes(service_code: service_code, jurisdiction: jurisdiction) }
+      before { service_offering.assign_attributes(service_code:, jurisdiction:) }
 
       context 'and the service requires it' do
         let(:service_code) { '2.1' }
@@ -83,9 +83,9 @@ RSpec.describe LegalServices::RM6240::ServiceOffering do
       let(:new_service_offering) do
         build(
           :legal_services_rm6240_service_offering,
-          supplier: supplier,
-          service_code: service_code,
-          jurisdiction: jurisdiction
+          supplier:,
+          service_code:,
+          jurisdiction:
         )
       end
       let(:supplier) { service_offering.supplier }

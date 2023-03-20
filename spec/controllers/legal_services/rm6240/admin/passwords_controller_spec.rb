@@ -38,7 +38,7 @@ RSpec.describe LegalServices::RM6240::Admin::PasswordsController do
     context 'when the framework is live' do
       context 'when no exception is raised' do
         before do
-          post :create, params: { email: email }
+          post :create, params: { email: }
           cookies.update(response.cookies)
         end
 
