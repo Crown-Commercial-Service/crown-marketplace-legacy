@@ -8,7 +8,7 @@ RSpec.describe SupplyTeachers::RM6238::Rate do
   it { is_expected.to be_valid }
 
   it 'only has unique codes' do
-    expect(all_codes.uniq).to contain_exactly(*all_codes)
+    expect(all_codes.uniq).to match_array(all_codes)
   end
 
   context 'when validating the lot number' do

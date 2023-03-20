@@ -358,7 +358,7 @@ RSpec.describe SupplyTeachers::RM6238::Branch do
         let(:page) { 2 }
 
         it 'has the first last 1 supplier in the list' do
-          expect(supplier_names).to match_array ['zzz']
+          expect(supplier_names).to contain_exactly('zzz')
         end
       end
     end
@@ -367,7 +367,7 @@ RSpec.describe SupplyTeachers::RM6238::Branch do
       let(:agency_name) { 'a' }
 
       it 'has just aaa in the list' do
-        expect(supplier_names).to match_array ['aaa']
+        expect(supplier_names).to contain_exactly('aaa')
       end
     end
 
@@ -375,7 +375,7 @@ RSpec.describe SupplyTeachers::RM6238::Branch do
       let(:agency_name) { 'z' }
 
       it 'has just zzz in the list' do
-        expect(supplier_names).to match_array ['zzz']
+        expect(supplier_names).to contain_exactly('zzz')
       end
     end
 

@@ -21,7 +21,7 @@ RSpec.describe LegalServices::RM6240::Service do
   end
 
   it 'only has unique codes' do
-    expect(all_service_code.uniq).to contain_exactly(*all_service_code)
+    expect(all_service_code.uniq).to match_array(all_service_code)
   end
 
   it 'all have names' do

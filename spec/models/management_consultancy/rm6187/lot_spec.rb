@@ -16,7 +16,7 @@ RSpec.describe ManagementConsultancy::RM6187::Lot do
   end
 
   it 'only has unique numbers' do
-    expect(all_numbers.uniq).to contain_exactly(*all_numbers)
+    expect(all_numbers.uniq).to match_array(all_numbers)
   end
 
   it 'all have descriptions' do
