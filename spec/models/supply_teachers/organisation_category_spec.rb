@@ -5,7 +5,7 @@ RSpec.describe SupplyTeachers::OrganisationCategory do
   let(:all_ids) { organisation_categories.map(&:id) }
 
   it 'only has unique ids' do
-    expect(all_ids.uniq).to contain_exactly(*all_ids)
+    expect(all_ids.uniq).to match_array(all_ids)
   end
 
   it 'all have names' do

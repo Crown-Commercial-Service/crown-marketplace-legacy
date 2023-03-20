@@ -147,7 +147,7 @@ RSpec.describe LegalServices::RM6240::ServiceOffering do
       let(:service_codes) { ['1.1'] }
 
       it 'returns both suppliers' do
-        expect(result).to match_array([supplier1_id, supplier2_id])
+        expect(result).to contain_exactly(supplier1_id, supplier2_id)
       end
     end
 
@@ -155,7 +155,7 @@ RSpec.describe LegalServices::RM6240::ServiceOffering do
       let(:service_codes) { ['1.1', '1.2'] }
 
       it 'returns the second supplier' do
-        expect(result).to match_array([supplier2_id])
+        expect(result).to contain_exactly(supplier2_id)
       end
     end
 
@@ -172,7 +172,7 @@ RSpec.describe LegalServices::RM6240::ServiceOffering do
       let(:jurisdiction) { nil }
 
       it 'returns the second supplier' do
-        expect(result).to match_array([supplier2_id])
+        expect(result).to contain_exactly(supplier2_id)
       end
     end
 
@@ -181,7 +181,7 @@ RSpec.describe LegalServices::RM6240::ServiceOffering do
       let(:jurisdiction) { 'b' }
 
       it 'returns the first supplier' do
-        expect(result).to match_array([supplier1_id])
+        expect(result).to contain_exactly(supplier1_id)
       end
     end
   end
