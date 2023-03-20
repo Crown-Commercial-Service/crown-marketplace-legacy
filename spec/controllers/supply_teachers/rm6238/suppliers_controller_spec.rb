@@ -137,7 +137,7 @@ RSpec.describe SupplyTeachers::RM6238::SuppliersController do
       end
 
       it 'has all suppliers in the list' do
-        expect(paginated_supplier_names).to match_array ['aaa', 'zzz']
+        expect(paginated_supplier_names).to contain_exactly('aaa', 'zzz')
       end
     end
 
@@ -149,7 +149,7 @@ RSpec.describe SupplyTeachers::RM6238::SuppliersController do
       end
 
       it 'has just aaa in the list' do
-        expect(paginated_supplier_names).to match_array ['aaa']
+        expect(paginated_supplier_names).to contain_exactly('aaa')
       end
     end
 
@@ -161,7 +161,7 @@ RSpec.describe SupplyTeachers::RM6238::SuppliersController do
       end
 
       it 'has just zzz in the list' do
-        expect(paginated_supplier_names).to match_array ['zzz']
+        expect(paginated_supplier_names).to contain_exactly('zzz')
       end
     end
 
