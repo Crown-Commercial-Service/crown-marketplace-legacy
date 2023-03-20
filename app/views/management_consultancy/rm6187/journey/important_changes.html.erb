@@ -68,7 +68,7 @@
 
     <hr class="govuk-section-break govuk-section-break--m">
 
-    <%= form_with url: @form_path, method: :get, local: true, html: { specialvalidation: true, novalidate: true } do %>
+    <%= form_with url: @form_path, method: :get, html: { specialvalidation: true, novalidate: true } do %>
       <%= submit_tag t('common.submit'), class: "govuk-button", aria: { label: t('common.submit') } %>
     <% end %>
   </div>
