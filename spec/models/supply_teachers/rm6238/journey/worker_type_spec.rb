@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe SupplyTeachers::RM6238::Journey::WorkerType do
-  subject(:step) { described_class.new(worker_type: worker_type) }
+  subject(:step) { described_class.new(worker_type:) }
 
   let(:worker_type) { 'agency_supplied' }
 

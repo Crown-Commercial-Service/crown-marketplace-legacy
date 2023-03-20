@@ -27,7 +27,7 @@ RSpec.describe LegalServices::RM6240::Supplier do
     before { supplier.save! }
 
     context 'and the supplier has service offerings' do
-      let!(:service_offering) { create(:legal_services_rm6240_full_service_provision_service_offering, supplier: supplier) }
+      let!(:service_offering) { create(:legal_services_rm6240_full_service_provision_service_offering, supplier:) }
 
       it 'destroys all its service offerings' do
         supplier.destroy!
@@ -37,7 +37,7 @@ RSpec.describe LegalServices::RM6240::Supplier do
     end
 
     context 'and the supplier has rates' do
-      let!(:rate) { create(:legal_services_rm6240_full_service_provision_rate, supplier: supplier) }
+      let!(:rate) { create(:legal_services_rm6240_full_service_provision_rate, supplier:) }
 
       it 'destroys all its rates' do
         supplier.destroy!
@@ -137,8 +137,8 @@ RSpec.describe LegalServices::RM6240::Supplier do
 
   describe 'when the supplier is destroyed' do
     let!(:supplier) { create(:legal_services_rm6240_supplier) }
-    let!(:rate) { create(:legal_services_rm6240_full_service_provision_rate, supplier: supplier) }
-    let!(:service_offering) { create(:legal_services_rm6240_full_service_provision_service_offering, supplier: supplier) }
+    let!(:rate) { create(:legal_services_rm6240_full_service_provision_rate, supplier:) }
+    let!(:service_offering) { create(:legal_services_rm6240_full_service_provision_service_offering, supplier:) }
 
     it 'destroys all suppliers' do
       expect(described_class.find_by(id: supplier.id)).to eq supplier

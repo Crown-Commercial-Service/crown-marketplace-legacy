@@ -55,7 +55,7 @@ RSpec.describe Login::DfeLogin do
 
   it { is_expected.to be_a(described_class) }
 
-  it { is_expected.to have_attributes(email: email) }
+  it { is_expected.to have_attributes(email:) }
 
   context 'when the framework is supply_teachers' do
     context 'when the school type is non-profit' do

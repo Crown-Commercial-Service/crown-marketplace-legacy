@@ -10,7 +10,7 @@ module SupplyTeachers
       attribute :term_allowed, Axiom::Types::Boolean
 
       def self.[](code)
-        find_by(code: code).description
+        find_by(code:).description
       end
 
       def self.find_role_by(code:)

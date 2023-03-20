@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe SupplyTeachers::RM6238::Journey::Results do
   describe '.branches' do
-    subject(:results) { results_class.new(**params).branches(salary: salary, fixed_term_length: fixed_term_length) }
+    subject(:results) { results_class.new(**params).branches(salary:, fixed_term_length:) }
 
     let(:first_branch) { create(:supply_teachers_rm6238_branch, :with_rates) }
     let(:second_branch) { create(:supply_teachers_rm6238_branch, :with_rates, :with_extra_rates) }
@@ -28,7 +28,7 @@ RSpec.describe SupplyTeachers::RM6238::Journey::Results do
 
       let(:params) do
         {
-          postcode: postcode
+          postcode:
         }
       end
 
@@ -53,7 +53,7 @@ RSpec.describe SupplyTeachers::RM6238::Journey::Results do
 
       let(:params) do
         {
-          postcode: postcode
+          postcode:
         }
       end
 
@@ -99,9 +99,9 @@ RSpec.describe SupplyTeachers::RM6238::Journey::Results do
 
       let(:params) do
         {
-          job_type: job_type,
-          term: term,
-          postcode: postcode
+          job_type:,
+          term:,
+          postcode:
         }
       end
 

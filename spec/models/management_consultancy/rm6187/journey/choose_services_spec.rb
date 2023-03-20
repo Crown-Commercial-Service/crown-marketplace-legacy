@@ -34,7 +34,7 @@ RSpec.describe ManagementConsultancy::RM6187::Journey::ChooseServices do
   describe '#services_for_lot' do
     it 'is expected to find the correct services for the lot' do
       lot_number = 'MFC1.2'
-      services = ManagementConsultancy::RM6187::Service.where(lot_number: lot_number)
+      services = ManagementConsultancy::RM6187::Service.where(lot_number:)
 
       expect(step.services_for_lot(lot_number)).to eq services
     end

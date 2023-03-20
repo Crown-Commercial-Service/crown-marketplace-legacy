@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe SupplyTeachers::RM6238::Journey::SchoolPostcodeNominatedWorker do
-  subject(:step) { described_class.new(postcode: postcode) }
+  subject(:step) { described_class.new(postcode:) }
 
   let(:postcode) { 'SW1A 1AA' }
 
