@@ -98,7 +98,7 @@ Then('the contact details for the managed service provider {string} are:') do |a
 end
 
 Then('the master vendor agency {string} has the following rates:') do |agency_name, raw_rates|
-  rates = raw_rates.raw.map { |rate| [rate[0], { one_week: rate[1], twelve_weeks: rate[2], more_than_twelve_weeks: rate[3] }] }.to_h
+  rates = raw_rates.raw.to_h { |rate| [rate[0], { one_week: rate[1], twelve_weeks: rate[2], more_than_twelve_weeks: rate[3] }] }
   rates_table = supply_teachers_page.find('h2', text: agency_name).find(:xpath, '..').find('table.agency_rates > tbody')
 
   rates.each do |job_type, rate|
@@ -258,7 +258,7 @@ Then('the address for the {string} branch is:') do |branch, address|
 end
 
 Then('the agency has the following rates:') do |raw_rates|
-  rates = raw_rates.raw.map { |rate| [rate[0], { one_week: rate[1], twelve_weeks: rate[2], more_than_twelve_weeks: rate[3] }] }.to_h
+  rates = raw_rates.raw.to_h { |rate| [rate[0], { one_week: rate[1], twelve_weeks: rate[2], more_than_twelve_weeks: rate[3] }] }
   rates_table = supply_teachers_page.agency_details.agency_rates_table
 
   rates.each do |job_type, rate|

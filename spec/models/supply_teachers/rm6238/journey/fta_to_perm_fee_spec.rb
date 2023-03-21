@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe SupplyTeachers::RM6238::Journey::FTAToPermFee, type: :model do
+RSpec.describe SupplyTeachers::RM6238::Journey::FTAToPermFee do
   subject(:step) { described_class.new }
 
   it { is_expected.to be_valid }

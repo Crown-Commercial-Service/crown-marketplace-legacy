@@ -11,7 +11,6 @@ Feature: Supply Teachers - Temp to perm - Notice given - hiring between 9 and 12
     And I enter '19/06/2021' for the 'hire' date
     And I enter '30/05/2021' for the 'notice' date
 
-  @pipeline
   Scenario Outline: Changing the length of the notice period changes the result
     Given I enter '<date>' for the 'notice' date
     And I click on 'Continue'

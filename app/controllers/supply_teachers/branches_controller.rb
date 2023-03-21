@@ -32,7 +32,7 @@ module SupplyTeachers
       @salary = params[:annual_salary] || params[:salary]
       @fixed_term_length = step.try(:fixed_term_length)
       @branches = step.branches(daily_rates: daily_rates, salary: @salary, fixed_term_length: @fixed_term_length)
-      flash[:info] = 'Calculated mark-up updated' if daily_rates.present? && !request.xhr?
+      flash[:info] = t('.calculated_mark_up') if daily_rates.present? && !request.xhr?
 
       respond_to do |format|
         format.js { render json: @branches.find { |branch| rate_params(step.class.name.include?('FixedTermResults'))[branch.id].present? } }

@@ -10,7 +10,6 @@ Feature: Management Consultancy - Lot 2 - Strategy and Policy - Service selectio
     Then I am on the 'Select the services you need' page
     And the sub title is 'MCF3 lot 2 - Strategy and Policy'
 
-  @pipeline
   Scenario: The correct options are available
     Then I should see the following options for the lot:
       | Business structure              |
@@ -23,7 +22,6 @@ Feature: Management Consultancy - Lot 2 - Strategy and Policy - Service selectio
       | Social value                    |
       | Strategic advice                |
 
-  @pipeline
   Scenario: Service selection appears in basked
     Then the basket should say 'No services selected'
     And the remove all link should not be visible

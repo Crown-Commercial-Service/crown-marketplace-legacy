@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe User, type: :model do
+RSpec.describe User do
   subject(:user) { build(:user, confirmed_at: confirmed_at) }
 
   describe '#confirmed?' do
@@ -8,7 +8,7 @@ RSpec.describe User, type: :model do
       let(:confirmed_at) { nil }
 
       it 'returns false' do
-        expect(user.confirmed?).to eq false
+        expect(user.confirmed?).to be false
       end
     end
 
@@ -16,7 +16,7 @@ RSpec.describe User, type: :model do
       let(:confirmed_at) { Time.zone.now }
 
       it 'returns true' do
-        expect(user.confirmed?).to eq true
+        expect(user.confirmed?).to be true
       end
     end
   end

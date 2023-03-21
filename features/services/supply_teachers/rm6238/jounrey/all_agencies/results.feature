@@ -1,4 +1,4 @@
-@pipeline @javascript
+@javascript
 Feature: Supply Teachers - All agencies
 
   Scenario: All agencies search

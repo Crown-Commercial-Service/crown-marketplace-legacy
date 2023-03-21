@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe SupplyTeachers::RM6238::Journey::FTAToPermHireDateNotice, type: :model do
+RSpec.describe SupplyTeachers::RM6238::Journey::FTAToPermHireDateNotice do
   subject(:step) { described_class.new }
 
   describe 'validations' do

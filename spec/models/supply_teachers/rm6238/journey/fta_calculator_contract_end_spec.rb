@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe SupplyTeachers::RM6238::Journey::FTACalculatorContractEnd, type: :model do
+RSpec.describe SupplyTeachers::RM6238::Journey::FTACalculatorContractEnd do
   subject(:step) do
     described_class.new(
       contract_start_date_day: '1',

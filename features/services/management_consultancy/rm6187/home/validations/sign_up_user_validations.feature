@@ -1,4 +1,4 @@
-@allow_list @pipeline
+@allow_list
 Feature: Management Consultancy - Sign up user
 
   Background: navigate to create an account page

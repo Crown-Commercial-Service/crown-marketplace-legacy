@@ -42,12 +42,12 @@ module SupplyTeachers
       emails = row[:email].split(/[;\s]+/)
       contacts = names.zip(emails)
       contacts = contacts.map { |(name, email)| { name: name, email: email } }
-      new_row = if names.count != emails.count
-                  row.merge(contacts: [])
-                else
+      new_row = if names.count == emails.count
                   row.merge(contacts: contacts)
+                else
+                  row.merge(contacts: [])
                 end
-      new_row.reject { |k, _v| %i[contact_name email].include? k }
+      new_row.except(:contact_name, :email)
     end
 
     def convert_html_fields_to_text(row)

@@ -25,7 +25,6 @@ Feature: Supply Teachers - Agency results - Fixed term - Agencies
     And I click on 'Continue'
     Then I am on the 'Agency results' page
   
-  @pipeline
   Scenario: The agency details shown are correct
     And there are 8 agencies
     And the listed agencies with distances, fees and lengths are:
@@ -38,7 +37,6 @@ Feature: Supply Teachers - Agency results - Fixed term - Agencies
       | EMARD AND SONS                | Twickenham  | 9.0 | 28000 | 3 months  | £2,450.70 | 35.0% |
       | FEEST-MULLER                  | London      | 0.2 | 28000 | 3 months  | £2,501.10 | 35.7% |
 
-  @pipeline
   Scenario Outline: I can naviagte to the agency details
     Given I click on '<agency_name>'
     Then I am on the '<agency_name>' page
@@ -51,7 +49,6 @@ Feature: Supply Teachers - Agency results - Fixed term - Agencies
     | DIETRICH-BORER                | London      |
     | EMARD AND SONS                | Twickenham  |
 
-  @pipeline
   Scenario: I can download the shortlist document
     And I click on 'Download shortlist of agencies'
     Then the spreadsheet 'Shortlist of agencies' is downloaded

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe SupplyTeachers::RM6238::JobType, type: :model do
+RSpec.describe SupplyTeachers::RM6238::JobType do
   subject(:job_types) { described_class.all }
 
   let(:first_job_type) { job_types.first }

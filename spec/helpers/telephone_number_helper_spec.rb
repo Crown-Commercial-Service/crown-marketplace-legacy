@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe TelephoneNumberHelper, type: :helper do
+RSpec.describe TelephoneNumberHelper do
   describe '#format_telephone_number' do
     it 'adds spaces to a UK number' do
       expect(helper.format_telephone_number('01214960123'))

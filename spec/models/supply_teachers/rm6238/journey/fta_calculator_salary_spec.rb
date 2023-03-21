@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe SupplyTeachers::RM6238::Journey::FTACalculatorSalary, type: :model do
+RSpec.describe SupplyTeachers::RM6238::Journey::FTACalculatorSalary do
   subject(:step) { described_class.new(salary: salary) }
 
   let(:salary) { '123456' }

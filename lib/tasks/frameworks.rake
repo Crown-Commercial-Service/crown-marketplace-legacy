@@ -1,7 +1,7 @@
 module Frameworks
   def self.rm6238_expires_at
     if Rails.env.test?
-      Time.zone.now + 1.year
+      1.year.from_now
     else
       # This is not correct but it is far in the future and we can update it with another migration later on
       Time.new(2026, 9, 1).in_time_zone('London')
@@ -10,7 +10,7 @@ module Frameworks
 
   def self.rm6240_expires_at
     if Rails.env.test?
-      Time.zone.now + 1.year
+      1.year.from_now
     else
       # This is not correct but it is far in the future and we can update it with another migration later on
       Time.new(2026, 10, 1).in_time_zone('London')
@@ -28,13 +28,12 @@ end
 namespace :db do
   desc 'add the frameworks into the database'
   task legacy_frameworks: :environment do
-    p 'Loading Legacy Frameworks'
+    puts 'Loading Legacy Frameworks'
     DistributedLocks.distributed_lock(157) do
       Frameworks.add_frameworks
     end
   end
 
   desc 'add static data to the database'
-  task static: :legacy_frameworks do
-  end
+  task static: :legacy_frameworks
 end

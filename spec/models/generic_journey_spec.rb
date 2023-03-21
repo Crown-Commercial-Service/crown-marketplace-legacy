@@ -1,12 +1,12 @@
 require 'rails_helper'
 
-RSpec.describe GenericJourney, type: :model do
+RSpec.describe GenericJourney do
   subject :journey do
     described_class.new(first_step_class, framework, slug, params, paths)
   end
 
   let(:params) { ActionController::Parameters.new }
-  let(:paths) { instance_double('JourneyPaths') }
+  let(:paths) { instance_double(JourneyPaths) }
   let(:framework) { 'RM1234' }
 
   before do

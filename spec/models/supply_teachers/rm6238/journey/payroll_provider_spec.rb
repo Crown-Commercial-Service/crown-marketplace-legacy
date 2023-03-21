@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe SupplyTeachers::RM6238::Journey::PayrollProvider, type: :model do
+RSpec.describe SupplyTeachers::RM6238::Journey::PayrollProvider do
   subject(:step) { described_class.new(payroll_provider: payroll_provider) }
 
   let(:payroll_provider) { 'agency' }

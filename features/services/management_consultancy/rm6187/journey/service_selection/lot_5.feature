@@ -10,7 +10,6 @@ Feature: Management Consultancy - Lot 5 - HR - Service selection
     Then I am on the 'Select the services you need' page
     And the sub title is 'MCF3 lot 5 - HR'
   
-  @pipeline
   Scenario: The correct options are available
     Then I should see the following options for the lot:
       | Capability development                          |
@@ -24,7 +23,6 @@ Feature: Management Consultancy - Lot 5 - HR - Service selection
       | Organisational design and/or workforce planning |
       | Performance management                          |
 
-  @pipeline
   Scenario: Service selection appears in basked
     Then the basket should say 'No services selected'
     And the remove all link should not be visible

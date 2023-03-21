@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe SupplyTeachers::Admin::HomeController, type: :controller do
+RSpec.describe SupplyTeachers::Admin::HomeController do
   let(:default_params) { { service: 'supply_teachers/admin' } }
 
   describe 'GET framework' do

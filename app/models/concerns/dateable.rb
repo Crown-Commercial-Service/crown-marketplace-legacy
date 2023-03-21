@@ -2,7 +2,7 @@ module Dateable
   def difference_in_months(start_date, end_date)
     start_date, end_date = end_date, start_date if start_date > end_date
 
-    no_of_months = (end_date.year - start_date.year) * 12 + end_date.month - start_date.month - one_day_if_needed(end_date, start_date)
+    no_of_months = ((end_date.year - start_date.year) * 12) + end_date.month - start_date.month - one_day_if_needed(end_date, start_date)
     no_of_months + half_month(start_date, end_date, no_of_months)
   end
 

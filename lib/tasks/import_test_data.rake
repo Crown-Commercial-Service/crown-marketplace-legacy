@@ -70,6 +70,5 @@ namespace :db do
     end
   end
 
-  task import_test_data: :static do
-  end
+  task import_test_data: :static
 end

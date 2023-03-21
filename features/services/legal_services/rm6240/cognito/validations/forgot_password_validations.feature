@@ -1,4 +1,3 @@
-@pipeline
 Feature: Forgot my password - Legal Services - RM6240 - Validations
 
   Background: Navigate to forgot password

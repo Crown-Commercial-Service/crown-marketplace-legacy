@@ -1,4 +1,3 @@
-@pipeline
 Feature: Supply Teachers - Start pages
 
   Scenario: Buyer sees start page

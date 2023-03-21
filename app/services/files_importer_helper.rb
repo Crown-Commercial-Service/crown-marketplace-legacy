@@ -17,9 +17,7 @@ module FilesImporterHelper
   end
 
   def check_sheets(workbook, expected_sheets, attribute)
-    if workbook.sheets != expected_sheets
-      @errors << { error: "#{attribute}_missing_sheets" }
-    else
+    if workbook.sheets == expected_sheets
       sheets_with_errors = []
       empty_sheets = []
 
@@ -29,6 +27,8 @@ module FilesImporterHelper
 
       @errors << { error: "#{attribute}_has_incorrect_headers", details: sheets_with_errors } if sheets_with_errors.any?
       @errors << { error: "#{attribute}_has_empty_sheets", details: empty_sheets } if empty_sheets.any?
+    else
+      @errors << { error: "#{attribute}_missing_sheets" }
     end
   end
 

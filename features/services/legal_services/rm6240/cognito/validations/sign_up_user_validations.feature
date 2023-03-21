@@ -1,4 +1,4 @@
-@allow_list @pipeline
+@allow_list
 Feature: Sign up user - Legal Services - RM6240 - Validations
 
   Background: navigate to create an account page

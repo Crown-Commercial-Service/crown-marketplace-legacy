@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe SupplyTeachers::RM6238::Term, type: :model do
+RSpec.describe SupplyTeachers::RM6238::Term do
   subject(:terms) { described_class.all }
 
   let(:first_term) { terms.first }

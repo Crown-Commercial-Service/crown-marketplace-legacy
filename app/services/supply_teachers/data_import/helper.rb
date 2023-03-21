@@ -37,13 +37,12 @@ module SupplyTeachers::DataImport::Helper
 
   def nest(row, key)
     supplier_name = row[:supplier_name]
-    other_records = row.reject { |k, _v| k == :supplier_name }
+    other_records = row.except(:supplier_name)
     { :supplier_name => supplier_name, key => [other_records] }
   end
 
-  # rubocop:disable Metrics/CyclomaticComplexity
   def collate(records)
-    suppliers = records.map { |p| p[:supplier_name] }.uniq
+    suppliers = records.pluck(:supplier_name).uniq
     suppliers.map do |supplier|
       base_record = { supplier_name: supplier }
       supplier_records = records.select { |p| p[:supplier_name] == supplier }
@@ -58,7 +57,6 @@ module SupplyTeachers::DataImport::Helper
       base_record
     end
   end
-  # rubocop:enable Metrics/CyclomaticComplexity
 
   def subhead?(row)
     row[:number] =~ /Category Line/ || row[:number].nil?

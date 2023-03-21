@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe SupplyTeachers::RM6238::CalculationsController, type: :controller do
+RSpec.describe SupplyTeachers::RM6238::CalculationsController do
   extend APIRequestStubs
 
   stub_bank_holiday_json
@@ -38,7 +38,7 @@ RSpec.describe SupplyTeachers::RM6238::CalculationsController, type: :controller
 
     # rubocop:disable RSpec/ExampleLength
     it 'calls the calculator with the correct parameters' do
-      calculator = instance_double('SupplyTeachers::TempToPermCalculator::Calculator')
+      calculator = instance_double(SupplyTeachers::TempToPermCalculator::Calculator)
       allow(calculator).to receive(:fee).and_return(500)
       allow(SupplyTeachers::TempToPermCalculator::Calculator)
         .to receive(:new)
@@ -77,14 +77,17 @@ RSpec.describe SupplyTeachers::RM6238::CalculationsController, type: :controller
     before { get :fta_to_perm_fee, params: params }
 
     context 'when no transfer fee is required' do
+      let(:contract_start_date) { contract_end_date - 1.year }
+      let(:contract_end_date) { Time.zone.today - 6.months }
+
       let(:params) do
         {
-          contract_start_date_day: '1',
-          contract_start_date_month: '1',
-          contract_start_date_year: '2021',
-          contract_end_date_day: '1',
-          contract_end_date_month: '2',
-          contract_end_date_year: '2022',
+          contract_start_date_day: contract_start_date.day.to_s,
+          contract_start_date_month: contract_start_date.month.to_s,
+          contract_start_date_year: contract_start_date.year.to_s,
+          contract_end_date_day: contract_end_date.day.to_s,
+          contract_end_date_month: contract_end_date.month.to_s,
+          contract_end_date_year: contract_end_date.year.to_s,
           looking_for: 'calculate_fta_to_perm_fee'
         }
       end
@@ -98,7 +101,7 @@ RSpec.describe SupplyTeachers::RM6238::CalculationsController, type: :controller
       end
 
       it 'sets the back_path' do
-        expect(assigns(:back_path)).to eq '/supply-teachers/RM6238/fta-to-perm-contract-end?contract_end_date_day=1&contract_end_date_month=2&contract_end_date_year=2022&contract_start_date_day=1&contract_start_date_month=1&contract_start_date_year=2021&looking_for=calculate_fta_to_perm_fee'
+        expect(assigns(:back_path)).to eq "/supply-teachers/RM6238/fta-to-perm-contract-end?contract_end_date_day=#{contract_end_date.day}&contract_end_date_month=#{contract_end_date.month}&contract_end_date_year=#{contract_end_date.year}&contract_start_date_day=#{contract_start_date.day}&contract_start_date_month=#{contract_start_date.month}&contract_start_date_year=#{contract_start_date.year}&looking_for=calculate_fta_to_perm_fee"
       end
 
       it 'the calculator has no calculations' do
@@ -106,8 +109,8 @@ RSpec.describe SupplyTeachers::RM6238::CalculationsController, type: :controller
 
         expect(calculator).to be_a(SupplyTeachers::FTAToPermCalculator::Calculator)
 
-        expect(calculator.current_contract_length).to be nil
-        expect(calculator.fixed_term_contract_fee).to be nil
+        expect(calculator.current_contract_length).to be_nil
+        expect(calculator.fixed_term_contract_fee).to be_nil
       end
 
       it 'renders the template' do
@@ -116,17 +119,21 @@ RSpec.describe SupplyTeachers::RM6238::CalculationsController, type: :controller
     end
 
     context 'when a transfer fee is required' do
+      let(:contract_start_date) { contract_end_date - 7.months }
+      let(:contract_end_date) { hire_date - 1.month }
+      let(:hire_date) { Time.zone.today }
+
       let(:params) do
         {
-          contract_start_date_day: '1',
-          contract_start_date_month: '1',
-          contract_start_date_year: '2022',
-          contract_end_date_day: '1',
-          contract_end_date_month: '8',
-          contract_end_date_year: '2022',
-          hire_date_day: '1',
-          hire_date_month: '9',
-          hire_date_year: '2022',
+          contract_start_date_day: contract_start_date.day.to_s,
+          contract_start_date_month: contract_start_date.month.to_s,
+          contract_start_date_year: contract_start_date.year.to_s,
+          contract_end_date_day: contract_end_date.day.to_s,
+          contract_end_date_month: contract_end_date.month.to_s,
+          contract_end_date_year: contract_end_date.year.to_s,
+          hire_date_day: hire_date.day.to_s,
+          hire_date_month: hire_date.month.to_s,
+          hire_date_year: hire_date.year.to_s,
           fixed_term_fee: '500',
           looking_for: 'calculate_fta_to_perm_fee'
         }
@@ -141,7 +148,7 @@ RSpec.describe SupplyTeachers::RM6238::CalculationsController, type: :controller
       end
 
       it 'sets the back_path' do
-        expect(assigns(:back_path)).to eq '/supply-teachers/RM6238/fta-to-perm-fixed-term-fee?contract_end_date_day=1&contract_end_date_month=8&contract_end_date_year=2022&contract_start_date_day=1&contract_start_date_month=1&contract_start_date_year=2022&fixed_term_fee=500&hire_date_day=1&hire_date_month=9&hire_date_year=2022&looking_for=calculate_fta_to_perm_fee'
+        expect(assigns(:back_path)).to eq "/supply-teachers/RM6238/fta-to-perm-fixed-term-fee?contract_end_date_day=#{contract_end_date.day}&contract_end_date_month=#{contract_end_date.month}&contract_end_date_year=#{contract_end_date.year}&contract_start_date_day=#{contract_start_date.day}&contract_start_date_month=#{contract_start_date.month}&contract_start_date_year=#{contract_start_date.year}&fixed_term_fee=500&hire_date_day=#{hire_date.day}&hire_date_month=#{hire_date.month}&hire_date_year=#{hire_date.year}&looking_for=calculate_fta_to_perm_fee"
       end
 
       it 'the calculator has no calculations' do
@@ -149,8 +156,8 @@ RSpec.describe SupplyTeachers::RM6238::CalculationsController, type: :controller
 
         expect(calculator).to be_a(SupplyTeachers::FTAToPermCalculator::Calculator)
 
-        expect(calculator.current_contract_length).not_to be nil
-        expect(calculator.fixed_term_contract_fee).not_to be nil
+        expect(calculator.current_contract_length).not_to be_nil
+        expect(calculator.fixed_term_contract_fee).not_to be_nil
       end
 
       it 'renders the template' do

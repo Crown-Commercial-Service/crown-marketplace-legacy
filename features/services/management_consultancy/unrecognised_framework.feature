@@ -1,4 +1,3 @@
-@pipeline
 Feature: Management Consultancy - Start pages - With an unrecognised framework
 
   Scenario: Go to unrecognised famework in the buyer section - logged in

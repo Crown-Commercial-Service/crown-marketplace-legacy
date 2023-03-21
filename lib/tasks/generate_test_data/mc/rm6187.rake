@@ -69,9 +69,7 @@ module GenerateTestData
       end
 
       def self.write_to_file
-        File.open('data/management_consultancy/rm6187/dummy_supplier_data.json', 'w') do |file|
-          file.write(JSON.pretty_generate(@suppliers))
-        end
+        File.write('data/management_consultancy/rm6187/dummy_supplier_data.json', JSON.pretty_generate(@suppliers))
       end
 
       def self.mcf3_lots_and_services

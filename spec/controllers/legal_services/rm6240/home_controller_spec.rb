@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe LegalServices::RM6240::HomeController, type: :controller do
+RSpec.describe LegalServices::RM6240::HomeController do
   let(:default_params) { { service: 'legal_services', framework: 'RM6240' } }
 
   login_ls_buyer

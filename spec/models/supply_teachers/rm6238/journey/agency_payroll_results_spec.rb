@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe SupplyTeachers::RM6238::Journey::AgencyPayrollResults, type: :model do
+RSpec.describe SupplyTeachers::RM6238::Journey::AgencyPayrollResults do
   subject(:step) { described_class.new(postcode: 'SW1A 1AA', job_type: 'teacher', term: 'daily', radius: '5') }
 
   describe '.inputs' do

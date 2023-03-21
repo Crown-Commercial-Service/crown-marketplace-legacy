@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe SupplyTeachers::RM6238::Rate, type: :model do
+RSpec.describe SupplyTeachers::RM6238::Rate do
   subject(:rate) { build(:supply_teachers_rm6238_rate) }
 
   let(:all_codes) { described_class.all.map(&:code) }

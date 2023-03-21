@@ -17,7 +17,6 @@ Feature: Management Consultancy - Lot 8 - Infrastructure including Transport - R
       | VEUM-RODRIGUEZ                |
       | WILLIAMSON, DOYLE AND GLOVER  |
 
-  @pipeline
   Scenario: Service selection changes the results
     Given I click on the 'Back' back link
     Then I am on the 'Select the services you need' page

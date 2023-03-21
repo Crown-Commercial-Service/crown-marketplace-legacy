@@ -8,13 +8,15 @@ gem 'rails', '~> 6.1.7'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
-gem 'puma', '~> 6.0'
+gem 'puma', '~> 6.1'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.1', '>= 5.1.0'
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
+
+gem 'shakapacker', '~> 6.5.6'
+
+gem 'turbolinks', '~> 5'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.11', '>= 2.11.5'
@@ -39,7 +41,6 @@ gem 'caxlsx_rails', '>= 0.6.3'
 gem 'phonejack'
 gem 'holidays'
 gem 'virtus'
-gem 'jquery-rails', '~> 4.5.1'
 
 gem 'rollbar', '~> 3.4.0'
 
@@ -53,9 +54,9 @@ gem 'ccs_omniauth_openid_connect', '~> 0.4.0', git: 'https://github.com/Crown-Co
 gem 'json-jwt', '>= 1.11.0'
 
 # for authentication
-gem 'devise', '~> 4.8.1'
+gem 'devise', '~> 4.9.0'
 # for cognito
-gem 'aws-sdk-cognitoidentityprovider', '~> 1.72.0'
+gem 'aws-sdk-cognitoidentityprovider', '~> 1.73.0'
 
 # for pagination
 gem 'kaminari', '~> 1.2.2'
@@ -66,26 +67,25 @@ gem 'friendly_id', '~> 5.5.0'
 # aws s3 bucket access for postcode data
 gem 'aws-sdk-s3', '~> 1'
 # handles spreadsheets
-gem 'roo', '~> 2.9.0'
+gem 'roo', '~> 2.10.0'
 
 # manipulating JSON for anonymisation
 gem 'jsonpath', '~> 1.1.2'
 
 # state machine
-gem 'aasm', '~> 5.4'
+gem 'aasm', '~> 5.5'
 
 # for running background jobs
-gem 'sidekiq', '~> 6.5.7'
+gem 'sidekiq', '~> 7.0.6'
 gem 'sinatra', '~> 3.0.5', require: false
-gem 'slim', '~> 4.1.0'
+gem 'slim', '~> 5.0.0'
 
 # for authorization
-gem 'cancancan', '~> 3.4.0'
+gem 'cancancan', '~> 3.5.0'
 
 gem 'role_model', '~> 0.8.2'
 
 gem 'sprockets', '>= 3.7.2'
-gem 'sprockets-bumble_d', '>= 2.2.0'
 
 # for clamav
 gem 'ratonvirus', '>= 0.1.1'
@@ -121,7 +121,7 @@ group :development, :test do
   gem 'poltergeist', '>= 1.18.1'
   gem 'wdm', '>= 0.1.0', platforms: %i[x64_mingw]
   gem 'tzinfo-data', platforms: %i[x64_mingw]
-  gem 'faker', '~> 3.1.0'
+  gem 'faker', '~> 3.1.1'
 end
 
 group :development do

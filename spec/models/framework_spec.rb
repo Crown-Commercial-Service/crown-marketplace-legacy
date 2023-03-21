@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 # rubocop:disable RSpec/NestedGroups
-RSpec.describe Framework, type: :model do
+RSpec.describe Framework do
   describe '.frameworks' do
     context 'when no scope is provided' do
       it 'returns RM6238, RM6187 and RM6240' do
@@ -46,7 +46,7 @@ RSpec.describe Framework, type: :model do
     context 'when RM6240 goes live tomorrow' do
       include_context 'and RM6240 is live in the future'
 
-      it 'returns RM6238 and RM6187, ' do
+      it 'returns RM6238 and RM6187,' do
         expect(described_class.live_frameworks).to eq %w[RM6238 RM6187]
       end
 
@@ -103,7 +103,7 @@ RSpec.describe Framework, type: :model do
       end
 
       context 'and the legal_services scope is provided' do
-        it 'returns  RM6240' do
+        it 'returns RM6240' do
           expect(described_class.legal_services.live_frameworks).to eq %w[RM6240]
         end
       end
@@ -116,7 +116,7 @@ RSpec.describe Framework, type: :model do
         include_context 'and RM6238 is live in the future'
 
         it 'returns nil' do
-          expect(described_class.supply_teachers.current_framework).to be nil
+          expect(described_class.supply_teachers.current_framework).to be_nil
         end
       end
 
@@ -146,7 +146,7 @@ RSpec.describe Framework, type: :model do
         include_context 'and RM6240 is live in the future'
 
         it 'returns nil' do
-          expect(described_class.legal_services.current_framework).to be nil
+          expect(described_class.legal_services.current_framework).to be_nil
         end
       end
 
@@ -344,7 +344,7 @@ RSpec.describe Framework, type: :model do
 
   describe 'validating the live at date' do
     let(:framework) { create(:legacy_framework) }
-    let(:live_at) { Time.zone.now + 1.day }
+    let(:live_at) { 1.day.from_now }
     let(:live_at_yyyy) { live_at.year.to_s }
     let(:live_at_mm) { live_at.month.to_s }
     let(:live_at_dd) { live_at.day.to_s }
@@ -359,7 +359,7 @@ RSpec.describe Framework, type: :model do
       let(:live_at_yyyy) { nil }
 
       it 'is not valid and has the correct error message' do
-        expect(framework.valid?(:update)).to eq false
+        expect(framework.valid?(:update)).to be false
         expect(framework.errors[:live_at].first).to eq 'Enter a valid \'live at\' date'
       end
     end
@@ -368,7 +368,7 @@ RSpec.describe Framework, type: :model do
       let(:live_at_mm) { '' }
 
       it 'is not valid and has the correct error message' do
-        expect(framework.valid?(:update)).to eq false
+        expect(framework.valid?(:update)).to be false
         expect(framework.errors[:live_at].first).to eq 'Enter a valid \'live at\' date'
       end
     end
@@ -377,7 +377,7 @@ RSpec.describe Framework, type: :model do
       let(:live_at_dd) { '    ' }
 
       it 'is not valid and has the correct error message' do
-        expect(framework.valid?(:update)).to eq false
+        expect(framework.valid?(:update)).to be false
         expect(framework.errors[:live_at].first).to eq 'Enter a valid \'live at\' date'
       end
     end
@@ -389,14 +389,14 @@ RSpec.describe Framework, type: :model do
         let(:live_at_dd) { '30' }
 
         it 'is not valid and has the correct error message' do
-          expect(framework.valid?(:update)).to eq false
+          expect(framework.valid?(:update)).to be false
           expect(framework.errors[:live_at].first).to eq 'Enter a valid \'live at\' date'
         end
       end
 
       context 'and it is a real date' do
         it 'is valid' do
-          expect(framework.valid?(:update)).to eq true
+          expect(framework.valid?(:update)).to be true
         end
       end
     end
@@ -404,7 +404,7 @@ RSpec.describe Framework, type: :model do
 
   describe 'validating the expires at date' do
     let(:framework) { create(:legacy_framework) }
-    let(:expires_at) { Time.zone.now + 2.years }
+    let(:expires_at) { 2.years.from_now }
     let(:expires_at_yyyy) { expires_at.year.to_s }
     let(:expires_at_mm) { expires_at.month.to_s }
     let(:expires_at_dd) { expires_at.day.to_s }
@@ -419,7 +419,7 @@ RSpec.describe Framework, type: :model do
       let(:expires_at_yyyy) { nil }
 
       it 'is not valid and has the correct error message' do
-        expect(framework.valid?(:update)).to eq false
+        expect(framework.valid?(:update)).to be false
         expect(framework.errors[:expires_at].first).to eq 'Enter a valid \'expires at\' date'
       end
     end
@@ -428,7 +428,7 @@ RSpec.describe Framework, type: :model do
       let(:expires_at_mm) { '' }
 
       it 'is not valid and has the correct error message' do
-        expect(framework.valid?(:update)).to eq false
+        expect(framework.valid?(:update)).to be false
         expect(framework.errors[:expires_at].first).to eq 'Enter a valid \'expires at\' date'
       end
     end
@@ -437,7 +437,7 @@ RSpec.describe Framework, type: :model do
       let(:expires_at_dd) { '    ' }
 
       it 'is not valid and has the correct error message' do
-        expect(framework.valid?(:update)).to eq false
+        expect(framework.valid?(:update)).to be false
         expect(framework.errors[:expires_at].first).to eq 'Enter a valid \'expires at\' date'
       end
     end
@@ -449,14 +449,14 @@ RSpec.describe Framework, type: :model do
         let(:expires_at_dd) { '30' }
 
         it 'is not valid and has the correct error message' do
-          expect(framework.valid?(:update)).to eq false
+          expect(framework.valid?(:update)).to be false
           expect(framework.errors[:expires_at].first).to eq 'Enter a valid \'expires at\' date'
         end
       end
 
       context 'and it is a real date' do
         it 'is valid' do
-          expect(framework.valid?(:update)).to eq true
+          expect(framework.valid?(:update)).to be true
         end
       end
     end
@@ -470,7 +470,7 @@ RSpec.describe Framework, type: :model do
       let(:expires_at) { today + 1.year }
 
       it 'is valid' do
-        expect(framework.valid?(:update)).to eq true
+        expect(framework.valid?(:update)).to be true
       end
     end
 
@@ -478,7 +478,7 @@ RSpec.describe Framework, type: :model do
       let(:expires_at) { today }
 
       it 'is not valid and has the correct error message' do
-        expect(framework.valid?(:update)).to eq false
+        expect(framework.valid?(:update)).to be false
         expect(framework.errors[:expires_at].first).to eq "The 'expires at' date must be after the 'live at' date"
       end
     end
@@ -487,7 +487,7 @@ RSpec.describe Framework, type: :model do
       let(:expires_at) { today - 2.days }
 
       it 'is not valid and has the correct error message' do
-        expect(framework.valid?(:update)).to eq false
+        expect(framework.valid?(:update)).to be false
         expect(framework.errors[:expires_at].first).to eq "The 'expires at' date must be after the 'live at' date"
       end
     end

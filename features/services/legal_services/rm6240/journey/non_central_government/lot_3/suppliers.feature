@@ -21,7 +21,6 @@ Feature: Legal services - Non central governemnt - Lot 3 - Suppliers
       | ZEMLAK INC                        |
       | ZIEME GROUP                       |
 
-  @pipeline
   Scenario: Check the supplier data - SME
     Given I click on 'WITTING-OLSON'
     Then I am on the 'WITTING-OLSON' page
@@ -39,7 +38,6 @@ Feature: Legal services - Non central governemnt - Lot 3 - Suppliers
       | http://cremin.org/drema       |
       | 815 Terrell Rest, New Hattiefurt, WV 89027-7230 |
 
-  @pipeline
   Scenario: Check the supplier data - Non SME
     Given I click on 'JACOBSON-NIENOW'
     Then I am on the 'JACOBSON-NIENOW' page

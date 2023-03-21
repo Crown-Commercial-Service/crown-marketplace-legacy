@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe SupplyTeachers::RM6238::Admin::Upload, type: :model do
+RSpec.describe SupplyTeachers::RM6238::Admin::Upload do
   let(:blank_upload) { build(:supply_teachers_rm6238_admin_upload) }
   let(:upload) do
     admin_upload = build(:supply_teachers_rm6238_admin_upload)
@@ -210,11 +210,11 @@ RSpec.describe SupplyTeachers::RM6238::Admin::Upload, type: :model do
 
     context 'when no previous upload exists' do
       it 'returns false for current_accredited_suppliers' do
-        expect(new_upload.send(:available_for_cp, nil, :current_accredited_suppliers)).to eq false
+        expect(new_upload.send(:available_for_cp, nil, :current_accredited_suppliers)).to be false
       end
 
       it 'returns false for pricing_for_tool' do
-        expect(new_upload.send(:available_for_cp, nil, :pricing_for_tool)).to eq false
+        expect(new_upload.send(:available_for_cp, nil, :pricing_for_tool)).to be false
       end
     end
 
@@ -226,27 +226,27 @@ RSpec.describe SupplyTeachers::RM6238::Admin::Upload, type: :model do
       end
 
       it 'returns true for current_accredited_suppliers' do
-        expect(new_upload.send(:available_for_cp, upload.current_accredited_suppliers, :current_accredited_suppliers)).to eq true
+        expect(new_upload.send(:available_for_cp, upload.current_accredited_suppliers, :current_accredited_suppliers)).to be true
       end
 
       it 'returns false for geographical_data_all_suppliers' do
-        expect(new_upload.send(:available_for_cp, upload.geographical_data_all_suppliers, :geographical_data_all_suppliers)).to eq false
+        expect(new_upload.send(:available_for_cp, upload.geographical_data_all_suppliers, :geographical_data_all_suppliers)).to be false
       end
 
       it 'returns false for master_vendor_contacts' do
-        expect(new_upload.send(:available_for_cp, upload.master_vendor_contacts, :master_vendor_contacts)).to eq false
+        expect(new_upload.send(:available_for_cp, upload.master_vendor_contacts, :master_vendor_contacts)).to be false
       end
 
       it 'returns false for education_technology_platform_contacts' do
-        expect(new_upload.send(:available_for_cp, upload.education_technology_platform_contacts, :education_technology_platform_contacts)).to eq false
+        expect(new_upload.send(:available_for_cp, upload.education_technology_platform_contacts, :education_technology_platform_contacts)).to be false
       end
 
       it 'returns true for pricing_for_tool' do
-        expect(new_upload.send(:available_for_cp, upload.pricing_for_tool, :pricing_for_tool)).to eq true
+        expect(new_upload.send(:available_for_cp, upload.pricing_for_tool, :pricing_for_tool)).to be true
       end
 
       it 'returns false for supplier_lookup' do
-        expect(new_upload.send(:available_for_cp, upload.supplier_lookup, :supplier_lookup)).to eq false
+        expect(new_upload.send(:available_for_cp, upload.supplier_lookup, :supplier_lookup)).to be false
       end
     end
   end
@@ -274,13 +274,13 @@ RSpec.describe SupplyTeachers::RM6238::Admin::Upload, type: :model do
       end
 
       it 'returns nil if file is not there' do
-        expect(described_class.previous_uploaded_file_upload(:master_vendor_contacts)).to eq nil
+        expect(described_class.previous_uploaded_file_upload(:master_vendor_contacts)).to be_nil
       end
     end
 
     context 'when there is no previous upload that is approved' do
       it 'returns nil' do
-        expect(described_class.previous_uploaded_file_upload(:pricing_for_tool)).to eq nil
+        expect(described_class.previous_uploaded_file_upload(:pricing_for_tool)).to be_nil
       end
     end
   end

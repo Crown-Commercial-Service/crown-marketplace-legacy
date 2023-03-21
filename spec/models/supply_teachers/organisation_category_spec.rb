@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe SupplyTeachers::OrganisationCategory, type: :model do
+RSpec.describe SupplyTeachers::OrganisationCategory do
   let(:organisation_categories) { described_class.all }
   let(:all_ids) { organisation_categories.map(&:id) }
 

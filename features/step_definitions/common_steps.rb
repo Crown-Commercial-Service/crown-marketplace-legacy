@@ -135,7 +135,7 @@ Then('the unrecognised framework is {string}') do |framework|
 end
 
 Then('I am on {string}') do |expected_path|
-  expect(page.current_path).to eq expected_path
+  expect(page).to have_current_path expected_path, ignore_query: true
 end
 
 Then('I pause') do

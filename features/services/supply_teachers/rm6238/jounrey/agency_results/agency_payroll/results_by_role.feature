@@ -15,7 +15,6 @@ Feature: Supply Teachers - Agency results - Agency payroll - Results by role
     And I select 'Daily Supply'
     And I enter 'SW1A 1AA' for the 'postcode'
 
-  @pipeline
   Scenario: When the role is Teacher: (Incl. Qualified and Unqualified Teachers, Tutors)
     And I select 'Teacher: (Incl. Qualified and Unqualified Teachers, Tutors)'
     And I click on 'Continue'
@@ -55,7 +54,6 @@ Feature: Supply Teachers - Agency results - Agency payroll - Results by role
       | Job type: Educational Support Staff: (incl. Cover Supervisor, Teaching Assistants)  |
       | Term: Daily Supply                                                                  |
 
-  @pipeline
   Scenario: When the role is Senior Roles: Headteacher and Senior Leadership positions
     And I select 'Senior Roles: Headteacher and Senior Leadership positions'
     And I click on 'Continue'

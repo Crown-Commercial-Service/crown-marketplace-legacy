@@ -13,7 +13,6 @@ Feature: Supply Teachers - Agency results - Fixed term - Results by length
     And I click on 'Continue'
     Then I am on the 'What date do you want the employee to start?' page
 
-  @pipeline
   Scenario Outline: Changing the length of the contract changes the result values only
     And I enter '06/05/2022' for the date
     And I click on 'Continue'

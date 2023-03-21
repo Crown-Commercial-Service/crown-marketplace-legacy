@@ -1,4 +1,3 @@
-@pipeline
 Feature: Forgot my password - Legal Services - RM6240
 
   Scenario: I forgot my password

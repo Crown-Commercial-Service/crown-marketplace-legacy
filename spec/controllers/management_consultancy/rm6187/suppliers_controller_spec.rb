@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe ManagementConsultancy::RM6187::SuppliersController, type: :controller do
+RSpec.describe ManagementConsultancy::RM6187::SuppliersController do
   let(:default_params) { { service: 'management_consultancy', framework: framework } }
   let(:framework) { 'RM6187' }
   let(:supplier) { create(:management_consultancy_rm6187_supplier) }

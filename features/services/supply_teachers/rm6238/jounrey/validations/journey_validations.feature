@@ -1,4 +1,3 @@
-@pipeline
 Feature: Supply Teachers - Jounrey validations
 
   Scenario: What is your school looking for? validations

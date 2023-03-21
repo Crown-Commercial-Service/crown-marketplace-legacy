@@ -35,7 +35,6 @@ Feature: Supply Teachers - Agency results - Agency payroll - Results by length
       | Job type: Teacher: (Incl. Qualified and Unqualified Teachers, Tutors) |
       | Term: Daily Supply                                                    |
 
-  @pipeline
   Scenario: The Long Term (6 weeks+) has the correct rates
     And I select 'Long Term (6 weeks+)'
     And I click on 'Continue'

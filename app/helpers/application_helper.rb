@@ -100,7 +100,7 @@ module ApplicationHelper
       content_for(title_bit)
     end
     title += [t('layouts.application.title')]
-    title.reject(&:blank?).map(&:strip).join(': ')
+    title.compact_blank.map(&:strip).join(': ')
   end
 
   def add_optional_error_prefix_to_page_title(errors)
@@ -251,6 +251,18 @@ module ApplicationHelper
 
   def get_file_extension(file)
     file.filename.extension_without_delimiter.to_sym
+  end
+
+  def warning_text(text)
+    tag.div(class: 'govuk-warning-text') do
+      concat(tag.span('!', class: 'govuk-warning-text__icon', aria: { hidden: true }))
+      concat(
+        tag.strong(class: 'govuk-warning-text__text') do
+          concat(tag.span('Warning', class: 'govuk-warning-text__assistive'))
+          concat(text)
+        end
+      )
+    end
   end
 end
 # rubocop:enable Metrics/ModuleLength

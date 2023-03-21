@@ -138,9 +138,7 @@ module GenerateTestData
       }.freeze
 
       def self.write_to_file
-        File.open('data/legal_services/rm6240/dummy_supplier_data.json', 'w') do |file|
-          file.write(JSON.pretty_generate(@suppliers))
-        end
+        File.write('data/legal_services/rm6240/dummy_supplier_data.json', JSON.pretty_generate(@suppliers))
       end
     end
     # rubocop:enable Metrics/ModuleLength

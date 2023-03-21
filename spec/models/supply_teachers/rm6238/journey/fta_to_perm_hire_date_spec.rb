@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe SupplyTeachers::RM6238::Journey::FTAToPermHireDate, type: :model do
+RSpec.describe SupplyTeachers::RM6238::Journey::FTAToPermHireDate do
   subject(:step) do
     described_class.new(
       contract_end_date_day: contract_end_date_day,

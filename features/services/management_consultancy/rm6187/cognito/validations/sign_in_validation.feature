@@ -1,4 +1,3 @@
-@pipeline
 Feature: Sign in to my account - Management Consultancy - RM6187 - Validations
 
   Background: Navigate to the sign in page

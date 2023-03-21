@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe LegalServices::RM6240::ServiceOffering, type: :model do
+RSpec.describe LegalServices::RM6240::ServiceOffering do
   subject(:service_offering) { build(:legal_services_rm6240_full_service_provision_service_offering) }
 
   it { is_expected.to be_valid }

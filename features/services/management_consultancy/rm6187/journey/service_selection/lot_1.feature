@@ -1,4 +1,4 @@
-@javascript @pipeline
+@javascript
 Feature: Management Consultancy - Lot 1 - Business - Service selection
 
   Background: Navigate to start page and select the lot

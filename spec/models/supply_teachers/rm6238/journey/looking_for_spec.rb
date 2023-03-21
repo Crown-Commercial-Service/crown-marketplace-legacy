@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe SupplyTeachers::RM6238::Journey::LookingFor, type: :model do
+RSpec.describe SupplyTeachers::RM6238::Journey::LookingFor do
   subject(:step) { described_class.new(looking_for: looking_for) }
 
   let(:looking_for) { 'worker' }

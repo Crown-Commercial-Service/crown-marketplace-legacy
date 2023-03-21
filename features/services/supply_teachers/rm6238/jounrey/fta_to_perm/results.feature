@@ -6,7 +6,6 @@ Feature: Supply Teachers - FTA to perm - results
     And I click on 'Continue'
     Then I am on the 'What date did the workers fixed term contract start?' page
 
-  @pipeline
   Scenario Outline: Changing the rate changes the results
     And I enter a date 0 years and 6 months into the past
     And I click on 'Continue'

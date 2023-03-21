@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe LegalServices::RM6240::Jurisdiction, type: :model do
+RSpec.describe LegalServices::RM6240::Jurisdiction do
   subject(:jurisdictions) { described_class.all }
 
   let(:first_jurisdiction) { jurisdictions.first }

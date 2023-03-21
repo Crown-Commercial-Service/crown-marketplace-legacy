@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe ManagementConsultancy::RM6187::HomeController, type: :controller do
+RSpec.describe ManagementConsultancy::RM6187::HomeController do
   let(:default_params) { { service: 'management_consultancy', framework: 'RM6187' } }
 
   login_mc_buyer

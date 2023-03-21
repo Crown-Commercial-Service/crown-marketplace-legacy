@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe SupplyTeachers::RM6238::GatewayController, type: :controller do
+RSpec.describe SupplyTeachers::RM6238::GatewayController do
   let(:default_params) { { service: 'supply_teachers', framework: framework } }
   let(:framework) { 'RM6238' }
 

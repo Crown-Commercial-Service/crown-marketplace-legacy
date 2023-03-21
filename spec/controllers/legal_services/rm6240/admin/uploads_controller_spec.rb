@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe LegalServices::RM6240::Admin::UploadsController, type: :controller do
+RSpec.describe LegalServices::RM6240::Admin::UploadsController do
   let(:default_params) { { service: 'legal_services/admin', framework: 'RM6240' } }
 
   describe 'GET index' do
@@ -322,7 +322,7 @@ RSpec.describe LegalServices::RM6240::Admin::UploadsController, type: :controlle
 
     it 'renders the aasm_state as JSON' do
       expect(response.content_type).to eq('application/json; charset=utf-8')
-      expect(JSON.parse(response.body)).to eq 'import_status' => 'publishing_data'
+      expect(response.parsed_body).to eq 'import_status' => 'publishing_data'
     end
   end
 end

@@ -1,4 +1,3 @@
-@pipeline
 Feature: Supply Teachers - Find individual worker - Validations
 
   Background: Navigate to the Do you want an agency to supply the worker? page

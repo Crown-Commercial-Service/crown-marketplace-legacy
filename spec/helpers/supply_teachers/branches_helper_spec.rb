@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe SupplyTeachers::BranchesHelper, type: :helper do
+RSpec.describe SupplyTeachers::BranchesHelper do
   describe '.show_path' do
     let(:result) { helper.show_path('supplier-name-slug') }
 

@@ -187,7 +187,7 @@ en:
               supplier_missing_rate_cards_html: 'The following suppliers do not have any rate cards: %{list} Make sure all the suppliers have the correct name and DUNS number'
               supplier_rate_cards_has_empty_sheets_html: 'The following sheets have no data: %{list} Make sure all sheets for ''Supplier rate cards'' have been filled in'
               supplier_rate_cards_has_incorrect_headers_html: 'The following sheets have incorrect headers: %{list} Make sure all sheets for ''Supplier rate cards'' have the right catagories for the rates'
-              supplier_rate_cards_missing_sheets: 'The ''Supplier rate cards'' file should have 7 sheets with the following names: ''''Lot 1a - England & Wales'', ''Lot 1b - Scotland'', ''Lot 1c - Northern Ireland'', ''Lot 2a - England & Wales'', ''Lot 2b - Scotland'', ''Lot 2c - Northern Ireland'', ''Lot 3'''
+              supplier_rate_cards_missing_sheets: 'The ''Supplier rate cards'' file should have 7 sheets with the following names: ''Lot 1a - England & Wales'', ''Lot 1b - Scotland'', ''Lot 1c - Northern Ireland'', ''Lot 2a - England & Wales'', ''Lot 2b - Scotland'', ''Lot 2c - Northern Ireland'', ''Lot 3'''
               upload_failed: Something went wrong with the file upload, please try uploading the files again
               upload_failed_html: 'Something went wrong with the file upload, the following error was returned: <br> <strong>%{list}</strong>'
             error_name:

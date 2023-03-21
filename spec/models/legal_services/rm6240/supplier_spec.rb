@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe LegalServices::RM6240::Supplier, type: :model do
+RSpec.describe LegalServices::RM6240::Supplier do
   subject(:supplier) { build(:legal_services_rm6240_supplier) }
 
   describe 'validations' do

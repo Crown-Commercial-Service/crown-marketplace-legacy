@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe SupplyTeachers::RM6238::Lot, type: :model do
+RSpec.describe SupplyTeachers::RM6238::Lot do
   subject(:lots) { described_class.all }
 
   let(:first_lot) { lots.first }

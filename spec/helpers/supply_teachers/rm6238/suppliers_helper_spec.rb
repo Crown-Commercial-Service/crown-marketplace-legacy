@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe SupplyTeachers::RM6238::SuppliersHelper, type: :helper do
+RSpec.describe SupplyTeachers::RM6238::SuppliersHelper do
   describe '.managed_service_provider_contact' do
     let(:supplier) { create(:supply_teachers_rm6238_supplier) }
     let!(:master_vendor_contact) { create(:supply_teachers_rm6238_managed_service_provider_master_vendor, supplier: supplier) }

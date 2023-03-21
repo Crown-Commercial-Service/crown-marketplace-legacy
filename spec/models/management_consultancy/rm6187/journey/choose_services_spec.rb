@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe ManagementConsultancy::RM6187::Journey::ChooseServices, type: :model do
+RSpec.describe ManagementConsultancy::RM6187::Journey::ChooseServices do
   subject(:step) { described_class.new(services: %w[MFC1.2.1]) }
 
   let(:model_key) { 'activemodel.errors.models.management_consultancy/rm6187/journey/choose_services' }

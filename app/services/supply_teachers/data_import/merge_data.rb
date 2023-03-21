@@ -28,10 +28,10 @@ module SupplyTeachers
         end
       end
 
-      augmentations = @secondary.map do |item|
+      augmentations = @secondary.to_h do |item|
         secondary_key = item.delete(MERGE_KEY)
         [aliases[secondary_key], item]
-      end.to_h
+      end
 
       merged = @primary.map do |primary_item|
         primary_key = primary_item.fetch(MERGE_KEY)

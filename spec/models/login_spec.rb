@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Login, type: :model do
+RSpec.describe Login do
   subject(:login) do
     described_class.from_omniauth(omniauth_hash)
   end

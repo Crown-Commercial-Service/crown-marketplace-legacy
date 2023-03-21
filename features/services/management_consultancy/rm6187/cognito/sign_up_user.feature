@@ -1,4 +1,4 @@
-@allow_list @pipeline
+@allow_list
 Feature: Sign up to management consultancy - RM6187
 
   Scenario: I sign in to my existing account

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe LegalServices::Admin::HomeController, type: :controller do
+RSpec.describe LegalServices::Admin::HomeController do
   let(:default_params) { { service: 'legal_services/admin' } }
 
   describe 'GET framework' do

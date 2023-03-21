@@ -10,7 +10,6 @@ Feature: Supply Teachers - Temp to perm - No notice given - hiring between 9 and
     And I enter '25' for the 'daily fee'
     Given I enter '19/06/2021' for the 'hire' date
 
-  @pipeline
   Scenario Outline: Changing the length of the current contract changes the result
     Given I enter '<date>' for the 'hire' date
     And I click on 'Continue'
@@ -40,7 +39,6 @@ Feature: Supply Teachers - Temp to perm - No notice given - hiring between 9 and
       | 4             | £160.00 | £400    |
       | 5             | £200.00 | £500    |
 
-  @pipeline
   Scenario Outline: Changing the daily fee changes the result
     And I enter '<daily_fee>' for the 'daily fee'
     And I click on 'Continue'

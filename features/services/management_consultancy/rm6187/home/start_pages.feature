@@ -1,4 +1,3 @@
-@pipeline
 Feature: Management Consultancy - Start pages
 
   Scenario: Buyer sees start page

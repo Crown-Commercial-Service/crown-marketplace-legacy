@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe ManagementConsultancy::RM6187::Service, type: :model do
+RSpec.describe ManagementConsultancy::RM6187::Service do
   subject(:services) { described_class.all }
 
   let(:first_service) { services.first }

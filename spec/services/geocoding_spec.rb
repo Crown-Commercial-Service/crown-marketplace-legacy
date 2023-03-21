@@ -50,7 +50,7 @@ RSpec.describe Geocoding do
     end
 
     it 'returns point which can be saved to st_point database column' do
-      expect(point).to be_kind_of(RGeo::Feature::Point)
+      expect(point).to be_a(RGeo::Feature::Point)
     end
 
     it 'returns point built from latitude and longitude' do

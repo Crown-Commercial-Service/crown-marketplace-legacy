@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe ManagementConsultancy::Admin::HomeController, type: :controller do
+RSpec.describe ManagementConsultancy::Admin::HomeController do
   let(:default_params) { { service: 'management_consultancy/admin' } }
 
   describe 'GET framework' do
