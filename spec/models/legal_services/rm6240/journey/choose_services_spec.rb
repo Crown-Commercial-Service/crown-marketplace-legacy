@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe LegalServices::RM6240::Journey::ChooseServices, type: :model do
+RSpec.describe LegalServices::RM6240::Journey::ChooseServices do
   subject(:step) { described_class.new(services: services, lot: lot_number) }
 
   let(:lot_number) { '1' }

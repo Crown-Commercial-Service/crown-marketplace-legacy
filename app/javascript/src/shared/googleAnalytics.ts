@@ -1,10 +1,12 @@
-interface Window {
-  gaTrackingId: string
+declare global {
+  interface Window {
+    gaTrackingId: string
+  }
 }
 
-declare function gtag(config: string, gaTrackingId: string, params: {[key: string]: string|boolean}): void
+declare function gtag (config: string, gaTrackingId: string, params: Record<string, string | boolean>): void
 
-const cssClassToClickPath: {[key: string]: string} = {
+const cssClassToClickPath: Record<string, string> = {
   'ga-crown-logo': 'crown_logo',
   'ga-feedback-mailto': 'feedback',
   'ga-support-mailto': 'support',
@@ -23,7 +25,7 @@ const initGoogleAnalytics = (): void => {
       $elements.each((_index: number, $element: HTMLElement) => {
         $($element).on('click', () => {
           const page: string = cssClassToClickPath[cssClass]
-          const params: {[key: string]: string|boolean} = {
+          const params: Record<string, string | boolean> = {
             anonymize_ip: true,
             page_title: page,
             page_path: `/external/${page}`
@@ -36,4 +38,4 @@ const initGoogleAnalytics = (): void => {
   }
 }
 
-$(() => initGoogleAnalytics())
+export default initGoogleAnalytics

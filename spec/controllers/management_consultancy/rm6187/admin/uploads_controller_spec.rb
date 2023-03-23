@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe ManagementConsultancy::RM6187::Admin::UploadsController, type: :controller do
+RSpec.describe ManagementConsultancy::RM6187::Admin::UploadsController do
   let(:default_params) { { service: 'management_consultancy/admin', framework: framework } }
   let(:framework) { 'RM6187' }
 
@@ -323,7 +323,7 @@ RSpec.describe ManagementConsultancy::RM6187::Admin::UploadsController, type: :c
 
     it 'renders the aasm_state as JSON' do
       expect(response.content_type).to eq('application/json; charset=utf-8')
-      expect(JSON.parse(response.body)).to eq 'import_status' => 'publishing_data'
+      expect(response.parsed_body).to eq 'import_status' => 'publishing_data'
     end
   end
 end

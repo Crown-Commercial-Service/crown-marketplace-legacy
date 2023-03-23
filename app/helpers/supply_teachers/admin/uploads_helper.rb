@@ -1,16 +1,4 @@
 module SupplyTeachers::Admin::UploadsHelper
-  def warning_text(text)
-    tag.div(class: 'govuk-warning-text') do
-      concat(tag.span('!', class: 'govuk-warning-text__icon', aria: { hidden: true }))
-      concat(
-        tag.strong(class: 'govuk-warning-text__text') do
-          concat(tag.span('Warning', class: 'govuk-warning-text__assistive'))
-          concat(text)
-        end
-      )
-    end
-  end
-
   def warning_details(uploads)
     sessions = uploads.map(&:short_uuid).to_sentence
     states = uploads.map { |upload| t("supply_teachers.admin.uploads.state.#{upload.aasm_state}") }.to_sentence.downcase

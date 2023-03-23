@@ -11,7 +11,7 @@ module SupplyTeachers::FTAToPermCalculator
     end
 
     def fee
-      (@fixed_term_contract_fee / @current_contract_length.to_f) * 12 - @fixed_term_contract_fee
+      ((@fixed_term_contract_fee / @current_contract_length.to_f) * 12) - @fixed_term_contract_fee
     end
   end
 end

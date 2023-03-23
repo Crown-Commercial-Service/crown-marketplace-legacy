@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe SupplyTeachers::RM6238::Admin::UploadsController, type: :controller do
+RSpec.describe SupplyTeachers::RM6238::Admin::UploadsController do
   let(:default_params) { { service: 'supply_teachers/admin', framework: 'RM6238' } }
   let(:file) { Tempfile.new(['valid_file', '.xlsx']) }
   let(:fake_file) { fixture_file_upload(file.path, 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet') }
@@ -374,7 +374,7 @@ RSpec.describe SupplyTeachers::RM6238::Admin::UploadsController, type: :controll
 
     it 'renders the aasm_state as JSON' do
       expect(response.content_type).to eq('application/json; charset=utf-8')
-      expect(JSON.parse(response.body)).to eq 'import_status' => 'files_processed'
+      expect(response.parsed_body).to eq 'import_status' => 'files_processed'
     end
   end
 end

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe SupplyTeachers::RM6238::Journey::Results, type: :model do
+RSpec.describe SupplyTeachers::RM6238::Journey::Results do
   describe '.branches' do
     subject(:results) { results_class.new(**params).branches(salary: salary, fixed_term_length: fixed_term_length) }
 

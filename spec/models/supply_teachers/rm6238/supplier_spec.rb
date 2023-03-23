@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe SupplyTeachers::RM6238::Supplier, type: :model do
+RSpec.describe SupplyTeachers::RM6238::Supplier do
   subject(:supplier) { build(:supply_teachers_rm6238_supplier) }
 
   describe 'validations' do

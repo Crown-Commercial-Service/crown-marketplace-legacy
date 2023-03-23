@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe ManagementConsultancy::JourneyHelper, type: :helper do
+RSpec.describe ManagementConsultancy::JourneyHelper do
   describe '#lot_number_and_description' do
     it 'returns the full title with lot and description' do
       lot_number = 'MCF3.2'

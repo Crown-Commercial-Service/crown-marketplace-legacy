@@ -1,4 +1,3 @@
-@pipeline
 Feature: Legal services - Central governemnt - fees over £20,000
 
   Scenario: If my requirements are not suitable, I cannot continue

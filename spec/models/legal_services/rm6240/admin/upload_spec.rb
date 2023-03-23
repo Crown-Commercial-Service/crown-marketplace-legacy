@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe LegalServices::RM6240::Admin::Upload, type: :model do
+RSpec.describe LegalServices::RM6240::Admin::Upload do
   let(:upload) { create(:legal_services_rm6240_admin_upload) }
   let(:valid_file) { Tempfile.new(['valid_file', '.xlsx']) }
   let(:text_file) { Tempfile.new(['text_file', '.txt']) }

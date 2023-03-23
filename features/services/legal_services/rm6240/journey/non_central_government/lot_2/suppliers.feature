@@ -1,4 +1,3 @@
-@pipeline
 Feature: Legal services - Non central governemnt - Lot 2 - Suppliers
 
   Background: Navigate to start page and complete the journey

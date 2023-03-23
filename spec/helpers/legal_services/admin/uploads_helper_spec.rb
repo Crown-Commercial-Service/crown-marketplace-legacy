@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe LegalServices::Admin::UploadsHelper, type: :helper do
+RSpec.describe LegalServices::Admin::UploadsHelper do
   describe 'upload_status_tag' do
     let(:status_tag) { helper.upload_status_tag(status) }
 

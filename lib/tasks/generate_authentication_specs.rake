@@ -33,7 +33,7 @@ module GenerateAuthenticationSpecs
     base_tag_to_value.merge((admin ? admin_tag_to_value(service_name, framework) : buyer_tag_to_value(service_name, framework)))
   end
 
-  def self.generate_spec_file(output_file_path, source_file_path, tag_to_value, registration)
+  def self.generate_spec_file(output_file_path, source_file_path, tag_to_value, registration, admin)
     source_file_text = File.read(source_file_path)
 
     tag_to_value.each do |key, value|
@@ -45,6 +45,16 @@ module GenerateAuthenticationSpecs
       source_file_text.gsub!('</registration_only>', '')
     else
       source_file_text.gsub!(REGISTRATION_ONLY_REGEX, '')
+    end
+
+    if admin
+      source_file_text.gsub!("<admin_only>\n", '')
+      source_file_text.gsub!("</admin_only>\n", '')
+      source_file_text.gsub!(NON_ADMIN_ONLY_REGEX, '')
+    else
+      source_file_text.gsub!("<non_admin_only>\n", '')
+      source_file_text.gsub!("</non_admin_only>\n", '')
+      source_file_text.gsub!(ADMIN_ONLY_REGEX, '')
     end
 
     File.write(output_file_path, source_file_text)
@@ -96,10 +106,12 @@ module GenerateAuthenticationSpecs
 
     tag_to_value = generate_tag_to_value(service_name, framework, admin)
 
-    generate_spec_file(output_file_path, source_file_path, tag_to_value, service_and_framework[:registration])
+    generate_spec_file(output_file_path, source_file_path, tag_to_value, service_and_framework[:registration], service_and_framework[:admin])
   end
 
   REGISTRATION_ONLY_REGEX = %r{<registration_only>(.|\n)*?</registration_only>}.freeze
+  ADMIN_ONLY_REGEX = %r{<admin_only>(.|\n)*?</admin_only>\n}.freeze
+  NON_ADMIN_ONLY_REGEX = %r{<non_admin_only>(.|\n)*?</non_admin_only>\n}.freeze
 
   SERVICE_AND_FRAMEWORKS = [
     {
@@ -112,7 +124,7 @@ module GenerateAuthenticationSpecs
       name: 'Legal services RM6240 admin',
       service_name: 'legal_services',
       framework: 'RM6240',
-      registration: true
+      admin: true
     },
     {
       name: 'Management consultancy RM6187 user',

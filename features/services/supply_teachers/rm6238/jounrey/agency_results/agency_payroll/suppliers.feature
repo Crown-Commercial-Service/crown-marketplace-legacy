@@ -18,7 +18,6 @@ Feature: Supply Teachers - Agency results - Agency payroll - Agencies
     And I click on 'Continue'
     Then I am on the 'Agency results' page
 
-  @pipeline
   Scenario: The agency details shown are correct
     And there are 5 agencies
     And the listed agencies with rates and distances are:
@@ -40,7 +39,6 @@ Feature: Supply Teachers - Agency results - Agency payroll - Agencies
     | KERLUKE, TORP AND HEATHCOTE   | Liverpool |
     | FEEST-MULLER                  | Liverpool |
 
-  @pipeline
   Scenario: I can download the shortlist document
     And I click on 'Download shortlist of agencies'
     Then the spreadsheet 'Shortlist of agencies' is downloaded

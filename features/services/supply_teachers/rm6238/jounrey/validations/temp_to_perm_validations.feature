@@ -1,4 +1,3 @@
-@pipeline
 Feature: Supply Teachers - Temp to perm - Validations
 
   Background: Navigate to the Find out how much you’ll be charged page

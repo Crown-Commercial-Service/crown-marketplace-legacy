@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe SupplyTeachers::RM6238::BranchesController, type: :controller do
+RSpec.describe SupplyTeachers::RM6238::BranchesController do
   let(:default_params) { { service: 'supply_teachers', framework: framework } }
   let(:framework) { 'RM6238' }
 
@@ -76,7 +76,7 @@ RSpec.describe SupplyTeachers::RM6238::BranchesController, type: :controller do
       it 'responds to requests for spreadsheets' do
         allow(SupplyTeachers::Spreadsheet)
           .to receive(:new)
-          .and_return(instance_double('Spreadsheet', to_xlsx: 'spreadsheet-data'))
+          .and_return(instance_double(SupplyTeachers::Spreadsheet, to_xlsx: 'spreadsheet-data'))
 
         get :index, params: params.merge(format: 'xlsx')
 
@@ -186,7 +186,7 @@ RSpec.describe SupplyTeachers::RM6238::BranchesController, type: :controller do
           end
 
           it 'returns the first matching branch' do
-            expect(JSON.parse(response.body)).to include(
+            expect(JSON.parse(response.parsed_body)).to include(
               'id' => first_branch.id
             )
           end
@@ -195,7 +195,7 @@ RSpec.describe SupplyTeachers::RM6238::BranchesController, type: :controller do
             let(:annual_salary) { '' }
 
             it 'returns nothing' do
-              expect(JSON.parse(response.body)).to be_nil
+              expect(JSON.parse(response.parsed_body)).to be_nil
             end
           end
         end
