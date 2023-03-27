@@ -1,8 +1,9 @@
 ---
 require:
-  - rubocop-rspec
-  - rubocop-rails
-  - './lib/cop/all'
+    - rubocop-capybara
+    - rubocop-rspec
+    - rubocop-rails
+    - './lib/cop/all'
 
 AllCops:
     NewCops: enable
