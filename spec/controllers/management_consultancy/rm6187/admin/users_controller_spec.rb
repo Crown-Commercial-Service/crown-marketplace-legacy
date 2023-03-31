@@ -13,7 +13,7 @@ RSpec.describe ManagementConsultancy::RM6187::Admin::UsersController do
     before { cookies[:crown_marketplace_challenge_username] = user.cognito_uuid }
 
     context 'when the framework is live' do
-      before { get :challenge_new, params: { challenge_name: challenge_name } }
+      before { get :challenge_new, params: { challenge_name: } }
 
       render_views
 
@@ -37,7 +37,7 @@ RSpec.describe ManagementConsultancy::RM6187::Admin::UsersController do
     context 'when the framework is not live' do
       include_context 'and RM6187 has expired'
 
-      before { get :challenge_new, params: { challenge_name: challenge_name } }
+      before { get :challenge_new, params: { challenge_name: } }
 
       render_views
 
@@ -82,7 +82,7 @@ RSpec.describe ManagementConsultancy::RM6187::Admin::UsersController do
       before do
         allow(Aws::CognitoIdentityProvider::Client).to receive(:new).and_return(aws_client)
         allow(aws_client).to receive(:respond_to_auth_challenge).and_return(respond_to_auth_challenge_resp_struct.new(challenge_name: new_challenge_name, session: new_session))
-        allow(Cognito::CreateUserFromCognito).to receive(:call).and_return(admin_create_user_resp_struct.new(user: user))
+        allow(Cognito::CreateUserFromCognito).to receive(:call).and_return(admin_create_user_resp_struct.new(user:))
       end
 
       context 'when the framework is live' do
@@ -158,12 +158,12 @@ RSpec.describe ManagementConsultancy::RM6187::Admin::UsersController do
       before do
         allow(Aws::CognitoIdentityProvider::Client).to receive(:new).and_return(aws_client)
         allow(aws_client).to receive(:respond_to_auth_challenge).and_return(respond_to_auth_challenge_resp_struct.new)
-        allow(Cognito::CreateUserFromCognito).to receive(:call).and_return(admin_create_user_resp_struct.new(user: user))
+        allow(Cognito::CreateUserFromCognito).to receive(:call).and_return(admin_create_user_resp_struct.new(user:))
       end
 
       context 'when the framework is live' do
         before do
-          post :challenge, params: { challenge_name: challenge_name, username: username, session: session, access_code: access_code }
+          post :challenge, params: { challenge_name:, username:, session:, access_code: }
           cookies.update(response.cookies)
         end
 
@@ -196,7 +196,7 @@ RSpec.describe ManagementConsultancy::RM6187::Admin::UsersController do
         include_context 'and RM6187 has expired'
 
         before do
-          post :challenge, params: { challenge_name: challenge_name, username: username, session: session, access_code: access_code }
+          post :challenge, params: { challenge_name:, username:, session:, access_code: }
           cookies.update(response.cookies)
         end
 

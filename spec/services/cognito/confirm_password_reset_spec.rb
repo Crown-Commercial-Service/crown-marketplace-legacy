@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Cognito::ConfirmPasswordReset do
-  let(:username) { create(:user).email }
+  let(:email) { create(:user).email }
   let(:password) { 'ValidPass123!' }
   let(:password_confirmation) { 'ValidPass123!' }
   let(:confirmation_code) { '1234' }
@@ -9,8 +9,50 @@ RSpec.describe Cognito::ConfirmPasswordReset do
 
   before { allow(Aws::CognitoIdentityProvider::Client).to receive(:new).and_return(aws_client) }
 
+  describe '#initialize' do
+    let(:confirm_password_reset) { described_class.new(email, password, password_confirmation, confirmation_code) }
+
+    let(:email) { 'user@test.com' }
+
+    let(:confirm_password_reset_attributes) do
+      {
+        email: confirm_password_reset.email,
+        password: confirm_password_reset.password,
+        password_confirmation: confirm_password_reset.password_confirmation,
+        confirmation_code: confirm_password_reset.confirmation_code
+      }
+    end
+
+    it 'initialises the object with the attributes' do
+      expect(confirm_password_reset_attributes).to eq(
+        {
+          email: 'user@test.com',
+          password: 'ValidPass123!',
+          password_confirmation: 'ValidPass123!',
+          confirmation_code: '1234'
+        }
+      )
+    end
+
+    context 'when the email has uppercase letters' do
+      let(:email) { 'Test@Test.com' }
+
+      it 'makes the email lower case' do
+        expect(confirm_password_reset.email).to eq('test@test.com')
+      end
+    end
+
+    context 'when the email is nil' do
+      let(:email) { nil }
+
+      it 'returns nil for the email' do
+        expect(confirm_password_reset.email).to be_nil
+      end
+    end
+  end
+
   describe '#validations' do
-    let(:response) { described_class.new(username, password, password_confirmation, confirmation_code) }
+    let(:response) { described_class.new(email, password, password_confirmation, confirmation_code) }
 
     context 'when password shorter than 8 characters' do
       let(:password) { 'Pass!' }
@@ -50,7 +92,7 @@ RSpec.describe Cognito::ConfirmPasswordReset do
   end
 
   describe '#call' do
-    let(:response) { described_class.call(username, password, password_confirmation, confirmation_code) }
+    let(:response) { described_class.call(email, password, password_confirmation, confirmation_code) }
 
     context 'when success' do
       include_context 'with cognito structs'

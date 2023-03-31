@@ -109,9 +109,9 @@ module GenerateAuthenticationSpecs
     generate_spec_file(output_file_path, source_file_path, tag_to_value, service_and_framework[:registration], service_and_framework[:admin])
   end
 
-  REGISTRATION_ONLY_REGEX = %r{<registration_only>(.|\n)*?</registration_only>}.freeze
-  ADMIN_ONLY_REGEX = %r{<admin_only>(.|\n)*?</admin_only>\n}.freeze
-  NON_ADMIN_ONLY_REGEX = %r{<non_admin_only>(.|\n)*?</non_admin_only>\n}.freeze
+  REGISTRATION_ONLY_REGEX = %r{<registration_only>(.|\n)*?</registration_only>}
+  ADMIN_ONLY_REGEX = %r{<admin_only>(.|\n)*?</admin_only>\n}
+  NON_ADMIN_ONLY_REGEX = %r{<non_admin_only>(.|\n)*?</non_admin_only>\n}
 
   SERVICE_AND_FRAMEWORKS = [
     {

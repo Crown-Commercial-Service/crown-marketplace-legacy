@@ -7,6 +7,6 @@ FactoryBot.define do
     contact_name { Faker::Name.unique.name }
     contact_email { Faker::Internet.unique.email }
     slug { Faker::Name.unique.name }
-    initialize_with { new(attributes) }
+    initialize_with { new(**attributes) }
   end
 end

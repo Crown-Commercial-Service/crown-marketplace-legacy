@@ -35,7 +35,7 @@ module SupplyTeachers
 
       def fail_upload(upload, fail_reason)
         upload.fail!
-        upload.update(fail_reason: fail_reason)
+        upload.update(fail_reason:)
       end
 
       def admin_upload_module

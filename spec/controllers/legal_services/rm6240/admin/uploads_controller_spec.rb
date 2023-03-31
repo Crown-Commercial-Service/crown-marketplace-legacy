@@ -276,7 +276,7 @@ RSpec.describe LegalServices::RM6240::Admin::UploadsController do
   end
 
   describe 'GET show' do
-    let(:upload) { create(:legal_services_rm6240_admin_upload, aasm_state: aasm_state) }
+    let(:upload) { create(:legal_services_rm6240_admin_upload, aasm_state:) }
 
     login_ls_admin
 

@@ -115,7 +115,7 @@ module SupplyTeachers
     def geocode_branch(row)
       lat, lon = geocode(row[:postcode])
       if lat && lon
-        row.merge(lat: lat, lon: lon)
+        row.merge(lat:, lon:)
       else
         add_error(row, "Unable to geocode #{row[:postcode]}")
         row

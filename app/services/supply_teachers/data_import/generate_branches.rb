@@ -41,9 +41,9 @@ module SupplyTeachers
       names = row[:contact_name].split(%r{[,/\n]+}m)
       emails = row[:email].split(/[;\s]+/)
       contacts = names.zip(emails)
-      contacts = contacts.map { |(name, email)| { name: name, email: email } }
+      contacts = contacts.map { |(name, email)| { name:, email: } }
       new_row = if names.count == emails.count
-                  row.merge(contacts: contacts)
+                  row.merge(contacts:)
                 else
                   row.merge(contacts: [])
                 end

@@ -13,7 +13,7 @@
       </div>
     <% end %>
 
-    <%= form_with url: @form_path, method: :get, local: true, class: 'supplier-record__calculator-form', html: { specialvalidation: true, novalidate: true } do |f| %>
+    <%= form_with url: @form_path, method: :get, class: 'supplier-record__calculator-form', html: { specialvalidation: true, novalidate: true } do |f| %>
       <%= hidden_fields_for_previous_steps_and_responses(@journey) %>
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">

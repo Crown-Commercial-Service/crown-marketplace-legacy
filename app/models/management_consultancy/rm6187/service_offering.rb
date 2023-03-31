@@ -14,11 +14,11 @@ module ManagementConsultancy
                                inclusion: { in: Service.all_codes }
 
       def self.for_lot(lot_number)
-        where(lot_number: lot_number)
+        where(lot_number:)
       end
 
       def self.for_service_code(service_code)
-        where(service_code: service_code)
+        where(service_code:)
       end
 
       def service

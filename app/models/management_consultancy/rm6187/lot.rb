@@ -6,7 +6,7 @@ module ManagementConsultancy
       attr_accessor :number, :description, :framework
 
       def self.[](number)
-        Lot.find_by(number: number)
+        Lot.find_by(number:)
       end
 
       def full_description

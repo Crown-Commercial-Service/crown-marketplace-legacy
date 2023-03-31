@@ -7,11 +7,11 @@ module SupplyTeachers
     attribute :term
 
     def rates
-      service_name::Rate.direct_provision.rate_for(job_type: job_type, term: term)
+      service_name::Rate.direct_provision.rate_for(job_type:, term:)
     end
 
     def rate(branch)
-      branch.supplier.rate_for(job_type: job_type, term: term)
+      branch.supplier.rate_for(job_type:, term:)
     end
 
     def job_type

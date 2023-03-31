@@ -6,7 +6,7 @@ module LegalServices
       attr_accessor :code, :name
 
       def self.[](code)
-        Jurisdiction.find_by(code: code)
+        Jurisdiction.find_by(code:)
       end
 
       def self.all_codes

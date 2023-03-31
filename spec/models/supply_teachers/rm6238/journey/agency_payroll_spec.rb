@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe SupplyTeachers::RM6238::Journey::AgencyPayroll do
-  subject(:step) { described_class.new(postcode: postcode, job_type: job_type, term: term) }
+  subject(:step) { described_class.new(postcode:, job_type:, term:) }
 
   let(:postcode) { 'SW1A 1AA' }
   let(:job_type) { 'teacher' }

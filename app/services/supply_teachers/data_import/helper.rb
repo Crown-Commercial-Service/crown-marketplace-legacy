@@ -59,7 +59,7 @@ module SupplyTeachers::DataImport::Helper
   end
 
   def subhead?(row)
-    row[:number] =~ /Category Line/ || row[:number].nil?
+    row[:number].to_s =~ /Category Line/ || row[:number].nil?
   end
 
   def remove_unused_keys(row)

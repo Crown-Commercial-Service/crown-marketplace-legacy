@@ -27,7 +27,7 @@ RSpec.describe LegalServices::RM6240::Supplier do
     before { supplier.save! }
 
     context 'and the supplier has service offerings' do
-      let!(:service_offering) { create(:legal_services_rm6240_full_service_provision_service_offering, supplier: supplier) }
+      let!(:service_offering) { create(:legal_services_rm6240_full_service_provision_service_offering, supplier:) }
 
       it 'destroys all its service offerings' do
         supplier.destroy!
@@ -37,7 +37,7 @@ RSpec.describe LegalServices::RM6240::Supplier do
     end
 
     context 'and the supplier has rates' do
-      let!(:rate) { create(:legal_services_rm6240_full_service_provision_rate, supplier: supplier) }
+      let!(:rate) { create(:legal_services_rm6240_full_service_provision_rate, supplier:) }
 
       it 'destroys all its rates' do
         supplier.destroy!
@@ -94,7 +94,7 @@ RSpec.describe LegalServices::RM6240::Supplier do
       let(:service_numbers) { %w[1] }
 
       it 'returns both suppliers' do
-        expect(result).to match_array([supplier1, supplier2])
+        expect(result).to contain_exactly(supplier1, supplier2)
       end
     end
 
@@ -102,7 +102,7 @@ RSpec.describe LegalServices::RM6240::Supplier do
       let(:service_numbers) { %w[1 2] }
 
       it 'returns the second supplier' do
-        expect(result).to match_array([supplier2])
+        expect(result).to contain_exactly(supplier2)
       end
     end
 
@@ -121,7 +121,7 @@ RSpec.describe LegalServices::RM6240::Supplier do
       let(:jurisdiction) { nil }
 
       it 'returns the second supplier' do
-        expect(result).to match_array([supplier2])
+        expect(result).to contain_exactly(supplier2)
       end
     end
 
@@ -130,15 +130,15 @@ RSpec.describe LegalServices::RM6240::Supplier do
       let(:jurisdiction) { 'b' }
 
       it 'returns the first supplier' do
-        expect(result).to match_array([supplier1])
+        expect(result).to contain_exactly(supplier1)
       end
     end
   end
 
   describe 'when the supplier is destroyed' do
     let!(:supplier) { create(:legal_services_rm6240_supplier) }
-    let!(:rate) { create(:legal_services_rm6240_full_service_provision_rate, supplier: supplier) }
-    let!(:service_offering) { create(:legal_services_rm6240_full_service_provision_service_offering, supplier: supplier) }
+    let!(:rate) { create(:legal_services_rm6240_full_service_provision_rate, supplier:) }
+    let!(:service_offering) { create(:legal_services_rm6240_full_service_provision_service_offering, supplier:) }
 
     it 'destroys all suppliers' do
       expect(described_class.find_by(id: supplier.id)).to eq supplier

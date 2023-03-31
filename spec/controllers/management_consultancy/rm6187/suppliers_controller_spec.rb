@@ -16,7 +16,7 @@ RSpec.describe ManagementConsultancy::RM6187::SuppliersController do
   end
 
   describe 'GET index' do
-    before { get :index, params: params }
+    before { get :index, params: }
 
     let(:params) do
       {

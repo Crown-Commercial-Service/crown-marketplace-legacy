@@ -48,7 +48,7 @@ RSpec.describe LegalServices::RM6240::RegistrationsController do
           allow_any_instance_of(Cognito::SignUpUser).to receive(:add_user_to_groups).and_return(true)
           allow_any_instance_of(AllowedEmailDomain).to receive(:allow_list).and_return(['testemail.com'])
           # rubocop:enable RSpec/AnyInstance
-          post :create, params: { user: { email: email, password: password, password_confirmation: password_confirmation } }
+          post :create, params: { user: { email:, password:, password_confirmation: } }
           cookies.update(response.cookies)
         end
 
@@ -86,7 +86,7 @@ RSpec.describe LegalServices::RM6240::RegistrationsController do
           allow_any_instance_of(Cognito::SignUpUser).to receive(:add_user_to_groups).and_return(true)
           allow_any_instance_of(AllowedEmailDomain).to receive(:allow_list).and_return(['testemail.com'])
           # rubocop:enable RSpec/AnyInstance
-          post :create, params: { user: { email: email, password: password, password_confirmation: password_confirmation } }
+          post :create, params: { user: { email:, password:, password_confirmation: } }
           cookies.update(response.cookies)
         end
 
@@ -116,7 +116,7 @@ RSpec.describe LegalServices::RM6240::RegistrationsController do
       include_context 'and RM6240 has expired'
 
       it 'renders the unrecognised framework page with the right http status' do
-        post :create, params: { user: { email: email, password: password, password_confirmation: password_confirmation } }
+        post :create, params: { user: { email:, password:, password_confirmation: } }
 
         expect(response).to render_template('home/unrecognised_framework')
         expect(response).to have_http_status(:bad_request)

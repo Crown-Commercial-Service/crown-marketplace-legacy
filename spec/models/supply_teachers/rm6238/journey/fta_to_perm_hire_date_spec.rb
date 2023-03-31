@@ -3,12 +3,12 @@ require 'rails_helper'
 RSpec.describe SupplyTeachers::RM6238::Journey::FTAToPermHireDate do
   subject(:step) do
     described_class.new(
-      contract_end_date_day: contract_end_date_day,
-      contract_end_date_month: contract_end_date_month,
-      contract_end_date_year: contract_end_date_year,
-      hire_date_day: hire_date_day,
-      hire_date_month: hire_date_month,
-      hire_date_year: hire_date_year
+      contract_end_date_day:,
+      contract_end_date_month:,
+      contract_end_date_year:,
+      hire_date_day:,
+      hire_date_month:,
+      hire_date_year:
     )
   end
 

@@ -15,7 +15,7 @@ module LegalServices
       end
 
       def self.services_for_lot(lot_number)
-        where(lot_number: lot_number)
+        where(lot_number:)
       end
 
       def service_code

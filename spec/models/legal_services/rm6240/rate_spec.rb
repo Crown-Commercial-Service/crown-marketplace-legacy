@@ -8,7 +8,7 @@ RSpec.describe LegalServices::RM6240::Rate do
   # rubocop:disable RSpec/NestedGroups
   describe 'validations' do
     context 'when validating the lot number' do
-      before { rate.assign_attributes(lot_number: lot_number) }
+      before { rate.assign_attributes(lot_number:) }
 
       context 'and it is blank' do
         let(:lot_number) { nil }
@@ -28,7 +28,7 @@ RSpec.describe LegalServices::RM6240::Rate do
     end
 
     context 'when validating the jurisdiction' do
-      before { rate.assign_attributes(lot_number: lot_number, jurisdiction: jurisdiction) }
+      before { rate.assign_attributes(lot_number:, jurisdiction:) }
 
       context 'and the lot requires it' do
         let(:lot_number) { '2' }
@@ -80,7 +80,7 @@ RSpec.describe LegalServices::RM6240::Rate do
     end
 
     context 'when validating the position' do
-      before { rate.assign_attributes(position: position) }
+      before { rate.assign_attributes(position:) }
 
       context 'and it is blank' do
         let(:position) { nil }
@@ -147,10 +147,10 @@ RSpec.describe LegalServices::RM6240::Rate do
       let(:new_rate) do
         build(
           :legal_services_rm6240_rate,
-          supplier: supplier,
-          lot_number: lot_number,
-          jurisdiction: jurisdiction,
-          position: position
+          supplier:,
+          lot_number:,
+          jurisdiction:,
+          position:
         )
       end
       let(:supplier) { rate.supplier }

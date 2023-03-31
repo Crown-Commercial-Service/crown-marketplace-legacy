@@ -33,7 +33,7 @@ class SupplyTeachers::Spreadsheet
   def spreadsheet(name)
     package = Axlsx::Package.new
     workbook = package.workbook
-    workbook.add_worksheet(name: name) do |sheet|
+    workbook.add_worksheet(name:) do |sheet|
       yield workbook, sheet
     end
     package.to_stream.read

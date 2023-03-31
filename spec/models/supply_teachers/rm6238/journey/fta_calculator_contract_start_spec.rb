@@ -3,9 +3,9 @@ require 'rails_helper'
 RSpec.describe SupplyTeachers::RM6238::Journey::FTACalculatorContractStart do
   subject(:step) do
     described_class.new(
-      contract_start_date_day: contract_start_date_day,
-      contract_start_date_month: contract_start_date_month,
-      contract_start_date_year: contract_start_date_year
+      contract_start_date_day:,
+      contract_start_date_month:,
+      contract_start_date_year:
     )
   end
 

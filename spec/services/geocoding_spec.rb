@@ -4,7 +4,7 @@ RSpec.describe Geocoding do
   subject(:geocoding) { described_class.new }
 
   describe '#point' do
-    subject(:point) { geocoding.point(postcode: postcode) }
+    subject(:point) { geocoding.point(postcode:) }
 
     context 'when the postcode is found' do
       let(:postcode) { 'TS14 6RD' }
@@ -21,7 +21,7 @@ RSpec.describe Geocoding do
         Geocoder::Lookup::Test.reset
       end
 
-      it { is_expected.to have_attributes(longitude: longitude, latitude: latitude) }
+      it { is_expected.to have_attributes(longitude:, latitude:) }
     end
 
     context 'when the postcode is not found' do
@@ -46,7 +46,7 @@ RSpec.describe Geocoding do
     let(:longitude) { 1.0 }
 
     let(:point) do
-      described_class.point(latitude: latitude, longitude: longitude)
+      described_class.point(latitude:, longitude:)
     end
 
     it 'returns point which can be saved to st_point database column' do

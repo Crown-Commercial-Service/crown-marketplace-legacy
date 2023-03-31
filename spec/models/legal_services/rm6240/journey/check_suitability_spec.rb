@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe LegalServices::RM6240::Journey::CheckSuitability do
-  subject(:step) { described_class.new(service_suitable: service_suitable) }
+  subject(:step) { described_class.new(service_suitable:) }
 
   let(:service_suitable) { 'yes' }
 

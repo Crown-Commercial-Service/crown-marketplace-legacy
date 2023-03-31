@@ -136,7 +136,7 @@ module LegalServices::RM6240::Admin
 
       it 'has the correct data for the suppliers' do
         expected_supplier_results.each do |name, expected_results|
-          supplier = LegalServices::RM6240::Supplier.find_by(name: name)
+          supplier = LegalServices::RM6240::Supplier.find_by(name:)
 
           expect(supplier.service_offerings.count).to eq expected_results[:service_offerings]
           expect(supplier.rates.count).to eq expected_results[:rates]

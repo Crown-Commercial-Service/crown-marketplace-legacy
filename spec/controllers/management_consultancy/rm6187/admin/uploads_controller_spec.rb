@@ -277,7 +277,7 @@ RSpec.describe ManagementConsultancy::RM6187::Admin::UploadsController do
   end
 
   describe 'GET show' do
-    let(:upload) { create(:management_consultancy_rm6187_admin_upload, aasm_state: aasm_state) }
+    let(:upload) { create(:management_consultancy_rm6187_admin_upload, aasm_state:) }
 
     login_mc_admin
 

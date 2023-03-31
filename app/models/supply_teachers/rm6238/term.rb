@@ -6,7 +6,7 @@ module SupplyTeachers
       attr_accessor :code, :description
 
       def self.[](code)
-        find_by(code: code).description
+        find_by(code:).description
       end
 
       def self.all_codes

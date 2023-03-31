@@ -111,7 +111,7 @@ RSpec.describe ManagementConsultancy::RM6187::Admin::FilesImporter do
 
     it 'has the correct data for the suppliers' do
       expected_supplier_results.each do |name, expected_results|
-        supplier = ManagementConsultancy::RM6187::Supplier.find_by(name: name)
+        supplier = ManagementConsultancy::RM6187::Supplier.find_by(name:)
 
         expect(supplier.service_offerings.count).to eq expected_results[:service_offerings]
         expect(supplier.rate_cards.count).to eq expected_results[:rate_cards]

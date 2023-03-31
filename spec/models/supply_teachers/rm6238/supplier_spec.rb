@@ -27,8 +27,8 @@ RSpec.describe SupplyTeachers::RM6238::Supplier do
     before { supplier.save! }
 
     context 'and the supplier has branches' do
-      let!(:first_branch) { create(:supply_teachers_rm6238_branch, supplier: supplier) }
-      let!(:second_branch) { create(:supply_teachers_rm6238_branch, supplier: supplier) }
+      let!(:first_branch) { create(:supply_teachers_rm6238_branch, supplier:) }
+      let!(:second_branch) { create(:supply_teachers_rm6238_branch, supplier:) }
 
       it 'destroys all its branches' do
         supplier.destroy!
@@ -39,7 +39,7 @@ RSpec.describe SupplyTeachers::RM6238::Supplier do
     end
 
     context 'and the supplier has rates' do
-      let!(:rate) { create(:supply_teachers_rm6238_rate, supplier: supplier) }
+      let!(:rate) { create(:supply_teachers_rm6238_rate, supplier:) }
 
       it 'destroys all its rates' do
         supplier.destroy!
@@ -49,8 +49,8 @@ RSpec.describe SupplyTeachers::RM6238::Supplier do
     end
 
     context 'and the supplier has manged service providers' do
-      let!(:managed_service_provider_1) { create(:supply_teachers_rm6238_managed_service_provider_master_vendor, supplier: supplier) }
-      let!(:managed_service_provider_2) { create(:supply_teachers_rm6238_managed_service_provider_master_vendor, supplier: supplier) }
+      let!(:managed_service_provider_1) { create(:supply_teachers_rm6238_managed_service_provider_master_vendor, supplier:) }
+      let!(:managed_service_provider_2) { create(:supply_teachers_rm6238_managed_service_provider_master_vendor, supplier:) }
 
       it 'destroys all its rates' do
         supplier.destroy!
@@ -120,7 +120,7 @@ RSpec.describe SupplyTeachers::RM6238::Supplier do
   describe 'with managed service provider rates' do
     let!(:supplier_with_direct_provision_rate) do
       create(:supply_teachers_rm6238_supplier).tap do |supplier|
-        create(:rm6238_direct_provision_rate, supplier: supplier)
+        create(:rm6238_direct_provision_rate, supplier:)
       end
     end
 
@@ -129,7 +129,7 @@ RSpec.describe SupplyTeachers::RM6238::Supplier do
     context 'when calling with_master_vendor_rates with below_threshold' do
       let!(:supplier_with_master_vendor_below_threshold_rate) do
         create(:supply_teachers_rm6238_supplier).tap do |supplier|
-          create(:supply_teachers_rm6238_master_vendor_below_threshold_rate, supplier: supplier)
+          create(:supply_teachers_rm6238_master_vendor_below_threshold_rate, supplier:)
         end
       end
 
@@ -147,7 +147,7 @@ RSpec.describe SupplyTeachers::RM6238::Supplier do
     context 'when calling with_master_vendor_rates with above_threshold' do
       let!(:supplier_with_master_vendor_above_threshold_rate) do
         create(:supply_teachers_rm6238_supplier).tap do |supplier|
-          create(:supply_teachers_rm6238_master_vendor_above_threshold_rate, supplier: supplier)
+          create(:supply_teachers_rm6238_master_vendor_above_threshold_rate, supplier:)
         end
       end
 
@@ -165,7 +165,7 @@ RSpec.describe SupplyTeachers::RM6238::Supplier do
     context 'when calling with_education_technology_platforms_rates' do
       let!(:supplier_with_education_technology_platforms_rate) do
         create(:supply_teachers_rm6238_supplier).tap do |supplier|
-          create(:supply_teachers_rm6238_education_technology_platforms_rate, supplier: supplier)
+          create(:supply_teachers_rm6238_education_technology_platforms_rate, supplier:)
         end
       end
 
