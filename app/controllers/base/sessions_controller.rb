@@ -3,9 +3,9 @@ module Base
     include Base::AuthenticationPathsConcern
 
     skip_forgery_protection
-    before_action :authenticate_user!, except: %i[new create destroy]
-    before_action :authorize_user, except: %i[new create destroy]
-    before_action :validate_service, except: :destroy
+    before_action :authenticate_user!, except: %i[new create destroy active timeout]
+    before_action :authorize_user, except: %i[new create destroy active timeout]
+    before_action :validate_service, except: %i[destroy active timeout]
 
     helper_method :new_user_session_path, :new_user_password_path, :sign_up_path
 
@@ -31,6 +31,20 @@ module Base
       current_user.invalidate_session!
       current_user.save!
       super
+    end
+
+    def active
+      render_session_status
+    end
+
+    def timeout
+      session[:return_to] = params[:url]
+
+      begin
+        redirect_to "#{params[:service_path_base]}/sign-in?expired=true"
+      rescue ActionController::RoutingError
+        redirect_to "#{service_path_base}/sign-in?expired=true"
+      end
     end
 
     protected

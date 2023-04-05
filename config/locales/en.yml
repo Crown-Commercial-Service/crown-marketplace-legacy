@@ -134,6 +134,7 @@ en:
         password: Password
         please_enter_a_valid_email_address: You must provide your email address in the correct format, like name@example.com
         problems_signing_in: Problems signing in
+        session_expired: Sorry, your session has timed out due to 30 minutes of inactivity. To continue using this service, you need to sign in again.
     users:
       confirm_new:
         confirmation_code: Confirmation code

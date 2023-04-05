@@ -57,6 +57,10 @@ gem 'json-jwt', '>= 1.11.0'
 
 # for authentication
 gem 'devise', '~> 4.9.2'
+
+# for timing out when session expires
+gem 'auto-session-timeout', '~> 1.0'
+
 # for cognito
 gem 'aws-sdk-cognitoidentityprovider', '~> 1.73.0'
 
