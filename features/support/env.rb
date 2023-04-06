@@ -78,10 +78,6 @@ Cucumber::Rails::Database.javascript_strategy = :transaction
 # Capybara settings can go here
 Capybara.ignore_hidden_elements = false
 
-# Until Capybara version is greater than 3.38, set this outsleves to make sure
-# the :options argument is being used instead of :capabilities
-Capybara::Selenium::Driver::CAPS_VERSION = Gem::Requirement.new('> 4.0.0.alpha6', '< 4.8.0')
-
 Capybara.javascript_driver = :selenium_headless
 
 # For the supply teachers tests
