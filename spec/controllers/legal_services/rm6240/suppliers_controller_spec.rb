@@ -6,7 +6,7 @@ RSpec.describe LegalServices::RM6240::SuppliersController do
   let(:supplier) { create(:legal_services_rm6240_supplier) }
   let(:suppliers) { LegalServices::RM6240::Supplier.where(id: supplier.id) }
   let(:lot) { LegalServices::RM6240::Lot.find_by(number: lot_number) }
-  let(:services) { LegalServices::RM6240::Service.where(lot_number: lot_number).sample(5).map(&:code) }
+  let(:services) { LegalServices::RM6240::Service.where(lot_number:).sample(5).map(&:code) }
   let(:jurisdiction) { nil }
   let(:central_government) { 'no' }
 
@@ -18,7 +18,7 @@ RSpec.describe LegalServices::RM6240::SuppliersController do
   end
 
   describe 'GET index' do
-    before { get :index, params: params }
+    before { get :index, params: }
 
     context 'when the lot answer is lot1' do
       let(:lot_number) { '1' }
@@ -79,7 +79,7 @@ RSpec.describe LegalServices::RM6240::SuppliersController do
     end
 
     context 'and the request format is html' do
-      before { get :download, params: params }
+      before { get :download, params: }
 
       it 'renders the download template' do
         expect(response).to render_template('download')

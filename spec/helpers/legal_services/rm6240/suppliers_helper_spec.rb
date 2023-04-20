@@ -13,7 +13,7 @@ RSpec.describe LegalServices::RM6240::SuppliersHelper do
   describe '.prospectus_link_present?' do
     before do
       params[:lot] = '1'
-      @supplier = create(:legal_services_rm6240_supplier, lot_1_prospectus_link: lot_1_prospectus_link)
+      @supplier = create(:legal_services_rm6240_supplier, lot_1_prospectus_link:)
     end
 
     context 'when the link is nil' do
@@ -73,7 +73,7 @@ RSpec.describe LegalServices::RM6240::SuppliersHelper do
 
     before do
       params[:lot] = lot_number
-      @supplier = create(:legal_services_rm6240_supplier, lot_1_prospectus_link: lot_1_prospectus_link, lot_2_prospectus_link: lot_2_prospectus_link, lot_3_prospectus_link: lot_3_prospectus_link)
+      @supplier = create(:legal_services_rm6240_supplier, lot_1_prospectus_link:, lot_2_prospectus_link:, lot_3_prospectus_link:)
     end
 
     context 'when in lot 1' do
@@ -120,7 +120,7 @@ RSpec.describe LegalServices::RM6240::SuppliersHelper do
       let(:position) { '1' }
 
       it 'returns the partner rate in punds and pence' do
-        expect(result).to eq "£#{(hourly_partner / 100).to_s(:delimited)}.00"
+        expect(result).to eq "£#{(hourly_partner / 100).to_fs(:delimited)}.00"
       end
     end
 
@@ -128,7 +128,7 @@ RSpec.describe LegalServices::RM6240::SuppliersHelper do
       let(:position) { '5' }
 
       it 'returns the partner rate in punds and pence' do
-        expect(result).to eq "£#{(hourly_trainee / 100).to_s(:delimited)}.00"
+        expect(result).to eq "£#{(hourly_trainee / 100).to_fs(:delimited)}.00"
       end
     end
 

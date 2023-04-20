@@ -1,10 +1,10 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.7'
+ruby '3.2.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.1.7'
+gem 'rails', '~> 7.0.4'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
@@ -14,7 +14,9 @@ gem 'sass-rails', '~> 5.1', '>= 5.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
 
-gem 'shakapacker', '~> 6.5.6'
+gem 'sprockets-rails'
+
+gem 'shakapacker', '~> 6.6.0'
 
 gem 'turbolinks', '~> 5'
 
@@ -76,9 +78,9 @@ gem 'jsonpath', '~> 1.1.2'
 gem 'aasm', '~> 5.5'
 
 # for running background jobs
-gem 'sidekiq', '~> 7.0.6'
+gem 'sidekiq', '~> 7.0.7'
 gem 'sinatra', '~> 3.0.5', require: false
-gem 'slim', '~> 5.0.0'
+gem 'slim', '~> 5.1.0'
 
 # for authorization
 gem 'cancancan', '~> 3.5.0'

@@ -10,16 +10,16 @@ RSpec.describe 'management_consultancy/rm6187/suppliers/_supplier.html.erb' do
   let(:supplier) do
     create(
       :management_consultancy_rm6187_supplier,
-      contact_name: contact_name,
-      contact_email: contact_email,
-      telephone_number: telephone_number
+      contact_name:,
+      contact_email:,
+      telephone_number:
     )
   end
   let(:services) { [] }
 
   before do
     allow(supplier).to receive(:services_in_lot).and_return(services)
-    render 'management_consultancy/rm6187/suppliers/supplier', supplier: supplier
+    render 'management_consultancy/rm6187/suppliers/supplier', supplier:
   end
 
   it 'displays the supplier name' do
@@ -29,7 +29,7 @@ RSpec.describe 'management_consultancy/rm6187/suppliers/_supplier.html.erb' do
   context 'when the supplier is an SME' do
     before do
       supplier.update(sme: true)
-      render 'management_consultancy/rm6187/suppliers/supplier', supplier: supplier
+      render 'management_consultancy/rm6187/suppliers/supplier', supplier:
     end
 
     it 'displays the SME label' do

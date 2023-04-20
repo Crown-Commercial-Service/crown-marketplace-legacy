@@ -8,7 +8,7 @@ RSpec.describe SupplyTeachers::RM6238::Rate do
   it { is_expected.to be_valid }
 
   it 'only has unique codes' do
-    expect(all_codes.uniq).to contain_exactly(*all_codes)
+    expect(all_codes.uniq).to match_array(all_codes)
   end
 
   context 'when validating the lot number' do
@@ -28,7 +28,7 @@ RSpec.describe SupplyTeachers::RM6238::Rate do
     let(:term) { rate.term }
     let(:job_type) { rate.job_type }
 
-    before { rate.assign_attributes(term: term, job_type: job_type) }
+    before { rate.assign_attributes(term:, job_type:) }
 
     context 'and the job_type is blank' do
       let(:job_type) { '' }
@@ -408,10 +408,10 @@ RSpec.describe SupplyTeachers::RM6238::Rate do
     let(:new_rate) do
       build(
         :supply_teachers_rm6238_rate,
-        supplier: supplier,
-        job_type: job_type,
-        lot_number: lot_number,
-        term: term
+        supplier:,
+        job_type:,
+        lot_number:,
+        term:
       )
     end
     let(:supplier) { rate.supplier }

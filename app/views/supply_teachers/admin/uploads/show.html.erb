@@ -73,14 +73,14 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <% if @upload.files_processed? %>
-      <%= form_with model: @upload, method: :put, local: 'false', html: { specialvalidation: true, novalidate: true } do |f| %>
+      <%= form_with model: @upload, method: :put, html: { specialvalidation: true, novalidate: true } do |f| %>
         <p class="govuk-body govuk-!-margin-top-8"><%= t('.confirm_changes') %></p>
         <%= f.submit t('.approve'), class: 'govuk-button govuk-!-margin-right-4', name: :approve %>
         <%= f.submit t('.reject'), class: 'govuk-button  govuk-button--warning', name: :reject %>
       <% end %>
     <% end %>
     <% if @upload.processing_files? %>
-      <%= form_with model: @upload, method: :delete, local: 'false', html: { specialvalidation: true, novalidate: true } do |f| %>
+      <%= form_with model: @upload, method: :delete, html: { specialvalidation: true, novalidate: true } do |f| %>
         <%= f.submit t('.delete'), class: 'govuk-button  govuk-button--warning', name: :delete %>
       <% end %>
     <% end %>

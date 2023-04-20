@@ -4,7 +4,7 @@ module SupplyTeachers::Admin::UploadsHelper
     states = uploads.map { |upload| t("supply_teachers.admin.uploads.state.#{upload.aasm_state}") }.to_sentence.downcase
 
     if uploads.count > 1
-      t('supply_teachers.admin.uploads.new.warning_plural', sessions: sessions, states: states)
+      t('supply_teachers.admin.uploads.new.warning_plural', sessions:, states:)
     else
       t('supply_teachers.admin.uploads.new.warning_singular', session: sessions, state: states)
     end

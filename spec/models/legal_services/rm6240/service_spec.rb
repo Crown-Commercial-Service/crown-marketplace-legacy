@@ -21,7 +21,7 @@ RSpec.describe LegalServices::RM6240::Service do
   end
 
   it 'only has unique codes' do
-    expect(all_service_code.uniq).to contain_exactly(*all_service_code)
+    expect(all_service_code.uniq).to match_array(all_service_code)
   end
 
   it 'all have names' do
@@ -39,7 +39,7 @@ RSpec.describe LegalServices::RM6240::Service do
     context 'when selecting from lots 1, 2 or 3' do
       ['1', '2', '3'].each do |lot_number|
         it 'returns the correct services for that lot' do
-          selected_lot_services = described_class.where(lot_number: lot_number)
+          selected_lot_services = described_class.where(lot_number:)
 
           expect(described_class.services_for_lot(lot_number)).to eq(selected_lot_services)
         end

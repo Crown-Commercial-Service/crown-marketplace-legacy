@@ -34,6 +34,6 @@
   <p>
     <%= t('.notice_period_disclaimer',
         max_fee: number_to_currency(calculator.maximum_fee_for_lack_of_notice),
-        latest_notice_date: calculator.notice_date_based_on_hire_date.to_s(:long_with_day)) %>
+        latest_notice_date: calculator.notice_date_based_on_hire_date.to_fs(:long_with_day)) %>
   </p>
 <% end %>

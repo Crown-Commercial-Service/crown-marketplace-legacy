@@ -5,7 +5,7 @@ module SupplyTeachers
 
     def branches(daily_rates: {}, salary: nil, fixed_term_length: nil)
       point = location.point
-      service_name::Branch.search(point, rates: rates, radius: radius).map do |branch|
+      service_name::Branch.search(point, rates:, radius:).map do |branch|
         search_result_attributes(branch, point, daily_rates, fixed_term_length, salary)
       end
     end
@@ -28,7 +28,7 @@ module SupplyTeachers
       return unless fixed_term_length && salary
       return if fixed_term_length.nil? || salary.empty?
 
-      finders_fee = SupplierFindersFee.new(fixed_term_length: fixed_term_length, salary: salary, fixed_term_rate: fixed_term_rate)
+      finders_fee = SupplierFindersFee.new(fixed_term_length:, salary:, fixed_term_rate:)
 
       if finders_fee.valid?
         result.finders_fee = finders_fee.finders_fee

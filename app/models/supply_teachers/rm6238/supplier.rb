@@ -39,7 +39,7 @@ module SupplyTeachers
       end
 
       def rate_for(job_type:, term:)
-        direct_provision_rates.rate_for(job_type: job_type, term: term).first&.value
+        direct_provision_rates.rate_for(job_type:, term:).first&.value
       end
 
       def master_vendor_rates_grouped_by_job_type(threshold_position)
