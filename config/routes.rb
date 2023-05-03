@@ -59,6 +59,9 @@ Rails.application.routes.draw do
         end
       end
     end
+
+    get '/legacy-session/active'  => 'base/sessions#active', as: :active
+    get '/legacy-session/timeout' => 'base/sessions#timeout', as: :timeout
   end
 
   concern :buyer_shared_pages do
