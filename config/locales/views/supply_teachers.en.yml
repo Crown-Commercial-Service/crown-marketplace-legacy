@@ -152,6 +152,10 @@ en:
               too_large: The 'Supplier lookup' file must be smaller than 10mb
               wrong_content_type: The 'Supplier lookup' file does not contain the expected content type
               wrong_extension: The 'Supplier lookup' file must be a CSV
+        supply_teachers/rm6238/branch:
+          attributes:
+            postcode:
+              invalid_postcode: Enter a valid postcode
   supply_teachers:
     admin:
       frameworks:

@@ -73,7 +73,7 @@ module SupplyTeachers::DataImport::Helper
   def supplier_accredited?(id)
     return false if id.blank?
 
-    accredited_suppliers.select { |supplier| supplier.value?(id) }.any?
+    accredited_suppliers.any? { |supplier| supplier.value?(id) }
   end
 
   def accredited_suppliers

@@ -47,7 +47,7 @@ RSpec.describe SupplyTeachers::RM6238::Branch do
     it 'obtains the error message from an I18n translation' do
       branch.valid?
       expect(branch.errors[:postcode]).to include(
-        I18n.t("#{model_key}.attributes.postcode.invalid_postcode")
+        'Enter a valid postcode'
       )
     end
   end

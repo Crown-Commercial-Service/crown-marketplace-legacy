@@ -25,6 +25,10 @@ module LegalServices
 
         Service.where(lot_number: lot_number, service_number: service_numbers).map(&:service_code)
       end
+
+      def rate_card(lot_number, jurisdiction)
+        rates.where(lot_number:, jurisdiction:)
+      end
     end
   end
 end

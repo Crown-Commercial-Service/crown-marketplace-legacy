@@ -4,11 +4,11 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.2.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 7.0.4', '>= 7.0.4.3'
+gem 'rails', '~> 7.0.5'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
-gem 'puma', '~> 6.2'
+gem 'puma', '~> 6.3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.1', '>= 5.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
@@ -62,7 +62,7 @@ gem 'devise', '~> 4.9.2'
 gem 'auto-session-timeout', '~> 1.0'
 
 # for cognito
-gem 'aws-sdk-cognitoidentityprovider', '~> 1.73.0'
+gem 'aws-sdk-cognitoidentityprovider', '~> 1.74.0'
 
 # for pagination
 gem 'kaminari', '~> 1.2.2'
@@ -76,15 +76,15 @@ gem 'aws-sdk-s3', '~> 1'
 gem 'roo', '~> 2.10.0'
 
 # manipulating JSON for anonymisation
-gem 'jsonpath', '~> 1.1.2'
+gem 'jsonpath', '~> 1.1.3'
 
 # state machine
 gem 'aasm', '~> 5.5'
 
 # for running background jobs
-gem 'sidekiq', '~> 7.0.9'
+gem 'sidekiq', '~> 7.1.1'
 gem 'sinatra', '~> 3.0.6', require: false
-gem 'slim', '~> 5.1.0'
+gem 'slim', '~> 5.1.1'
 
 # for authorization
 gem 'cancancan', '~> 3.5.0'

@@ -4,7 +4,7 @@ module LegalServices
       private
 
       def fetch_rate_card
-        @supplier.rates.where(lot_number: params[:lot])
+        @supplier.rate_card(params[:lot], params[:jurisdiction])
       end
 
       def fetch_suppliers
