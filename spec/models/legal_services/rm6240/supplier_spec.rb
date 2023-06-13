@@ -164,4 +164,82 @@ RSpec.describe LegalServices::RM6240::Supplier do
       expect(LegalServices::RM6240::ServiceOffering.find_by(id: service_offering.id)).to be_nil
     end
   end
+
+  describe '.rate_card' do
+    let(:result) { supplier.rate_card(lot_number, jurisdiction) }
+    let(:jurisdiction) { nil }
+
+    let(:supplier) { create(:legal_services_rm6240_supplier) }
+    let!(:rate_1a) { create(:legal_services_rm6240_full_service_provision_rate, supplier:) }
+    let!(:rate_1b) { create(:legal_services_rm6240_full_service_provision_rate, supplier: supplier, jurisdiction: 'b', rate: 230) }
+    let!(:rate_1c) { create(:legal_services_rm6240_full_service_provision_rate, supplier: supplier, jurisdiction: 'c', rate: 180) }
+    let!(:rate_2a) { create(:legal_services_rm6240_general_service_provision_rate, supplier: supplier, jurisdiction: 'a', rate: 310) }
+    let!(:rate_2b) { create(:legal_services_rm6240_general_service_provision_rate, supplier: supplier, rate: 240) }
+    let!(:rate_2c) { create(:legal_services_rm6240_general_service_provision_rate, supplier: supplier, jurisdiction: 'c', rate: 190) }
+    let!(:rate_3) { create(:legal_services_rm6240_transport_rail_rate, supplier: supplier, rate: 290) }
+
+    context 'when the lot number is 1' do
+      let(:lot_number) { '1' }
+
+      context 'and the jurisdiction is a' do
+        let(:jurisdiction) { 'a' }
+
+        it 'returns the correct rates' do
+          expect(result).to eq([rate_1a])
+        end
+      end
+
+      context 'and the jurisdiction is b' do
+        let(:jurisdiction) { 'b' }
+
+        it 'returns the correct rates' do
+          expect(result).to eq([rate_1b])
+        end
+      end
+
+      context 'and the jurisdiction is c' do
+        let(:jurisdiction) { 'c' }
+
+        it 'returns the correct rates' do
+          expect(result).to eq([rate_1c])
+        end
+      end
+    end
+
+    context 'when the lot number is 2' do
+      let(:lot_number) { '2' }
+
+      context 'and the jurisdiction is a' do
+        let(:jurisdiction) { 'a' }
+
+        it 'returns the correct rates' do
+          expect(result).to eq([rate_2a])
+        end
+      end
+
+      context 'and the jurisdiction is b' do
+        let(:jurisdiction) { 'b' }
+
+        it 'returns the correct rates' do
+          expect(result).to eq([rate_2b])
+        end
+      end
+
+      context 'and the jurisdiction is c' do
+        let(:jurisdiction) { 'c' }
+
+        it 'returns the correct rates' do
+          expect(result).to eq([rate_2c])
+        end
+      end
+    end
+
+    context 'when the lot number is 3' do
+      let(:lot_number) { '3' }
+
+      it 'returns the correct rates' do
+        expect(result).to eq([rate_3])
+      end
+    end
+  end
 end
