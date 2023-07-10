@@ -1,8 +1,18 @@
 # Crown Marketplace
 
+![GitHub Release](https://img.shields.io/github/release/Crown-Commercial-Service/crown-marketplace-legacy.svg?style=flat)
+
 ![Test Status](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/actions/workflows/rubyonrails.yml/badge.svg)
 [![Maintainability](https://api.codeclimate.com/v1/badges/120ac3c547d7b1328077/maintainability)](https://codeclimate.com/github/Crown-Commercial-Service/crown-marketplace-legacy/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/120ac3c547d7b1328077/test_coverage)](https://codeclimate.com/github/Crown-Commercial-Service/crown-marketplace-legacy/test_coverage)
+
+**Deployments**
+| Environment | Deployment status                                                                                                                                                 |
+| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Sandbox     | ![Latest Sandbox deployment](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/actions/workflows/setup_deployment.yml/badge.svg?branch=develop)       |
+| CMPDEV      | ![Latest CMPDEV deployment](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/actions/workflows/setup_deployment.yml/badge.svg?branch=master)         |
+| Preview     | ![Latest Preview deployment](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/actions/workflows/setup_deployment.yml/badge.svg?branch=preview)       |
+| Production  | ![Latest Production deployment](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/actions/workflows/setup_deployment.yml/badge.svg?branch=production) |
 
 This repository contains the code for:
 - Supply Teachers
@@ -88,9 +98,10 @@ There is more information about environment variables in the [Environment variab
 Execute the following commands in separate terminals:
 
 ```shell
-redis-server
-bundle exec sidekiq
-bundle exec rails s
+redis-server                # For sidekiq
+bundle exec sidekiq         # Runs backgound jobs
+bin/shakapacker-dev-server  # Watches and bundles the JavaScript assets
+bundle exec rails s         # Runs the web server
 ```
 
 Visit [localhost:4000](http://localhost:4000).
