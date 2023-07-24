@@ -7,7 +7,7 @@ interface CheckboxSectionInterface {
   uncheckAll: () => void
 }
 
-interface BasketItem {
+interface BasketItemInterface {
   removeBasketItem: () => void
 }
 
@@ -74,7 +74,7 @@ class CheckboxSection implements CheckboxSectionInterface {
   uncheckAll = (): void => { this.checkBoxes.forEach((checkBox: CheckboxItem) => { checkBox.toggleChecked(false) }) }
 }
 
-class BasketItem implements BasketItem {
+class BasketItem implements BasketItemInterface {
   private readonly basket: Basket
   private readonly checkboxNamedItem: CheckboxItem
   private readonly $basketItem: JQuery<HTMLElement>

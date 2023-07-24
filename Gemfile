@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.2.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 7.0.5'
+gem 'rails', '~> 7.0.6'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
@@ -16,7 +16,7 @@ gem 'sass-rails', '~> 5.1', '>= 5.1.0'
 
 gem 'sprockets-rails'
 
-gem 'shakapacker', '~> 6.6.0'
+gem 'shakapacker', '~> 7.0.2'
 
 gem 'turbolinks', '~> 5'
 
@@ -62,7 +62,7 @@ gem 'devise', '~> 4.9.2'
 gem 'auto-session-timeout', '~> 1.0'
 
 # for cognito
-gem 'aws-sdk-cognitoidentityprovider', '~> 1.74.0'
+gem 'aws-sdk-cognitoidentityprovider', '~> 1.79.0'
 
 # for pagination
 gem 'kaminari', '~> 1.2.2'
@@ -82,7 +82,7 @@ gem 'jsonpath', '~> 1.1.3'
 gem 'aasm', '~> 5.5'
 
 # for running background jobs
-gem 'sidekiq', '~> 7.1.1'
+gem 'sidekiq', '~> 7.1.2'
 gem 'sinatra', '~> 3.0.6', require: false
 gem 'slim', '~> 5.1.1'
 
