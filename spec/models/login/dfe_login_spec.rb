@@ -46,10 +46,7 @@ RSpec.describe Login::DfeLogin do
   let(:safelisted_email_addresses) { [email] }
 
   before do
-    allow(Marketplace).to receive(:dfe_signin_safelist_enabled?)
-      .and_return(safelist_enabled)
-    allow(Marketplace).to receive(:dfe_signin_safelisted_email_addresses)
-      .and_return(safelisted_email_addresses)
+    allow(Marketplace).to receive_messages(dfe_signin_safelist_enabled?: safelist_enabled, dfe_signin_safelisted_email_addresses: safelisted_email_addresses)
     allow(Rails.logger).to receive(:info)
   end
 

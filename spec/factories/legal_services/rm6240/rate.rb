@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :legal_services_rm6240_rate, class: 'LegalServices::RM6240::Rate' do
-    association :supplier, factory: :legal_services_rm6240_supplier
+    supplier factory: %i[legal_services_rm6240_supplier]
     rate { 3000 }
     position { '1' }
   end
