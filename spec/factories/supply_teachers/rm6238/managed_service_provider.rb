@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :supply_teachers_rm6238_managed_service_provider, class: 'SupplyTeachers::RM6238::ManagedServiceProvider' do
-    association :supplier, factory: :supply_teachers_rm6238_supplier
+    supplier factory: %i[supply_teachers_rm6238_supplier]
     contact_name { Faker::Name.name }
     telephone_number { Faker::PhoneNumber.phone_number }
     contact_email { Faker::Internet.email }

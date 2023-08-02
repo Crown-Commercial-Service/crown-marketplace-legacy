@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :management_consultancy_rm6187_rate_card, class: 'ManagementConsultancy::RM6187::RateCard' do
-    association :supplier, factory: :management_consultancy_rm6187_supplier
+    supplier factory: %i[management_consultancy_rm6187_supplier]
     lot { 'MCF3.1' }
     contact_name { Faker::Name.unique.name }
     junior_rate_in_pence { 1000 }
