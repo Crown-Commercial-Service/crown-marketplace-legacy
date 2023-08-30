@@ -56,6 +56,11 @@ module Marketplace
 
     config.active_record.yaml_column_permitted_classes = [Symbol]
 
+    # Using a sass css compressor causes a scss file to be processed twice (once
+    # to build, once to compress) which breaks the usage of "unquote" to use
+    # CSS that has same function names as SCSS such as max
+    config.assets.css_compressor = nil
+
     # do not add field-with-error div anymore
     ActionView::Base.field_error_proc = proc do |html_tag, _instance|
       html_tag
