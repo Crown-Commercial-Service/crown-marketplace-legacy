@@ -96,7 +96,7 @@ RSpec.describe SupplyTeachers::RM6238::Admin::Upload do
 
   describe '#default scope' do
     it 'orders by descending created_at' do
-      expect(described_class.all.to_sql).to eq described_class.all.order(created_at: :desc).to_sql
+      expect(described_class.all.to_sql).to eq described_class.order(created_at: :desc).to_sql
     end
   end
 

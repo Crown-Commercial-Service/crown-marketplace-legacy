@@ -18,10 +18,12 @@ class UpdateStUploadsTable < ActiveRecord::Migration[6.0]
 
     add_column :supply_teachers_admin_current_data, :uuid, :uuid, default: 'gen_random_uuid()', null: false
 
+    # rubocop:disable Rails/DangerousColumnNames
     change_table :supply_teachers_admin_current_data do |t|
       t.remove :id
       t.rename :uuid, :id
     end
+    # rubocop:enable Rails/DangerousColumnNames
     execute 'ALTER TABLE supply_teachers_admin_current_data ADD PRIMARY KEY (id);'
   end
 
@@ -36,10 +38,12 @@ class UpdateStUploadsTable < ActiveRecord::Migration[6.0]
 
     add_column :supply_teachers_admin_current_data, :uuid, :bigint
 
+    # rubocop:disable Rails/DangerousColumnNames
     change_table :supply_teachers_admin_current_data do |t|
       t.remove :id
       t.rename :uuid, :id
     end
+    # rubocop:enable Rails/DangerousColumnNames
     execute 'ALTER TABLE supply_teachers_admin_current_data ADD PRIMARY KEY (id);'
   end
 end

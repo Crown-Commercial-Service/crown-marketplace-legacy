@@ -10,7 +10,7 @@ RSpec.describe ManagementConsultancy::RM6187::SupplierSpreadsheetCreator do
     ]
   end
 
-  let(:suppliers) { ManagementConsultancy::RM6187::Supplier.all.order(:name) }
+  let(:suppliers) { ManagementConsultancy::RM6187::Supplier.order(:name) }
   let(:lot_number) { 'MCF3.1' }
   let(:lot) { ManagementConsultancy::RM6187::Lot.find_by(number: lot_number) }
   let(:services) { ManagementConsultancy::RM6187::Service.all.sample(5).sort_by(&:code) }
