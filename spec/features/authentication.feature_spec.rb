@@ -63,7 +63,7 @@ RSpec.feature 'Authentication' do
     expect(page).to have_text('Sign in to your management consultancy account')
   end
 
-  scenario 'Users can sign in using DfE sign-in', dfe: true do
+  scenario 'Users can sign in using DfE sign-in', :dfe do
     visit '/supply-teachers/RM6238/start'
     click_on 'Sign in with DfE Sign-in'
 
@@ -71,7 +71,7 @@ RSpec.feature 'Authentication' do
     expect(page).to have_text('Find supply teachers')
   end
 
-  scenario 'Users signed in using DfE sign-in can sign out', dfe: true do
+  scenario 'Users signed in using DfE sign-in can sign out', :dfe do
     visit '/supply-teachers/RM6238/start'
     click_on 'Sign in with DfE Sign-in'
     click_on 'Sign out'
@@ -81,7 +81,7 @@ RSpec.feature 'Authentication' do
     expect(page).to have_text('Sign in with DfE Sign-in')
   end
 
-  scenario 'DfE users cannot see other frameworks', dfe: true do
+  scenario 'DfE users cannot see other frameworks', :dfe do
     visit '/supply-teachers/RM6238/start'
     click_on 'Sign in with DfE Sign-in'
 
@@ -123,7 +123,7 @@ RSpec.feature 'Authentication' do
     OmniAuth.config.mock_auth[:dfe] = nil
   end
 
-  scenario 'DfE users cannot see school pages if they are not on the safelist', dfe: true do
+  scenario 'DfE users cannot see school pages if they are not on the safelist', :dfe do
     allow(Marketplace)
       .to receive_messages(dfe_signin_safelist_enabled?: true, dfe_signin_safelisted_email_addresses: [])
     visit '/supply-teachers/RM6238/start'
