@@ -2,8 +2,6 @@ Feature: Management Consultancy - Lot 9 - Environmental Sustainability and Socio
 
   Background: Navigate to start page and select the lot
     Given I sign in and navigate to the start page for the 'RM6187' framework in 'management consultancy'
-    And I click on 'Continue'
-    Then I am on the 'Select the lot you need' page
     Given I select 'Lot 9 - Environmental Sustainability and Socio-economic Development'
     And I click on 'Continue'
     Then I am on the 'Select the services you need' page
