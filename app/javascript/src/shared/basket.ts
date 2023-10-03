@@ -96,7 +96,7 @@ class BasketItem implements BasketItemInterface {
     const itemText = `<span>${this.checkboxNamedItem.checkboxItemDetails.text}</span>`
     const removeLink = `<a id="${this.checkboxNamedItem.checkboxItemDetails.itemID}_removeLink" groupid="${this.checkboxNamedItem.checkboxItemDetails.groupID}" name="${this.checkboxNamedItem.checkboxItemDetails.itemID}_removeLink" href="" class="govuk-link govuk-link--no-visited-state">Remove</a>`
 
-    return `<li style="margin-top:0; word-break: keep-all;" groupid="${this.checkboxNamedItem.checkboxItemDetails.groupID}" class="govuk-list" id="${this.checkboxNamedItem.checkboxItemDetails.itemID}_basket">${itemText}${removeLink}</li>`
+    return `<li class="ccs-list-basket__item" groupid="${this.checkboxNamedItem.checkboxItemDetails.groupID}" class="govuk-list" id="${this.checkboxNamedItem.checkboxItemDetails.itemID}_basket">${itemText}${removeLink}</li>`
   }
 
   private readonly setEventListener = (): void => {
