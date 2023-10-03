@@ -174,46 +174,6 @@ en:
           question: Select the services you need
           service_selected: service selected
           services_selected: services selected
-        important_changes:
-          heading: Important changes to how you access Management Consultancy Framework Three
-          sections:
-            section_1:
-              heading: What is happening?
-              paragraphs:
-                paragraph_1: The way you select service lines to filter supplies and access supplier’s maximum framework rates is changing. The new system is called Contract Award Service (CAS).
-                paragraph_2: The intention is to switch this supplier filtering system off following a short transition period to CAS.
-                paragraph_3: In order to access CAS you will need to register for Public Procurement Gateway (PPG) which provides you with a single point of entry to access multiple CCS services.
-            section_2:
-              heading: What is CAS?
-              list:
-                item_1: filter suppliers based on service lines
-                item_2: carry out pre market engagement
-                item_3: view a supplier’s maximum framework rates
-                item_4: go to market through a further competition or a direct award
-                item_5: evaluate supplier responses
-                item_6: award contracts
-                title: 'CAS will allow you to:'
-              paragraphs:
-                paragraph_1: You are still able to use your own esourcing system.
-            section_3:
-              guidance_document_text: read the guidance document to find out what being an administrator involves
-              guidance_document_url: https://www.crowncommercial.gov.uk/ppg_training/course/en/assets/6239a39d57a6700a058bb61d/file.pdf
-              guides_text: guides available to help you with this
-              guides_url: https://www.crowncommercial.gov.uk/public-procurement-gateway-guides
-              heading: What do I need to do?
-              paragraphs:
-                paragraph_1_html: To use CAS you will need to %{register_on_ppg_link}.
-                paragraph_2_html: Every organisation must have an administrator to register for the PPG before individuals can create an account and access CAS. If you need more support, there are %{guides_link}.
-                paragraph_3: If your organisation is registered in PPG, you will be prompted to request access from your lead administrator, who will receive a notification of your request and will approve, as appropriate.
-                paragraph_4: If your organisation is not registered in PPG, you will be offered the opportunity to become the lead administrator and will then be able to register your organisation.
-                paragraph_5_html: Before registering as the administrator, you should %{guidance_document_link}.
-              register_on_ppg_text: register for Public Procurement Gateway
-              register_on_ppg_url: https://identify.crowncommercial.gov.uk/manage-org/register
-            section_4:
-              email_link: info@crowncommercial.gov.uk
-              heading: Find out more
-              paragraphs:
-                paragraph_1_html: If you have any questions about PPG or CAS, email %{email_link}.
         management_consultancy_lots:
           service_lines: Service lines
       suppliers:
