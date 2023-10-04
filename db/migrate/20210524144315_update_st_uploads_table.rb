@@ -7,6 +7,7 @@ class UpdateStUploadsTable < ActiveRecord::Migration[6.0]
     self.table_name = 'supply_teachers_admin_current_data'
   end
 
+  # rubocop:disable Rails/DangerousColumnNames
   def up
     STCurrentData.reset_column_information
     STAdminUpload.reset_column_information
@@ -42,4 +43,5 @@ class UpdateStUploadsTable < ActiveRecord::Migration[6.0]
     end
     execute 'ALTER TABLE supply_teachers_admin_current_data ADD PRIMARY KEY (id);'
   end
+  # rubocop:enable Rails/DangerousColumnNames
 end
