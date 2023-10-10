@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :supply_teachers_rm6238_rate, aliases: [:rm6238_direct_provision_rate], class: 'SupplyTeachers::RM6238::Rate' do
-    association :supplier, factory: :supply_teachers_rm6238_supplier
+    supplier factory: %i[supply_teachers_rm6238_supplier]
     supply_teachers_rm6238_direct_provision
     job_type { 'nominated' }
     rate { 3000 }

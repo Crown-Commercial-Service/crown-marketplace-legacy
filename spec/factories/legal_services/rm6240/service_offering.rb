@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :legal_services_rm6240_service_offering, class: 'LegalServices::RM6240::ServiceOffering' do
-    association :supplier, factory: :legal_services_rm6240_supplier
+    supplier factory: %i[legal_services_rm6240_supplier]
   end
 
   factory :legal_services_rm6240_full_service_provision_service_offering, parent: :legal_services_rm6240_service_offering do

@@ -2,8 +2,6 @@ Feature: Management Consultancy - Suppliers
 
   Background: Login and then navigate to the supplier results page
     Given I sign in and navigate to the start page for the 'RM6187' framework in 'management consultancy'
-    And I click on 'Continue'
-    Then I am on the 'Select the lot you need' page
     Given I select 'Lot 1 - Business'
     And I click on 'Continue'
     Then I am on the 'Select the services you need' page

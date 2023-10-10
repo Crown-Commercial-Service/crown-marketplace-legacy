@@ -10,10 +10,7 @@ RSpec.describe SupplyTeachers::CalculationsHelper do
     let(:enough_notice) { false }
 
     before do
-      allow(calculator).to receive(:hiring_after_12_weeks?).and_return(hiring_after_12_weeks)
-      allow(calculator).to receive(:hiring_between_9_and_12_weeks?).and_return(hiring_between_9_and_12_weeks)
-      allow(calculator).to receive(:notice_date).and_return(notice_date)
-      allow(calculator).to receive(:enough_notice?).and_return(enough_notice)
+      allow(calculator).to receive_messages(hiring_after_12_weeks?: hiring_after_12_weeks, hiring_between_9_and_12_weeks?: hiring_between_9_and_12_weeks, notice_date: notice_date, enough_notice?: enough_notice)
       @calculator = calculator
     end
 

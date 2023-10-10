@@ -72,10 +72,10 @@ Given('I enter {string} for the password confirmation') do |password_confirmatio
 end
 
 COOKIE_TO_OPTION = {
-  'ga' => 'google_analytics_enabled',
-  'glassbox' => 'glassbox_enabled'
+  'ga' => 'usage',
+  'glassbox' => 'glassbox'
 }.freeze
 
 def cookie_settings
-  JSON.parse(CGI.unescape(page.driver.browser.manage.cookie_named('crown_marketplace_cookie_options_v1')[:value]))
+  JSON.parse(CGI.unescape(page.driver.browser.manage.cookie_named('cookie_preferences')[:value]))
 end

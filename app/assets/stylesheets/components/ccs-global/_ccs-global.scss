@@ -804,6 +804,11 @@ table.ccs-at-govuk-table--5050 {
       padding          : govuk-spacing(3);
     }
 
+    .ccs-list-basket__item {
+      margin-top:0;
+      word-break: keep-all;
+    }
+
     ul.govuk-list {
       margin : 0;
 

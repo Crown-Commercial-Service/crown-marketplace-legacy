@@ -9,7 +9,7 @@ RSpec.describe LegalServices::RM6240::SupplierSpreadsheetCreator do
     ]
   end
 
-  let(:suppliers) { LegalServices::RM6240::Supplier.all.order(:name) }
+  let(:suppliers) { LegalServices::RM6240::Supplier.order(:name) }
   let(:lot_number) { '1' }
   let(:jurisdiction) { 'a' }
   let(:services) { LegalServices::RM6240::Service.services_for_lot(lot_number).sample(5).sort_by(&:service_number) }

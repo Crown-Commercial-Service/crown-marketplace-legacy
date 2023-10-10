@@ -174,3 +174,6 @@ Rails/ThreeStateBooleanColumn:
 
 RSpec/IndexedLet:
     Enabled: false
+
+Capybara/ClickLinkOrButtonStyle:
+    Enabled: false

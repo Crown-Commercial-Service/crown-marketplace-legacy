@@ -444,7 +444,7 @@ RSpec.describe SupplyTeachers::RM6238::Journey::TempToPermCalculator do
     let(:contract_start_date_month) { nil }
     let(:contract_start_date_year) { nil }
 
-    it { is_expected.to be_invalid }
+    it { is_expected.not_to be_valid }
 
     it 'obtains the error message from an I18n translation' do
       step.valid?
@@ -459,7 +459,7 @@ RSpec.describe SupplyTeachers::RM6238::Journey::TempToPermCalculator do
     let(:hire_date_month) { nil }
     let(:hire_date_year) { nil }
 
-    it { is_expected.to be_invalid }
+    it { is_expected.not_to be_valid }
 
     it 'obtains the error message from an I18n translation' do
       step.valid?
@@ -472,25 +472,25 @@ RSpec.describe SupplyTeachers::RM6238::Journey::TempToPermCalculator do
   context 'with a missing days_per_week' do
     let(:days_per_week) { nil }
 
-    it { is_expected.to be_invalid }
+    it { is_expected.not_to be_valid }
   end
 
   context 'with a non-numeric days_per_week' do
     let(:days_per_week) { 'abc' }
 
-    it { is_expected.to be_invalid }
+    it { is_expected.not_to be_valid }
   end
 
   context 'with a negative days_per_week' do
     let(:days_per_week) { '-1' }
 
-    it { is_expected.to be_invalid }
+    it { is_expected.not_to be_valid }
   end
 
   context 'with a zero days_per_week' do
     let(:days_per_week) { '0' }
 
-    it { is_expected.to be_invalid }
+    it { is_expected.not_to be_valid }
   end
 
   context 'with a fractional days_per_week' do
@@ -502,31 +502,31 @@ RSpec.describe SupplyTeachers::RM6238::Journey::TempToPermCalculator do
   context 'with a days_per_week more than 5' do
     let(:days_per_week) { '6' }
 
-    it { is_expected.to be_invalid }
+    it { is_expected.not_to be_valid }
   end
 
   context 'with a missing daily_fee' do
     let(:daily_fee) { nil }
 
-    it { is_expected.to be_invalid }
+    it { is_expected.not_to be_valid }
   end
 
   context 'with a non-numeric daily_fee' do
     let(:daily_fee) { 'abc' }
 
-    it { is_expected.to be_invalid }
+    it { is_expected.not_to be_valid }
   end
 
   context 'with a negative daily_fee' do
     let(:daily_fee) { '-100' }
 
-    it { is_expected.to be_invalid }
+    it { is_expected.not_to be_valid }
   end
 
   context 'with a zero daily_fee' do
     let(:daily_fee) { '0' }
 
-    it { is_expected.to be_invalid }
+    it { is_expected.not_to be_valid }
   end
 
   context 'with a non-integer daily_fee with 1 decimal place' do
@@ -544,7 +544,7 @@ RSpec.describe SupplyTeachers::RM6238::Journey::TempToPermCalculator do
   context 'with a non-integer daily_fee with 3 decimal place' do
     let(:daily_fee) { '123.501' }
 
-    it { is_expected.to be_invalid }
+    it { is_expected.not_to be_valid }
   end
 
   context 'with a hire_date on the contract_start_date' do
@@ -561,7 +561,7 @@ RSpec.describe SupplyTeachers::RM6238::Journey::TempToPermCalculator do
     context 'and hire_date is one day earlier' do
       let(:hire_date_day) { '9' }
 
-      it { is_expected.to be_invalid }
+      it { is_expected.not_to be_valid }
 
       it 'obtains the error message from an I18n translation' do
         step.valid?
@@ -591,7 +591,7 @@ RSpec.describe SupplyTeachers::RM6238::Journey::TempToPermCalculator do
     let(:notice_date_month) { 12 }
     let(:notice_date_year) { 2018 }
 
-    it { is_expected.to be_invalid }
+    it { is_expected.not_to be_valid }
 
     it 'obtains the error message from an I18n translation' do
       step.valid?
@@ -609,7 +609,7 @@ RSpec.describe SupplyTeachers::RM6238::Journey::TempToPermCalculator do
     let(:contract_start_date_month) { 1 }
     let(:contract_start_date_year) { 2019 }
 
-    it { is_expected.to be_invalid }
+    it { is_expected.not_to be_valid }
 
     it 'obtains the error message from an I18n translation' do
       step.valid?
@@ -627,7 +627,7 @@ RSpec.describe SupplyTeachers::RM6238::Journey::TempToPermCalculator do
     let(:hire_date_month) { 1 }
     let(:hire_date_year) { 2018 }
 
-    it { is_expected.to be_invalid }
+    it { is_expected.not_to be_valid }
 
     it 'obtains the error message from an I18n translation' do
       step.valid?
@@ -661,7 +661,7 @@ RSpec.describe SupplyTeachers::RM6238::Journey::TempToPermCalculator do
     let(:holiday_1_start_date_month) { 12 }
     let(:holiday_1_start_date_year) { 2018 }
 
-    it { is_expected.to be_invalid }
+    it { is_expected.not_to be_valid }
 
     it 'obtains the error message from an I18n translation' do
       step.valid?
@@ -687,7 +687,7 @@ RSpec.describe SupplyTeachers::RM6238::Journey::TempToPermCalculator do
     let(:holiday_1_end_date_month) { nil }
     let(:holiday_1_end_date_year) { nil }
 
-    it { is_expected.to be_invalid }
+    it { is_expected.not_to be_valid }
 
     it 'obtains the error message from an I18n translation' do
       step.valid?
@@ -705,7 +705,7 @@ RSpec.describe SupplyTeachers::RM6238::Journey::TempToPermCalculator do
     let(:holiday_1_end_date_month) { 12 }
     let(:holiday_1_end_date_year) { 2018 }
 
-    it { is_expected.to be_invalid }
+    it { is_expected.not_to be_valid }
 
     it 'obtains the error message from an I18n translation' do
       step.valid?
@@ -720,7 +720,7 @@ RSpec.describe SupplyTeachers::RM6238::Journey::TempToPermCalculator do
     let(:holiday_1_end_date_month) { 12 }
     let(:holiday_1_end_date_year) { 2018 }
 
-    it { is_expected.to be_invalid }
+    it { is_expected.not_to be_valid }
 
     it 'obtains the error message from an I18n translation' do
       step.valid?
@@ -738,7 +738,7 @@ RSpec.describe SupplyTeachers::RM6238::Journey::TempToPermCalculator do
     let(:holiday_1_end_date_month) { 12 }
     let(:holiday_1_end_date_year) { 2018 }
 
-    it { is_expected.to be_invalid }
+    it { is_expected.not_to be_valid }
 
     it 'obtains the error message from an I18n translation' do
       step.valid?
@@ -772,7 +772,7 @@ RSpec.describe SupplyTeachers::RM6238::Journey::TempToPermCalculator do
     let(:holiday_2_start_date_month) { 12 }
     let(:holiday_2_start_date_year) { 2018 }
 
-    it { is_expected.to be_invalid }
+    it { is_expected.not_to be_valid }
 
     it 'obtains the error message from an I18n translation' do
       step.valid?
@@ -798,7 +798,7 @@ RSpec.describe SupplyTeachers::RM6238::Journey::TempToPermCalculator do
     let(:holiday_2_end_date_month) { nil }
     let(:holiday_2_end_date_year) { nil }
 
-    it { is_expected.to be_invalid }
+    it { is_expected.not_to be_valid }
 
     it 'obtains the error message from an I18n translation' do
       step.valid?
@@ -816,7 +816,7 @@ RSpec.describe SupplyTeachers::RM6238::Journey::TempToPermCalculator do
     let(:holiday_2_end_date_month) { 12 }
     let(:holiday_2_end_date_year) { 2018 }
 
-    it { is_expected.to be_invalid }
+    it { is_expected.not_to be_valid }
 
     it 'obtains the error message from an I18n translation' do
       step.valid?
@@ -831,7 +831,7 @@ RSpec.describe SupplyTeachers::RM6238::Journey::TempToPermCalculator do
     let(:holiday_2_end_date_month) { 12 }
     let(:holiday_2_end_date_year) { 2018 }
 
-    it { is_expected.to be_invalid }
+    it { is_expected.not_to be_valid }
 
     it 'obtains the error message from an I18n translation' do
       step.valid?
@@ -849,7 +849,7 @@ RSpec.describe SupplyTeachers::RM6238::Journey::TempToPermCalculator do
     let(:holiday_2_end_date_month) { 12 }
     let(:holiday_2_end_date_year) { 2018 }
 
-    it { is_expected.to be_invalid }
+    it { is_expected.not_to be_valid }
 
     it 'obtains the error message from an I18n translation' do
       step.valid?

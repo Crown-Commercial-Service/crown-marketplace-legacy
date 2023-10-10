@@ -2,8 +2,6 @@ Feature: Management Consultancy - Jounrey validations
 
   Background: Navigate to start page
     Given I sign in and navigate to the start page for the 'RM6187' framework in 'management consultancy'
-    And I click on 'Continue'
-    Then I am on the 'Select the lot you need' page
   
   Scenario: Select the lot you need validation
     When I click on 'Continue'

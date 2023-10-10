@@ -19,6 +19,8 @@ module StaticRecord
       @all ||= []
     end
 
+    delegate :first, :count, to: :all
+
     def find_by(arg)
       all.find { |term| arg.all? { |k, v| term.public_send(k) == v } }
     end

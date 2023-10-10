@@ -195,7 +195,7 @@ RSpec.describe ManagementConsultancy::RM6187::Admin::Upload do
       before { 5.times { described_class.create(aasm_state: 'published') } }
 
       it 'is the latest published upload' do
-        expect(described_class.latest_upload).to eq described_class.all.order(:created_at).first
+        expect(described_class.latest_upload).to eq described_class.order(:created_at).first
       end
     end
 
