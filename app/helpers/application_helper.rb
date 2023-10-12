@@ -176,16 +176,16 @@ module ApplicationHelper
     tag.strong(text, class: ['govuk-tag'] << extra_classes[colour])
   end
 
-  def link_to_public_file_for_download(filename, file_type, text, show_doc_image, **html_options)
-    link_to_file_for_download("/#{filename}?format=#{file_type}", file_type, text, show_doc_image, **html_options)
+  def link_to_public_file_for_download(filename, file_type, text, show_doc_image, **)
+    link_to_file_for_download("/#{filename}?format=#{file_type}", file_type, text, show_doc_image, **)
   end
 
-  def link_to_generated_file_for_download(filename, file_type, text, show_doc_image, **html_options)
-    link_to_file_for_download("#{filename}&format=#{file_type}", file_type, text, show_doc_image, **html_options)
+  def link_to_generated_file_for_download(filename, file_type, text, show_doc_image, **)
+    link_to_file_for_download("#{filename}&format=#{file_type}", file_type, text, show_doc_image, **)
   end
 
-  def link_to_file_for_download(file_link, file_type, text, show_doc_image, **html_options)
-    link_to(file_link, class: ('supplier-record__file-download' if show_doc_image).to_s, type: t("common.type_#{file_type}"), download: '', **html_options) do
+  def link_to_file_for_download(file_link, file_type, text, show_doc_image, **)
+    link_to(file_link, class: ('supplier-record__file-download' if show_doc_image).to_s, type: t("common.type_#{file_type}"), download: '', **) do
       capture do
         concat(text)
         concat(tag.span(t("common.title_#{file_type}_html"), class: 'govuk-visually-hidden')) if show_doc_image

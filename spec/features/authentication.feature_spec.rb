@@ -16,8 +16,7 @@ RSpec.feature 'Authentication' do
 
   before do
     allow(Aws::CognitoIdentityProvider::Client).to receive(:new).and_return(aws_client)
-    allow(aws_client).to receive(:initiate_auth).and_return(initiate_auth_resp_struct.new(session: '1234667'))
-    allow(aws_client).to receive(:admin_list_groups_for_user).and_return(cognito_groups)
+    allow(aws_client).to receive_messages(initiate_auth: initiate_auth_resp_struct.new(session: '1234667'), admin_list_groups_for_user: cognito_groups)
     # rubocop:disable RSpec/AnyInstance
     allow_any_instance_of(Cognito::SignInUser).to receive(:sleep)
     # rubocop:enable RSpec/AnyInstance
@@ -39,7 +38,7 @@ RSpec.feature 'Authentication' do
     fill_in 'Password', with: 'ValidPassword!'
     click_button 'Sign in'
     expect(page).not_to have_text('Not permitted')
-    expect(page).to have_text('Important changes to how you access Management Consultancy Framework Three')
+    expect(page).to have_text('Select the lot you need')
   end
 
   scenario 'Users can sign in using AWS Cognito with capitals in email' do
@@ -49,7 +48,7 @@ RSpec.feature 'Authentication' do
     fill_in 'Password', with: 'ValidPassword!'
     click_button 'Sign in'
     expect(page).not_to have_text('Not permitted')
-    expect(page).to have_text('Important changes to how you access Management Consultancy Framework Three')
+    expect(page).to have_text('Select the lot you need')
   end
 
   scenario 'Users signed in using AWS Cognito can sign out' do
@@ -64,7 +63,7 @@ RSpec.feature 'Authentication' do
     expect(page).to have_text('Sign in to your management consultancy account')
   end
 
-  scenario 'Users can sign in using DfE sign-in', dfe: true do
+  scenario 'Users can sign in using DfE sign-in', :dfe do
     visit '/supply-teachers/RM6238/start'
     click_on 'Sign in with DfE Sign-in'
 
@@ -72,7 +71,7 @@ RSpec.feature 'Authentication' do
     expect(page).to have_text('Find supply teachers')
   end
 
-  scenario 'Users signed in using DfE sign-in can sign out', dfe: true do
+  scenario 'Users signed in using DfE sign-in can sign out', :dfe do
     visit '/supply-teachers/RM6238/start'
     click_on 'Sign in with DfE Sign-in'
     click_on 'Sign out'
@@ -82,7 +81,7 @@ RSpec.feature 'Authentication' do
     expect(page).to have_text('Sign in with DfE Sign-in')
   end
 
-  scenario 'DfE users cannot see other frameworks', dfe: true do
+  scenario 'DfE users cannot see other frameworks', :dfe do
     visit '/supply-teachers/RM6238/start'
     click_on 'Sign in with DfE Sign-in'
 
@@ -124,13 +123,9 @@ RSpec.feature 'Authentication' do
     OmniAuth.config.mock_auth[:dfe] = nil
   end
 
-  scenario 'DfE users cannot see school pages if they are not on the safelist', dfe: true do
+  scenario 'DfE users cannot see school pages if they are not on the safelist', :dfe do
     allow(Marketplace)
-      .to receive(:dfe_signin_safelist_enabled?)
-      .and_return(true)
-    allow(Marketplace)
-      .to receive(:dfe_signin_safelisted_email_addresses)
-      .and_return([])
+      .to receive_messages(dfe_signin_safelist_enabled?: true, dfe_signin_safelisted_email_addresses: [])
     visit '/supply-teachers/RM6238/start'
     click_on 'Sign in with DfE Sign-in'
 
