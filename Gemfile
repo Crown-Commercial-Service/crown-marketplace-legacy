@@ -123,7 +123,7 @@ group :development, :test do
   gem 'rubocop-rspec'
   gem 'rubocop-rails', require: false
   gem 'rubyXL', '>= 3.4.23'
-  gem 'i18n-tasks', '>= 1.0.12'
+  gem 'i18n-tasks', '>= 1.0.13'
   gem 'poltergeist', '>= 1.18.1'
   gem 'wdm', '>= 0.1.0', platforms: %i[x64_mingw]
   gem 'tzinfo-data', platforms: %i[x64_mingw]
