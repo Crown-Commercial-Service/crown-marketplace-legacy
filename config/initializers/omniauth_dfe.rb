@@ -2,6 +2,7 @@ if Marketplace.dfe_signin_enabled?
   options = {
     name: :dfe,
     discovery: true,
+    issuer: "#{Marketplace.dfe_signin_uri}:#{Marketplace.dfe_signin_uri.port}",
     response_type: :code,
     scope: %i[openid email organisation],
     client_options: {
