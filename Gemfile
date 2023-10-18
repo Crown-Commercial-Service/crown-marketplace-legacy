@@ -44,7 +44,7 @@ gem 'phonejack'
 gem 'holidays'
 gem 'virtus'
 
-gem 'rollbar', '~> 3.4.0'
+gem 'rollbar', '~> 3.4.1'
 
 # for dfe sign in
 gem 'omniauth', '~> 2.1.1'
@@ -56,7 +56,7 @@ gem 'ccs_omniauth_openid_connect', '~> 0.4.0', git: 'https://github.com/Crown-Co
 gem 'json-jwt', '>= 1.11.0'
 
 # for authentication
-gem 'devise', '~> 4.9.2'
+gem 'devise', '~> 4.9.3'
 
 # for timing out when session expires
 gem 'auto-session-timeout', '~> 1.0'
@@ -76,7 +76,7 @@ gem 'aws-sdk-s3', '~> 1'
 gem 'roo', '~> 2.10.0'
 
 # manipulating JSON for anonymisation
-gem 'jsonpath', '~> 1.1.4'
+gem 'jsonpath', '~> 1.1.5'
 
 # state machine
 gem 'aasm', '~> 5.5'
