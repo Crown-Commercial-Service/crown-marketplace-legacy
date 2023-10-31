@@ -5,7 +5,7 @@ RSpec.describe GenericJourney do
     described_class.new(first_step_class, framework, slug, params, paths)
   end
 
-  let(:params) { ActionController::Parameters.new }
+  let(:params) { ActionController::Parameters.new.permit }
   let(:paths) { instance_double(JourneyPaths) }
   let(:framework) { 'RM1234' }
 
@@ -362,18 +362,18 @@ RSpec.describe GenericJourney do
     before { allow(journey.current_step).to receive(:final?).and_return(false) }
 
     it 'includes previous questions and answers' do
-      expect(journey.previous_questions_and_answers).to include('first_question' => 'first-answer')
+      expect(journey.previous_questions_and_answers.to_unsafe_h).to include('first_question' => 'first-answer')
     end
 
     it 'does not include current questions and answers' do
-      expect(journey.previous_questions_and_answers).not_to include('second_question' => 'second-answer')
+      expect(journey.previous_questions_and_answers.to_unsafe_h).not_to include('second_question' => 'second-answer')
     end
 
     context 'when it’s the final step' do
       before { allow(journey.current_step).to receive(:final?).and_return(true) }
 
       it 'includes all answers' do
-        expect(journey.previous_questions_and_answers).to include(
+        expect(journey.previous_questions_and_answers.to_unsafe_h).to include(
           'first_question' => 'first-answer',
           'second_question' => 'second-answer'
         )

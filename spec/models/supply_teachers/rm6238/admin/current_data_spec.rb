@@ -2,6 +2,10 @@ require 'rails_helper'
 
 RSpec.describe SupplyTeachers::RM6238::Admin::CurrentData do
   describe '#validations' do
+    before { described_class.destroy_all }
+
+    after { described_class.destroy_all }
+
     context 'when no instances exist' do
       it 'validation fails' do
         expect(build(:supply_teachers_rm6238_admin_current_data)).to be_valid
