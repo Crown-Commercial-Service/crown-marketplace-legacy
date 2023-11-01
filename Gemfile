@@ -142,7 +142,7 @@ group :test do
   gem 'webmock', '>= 3.12.2'
   gem 'simplecov', '>= 0.16.1', require: false
   gem 'selenium-webdriver', '>= 3.142.3'
-  gem 'cucumber-rails', '>= 2.6.1', require: false
+  gem 'cucumber-rails', '>= 3.0.0', require: false
   gem 'database_cleaner', '>= 2.0.1'
   gem 'site_prism', '>= 3.7.3'
   gem 'axe-core-capybara', '>= 4.2.1'
