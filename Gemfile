@@ -128,6 +128,7 @@ group :development, :test do
   gem 'wdm', '>= 0.1.0', platforms: %i[x64_mingw]
   gem 'tzinfo-data', platforms: %i[x64_mingw]
   gem 'faker', '~> 3.2.2'
+  gem 'parallel_tests', '>= 4.3.0'
 end
 
 group :development do

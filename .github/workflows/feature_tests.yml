@@ -43,5 +43,8 @@ jobs:
       - name: Seed DB with test data
         run: bin/rails db:import_test_data
 
+      - name: Setup parallel databases
+        run: bin/rails parallel:setup
+
       - name: Run feature tests
-        run: bin/rails cucumber:ok
+        run: bin/rails parallel:features

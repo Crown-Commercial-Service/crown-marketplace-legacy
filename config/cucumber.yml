@@ -9,3 +9,4 @@ default: <%= std_opts %> features
 wip: --tags @wip:3 --wip features --publish-quiet
 rerun: <%= rerun_opts %> --format rerun --out rerun.txt --strict --tags 'not @wip'
 accessibility: <%= accessibility_opts %> features/accessibility
+parallel: <%= std_opts %> features

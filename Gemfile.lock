@@ -382,6 +382,8 @@ GEM
       webfinger (~> 1.2)
     orm_adapter (0.5.0)
     parallel (1.23.0)
+    parallel_tests (4.3.0)
+      parallel
     parser (3.2.2.4)
       ast (~> 2.4.1)
       racc
@@ -645,8 +647,9 @@ GEM
     zeitwerk (2.6.12)
 
 PLATFORMS
-  ruby
   x64-mingw32
+  x86_64-darwin-20
+  x86_64-linux
 
 DEPENDENCIES
   aasm (~> 5.5)
@@ -686,6 +689,7 @@ DEPENDENCIES
   omniauth (~> 2.1.1)
   omniauth-oauth2 (~> 1.8.0)
   omniauth-rails_csrf_protection (>= 1.0.1)
+  parallel_tests (>= 4.3.0)
   pg (>= 0.18, < 2.0)
   phonejack
   poltergeist (>= 1.18.1)
