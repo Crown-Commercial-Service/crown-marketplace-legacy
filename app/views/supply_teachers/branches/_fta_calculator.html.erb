@@ -29,7 +29,7 @@
           classes: 'govuk-!-font-size-16',
         },
         classes: 'govuk-input--width-10 calculator-form__annual-salary-input',
-        value: @salary,
+        value: @salary.is_a?(String) ? @salary : @salary[branch.id],
         prefix: {
           text: '£'
         },

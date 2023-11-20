@@ -51,11 +51,11 @@
           <%= govuk_button(t('.download_suppliers_list'), href: download_legal_services_suppliers_path) %>
         </div>
       </div>
-      <section class="govuk-grid-column-two-thirds ccs-search-results govuk-!-padding-left-0 govuk-!-padding-right-0">
+      <div class="govuk-grid-column-two-thirds ccs-search-results govuk-!-padding-left-0 govuk-!-padding-right-0">
         <ul class="ccs-results-list">
           <%= render partial: 'supplier', collection: @suppliers %>
         </ul>
-      </section>
+      </div>
     <% end %>
   </div>
 </div>
