@@ -8,7 +8,7 @@
     <h1 class="govuk-heading-xl">
       <%= @supplier.name %>
       <% if @supplier.sme? %>
-        <span class="govuk-!-font-size-19 govuk-!-font-weight-bold ccs-tag"><%= t(:sme) %></span>
+        <%= govuk_tag(t('sme'), 'dark-grey', classes: 'ccs-tag') %>
       <% end %>
     </h1>
   </div>
@@ -20,65 +20,135 @@
       <h2 class="govuk-heading-m govuk-!-margin-bottom-1"><%= t('.maximum_day_rates') %></h2>
       <p class="govuk-body"><%= t('.rates_are_fixed') %></p>
       <p class="govuk-body"><%= t('.rates_are_maximum') %></p>
-      <table class="govuk-table">
-        <caption class="govuk-table__caption govuk-visually-hidden"><%= t('.day_rates') %></caption>
-        <thead class="govuk-table__head">
-          <tr class="govuk-table__row">
-            <th class="govuk-table__header govuk-!-font-weight-bold" scope="col"></th>
-            <th class="govuk-table__header govuk-!-font-weight-bold govuk-!-width-one-quarter" scope="col"><%= t('.max_day_rate') %></th>
-          </tr>
-        </thead>
-        <tbody class="govuk-table__body">
-          <tr class="govuk-table__row">
-            <th class="govuk-table__header" scope="row"><%= t('.job_titles.junior') %></th>
-            <td class="govuk-table__cell"><%= number_to_currency(@rate_card.junior_rate_in_pence/100, precision: 0) %></td>
-          </tr>
-          <tr class="govuk-table__row">
-            <th class="govuk-table__header" scope="row"><%= t('.job_titles.standard') %></th>
-            <td class="govuk-table__cell"><%= number_to_currency(@rate_card.standard_rate_in_pence/100, precision: 0) %></td>
-          </tr>
-          <tr class="govuk-table__row">
-            <th class="govuk-table__header" scope="row"><%= t('.job_titles.senior') %></th>
-            <td class="govuk-table__cell"><%= number_to_currency(@rate_card.senior_rate_in_pence/100, precision: 0) %></td>
-          </tr>
-          <tr class="govuk-table__row">
-            <th class="govuk-table__header" scope="row"><%= t('.job_titles.principal') %></th>
-            <td class="govuk-table__cell"><%= number_to_currency(@rate_card.principal_rate_in_pence/100, precision: 0) %></td>
-          </tr>
-          <tr class="govuk-table__row">
-            <th class="govuk-table__header" scope="row"><%= t('.job_titles.managing') %></th>
-            <td class="govuk-table__cell"><%= number_to_currency(@rate_card.managing_rate_in_pence/100, precision: 0) %></td>
-          </tr>
-          <tr class="govuk-table__row">
-            <th class="govuk-table__header" scope="row"><%= t('.job_titles.director') %></th>
-            <td class="govuk-table__cell"><%= number_to_currency(@rate_card.director_rate_in_pence/100, precision: 0) %></td>
-          </tr>
-        </tbody>
-      </table>
+
+      <%= govuk_table(
+        [
+          {
+            text: t('.position'),
+            classes: 'govuk-!-width-three-quarters'
+          },
+          {
+            text: t('.max_day_rate'),
+            classes: 'govuk-!-width-one-quarter'
+          }
+        ],
+        [
+          [
+            {
+              text: t('.job_titles.junior')
+            },
+            {
+              text: number_to_currency(@rate_card.junior_rate_in_pence/100, precision: 0)
+            }
+          ],
+          [
+            {
+              text: t('.job_titles.standard')
+            },
+            {
+              text: number_to_currency(@rate_card.standard_rate_in_pence/100, precision: 0)
+            }
+          ],
+          [
+            {
+              text: t('.job_titles.senior')
+            },
+            {
+              text: number_to_currency(@rate_card.senior_rate_in_pence/100, precision: 0)
+            }
+          ],
+          [
+            {
+              text: t('.job_titles.principal')
+            },
+            {
+              text: number_to_currency(@rate_card.principal_rate_in_pence/100, precision: 0)
+            }
+          ],
+          [
+            {
+              text: t('.job_titles.managing')
+            },
+            {
+              text: number_to_currency(@rate_card.managing_rate_in_pence/100, precision: 0)
+            }
+          ],
+          [
+            {
+              text: t('.job_titles.director')
+            },
+            {
+              text: number_to_currency(@rate_card.director_rate_in_pence/100, precision: 0)
+            }
+          ]
+        ],
+        caption: {
+          text: t('.day_rates'),
+          classes: 'govuk-visually-hidden'
+        },
+        first_cell_is_header: true,
+        classes: 'ccs-rates-table'
+      ) %>
+
     <% end %>
     <% if @supplier.sme? %>
       <p class="govuk-body">
-        <span class="govuk-!-font-size-19 govuk-!-font-weight-bold ccs-tag"><%= t(:sme) %></span> <%= t('.is_an_sme') %>
+        <%= govuk_tag(t('sme'), 'dark-grey', classes: 'govuk-!-margin-right-1 ccs-tag') %>
+        <%= t('.is_an_sme') %>
       </p>
     <% end %>
   </div>
   <div class="govuk-grid-column-one-third">
     <div class="ccs-info-panel ccs-info-panel--pull-up">
       <h3 class="govuk-heading-m"><%= t('.contact_details.heading') %></h3>
-      <dl class="ccs-contact-details">
-        <% if @rate_card %>
-          <dt><%= t('.contact_details.person') %></dt>
-          <dd><%= @rate_card.contact_name %></dd>
-        <% end %>
-        <dt><%= t('.contact_details.email') %></dt>
-        <dd><%= mail_to(@supplier.contact_email) %></dd>
-        <dt><%= t('.contact_details.phone_number') %></dt>
-        <dd><%= @supplier.telephone_number %></dd>
-        <dt><%= t('.contact_details.website') %></dt>
-        <dd><%= link_to(@supplier.website, url_formatter(@supplier.website)) if @supplier.website %></dd>
-        <dt><%= t('.contact_details.address') %></dt>
-        <dd><%= @supplier.address %></dd>
-      </dl>
+      <%= govuk_summary_list(
+        (@rate_card ? [
+          {
+            key: {
+              text: t('.contact_details.person')
+            },
+            value: {
+              text: @rate_card.contact_name
+            }
+          }
+        ] : []) + [
+          {
+            key: {
+              text: t('.contact_details.email')
+            },
+            value: {
+              text: mail_to(@supplier.contact_email, @supplier.contact_email, class: 'govuk-link')
+            }
+          },
+          {
+            key: {
+              text: t('.contact_details.phone_number')
+            },
+            value: {
+              text: @supplier.telephone_number
+            }
+          },
+        ] + (@supplier.website ? [
+          {
+            key: {
+              text: t('.contact_details.website')
+            },
+            value: {
+              text: link_to(@supplier.website, url_formatter(@supplier.website), class: 'govuk-link')
+            },
+          }
+        ] : []) + [
+          {
+            key: {
+              text: t('.contact_details.address')
+            },
+            value: {
+              text: @supplier.address
+            }
+          }
+        ],
+        classes: 'govuk-summary-list--no-border ccs-contact-details'
+      ) %>
     </div>
   </div>
 </div>

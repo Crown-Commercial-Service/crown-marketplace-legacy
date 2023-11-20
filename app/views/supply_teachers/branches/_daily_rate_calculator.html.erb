@@ -6,23 +6,38 @@
       </h4>
     </div>
   </div>
-  <span class="govuk-error-message govuk-visually-hidden">
-    <span class="govuk-visually-hidden"><%= t('.calculator.error') %></span><%= t('.calculator.error_message') %>
-  </span>
+
+  <%= govuk_error_message(
+    t('.calculator.error_message'),
+    :annual_salary,
+    visually_hidden_text: t('.calculator.error'),
+    classes: 'govuk-visually-hidden',
+    attributes: {
+      id: "daily_rate_#{branch.id}-error"
+    }
+  ) %>
+
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-one-third">
-      <div class="govuk-form-group govuk-!-margin-0">
-        <%= label_tag "daily_rate_#{branch.id}", t('.calculator.daily_rate'), class: 'govuk-label govuk-!-font-size-16' %>
-        <div class="calculator-form__day-rate">
-          <%= govuk_input(:daily_rate, branch.id, false, {
-            classes: 'govuk-input--width-10 calculator-form__day-rate-input',
-            value: branch.daily_rate,
-            prefix: {
-              text: '£'
-            }
-          }) %>
-        </div>
-      </div>
+      <%= govuk_input(
+        :daily_rate,
+        form_group: {
+          classes: 'govuk-!-margin-0 calculator-form__day-rate'
+        },
+        label: {
+          text: t('.calculator.daily_rate'),
+          classes: 'govuk-!-font-size-16',
+        },
+        classes: 'govuk-input--width-10 calculator-form__day-rate-input',
+        value: branch.daily_rate,
+        prefix: {
+          text: '£'
+        },
+        attributes: {
+          id: "daily_rate_#{branch.id}",
+          name: "daily_rate[#{branch.id}]"
+        }
+      ) %>
     </div>
     <div class="govuk-grid-column-one-third">
       <p class="govuk-body govuk-!-font-size-16 govuk-!-margin-0">

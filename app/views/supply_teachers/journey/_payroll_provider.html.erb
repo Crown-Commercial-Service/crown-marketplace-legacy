@@ -5,24 +5,26 @@
 <%= render partial: 'shared/error_summary', locals: { errors: @journey.errors } %>
 <%= form_with url: @form_path, method: :get, html: { specialvalidation: true, novalidate: true } do |f| %>
   <%= hidden_fields_for_previous_steps_and_responses(@journey) %>
-  <%= govuk_radios(f, @journey, :payroll_provider, {
-    fieldset: {
-      legend: {
-        text: t('.question'),
-        classes: 'govuk-fieldset__legend--m',
-        page_heading?: true
-      }
-    },
-    items: @journey.current_step.class::PAYROLL_PROVIDERS.map do |option|
+
+  <%= govuk_radios(
+    :payroll_provider,
+    @journey.current_step.class::PAYROLL_PROVIDERS.map do |option|
       {
         value: option,
-        checked: checked?(params[:payroll_provider], option),
         label: {
           text: t(".answer.#{option}")
         }
       }
-    end
-  }) %>
+    end,
+    model: @journey.current_step,
+    fieldset: {
+      legend: {
+        text: t('.question'),
+        classes: 'govuk-fieldset__legend--m',
+        is_page_heading: true
+      }
+    }
+  ) %>
 
-  <%= submit_tag t('common.submit'), class: "govuk-button" %>
+  <%= govuk_button(t('common.submit'), form: f) %>
 <% end %>

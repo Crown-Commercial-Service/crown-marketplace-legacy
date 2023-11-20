@@ -7,11 +7,11 @@
 }
 
 .supplier-record__branch {
-margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .supplier-record__branch-name {
-font-weight: $govuk-font-weight-regular;
+  font-weight: $govuk-font-weight-regular;
 }
 
 .supplier-record__header-group {
@@ -20,16 +20,16 @@ font-weight: $govuk-font-weight-regular;
 
 .supplier-record__markup-rate,
 .supplier-record__distance {
-  font-weight: $govuk-font-weight-semi-bold;;
+  font-weight: $govuk-font-weight-bold;
   margin-bottom: 0;
 }
 
 .supplier-record__file-download {
-display: inline-block;
-position: relative;
-min-height: 33px;
-min-width: 50px;
-padding-left: 70px;
+  display: inline-block;
+  position: relative;
+  min-height: 33px;
+  min-width: 50px;
+  padding-left: 70px;
 }
 
 .supplier-record__file-download:before {
@@ -46,7 +46,7 @@ padding-left: 70px;
   text-align: center;
   line-height: 2.45;
   text-transform: uppercase;
-  font-weight: $govuk-font-weight-semi-bold;
+  font-weight: $govuk-font-weight-bold;
   content: "";
   padding-left: 5px;
   padding-right: 5px;
@@ -68,8 +68,8 @@ padding-left: 70px;
 }
 
 .supplier-record__file-download-doc:before {
-background-color: #0C5FAE;
-content: ".DOC";
+  background-color: #0C5FAE;
+  content: ".DOC";
 }
 
 .supplier-record__file-download[href*='format=pdf']:before {
@@ -87,23 +87,23 @@ content: ".DOC";
 }
 
 .supplier-record__calculator {
-margin: 0;
-background: ccs-colour("grey-4");
+  margin: 0;
+  background: ccs-colour("light-grey");
 }
 
 .supplier-record__calculator--muted p {
-color: ccs-colour("grey-2");
+  color: ccs-colour("mid-grey");
 }
 
 .supplier-record__worker-cost,
 .supplier-record__agency-fee
 {
-margin: 10px 0 0 0;
-font-size: 24px;
+  margin: 10px 0 0 0;
+  font-size: 24px;
 }
 
 strong.supplier-record__finders-fee-percentage {
-line-height: 1 !important;
+  line-height: 1 !important;
 }
 
 @media print {
@@ -117,5 +117,4 @@ line-height: 1 !important;
   .supplier-record__markup-rate {
     display: inline;
   }
-
 }

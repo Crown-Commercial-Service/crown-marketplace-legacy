@@ -19,17 +19,68 @@
   </div>
 </div>
 
-<table id="agency-branches" class="govuk-table">
-  <thead class="govuk-table__head">
-    <tr class="govuk-table__row">
-      <th scope="col" class="govuk-table__header" width="15%"><%= t('.branch_name') %></th>
-      <th scope="col" class="govuk-table__header" width="20%"><%= t('.contact_name') %></th>
-      <th scope="col" class="govuk-table__header" width="25%"><%= t('.contact_email') %></th>
-      <th scope="col" class="govuk-table__header" width="20%"><%= t('.phone_number') %></th>
-      <th scope="col" class="govuk-table__header" width="20%"><%= t('.address') %></th>
-    </tr>
-  </thead>
-  <tbody class="govuk-table__body">
-    <%= render partial: 'branch', collection: @branches %>
-  </tbody>
-</table>
+<%= govuk_table(
+  [
+    {
+      text: t('.branch_name'),
+      attributes: {
+        width: '15%'
+      }
+    },
+    {
+      text: t('.contact_name'),
+      attributes: {
+        width: '20%'
+      }
+    },
+    {
+      text: t('.contact_email'),
+      attributes: {
+        width: '25%'
+      }
+    },
+    {
+      text: t('.phone_number'),
+      attributes: {
+        width: '20%'
+      }
+    },
+    {
+      text: t('.address'),
+      attributes: {
+        width: '20%'
+      }
+    }
+  ],
+  @branches.map do |branch|
+    [
+      {
+        text: capture do
+          concat("#{branch.name} - ")
+          concat(tag.br)
+          concat(branch.region)
+        end
+      },
+      {
+        text: branch.contact_name
+      },
+      {
+        text: mail_to(branch.contact_email, branch.contact_email, aria: { label: "Email #{branch.contact_name} from #{branch.name}" })
+      },
+      {
+        text: format_telephone_number(branch.telephone_number)
+      },
+      {
+        text: tag.ul(class: 'govuk-list') do
+                branch.address_elements.each do |address_element|
+                  concat(tag.li(address_element))
+                end
+              end
+      }
+    ]
+  end,
+  first_cell_is_header: true,
+  attributes: {
+    id: 'agency-branches'
+  }
+) %>

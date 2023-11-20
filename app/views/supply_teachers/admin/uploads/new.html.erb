@@ -10,8 +10,8 @@
     <h1 class="govuk-heading-xl">
       <%= t('.heading') %>
     </h1>
-    
-    <%= warning_text(warning_details(@uploads_in_progress)) if @uploads_in_progress.any? %>
+
+    <%= govuk_warning_text(warning_details(@uploads_in_progress)) if @uploads_in_progress.any? %>
   </div>
 </div>
 
@@ -28,17 +28,19 @@
           <%= t('.upload_caption') %>
         </div>
         <% service::Upload::ATTRIBUTES.each do |file| %>
-          <%= govuk_form_group_with_optional_error(f.object, file) do %>
-            <%= f.label file, class: 'govuk-label' %>
-            <div class="govuk-hint">
-              <%= expected_file_type(file) %>
-            </div>
-            <%= display_error f.object, file %>
-            <%= f.file_field file, class: "govuk-file-upload #{ 'govuk-file-upload--error' if f.object.errors[file] }" %>
-          <% end %>
+          <%= govuk_file_upload(
+            file,
+            form: f,
+            label: {
+              text: t(".file_label.#{file}")
+            },
+            hint: {
+              text: expected_file_type(file)
+            }
+          ) %>
         <% end %>
       </fieldset>
-      <%= f.submit t('.upload_button'), class: 'govuk-button' %>
+      <%= govuk_button(t('.upload_button'), form: f) %>
       <p>
         <%= link_to t('.return'), index_path, class: 'govuk-link govuk-link--no-visited-state' %> 
       </p>

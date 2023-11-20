@@ -1,6 +1,6 @@
 # rubocop:disable Metrics/ModuleLength
 module ApplicationHelper
-  include GovUKHelper
+  include CCS::FrontendHelpers
   include HeaderNavigationLinksHelper
 
   ADMIN_CONTROLLERS = ['supply_teachers/admin', 'management_consultancy/admin', 'legal_services/admin'].freeze
@@ -28,67 +28,6 @@ module ApplicationHelper
 
   def support_telephone_number
     Marketplace.support_telephone_number
-  end
-
-  def govuk_form_group_with_optional_error(journey, *attributes, &)
-    attributes_with_errors = attributes.select { |a| journey.errors[a].any? }
-
-    css_classes = ['govuk-form-group']
-    css_classes += ['govuk-form-group--error'] if attributes_with_errors.any?
-
-    tag.div(class: css_classes, &)
-  end
-
-  def govuk_fieldset_with_optional_error(journey, attribute, &)
-    attribute_has_errors = journey.errors[attribute].any?
-
-    options = { class: 'govuk-fieldset' }
-    options[:aria] = { describedby: error_id(attribute) } if attribute_has_errors
-
-    tag.fieldset(**options, &)
-  end
-
-  def display_errors(journey, *attributes)
-    safe_join(attributes.map { |a| display_error(journey, a) })
-  end
-
-  def display_error(journey, attribute, margin = true, id_prefix = '')
-    error = journey.errors[attribute].first
-    return if error.blank?
-
-    tag.span(id: "#{id_prefix}#{error_id(attribute)}", class: "govuk-error-message #{'govuk-!-margin-top-3' if margin}") do
-      error.to_s
-    end
-  end
-
-  ERROR_TYPES = {
-    too_long: 'maxlength',
-    too_short: 'minlength',
-    blank: 'required',
-    inclusion: 'required',
-    after: 'max',
-    greater_than: 'min',
-    greater_than_or_equal_to: 'min',
-    before: 'min',
-    less_than: 'max',
-    less_than_or_equal_to: 'max',
-    not_a_date: 'pattern',
-    not_a_number: 'number',
-    not_an_integer: 'number'
-  }.freeze
-
-  def get_client_side_error_type_from_errors(errors, attribute)
-    return ERROR_TYPES[errors.details[attribute].first[:error]] if ERROR_TYPES.key?(errors.details[attribute].try(:first)[:error])
-
-    errors.details[attribute].first[:error].to_sym unless ERROR_TYPES.key?(errors.details[attribute].first[:error])
-  end
-
-  def css_classes_for_input(journey, attribute, extra_classes = [])
-    error = journey.errors[attribute].first
-
-    css_classes = ['govuk-input'] + extra_classes
-    css_classes += ['govuk-input--error'] if error.present?
-    css_classes
   end
 
   def error_id(attribute)
@@ -122,22 +61,6 @@ module ApplicationHelper
     html
   end
 
-  def landing_or_admin_page
-    (PLATFORM_LANDINGPAGES.include?(controller.class.controller_path) && controller.action_name == 'index') || controller.action_name == 'landing_page' || ADMIN_CONTROLLERS.include?(controller.class.module_parent_name.try(:underscore))
-  end
-
-  def passwords_page
-    controller.controller_name == 'passwords'
-  end
-
-  def cookies_page
-    controller.action_name == 'cookie_policy' || controller.action_name == 'cookie_settings'
-  end
-
-  def not_permitted_page
-    controller.action_name == 'not_permitted'
-  end
-
   def format_date(date_object)
     date_object&.in_time_zone('London')&.strftime '%-d %B %Y'
   end
@@ -166,16 +89,6 @@ module ApplicationHelper
     ['sign-in', 'forgot-password', 'fixed-term-results', 'master-vendors', 'temp-to-perm-calculator?looking_for=calculate_temp_to_perm_fee', 'branches/3d-recruit'].map { |link| "https://marketplace.service.crowncommercial.gov.uk/supply-teachers/#{link}" }
   end
 
-  def govuk_tag_with_text(colour, text)
-    extra_classes = {
-      grey: 'govuk-tag--grey',
-      blue: 'govuk-tag',
-      red: 'govuk-tag--red'
-    }
-
-    tag.strong(text, class: ['govuk-tag'] << extra_classes[colour])
-  end
-
   def link_to_public_file_for_download(filename, file_type, text, show_doc_image, **)
     link_to_file_for_download("/#{filename}?format=#{file_type}", file_type, text, show_doc_image, **)
   end
@@ -184,12 +97,21 @@ module ApplicationHelper
     link_to_file_for_download("#{filename}&format=#{file_type}", file_type, text, show_doc_image, **)
   end
 
-  def link_to_file_for_download(file_link, file_type, text, show_doc_image, **)
-    link_to(file_link, class: ('supplier-record__file-download' if show_doc_image).to_s, type: t("common.type_#{file_type}"), download: '', **) do
-      capture do
-        concat(text)
-        concat(tag.span(t("common.title_#{file_type}_html"), class: 'govuk-visually-hidden')) if show_doc_image
+  def link_to_file_for_download(file_link, file_type, text, show_doc_image, **html_options)
+    html_options[:type] = t("common.type_#{file_type}")
+    html_options[:download] = ''
+
+    if show_doc_image
+      html_options[:class] = "supplier-record__file-download #{html_options.delete(:classes)}".rstrip
+
+      link_to(file_link, **html_options) do
+        capture do
+          concat(text)
+          concat(tag.span(t("common.title_#{file_type}_html"), class: 'govuk-visually-hidden'))
+        end
       end
+    else
+      govuk_button(text, href: file_link, classes: html_options.delete(:classes), attributes: html_options)
     end
   end
 
@@ -253,16 +175,71 @@ module ApplicationHelper
     file.filename.extension_without_delimiter.to_sym
   end
 
-  def warning_text(text)
-    tag.div(class: 'govuk-warning-text') do
-      concat(tag.span('!', class: 'govuk-warning-text__icon', aria: { hidden: true }))
-      concat(
-        tag.strong(class: 'govuk-warning-text__text') do
-          concat(tag.span('Warning', class: 'govuk-warning-text__assistive'))
-          concat(text)
-        end
-      )
-    end
+  # rubocop:disable Metrics/AbcSize
+  def pagination_params(paginator)
+    template = paginator.instance_variable_get(:@template)
+    options = paginator.instance_variable_get(:@options)
+    current_page = options[:current_page]
+
+    parameters = {}
+
+    parameters[:pagination_previous] = { href: Kaminari::Helpers::PrevPage.new(template, **options).url } unless current_page.first?
+
+    last_page_gap = false
+
+    parameters[:pagination_items] = paginator.each_page.map do |page|
+      if page.display_tag?
+        last_page_gap = false
+
+        {
+          type: :number,
+          href: Kaminari::Helpers::Page.new(template, **options.merge(page:)).url,
+          number: page.number,
+          current: page.current?
+        }
+      elsif !last_page_gap
+        last_page_gap = true
+
+        {
+          type: :ellipsis
+        }
+      end
+    end.compact
+
+    parameters[:pagination_next] = { href: Kaminari::Helpers::NextPage.new(template, **options).url } if !current_page.out_of_range? && !current_page.last?
+
+    parameters
   end
+  # rubocop:enable Metrics/AbcSize
+
+  GOVUK_DATE_ITEMS = [
+    {
+      name: 'dd',
+      input: {
+        classes: 'govuk-input--width-2'
+      },
+      label: {
+        text: I18n.t('date.day')
+      }
+    },
+    {
+      name: 'mm',
+      input: {
+        classes: 'govuk-input--width-2'
+      },
+      label: {
+        text: I18n.t('date.month')
+      }
+    },
+    {
+      name: 'yyyy',
+      input: {
+        classes: 'govuk-input--width-4'
+      },
+      label: {
+        text: I18n.t('date.year')
+      }
+    }
+  ].freeze
 end
 # rubocop:enable Metrics/ModuleLength

@@ -1,7 +1,7 @@
 <%= add_optional_error_prefix_to_page_title(@journey.errors) %>
 <%= content_for :page_title, t('.question') %>
 
-<div id="ccs-dynamic-accordian" class="govuk-grid-row">
+<div class="govuk-grid-row">
   <%= render partial: 'shared/error_summary', locals: { errors: @journey.errors } %>
 
   <%= form_with url: @form_path, method: :get, html: { specialvalidation: true, novalidate: true } do |f| %>
@@ -9,31 +9,33 @@
     <%= hidden_field_tag(:lot, @journey.params['lot']) %>
 
     <div class="govuk-grid-column-two-thirds" id="selection-checkboxes">
-      <%= govuk_checkboxes(f, @journey, :services, {
+      <%= govuk_checkboxes(
+        :services,
+        @journey.current_step.services_for_lot(@journey.params['lot'], @journey.params['jurisdiction'], @journey.params['central_government']).map do |service|
+          {
+            value: service.code,
+            label: {
+              text: service.name
+            }
+          }
+        end,
+        model: @journey.current_step,
         fieldset: {
           legend: {
             text: t('.question'),
             classes: 'govuk-fieldset__legend--m',
-            page_heading?: true,
+            is_page_heading: true,
             caption: {
               text: lot_full_description(@journey.current_step.selected_lot),
               classes: 'govuk-caption-m'
             }
           }
-        },
-        classes: 'govuk-radios--inline',
-        items: @journey.current_step.services_for_lot(@journey.params['lot'], @journey.params['jurisdiction'], @journey.params['central_government']).map do |service|
-          {
-            value: service.code,
-            text: service.name,
-            checked: @journey.current_step.services.include?(service.code)
-          }
-        end
-      }) %>
+        }
+      ) %>
     </div>
 
     <div class="govuk-grid-column-one-third">
-      <%= render partial: 'shared/basket', locals: { data_text_1:  t('.services_selected'), data_text_2: t('.no_services_selected'), data_text_3: t('.service_selected') } %>
+      <%= render partial: 'shared/basket', locals: { form: f, data_text_1:  t('.services_selected'), data_text_2: t('.no_services_selected'), data_text_3: t('.service_selected') } %>
     </div>
   <% end %>
 </div>
