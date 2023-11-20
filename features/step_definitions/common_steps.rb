@@ -17,9 +17,7 @@ Given('I sign in and navigate to the start page for the {string} framework in {s
   end
 
   update_banner_cookie(true) if @javascript
-  fill_in 'email', with: @user.email
-  fill_in 'password', with: 'ValidPassword'
-  click_button 'Sign in'
+  step 'I sign in'
   step "I am on the '#{start_page_title}' page"
 end
 
@@ -53,9 +51,7 @@ Given('I sign in as an admin for the {string} framework in {string}') do |framew
   end
 
   update_banner_cookie(true) if @javascript
-  fill_in 'email', with: @user.email
-  fill_in 'password', with: 'ValidPassword'
-  click_button 'Sign in'
+  step 'I sign in'
   step "I am on the '#{admin_dashboard_title}' page"
 end
 
@@ -83,8 +79,8 @@ Then('I should sign in as an {string} buyer') do |service|
 end
 
 Then('I sign in') do
-  fill_in 'email', with: @user.email
-  fill_in 'password', with: 'ValidPassword'
+  fill_in 'Email address', with: @user.email
+  fill_in 'Password', with: 'ValidPassword'
   click_button 'Sign in'
 end
 

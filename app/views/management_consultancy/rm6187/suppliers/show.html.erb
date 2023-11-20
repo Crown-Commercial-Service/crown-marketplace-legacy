@@ -8,7 +8,7 @@
     <h1 class="govuk-heading-xl">
       <%= @supplier.name %>
       <% if @supplier.sme? %>
-        <span class="govuk-!-font-size-19 govuk-!-font-weight-bold ccs-tag"><%= t(:sme) %></span>
+        <%= govuk_tag(t('sme'), 'dark-grey', classes: 'ccs-tag') %>
       <% end %>
     </h1>
   </div>
@@ -24,7 +24,8 @@
       <%= govuk_table(
         [
           {
-            text: t('.position')
+            text: t('.position'),
+            classes: 'govuk-!-width-three-quarters'
           },
           {
             text: t('.max_day_rate'),
@@ -85,33 +86,69 @@
           text: t('.day_rates'),
           classes: 'govuk-visually-hidden'
         },
-        first_cell_is_header: true
+        first_cell_is_header: true,
+        classes: 'ccs-rates-table'
       ) %>
 
     <% end %>
     <% if @supplier.sme? %>
       <p class="govuk-body">
-        <span class="govuk-!-font-size-19 govuk-!-font-weight-bold ccs-tag"><%= t(:sme) %></span> <%= t('.is_an_sme') %>
+        <%= govuk_tag(t('sme'), 'dark-grey', classes: 'govuk-!-margin-right-1 ccs-tag') %>
+        <%= t('.is_an_sme') %>
       </p>
     <% end %>
   </div>
   <div class="govuk-grid-column-one-third">
     <div class="ccs-info-panel ccs-info-panel--pull-up">
       <h3 class="govuk-heading-m"><%= t('.contact_details.heading') %></h3>
-      <dl class="ccs-contact-details">
-        <% if @rate_card %>
-          <dt><%= t('.contact_details.person') %></dt>
-          <dd><%= @rate_card.contact_name %></dd>
-        <% end %>
-        <dt><%= t('.contact_details.email') %></dt>
-        <dd><%= mail_to(@supplier.contact_email) %></dd>
-        <dt><%= t('.contact_details.phone_number') %></dt>
-        <dd><%= @supplier.telephone_number %></dd>
-        <dt><%= t('.contact_details.website') %></dt>
-        <dd><%= link_to(@supplier.website, url_formatter(@supplier.website)) if @supplier.website %></dd>
-        <dt><%= t('.contact_details.address') %></dt>
-        <dd><%= @supplier.address %></dd>
-      </dl>
+      <%= govuk_summary_list(
+        (@rate_card ? [
+          {
+            key: {
+              text: t('.contact_details.person')
+            },
+            value: {
+              text: @rate_card.contact_name
+            }
+          }
+        ] : []) + [
+          {
+            key: {
+              text: t('.contact_details.email')
+            },
+            value: {
+              text: mail_to(@supplier.contact_email, @supplier.contact_email, class: 'govuk-link')
+            }
+          },
+          {
+            key: {
+              text: t('.contact_details.phone_number')
+            },
+            value: {
+              text: @supplier.telephone_number
+            }
+          },
+        ] + (@supplier.website ? [
+          {
+            key: {
+              text: t('.contact_details.website')
+            },
+            value: {
+              text: link_to(@supplier.website, url_formatter(@supplier.website), class: 'govuk-link')
+            },
+          }
+        ] : []) + [
+          {
+            key: {
+              text: t('.contact_details.address')
+            },
+            value: {
+              text: @supplier.address
+            }
+          }
+        ],
+        classes: 'govuk-summary-list--no-border ccs-contact-details'
+      ) %>
     </div>
   </div>
 </div>
