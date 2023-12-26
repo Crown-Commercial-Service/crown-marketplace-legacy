@@ -97,7 +97,7 @@ gem 'sprockets', '>= 3.7.2'
 gem 'ratonvirus', '>= 0.1.1'
 gem 'ratonvirus-clamby', '>= 0.1.0'
 # for active storage validation
-gem 'active_storage_validations', '>= 1.0.3'
+gem 'active_storage_validations', '>= 1.1.4'
 
 # asset sync
 gem 'asset_sync'
