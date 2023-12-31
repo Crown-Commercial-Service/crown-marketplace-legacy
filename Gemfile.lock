@@ -290,7 +290,7 @@ GEM
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
     jmespath (1.6.2)
-    json (2.6.3)
+    json (2.7.1)
     json-jwt (1.16.3)
       activesupport (>= 4.2)
       aes_key_wrap
@@ -383,7 +383,7 @@ GEM
       validate_url
       webfinger (~> 1.2)
     orm_adapter (0.5.0)
-    parallel (1.23.0)
+    parallel (1.24.0)
     parser (3.2.2.4)
       ast (~> 2.4.1)
       racc
@@ -473,7 +473,7 @@ GEM
       ffi (~> 1.0)
     redis-client (0.18.0)
       connection_pool
-    regexp_parser (2.8.2)
+    regexp_parser (2.8.3)
     responders (3.1.1)
       actionpack (>= 5.2)
       railties (>= 5.2)
@@ -521,7 +521,7 @@ GEM
       rubocop (~> 1.41)
     rubocop-factory_bot (2.24.0)
       rubocop (~> 1.33)
-    rubocop-rails (2.22.2)
+    rubocop-rails (2.23.1)
       activesupport (>= 4.2.0)
       rack (>= 1.1)
       rubocop (>= 1.33.0, < 2.0)
