@@ -177,3 +177,9 @@ RSpec/IndexedLet:
 
 Capybara/ClickLinkOrButtonStyle:
     Enabled: false
+
+Rails/BulkChangeTable:
+    Exclude:
+    - 'db/migrate/2021**'
+    - 'db/migrate/2022**'
+    - 'db/migrate/2023**'
