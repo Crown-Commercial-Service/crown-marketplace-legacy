@@ -168,7 +168,7 @@ module ApplicationHelper
   end
 
   def admin_upload_file(upload, attachment, service, framework)
-    "#{rails_blob_path(attachment, disposition: 'attachment', key: "#{service}_#{framework}_upload_id".to_sym, value: upload.id)}&format=#{get_file_extension(attachment)}"
+    "#{rails_blob_path(attachment, disposition: 'attachment', key: :"#{service}_#{framework}_upload_id", value: upload.id)}&format=#{get_file_extension(attachment)}"
   end
 
   def get_file_extension(file)

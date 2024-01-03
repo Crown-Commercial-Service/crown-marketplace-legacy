@@ -74,7 +74,7 @@ module SupplyTeachers
       end
 
       def self.previous_uploaded_file_upload(attr_name)
-        where(aasm_state: :published).joins("#{attr_name}_attachment".to_sym).first
+        where(aasm_state: :published).joins(:"#{attr_name}_attachment").first
       end
 
       def self.in_upload_progress
