@@ -130,6 +130,7 @@ GEM
       descendants_tracker (~> 0.0.4)
       ice_nine (~> 0.11.0)
       thread_safe (~> 0.3, >= 0.3.1)
+    base64 (0.2.0)
     bcrypt (3.1.19)
     better_html (2.0.2)
       actionview (>= 6.0)
@@ -138,7 +139,7 @@ GEM
       erubi (~> 1.4)
       parser (>= 2.4)
       smart_properties
-    bindata (2.4.14)
+    bindata (2.4.15)
     binding_of_caller (1.0.0)
       debug_inspector (>= 0.0.1)
     bootsnap (1.17.0)
@@ -235,7 +236,8 @@ GEM
       railties (>= 5.0.0)
     faker (3.2.2)
       i18n (>= 1.8.11, < 2)
-    faraday (2.7.4)
+    faraday (2.8.1)
+      base64
       faraday-net_http (>= 2.0, < 3.1)
       ruby2_keywords (>= 0.0.4)
     faraday-follow_redirects (0.3.0)
@@ -291,9 +293,10 @@ GEM
       activesupport (>= 5.0.0)
     jmespath (1.6.2)
     json (2.7.1)
-    json-jwt (1.16.3)
+    json-jwt (1.16.5)
       activesupport (>= 4.2)
       aes_key_wrap
+      base64
       bindata
       faraday (~> 2.0)
       faraday-follow_redirects
