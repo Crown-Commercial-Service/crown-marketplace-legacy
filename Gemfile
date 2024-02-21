@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.2.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 7.0.8'
+gem 'rails', '~> 7.1.0'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
@@ -16,7 +16,7 @@ gem 'sass-rails', '~> 6.0', '>= 6.0.0'
 
 gem 'sprockets-rails'
 
-gem 'shakapacker', '~> 7.2.1'
+gem 'shakapacker', '~> 7.2.2'
 
 gem 'turbolinks', '~> 5'
 
@@ -73,7 +73,7 @@ gem 'friendly_id', '~> 5.5.1'
 # aws s3 bucket access for postcode data
 gem 'aws-sdk-s3', '~> 1'
 # handles spreadsheets
-gem 'roo', '~> 2.10.0'
+gem 'roo', '~> 2.10.1'
 
 # manipulating JSON for anonymisation
 gem 'jsonpath', '~> 1.1.5'
@@ -97,14 +97,14 @@ gem 'sprockets', '>= 3.7.2'
 gem 'ratonvirus', '>= 0.1.1'
 gem 'ratonvirus-clamby', '>= 0.1.0'
 # for active storage validation
-gem 'active_storage_validations', '>= 1.0.3'
+gem 'active_storage_validations', '>= 1.1.4'
 
 # asset sync
 gem 'asset_sync'
 gem 'fog-aws', '>= 3.14.0'
 
 # Reuired for the ST import
-gem 'capybara', '>= 3.38.0'
+gem 'capybara', '>= 3.40.0'
 
 # for date layout
 gem 'gov_uk_date_fields', '>= 4.2.0'
@@ -115,12 +115,12 @@ gem 'ccs-frontend_helpers', '~> 0.1.2'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
-  gem 'dotenv-rails', '>= 2.8.1'
+  gem 'dotenv-rails', '>= 3.0.0'
   gem 'factory_bot_rails', '>= 6.2.0'
   gem 'launchy', '>= 2.5.0'
   gem 'pry-rails'
   gem 'rails-controller-testing', '>= 1.0.5'
-  gem 'rspec-rails', '>= 6.0.1'
+  gem 'rspec-rails', '>= 6.1.1'
   gem 'shoulda-matchers', '>= 4.2.0'
   gem 'rubocop'
   gem 'rubocop-rspec'
@@ -147,7 +147,7 @@ group :test do
   gem 'selenium-webdriver', '>= 3.142.3'
   gem 'cucumber-rails', '>= 2.6.1', require: false
   gem 'database_cleaner', '>= 2.0.1'
-  gem 'site_prism', '>= 3.7.3'
+  gem 'site_prism', '>= 5.0'
   gem 'axe-core-capybara', '>= 4.2.1'
   gem 'axe-core-cucumber', '>= 4.2.1'
   gem 'show_me_the_cookies', '>= 6.0.0'
