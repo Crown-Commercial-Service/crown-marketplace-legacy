@@ -37,7 +37,7 @@ RSpec.feature 'Authentication' do
     fill_in 'Email', with: user.email
     fill_in 'Password', with: 'ValidPassword!'
     click_button 'Sign in'
-    expect(page).not_to have_text('Not permitted')
+    expect(page).to have_no_text('Not permitted')
     expect(page).to have_text('Select the lot you need')
   end
 
@@ -47,7 +47,7 @@ RSpec.feature 'Authentication' do
     fill_in 'Email', with: user.email.upcase
     fill_in 'Password', with: 'ValidPassword!'
     click_button 'Sign in'
-    expect(page).not_to have_text('Not permitted')
+    expect(page).to have_no_text('Not permitted')
     expect(page).to have_text('Select the lot you need')
   end
 
@@ -67,7 +67,7 @@ RSpec.feature 'Authentication' do
     visit '/supply-teachers/RM6238/start'
     click_on 'Sign in with DfE Sign-in'
 
-    expect(page).not_to have_text('Not permitted')
+    expect(page).to have_no_text('Not permitted')
     expect(page).to have_text('Find supply teachers')
   end
 
