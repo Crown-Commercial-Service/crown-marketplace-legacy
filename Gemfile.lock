@@ -412,7 +412,7 @@ GEM
     parser (3.3.0.2)
       ast (~> 2.4.1)
       racc
-    pg (1.5.4)
+    pg (1.5.5)
     phonejack (1.2.0)
     poltergeist (1.18.1)
       capybara (>= 2.1, < 4)
