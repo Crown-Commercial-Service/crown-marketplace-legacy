@@ -128,7 +128,7 @@ GEM
     axe-core-api (4.8.2)
       dumb_delegator
       virtus
-    axe-core-capybara (4.8.0)
+    axe-core-capybara (4.8.2)
       axe-core-api
       dumb_delegator
     axe-core-cucumber (4.8.2)
