@@ -465,7 +465,7 @@ en:
         text: Accessibility statement
       back: Back
       back_aria_label: Back to the previous page
-      beta: beta
+      beta: Beta
       cookie_policy_link:
         aria_label: How we use cookies
         text: Cookie policy

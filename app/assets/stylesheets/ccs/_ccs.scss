@@ -14,11 +14,6 @@ abbr {
   text-decoration: none;
 }
 
-.govuk-tag--dark-grey {
-  color: govuk-colour("white");
-  background: ccs-colour("dark-grey");
-}
-
 .govuk-heading-xl > .ccs-tag {
   @include govuk-font($size: 24, $weight: bold);
 
