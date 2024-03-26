@@ -8,7 +8,7 @@
     <h1 class="govuk-heading-xl">
       <%= @supplier.name %>
       <% if @supplier.sme? %>
-        <%= govuk_tag(t('sme'), 'dark-grey', classes: 'ccs-tag') %>
+        <%= govuk_tag(t('sme'), 'grey', classes: 'ccs-tag') %>
       <% end %>
     </h1>
   </div>
@@ -93,7 +93,7 @@
     <% end %>
     <% if @supplier.sme? %>
       <p class="govuk-body">
-        <%= govuk_tag(t('sme'), 'dark-grey', classes: 'govuk-!-margin-right-1 ccs-tag') %>
+        <%= govuk_tag(t('sme'), 'grey', classes: 'govuk-!-margin-right-1 ccs-tag') %>
         <%= t('.is_an_sme') %>
       </p>
     <% end %>

@@ -2,7 +2,7 @@
   <h2 class="govuk-heading-m">
     <%= link_to supplier.name, legal_services_supplier_path(supplier), class: 'govuk-link ccs-no-underline' %>
     <% if supplier.sme %>
-      <%= govuk_tag(t('sme'), 'dark-grey', classes: 'ccs-tag') %>
+      <%= govuk_tag(t('sme'), 'grey', classes: 'ccs-tag') %>
     <% end %>
   </h2>
 </li>
