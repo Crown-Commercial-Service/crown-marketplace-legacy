@@ -2,7 +2,7 @@
   <h2 class="govuk-heading-m">
     <%= link_to supplier.name, management_consultancy_rm6187_supplier_path(id: supplier.id, lot: params[:lot]), class: "govuk-!-font-size-20 ccs-no-underline" %>
     <% if supplier.sme? %>
-      <%= govuk_tag(t('sme'), 'dark-grey', classes: 'ccs-tag') %>
+      <%= govuk_tag(t('sme'), 'grey', classes: 'ccs-tag') %>
     <% end %>
   </h2>
 </li>
