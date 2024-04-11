@@ -14,12 +14,12 @@ en:
           update_the_framework_dates: Update the framework dates
         index:
           change: Change
-          coming: coming
+          coming: Coming
           expired: Expired
           expires_at: Expires at
           framework: Framework
           if_the_framework: If the framework 'live at' date is before the current date (%{current_date}), the buyer section for this framework will be accessible to our customers.
-          live: live
+          live: Live
           live_at: Live at
           page_title: "%{service_title} frameworks"
           status: Status
