@@ -6,9 +6,9 @@
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-m"><%= t('.header', date: @journey.previous_step.hire_by_date.strftime('%d %b %Y')) %></h1>
     <p class="govuk-body"><%= t('.body') %></p>
-    <%= form_tag @form_path, method: :get do %>
+    <%= form_tag @form_path, method: :get do |f| %>
       <%= hidden_fields_for_previous_steps_and_responses(@journey) %>
-      <%= submit_tag t('.submit'), class: "govuk-button" %>
+      <%= govuk_button(t('.submit'), form: f) %>
     <% end %>
   </div>
 </div>

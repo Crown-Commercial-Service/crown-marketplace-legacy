@@ -19,5 +19,5 @@ Feature: Forgot my password - Supply Teachers - RM6238
       | Verification code     | 123456          |
     And I click on 'Reset password'
     Then I am on the 'You have successfully changed your password' page
-    And I click on 'Sign in'
+    And I click on the Sign in link
     And I am on the 'Sign in to find supply teachers and agency workers' page

@@ -159,7 +159,7 @@ class Basket implements BasketInterface {
   }
 
   private readonly toggleRemoveAllButton = (isShown: boolean): void => {
-    isShown ? this.$removeAllLink.removeClass('ccs-remove') : this.$removeAllLink.addClass('ccs-remove')
+    this.$removeAllLink.toggle(isShown)
   }
 
   private readonly removeAll = (event: JQuery.ClickEvent): void => {

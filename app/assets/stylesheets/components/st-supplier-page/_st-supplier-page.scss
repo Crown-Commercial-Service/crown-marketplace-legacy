@@ -2,6 +2,7 @@
 	margin-right: 10px;
 	white-space: nowrap;
 }
+
 @media print {
 	.st-supplier-page__radius-list-item a[href]:after { 
 		content: none !important; 

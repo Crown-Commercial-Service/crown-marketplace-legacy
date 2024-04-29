@@ -16,7 +16,7 @@ module Pages
     element :number_of_companies, '#main-content > div.govuk-grid-row > div > p'
     element :number_of_suppliers, '#main-content > div.govuk-grid-row > div > div:nth-child(3) > div > p'
 
-    elements :suppliers, 'section a'
+    elements :suppliers, '.ccs-results-list a'
 
     section :supplier_rates_table, 'table tbody' do
       sections :rows, 'tr' do

@@ -53,10 +53,6 @@ en:
           attributes:
             looking_for:
               inclusion: Select individual worker, managed service provider, or calculate temp-to-perm fee
-        supply_teachers/rm6238/journey/managed_service_provider:
-          attributes:
-            managed_service_provider:
-              inclusion: Select master vendor or education technology platform service
         supply_teachers/rm6238/journey/master_vendor_options:
           attributes:
             threshold_position:
@@ -171,25 +167,32 @@ en:
           page_title: Unrecognised framework
           the_recognised_are: 'The Supply Teachers frameworks are:'
       uploads:
-        current_upload:
-          upload_name: 'Upload session #%{number}'
         index:
           caption: Manage supplier data
           create_new: Set up upload session
           current_table_caption: Data currently used
           date: Date and time
+          download: Download
           heading: Supply teachers and agency workers
           name: Name
           no_of_files: Number of files
           spreadsheet: Spreadsheet
           status: Status
           table_caption: Upload sessions
+          upload_name: 'Upload session #%{number}'
           upload_session: Upload session
         new:
           caption: Supply teachers and agency workers
           extension_type:
             csv: This file must be a CSV
             xlsx: This file must be an XLSX
+          file_label:
+            current_accredited_suppliers: Current accredited suppliers
+            education_technology_platform_contacts: Education technology platform contacts
+            geographical_data_all_suppliers: Geographical data all suppliers
+            master_vendor_contacts: Master vendor contacts
+            pricing_for_tool: Pricing for tool
+            supplier_lookup: Supplier lookup
           heading: Set up a new upload session
           return: Return to manage supplier data
           upload_button: Upload spreadsheets
@@ -204,6 +207,7 @@ en:
           current_accredited_suppliers: Current accredited suppliers
           datetime: 'Date and time:'
           delete: Delete session
+          download: Download
           education_technology_platform_contacts: Education technology platform contacts
           error_heading: There is a problem
           files: Files
@@ -223,12 +227,11 @@ en:
           failed: Failed
           files_processed: Waiting to publish
           in_progress: Processing files
+          not_started: Not started
           processing_files: Processing files
           published: Published on live
           rejected: Cancelled session
           uploading: Publishing files
-        upload:
-          upload_name: 'Upload session #%{number}'
     branches:
       branch:
         branch: Branch
@@ -285,8 +288,6 @@ en:
         print: Print this page
         results_found_html: "<strong>%{results}</strong> found"
         results_found_with_location_html: "<strong>%{results}</strong> found within <strong>%{range}</strong> of <strong>%{postcode}</strong>."
-      render_branches:
-        calculated_mark_up: Calculated mark-up updated
       show:
         address: Address
         branch_name: Branch
@@ -494,16 +495,6 @@ en:
             worker: An agency who can provide my school with an individual worker
           page_title: What is your school looking for?
           question: What is your school looking for?
-        managed_service_provider:
-          answer:
-            education_technology_platform: Education technology platform service
-            master_vendor: Master vendor managed service
-          hint:
-            education_technology_platform: DESCRIPTION FOR EDUCATION TECH PLATFORMS
-            master_vendor: These supply whatever candidates they can. Where they don’t have a suitable candidate themselves, they find other agencies who do.
-          page_title: What type of managed service do you want?
-          question: What type of managed service do you want?
-          question_hint: A managed service provider is a company that can manage all your temporary staff needs.
         master_vendor_options:
           answer:
             above_threshold: 'Yes'

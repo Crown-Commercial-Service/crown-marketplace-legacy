@@ -1,0 +1,7 @@
+.ccs-rates-table {
+  th:last-child,
+  td:last-child {
+    text-align: right;
+    padding-left: govuk-spacing(2)
+  }
+}

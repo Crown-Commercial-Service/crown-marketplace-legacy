@@ -23,28 +23,26 @@
     </p>
   <% end %>
 
-  <table class="govuk-table">
-    <thead class="govuk-table__head">
-      <tr class="govuk-table__row">
-        <th class="govuk-table__header" scope="col"><strong><%= t('.column1') %></strong></th>
-        <th class="govuk-table__header govuk-table__header--numeric agency-record__markup-column" scope="col"><strong><%= t('.column2') %></strong></th>
-      </tr>
-    </thead>
-    <tbody class="govuk-table__body">
-      <% education_technology_platform_vendor.education_technology_platforms_rates_grouped_by_job_type.each do |job_type, rates| %>
-        <% rates.each do |rate| %>
-          <tr class="govuk-table__row">
-            <th class="govuk-table__header" scope="row">
-              <% if rates.length == 1 %>
-                <%= SupplyTeachers::RM6238::JobType[job_type] %>
-              <% else %>
-                <%= t(".agency_management.#{rate.term}") %>
-              <% end %>
-            </th>
-            <%= agency_rate_cell(rate) %>
-          </tr>
-        <% end %>
-      <% end %>
-    </tbody>
-  </table>
+  <%= govuk_table(
+    [
+      {
+        text: t('.column1')
+      },
+      {
+        text: t('.column2'),
+        classes: 'govuk-table__header--numeric agency-record__markup-column'
+      }
+    ],
+    education_technology_platform_vendor.education_technology_platforms_rates_grouped_by_job_type.map do |job_type, rates|
+      rates.map do |rate|
+        [
+          {
+            text: rates.length == 1 ? SupplyTeachers::RM6238::JobType[job_type] : t(".agency_management.#{rate.term}")
+          },
+          agency_rate_cell(rate)
+        ]
+      end
+    end.flatten(1),
+    first_cell_is_header: true
+  ) %>
 </div>

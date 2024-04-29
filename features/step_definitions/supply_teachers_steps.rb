@@ -254,7 +254,7 @@ Then('the {string} is {string} for the {string} branch') do |contact_detail, val
 end
 
 Then('the address for the {string} branch is:') do |branch, address|
-  expect(supply_teachers_page.agency_details.branches_table.find { |branch_element| branch_element.Branch.text.include?(branch) }.Address).to have_content address.raw.flatten.join(' ')
+  expect(supply_teachers_page.agency_details.branches_table.find { |branch_element| branch_element.Branch.text.include?(branch) }.Address).to have_content address.raw.flatten.join
 end
 
 Then('the agency has the following rates:') do |raw_rates|

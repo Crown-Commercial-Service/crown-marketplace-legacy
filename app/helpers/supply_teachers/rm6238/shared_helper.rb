@@ -5,6 +5,24 @@ module SupplyTeachers::RM6238::SharedHelper
     grouped_rates.sort_by { |job_type, _| job_types.index(job_type) }
   end
 
+  def agency_rate_cells(rates)
+    agency_rates = case rates.length
+                   when 1
+                     [
+                       rates.first,
+                       rates.first
+                     ]
+                   when 2
+                     agency_sorted_rates(rates)
+                   else
+                     []
+                   end
+
+    agency_rates.map do |rate|
+      agency_rate_cell(rate)
+    end
+  end
+
   def agency_rate_cell(rate)
     rate_value = if rate.percentage?
                    number_to_percentage(rate.value, precision: 1)
@@ -12,7 +30,10 @@ module SupplyTeachers::RM6238::SharedHelper
                    format_money(rate.value)
                  end
 
-    tag.td(rate_value, class: 'govuk-table__cell govuk-table__cell--numeric agency-record__markup-column')
+    {
+      text: rate_value,
+      classes: 'govuk-table__cell govuk-table__cell--numeric agency-record__markup-column'
+    }
   end
 
   def agency_sorted_rates(rates)

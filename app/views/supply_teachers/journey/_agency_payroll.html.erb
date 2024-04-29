@@ -13,7 +13,9 @@
 <%= form_with url: @form_path, method: :get, html: { specialvalidation: true, novalidate: true } do |f| %>
   <%= hidden_fields_for_previous_steps_and_responses(@journey) %>
 
-  <%= govuk_text_input(f, @journey, :location, {
+  <%= govuk_input(
+    :postcode,
+    error_message: @journey.current_step.errors[:location].first,
     label: {
       text: t('.postcode_question'),
       classes: 'govuk-label--m',
@@ -21,49 +23,50 @@
     hint: {
       text: t('.question_hint')
     },
-    input: {
-      classes: 'govuk-input--width-10',
-      placeholder: 'SW1A 1AA',
-      value: params[:postcode],
-      name: :postcode
+    classes: 'govuk-input--width-10',
+    value: params[:postcode],
+    attributes: {
+      placeholder: 'SW1A 1AA'
     }
-  })%>
+  ) %>
 
-  <%= govuk_radios(f, @journey, :job_type, {
+  <%= govuk_radios(
+    :job_type,
+    job_type_class.roles.map do |job_type|
+      {
+        value: job_type.code,
+        label: {
+          text: job_type.description
+        }
+      }
+    end,
+    model: @journey.current_step,
     fieldset: {
       legend: {
         text: t('.worker_type_question'),
         classes: 'govuk-fieldset__legend--m',
       }
-    },
-    items: job_type_class.roles.map do |job_type|
+    }
+  ) %>
+
+  <%= govuk_radios(
+    :term,
+    term_type_class.all.map do |term|
       {
-        value: job_type.code,
-        checked: checked?(params[:job_type], job_type.code),
+        value: term.code,
         label: {
-          text: job_type.description
+          text: term.description
         }
       }
-    end
-  }) %>
-
-  <%= govuk_radios(f, @journey, :term, {
+    end,
+    model: @journey.current_step,
     fieldset: {
       legend: {
         text: t('.worker_term_question'),
         classes: 'govuk-fieldset__legend--m',
       }
-    },
-    items: term_type_class.all.map do |term|
-      {
-        value: term.code,
-        checked: checked?(params[:term], term.code),
-        label: {
-          text: term.description
-        }
-      }
-    end
-  }) %>
+    }
+  ) %>
 
-  <%= submit_tag t('common.submit'), class: "govuk-button" %>
+  <%= govuk_button(t('common.submit'), form: f) %>
 <% end %>

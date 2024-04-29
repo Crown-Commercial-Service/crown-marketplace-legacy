@@ -6,5 +6,5 @@ Feature: Management Consultancy - Headers are responsive
     And the header navigation links 'are not' visible
     Then I click on 'Menu'
     And the header navigation links 'are' visible
-    Then I click on 'Back to start'
+    Then I click on the header link 'Back to start'
     And I am on the 'Find management consultants' page

@@ -49,7 +49,7 @@ RSpec.describe ManagementConsultancy::RM6187::HomeController do
       let(:update_params) { { ga_cookie_usage: 'true', glassbox_cookie_usage: 'false' } }
 
       it 'updates the cookie preferences' do
-        expect(JSON.parse(response.cookies['cookie_preferences'])).to eq(
+        expect(JSON.parse(response.cookies['cookie_preferences_cmp'])).to eq(
           {
             'settings_viewed' => true,
             'usage' => true,
@@ -85,7 +85,7 @@ RSpec.describe ManagementConsultancy::RM6187::HomeController do
       let(:update_params) { { ga_cookie_usage: 'false', glassbox_cookie_usage: 'true' } }
 
       it 'updates the cookie preferences' do
-        expect(JSON.parse(response.cookies['cookie_preferences'])).to eq(
+        expect(JSON.parse(response.cookies['cookie_preferences_cmp'])).to eq(
           {
             'settings_viewed' => true,
             'usage' => false,
@@ -121,7 +121,7 @@ RSpec.describe ManagementConsultancy::RM6187::HomeController do
       let(:update_params) { { ga_cookie_usage: 'true', glassbox_cookie_usage: 'true' } }
 
       it 'updates the cookie preferences' do
-        expect(JSON.parse(response.cookies['cookie_preferences'])).to eq(
+        expect(JSON.parse(response.cookies['cookie_preferences_cmp'])).to eq(
           {
             'settings_viewed' => true,
             'usage' => true,
@@ -149,7 +149,7 @@ RSpec.describe ManagementConsultancy::RM6187::HomeController do
       let(:update_params) { { ga_cookie_usage: 'false', glassbox_cookie_usage: 'false' } }
 
       it 'updates the cookie preferences' do
-        expect(JSON.parse(response.cookies['cookie_preferences'])).to eq(
+        expect(JSON.parse(response.cookies['cookie_preferences_cmp'])).to eq(
           {
             'settings_viewed' => true,
             'usage' => false,

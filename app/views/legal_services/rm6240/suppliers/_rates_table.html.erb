@@ -3,24 +3,36 @@
   <%= t('.fixed_until') %>
 </p>
 <p class="govuk-body"><%= t('.further_competition') %></p>
-<table class="govuk-table">
-  <caption class="govuk-table__caption govuk-visually-hidden"><%= t('.rates') %></caption>
-  <thead class="govuk-table__head">
-    <tr class="govuk-table__row">
-      <th class="govuk-table__header govuk-!-font-weight-bold govuk-!-width-one-half" scope="col"><%= t('.position') %></th>
-      <th class="govuk-table__header govuk-!-font-weight-bold govuk-!-width-one-sixth" scope="col"><%= t('.hourly') %></th>
-    </tr>
-  </thead>
-  <tbody class="govuk-table__body">
-    <% LegalServices::RM6240::Position.all.sort_by(&:code).each do |position| %>
-      <% rate = display_rate(position.code)%>
+<%= govuk_table(
+  [
+    {
+      text: t('.position'),
+      classes: 'govuk-!-width-three-quarters'
+    },
+    {
+      text: t('.hourly'),
+      classes: 'govuk-!-width-one-quarter'
+    }
+  ],
+  LegalServices::RM6240::Position.all.sort_by(&:code).map do |position|
+    rate = display_rate(position.code)
 
-      <% next if rate.nil? %>
+    next if rate.nil?
 
-      <tr class="govuk-table__row">
-        <th class="govuk-table__header govuk-!-width-one-half" scope="row"><%= position.name %></th>
-        <td class="govuk-table__cell govuk-!-width-one-sixth"><%= rate %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    [
+      {
+        text: position.name
+      },
+      {
+        text: rate
+      }
+    ]
+  end.compact,
+  caption: {
+    text: t('.rates'),
+    classes: 'govuk-visually-hidden'
+  },
+  first_cell_is_header: true,
+  classes: 'ccs-rates-table'
+) %>
+

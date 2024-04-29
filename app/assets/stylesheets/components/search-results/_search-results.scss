@@ -1,0 +1,36 @@
+.ccs-search-results {
+  margin-bottom: govuk-spacing(5);
+
+  ul.ccs-results-list {
+    list-style: none;
+    padding: 0;
+    clear: left;
+
+    li {
+      float: left;
+      clear: left;
+      width: 100%;
+      padding: govuk-spacing(2) 0;
+      margin: 0;
+      border-bottom: 1px solid $govuk-border-colour;
+
+      &:first-child {
+        border-top: 1px solid $govuk-border-colour;
+      }
+
+      a {
+        margin: govuk-spacing(0);
+        margin-right: govuk-spacing(2);
+      }
+
+      h2.govuk-heading-m {
+        margin-top: govuk-spacing(1);
+        margin-bottom: govuk-spacing(1);
+
+        & > .ccs-tag {
+          @include govuk-font($size: 19, $weight: bold);
+        }
+      }
+    }
+  }
+}

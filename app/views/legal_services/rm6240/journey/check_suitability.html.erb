@@ -8,27 +8,28 @@
     <%= form_with url: @form_path, method: :get, html: { specialvalidation: true, novalidate: true } do |f| %>
       <%= hidden_fields_for_previous_steps_and_responses(@journey) %>
 
-      <%= govuk_radios(f, @journey, :service_suitable, {
-        fieldset: {
-          legend: {
-            text: t('.question'),
-            classes: 'govuk-fieldset__legend--m',
-            page_heading?: true
-          }
-        },
-        classes: 'govuk-radios--inline',
-        items: @journey.current_step.class::SUITABILITY_OPTIONS.map do |option|
+      <%= govuk_radios(
+        :service_suitable,
+        @journey.current_step.class::SUITABILITY_OPTIONS.map do |option|
           {
             value: option,
-            checked: checked?(params[:service_suitable], option),
             label: {
               text: t(option)
             }
           }
-        end
-      }) %>
+        end,
+        model: @journey.current_step,
+        fieldset: {
+          legend: {
+            text: t('.question'),
+            classes: 'govuk-fieldset__legend--m',
+            is_page_heading: true
+          }
+        },
+        classes: 'govuk-radios--inline'
+      ) %>
 
-      <%= submit_tag t('common.submit'), id: "submit", class: "govuk-button govuk-!-padding-left-7 govuk-!-padding-right-7", name: t('common.submit') %>
+      <%= govuk_button(t('common.submit'), form: f, classes: 'govuk-!-padding-left-7 govuk-!-padding-right-7', attributes: { id: 'submit', name: t('common.submit') }) %>
     <% end %>
   </div>
 </div>

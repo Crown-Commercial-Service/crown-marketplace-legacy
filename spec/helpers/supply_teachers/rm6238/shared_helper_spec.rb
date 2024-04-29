@@ -93,7 +93,10 @@ RSpec.describe SupplyTeachers::RM6238::SharedHelper do
       let(:rate) { rate_over_12_week }
 
       it 'returns the rate as a percentage' do
-        expect(result).to eq('<td class="govuk-table__cell govuk-table__cell--numeric agency-record__markup-column">30.0%</td>')
+        expect(result).to eq({
+                               classes: 'govuk-table__cell govuk-table__cell--numeric agency-record__markup-column',
+                               text: '30.0%'
+                             })
       end
     end
 
@@ -101,7 +104,10 @@ RSpec.describe SupplyTeachers::RM6238::SharedHelper do
       let(:rate) { rate_nominated }
 
       it 'returns the rate as a price' do
-        expect(result).to eq('<td class="govuk-table__cell govuk-table__cell--numeric agency-record__markup-column">£30.00</td>')
+        expect(result).to eq({
+                               classes: 'govuk-table__cell govuk-table__cell--numeric agency-record__markup-column',
+                               text: '£30.00'
+                             })
       end
     end
   end

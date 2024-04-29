@@ -19,6 +19,6 @@
         rm6204_link: link_to(t('.rm6204_link.text'), t('.rm6204_link.url'), class: 'govuk-link')
       ) %>
     </p>
-    <%= link_to t('.back_to_start'), legal_services_rm6240_path, class: 'govuk-button govuk-!-margin-top-4 govuk-!-padding-left-4 govuk-!-padding-right-4', name: t('.back_to_start') %>
+    <%= govuk_button(t('.back_to_start'), href: legal_services_rm6240_path, classes: 'govuk-!-margin-top-4 govuk-!-padding-left-4 govuk-!-padding-right-4') %>
   </div>
 </div>

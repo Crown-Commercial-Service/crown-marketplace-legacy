@@ -11,21 +11,20 @@ en:
           page_title: Framework 'live at' date
           return_to_frameworks: Return to %{service_name} frameworks
           save_and_return: Save and return
+          update_the_framework_dates: Update the framework dates
         index:
           change: Change
-          coming: coming
+          coming: Coming
           expired: Expired
           expires_at: Expires at
           framework: Framework
           if_the_framework: If the framework 'live at' date is before the current date (%{current_date}), the buyer section for this framework will be accessible to our customers.
-          live: live
+          live: Live
           live_at: Live at
           page_title: "%{service_title} frameworks"
-          section_not_accessible: This section is not accessible in production and is for testing purposes only.
           status: Status
           the_admin_section: The admin section for a framework will always be visible for any framework that is on the system no matter when it goes live.
           this_section_allows: This section allows you to view and change the 'live at' date for a %{service_name} framework.
-          to_update_in_prod: To update the framework 'live at' date in production speak to a developer.
       in_progress:
         checking_files: Checking files
         complete: Complete

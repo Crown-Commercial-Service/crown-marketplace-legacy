@@ -13,14 +13,14 @@ module SupplyTeachers::Admin::UploadsHelper
   def upload_status_tag(status)
     colour = case status
              when 'published', 'files_processed'
-               :blue
+               nil
              when 'failed', 'rejected', 'canceled'
                :red
              else
                :grey
              end
 
-    [colour, t("supply_teachers.admin.uploads.state.#{status}")]
+    [t("supply_teachers.admin.uploads.state.#{status}"), colour]
   end
 
   def expected_file_type(attachment)

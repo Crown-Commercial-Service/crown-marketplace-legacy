@@ -6,7 +6,7 @@ Feature: Sign up to legal services - RM6240
     Then I am on the 'Find legal services for the wider public sector' page
     When I click on 'Start now'
     And I am on the 'Sign in to your legal services account' page
-    And I click on 'Create an account'
+    And I click on 'Create a CCS account'
     Then I am on the 'Create a CCS account' page
     And I am able to create an 'ls' account
     Then I am on the 'Activate your account' page
