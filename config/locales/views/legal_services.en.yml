@@ -95,6 +95,7 @@ en:
           name: Name
           status: Status
           table_caption: Previous uploads
+          upload_name: 'Upload session #%{number}'
         new:
           caption: Legal Services - %{framework}
           download_templates: Download file templates
@@ -129,8 +130,6 @@ en:
           name: File name
           return: Return to 'Manage supplier data'
           status: 'Status:'
-        upload:
-          upload_name: 'Upload session #%{number}'
     home:
       unrecognised_framework:
         heading: The web address contained an unrecognised framework

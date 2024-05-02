@@ -79,7 +79,7 @@ Then('the supplier {string} an SME') do |option|
   when 'is'
     expect(journey_page.find('h1')).to have_content('SME')
   when 'is not'
-    expect(journey_page.find('h1')).not_to have_content('SME')
+    expect(journey_page.find('h1')).to have_no_content('SME')
   end
 end
 
@@ -101,6 +101,10 @@ end
 
 Then('there is no LMP \(Legal project manager) hourly rate') do
   expect(journey_page.supplier_rates_table.rows.length).to eq(6)
+end
+
+Then 'I click on the Back to start button' do
+  page.find_by_id('main-content').click_on('Back to start')
 end
 
 MC_ROLES = ['Analyst / Junior Consultant', 'Consultant', 'Senior Consultant / Engagement Manager / Project Lead', 'Principal Consultant / Associate Director', 'Managing Consultant / Director', 'Partner'].freeze

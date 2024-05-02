@@ -123,6 +123,7 @@ en:
             name: Name
             status: Status
             table_caption: Previous uploads
+            upload_name: 'Upload session #%{number}'
           new:
             caption: Management Consultancy - %{framework}
             download_templates: Download file templates
@@ -151,8 +152,6 @@ en:
             name: File name
             return: Return to 'Manage supplier data'
             status: 'Status:'
-          upload:
-            upload_name: 'Upload session #%{number}'
       home:
         index:
           before_you_start:
@@ -169,13 +168,12 @@ en:
         choose_lot:
           mcf3_heading: Management Consultancy Framework 3 (MCF3)
           question: Select the lot you need
+          service_lines: Service lines
         choose_services:
           no_services_selected: No services selected
           question: Select the services you need
           service_selected: service selected
           services_selected: services selected
-        management_consultancy_lots:
-          service_lines: Service lines
       suppliers:
         download:
           download_supplier_shortlist: Download supplier shortlist
@@ -212,5 +210,6 @@ en:
             standard: Consultant
           max_day_rate: Max day rate
           maximum_day_rates: Maximum day rates (excluding V.A.T.)
+          position: Position
           rates_are_fixed: Rates are fixed for the life of the framework and any call-off. These rates, which exclude V.A.T. are for an 8 hour working day and include travel expenses to the base location as stipulated by the customer.
           rates_are_maximum: These are the maximum rates a supplier can charge and cannot be exceeded. Suppliers can reduce these rates to match or beat those on any other agreement.

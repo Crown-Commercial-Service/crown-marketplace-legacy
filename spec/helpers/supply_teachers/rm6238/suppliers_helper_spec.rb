@@ -40,7 +40,7 @@ RSpec.describe SupplyTeachers::RM6238::SuppliersHelper do
       let(:rate) { create(:supply_teachers_rm6238_master_vendor_below_threshold_rate, job_type: 'fixed_term', rate: 4321) }
 
       it 'returns the rate as a percentage' do
-        expect(result).to include '43.2%'
+        expect(result[:text]).to eq '43.2%'
       end
     end
 
@@ -48,7 +48,7 @@ RSpec.describe SupplyTeachers::RM6238::SuppliersHelper do
       let(:rate) { create(:supply_teachers_rm6238_master_vendor_below_threshold_rate, rate: 4321) }
 
       it 'returns the rate as a percentage' do
-        expect(result).to include '£43.21'
+        expect(result[:text]).to eq '£43.21'
       end
     end
   end

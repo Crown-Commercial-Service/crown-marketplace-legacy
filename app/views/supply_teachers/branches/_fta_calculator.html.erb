@@ -6,23 +6,38 @@
       </h4>
     </div>
   </div>
-  <span class="govuk-error-message govuk-visually-hidden">
-    <span class="govuk-visually-hidden"><%= t('.error') %></span><%= t('.error_message') %>
-  </span>
+
+  <%= govuk_error_message(
+    t('.error_message'),
+    :annual_salary,
+    visually_hidden_text: t('.error'),
+    classes: 'govuk-visually-hidden',
+    attributes: {
+      id: "annual_salary_#{branch.id}-error"
+    }
+  ) %>
+
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-one-third">
-      <div class="govuk-form-group govuk-!-margin-0">
-        <%= label_tag "annual_salary_#{branch.id}", t('.annual_salary'), class: 'govuk-label govuk-!-font-size-16' %>
-        <div class="calculator-form__annual-salary">
-          <%= govuk_input(:annual_salary, branch.id, false, {
-            classes: 'govuk-input--width-10 calculator-form__annual-salary-input',
-            value: @salary,
-            prefix: {
-              text: '£'
-            }
-          }) %>
-        </div>
-      </div>
+      <%= govuk_input(
+        :annual_salary,
+        form_group: {
+          classes: 'govuk-!-margin-0 calculator-form__annual-salary'
+        },
+        label: {
+          text: t('.annual_salary'),
+          classes: 'govuk-!-font-size-16',
+        },
+        classes: 'govuk-input--width-10 calculator-form__annual-salary-input',
+        value: @salary.is_a?(String) ? @salary : @salary[branch.id],
+        prefix: {
+          text: '£'
+        },
+        attributes: {
+          id: "annual_salary_#{branch.id}",
+          name: "annual_salary[#{branch.id}]"
+        }
+      ) %>
     </div>
     <div class="govuk-grid-column-one-third">
       <p class="govuk-body supplier-record__fixed-term-length govuk-!-font-size-24 govuk-!-margin-bottom-0 govuk-!-margin-top-3">

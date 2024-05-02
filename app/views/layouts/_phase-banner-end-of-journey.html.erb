@@ -1,12 +1,8 @@
 <div class="govuk-width-container">
-  <div class="govuk-phase-banner">
-    <p class="govuk-phase-banner__content">
-      <strong class="govuk-tag govuk-phase-banner__content__tag">
-        <%= t('layouts.application.beta') %>
-      </strong>
-      <span class="govuk-phase-banner__text">
-        <%= t('layouts.application.feedback_end_journey_html', link: Marketplace.st_survey_link)%>
-      </span>
-    </p>
-  </div>
+  <%= govuk_phase_banner(
+    {
+      text: t('layouts.application.beta')
+    },
+    t('layouts.application.feedback_end_journey_html', link: Marketplace.st_survey_link)
+  ) %>
 </div>

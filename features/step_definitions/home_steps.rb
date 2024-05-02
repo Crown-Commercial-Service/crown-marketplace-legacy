@@ -3,7 +3,7 @@ Then('the cookie banner {string} visible') do |option|
   when 'is'
     expect(page.find_by_id('cookie-options-container')).to be_visible
   when 'is not'
-    expect(page).not_to have_css('#cookie-options-container')
+    expect(page).to have_no_css('#cookie-options-container')
   end
 end
 
@@ -40,8 +40,22 @@ Then('I choose to {string} {string} cookies') do |option, cookie|
   end
 end
 
+Then('I click on the header link {string}') do |button_text|
+  home_page.find('header').click_on(button_text)
+end
+
 Then('I should see the following navigation links:') do |navigation_links|
+  expect(home_page.navigation.links.length).to eq(navigation_links.raw.flatten.length)
+
   home_page.navigation.links.zip(navigation_links.raw.flatten).each do |actual, expected|
+    expect(actual).to have_content expected
+  end
+end
+
+Then('I should see the following authentication links:') do |authentication_links|
+  expect(home_page.authentication.links.length).to eq(authentication_links.raw.flatten.length)
+
+  home_page.authentication.links.zip(authentication_links.raw.flatten).each do |actual, expected|
     expect(actual).to have_content expected
   end
 end
@@ -60,7 +74,7 @@ Given('I go to the not permitted page for {string}') do |service|
 end
 
 Given('I enter {string} for my email') do |email|
-  fill_in 'email', with: email
+  fill_in 'Email address', with: email
 end
 
 Given('I enter {string} for the password') do |password|
@@ -77,5 +91,5 @@ COOKIE_TO_OPTION = {
 }.freeze
 
 def cookie_settings
-  JSON.parse(CGI.unescape(page.driver.browser.manage.cookie_named('cookie_preferences')[:value]))
+  JSON.parse(CGI.unescape(page.driver.browser.manage.cookie_named('cookie_preferences_cmp')[:value]))
 end

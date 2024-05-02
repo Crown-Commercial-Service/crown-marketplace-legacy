@@ -2,11 +2,11 @@ module ManagementConsultancy::RM6187::Admin::UploadsHelper
   def upload_status_tag(status)
     case status
     when 'published'
-      [:blue, 'published on live']
+      ['Published on live']
     when 'failed'
-      [:red, 'failed']
+      ['Failed', :red]
     else
-      [:grey, 'in progress']
+      ['In progress', :grey]
     end
   end
 end

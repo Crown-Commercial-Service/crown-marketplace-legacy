@@ -1,13 +1,4 @@
 module HeaderNavigationLinksHelper
-  def service_navigation_links
-    navigation_links = []
-
-    navigation_links << { link_text: t('header_navigation_links_helper.back_to_start'), link_url: service_path_base }
-    navigation_links << { link_text: t('header_navigation_links_helper.sign_out'), link_url: "#{service_path_base}/sign-out", options: { method: :delete } } if user_signed_in?
-
-    navigation_links.compact
-  end
-
   def service_name_text
     case params[:service]
     when 'legal_services'
@@ -19,5 +10,43 @@ module HeaderNavigationLinksHelper
     else
       t('home.index.admin')
     end
+  end
+
+  def service_authentication_links
+    navigation_links = []
+
+    if user_signed_in?
+      navigation_links << {
+        text: t('header_navigation_links_helper.sign_out'),
+        href: "#{service_path_base}/sign-out",
+        attributes: {
+          method: :delete
+        }
+      }
+    else
+      if params[:service] == 'legal_services' || params[:service] == 'management_consultancy'
+        navigation_links << {
+          text: t('header_navigation_links_helper.sign_up'),
+          href: "#{service_path_base}/sign-up"
+        }
+      end
+
+      navigation_links << {
+        text: t('header_navigation_links_helper.sign_in'),
+        href: "#{service_path_base}/#{params[:service] == 'supply_teachers' ? 'gateway' : 'sign-in'}"
+      }
+    end
+
+    navigation_links
+  end
+
+  def service_navigation_links
+    [
+      {
+        text: t('header_navigation_links_helper.back_to_start'),
+        href: service_path_base,
+        active: current_page?(service_path_base)
+      }
+    ]
   end
 end
