@@ -303,7 +303,7 @@ GEM
     irb (1.12.0)
       rdoc
       reline (>= 0.4.2)
-    jbuilder (2.11.5)
+    jbuilder (2.12.0)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
     jmespath (1.6.2)
@@ -372,6 +372,10 @@ GEM
     nio4r (2.7.0)
     nokogiri (1.16.4)
       mini_portile2 (~> 2.8.2)
+      racc (~> 1.4)
+    nokogiri (1.16.4-x86_64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.16.4-x86_64-linux)
       racc (~> 1.4)
     oauth2 (2.0.9)
       faraday (>= 0.17.3, < 3.0)
@@ -727,7 +731,7 @@ DEPENDENCIES
   gov_uk_date_fields (>= 4.2.0)
   holidays
   i18n-tasks (>= 1.0.12)
-  jbuilder (~> 2.11, >= 2.11.5)
+  jbuilder (~> 2.12)
   json-jwt (>= 1.11.0)
   jsonpath (~> 1.1.5)
   kaminari (~> 1.2.2)
