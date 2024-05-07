@@ -303,7 +303,7 @@ GEM
     irb (1.13.1)
       rdoc (>= 4.0.0)
       reline (>= 0.4.2)
-    jbuilder (2.11.5)
+    jbuilder (2.12.0)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
     jmespath (1.6.2)
@@ -731,7 +731,7 @@ DEPENDENCIES
   gov_uk_date_fields (>= 4.2.0)
   holidays
   i18n-tasks (>= 1.0.12)
-  jbuilder (~> 2.11, >= 2.11.5)
+  jbuilder (~> 2.12)
   json-jwt (>= 1.11.0)
   jsonpath (~> 1.1.5)
   kaminari (~> 1.2.2)
