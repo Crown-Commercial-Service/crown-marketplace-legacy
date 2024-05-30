@@ -21,7 +21,7 @@ gem 'shakapacker', '~> 7.2.3'
 gem 'turbolinks', '~> 5'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.11', '>= 2.11.5'
+gem 'jbuilder', '~> 2.12'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -62,7 +62,7 @@ gem 'devise', '~> 4.9.4'
 gem 'auto-session-timeout', '~> 1.1'
 
 # for cognito
-gem 'aws-sdk-cognitoidentityprovider', '~> 1.90.0'
+gem 'aws-sdk-cognitoidentityprovider', '~> 1.92.0'
 
 # for pagination
 gem 'kaminari', '~> 1.2.2'
@@ -87,7 +87,7 @@ gem 'sinatra', '~> 4.0.0', require: false
 gem 'slim', '~> 5.2.1'
 
 # for authorization
-gem 'cancancan', '~> 3.5.0'
+gem 'cancancan', '~> 3.6.0'
 
 gem 'role_model', '~> 0.8.2'
 
@@ -110,7 +110,7 @@ gem 'capybara', '>= 3.38.0'
 gem 'gov_uk_date_fields', '>= 4.2.0'
 
 # Use CCS Frontend Helpers
-gem 'ccs-frontend_helpers', '~> 0.3.0'
+gem 'ccs-frontend_helpers', '~> 0.4.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
