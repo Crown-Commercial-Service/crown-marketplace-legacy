@@ -30,6 +30,7 @@ logfile
 !.yarn/versions
 
 /public/assets
+/public/legacy-assets
 .byebug_history
 
 # Ignore master key for decrypting credentials and more.
@@ -84,9 +85,16 @@ package-lock.json
 # We will compile the typescript as part of the assets pipeline
 app/assets/javascripts/dist/*
 
+# From when we used webpack
 /public/packs
 /public/packs-test
+/public/legacy-packs
 /node_modules
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+
+/app/assets/builds/*
+!/app/assets/builds/.keep
+rollup-config*
+rollup.config-*
