@@ -4,7 +4,7 @@ module SupplyTeachers
       self.table_name = 'supply_teachers_rm6238_uploads'
 
       def self.create_supplier!(data)
-        s = super(data)
+        s = super
 
         [
           ['master_vendor_contacts', '2'],
