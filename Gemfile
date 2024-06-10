@@ -88,7 +88,7 @@ gem 'sinatra', '~> 4.0.0', require: false
 gem 'slim', '~> 5.2.1'
 
 # for authorization
-gem 'cancancan', '~> 3.6.0'
+gem 'cancancan', '~> 3.6.1'
 
 gem 'role_model', '~> 0.8.2'
 
