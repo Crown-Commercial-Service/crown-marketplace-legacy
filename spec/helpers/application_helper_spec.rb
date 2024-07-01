@@ -125,7 +125,7 @@ RSpec.describe ApplicationHelper do
       let(:service) { 'management_consultancy' }
 
       it 'returns the correct link with text' do
-        expect(result).to eq '<a target="blank" class="govuk-link" href="https://www.crowncommercial.gov.uk/contact?service=Management+Consultancy">Contact us</a>'
+        expect(result).to eq '<a target="blank" class="govuk-link" rel="noreferrer noopener" href="https://www.crowncommercial.gov.uk/contact?service=Management+Consultancy">Contact us</a>'
       end
     end
 
@@ -133,7 +133,7 @@ RSpec.describe ApplicationHelper do
       let(:service) { 'management_consultancy/admin' }
 
       it 'returns the correct link with text' do
-        expect(result).to eq '<a target="blank" class="govuk-link" href="https://www.crowncommercial.gov.uk/contact?service=Management+Consultancy">Contact us</a>'
+        expect(result).to eq '<a target="blank" class="govuk-link" rel="noreferrer noopener" href="https://www.crowncommercial.gov.uk/contact?service=Management+Consultancy">Contact us</a>'
       end
     end
 
@@ -141,7 +141,7 @@ RSpec.describe ApplicationHelper do
       let(:service) { 'legal_services' }
 
       it 'returns the correct link with text' do
-        expect(result).to eq '<a target="blank" class="govuk-link" href="https://www.crowncommercial.gov.uk/contact?service=Legal+Services">Contact us</a>'
+        expect(result).to eq '<a target="blank" class="govuk-link" rel="noreferrer noopener" href="https://www.crowncommercial.gov.uk/contact?service=Legal+Services">Contact us</a>'
       end
     end
 
@@ -149,7 +149,7 @@ RSpec.describe ApplicationHelper do
       let(:service) { 'legal_services/admin' }
 
       it 'returns the correct link with text' do
-        expect(result).to eq '<a target="blank" class="govuk-link" href="https://www.crowncommercial.gov.uk/contact?service=Legal+Services">Contact us</a>'
+        expect(result).to eq '<a target="blank" class="govuk-link" rel="noreferrer noopener" href="https://www.crowncommercial.gov.uk/contact?service=Legal+Services">Contact us</a>'
       end
     end
 
@@ -157,7 +157,7 @@ RSpec.describe ApplicationHelper do
       let(:service) { 'supply_teachers' }
 
       it 'returns the correct link with text' do
-        expect(result).to eq '<a target="blank" class="govuk-link" href="https://www.crowncommercial.gov.uk/contact?service=Supply+Teachers">Contact us</a>'
+        expect(result).to eq '<a target="blank" class="govuk-link" rel="noreferrer noopener" href="https://www.crowncommercial.gov.uk/contact?service=Supply+Teachers">Contact us</a>'
       end
     end
 
@@ -165,7 +165,7 @@ RSpec.describe ApplicationHelper do
       let(:service) { 'supply_teachers/admin' }
 
       it 'returns the correct link with text' do
-        expect(result).to eq '<a target="blank" class="govuk-link" href="https://www.crowncommercial.gov.uk/contact?service=Supply+Teachers">Contact us</a>'
+        expect(result).to eq '<a target="blank" class="govuk-link" rel="noreferrer noopener" href="https://www.crowncommercial.gov.uk/contact?service=Supply+Teachers">Contact us</a>'
       end
     end
 
@@ -173,7 +173,7 @@ RSpec.describe ApplicationHelper do
       let(:service) { 'auth' }
 
       it 'returns the correct link with text' do
-        expect(result).to eq '<a target="blank" class="govuk-link" href="https://www.crowncommercial.gov.uk/contact?service=Supply+Teachers">Contact us</a>'
+        expect(result).to eq '<a target="blank" class="govuk-link" rel="noreferrer noopener" href="https://www.crowncommercial.gov.uk/contact?service=Supply+Teachers">Contact us</a>'
       end
     end
   end
