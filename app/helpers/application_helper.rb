@@ -137,9 +137,7 @@ module ApplicationHelper
     "http://#{url}"
   end
 
-  def contact_link(link_text)
-    # TODO: add param to URL for contact form
-
+  def contact_us_link
     service_name = case params[:service]
                    when 'management_consultancy', 'management_consultancy/admin'
                      'Management Consultancy'
@@ -152,7 +150,11 @@ module ApplicationHelper
     uri = URI(Marketplace.support_form_link)
     uri.query = { service: service_name }.to_query if service_name
 
-    link_to(link_text, uri.to_s, target: :blank, class: 'govuk-link')
+    uri.to_s
+  end
+
+  def contact_link(link_text)
+    link_to(link_text, contact_us_link, target: :blank, class: 'govuk-link', rel: 'noreferrer noopener')
   end
 
   def checked?(actual, expected)
@@ -211,6 +213,33 @@ module ApplicationHelper
     parameters
   end
   # rubocop:enable Metrics/AbcSize
+
+  def password_strength(password_id)
+    ccs_password_strength(
+      password_id,
+      [
+        {
+          type: :length,
+          value: 8,
+          text: I18n.t('common.passeight')
+        },
+        {
+          type: :symbol,
+          value: '#?!@£$%^&*-',
+          text: I18n.t('common.passsymbol')
+        },
+        {
+          type: :uppercase,
+          text: I18n.t('common.passcap')
+        },
+        {
+          type: :number,
+          text: I18n.t('common.passnum')
+        }
+      ],
+      classes: 'govuk-!-margin-left-2'
+    )
+  end
 
   GOVUK_DATE_ITEMS = [
     {
