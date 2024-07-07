@@ -447,7 +447,7 @@ GEM
     puma (6.4.2)
       nio4r (~> 2.0)
     racc (1.8.0)
-    rack (3.1.4)
+    rack (3.1.6)
     rack-oauth2 (1.21.3)
       activesupport
       attr_required
@@ -512,7 +512,7 @@ GEM
       ffi (~> 1.0)
     rdoc (6.7.0)
       psych (>= 4.0.0)
-    redis-client (0.22.1)
+    redis-client (0.22.2)
       connection_pool
     regexp_parser (2.9.2)
     reline (0.5.9)
@@ -591,11 +591,12 @@ GEM
       activesupport (>= 5.2.0)
     show_me_the_cookies (6.0.0)
       capybara (>= 2, < 4)
-    sidekiq (7.2.4)
+    sidekiq (7.3.0)
       concurrent-ruby (< 2)
       connection_pool (>= 2.3.0)
+      logger
       rack (>= 2.2.4)
-      redis-client (>= 0.19.0)
+      redis-client (>= 0.22.2)
     simplecov (0.22.0)
       docile (~> 1.1)
       simplecov-html (~> 0.11)
@@ -751,7 +752,7 @@ DEPENDENCIES
   selenium-webdriver (>= 3.142.3)
   shoulda-matchers (>= 4.2.0)
   show_me_the_cookies (>= 6.0.0)
-  sidekiq (~> 7.2.4)
+  sidekiq (~> 7.3.0)
   simplecov (>= 0.16.1)
   sinatra (~> 4.0.0)
   site_prism (>= 3.7.3)
