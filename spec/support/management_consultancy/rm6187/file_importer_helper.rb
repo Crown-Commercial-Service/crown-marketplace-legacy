@@ -37,7 +37,7 @@ module ManagementConsultancy
         options[:sheets] ||= self.class::SHEETS
         options[:headers] ||= [HEADERS] * options[:sheets].count
 
-        super(**options)
+        super
       end
 
       def build
@@ -70,7 +70,7 @@ module ManagementConsultancy
         options[:sheets] ||= self.class::SHEETS
         options[:headers] ||= [HEADERS] * options[:sheets].count
 
-        super(**options)
+        super
       end
 
       def build
@@ -106,7 +106,7 @@ module ManagementConsultancy
         options[:sheets] ||= self.class::SHEETS
         options[:headers] ||= self.class.create_headers(options[:sheets])
 
-        super(**options)
+        super
       end
 
       def build

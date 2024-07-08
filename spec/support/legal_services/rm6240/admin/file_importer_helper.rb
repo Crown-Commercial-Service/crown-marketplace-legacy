@@ -42,7 +42,7 @@ module LegalServices
           options[:sheets] ||= SHEETS
           options[:headers] ||= [HEADERS] * options[:sheets].count
 
-          super(**options)
+          super
         end
 
         def build
@@ -85,7 +85,7 @@ module LegalServices
           options[:sheets] ||= SHEETS
           options[:headers] ||= [[self.class::HEADERS_1, self.class::HEADERS_2]] * options[:sheets].count
 
-          super(**options)
+          super
         end
 
         def build
@@ -157,7 +157,7 @@ module LegalServices
           options[:sheets] ||= self.class::SHEETS
           options[:headers] ||= [self.class::HEADERS_1.zip(self.class::HEADERS_2)] * options[:sheets].count
 
-          super(**options)
+          super
         end
 
         def build

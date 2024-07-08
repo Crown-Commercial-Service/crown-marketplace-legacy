@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.3.1'
+ruby '3.3.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 7.1.3'
@@ -9,14 +9,15 @@ gem 'rails', '~> 7.1.3'
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
 gem 'puma', '~> 6.4'
-# Use SCSS for stylesheets
-gem 'sass-rails', '~> 6.0', '>= 6.0.0'
-# See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'mini_racer', platforms: :ruby
 
-gem 'sprockets-rails'
+# The modern asset pipeline for Rails [https://github.com/rails/propshaft]
+gem 'propshaft'
 
-gem 'shakapacker', '~> 7.2.3'
+# Bundle and process CSS [https://github.com/rails/cssbundling-rails]
+gem 'cssbundling-rails', '~> 1.4'
+
+# Bundle and transpile JavaScript [https://github.com/rails/jsbundling-rails]
+gem 'jsbundling-rails', '~> 1.3'
 
 gem 'turbolinks', '~> 5'
 
@@ -62,7 +63,7 @@ gem 'devise', '~> 4.9.4'
 gem 'auto-session-timeout', '~> 1.1'
 
 # for cognito
-gem 'aws-sdk-cognitoidentityprovider', '~> 1.92.0'
+gem 'aws-sdk-cognitoidentityprovider', '~> 1.97.0'
 
 # for pagination
 gem 'kaminari', '~> 1.2.2'
@@ -82,16 +83,14 @@ gem 'jsonpath', '~> 1.1.5'
 gem 'aasm', '~> 5.5'
 
 # for running background jobs
-gem 'sidekiq', '~> 7.2.4'
+gem 'sidekiq', '~> 7.3.0'
 gem 'sinatra', '~> 4.0.0', require: false
 gem 'slim', '~> 5.2.1'
 
 # for authorization
-gem 'cancancan', '~> 3.6.0'
+gem 'cancancan', '~> 3.6.1'
 
 gem 'role_model', '~> 0.8.2'
-
-gem 'sprockets', '>= 3.7.2'
 
 # for clamav
 gem 'ratonvirus', '>= 0.1.1'
@@ -100,7 +99,7 @@ gem 'ratonvirus-clamby', '>= 0.1.0'
 gem 'active_storage_validations', '>= 1.0.3'
 
 # asset sync
-gem 'asset_sync'
+gem 'asset_sync', '>= 2.19.1'
 gem 'fog-aws', '>= 3.14.0'
 
 # Reuired for the ST import
@@ -110,7 +109,7 @@ gem 'capybara', '>= 3.38.0'
 gem 'gov_uk_date_fields', '>= 4.2.0'
 
 # Use CCS Frontend Helpers
-gem 'ccs-frontend_helpers', '~> 0.4.0'
+gem 'ccs-frontend_helpers', '~> 1.1.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -121,15 +120,18 @@ group :development, :test do
   gem 'rails-controller-testing', '>= 1.0.5'
   gem 'rspec-rails', '>= 6.0.1'
   gem 'shoulda-matchers', '>= 4.2.0'
-  gem 'rubocop'
-  gem 'rubocop-rspec'
-  gem 'rubocop-rails', require: false
+  gem 'rubocop', '>= 1.11.0'
+  gem 'rubocop-rspec', '>= 2.2.0'
+  gem 'rubocop-rails', '>= 2.18.0', require: false
+  gem 'rubocop-capybara', '>= 2.20.0', require: false
+  gem 'rubocop-factory_bot', '>= 2.25.1', require: false
+  gem 'rubocop-rspec_rails', '>= 2.28.3', require: false
   gem 'rubyXL', '>= 3.4.23'
   gem 'i18n-tasks', '>= 1.0.12'
   gem 'poltergeist', '>= 1.18.1'
   gem 'wdm', '>= 0.1.0', platforms: %i[x64_mingw]
   gem 'tzinfo-data', platforms: %i[x64_mingw]
-  gem 'faker', '~> 3.3.1'
+  gem 'faker', '~> 3.4.1'
 end
 
 group :development do

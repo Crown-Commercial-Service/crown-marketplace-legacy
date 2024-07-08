@@ -2,7 +2,8 @@
 require 'sidekiq/web'
 Rails.application.routes.draw do
   get '/', to: 'home#index'
-  get '/status', to: 'home#status'
+  get '/healthcheck', to: 'home#healthcheck', format: :json
+  get '/legacy-healthcheck', to: 'home#healthcheck', format: :json
 
   authenticate :user, ->(u) { u.has_role? :ccs_employee } do
     mount Sidekiq::Web => '/sidekiq-log'

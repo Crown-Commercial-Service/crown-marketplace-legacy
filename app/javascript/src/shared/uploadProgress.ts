@@ -89,7 +89,7 @@ class FileUploadProgressWithBar extends FileUploadProgress {
   private readonly $progressBar: JQuery<HTMLElement> = $('#admin-import-progress')
   private readonly $prgressStates: JQuery<HTMLElement> = $('.ccs-upload-progress-container > div')
 
-  // eslint-disable-next-line @typescript-eslint/no-useless-constructor
+   
   constructor (stateToProgress: StateToProgressWithProgressBar, initialState: string) {
     super(stateToProgress, initialState)
   }
@@ -127,7 +127,7 @@ class FileUploadProgressWithBar extends FileUploadProgress {
 }
 
 class FileUploadProgressWithoutBar extends FileUploadProgress {
-  // eslint-disable-next-line @typescript-eslint/no-useless-constructor
+   
   constructor (stateToProgress: StateToProgressWithoutProgressBar, initialState: string) {
     super(stateToProgress, initialState)
   }
