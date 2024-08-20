@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## Removed
+
+- Remove Turbolinks as it is no longer supported ([PR 1594](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/1594))
+
 ## [4.1.1] - 2024-08-22
 
 ### Security
