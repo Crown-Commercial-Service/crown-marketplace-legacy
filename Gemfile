@@ -43,7 +43,7 @@ gem 'phonejack'
 gem 'holidays'
 gem 'virtus'
 
-gem 'rollbar', '~> 3.5.2'
+gem 'rollbar', '~> 3.6.0'
 
 # for dfe sign in
 gem 'omniauth', '~> 2.1.2'
