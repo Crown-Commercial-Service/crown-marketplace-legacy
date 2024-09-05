@@ -2,6 +2,8 @@ require 'rails_helper'
 
 # rubocop:disable RSpec/NestedGroups
 RSpec.describe Framework do
+  it { is_expected.to have_many(:lots) }
+
   describe '.frameworks' do
     context 'when no scope is provided' do
       it 'returns RM6238, RM6187 and RM6240' do

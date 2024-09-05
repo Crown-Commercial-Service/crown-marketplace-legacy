@@ -1,0 +1,17 @@
+framework_id,number,name
+RM6187,1,Business
+RM6187,2,Strategy and Policy
+RM6187,3,Complex and Transformation
+RM6187,4,Finance
+RM6187,5,HR
+RM6187,6,Procurement and Supply Chain
+RM6187,7,"Health, Social Care and Community"
+RM6187,8,Infrastructure including Transport
+RM6187,9,Environmental Sustainability and Socio-economic Development
+RM6240,1,Full service provision
+RM6240,2,General service provision
+RM6240,3,Transport rail legal services
+RM6238,1,Direct provision
+RM6238,2.1,Master vendor (less than 2.5 million)
+RM6238,2.2,Master vendor (more than 2.5 million)
+RM6238,4,Education technology platforms

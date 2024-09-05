@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_09_06_101133) do
+ActiveRecord::Schema[7.1].define(version: 2024_09_06_101200) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -41,6 +41,26 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_06_101133) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "framework_lot_services", id: { type: :string, limit: 100 }, force: :cascade do |t|
+    t.string "framework_lot_id", null: false
+    t.string "number", limit: 6, null: false
+    t.text "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["framework_lot_id"], name: "index_framework_lot_services_on_framework_lot_id"
+    t.index ["number"], name: "index_framework_lot_services_on_number"
+  end
+
+  create_table "framework_lots", id: { type: :string, limit: 100 }, force: :cascade do |t|
+    t.string "framework_id", null: false
+    t.string "number", limit: 6, null: false
+    t.text "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["framework_id"], name: "index_framework_lots_on_framework_id"
+    t.index ["number"], name: "index_framework_lots_on_number"
   end
 
   create_table "frameworks", id: { type: :string, limit: 6 }, force: :cascade do |t|
@@ -152,6 +172,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_06_101133) do
     t.datetime "updated_at", precision: nil, null: false
   end
 
+  create_table "regions", id: { type: :string, limit: 6 }, force: :cascade do |t|
+    t.text "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "supply_teachers_rm6238_admin_current_data", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.text "error"
     t.datetime "created_at", null: false
@@ -238,6 +264,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_06_101133) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "framework_lot_services", "framework_lots"
+  add_foreign_key "framework_lots", "frameworks"
   add_foreign_key "legal_services_rm6240_rates", "legal_services_rm6240_suppliers"
   add_foreign_key "legal_services_rm6240_service_offerings", "legal_services_rm6240_suppliers"
   add_foreign_key "management_consultancy_rm6187_rate_cards", "management_consultancy_rm6187_suppliers"

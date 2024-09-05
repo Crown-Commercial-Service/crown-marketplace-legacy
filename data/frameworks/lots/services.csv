@@ -1,0 +1,188 @@
+framework_id,framework_lot_number,number,name
+RM6187,1,1,Business case development
+RM6187,1,2,Business consultancy
+RM6187,1,3,Business continuity and/or disaster recovery planning
+RM6187,1,4,Business policy strategy and/or appraisal
+RM6187,1,5,Business processes
+RM6187,1,6,Change management
+RM6187,1,7,Development and/or review of policy
+RM6187,1,8,"Digital, technology and cyber"
+RM6187,1,9,Forecasting and/or planning
+RM6187,1,10,Operational planning and/or improvement
+RM6187,1,11,Organisational review
+RM6187,1,12,Programme & project management
+RM6187,1,13,"Risk, compliance and/or opportunity management"
+RM6187,1,14,Value for money reviews.
+RM6187,2,1,Business structure
+RM6187,2,2,Business case development
+RM6187,2,3,Business process re-engineering
+RM6187,2,4,Change management
+RM6187,2,5,"Digital, technology and cyber"
+RM6187,2,6,Policy
+RM6187,2,7,Regulatory advice
+RM6187,2,8,Social value
+RM6187,2,9,Strategic advice
+RM6187,3,1,Business
+RM6187,3,2,Change management
+RM6187,3,3,Complex programmes
+RM6187,3,4,"Digital, technology and cyber"
+RM6187,3,5,Finance
+RM6187,3,6,HR
+RM6187,3,7,Organisation and operating model
+RM6187,3,8,Performance transformation
+RM6187,3,9,Procurement and/or supply chain
+RM6187,3,10,Project and programme management
+RM6187,3,11,Strategy and/or policy
+RM6187,3,12,Supplier side services and delivery
+RM6187,3,13,Transformation management.
+RM6187,4,1,Actuarial services
+RM6187,4,2,"Asset management including valuation, sales and disposals"
+RM6187,4,3,Business analysis
+RM6187,4,4,"Capital fundraising, derivatives and hedging"
+RM6187,4,5,Cash management
+RM6187,4,6,Corporate restructuring and flotation
+RM6187,4,7,"Cost benefit reviews, studies, analysis and evaluation"
+RM6187,4,8,"Debt restructuring, management and insolvency"
+RM6187,4,9,Developing and assessing project proposals
+RM6187,4,10,Financial due diligence
+RM6187,4,11,Economic analysis
+RM6187,4,12,Financial accounting and/or reporting
+RM6187,4,13,Financial performance review and viability studies
+RM6187,4,14,Financing public infrastructure projects and negotiations
+RM6187,4,15,Forecasting and budgeting
+RM6187,4,16,Foreign exchange
+RM6187,4,17,"Investment, financial advice and market services"
+RM6187,4,18,"Mergers, acquisitions and divestment"
+RM6187,4,19,Payment structure advice and risk
+RM6187,4,20,Pensions services
+RM6187,4,21,Policy impact assessments
+RM6187,4,22,Regulation and statutory requirements and/or reporting
+RM6187,4,23,Risk management
+RM6187,4,24,Tax including value added tax (VAT)
+RM6187,5,1,Capability development
+RM6187,5,2,Cultural transformation
+RM6187,5,3,Dispute management
+RM6187,5,4,Diversity and inclusion
+RM6187,5,5,Employee relations
+RM6187,5,6,"HR functions, process and design"
+RM6187,5,7,HR policy
+RM6187,5,8,Organisational design and/or workforce planning
+RM6187,5,9,Performance management
+RM6187,5,10,Training and development
+RM6187,6,1,Category management
+RM6187,6,2,Commercial review
+RM6187,6,3,Contract management
+RM6187,6,4,Cost reduction
+RM6187,6,5,Digitalisation
+RM6187,6,6,Financial advice
+RM6187,6,7,Outsourcing and insourcing
+RM6187,6,8,P2P
+RM6187,6,9,Procurement process
+RM6187,6,10,Sourcing
+RM6187,6,11,Supplier management
+RM6187,6,12,Supply chain and logistics
+RM6187,6,13,Tender development and analysis
+RM6187,7,1,Alternative delivery models
+RM6187,7,2,Business case development
+RM6187,7,3,Charity/third sector improvement review
+RM6187,7,4,Capability development
+RM6187,7,5,Clinical evaluations
+RM6187,7,6,Commissioning models
+RM6187,7,7,Community services
+RM6187,7,8,"Digital, technology and cyber"
+RM6187,7,9,Healthcare services
+RM6187,7,10,"Healthcare operational review, improvement and/or modelling"
+RM6187,7,11,"Healthcare transformation, change and delivery"
+RM6187,7,12,Housing
+RM6187,7,13,Mental healthcare
+RM6187,7,14,"Planning for health, social care and community"
+RM6187,7,15,Policing and security
+RM6187,7,16,Programme and project management
+RM6187,7,17,Public service improvement review
+RM6187,7,18,Regeneration
+RM6187,7,19,Safeguarding
+RM6187,7,20,Social care services
+RM6187,7,21,Strategy and policy
+RM6187,8,1,Aviation
+RM6187,8,2,Communications and technology infrastructure
+RM6187,8,3,Highways
+RM6187,8,4,Public transport (including buses and parking)
+RM6187,8,5,Rail
+RM6187,8,6,Ports and shipping
+RM6187,8,7,Smart infrastructure
+RM6187,8,8,Towns and cities
+RM6187,9,1,Air quality
+RM6187,9,2,Carbon management (including reporting)
+RM6187,9,3,Climate change adaptation and/or mitigation
+RM6187,9,4,Coastal
+RM6187,9,5,Contaminated land
+RM6187,9,6,Due diligence
+RM6187,9,7,Ecology and biodiversity
+RM6187,9,8,Environmental planning and protection
+RM6187,9,9,Equality analysis
+RM6187,9,10,Feasibility studies and/or impact assessment
+RM6187,9,11,Monitoring environmental indicators
+RM6187,9,12,Natural capital
+RM6187,9,13,Natural resource management
+RM6187,9,14,Policy development and/or implementation
+RM6187,9,15,Pollution control (including noise)
+RM6187,9,16,Regulatory compliance
+RM6187,9,17,Risk management
+RM6187,9,18,Social value
+RM6187,9,19,Sustainability
+RM6240,1,1,Administrative and Public Law
+RM6240,1,2,Non-Complex Finance and Investment
+RM6240,1,3,Contracts
+RM6240,1,4,Competition Law
+RM6240,1,5,Corporate Law
+RM6240,1,6,Data Protection and Information Law
+RM6240,1,7,Employment
+RM6240,1,8,Information Technology
+RM6240,1,9,Infrastructure
+RM6240,1,10,Intellectual Property
+RM6240,1,11,Litigation and Dispute Resolution
+RM6240,1,12,Partnerships
+RM6240,1,13,Pensions
+RM6240,1,14,Public Procurement
+RM6240,1,15,"Property, Real Estate and Construction"
+RM6240,1,16,"Energy, Natural Resources and Climate Change"
+RM6240,1,17,Retained EU Law and EU Law
+RM6240,1,18,Planning
+RM6240,1,19,Projects
+RM6240,1,20,Restructuring and Insolvency
+RM6240,1,21,Education Law
+RM6240,1,22,Children and Vulnerable Adults
+RM6240,1,23,"Food, Rural and Environmental Affairs"
+RM6240,1,24,Franchise Law
+RM6240,1,25,"Health, Healthcare and Social Care"
+RM6240,1,26,Life Sciences
+RM6240,1,27,Telecommunications
+RM6240,1,28,"International Trade, Investment and Regulation"
+RM6240,1,29,Public International Law
+RM6240,1,30,Charities Law
+RM6240,1,31,Health and Safety
+RM6240,1,32,Licensing Law
+RM6240,1,33,Transport Law (excluding Rail)
+RM6240,1,34,Tax
+RM6240,1,35,Outsourcing / Insourcing
+RM6240,1,36,Islamic Finance / Sukuk
+RM6240,1,37,Media Law
+RM6240,1,38,Immigration
+RM6240,1,39,Public Inquests and Inquiries
+RM6240,1,40,Mental Health Law
+RM6240,2,1,Property and Construction
+RM6240,2,2,Social Housing
+RM6240,2,3,Child Law
+RM6240,2,4,Court of Protection
+RM6240,2,5,Education Law
+RM6240,2,6,Debt Recovery
+RM6240,2,7,Planning and Environment
+RM6240,2,8,Licensing
+RM6240,2,9,Pensions
+RM6240,2,10,Litigation / Dispute Resolution
+RM6240,2,11,Intellectual Property
+RM6240,2,12,Employment
+RM6240,2,13,Healthcare
+RM6240,2,14,Primary Care
+RM6240,2,15,Mental Health Law
+RM6240,3,1,Transport (Rail)
