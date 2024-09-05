@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Changed
 
+- Upgrade ruby version to v3.3.5 ([PR 1620](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/1620))
 - Upgrade ruby version to v3.3.4 ([PR 1598](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/1598))
 
 ## Removed
