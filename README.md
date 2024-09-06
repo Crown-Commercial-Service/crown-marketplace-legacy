@@ -123,8 +123,6 @@ The project is a fairly standard Rails web app. However, there are a few aspects
 The framework-specific routes and code are all isolated from each other using namespaces with some code shared across frameworks.
 In some ways the code for each framework could be considered as a mini web app in its own right and the intention is that it should be relatively easy to extract the code for one framework into a separate Rails app if that was deemed appropriate down the line.
 
-A bunch of other less-variable data is stored in CSV files in the code repository and made available to the application via classes including the `StaticRecord` concern, e.g. `Nuts3Region` which loads its data from `data/nuts3_regions.csv`.
-
 The user journey for each framework is made up of a series of questions which lead the user to an appropriate outcome.
 This workflow is modelled by a journey class which inherits from `GenericJourney`, a series of step classes which include the `Steppable` concern, and view templates corresponding to each step.
 
