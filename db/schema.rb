@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_04_110527) do
+ActiveRecord::Schema[7.1].define(version: 2024_09_06_101133) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -150,14 +150,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_04_110527) do
   create_table "management_consultancy_rm6187_uploads", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
-  end
-
-  create_table "nuts_regions", id: false, force: :cascade do |t|
-    t.string "code", limit: 255
-    t.string "name", limit: 255
-    t.string "nuts1_code", limit: 255
-    t.string "nuts2_code", limit: 255
-    t.index ["code"], name: "nuts_regions_code_key", unique: true
   end
 
   create_table "supply_teachers_rm6238_admin_current_data", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|

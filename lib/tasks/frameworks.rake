@@ -1,3 +1,5 @@
+require_relative 'distributed_locks'
+
 module Frameworks
   def self.add_frameworks
     ActiveRecord::Base.connection.truncate_tables(:frameworks)

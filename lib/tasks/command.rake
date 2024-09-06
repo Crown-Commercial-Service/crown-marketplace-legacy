@@ -1,3 +1,5 @@
+require_relative 'distributed_locks'
+
 module Command
   def self.run_rake_tasks
     # ENV['RAKE_TASK_LIST'] is a comma seperated lists of the rake tasks that need to be run e.g. db:static,further_competition:update_fc_data
