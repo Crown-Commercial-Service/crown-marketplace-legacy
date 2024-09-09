@@ -1,4 +1,6 @@
 class Framework < ApplicationRecord
+  has_many :lots, dependent: :destroy
+
   scope :supply_teachers, -> { where(service: 'supply_teachers').order(live_at: :asc) }
   scope :management_consultancy, -> { where(service: 'management_consultancy').order(live_at: :asc) }
   scope :legal_services, -> { where(service: 'legal_services').order(live_at: :asc) }
