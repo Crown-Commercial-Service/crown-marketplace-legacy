@@ -238,7 +238,7 @@ GEM
     drb (2.2.1)
     dumb_delegator (1.0.0)
     erubi (1.13.0)
-    excon (0.112.0)
+    excon (1.0.0)
     factory_bot (6.4.5)
       activesupport (>= 5.0.0)
     factory_bot_rails (6.4.3)
@@ -255,14 +255,14 @@ GEM
     faraday-net_http (3.3.0)
       net-http
     ffi (1.16.3)
-    fog-aws (3.28.0)
+    fog-aws (3.29.0)
       base64 (~> 0.2.0)
-      fog-core (~> 2.1)
+      fog-core (~> 2.6)
       fog-json (~> 1.1)
       fog-xml (~> 0.1)
-    fog-core (2.5.0)
+    fog-core (2.6.0)
       builder
-      excon (~> 0.71)
+      excon (~> 1.0)
       formatador (>= 0.2, < 2.0)
       mime-types
     fog-json (1.2.0)
