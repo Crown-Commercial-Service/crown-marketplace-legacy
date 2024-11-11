@@ -674,6 +674,7 @@ PLATFORMS
   x64-mingw32
   x86_64-darwin-20
   x86_64-darwin-22
+  x86_64-darwin-23
   x86_64-linux
 
 DEPENDENCIES
@@ -756,7 +757,7 @@ DEPENDENCIES
   webmock (>= 3.12.2)
 
 RUBY VERSION
-   ruby 3.3.5p100
+   ruby 3.3.6p108
 
 BUNDLED WITH
    2.4.8
