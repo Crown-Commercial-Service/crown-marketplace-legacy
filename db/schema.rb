@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_03_14_113131) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_04_110527) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -43,13 +43,12 @@ ActiveRecord::Schema[7.1].define(version: 2023_03_14_113131) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "frameworks", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+  create_table "frameworks", id: { type: :string, limit: 6 }, force: :cascade do |t|
     t.string "service", limit: 25
-    t.string "framework", limit: 6
     t.date "live_at"
+    t.date "expires_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.date "expires_at"
   end
 
   create_table "legal_services_rm6240_admin_uploads", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
