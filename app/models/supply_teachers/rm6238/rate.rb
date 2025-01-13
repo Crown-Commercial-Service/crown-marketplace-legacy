@@ -51,7 +51,7 @@ module SupplyTeachers
       end
 
       def percentage?
-        job_type == 'over_12_week' || job_type == 'fixed_term'
+        ['over_12_week', 'fixed_term'].include?(job_type)
       end
 
       def term_required?
