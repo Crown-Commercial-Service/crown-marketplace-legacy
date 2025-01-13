@@ -24,7 +24,7 @@ module HeaderNavigationLinksHelper
         }
       }
     else
-      if params[:service] == 'legal_services' || params[:service] == 'management_consultancy'
+      if ['legal_services', 'management_consultancy'].include?(params[:service])
         navigation_links << {
           text: t('header_navigation_links_helper.sign_up'),
           href: "#{service_path_base}/sign-up"
