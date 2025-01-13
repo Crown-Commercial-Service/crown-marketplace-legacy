@@ -52,7 +52,7 @@ module SupplyTeachers
 
         def clean_up_pricing_data(row, lot_number)
           row = remove_unused_keys(row)
-          row[:job_type] = :agency_management if row[:job_type] == :agency_management_daily || row[:job_type] == :agency_management_long_term
+          row[:job_type] = :agency_management if %i[agency_management_daily agency_management_long_term].include?(row[:job_type])
           row[:fee] = (row[:fee].to_d * if percentage?(row)
                                           10000
                                         else
@@ -65,7 +65,7 @@ module SupplyTeachers
         end
 
         def percentage?(row)
-          row[:job_type] == :fixed_term || row[:job_type] == :over_12_week
+          %i[fixed_term over_12_week].include?(row[:job_type])
         end
       end
     end
