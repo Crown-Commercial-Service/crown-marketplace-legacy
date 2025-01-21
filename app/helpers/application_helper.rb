@@ -195,7 +195,7 @@ module ApplicationHelper
 
         {
           type: :number,
-          href: Kaminari::Helpers::Page.new(template, **options.merge(page:)).url,
+          href: Kaminari::Helpers::Page.new(template, **options, page:).url,
           number: page.number,
           current: page.current?
         }
