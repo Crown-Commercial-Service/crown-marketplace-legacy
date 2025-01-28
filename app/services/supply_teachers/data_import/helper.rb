@@ -63,7 +63,7 @@ module SupplyTeachers::DataImport::Helper
   end
 
   def remove_unused_keys(row)
-    row.select { |key, _value| %i[supplier_name line_no job_type term fee].include? key }
+    row.slice(:supplier_name, :line_no, :job_type, :term, :fee)
   end
 
   def invalid_fee?(row)
