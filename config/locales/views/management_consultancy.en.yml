@@ -233,3 +233,105 @@ en:
           position: Position
           rates_are_fixed: Rates are fixed for the life of the framework and any call-off. These rates, which exclude V.A.T. are for an 8 hour working day and include travel expenses to the base location as stipulated by the customer.
           rates_are_maximum: These are the maximum rates a supplier can charge and cannot be exceeded. Suppliers can reduce these rates to match or beat those on any other agreement.
+    rm6309:
+      admin:
+        uploads:
+          failed:
+            below_is_a_list: Below is a list of the issues that have occurred with the file upload and details on how they might be fixed.
+            common_causes: 'Common causes of these issues may include:'
+            common_causes_1: Suppliers having the incorrect DUNS number
+            common_causes_2: Sheets have a blank row
+            details: Details
+            error_details:
+              file_check_failed: Something went wrong when checking the files, please try uploading the files again
+              file_check_failed_html: 'Something went wrong when checking the files, the following error was returned: <br> <strong>%{list}</strong>'
+              file_process_failed: Something went wrong when processing the files, please try uploading the files again
+              file_process_failed_html: 'Something went wrong when processing the files, the following error was returned: <br> <strong>%{list}</strong>'
+              file_publish_failed: Something went wrong when publishing the files, please try uploading the files again
+              file_publish_failed_html: 'Something went wrong when publishing the files, the following error was returned: <br> <strong>%{list}</strong>'
+              supplier_details_has_empty_sheets_html: 'The following sheets have no data: %{list} Make sure all sheets for ''Supplier details'' have been filled in'
+              supplier_details_has_incorrect_headers_html: 'The following sheets have incorrect headers: %{list} Make sure all sheets for ''Supplier details'' have the following headers: ''Supplier name'', ''Email address'', ''Phone number'', ''Website URL'', ''Postal address'', ''Is an SME?'', ''DUNS Number'''
+              supplier_details_missing_sheets: 'The ''Supplier details'' file should have 1 sheet with the following name: ''MCF4'''
+              supplier_missing_lots_html: 'The following suppliers do not offer any lots: %{list} Make sure all the suppliers have the correct name and DUNS number'
+              supplier_missing_rate_cards_html: 'The following suppliers do not have any rate cards: %{list} Make sure all the suppliers have the correct name and DUNS number'
+              supplier_rate_cards_has_empty_sheets_html: 'The following sheets have no data: %{list} Make sure all sheets for ''Supplier rate cards'' have been filled in'
+              supplier_rate_cards_has_incorrect_headers_html: 'The following sheets are missing columns: %{list} Make sure all sheets for ''Supplier rate cards'' have the 10 expected columns'
+              supplier_rate_cards_missing_sheets: 'The ''Supplier rate cards'' file should have 9 sheets with the following names: ''MCF4 Lot 1'', ''MCF4 Lot 2'', ''MCF4 Lot 3'', ''MCF4 Lot 4'', ''MCF4 Lot 5'', ''MCF4 Lot 6'', ''MCF4 Lot 7'', ''MCF4 Lot 8'', ''MCF4 Lot 9'''
+              supplier_service_offerings_has_empty_sheets_html: 'The following sheets have no data: %{list} Make sure all sheets for ''Supplier service offerings'' have been filled in'
+              supplier_service_offerings_has_incorrect_headers_html: 'The following sheets have incorrect column headers: %{list} Make sure all sheets for ''Supplier service offerings'' have the correct services for their lot'
+              supplier_service_offerings_missing_sheets: 'The ''Supplier service offerings'' file should have 9 sheets with the following names: ''MCF4 Lot 1'', ''MCF4 Lot 2'', ''MCF4 Lot 3'', ''MCF4 Lot 4'', ''MCF4 Lot 5'', ''MCF4 Lot 6'', ''MCF4 Lot 7'', ''MCF4 Lot 8'', ''MCF4 Lot 9'''
+              upload_failed: Something went wrong with the file upload, please try uploading the files again
+              upload_failed_html: 'Something went wrong with the file upload, the following error was returned: <br> <strong>%{list}</strong>'
+            error_name:
+              file_check_failed: File check failed
+              file_process_failed: File processing failed
+              file_publish_failed: File publishing failed
+              supplier_details_has_empty_sheets: There are sheets in 'Supplier details' without any data
+              supplier_details_has_incorrect_headers: There are sheets in 'Supplier details' with incorrect headers
+              supplier_details_missing_sheets: The 'Supplier details' file is missing sheets
+              supplier_missing_lots: There are suppliers without any lots
+              supplier_missing_rate_cards: There are suppliers without any rate cards
+              supplier_rate_cards_has_empty_sheets: There are sheets in 'Supplier rate cards' without any data
+              supplier_rate_cards_has_incorrect_headers: There are sheets in 'Supplier rate cards' with incorrect headers
+              supplier_rate_cards_missing_sheets: The 'Supplier rate cards' file is missing sheets
+              supplier_service_offerings_has_empty_sheets: There are sheets in 'Supplier service offerings' without any data
+              supplier_service_offerings_has_incorrect_headers: There are sheets in 'Supplier service offerings' with incorrect services
+              supplier_service_offerings_missing_sheets: The 'Supplier service offerings' file is missing sheets
+              upload_failed: Upload failed
+            errors_with_upload: Errors with the upload
+            issue: Issue
+          index:
+            caption: Management Consultancy - %{framework}
+            create_new: Create a new data upload
+            current_data: Current published data
+            date: Date
+            download: Download
+            file_name:
+              supplier_details_file: Supplier details
+              supplier_rate_cards_file: Supplier rate cards
+              supplier_service_offerings_file: Supplier service offerings
+            heading: Manage supplier data
+            name: Name
+            status: Status
+            table_caption: Previous uploads
+            upload_name: 'Upload session #%{number}'
+          new:
+            caption: Management Consultancy - %{framework}
+            download_templates: Download file templates
+            file_label:
+              supplier_details_file: Supplier details
+              supplier_rate_cards_file: Supplier rate cards
+              supplier_service_offerings_file: Supplier service offerings
+            heading: New data upload
+            return: Return to 'Manage supplier data'
+            template_file_name: Download spreadsheet templates
+            template_file_path: management-consultancy/rm6309/Supplier spreadsheet templates.zip
+            upload_caption: Supported file format is .xlsx and maximum file size is 10mb
+            upload_data: Upload data
+            upload_title: Upload the supplier data
+            you_can_download: You can download a zip file containing an empty template for each of the spreadsheets
+          show:
+            caption: Management consultancy - %{framework}
+            datetime: 'Date of file upload:'
+            download: Download
+            file_name:
+              supplier_details_file: Supplier details
+              supplier_rate_cards_file: Supplier rate cards
+              supplier_service_offerings_file: Supplier service offerings
+            files: Uploaded files
+            heading: 'Upload session #%{number}'
+            name: File name
+            return: Return to 'Manage supplier data'
+            status: 'Status:'
+      home:
+        index:
+          before_you_start:
+            heading: Before you start
+            mcf4_link_text: lot descriptions documents
+            mcf4_text_html: You need to know which lot the management consultancy services you need are in. Review the %{mcf4_link} for Management Consultancy Framework Three.
+          guidance:
+            heading: Guidance and other useful documents
+            mcf4_link_text: Management Consultancy Framework Three (MCF4) specification
+          heading: Find management consultants
+          use_this_service: Use this service to download a shortlist of suppliers that provide the management consultancy services you need.
+          using_this_service: Using this service means you're following the public sector procurement procedures.

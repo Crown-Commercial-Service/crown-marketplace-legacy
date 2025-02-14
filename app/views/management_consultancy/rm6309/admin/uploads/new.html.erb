@@ -1,0 +1,39 @@
+<%= content_for :page_title, t('.heading') %>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <%= render partial: 'shared/error_summary', locals: { errors: @upload.errors } %>
+    <span class="govuk-caption-l govuk-!-margin-bottom-0"><%= t('.caption', framework: params[:framework]) %></span>
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-5 cmp-page-heading"><%= t('.heading') %></h1>
+  </div>
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h2 class="govuk-heading-m"><%= t('.download_templates') %></h2>
+    <p><%= t('.you_can_download') %></p>
+    <div>
+      <%= link_to_public_file_for_download(t('.template_file_path'), :zip, t('.template_file_name'), false, classes: 'govuk-button--secondary') %>
+    </div>
+  </div>
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h2 class="govuk-heading-m govuk-!-margin-bottom-0"><%= t('.upload_title') %></h2>
+    <span class="govuk-caption-m govuk-!-margin-bottom-7"><%= t('.upload_caption') %></span>
+    
+    <%= form_with model: @upload, url: management_consultancy_rm6309_admin_uploads_path, method: :post, html: { specialvalidation: true, novalidate: true } do |f| %>
+      <% ManagementConsultancy::RM6309::Admin::Upload.attributes.each do |file| %>
+        <%= govuk_file_upload(
+          file,
+          form: f,
+          label: {
+            text: t(".file_label.#{file}")
+          }
+        ) %>
+      <% end %>
+      <%= govuk_button(t('.upload_data'), form: f, attributes: { name: t('.upload_data') }) %>
+      <br/>
+      <%= link_to t('.return'), management_consultancy_rm6309_admin_uploads_path, class: 'govuk-link--no-visited-state govuk-!-font-size-19' %>
+    <% end %>
+  </div>
+</div>

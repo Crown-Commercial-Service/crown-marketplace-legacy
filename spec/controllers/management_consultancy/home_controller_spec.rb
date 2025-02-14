@@ -6,9 +6,8 @@ RSpec.describe ManagementConsultancy::HomeController do
   describe 'GET framework' do
     it 'redirects to the RM6309 home page' do
       get :framework
-      # TODO: Update this when the route realy exists
-      # expect(response).to redirect_to management_consultancy_rm6309_path
-      expect(response).to redirect_to '/management-consultancy/RM6309'
+
+      expect(response).to redirect_to management_consultancy_rm6309_path
     end
   end
 
