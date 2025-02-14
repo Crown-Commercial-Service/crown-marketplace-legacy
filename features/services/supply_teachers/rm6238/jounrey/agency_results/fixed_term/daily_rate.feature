@@ -21,7 +21,7 @@ Feature: Supply Teachers - Agency results - Fixed term - Daily rate
     And I enter '28000' for the 'salary'
     And I click on 'Continue'
     Then I am on the 'What is your school’s postcode?' page
-    And I enter 'L3 4AA' for the 'postcode'
+    And I enter 'L3 9PP' for the 'postcode'
     And I click on 'Continue'
     Then I am on the 'Agency results' page
 

@@ -7,6 +7,8 @@ require 'rails_helper'
 RSpec.describe ManagementConsultancy::RM6187::Admin::UsersController do
   let(:default_params) { { service: 'management_consultancy/admin', framework: 'RM6187' } }
 
+  include_context 'and RM6187 is live'
+
   describe 'GET challenge_new' do
     let(:user) { create(:user, cognito_uuid: SecureRandom.uuid, phone_number: Faker::PhoneNumber.cell_phone) }
 

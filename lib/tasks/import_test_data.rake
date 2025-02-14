@@ -9,6 +9,9 @@ module ImportTestData
         supplier_data = JSON.parse(file.read)
         ManagementConsultancy::RM6187::Upload.upload!(supplier_data)
       end
+
+      puts 'Making RM6187 (MCF3) live'
+      Framework.find_by(framework: 'RM6187').update(expires_at: 1.day.from_now)
     end
 
     def self.empty_tables
