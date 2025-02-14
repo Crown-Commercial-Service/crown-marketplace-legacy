@@ -4,12 +4,11 @@
 
 require 'rails_helper'
 
-RSpec.describe ManagementConsultancy::RM6187::SessionsController do
-  let(:default_params) { { service: 'management_consultancy', framework: 'RM6187' } }
+RSpec.describe ManagementConsultancy::RM6309::Admin::SessionsController do
+  let(:default_params) { { service: 'management_consultancy/admin', framework: 'RM6309' } }
 
   before { request.env['devise.mapping'] = Devise.mappings[:user] }
 
-  include_context 'and RM6187 is live'
   describe 'GET new' do
     context 'when the framework is live' do
       it 'renders the new page' do
@@ -20,13 +19,12 @@ RSpec.describe ManagementConsultancy::RM6187::SessionsController do
     end
 
     context 'when the framework is not live' do
-      include_context 'and RM6187 has expired'
+      include_context 'and RM6309 has expired'
 
-      it 'renders the unrecognised framework page with the right http status' do
+      it 'renders the new page' do
         get :new
 
-        expect(response).to render_template('home/unrecognised_framework')
-        expect(response).to have_http_status(:bad_request)
+        expect(response).to render_template(:new)
       end
     end
   end
@@ -64,8 +62,8 @@ RSpec.describe ManagementConsultancy::RM6187::SessionsController do
       context 'when the password needs to be reset' do
         let(:exception) { Aws::CognitoIdentityProvider::Errors::PasswordResetRequiredException.new('oops', 'Oops') }
 
-        it 'redirects to management_consultancy_rm6187_edit_user_password_path' do
-          expect(response).to redirect_to management_consultancy_rm6187_edit_user_password_path
+        it 'redirects to management_consultancy_rm6309_admin_edit_user_password_path' do
+          expect(response).to redirect_to management_consultancy_rm6309_admin_edit_user_password_path
         end
 
         it 'sets the crown_marketplace_reset_email cookie' do
@@ -76,8 +74,8 @@ RSpec.describe ManagementConsultancy::RM6187::SessionsController do
       context 'when the user needs confirmation' do
         let(:exception) { Aws::CognitoIdentityProvider::Errors::UserNotConfirmedException.new('oops', 'Oops') }
 
-        it 'redirects to management_consultancy_rm6187_edit_user_password_path' do
-          expect(response).to redirect_to management_consultancy_rm6187_users_confirm_path
+        it 'redirects to management_consultancy_rm6309_admin_edit_user_password_path' do
+          expect(response).to redirect_to management_consultancy_rm6309_admin_users_confirm_path
         end
 
         it 'sets the crown_marketplace_confirmation_email cookie' do
@@ -94,7 +92,7 @@ RSpec.describe ManagementConsultancy::RM6187::SessionsController do
       let(:cognito_groups) do
         admin_list_groups_for_user_resp_struct.new(
           groups: [
-            cognito_group_struct.new(group_name: 'buyer'),
+            cognito_group_struct.new(group_name: 'ccs_employee'),
             cognito_group_struct.new(group_name: 'mc_access')
           ]
         )
@@ -111,16 +109,16 @@ RSpec.describe ManagementConsultancy::RM6187::SessionsController do
       context 'and there is no challenge' do
         let(:challenge_name) { nil }
 
-        it 'redirects to management_consultancy_journey_start_path' do
-          expect(response).to redirect_to management_consultancy_journey_start_path
+        it 'redirects to management_consultancy_rm6309_admin_uploads_path' do
+          expect(response).to redirect_to management_consultancy_rm6309_admin_uploads_path
         end
       end
 
       context 'and there is a challenge' do
         let(:challenge_name) { 'NEW_PASSWORD_REQUIRED' }
 
-        it 'redirects to management_consultancy_rm6187_users_challenge_path' do
-          expect(response).to redirect_to management_consultancy_rm6187_users_challenge_path(challenge_name:)
+        it 'redirects to management_consultancy_rm6309_admin_users_challenge_path' do
+          expect(response).to redirect_to management_consultancy_rm6309_admin_users_challenge_path(challenge_name:)
         end
 
         it 'the cookies are updated correctly' do
@@ -131,19 +129,36 @@ RSpec.describe ManagementConsultancy::RM6187::SessionsController do
     end
 
     context 'when the framework is not live' do
-      include_context 'and RM6187 has expired'
+      include_context 'and RM6309 has expired'
+      include_context 'with cognito structs'
 
-      it 'renders the unrecognised framework page with the right http status' do
+      let(:username) { user.cognito_uuid }
+      let(:session) { 'I_AM_THE_SESSION' }
+      let(:cognito_groups) do
+        admin_list_groups_for_user_resp_struct.new(
+          groups: [
+            cognito_group_struct.new(group_name: 'ccs_employee'),
+            cognito_group_struct.new(group_name: 'mc_access')
+          ]
+        )
+      end
+
+      before do
+        allow(aws_client).to receive_messages(initiate_auth: initiate_auth_resp_struct.new(challenge_name: nil, session: session, challenge_parameters: { 'USER_ID_FOR_SRP' => username }), admin_list_groups_for_user: cognito_groups)
+        allow(Cognito::CreateUserFromCognito).to receive(:call).and_return(admin_create_user_resp_struct.new(user:))
+
         post :create, params: { user: { email: email, password: 'Password12345!' } }
+        cookies.update(response.cookies)
+      end
 
-        expect(response).to render_template('home/unrecognised_framework')
-        expect(response).to have_http_status(:bad_request)
+      it 'redirects to management_consultancy_rm6309_admin_uploads_path' do
+        expect(response).to redirect_to management_consultancy_rm6309_admin_uploads_path
       end
     end
   end
 
   describe 'DELETE destroy' do
-    login_mc_buyer
+    login_mc_admin
 
     it 'signs the user out' do
       expect(controller.current_user).not_to be_nil

@@ -4,13 +4,9 @@
 
 require 'rails_helper'
 
-RSpec.describe <module_service_name>::UsersController do
-  let(:default_params) { { service: '<service_param_name>', framework: '<FRAMEWORK>' } }
+RSpec.describe ManagementConsultancy::RM6309::UsersController do
+  let(:default_params) { { service: 'management_consultancy', framework: 'RM6309' } }
 
-<rm6187_only>
-  include_context 'and RM6187 is live'
-</rm6187_only>
-<registration_only>
   describe 'GET confirm_new' do
     context 'when the framework is live' do
       it 'renders the confirm_new page' do
@@ -21,7 +17,7 @@ RSpec.describe <module_service_name>::UsersController do
     end
 
     context 'when the framework is not live' do
-      include_context 'and <FRAMEWORK> has expired'
+      include_context 'and RM6309 has expired'
 
       it 'renders the unrecognised framework page with the right http status' do
         get :confirm_new
@@ -62,8 +58,8 @@ RSpec.describe <module_service_name>::UsersController do
         end
 
         context 'when the information is valid' do
-          it 'redirects to <start_path>' do
-            expect(response).to redirect_to <start_path>
+          it 'redirects to management_consultancy_journey_start_path' do
+            expect(response).to redirect_to management_consultancy_journey_start_path
           end
 
           it 'deletes the crown_marketplace_confirmation_email cookie' do
@@ -110,7 +106,7 @@ RSpec.describe <module_service_name>::UsersController do
     # rubocop:enable RSpec/NestedGroups
 
     context 'when the framework is not live' do
-      include_context 'and <FRAMEWORK> has expired'
+      include_context 'and RM6309 has expired'
 
       it 'renders the unrecognised framework page with the right http status' do
         post :confirm, params: { cognito_confirm_sign_up: { email: user_email, confirmation_code: '123456' } }
@@ -130,13 +126,13 @@ RSpec.describe <module_service_name>::UsersController do
         post :resend_confirmation_email, params: { cognito_confirm_sign_up: { email: } }
       end
 
-      it 'redirects to <service_name>_<framework><admin>_users_confirm_path' do
-        expect(response).to redirect_to <service_name>_<framework><admin>_users_confirm_path
+      it 'redirects to management_consultancy_rm6309_users_confirm_path' do
+        expect(response).to redirect_to management_consultancy_rm6309_users_confirm_path
       end
     end
 
     context 'when the framework is not live' do
-      include_context 'and <FRAMEWORK> has expired'
+      include_context 'and RM6309 has expired'
 
       it 'renders the unrecognised framework page with the right http status' do
         post :resend_confirmation_email, params: { cognito_confirm_sign_up: { email: } }
@@ -146,7 +142,7 @@ RSpec.describe <module_service_name>::UsersController do
       end
     end
   end
-</registration_only>
+
   describe 'GET challenge_new' do
     let(:user) { create(:user, cognito_uuid: SecureRandom.uuid, phone_number: Faker::PhoneNumber.cell_phone) }
 
@@ -175,37 +171,14 @@ RSpec.describe <module_service_name>::UsersController do
     end
 
     context 'when the framework is not live' do
-      include_context 'and <FRAMEWORK> has expired'
+      include_context 'and RM6309 has expired'
 
-<non_admin_only>
       it 'renders the unrecognised framework page with the right http status' do
         get :challenge_new, params: { challenge_name: 'NEW_PASSWORD_REQUIRED' }
 
         expect(response).to render_template('home/unrecognised_framework')
         expect(response).to have_http_status(:bad_request)
       end
-</non_admin_only>
-<admin_only>
-      before { get :challenge_new, params: { challenge_name: } }
-
-      render_views
-
-      context 'when the challenge is NEW_PASSWORD_REQUIRED' do
-        let(:challenge_name) { 'NEW_PASSWORD_REQUIRED' }
-
-        it 'renders the new_password_required partial' do
-          expect(response).to render_template(partial: 'base/users/_new_password_required')
-        end
-      end
-
-      context 'when the challenge is SMS_MFA' do
-        let(:challenge_name) { 'SMS_MFA' }
-
-        it 'renders the sms_mfa partial' do
-          expect(response).to render_template(partial: 'base/users/_sms_mfa')
-        end
-      end
-</admin_only>
     end
   end
 
@@ -258,8 +231,8 @@ RSpec.describe <module_service_name>::UsersController do
           context 'and there is an additional challange' do
             let(:new_challenge_name) { 'SMS_MFA' }
 
-            it 'redirects to <service_name>_<framework><admin>_users_challenge_path' do
-              expect(response).to redirect_to <service_name>_<framework><admin>_users_challenge_path(challenge_name: new_challenge_name)
+            it 'redirects to management_consultancy_rm6309_users_challenge_path' do
+              expect(response).to redirect_to management_consultancy_rm6309_users_challenge_path(challenge_name: new_challenge_name)
             end
 
             it 'the cookies are updated correctly' do
@@ -269,8 +242,8 @@ RSpec.describe <module_service_name>::UsersController do
           end
 
           context 'and there is no additional challange' do
-            it 'redirects to <start_path>' do
-              expect(response).to redirect_to <start_path>
+            it 'redirects to management_consultancy_journey_start_path' do
+              expect(response).to redirect_to management_consultancy_journey_start_path
             end
 
             it 'deletes the cookies' do
@@ -282,31 +255,14 @@ RSpec.describe <module_service_name>::UsersController do
       end
 
       context 'when the framework is not live' do
-        include_context 'and <FRAMEWORK> has expired'
+        include_context 'and RM6309 has expired'
 
-<non_admin_only>
         it 'renders the unrecognised framework page with the right http status' do
           post :challenge, params: { challenge_name: challenge_name, cognito_respond_to_challenge: { username:, session: } }
 
           expect(response).to render_template('home/unrecognised_framework')
           expect(response).to have_http_status(:bad_request)
         end
-</non_admin_only>
-<admin_only>
-        before do
-          post :challenge, params: { challenge_name: challenge_name, cognito_respond_to_challenge: { username: username, session: session, new_password: password, new_password_confirmation: password } }
-          cookies.update(response.cookies)
-        end
-
-        it 'redirects to <start_path>' do
-          expect(response).to redirect_to <start_path>
-        end
-
-        it 'deletes the cookies' do
-          expect(cookies[:crown_marketplace_challenge_session]).to be_nil
-          expect(cookies[:crown_marketplace_challenge_username]).to be_nil
-        end
-</admin_only>
       end
     end
 
@@ -341,8 +297,8 @@ RSpec.describe <module_service_name>::UsersController do
         end
 
         context 'and it is valid' do
-          it 'redirects to <start_path>' do
-            expect(response).to redirect_to <start_path>
+          it 'redirects to management_consultancy_journey_start_path' do
+            expect(response).to redirect_to management_consultancy_journey_start_path
           end
 
           it 'deletes the cookies' do
@@ -353,31 +309,14 @@ RSpec.describe <module_service_name>::UsersController do
       end
 
       context 'when the framework is not live' do
-        include_context 'and <FRAMEWORK> has expired'
+        include_context 'and RM6309 has expired'
 
-<non_admin_only>
         it 'renders the unrecognised framework page with the right http status' do
           post :challenge, params: { challenge_name: challenge_name, cognito_respond_to_challenge: { username:, session: } }
 
           expect(response).to render_template('home/unrecognised_framework')
           expect(response).to have_http_status(:bad_request)
         end
-</non_admin_only>
-<admin_only>
-        before do
-          post :challenge, params: { challenge_name: challenge_name, cognito_respond_to_challenge: { username:, session:, access_code: } }
-          cookies.update(response.cookies)
-        end
-
-        it 'redirects to <start_path>' do
-          expect(response).to redirect_to <start_path>
-        end
-
-        it 'deletes the cookies' do
-          expect(cookies[:crown_marketplace_challenge_session]).to be_nil
-          expect(cookies[:crown_marketplace_challenge_username]).to be_nil
-        end
-</admin_only>
       end
     end
   end

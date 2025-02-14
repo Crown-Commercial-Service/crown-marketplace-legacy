@@ -4,12 +4,11 @@
 
 require 'rails_helper'
 
-RSpec.describe ManagementConsultancy::RM6187::SessionsController do
-  let(:default_params) { { service: 'management_consultancy', framework: 'RM6187' } }
+RSpec.describe ManagementConsultancy::RM6309::SessionsController do
+  let(:default_params) { { service: 'management_consultancy', framework: 'RM6309' } }
 
   before { request.env['devise.mapping'] = Devise.mappings[:user] }
 
-  include_context 'and RM6187 is live'
   describe 'GET new' do
     context 'when the framework is live' do
       it 'renders the new page' do
@@ -20,7 +19,7 @@ RSpec.describe ManagementConsultancy::RM6187::SessionsController do
     end
 
     context 'when the framework is not live' do
-      include_context 'and RM6187 has expired'
+      include_context 'and RM6309 has expired'
 
       it 'renders the unrecognised framework page with the right http status' do
         get :new
@@ -64,8 +63,8 @@ RSpec.describe ManagementConsultancy::RM6187::SessionsController do
       context 'when the password needs to be reset' do
         let(:exception) { Aws::CognitoIdentityProvider::Errors::PasswordResetRequiredException.new('oops', 'Oops') }
 
-        it 'redirects to management_consultancy_rm6187_edit_user_password_path' do
-          expect(response).to redirect_to management_consultancy_rm6187_edit_user_password_path
+        it 'redirects to management_consultancy_rm6309_edit_user_password_path' do
+          expect(response).to redirect_to management_consultancy_rm6309_edit_user_password_path
         end
 
         it 'sets the crown_marketplace_reset_email cookie' do
@@ -76,8 +75,8 @@ RSpec.describe ManagementConsultancy::RM6187::SessionsController do
       context 'when the user needs confirmation' do
         let(:exception) { Aws::CognitoIdentityProvider::Errors::UserNotConfirmedException.new('oops', 'Oops') }
 
-        it 'redirects to management_consultancy_rm6187_edit_user_password_path' do
-          expect(response).to redirect_to management_consultancy_rm6187_users_confirm_path
+        it 'redirects to management_consultancy_rm6309_edit_user_password_path' do
+          expect(response).to redirect_to management_consultancy_rm6309_users_confirm_path
         end
 
         it 'sets the crown_marketplace_confirmation_email cookie' do
@@ -119,8 +118,8 @@ RSpec.describe ManagementConsultancy::RM6187::SessionsController do
       context 'and there is a challenge' do
         let(:challenge_name) { 'NEW_PASSWORD_REQUIRED' }
 
-        it 'redirects to management_consultancy_rm6187_users_challenge_path' do
-          expect(response).to redirect_to management_consultancy_rm6187_users_challenge_path(challenge_name:)
+        it 'redirects to management_consultancy_rm6309_users_challenge_path' do
+          expect(response).to redirect_to management_consultancy_rm6309_users_challenge_path(challenge_name:)
         end
 
         it 'the cookies are updated correctly' do
@@ -131,7 +130,7 @@ RSpec.describe ManagementConsultancy::RM6187::SessionsController do
     end
 
     context 'when the framework is not live' do
-      include_context 'and RM6187 has expired'
+      include_context 'and RM6309 has expired'
 
       it 'renders the unrecognised framework page with the right http status' do
         post :create, params: { user: { email: email, password: 'Password12345!' } }

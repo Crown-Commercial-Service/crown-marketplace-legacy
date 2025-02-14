@@ -9,6 +9,9 @@ RSpec.describe <module_service_name>::RegistrationsController do
 
   before { request.env['devise.mapping'] = Devise.mappings[:user] }
 
+<rm6187_only>
+  include_context 'and RM6187 is live'
+</rm6187_only>
   describe 'GET new' do
     context 'when the framework is live' do
       before { get :new }

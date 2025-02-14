@@ -4,10 +4,9 @@
 
 require 'rails_helper'
 
-RSpec.describe ManagementConsultancy::RM6187::PasswordsController do
-  let(:default_params) { { service: 'management_consultancy', framework: 'RM6187' } }
+RSpec.describe ManagementConsultancy::RM6309::PasswordsController do
+  let(:default_params) { { service: 'management_consultancy', framework: 'RM6309' } }
 
-  include_context 'and RM6187 is live'
   describe 'GET new' do
     context 'when the framework is live' do
       it 'renders the new page' do
@@ -18,7 +17,7 @@ RSpec.describe ManagementConsultancy::RM6187::PasswordsController do
     end
 
     context 'when the framework is not live' do
-      include_context 'and RM6187 has expired'
+      include_context 'and RM6309 has expired'
 
       it 'renders the unrecognised framework page with the right http status' do
         get :new
@@ -59,8 +58,8 @@ RSpec.describe ManagementConsultancy::RM6187::PasswordsController do
         context 'when the email is valid' do
           let(:email) { 'test@test.com' }
 
-          it 'redirects to management_consultancy_rm6187_edit_user_password_path' do
-            expect(response).to redirect_to management_consultancy_rm6187_edit_user_password_path
+          it 'redirects to management_consultancy_rm6309_edit_user_password_path' do
+            expect(response).to redirect_to management_consultancy_rm6309_edit_user_password_path
           end
 
           it 'sets the crown_marketplace_reset_email cookie' do
@@ -81,7 +80,7 @@ RSpec.describe ManagementConsultancy::RM6187::PasswordsController do
           let(:error) { Aws::CognitoIdentityProvider::Errors::UserNotFoundException }
 
           it 'redirects to the edit password page' do
-            expect(response).to redirect_to management_consultancy_rm6187_edit_user_password_path
+            expect(response).to redirect_to management_consultancy_rm6309_edit_user_password_path
           end
         end
 
@@ -104,7 +103,7 @@ RSpec.describe ManagementConsultancy::RM6187::PasswordsController do
     end
 
     context 'when the framework is not live' do
-      include_context 'and RM6187 has expired'
+      include_context 'and RM6309 has expired'
 
       it 'renders the unrecognised framework page with the right http status' do
         post :create, params: { cognito_forgot_password: { email: 'test@test.com' } }
@@ -133,7 +132,7 @@ RSpec.describe ManagementConsultancy::RM6187::PasswordsController do
     end
 
     context 'when the framework is not live' do
-      include_context 'and RM6187 has expired'
+      include_context 'and RM6309 has expired'
 
       it 'renders the unrecognised framework page with the right http status' do
         get :edit
@@ -174,8 +173,8 @@ RSpec.describe ManagementConsultancy::RM6187::PasswordsController do
       context 'when the reset password is valid' do
         let(:password) { 'Password12345!' }
 
-        it 'redirects to management_consultancy_rm6187_password_reset_success_path' do
-          expect(response).to redirect_to management_consultancy_rm6187_password_reset_success_path
+        it 'redirects to management_consultancy_rm6309_password_reset_success_path' do
+          expect(response).to redirect_to management_consultancy_rm6309_password_reset_success_path
         end
 
         it 'deletes the crown_marketplace_reset_email cookie' do
@@ -185,7 +184,7 @@ RSpec.describe ManagementConsultancy::RM6187::PasswordsController do
     end
 
     context 'when the framework is not live' do
-      include_context 'and RM6187 has expired'
+      include_context 'and RM6309 has expired'
 
       it 'renders the unrecognised framework page with the right http status' do
         put :update, params: { cognito_confirm_password_reset: { email: 'test@test.com', password: 'Password12345!', password_confirmation: 'Password12345', confirmation_code: '123456' } }
@@ -206,7 +205,7 @@ RSpec.describe ManagementConsultancy::RM6187::PasswordsController do
     end
 
     context 'when the framework is not live' do
-      include_context 'and RM6187 has expired'
+      include_context 'and RM6309 has expired'
 
       it 'renders the unrecognised framework page with the right http status' do
         get :password_reset_success
