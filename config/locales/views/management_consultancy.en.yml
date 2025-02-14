@@ -42,6 +42,26 @@ en:
               too_large: The 'Supplier service offerings' file must be smaller than 10mb
               wrong_content_type: The 'Supplier service offerings' file does not contain the expected content type
               wrong_extension: The 'Supplier service offerings' file must be an XLSX
+        management_consultancy/rm6309/admin/upload:
+          attributes:
+            supplier_details_file:
+              malicious: The 'Supplier details' file contains a virus
+              not_attached: Select the 'Supplier details' file
+              too_large: The 'Supplier details' file must be smaller than 10mb
+              wrong_content_type: The 'Supplier details' file does not contain the expected content type
+              wrong_extension: The 'Supplier details' file must be an XLSX
+            supplier_rate_cards_file:
+              malicious: The 'Supplier rate cards' file contains a virus
+              not_attached: Select the 'Supplier rate cards' file
+              too_large: The 'Supplier rate cards' file must be smaller than 10mb
+              wrong_content_type: The 'Supplier rate cards' file does not contain the expected content type
+              wrong_extension: The 'Supplier rate cards' file must be an XLSX
+            supplier_service_offerings_file:
+              malicious: The 'Supplier service offerings' file contains a virus
+              not_attached: Select the 'Supplier service offerings' file
+              too_large: The 'Supplier service offerings' file must be smaller than 10mb
+              wrong_content_type: The 'Supplier service offerings' file does not contain the expected content type
+              wrong_extension: The 'Supplier service offerings' file must be an XLSX
   management_consultancy:
     admin:
       frameworks:
