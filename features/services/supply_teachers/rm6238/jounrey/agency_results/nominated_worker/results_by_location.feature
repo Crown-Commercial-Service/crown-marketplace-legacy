@@ -90,7 +90,7 @@ Feature: Supply Teachers - Agency results - Nominated worker - Results by locati
 
   @geocode_liverpool
   Scenario: Liverpool postcode results
-    And I enter 'L3 4AA' for the 'postcode'
+    And I enter 'L3 9PP' for the 'postcode'
     And I click on 'Continue'
     Then I am on the 'Agency results' page
     And there are 8 agencies
@@ -106,7 +106,7 @@ Feature: Supply Teachers - Agency results - Nominated worker - Results by locati
     And the choices used to generate the list are:
       | Looking for: Individual worker  |
       | Worker type: Nominated          |
-      | Postcode: L3 4AA                |
+      | Postcode: L3 9PP                |
       | Search distance: 25 miles       |
     And I click on '1 mile'
     Then I am on the 'Agency results' page
@@ -117,7 +117,7 @@ Feature: Supply Teachers - Agency results - Nominated worker - Results by locati
     And the choices used to generate the list are:
       | Looking for: Individual worker  |
       | Worker type: Nominated          |
-      | Postcode: L3 4AA                |
+      | Postcode: L3 9PP                |
       | Search distance: 1 mile         |
     And I click on '5 miles'
     Then I am on the 'Agency results' page
@@ -130,7 +130,7 @@ Feature: Supply Teachers - Agency results - Nominated worker - Results by locati
     And the choices used to generate the list are:
       | Looking for: Individual worker  |
       | Worker type: Nominated          |
-      | Postcode: L3 4AA                |
+      | Postcode: L3 9PP                |
       | Search distance: 5 miles        |
     And I click on '10 miles'
     Then I am on the 'Agency results' page
@@ -145,7 +145,7 @@ Feature: Supply Teachers - Agency results - Nominated worker - Results by locati
     And the choices used to generate the list are:
       | Looking for: Individual worker  |
       | Worker type: Nominated          |
-      | Postcode: L3 4AA                |
+      | Postcode: L3 9PP                |
       | Search distance: 10 miles       |
     And I click on '50 miles'
     Then I am on the 'Agency results' page
@@ -164,7 +164,7 @@ Feature: Supply Teachers - Agency results - Nominated worker - Results by locati
     And the choices used to generate the list are:
       | Looking for: Individual worker  |
       | Worker type: Nominated          |
-      | Postcode: L3 4AA                |
+      | Postcode: L3 9PP                |
       | Search distance: 50 miles       |
 
   @geocode_birmingham
