@@ -67,16 +67,24 @@ RSpec.describe ApplicationController do
       let(:service) { 'management_consultancy' }
 
       context 'when the framework is nil' do
+        it 'returns /management-consultancy/RM6309' do
+          expect(result).to eq '/management-consultancy/RM6309'
+        end
+      end
+
+      context 'when the framework is present and the framework is RM6187' do
+        let(:framework) { 'RM6187' }
+
         it 'returns /management-consultancy/RM6187' do
           expect(result).to eq '/management-consultancy/RM6187'
         end
       end
 
-      context 'when the framework is present' do
-        let(:framework) { 'RM6187' }
+      context 'when the framework is present and the framework is RM6309' do
+        let(:framework) { 'RM6309' }
 
-        it 'returns /management-consultancy/RM6187' do
-          expect(result).to eq '/management-consultancy/RM6187'
+        it 'returns /management-consultancy/RM6309' do
+          expect(result).to eq '/management-consultancy/RM6309'
         end
       end
     end
@@ -85,16 +93,24 @@ RSpec.describe ApplicationController do
       let(:service) { 'management_consultancy/admin' }
 
       context 'when the framework is nil' do
+        it 'returns /management-consultancy/RM6309/admin' do
+          expect(result).to eq '/management-consultancy/RM6309/admin'
+        end
+      end
+
+      context 'when the framework is present and the framework is RM6187' do
+        let(:framework) { 'RM6187' }
+
         it 'returns /management-consultancy/RM6187/admin' do
           expect(result).to eq '/management-consultancy/RM6187/admin'
         end
       end
 
-      context 'when the framework is present' do
-        let(:framework) { 'RM6187' }
+      context 'when the framework is present and the framework is RM6309' do
+        let(:framework) { 'RM6309' }
 
-        it 'returns /management-consultancy/RM6187/admin' do
-          expect(result).to eq '/management-consultancy/RM6187/admin'
+        it 'returns /management-consultancy/RM6309/admin' do
+          expect(result).to eq '/management-consultancy/RM6309/admin'
         end
       end
     end

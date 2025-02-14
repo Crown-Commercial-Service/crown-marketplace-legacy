@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_03_14_113131) do
+ActiveRecord::Schema[7.1].define(version: 2025_02_13_135950) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -177,7 +177,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_03_14_113131) do
   create_table "supply_teachers_rm6238_branches", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "supply_teachers_rm6238_supplier_id"
     t.text "slug"
-    t.geography "location", limit: {:srid=>4326, :type=>"st_point", :geographic=>true}
+    t.geography "location", limit: {srid: 4326, type: "st_point", geographic: true}
     t.string "postcode", limit: 8, null: false
     t.text "contact_name"
     t.text "contact_email"

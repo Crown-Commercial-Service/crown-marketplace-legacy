@@ -7,6 +7,8 @@ require 'rails_helper'
 RSpec.describe ManagementConsultancy::RM6187::UsersController do
   let(:default_params) { { service: 'management_consultancy', framework: 'RM6187' } }
 
+  include_context 'and RM6187 is live'
+
   describe 'GET confirm_new' do
     context 'when the framework is live' do
       it 'renders the confirm_new page' do

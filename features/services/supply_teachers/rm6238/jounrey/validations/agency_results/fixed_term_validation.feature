@@ -21,7 +21,7 @@ Feature: Supply Teachers - Agency results - Fixed term - Validations
     And I enter '1234' for the 'salary'
     And I click on 'Continue'
     Then I am on the 'What is your school’s postcode?' page
-    And I enter 'L3 4AA' for the 'postcode'
+    And I enter 'L3 9PP' for the 'postcode'
     And I click on 'Continue'
     Then I am on the 'Agency results' page
     And there are 8 agencies
@@ -66,7 +66,7 @@ Feature: Supply Teachers - Agency results - Fixed term - Validations
   Scenario: Rate validations - multiple agencies
     And I enter the rate '-1' for the supplier 'CORKERY INC'
     And I enter the rate 'Sena' for the supplier 'DIETRICH-BORER'
-    And I enter the rate 'L3 4AA' for the supplier 'EMARD AND SONS'
+    And I enter the rate 'L3 9PP' for the supplier 'EMARD AND SONS'
     Then I should see the error message 'Annual salary is invalid' for 'CORKERY INC'
     Then I should see the error message 'Annual salary is invalid' for 'DIETRICH-BORER'
     Then I should see the error message 'Annual salary is invalid' for 'EMARD AND SONS'

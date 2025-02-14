@@ -16,7 +16,7 @@ LOCATION_CORDINATES = {
     location: [{ 'coordinates' => [51.5010102, -0.1415626] }]
   },
   'Liverpool' => {
-    postcode: 'L3 4AA',
+    postcode: 'L3 9PP',
     location: [{ 'coordinates' => [53.4000175, -2.993847] }]
   },
   'Birmingham' => {

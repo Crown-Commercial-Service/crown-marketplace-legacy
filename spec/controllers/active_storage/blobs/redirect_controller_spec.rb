@@ -6,8 +6,8 @@ RSpec.describe ActiveStorage::Blobs::RedirectController do
       signed_id: signed_id,
       filename: filename,
       disposition: 'attachment',
-      key: object_id_key,
-      value: object_id
+      key: blob_object_id_key,
+      value: blob_object_id
     }
   end
 
@@ -16,8 +16,8 @@ RSpec.describe ActiveStorage::Blobs::RedirectController do
     context 'when trying to download a supply teachers document in RM6238' do
       let(:signed_id) { admin_upload.current_accredited_suppliers.blob.signed_id }
       let(:filename) { admin_upload.current_accredited_suppliers.blob.filename }
-      let(:object_id_key) { :st_rm6238_upload_id }
-      let(:object_id) { admin_upload.id }
+      let(:blob_object_id_key) { :st_rm6238_upload_id }
+      let(:blob_object_id) { admin_upload.id }
       let(:admin_upload) { create(:supply_teachers_rm6238_admin_upload_with_document) }
 
       context 'when signed in as an st buyer' do
@@ -80,7 +80,7 @@ RSpec.describe ActiveStorage::Blobs::RedirectController do
         end
 
         context 'when the key is not valid' do
-          let(:object_id_key) { :fake_procurement_id_key }
+          let(:blob_object_id_key) { :fake_procurement_id_key }
 
           it 'redirects to the not permitted path' do
             get :show
@@ -90,7 +90,7 @@ RSpec.describe ActiveStorage::Blobs::RedirectController do
         end
 
         context 'when the object does not exist' do
-          let(:object_id) { SecureRandom.uuid }
+          let(:blob_object_id) { SecureRandom.uuid }
 
           it 'is raise a routing error' do
             expect { get :show }.to raise_error(ActionController::RoutingError)
@@ -122,8 +122,8 @@ RSpec.describe ActiveStorage::Blobs::RedirectController do
     context 'when trying to download a management consultancy document in RM6187' do
       let(:signed_id) { admin_upload.supplier_details_file.blob.signed_id }
       let(:filename) { admin_upload.supplier_details_file.blob.filename }
-      let(:object_id_key) { :mc_rm6187_upload_id }
-      let(:object_id) { admin_upload.id }
+      let(:blob_object_id_key) { :mc_rm6187_upload_id }
+      let(:blob_object_id) { admin_upload.id }
       let(:admin_upload) { create(:management_consultancy_rm6187_admin_upload_with_document) }
 
       context 'when signed in as an st buyer' do
@@ -196,7 +196,7 @@ RSpec.describe ActiveStorage::Blobs::RedirectController do
         end
 
         context 'when the key is not valid' do
-          let(:object_id_key) { :fake_procurement_id_key }
+          let(:blob_object_id_key) { :fake_procurement_id_key }
 
           it 'redirects to the not permitted path' do
             get :show
@@ -206,7 +206,7 @@ RSpec.describe ActiveStorage::Blobs::RedirectController do
         end
 
         context 'when the object does not exist' do
-          let(:object_id) { SecureRandom.uuid }
+          let(:blob_object_id) { SecureRandom.uuid }
 
           it 'is raise a routing error' do
             expect { get :show }.to raise_error(ActionController::RoutingError)
@@ -228,8 +228,8 @@ RSpec.describe ActiveStorage::Blobs::RedirectController do
     context 'when trying to download a legal services document in RM6240' do
       let(:signed_id) { admin_upload.supplier_details_file.blob.signed_id }
       let(:filename) { admin_upload.supplier_details_file.blob.filename }
-      let(:object_id_key) { :ls_rm6240_upload_id }
-      let(:object_id) { admin_upload.id }
+      let(:blob_object_id_key) { :ls_rm6240_upload_id }
+      let(:blob_object_id) { admin_upload.id }
       let(:admin_upload) { create(:legal_services_rm6240_admin_upload_with_document) }
 
       context 'when signed in as an st buyer' do
@@ -312,7 +312,7 @@ RSpec.describe ActiveStorage::Blobs::RedirectController do
         end
 
         context 'when the key is not valid' do
-          let(:object_id_key) { :fake_procurement_id_key }
+          let(:blob_object_id_key) { :fake_procurement_id_key }
 
           it 'redirects to the not permitted path' do
             get :show
@@ -322,7 +322,7 @@ RSpec.describe ActiveStorage::Blobs::RedirectController do
         end
 
         context 'when the object does not exist' do
-          let(:object_id) { SecureRandom.uuid }
+          let(:blob_object_id) { SecureRandom.uuid }
 
           it 'is raise a routing error' do
             expect { get :show }.to raise_error(ActionController::RoutingError)

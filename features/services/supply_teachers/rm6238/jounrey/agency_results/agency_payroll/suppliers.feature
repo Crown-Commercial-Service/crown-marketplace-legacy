@@ -12,7 +12,7 @@ Feature: Supply Teachers - Agency results - Agency payroll - Agencies
     And I select 'Yes'
     And I click on 'Continue'
     Then I am on the 'School postcode and worker requirements' page
-    And I enter 'L3 4AA' for the 'postcode'
+    And I enter 'L3 9PP' for the 'postcode'
     And I select 'Teacher: (Incl. Qualified and Unqualified Teachers, Tutors)'
     And I select 'Daily Supply'
     And I click on 'Continue'

@@ -13,7 +13,7 @@ Feature: Supply Teachers - Agency results - Agency payroll - Results by length
     And I click on 'Continue'
     Then I am on the 'School postcode and worker requirements' page
     And I select 'Teacher: (Incl. Qualified and Unqualified Teachers, Tutors)'
-    And I enter 'L3 4AA' for the 'postcode'
+    And I enter 'L3 9PP' for the 'postcode'
 
   Scenario: The length Daily Supply has the correct rates
     And I select 'Daily Supply'
@@ -30,7 +30,7 @@ Feature: Supply Teachers - Agency results - Agency payroll - Results by length
       | Looking for: Individual worker                                        |
       | Worker type: Supplied by agency                                       |
       | Payroll provider: Agency                                              |
-      | Postcode: L3 4AA                                                      |
+      | Postcode: L3 9PP                                                      |
       | Search distance: 25 miles                                             |
       | Job type: Teacher: (Incl. Qualified and Unqualified Teachers, Tutors) |
       | Term: Daily Supply                                                    |
@@ -50,7 +50,7 @@ Feature: Supply Teachers - Agency results - Agency payroll - Results by length
       | Looking for: Individual worker                                        |
       | Worker type: Supplied by agency                                       |
       | Payroll provider: Agency                                              |
-      | Postcode: L3 4AA                                                      |
+      | Postcode: L3 9PP                                                      |
       | Search distance: 25 miles                                             |
       | Job type: Teacher: (Incl. Qualified and Unqualified Teachers, Tutors) |
       | Term: Long Term (6 weeks+)                                            |

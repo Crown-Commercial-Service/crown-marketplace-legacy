@@ -4,8 +4,8 @@ require 'rails_helper'
 RSpec.describe Framework do
   describe '.frameworks' do
     context 'when no scope is provided' do
-      it 'returns RM6238, RM6187 and RM6240' do
-        expect(described_class.frameworks).to eq %w[RM6238 RM6187 RM6240]
+      it 'returns RM6238, RM6187, RM6240 and RM6309' do
+        expect(described_class.frameworks).to eq %w[RM6238 RM6187 RM6240 RM6309]
       end
     end
 
@@ -16,8 +16,8 @@ RSpec.describe Framework do
     end
 
     context 'when the management_consultancy scope is provided' do
-      it 'returns RM6187' do
-        expect(described_class.management_consultancy.frameworks).to eq %w[RM6187]
+      it 'returns RM6187 and RM6309' do
+        expect(described_class.management_consultancy.frameworks).to eq %w[RM6187 RM6309]
       end
     end
 
@@ -32,8 +32,8 @@ RSpec.describe Framework do
     context 'when RM6238 goes live tomorrow' do
       include_context 'and RM6238 is live in the future'
 
-      it 'returns RM6187 and RM6240' do
-        expect(described_class.live_frameworks).to eq %w[RM6187 RM6240]
+      it 'returns RM6240 and RM6309' do
+        expect(described_class.live_frameworks).to eq %w[RM6240 RM6309]
       end
 
       context 'and the supply_teachers scope is provided' do
@@ -46,8 +46,8 @@ RSpec.describe Framework do
     context 'when RM6240 goes live tomorrow' do
       include_context 'and RM6240 is live in the future'
 
-      it 'returns RM6238 and RM6187,' do
-        expect(described_class.live_frameworks).to eq %w[RM6238 RM6187]
+      it 'returns RM6238 and RM6309,' do
+        expect(described_class.live_frameworks).to eq %w[RM6238 RM6309]
       end
 
       context 'and the legal_services scope is provided' do
@@ -60,8 +60,8 @@ RSpec.describe Framework do
     context 'when RM6238 is live today' do
       include_context 'and RM6238 is live today'
 
-      it 'returns RM6238, RM6187 and RM6240' do
-        expect(described_class.live_frameworks).to eq %w[RM6187 RM6240 RM6238]
+      it 'returns RM6238, RM6309 and RM6240' do
+        expect(described_class.live_frameworks).to eq %w[RM6240 RM6309 RM6238]
       end
 
       context 'and the supply_teachers scope is provided' do
@@ -74,8 +74,8 @@ RSpec.describe Framework do
     context 'when RM6240 is live today' do
       include_context 'and RM6240 is live today'
 
-      it 'returns RM6238, RM6187 and RM6240' do
-        expect(described_class.live_frameworks).to eq %w[RM6238 RM6187 RM6240]
+      it 'returns RM6238, RM6309 and RM6240' do
+        expect(described_class.live_frameworks).to eq %w[RM6238 RM6309 RM6240]
       end
 
       context 'and the legal_services scope is provided' do
@@ -86,8 +86,8 @@ RSpec.describe Framework do
     end
 
     context 'when RM6238 went live yesterday' do
-      it 'returns RM6238, RM6187 and RM6240' do
-        expect(described_class.live_frameworks).to eq %w[RM6238 RM6187 RM6240]
+      it 'returns RM6238, RM6240 and RM6309' do
+        expect(described_class.live_frameworks).to eq %w[RM6238 RM6240 RM6309]
       end
 
       context 'and the supply_teachers scope is provided' do
@@ -98,8 +98,8 @@ RSpec.describe Framework do
     end
 
     context 'when RM6240 went live yesterday' do
-      it 'returns RM6240, RM6187 and RM6240' do
-        expect(described_class.live_frameworks).to eq %w[RM6238 RM6187 RM6240]
+      it 'returns RM6240, RM6240 and RM6309' do
+        expect(described_class.live_frameworks).to eq %w[RM6238 RM6240 RM6309]
       end
 
       context 'and the legal_services scope is provided' do
@@ -136,8 +136,26 @@ RSpec.describe Framework do
     end
 
     context 'when the management_consultancy scope is provided' do
-      it 'returns RM6187' do
-        expect(described_class.management_consultancy.current_framework).to eq 'RM6187'
+      context 'when RM6309 goes live tomorrow' do
+        include_context 'and RM6309 is live in the future'
+
+        it 'returns nil' do
+          expect(described_class.management_consultancy.current_framework).to be_nil
+        end
+      end
+
+      context 'when RM6309 is live today' do
+        include_context 'and RM6309 is live today'
+
+        it 'returns RM6309' do
+          expect(described_class.management_consultancy.current_framework).to eq 'RM6309'
+        end
+      end
+
+      context 'when RM6309 went live yesterday' do
+        it 'returns RM6309' do
+          expect(described_class.management_consultancy.current_framework).to eq 'RM6309'
+        end
       end
     end
 
@@ -206,15 +224,47 @@ RSpec.describe Framework do
     end
 
     context 'when the management_consultancy scope is provided' do
-      context 'when the framework is RM6187' do
-        it 'returns true' do
-          expect(described_class.management_consultancy.live_framework?('RM6187')).to be true
+      let(:result) { described_class.management_consultancy.live_framework?(framework) }
+
+      context 'when the framework passed is RM6309' do
+        let(:framework) { 'RM6309' }
+
+        context 'and RM6309 goes live tomorrow' do
+          include_context 'and RM6309 is live in the future'
+
+          it 'returns false' do
+            expect(result).to be false
+          end
+        end
+
+        context 'when RM6309 is live today' do
+          include_context 'and RM6309 is live today'
+
+          it 'returns true' do
+            expect(result).to be true
+          end
+        end
+
+        context 'and RM6309 went live yesterday' do
+          it 'returns true' do
+            expect(result).to be true
+          end
         end
       end
 
-      context 'when the framework is not RM6187' do
+      context 'when the framework is RM6187' do
+        let(:framework) { 'RM6187' }
+
         it 'returns false' do
-          expect(described_class.management_consultancy.live_framework?('RM3788')).to be false
+          expect(result).to be false
+        end
+      end
+
+      context 'when the framework is not RM6309 or RM6187' do
+        let(:framework) { 'RM3788' }
+
+        it 'returns false' do
+          expect(result).to be false
         end
       end
     end
@@ -298,10 +348,50 @@ RSpec.describe Framework do
     end
 
     context 'when considering management_consultancy frameworks' do
-      let(:framework) { 'RM6187' }
+      context 'and RM6309 goes live tomorrow' do
+        include_context 'and RM6309 is live in the future'
 
-      it 'returns live' do
-        expect(result).to eq :live
+        context 'and the frameworks is RM6309' do
+          let(:framework) { 'RM6309' }
+
+          it 'returns coming' do
+            expect(result).to eq :coming
+          end
+        end
+      end
+
+      context 'when RM6309 is live today' do
+        include_context 'and RM6309 is live today'
+
+        context 'and the frameworks is RM6309' do
+          let(:framework) { 'RM6309' }
+
+          it 'returns live' do
+            expect(result).to eq :live
+          end
+        end
+      end
+
+      context 'and RM6309 went live yesterday' do
+        context 'and the frameworks is RM6309' do
+          let(:framework) { 'RM6309' }
+
+          it 'returns live' do
+            expect(result).to eq :live
+          end
+        end
+      end
+
+      context 'when RM6309 is expired' do
+        include_context 'and RM6309 has expired'
+
+        context 'and the frameworks is RM6309' do
+          let(:framework) { 'RM6309' }
+
+          it 'returns expired' do
+            expect(result).to eq :expired
+          end
+        end
       end
     end
 

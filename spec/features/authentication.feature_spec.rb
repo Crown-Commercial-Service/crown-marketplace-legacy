@@ -25,42 +25,42 @@ RSpec.feature 'Authentication' do
 
   scenario 'Unauthenticated users cannot access protected pages' do
     OmniAuth.config.test_mode = false
-    visit '/management-consultancy/RM6187/start'
+    visit '/legal-services/RM6240/start'
 
-    expect(page).to have_text('Sign in to your management consultancy account')
+    expect(page).to have_text('Sign in to your legal services account')
   end
 
   scenario 'Users can sign in using AWS Cognito' do
     OmniAuth.config.test_mode = false
     user = create(:user, roles: %i[buyer mc_access])
-    visit '/management-consultancy/RM6187/start'
+    visit '/legal-services/RM6240/start'
     fill_in 'Email', with: user.email
     fill_in 'Password', with: 'ValidPassword!'
     click_button 'Sign in'
     expect(page).to have_no_text('Not permitted')
-    expect(page).to have_text('Select the lot you need')
+    expect(page).to have_text('Do you work for central government?')
   end
 
   scenario 'Users can sign in using AWS Cognito with capitals in email' do
     user = create(:user, roles: %i[buyer mc_access])
-    visit '/management-consultancy/RM6187/start'
+    visit '/legal-services/RM6240/start'
     fill_in 'Email', with: user.email.upcase
     fill_in 'Password', with: 'ValidPassword!'
     click_button 'Sign in'
     expect(page).to have_no_text('Not permitted')
-    expect(page).to have_text('Select the lot you need')
+    expect(page).to have_text('Do you work for central government?')
   end
 
   scenario 'Users signed in using AWS Cognito can sign out' do
     user = create(:user, roles: %i[buyer mc_access])
-    visit '/management-consultancy/RM6187/start'
+    visit '/legal-services/RM6240/start'
     fill_in 'Email', with: user.email
     fill_in 'Password', with: 'ValidPassword!'
     click_button 'Sign in'
     click_on 'Sign out'
 
-    visit '/management-consultancy/RM6187/start'
-    expect(page).to have_text('Sign in to your management consultancy account')
+    visit '/legal-services/RM6240/start'
+    expect(page).to have_text('Sign in to your legal services account')
   end
 
   scenario 'Users can sign in using DfE sign-in', :dfe do
@@ -85,7 +85,7 @@ RSpec.feature 'Authentication' do
     visit '/supply-teachers/RM6238/start'
     click_on 'Sign in with DfE Sign-in'
 
-    visit '/management-consultancy/RM6187/start'
+    visit '/legal-services/RM6240/start'
 
     expect(page).to have_text(I18n.t('home.not_permitted.title'))
   end
