@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_02_13_135950) do
+ActiveRecord::Schema[7.1].define(version: 2025_02_14_134325) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -153,6 +153,69 @@ ActiveRecord::Schema[7.1].define(version: 2025_02_13_135950) do
     t.datetime "updated_at", precision: nil, null: false
   end
 
+  create_table "management_consultancy_rm6309_admin_uploads", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "aasm_state", limit: 30
+    t.text "import_errors"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "management_consultancy_rm6309_lot_contact_details", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "management_consultancy_rm6309_supplier_id"
+    t.text "lot"
+    t.text "contact_name"
+    t.text "telephone_number"
+    t.text "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["lot", "management_consultancy_rm6309_supplier_id"], name: "index_rm6309_lot_on_mc_supplier_id", unique: true
+    t.index ["management_consultancy_rm6309_supplier_id"], name: "index_mc_rm6309_lot_contact_details_on_supplier_id"
+  end
+
+  create_table "management_consultancy_rm6309_rate_cards", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "management_consultancy_rm6309_supplier_id"
+    t.text "lot"
+    t.text "rate_type"
+    t.integer "junior_rate_in_pence"
+    t.integer "standard_rate_in_pence"
+    t.integer "senior_rate_in_pence"
+    t.integer "principal_rate_in_pence"
+    t.integer "managing_rate_in_pence"
+    t.integer "director_rate_in_pence"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["lot", "rate_type", "management_consultancy_rm6309_supplier_id"], name: "index_rm6309_lot_on_type_and_mc_supplier_id", unique: true
+    t.index ["management_consultancy_rm6309_supplier_id"], name: "index_mc_rm6309_rate_cards_on_supplier_id"
+  end
+
+  create_table "management_consultancy_rm6309_service_offerings", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "management_consultancy_rm6309_supplier_id"
+    t.text "lot_number", null: false
+    t.text "service_code", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["management_consultancy_rm6309_supplier_id"], name: "index_mc_rm6309_service_offerings_on_mc_supplier_id"
+    t.index ["service_code", "lot_number", "management_consultancy_rm6309_supplier_id"], name: "index_rm6309_service_on_lot_number_and_mc_supplier_id", unique: true
+  end
+
+  create_table "management_consultancy_rm6309_suppliers", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.text "name", null: false
+    t.text "contact_name"
+    t.text "contact_email"
+    t.text "telephone_number"
+    t.boolean "sme"
+    t.text "address"
+    t.text "website"
+    t.integer "duns"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "management_consultancy_rm6309_uploads", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "nuts_regions", id: false, force: :cascade do |t|
     t.string "code", limit: 255
     t.string "name", limit: 255
@@ -251,6 +314,9 @@ ActiveRecord::Schema[7.1].define(version: 2025_02_13_135950) do
   add_foreign_key "legal_services_rm6240_service_offerings", "legal_services_rm6240_suppliers"
   add_foreign_key "management_consultancy_rm6187_rate_cards", "management_consultancy_rm6187_suppliers"
   add_foreign_key "management_consultancy_rm6187_service_offerings", "management_consultancy_rm6187_suppliers"
+  add_foreign_key "management_consultancy_rm6309_lot_contact_details", "management_consultancy_rm6309_suppliers"
+  add_foreign_key "management_consultancy_rm6309_rate_cards", "management_consultancy_rm6309_suppliers"
+  add_foreign_key "management_consultancy_rm6309_service_offerings", "management_consultancy_rm6309_suppliers"
   add_foreign_key "supply_teachers_rm6238_branches", "supply_teachers_rm6238_suppliers"
   add_foreign_key "supply_teachers_rm6238_managed_service_providers", "supply_teachers_rm6238_suppliers"
   add_foreign_key "supply_teachers_rm6238_rates", "supply_teachers_rm6238_suppliers"
