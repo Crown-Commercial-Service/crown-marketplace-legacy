@@ -33,7 +33,8 @@ module GenerateAuthenticationSpecs
     base_tag_to_value.merge((admin ? admin_tag_to_value(service_name, framework) : buyer_tag_to_value(service_name, framework)))
   end
 
-  def self.generate_spec_file(output_file_path, source_file_path, tag_to_value, registration, admin)
+  # rubocop:disable Metrics/ParameterLists
+  def self.generate_spec_file(framework, output_file_path, source_file_path, tag_to_value, registration, admin)
     source_file_text = File.read(source_file_path)
 
     tag_to_value.each do |key, value|
@@ -57,8 +58,16 @@ module GenerateAuthenticationSpecs
       source_file_text.gsub!(ADMIN_ONLY_REGEX, '')
     end
 
+    if framework == 'RM6187'
+      source_file_text.gsub!("<rm6187_only>\n", '')
+      source_file_text.gsub!("</rm6187_only>\n", '')
+    else
+      source_file_text.gsub!(RM6187_ONLY_REGEX, '')
+    end
+
     File.write(output_file_path, source_file_text)
   end
+  # rubocop:enable Metrics/ParameterLists
 
   def self.generate_sessions_controller_specs
     SERVICE_AND_FRAMEWORKS.each do |service_and_framework|
@@ -106,12 +115,13 @@ module GenerateAuthenticationSpecs
 
     tag_to_value = generate_tag_to_value(service_name, framework, admin)
 
-    generate_spec_file(output_file_path, source_file_path, tag_to_value, service_and_framework[:registration], service_and_framework[:admin])
+    generate_spec_file(framework, output_file_path, source_file_path, tag_to_value, service_and_framework[:registration], service_and_framework[:admin])
   end
 
   REGISTRATION_ONLY_REGEX = %r{<registration_only>(.|\n)*?</registration_only>}
   ADMIN_ONLY_REGEX = %r{<admin_only>(.|\n)*?</admin_only>\n}
   NON_ADMIN_ONLY_REGEX = %r{<non_admin_only>(.|\n)*?</non_admin_only>\n}
+  RM6187_ONLY_REGEX = %r{<rm6187_only>(.|\n)*?</rm6187_only>\n}
 
   SERVICE_AND_FRAMEWORKS = [
     {
@@ -130,12 +140,24 @@ module GenerateAuthenticationSpecs
       name: 'Management consultancy RM6187 user',
       service_name: 'management_consultancy',
       framework: 'RM6187',
+      registration: true,
+    },
+    {
+      name: 'Management consultancy RM6187 admin',
+      service_name: 'management_consultancy',
+      framework: 'RM6187',
+      admin: true
+    },
+    {
+      name: 'Management consultancy RM6309 user',
+      service_name: 'management_consultancy',
+      framework: 'RM6309',
       registration: true
     },
     {
-      name: 'Management consultancy RM6240 admin',
+      name: 'Management consultancy RM6309 admin',
       service_name: 'management_consultancy',
-      framework: 'RM6187',
+      framework: 'RM6309',
       admin: true
     },
     {

@@ -50,6 +50,13 @@ Rails.application.routes.draw do
           concerns :authenticatable
         end
       end
+
+      namespace 'rm6309', path: 'RM6309', defaults: { framework: 'RM6309' } do
+        concerns %i[authenticatable registrable]
+        namespace :admin, defaults: { service: 'management_consultancy/admin' } do
+          concerns :authenticatable
+        end
+      end
     end
 
     namespace 'legal_services', path: 'legal-services', defaults: { service: 'legal_services' } do
@@ -184,6 +191,13 @@ Rails.application.routes.draw do
       get '/suppliers', to: 'suppliers#index'
       get '/suppliers/download', to: 'suppliers#download', as: 'suppliers_download'
       get '/suppliers/:id', to: 'suppliers#show', as: 'supplier'
+      namespace :admin, defaults: { service: 'management_consultancy/admin' } do
+        concerns %i[admin_uploads admin_shared_pages]
+      end
+    end
+
+    namespace 'rm6309', path: 'RM6309', defaults: { framework: 'RM6309' } do
+      concerns %i[buyer_shared_pages shared_pages]
       namespace :admin, defaults: { service: 'management_consultancy/admin' } do
         concerns %i[admin_uploads admin_shared_pages]
       end

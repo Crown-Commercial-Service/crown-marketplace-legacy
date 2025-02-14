@@ -4,12 +4,11 @@
 
 require 'rails_helper'
 
-RSpec.describe ManagementConsultancy::RM6187::RegistrationsController do
-  let(:default_params) { { service: 'management_consultancy', framework: 'RM6187' } }
+RSpec.describe ManagementConsultancy::RM6309::RegistrationsController do
+  let(:default_params) { { service: 'management_consultancy', framework: 'RM6309' } }
 
   before { request.env['devise.mapping'] = Devise.mappings[:user] }
 
-  include_context 'and RM6187 is live'
   describe 'GET new' do
     context 'when the framework is live' do
       before { get :new }
@@ -24,7 +23,7 @@ RSpec.describe ManagementConsultancy::RM6187::RegistrationsController do
     end
 
     context 'when the framework is not live' do
-      include_context 'and RM6187 has expired'
+      include_context 'and RM6309 has expired'
 
       it 'renders the unrecognised framework page with the right http status' do
         get :new
@@ -56,8 +55,8 @@ RSpec.describe ManagementConsultancy::RM6187::RegistrationsController do
         context 'when the emaildomain is not on the allow list' do
           let(:email) { 'test@fake-testemail.com' }
 
-          it 'redirects to management_consultancy_rm6187_domain_not_on_safelist_path' do
-            expect(response).to redirect_to management_consultancy_rm6187_domain_not_on_safelist_path
+          it 'redirects to management_consultancy_rm6309_domain_not_on_safelist_path' do
+            expect(response).to redirect_to management_consultancy_rm6309_domain_not_on_safelist_path
           end
         end
 
@@ -70,8 +69,8 @@ RSpec.describe ManagementConsultancy::RM6187::RegistrationsController do
         end
 
         context 'when all the information is valid' do
-          it 'redirects to management_consultancy_rm6187_users_confirm_path' do
-            expect(response).to redirect_to management_consultancy_rm6187_users_confirm_path
+          it 'redirects to management_consultancy_rm6309_users_confirm_path' do
+            expect(response).to redirect_to management_consultancy_rm6309_users_confirm_path
           end
 
           it 'sets the crown_marketplace_confirmation_email cookie' do
@@ -94,8 +93,8 @@ RSpec.describe ManagementConsultancy::RM6187::RegistrationsController do
         context 'and the error is UsernameExistsException' do
           let(:error) { Aws::CognitoIdentityProvider::Errors::UsernameExistsException }
 
-          it 'redirects to management_consultancy_rm6187_users_confirm_path' do
-            expect(response).to redirect_to management_consultancy_rm6187_users_confirm_path
+          it 'redirects to management_consultancy_rm6309_users_confirm_path' do
+            expect(response).to redirect_to management_consultancy_rm6309_users_confirm_path
           end
 
           it 'sets the crown_marketplace_confirmation_email cookie' do
@@ -114,7 +113,7 @@ RSpec.describe ManagementConsultancy::RM6187::RegistrationsController do
     end
 
     context 'when the framework is not live' do
-      include_context 'and RM6187 has expired'
+      include_context 'and RM6309 has expired'
 
       it 'renders the unrecognised framework page with the right http status' do
         post :create, params: { user: { email:, password:, password_confirmation: } }
@@ -136,7 +135,7 @@ RSpec.describe ManagementConsultancy::RM6187::RegistrationsController do
     end
 
     context 'when the framework is not live' do
-      include_context 'and RM6187 has expired'
+      include_context 'and RM6309 has expired'
 
       it 'renders the unrecognised framework page with the right http status' do
         get :domain_not_on_safelist

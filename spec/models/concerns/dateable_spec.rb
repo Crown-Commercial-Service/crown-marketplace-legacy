@@ -850,8 +850,6 @@ RSpec.describe Dateable do
     end
   end
 
-  # TODO: number_of_full_months
-
   describe '.number_of_full_months' do
     let(:result) { number_of_full_months(start_date, end_date) }
 
