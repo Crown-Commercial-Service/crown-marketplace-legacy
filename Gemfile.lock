@@ -345,7 +345,7 @@ GEM
     listen (3.9.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
-    logger (1.6.5)
+    logger (1.6.6)
     loofah (2.24.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
@@ -463,7 +463,7 @@ GEM
     puma (6.6.0)
       nio4r (~> 2.0)
     racc (1.8.1)
-    rack (3.1.9)
+    rack (3.1.10)
     rack-oauth2 (1.21.3)
       activesupport
       attr_required
@@ -607,7 +607,7 @@ GEM
       activesupport (>= 5.2.0)
     show_me_the_cookies (6.0.0)
       capybara (>= 2, < 4)
-    sidekiq (7.3.8)
+    sidekiq (7.3.9)
       base64
       connection_pool (>= 2.3.0)
       logger
@@ -764,7 +764,7 @@ DEPENDENCIES
   selenium-webdriver (>= 3.142.3)
   shoulda-matchers (>= 4.2.0)
   show_me_the_cookies (>= 6.0.0)
-  sidekiq (~> 7.3.8)
+  sidekiq (~> 7.3.9)
   simplecov (>= 0.16.1)
   sinatra (~> 4.1.1)
   site_prism (>= 3.7.3)
