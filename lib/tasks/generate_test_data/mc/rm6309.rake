@@ -30,7 +30,7 @@ module GenerateTestData
 
       def self.generate_lot_data
         @suppliers[..2].each do |supplier|
-          mcf3_lots_and_services.each do |lot_number, services|
+          mcf4_lots_and_services.each do |lot_number, services|
             supplier[:lots] << {
               lot_number:,
               services:
@@ -39,7 +39,7 @@ module GenerateTestData
         end
 
         @suppliers[3..].each do |supplier|
-          mcf3_lots_and_services.sample(4).each do |lot_number, services|
+          mcf4_lots_and_services.sample(4).each do |lot_number, services|
             supplier[:lots] << {
               lot_number: lot_number,
               services: services.sample((services.size * rand(5..10) / 10).to_i)
@@ -51,13 +51,13 @@ module GenerateTestData
       def self.generate_rate_cards
         @suppliers.each do |supplier|
           supplier[:lots].each do |lot|
-            min_rate = rand(200..1000)
-
             rate_types = ['Advice', 'Delivery']
 
             rate_types = ['Complex', 'Non-Complex'] if lot[:lot_number] == 'MCF4.10'
 
             rate_types.each do |rate_type|
+              min_rate = rand(200..1000)
+
               supplier[:rate_cards] << {
                 lot: lot[:lot_number],
                 rate_type: rate_type,
@@ -92,8 +92,8 @@ module GenerateTestData
         File.write('data/management_consultancy/rm6309/dummy_supplier_data.json', JSON.pretty_generate(@suppliers))
       end
 
-      def self.mcf3_lots_and_services
-        @mcf3_lots_and_services ||= ManagementConsultancy::RM6309::Lot.all.map { |lot| [lot.number, lot.services.map(&:code)] }
+      def self.mcf4_lots_and_services
+        @mcf4_lots_and_services ||= ManagementConsultancy::RM6309::Lot.all.map { |lot| [lot.number, lot.services.map(&:code)] }
       end
     end
   end

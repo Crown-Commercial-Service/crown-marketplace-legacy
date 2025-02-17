@@ -198,6 +198,9 @@ Rails.application.routes.draw do
 
     namespace 'rm6309', path: 'RM6309', defaults: { framework: 'RM6309' } do
       concerns %i[buyer_shared_pages shared_pages]
+      get '/suppliers', to: 'suppliers#index'
+      get '/suppliers/download', to: 'suppliers#download', as: 'suppliers_download'
+      get '/suppliers/:id', to: 'suppliers#show', as: 'supplier'
       namespace :admin, defaults: { service: 'management_consultancy/admin' } do
         concerns %i[admin_uploads admin_shared_pages]
       end

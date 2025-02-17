@@ -3,19 +3,19 @@ en:
   activemodel:
     errors:
       models:
-        management_consultancy/rm6187/journey/choose_expenses:
-          attributes:
-            expenses:
-              inclusion: Please say whether you pay expenses
         management_consultancy/rm6187/journey/choose_lot:
           attributes:
             lot:
               inclusion: Select the lot you need
-        management_consultancy/rm6187/journey/choose_regions:
-          attributes:
-            region_codes:
-              too_short: Select the region or regions you want the consultants to work
         management_consultancy/rm6187/journey/choose_services:
+          attributes:
+            services:
+              too_short: Select the service or services you need
+        management_consultancy/rm6309/journey/choose_lot:
+          attributes:
+            lot:
+              inclusion: Select the lot you need
+        management_consultancy/rm6309/journey/choose_services:
           attributes:
             services:
               too_short: Select the service or services you need
@@ -328,10 +328,64 @@ en:
           before_you_start:
             heading: Before you start
             mcf4_link_text: lot descriptions documents
-            mcf4_text_html: You need to know which lot the management consultancy services you need are in. Review the %{mcf4_link} for Management Consultancy Framework Three.
+            mcf4_text_html: You need to know which lot the management consultancy services you need are in. Review the %{mcf4_link} for Management Consultancy Framework Four.
           guidance:
             heading: Guidance and other useful documents
-            mcf4_link_text: Management Consultancy Framework Three (MCF4) specification
+            mcf4_link_text: Management Consultancy Framework Four (MCF4) specification
           heading: Find management consultants
           use_this_service: Use this service to download a shortlist of suppliers that provide the management consultancy services you need.
           using_this_service: Using this service means you're following the public sector procurement procedures.
+      journey:
+        choose_lot:
+          mcf4_heading: Management Consultancy Framework 4 (MCF4)
+          question: Select the lot you need
+          service_lines: Service lines
+        choose_services:
+          no_services_selected: No services selected
+          question: Select the services you need
+          service_selected: service selected
+          services_selected: services selected
+      suppliers:
+        download:
+          download_supplier_shortlist: Download supplier shortlist
+          expression_of_interest_template: Expression of interest template
+          expression_of_interest_template_link: https://assets.crowncommercial.gov.uk/wp-content/uploads/T1-Expression-of-Interest-2.odt?format=odt
+          heading: Download the supplier shortlist
+          lead_text: The spreadsheet includes the selections you made, for your records and audit trail
+          other_documents: Other documents
+        index:
+          download_suppliers_list: Download the supplier list
+          heading: Supplier results
+          no_suppliers_found:
+            contact_html: "%{contact_link} for help."
+            contact_link_text: Contact CCS Support
+            heading: No suppliers were found
+            text: No companies can provide consultants that can meet your requirements.
+          suppliers_found_html: "<span class='govuk-!-font-size-27 govuk-!-font-weight-bold'>%{number}</span> <span class='govuk-!-font-weight-bold'>%{suppliers}</span> can provide consultants that meet your requirements"
+        show:
+          contact_details:
+            address: Address
+            email: Email
+            heading: Contact details
+            person: Name
+            phone_number: Phone number
+            website: Website
+          day_rates: Day rates
+          is_an_sme: This supplier is a small or medium-sized enterprise
+          job_titles:
+            director: Partner
+            junior: Analyst / Junior Consultant
+            managing: Managing Consultant / Director
+            principal: Principal Consultant / Associate Director
+            senior: Senior Consultant / Engagement Manager / Project Lead
+            standard: Consultant
+          max_day_rate: Max day rate (%{rate_type})
+          maximum_day_rates: Maximum day rates (excluding V.A.T.)
+          position: Position
+          rate_type:
+            Advice: Advice
+            Complex: Complex
+            Delivery: Delivery
+            Non-Complex: Non-Complex
+          rates_are_fixed: Rates are fixed for the life of the framework and any call-off. These rates, which exclude V.A.T. are for an 8 hour working day and include travel expenses to the base location as stipulated by the customer.
+          rates_are_maximum: These are the maximum rates a supplier can charge and cannot be exceeded. Suppliers can reduce these rates to match or beat those on any other agreement.
