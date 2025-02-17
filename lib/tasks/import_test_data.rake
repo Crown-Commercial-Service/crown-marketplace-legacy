@@ -85,6 +85,13 @@ module ImportTestData
       end
     end
   end
+
+  def self.import_test_data
+    MC::RM6187.import_data
+    MC::RM6309.import_data
+    LS::RM6240.import_data
+    ST::RM6238.import_data
+  end
 end
 
 namespace :db do
@@ -92,10 +99,16 @@ namespace :db do
   task import_test_data: :environment do
     if Rails.env.test?
       puts 'Importing the supplier test data'
-      ImportTestData::MC::RM6187.import_data
-      ImportTestData::MC::RM6309.import_data
-      ImportTestData::LS::RM6240.import_data
-      ImportTestData::ST::RM6238.import_data
+      ImportTestData.import_test_data
+      puts 'Finished supplier test data import'
+    end
+  end
+
+  desc 'Imports test data into the development environment'
+  task import_test_data_to_development: :environment do
+    if Rails.env.development?
+      puts 'Importing the supplier test data to development'
+      ImportTestData.import_test_data
       puts 'Finished supplier test data import'
     end
   end

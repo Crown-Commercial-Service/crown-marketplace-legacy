@@ -13,13 +13,25 @@ module ManagementConsultancy
     end
 
     def start_path
-      management_consultancy_rm6187_path
+      case @framework
+      when 'RM6309'
+        management_consultancy_rm6309_path
+      else
+        management_consultancy_rm6187_path
+      end
     end
 
     def next_step_path
       case next_slug
       when 'suppliers'
-        management_consultancy_rm6187_suppliers_path(journey: self.class.journey_name, params: params)
+        case @framework
+        when 'RM6187'
+          management_consultancy_rm6187_suppliers_path(journey: self.class.journey_name, params: params)
+        when 'RM6309'
+          management_consultancy_rm6309_suppliers_path(journey: self.class.journey_name, params: params)
+        else
+          super
+        end
       else
         super
       end
