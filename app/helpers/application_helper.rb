@@ -6,13 +6,9 @@ module ApplicationHelper
   ADMIN_CONTROLLERS = ['supply_teachers/admin', 'management_consultancy/admin', 'legal_services/admin'].freeze
   PLATFORM_LANDINGPAGES = ['', 'legal_services/home', 'supply_teachers/home', 'management_consultancy/home'].freeze
 
-  def miles_to_metres(miles)
-    DistanceConverter.miles_to_metres(miles)
-  end
+  delegate :miles_to_metres, to: :DistanceConverter
 
-  def metres_to_miles(metres)
-    DistanceConverter.metres_to_miles(metres)
-  end
+  delegate :metres_to_miles, to: :DistanceConverter
 
   def feedback_email_link
     return link_to(t('common.feedback'), Marketplace.st_survey_link, target: '_blank', rel: 'noopener', class: 'govuk-link') if params[:service].to_s.starts_with? 'supply_teachers'
@@ -26,9 +22,7 @@ module ApplicationHelper
     'https://ccsheretohelp.uk/contact/?type=ST18/19'
   end
 
-  def support_telephone_number
-    Marketplace.support_telephone_number
-  end
+  delegate :support_telephone_number, to: :Marketplace
 
   def error_id(attribute)
     "#{attribute}-error"
