@@ -18,9 +18,16 @@ module Pages
 
     elements :suppliers, '.ccs-results-list a'
 
+    section :supplier_rates_table_headings, 'table thead > tr' do
+      element :rate_type_1, 'th:nth-of-type(2)'
+      element :rate_type_2, 'th:nth-of-type(3)'
+    end
+
     section :supplier_rates_table, 'table tbody' do
       sections :rows, 'tr' do
         element :rate, 'td:nth-of-type(1)'
+        element :rate_advice, 'td:nth-of-type(1)'
+        element :rate_delivery, 'td:nth-of-type(2)'
         element :hourly_rate, 'td:nth-of-type(1)'
         element :daily_rate, 'td:nth-of-type(2)'
         element :monthly_rate, 'td:nth-of-type(3)'
