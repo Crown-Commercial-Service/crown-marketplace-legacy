@@ -256,10 +256,10 @@ en:
               supplier_missing_rate_cards_html: 'The following suppliers do not have any rate cards: %{list} Make sure all the suppliers have the correct name and DUNS number'
               supplier_rate_cards_has_empty_sheets_html: 'The following sheets have no data: %{list} Make sure all sheets for ''Supplier rate cards'' have been filled in'
               supplier_rate_cards_has_incorrect_headers_html: 'The following sheets are missing columns: %{list} Make sure all sheets for ''Supplier rate cards'' have the 10 expected columns'
-              supplier_rate_cards_missing_sheets: 'The ''Supplier rate cards'' file should have 9 sheets with the following names: ''MCF4 Lot 1'', ''MCF4 Lot 2'', ''MCF4 Lot 3'', ''MCF4 Lot 4'', ''MCF4 Lot 5'', ''MCF4 Lot 6'', ''MCF4 Lot 7'', ''MCF4 Lot 8'', ''MCF4 Lot 9'''
+              supplier_rate_cards_missing_sheets: 'The ''Supplier rate cards'' file should have 9 sheets with the following names: ''MCF4 Lot 1'', ''MCF4 Lot 2'', ''MCF4 Lot 3'', ''MCF4 Lot 4'', ''MCF4 Lot 5'', ''MCF4 Lot 6'', ''MCF4 Lot 7'', ''MCF4 Lot 8'', ''MCF4 Lot 9'', ''MCF4 Lot 10'''
               supplier_service_offerings_has_empty_sheets_html: 'The following sheets have no data: %{list} Make sure all sheets for ''Supplier service offerings'' have been filled in'
               supplier_service_offerings_has_incorrect_headers_html: 'The following sheets have incorrect column headers: %{list} Make sure all sheets for ''Supplier service offerings'' have the correct services for their lot'
-              supplier_service_offerings_missing_sheets: 'The ''Supplier service offerings'' file should have 9 sheets with the following names: ''MCF4 Lot 1'', ''MCF4 Lot 2'', ''MCF4 Lot 3'', ''MCF4 Lot 4'', ''MCF4 Lot 5'', ''MCF4 Lot 6'', ''MCF4 Lot 7'', ''MCF4 Lot 8'', ''MCF4 Lot 9'''
+              supplier_service_offerings_missing_sheets: 'The ''Supplier service offerings'' file should have 9 sheets with the following names: ''MCF4 Lot 1'', ''MCF4 Lot 2'', ''MCF4 Lot 3'', ''MCF4 Lot 4'', ''MCF4 Lot 5'', ''MCF4 Lot 6'', ''MCF4 Lot 7'', ''MCF4 Lot 8'', ''MCF4 Lot 9'', ''MCF4 Lot 10'''
               upload_failed: Something went wrong with the file upload, please try uploading the files again
               upload_failed_html: 'Something went wrong with the file upload, the following error was returned: <br> <strong>%{list}</strong>'
             error_name:

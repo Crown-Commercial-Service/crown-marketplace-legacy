@@ -1,4 +1,4 @@
-Feature: Management Consultancy - Suppliers
+Feature: Management Consultancy - Suppliers - Lot 10
 
   Scenario Outline: Check the supplier data
     Given I sign in and navigate to the start page for the 'RM6309' framework in 'management consultancy'
