@@ -120,9 +120,9 @@ class ManagementConsultancy::RM6309::Admin::FilesProcessor
         rate_card_a[:director_rate_in_pence] = convert_price(row[11])
         rate_card_b[:director_rate_in_pence] = convert_price(row[12])
 
-        lot_contact_details[:contact_name] = row[7]
-        lot_contact_details[:email] = row[8]
-        lot_contact_details[:telephone_number] = row[9]
+        lot_contact_details[:contact_name] = row[13]
+        lot_contact_details[:email] = row[14]
+        lot_contact_details[:telephone_number] = row[15]
 
         supplier['rate_cards'] << rate_card_a
         supplier['rate_cards'] << rate_card_b
