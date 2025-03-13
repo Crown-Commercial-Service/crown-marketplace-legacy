@@ -91,41 +91,37 @@ class ManagementConsultancy::RM6309::Admin::FilesProcessor
         supplier = get_supplier(supplier_duns)
         next unless supplier
 
-        rate_card_a = {}
-        rate_card_b = {}
-        lot_contact_details = {}
-
-        rate_card_a[:lot] = lot_number
-        rate_card_b[:lot] = lot_number
-        lot_contact_details[:lot] = lot_number
+        rate_cards = {
+          advice: {
+            lot: lot_number,
+            rate_type: 'Advice'
+          },
+          delivery: {
+            lot: lot_number,
+            rate_type: 'Delivery'
+          }
+        }
 
         if lot_number == 'MCF4.10'
-          rate_card_a[:rate_type] = 'Complex'
-          rate_card_b[:rate_type] = 'Non-Complex'
-        else
-          rate_card_a[:rate_type] = 'Advice'
-          rate_card_b[:rate_type] = 'Delivery'
+          rate_cards[:advice][:rate_type] = 'Complex'
+          rate_cards[:delivery][:rate_type] = 'Non-Complex'
         end
 
-        rate_card_a[:junior_rate_in_pence] = convert_price(row[1])
-        rate_card_b[:junior_rate_in_pence] = convert_price(row[2])
-        rate_card_a[:standard_rate_in_pence] = convert_price(row[3])
-        rate_card_b[:standard_rate_in_pence] = convert_price(row[4])
-        rate_card_a[:senior_rate_in_pence] = convert_price(row[5])
-        rate_card_b[:senior_rate_in_pence] = convert_price(row[6])
-        rate_card_a[:principal_rate_in_pence] = convert_price(row[7])
-        rate_card_b[:principal_rate_in_pence] = convert_price(row[8])
-        rate_card_a[:managing_rate_in_pence] = convert_price(row[9])
-        rate_card_b[:managing_rate_in_pence] = convert_price(row[10])
-        rate_card_a[:director_rate_in_pence] = convert_price(row[11])
-        rate_card_b[:director_rate_in_pence] = convert_price(row[12])
+        rate_cards.values.each.with_index do |rate_card, index|
+          %i[junior_rate_in_pence standard_rate_in_pence senior_rate_in_pence principal_rate_in_pence managing_rate_in_pence director_rate_in_pence].each.with_index(1) do |rate_type, jndex|
+            rate_card[rate_type] = convert_price(row[(index * 6) + jndex])
+          end
+        end
 
-        lot_contact_details[:contact_name] = row[13]
-        lot_contact_details[:email] = row[14]
-        lot_contact_details[:telephone_number] = row[15]
+        lot_contact_details = {
+          lot: lot_number,
+          contact_name: row[13],
+          email: row[14],
+          telephone_number: row[15]
+        }
 
-        supplier['rate_cards'] << rate_card_a
-        supplier['rate_cards'] << rate_card_b
+        supplier['rate_cards'] << rate_cards[:advice]
+        supplier['rate_cards'] << rate_cards[:delivery]
         supplier['lot_contact_details'] << lot_contact_details
       end
     end

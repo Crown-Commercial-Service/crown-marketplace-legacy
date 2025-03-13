@@ -90,8 +90,8 @@ module ManagementConsultancy
       OUTPUT_PATH = './tmp/test_supplier_rate_cards_file.xlsx'.freeze
 
       SHEETS = ['MCF4 Lot 1', 'MCF4 Lot 2', 'MCF4 Lot 3', 'MCF4 Lot 4', 'MCF4 Lot 5', 'MCF4 Lot 6', 'MCF4 Lot 7', 'MCF4 Lot 8', 'MCF4 Lot 9', 'MCF4 Lot 10'].freeze
-      DEFAULT_HEADERS = ['Supplier', 'Max day rate: Junior Consultant (Advice)', 'Max day rate: Junior Consultant (Delivery)', 'Max day rate: Standard Consultant (Advice)', 'Max day rate: Standard Consultant (Delivery)', 'Max day rate: Senior Consultant (Advice)', 'Max day rate: Senior Consultant (Delivery)', 'Max day rate: Principal Consultant (Advice)', 'Max day rate: Principal Consultant (Delivery)', 'Max day rate: Managing Consultant (Advice)', 'Max day rate: Managing Consultant (Delivery)', 'Max day rate: Director Consultant (Advice)', 'Max day rate: Director Consultant (Delivery)', 'Contact: Name', 'Contact: Email address', 'Contact: Phone number'].freeze
-      LOT_10_HEADERS = ['Supplier', 'Max day rate: Junior Consultant (Complex)', 'Max day rate: Junior Consultant (Non-Complex)', 'Max day rate: Standard Consultant (Complex)', 'Max day rate: Standard Consultant (Non-Complex)', 'Max day rate: Senior Consultant (Complex)', 'Max day rate: Senior Consultant (Non-Complex)', 'Max day rate: Principal Consultant (Complex)', 'Max day rate: Principal Consultant (Non-Complex)', 'Max day rate: Managing Consultant (Complex)', 'Max day rate: Managing Consultant (Non-Complex)', 'Max day rate: Director Consultant (Complex)', 'Max day rate: Director Consultant (Non-Complex)', 'Contact: Name', 'Contact: Email address', 'Contact: Phone number'].freeze
+      DEFAULT_HEADERS = ['Supplier', 'Max day rate: Junior Consultant (Advice)', 'Max day rate: Standard Consultant (Advice)', 'Max day rate: Senior Consultant (Advice)', 'Max day rate: Principal Consultant (Advice)', 'Max day rate: Junior Consultant (Delivery)', 'Max day rate: Director Consultant (Advice)', 'Max day rate: Standard Consultant (Delivery)', 'Max day rate: Senior Consultant (Delivery)', 'Max day rate: Principal Consultant (Delivery)', 'Max day rate: Managing Consultant (Advice)', 'Max day rate: Managing Consultant (Delivery)', 'Max day rate: Director Consultant (Delivery)', 'Contact: Name', 'Contact: Email address', 'Contact: Phone number'].freeze
+      LOT_10_HEADERS = ['Supplier', 'Max day rate: Junior Consultant (Complex)', 'Max day rate: Standard Consultant (Complex)', 'Max day rate: Senior Consultant (Complex)', 'Max day rate: Principal Consultant (Complex)', 'Max day rate: Managing Consultant (Complex)', 'Max day rate: Managing Consultant (Non-Complex)', 'Max day rate: Director Consultant (Complex)', 'Max day rate: Junior Consultant (Non-Complex)', 'Max day rate: Standard Consultant (Non-Complex)', 'Max day rate: Senior Consultant (Non-Complex)', 'Max day rate: Principal Consultant (Non-Complex)', 'Max day rate: Director Consultant (Non-Complex)', 'Contact: Name', 'Contact: Email address', 'Contact: Phone number'].freeze
 
       private
 
@@ -104,7 +104,7 @@ module ManagementConsultancy
             supplier_name = supplier_detail[0]
             supplier_duns = @supplier_duns[supplier_name.to_sym] || supplier_detail[6]
 
-            sheet.add_row [supplier_heading_name(supplier_name, supplier_duns), 400, 450, 800, 850, 1200, 1250, 1600, 1650, 2000, 2050, 2400, 2450, supplier_name.split.first.capitalize, supplier_detail[1], supplier_detail[2]]
+            sheet.add_row [supplier_heading_name(supplier_name, supplier_duns), 400, 800, 1200, 1600, 2000, 2400, 450, 850, 1250, 1650, 2050, 2450, supplier_name.split.first.capitalize, supplier_detail[1], supplier_detail[2]]
           end
         end
       end
