@@ -109,13 +109,57 @@ RSpec.describe ManagementConsultancy::RM6309::Admin::FilesImporter do
       expect(ManagementConsultancy::RM6309::Supplier.count).to eq 3
     end
 
-    it 'has the correct data for the suppliers' do
+    it 'has the correct counts for the suppliers' do
       expected_supplier_results.each do |name, expected_results|
         supplier = ManagementConsultancy::RM6309::Supplier.find_by(name:)
 
         expect(supplier.service_offerings.count).to eq expected_results[:service_offerings]
         expect(supplier.rate_cards.count).to eq expected_results[:rate_cards]
         expect(supplier.lot_contact_details.count).to eq expected_results[:lot_contact_details]
+      end
+    end
+
+    context 'when considering the data for a supplier' do
+      let(:supplier) { ManagementConsultancy::RM6309::Supplier.find_by(name: 'REX LTD') }
+
+      it 'has the correct rate card data for lot 1' do
+        advice_rate = supplier.rate_cards.find_by(lot: 'MCF4.1', rate_type: 'Advice')
+        delivery_rate = supplier.rate_cards.find_by(lot: 'MCF4.1', rate_type: 'Delivery')
+
+        advice_rates = []
+        delivery_rates = []
+
+        %i[junior_rate_in_pence standard_rate_in_pence senior_rate_in_pence principal_rate_in_pence managing_rate_in_pence director_rate_in_pence].each do |rate_type|
+          advice_rates << advice_rate[rate_type]
+          delivery_rates << delivery_rate[rate_type]
+        end
+
+        expect(advice_rates).to eq([40000, 80000, 120000, 160000, 200000, 240000])
+        expect(delivery_rates).to eq([45000, 85000, 125000, 165000, 205000, 245000])
+      end
+
+      it 'has the correct rate card data for lot 10' do
+        complex_rate = supplier.rate_cards.find_by(lot: 'MCF4.10', rate_type: 'Complex')
+        non_complex_rate = supplier.rate_cards.find_by(lot: 'MCF4.10', rate_type: 'Non-Complex')
+
+        complex_rates = []
+        non_complex_rates = []
+
+        %i[junior_rate_in_pence standard_rate_in_pence senior_rate_in_pence principal_rate_in_pence managing_rate_in_pence director_rate_in_pence].each do |rate_type|
+          complex_rates << complex_rate[rate_type]
+          non_complex_rates << non_complex_rate[rate_type]
+        end
+
+        expect(complex_rates).to eq([40000, 80000, 120000, 160000, 200000, 240000])
+        expect(non_complex_rates).to eq([45000, 85000, 125000, 165000, 205000, 245000])
+      end
+
+      it 'has the correct lot contact details for lot 1' do
+        lot_contact_detail = supplier.lot_contact_details.find_by(lot: 'MCF4.1')
+
+        expect(lot_contact_detail.contact_name).to eq('Rex')
+        expect(lot_contact_detail.telephone_number).to eq('0202 123 4567')
+        expect(lot_contact_detail.email).to eq('rex@xenoblade.com')
       end
     end
   end
