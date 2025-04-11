@@ -1,4 +1,6 @@
 class Upload < ApplicationRecord
+  self.abstract_class = true
+
   def self.supplier_module
     module_parent::Supplier
   end
