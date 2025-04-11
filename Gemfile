@@ -54,6 +54,8 @@ gem 'omniauth-oauth2', '~> 1.8.0'
 gem 'omniauth-rails_csrf_protection', '>= 1.0.1'
 gem 'omniauth_openid_connect', '~> 0.8.0'
 gem 'json-jwt', '>= 1.11.0'
+# Need to add this directly because it is needed in ccs_omniauth_openid_connect but not in ruby 3.4 standard lib anymore
+gem 'mutex_m', '~> 0.3.0'
 
 # for authentication
 gem 'devise', '~> 4.9.4'
