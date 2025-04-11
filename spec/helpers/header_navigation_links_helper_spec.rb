@@ -74,7 +74,7 @@ RSpec.describe HeaderNavigationLinksHelper do
         it 'returns the sign out link with the right options' do
           expect(result).to eq(
             [
-              { text: 'Sign out', href: '/crown-marketplace-legacy/sign-out', attributes: { method: :delete } }
+              { text: 'Sign out', href: '/crown-marketplace-legacy/sign-out', method: :delete }
             ]
           )
         end
@@ -86,7 +86,7 @@ RSpec.describe HeaderNavigationLinksHelper do
         it 'returns the sign out link with the right options' do
           expect(result).to eq(
             [
-              { text: 'Sign out', href: '/crown-marketplace-legacy/sign-out', attributes: { method: :delete } }
+              { text: 'Sign out', href: '/crown-marketplace-legacy/sign-out', method: :delete }
             ]
           )
         end
@@ -98,7 +98,7 @@ RSpec.describe HeaderNavigationLinksHelper do
         it 'returns the sign out link with the right options' do
           expect(result).to eq(
             [
-              { text: 'Sign out', href: '/crown-marketplace-legacy/sign-out', attributes: { method: :delete } }
+              { text: 'Sign out', href: '/crown-marketplace-legacy/sign-out', method: :delete }
             ]
           )
         end
@@ -110,7 +110,7 @@ RSpec.describe HeaderNavigationLinksHelper do
         it 'returns the sign out link with the right options' do
           expect(result).to eq(
             [
-              { text: 'Sign out', href: '/crown-marketplace-legacy/sign-out', attributes: { method: :delete } }
+              { text: 'Sign out', href: '/crown-marketplace-legacy/sign-out', method: :delete }
             ]
           )
         end
@@ -122,7 +122,7 @@ RSpec.describe HeaderNavigationLinksHelper do
         it 'returns the sign out link with the right options' do
           expect(result).to eq(
             [
-              { text: 'Sign out', href: '/crown-marketplace-legacy/sign-out', attributes: { method: :delete } }
+              { text: 'Sign out', href: '/crown-marketplace-legacy/sign-out', method: :delete }
             ]
           )
         end
@@ -134,7 +134,7 @@ RSpec.describe HeaderNavigationLinksHelper do
         it 'returns the sign out link with the right options' do
           expect(result).to eq(
             [
-              { text: 'Sign out', href: '/crown-marketplace-legacy/sign-out', attributes: { method: :delete } }
+              { text: 'Sign out', href: '/crown-marketplace-legacy/sign-out', method: :delete }
             ]
           )
         end

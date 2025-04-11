@@ -117,7 +117,7 @@ RSpec.describe SupplyTeachers::RM6238::SuppliersController do
     end
   end
 
-  describe 'GET search_all_suppliers' do
+  describe 'POST search_all_suppliers' do
     let(:supplier_1) { create(:supply_teachers_rm6238_supplier, name: 'aaa') }
     let(:supplier_2) { create(:supply_teachers_rm6238_supplier, name: 'zzz') }
     let(:paginated_supplier_names) { assigns(:paginated_suppliers).map(&:name) }
@@ -126,14 +126,20 @@ RSpec.describe SupplyTeachers::RM6238::SuppliersController do
       create(:supply_teachers_rm6238_branch, slug: 'branch-a', supplier: supplier_1)
       create(:supply_teachers_rm6238_branch, slug: 'branch-z', supplier: supplier_2)
 
-      get :search_all_suppliers, params: { agency_name: }, xhr: true
+      post :search_all_suppliers, params: { agency_name: }
     end
 
     context 'when nothing is searched' do
       let(:agency_name) { nil }
 
-      it 'renders the search_all_suppliers page' do
-        expect(response).to render_template(:search_all_suppliers)
+      it 'renders the _agencies_table partial' do
+        expect(response).to render_template('supply_teachers/suppliers/_agencies_table')
+      end
+
+      it 'renders the json with the expected keys' do
+        expect(response.content_type).to eq('application/json; charset=utf-8')
+
+        expect(response.parsed_body['html'].is_a?(String)).to be true
       end
 
       it 'has all suppliers in the list' do
@@ -144,8 +150,14 @@ RSpec.describe SupplyTeachers::RM6238::SuppliersController do
     context 'when "a" is searched' do
       let(:agency_name) { 'a' }
 
-      it 'renders the search_all_suppliers page' do
-        expect(response).to render_template(:search_all_suppliers)
+      it 'renders the _agencies_table partial' do
+        expect(response).to render_template('supply_teachers/suppliers/_agencies_table')
+      end
+
+      it 'renders the json with the expected keys' do
+        expect(response.content_type).to eq('application/json; charset=utf-8')
+
+        expect(response.parsed_body['html'].is_a?(String)).to be true
       end
 
       it 'has just aaa in the list' do
@@ -156,8 +168,14 @@ RSpec.describe SupplyTeachers::RM6238::SuppliersController do
     context 'when "z" is searched' do
       let(:agency_name) { 'z' }
 
-      it 'renders the search_all_suppliers page' do
-        expect(response).to render_template(:search_all_suppliers)
+      it 'renders the _agencies_table partial' do
+        expect(response).to render_template('supply_teachers/suppliers/_agencies_table')
+      end
+
+      it 'renders the json with the expected keys' do
+        expect(response.content_type).to eq('application/json; charset=utf-8')
+
+        expect(response.parsed_body['html'].is_a?(String)).to be true
       end
 
       it 'has just zzz in the list' do
@@ -168,8 +186,14 @@ RSpec.describe SupplyTeachers::RM6238::SuppliersController do
     context 'when "l" is searched' do
       let(:agency_name) { 'l' }
 
-      it 'renders the search_all_suppliers page' do
-        expect(response).to render_template(:search_all_suppliers)
+      it 'renders the _agencies_table partial' do
+        expect(response).to render_template('supply_teachers/suppliers/_agencies_table')
+      end
+
+      it 'renders the json with the expected keys' do
+        expect(response.content_type).to eq('application/json; charset=utf-8')
+
+        expect(response.parsed_body['html'].is_a?(String)).to be true
       end
 
       it 'has no suppliers in the list' do
