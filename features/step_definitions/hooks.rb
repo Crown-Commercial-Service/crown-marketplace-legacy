@@ -1,3 +1,18 @@
+# We need to do this because in Rails 7.2 the data is not preserved between the test server and the capybara server.
+# This means we are using the truncation strategy so must reload the data between tests
+Before('@javascript') do
+  DatabaseCleaner.strategy = :truncation, { except: %w[spatial_ref_sys] }
+end
+
+Before('not @javascript') do
+  DatabaseCleaner.strategy = :transaction
+end
+
+# Ensure DatabaseCleaner starts and cleans up properly
+Before do
+  DatabaseCleaner.start
+end
+
 Before do |scenario|
   %w[rm6238 rm6309 rm6187 rm6240].each do |framework|
     if scenario.location.file.include? framework
@@ -41,4 +56,14 @@ end
 
 Before('@mobile') do
   resize_window_to_mobile
+end
+
+After do
+  DatabaseCleaner.clean
+  if Framework.count.zero?
+    Rake::Task['db:static'].reenable
+    Rake::Task['db:legacy_frameworks'].reenable
+    Rake::Task['db:import_test_data'].reenable
+    Rake::Task['db:import_test_data'].invoke
+  end
 end
