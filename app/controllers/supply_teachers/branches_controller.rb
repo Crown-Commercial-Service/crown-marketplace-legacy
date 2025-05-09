@@ -34,7 +34,7 @@ module SupplyTeachers
       @branches = step.branches(daily_rates: daily_rates, salary: @salary, fixed_term_length: @fixed_term_length)
 
       respond_to do |format|
-        format.js { render json: @branches.find { |branch| rate_params(step.class.name.include?('FixedTermResults'))[branch.id].present? } }
+        format.json { render json: @branches.find { |branch| rate_params(step.class.name.include?('FixedTermResults'))[branch.id].present? } }
         format.html
         format.xlsx do
           spreadsheet = service_name::Spreadsheet.new(@branches, with_calculations: params[:calculations].present?, slug: step.slug)

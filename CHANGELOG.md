@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- Upgrade Rails to v7.2.2.1 ([PR 1898](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/1898))
+- Use Bun to manage our assets ([PR 1898](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/1898))
+- Use the `DistributedLocks` to prevent concurrent uploads of data ([PR 1898](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/1898))
+
 ## [4.2.0] - 2025-01-23
 
 ## Changed

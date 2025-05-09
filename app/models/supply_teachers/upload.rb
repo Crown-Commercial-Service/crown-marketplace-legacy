@@ -1,5 +1,7 @@
 module SupplyTeachers
   class Upload < Upload
+    self.abstract_class = true
+
     def self.create_supplier!(data)
       s = supplier_module.create!(supplier_attributes(data))
 

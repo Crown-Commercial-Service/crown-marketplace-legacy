@@ -177,16 +177,16 @@ RSpec.describe SupplyTeachers::RM6238::BranchesController do
         end
 
         context 'when an AJAX request is made' do
-          before { get :index, params: params.merge(annual_salary: { first_branch.id => annual_salary }), xhr: true }
+          before { get :index, params: params.merge(annual_salary: { first_branch.id => annual_salary }), format: 'json' }
 
           let(:annual_salary) { '500' }
 
           it 'responds with the correct content type' do
-            expect(response.media_type).to eq 'text/javascript'
+            expect(response.media_type).to eq 'application/json'
           end
 
           it 'returns the first matching branch' do
-            expect(JSON.parse(response.parsed_body)).to include(
+            expect(response.parsed_body).to include(
               'id' => first_branch.id
             )
           end
@@ -195,7 +195,7 @@ RSpec.describe SupplyTeachers::RM6238::BranchesController do
             let(:annual_salary) { '' }
 
             it 'returns nothing' do
-              expect(JSON.parse(response.parsed_body)).to be_nil
+              expect(response.parsed_body).to be_nil
             end
           end
         end

@@ -3,7 +3,7 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <%= form_with url: "/supply-teachers/#{params[:framework]}/all-suppliers/search", method: :get, html: { specialvalidation: true, remote: true } do |f| %>
+    <%= form_with url: "/supply-teachers/#{params[:framework]}/all-suppliers/search", method: :post, html: { specialvalidation: true, remote: true } do |f| %>
       <h1 class="govuk-heading-xl govuk-!-margin-bottom-3 cmp-page-heading">
         <%= f.label :agency_name, t('.header'), class: 'govuk-label govuk-label--l' %>
       </h1>

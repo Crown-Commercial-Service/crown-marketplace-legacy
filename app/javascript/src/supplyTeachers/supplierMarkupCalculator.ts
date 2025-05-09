@@ -45,70 +45,83 @@ const fixedTermCalculator: FormElements = {
   ]
 }
 
-const showErrors = ($calculator: JQuery<HTMLElement>, formElements: FormElements): void => {
-  $calculator.addClass('govuk-form-group govuk-form-group--error')
-    .find(formElements.input).addClass('govuk-input--error').end()
-    .find('.govuk-error-message')
-    .removeClass('govuk-visually-hidden')
-    .end()
+class SupplyTeachersSupplierMarkupCalculator {
+  $input: JQuery<HTMLInputElement>
+  $form: JQuery<HTMLFormElement>
+  $calculator: JQuery<HTMLElement>
+  url: string
+  formElements: FormElements
 
-  formElements.outputs.forEach((element) => {
-    $calculator.find(element.class).html('&nbsp;')
-  })
-}
+  constructor ($input: JQuery<HTMLInputElement>, formElements: FormElements) {
+    this.$input = $input
+    this.$form = $input.parents('form')
+    this.$calculator= $input.parents('.supplier-record__calculator')
+    this.url = this.$form.attr('action') as string
+    this.formElements = formElements
+  }
 
-const hideErrors = ($calculator: JQuery<HTMLElement>, input: string): void => {
-  $calculator.removeClass('govuk-form-group--error')
-    .find(input).removeClass('govuk-input--error').end()
-    .find('.govuk-error-message')
-    .addClass('govuk-visually-hidden')
-}
+  init () {
+    this.$input.on('change', () => {
+      const data = `${this.$form.find('input[type="hidden"]').serialize()}&${this.$input.serialize()}`
+  
+      $.get(this.url, data, (result) => {
+        this.processResults(result)
+      }, 'json')
+        .fail(() => {
+          this.showErrors()
+        }).catch(() => {
+          this.showErrors()
+        })
+    })
+  }
 
-const processResults = (result: Result, $calculator: JQuery<HTMLElement>, formElements: FormElements): void => {
-  if (result) {
-    if (result.error) {
-      showErrors($calculator, formElements)
+  showErrors () {
+    this.$calculator.addClass('govuk-form-group govuk-form-group--error')
+      .find(this.formElements.input).addClass('govuk-input--error').end()
+      .find('.govuk-error-message')
+      .removeClass('govuk-visually-hidden')
+      .end()
+  
+    this.formElements.outputs.forEach((element) => {
+      this.$calculator.find(element.class).html('&nbsp;')
+    })
+  }
+  
+  hideErrors () {
+    this.$calculator.removeClass('govuk-form-group--error')
+      .find(this.formElements.input).removeClass('govuk-input--error').end()
+      .find('.govuk-error-message')
+      .addClass('govuk-visually-hidden')
+  }
+  
+  processResults (result: Result) {
+    if (result) {
+      if (result.error) {
+        this.showErrors()
+      } else {
+        this.$calculator.removeClass('supplier-record__calculator--muted')
+        this.hideErrors()
+  
+        this.formElements.outputs.forEach((element) => {
+          this.$calculator.find(element.class).text(numberToCurrency(result[element.output]))
+        })
+      }
     } else {
-      $calculator.removeClass('supplier-record__calculator--muted')
-      hideErrors($calculator, formElements.input)
-
-      formElements.outputs.forEach((element) => {
-        $calculator.find(element.class).text(numberToCurrency(result[element.output]))
+      this.$calculator.addClass('supplier-record__calculator--muted')
+      this.hideErrors()
+  
+      this.formElements.outputs.forEach((element) => {
+        this.$calculator.find(element.class).html('&nbsp;')
       })
     }
-  } else {
-    $calculator.addClass('supplier-record__calculator--muted')
-    hideErrors($calculator, formElements.input)
-
-    formElements.outputs.forEach((element) => {
-      $calculator.find(element.class).html('&nbsp;')
-    })
   }
 }
 
 const initSupplyTeachersSupplierMarkupCalculator = (): void => {
-  $('.supplier-record__calculator input').on('change', (event: JQuery.ChangeEvent) => {
-    const $input: JQuery<HTMLElement> = $(event.currentTarget)
-    const $form: JQuery<HTMLFormElement> = $input.parents('form')
-    const $calculator: JQuery<HTMLElement> = $input.parents('.supplier-record__calculator')
-    const url: string = $form.attr('action') as string
-    const data = `${$form.find('input[type="hidden"]').serialize()}&${$input.serialize()}`
-    let formElements: FormElements
+  const formElements: FormElements = $('.supplier-record__finders-fee').length ? fixedTermCalculator : agencyList
 
-    if ($('.supplier-record__finders-fee').length) {
-      formElements = fixedTermCalculator
-    } else {
-      formElements = agencyList
-    }
-
-    $.get(url, data, (result) => {
-      processResults(result, $calculator, formElements)
-    }, 'json')
-      .fail(() => {
-        showErrors($calculator, formElements)
-      }).catch(() => {
-        showErrors($calculator, formElements)
-      })
+  $<HTMLInputElement>('.supplier-record__calculator input').each((_index, element) => {
+    new SupplyTeachersSupplierMarkupCalculator($(element), formElements).init()
   })
 
   $('.supplier-record__calculate-markup').hide()
