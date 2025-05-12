@@ -16,9 +16,13 @@ module SupplyTeachers
     end
 
     def search_all_suppliers
-      respond_to do |format|
-        format.js
-      end
+      render json: {
+        html: render_to_string(
+          partial: 'supply_teachers/suppliers/agencies_table',
+          locals: { paginated_suppliers: @paginated_suppliers },
+          formats: [:html]
+        )
+      }
     end
 
     private

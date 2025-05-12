@@ -138,7 +138,7 @@ Rails.application.routes.draw do
         collection do
           get '/master-vendors', action: :master_vendors
           get '/all-suppliers', action: :all_suppliers
-          get '/all-suppliers/search', action: :search_all_suppliers
+          post '/all-suppliers/search', action: :search_all_suppliers, format: :json
         end
       end
       resources :suppliers, only: %i[show]
@@ -244,13 +244,16 @@ Rails.application.routes.draw do
   end
 
   get '/404', to: 'errors#not_found', as: :errors_404
+  get '/406', to: 'errors#not_acceptable', as: :errors_406
   get '/422', to: 'errors#unacceptable', as: :errors_422
   get '/500', to: 'errors#internal_error', as: :errors_500
   get '/503', to: 'errors#service_unavailable', as: :errors_503
 
-  namespace :api, defaults: { format: :json } do
-    namespace :v2 do
-      put '/update-cookie-settings', to: 'cookie_settings#update_cookie_settings'
+  namespace :legacy do
+    namespace :api, defaults: { format: :json } do
+      namespace :v2 do
+        put '/update-cookie-settings', to: 'cookie_settings#update_cookie_settings'
+      end
     end
   end
 

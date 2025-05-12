@@ -53,9 +53,11 @@ Then('I should see the following navigation links:') do |navigation_links|
 end
 
 Then('I should see the following authentication links:') do |authentication_links|
-  expect(home_page.authentication.links.length).to eq(authentication_links.raw.flatten.length)
+  authentication_elements = home_page.authentication.links.to_a + home_page.authentication.buttons.to_a
 
-  home_page.authentication.links.zip(authentication_links.raw.flatten).each do |actual, expected|
+  expect(authentication_elements.length).to eq(authentication_links.raw.flatten.length)
+
+  authentication_elements.zip(authentication_links.raw.flatten).each do |actual, expected|
     expect(actual).to have_content expected
   end
 end
