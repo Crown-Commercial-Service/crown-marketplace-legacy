@@ -4,8 +4,8 @@ module GenerateTestData
     module RM6238
       def self.generate_data
         generate_suppliers
-        generate_managed_service_provider_data((0..3), :master_vendor)
-        generate_managed_service_provider_data((14..), :education_technology_platform)
+        generate_managed_service_provider_data(0..3, :master_vendor)
+        generate_managed_service_provider_data(14.., :education_technology_platform)
         add_supplier_branches
         add_supplier_pricing
         write_to_file
