@@ -31,18 +31,18 @@ module GenerateTestData
       end
 
       def self.generate_lot_data
-        generate_static_lot_data((..2), '1')
-        generate_static_lot_data((2..4), '2')
-        generate_random_lot_data((5..7), '1')
-        generate_random_lot_data((9..10), '2')
+        generate_static_lot_data(..2, '1')
+        generate_static_lot_data(2..4, '2')
+        generate_random_lot_data(5..7, '1')
+        generate_random_lot_data(9..10, '2')
         generate_static_lot_3_data
       end
 
       def self.generate_rate_cards
-        generate_rates((..2), '1')
-        generate_rates((2..4), '2')
-        generate_rates((5..7), '1')
-        generate_rates((9..10), '2')
+        generate_rates(..2, '1')
+        generate_rates(2..4, '2')
+        generate_rates(5..7, '1')
+        generate_rates(9..10, '2')
         generate_lot_3_rates
       end
 
