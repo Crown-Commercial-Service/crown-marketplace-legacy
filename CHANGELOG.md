@@ -11,6 +11,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Use Bun to manage our assets ([PR 1898](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/1898))
 - Use the `DistributedLocks` to prevent concurrent uploads of data ([PR 1898](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/1898))
 - Upgrade Bun to v1.2.13 ([PR 1922](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/1922))
+- Upgrade CCS Frontend Helpers version to v2.4.0 ([PR 1923](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/1923))
+- Upgrade CCS Frontend version to v1.4.1 ([PR 1923](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/1923))
 
 ## [4.2.0] - 2025-01-23
 
