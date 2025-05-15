@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Upgrade CCS Frontend Helpers version to v2.4.0 ([PR 1923](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/1923))
 - Upgrade CCS Frontend version to v1.4.1 ([PR 1923](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/1923))
 - Upgrade ruby version to v3.4.3 ([PR 1931](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/1931))
+- Replace our `omniauth_openid_connect` fork with the actual gem as it now being supported ([PR 1932](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/1932))
 
 ## [4.2.0] - 2025-01-23
 

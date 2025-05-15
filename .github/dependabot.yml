@@ -31,6 +31,11 @@ updates:
         patterns:
           - 'aws*'
 
+      omniauth:
+        patterns:
+          - 'omniauth'
+          - 'omniauth*'
+
   - package-ecosystem: "bun"
     directory: "/"
     schedule:
