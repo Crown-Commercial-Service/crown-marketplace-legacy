@@ -11,9 +11,6 @@ Feature: Management Consultancy - Lot 6 - Procurement and Supply Chain - Service
   Scenario: The correct options are available
     Then I should see the following options for the lot:
       | Category management                     |
-      | Procurement regulation                  |
-      | Sourcing                                |
-      | Tender development and analysis         |
       | Commercial review and benchmarking      |
       | Contract and/or supplier management     |
       | Cost reduction                          |
@@ -22,6 +19,9 @@ Feature: Management Consultancy - Lot 6 - Procurement and Supply Chain - Service
       | Operations, supply chain and logistics  |
       | Outsourcing and insourcing              |
       | Procurement process including P2P       |
+      | Procurement regulation                  |
+      | Sourcing                                |
+      | Tender development and analysis         |
 
   Scenario: Service selection appears in basked
     Then the basket should say 'No services selected'
