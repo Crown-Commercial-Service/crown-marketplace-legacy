@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_02_14_134325) do
+ActiveRecord::Schema[7.2].define(version: 2025_05_20_125226) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -160,18 +160,6 @@ ActiveRecord::Schema[7.1].define(version: 2025_02_14_134325) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "management_consultancy_rm6309_lot_contact_details", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.uuid "management_consultancy_rm6309_supplier_id"
-    t.text "lot"
-    t.text "contact_name"
-    t.text "telephone_number"
-    t.text "email"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["lot", "management_consultancy_rm6309_supplier_id"], name: "index_rm6309_lot_on_mc_supplier_id", unique: true
-    t.index ["management_consultancy_rm6309_supplier_id"], name: "index_mc_rm6309_lot_contact_details_on_supplier_id"
-  end
-
   create_table "management_consultancy_rm6309_rate_cards", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "management_consultancy_rm6309_supplier_id"
     t.text "lot"
@@ -314,7 +302,6 @@ ActiveRecord::Schema[7.1].define(version: 2025_02_14_134325) do
   add_foreign_key "legal_services_rm6240_service_offerings", "legal_services_rm6240_suppliers"
   add_foreign_key "management_consultancy_rm6187_rate_cards", "management_consultancy_rm6187_suppliers"
   add_foreign_key "management_consultancy_rm6187_service_offerings", "management_consultancy_rm6187_suppliers"
-  add_foreign_key "management_consultancy_rm6309_lot_contact_details", "management_consultancy_rm6309_suppliers"
   add_foreign_key "management_consultancy_rm6309_rate_cards", "management_consultancy_rm6309_suppliers"
   add_foreign_key "management_consultancy_rm6309_service_offerings", "management_consultancy_rm6309_suppliers"
   add_foreign_key "supply_teachers_rm6238_branches", "supply_teachers_rm6238_suppliers"

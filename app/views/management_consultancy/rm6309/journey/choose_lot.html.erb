@@ -21,9 +21,14 @@
         },
         hint: {
           text: govuk_details(t('.service_lines')) do
-            tag.ul(class: 'govuk-list') do
-              lot.services.each do |service|
-                concat(tag.li(service.name))
+            capture do
+              lot.service_groups.each do |group, services|
+                concat(tag.p(group, class: "govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-2")) if group
+                concat(tag.ul(class: 'govuk-list') do
+                  services.each do |service|
+                    concat(tag.li(service.name))
+                  end
+                end)
               end
             end
           end

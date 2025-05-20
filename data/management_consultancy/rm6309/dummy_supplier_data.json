@@ -1,13 +1,14 @@
 [
   {
-    "id": "16fd97c3-9750-4898-9f1c-c401001435ec",
-    "name": "PURDY-KEMMER",
-    "contact_email": "kemmer_purdy@mayert.example",
-    "telephone_number": "(419) 570-3046",
-    "sme": true,
-    "address": "798 Lyla Shores, Frankieburgh, ME 23140-5916",
-    "website": "http://ziemann-fay.example/humberto",
-    "duns": "855254636",
+    "id": "ba927010-7a70-487d-859d-eac1a3050284",
+    "name": "TURCOTTE GROUP",
+    "contact_name": "Hong Rau",
+    "contact_email": "group_turcotte@effertz.example",
+    "telephone_number": "700-074-9637",
+    "sme": false,
+    "address": "58729 Johns Turnpike, New Margaritoland, HI 90422-9071",
+    "website": "http://buckridge.test/christa_pollich",
+    "duns": "542049362",
     "lots": [
       {
         "lot_number": "MCF4.1",
@@ -189,9 +190,35 @@
       {
         "lot_number": "MCF4.10",
         "services": [
-          "MCF4.10.2",
           "MCF4.10.1",
-          "MCF4.10.3"
+          "MCF4.10.14",
+          "MCF4.10.15",
+          "MCF4.10.2",
+          "MCF4.10.16",
+          "MCF4.10.8",
+          "MCF4.10.3",
+          "MCF4.10.17",
+          "MCF4.10.18",
+          "MCF4.10.19",
+          "MCF4.10.4",
+          "MCF4.10.9",
+          "MCF4.10.20",
+          "MCF4.10.21",
+          "MCF4.10.22",
+          "MCF4.10.5",
+          "MCF4.10.23",
+          "MCF4.10.24",
+          "MCF4.10.6",
+          "MCF4.10.10",
+          "MCF4.10.25",
+          "MCF4.10.7",
+          "MCF4.10.11",
+          "MCF4.10.12",
+          "MCF4.10.13",
+          "MCF4.10.26",
+          "MCF4.10.27",
+          "MCF4.10.28",
+          "MCF4.10.29"
         ]
       }
     ],
@@ -199,165 +226,1161 @@
       {
         "lot": "MCF4.1",
         "rate_type": "Advice",
-        "junior_rate_in_pence": 950,
-        "standard_rate_in_pence": 1150,
-        "senior_rate_in_pence": 1350,
-        "principal_rate_in_pence": 1550,
-        "managing_rate_in_pence": 1750,
-        "director_rate_in_pence": 1950
+        "junior_rate_in_pence": 294,
+        "standard_rate_in_pence": 494,
+        "senior_rate_in_pence": 694,
+        "principal_rate_in_pence": 894,
+        "managing_rate_in_pence": 1094,
+        "director_rate_in_pence": 1294
       },
       {
         "lot": "MCF4.1",
         "rate_type": "Delivery",
-        "junior_rate_in_pence": 215,
-        "standard_rate_in_pence": 415,
-        "senior_rate_in_pence": 615,
-        "principal_rate_in_pence": 815,
-        "managing_rate_in_pence": 1015,
-        "director_rate_in_pence": 1215
+        "junior_rate_in_pence": 531,
+        "standard_rate_in_pence": 731,
+        "senior_rate_in_pence": 931,
+        "principal_rate_in_pence": 1131,
+        "managing_rate_in_pence": 1331,
+        "director_rate_in_pence": 1531
       },
       {
         "lot": "MCF4.2",
         "rate_type": "Advice",
-        "junior_rate_in_pence": 319,
-        "standard_rate_in_pence": 519,
-        "senior_rate_in_pence": 719,
-        "principal_rate_in_pence": 919,
-        "managing_rate_in_pence": 1119,
-        "director_rate_in_pence": 1319
+        "junior_rate_in_pence": 447,
+        "standard_rate_in_pence": 647,
+        "senior_rate_in_pence": 847,
+        "principal_rate_in_pence": 1047,
+        "managing_rate_in_pence": 1247,
+        "director_rate_in_pence": 1447
       },
       {
         "lot": "MCF4.2",
         "rate_type": "Delivery",
-        "junior_rate_in_pence": 250,
-        "standard_rate_in_pence": 450,
-        "senior_rate_in_pence": 650,
-        "principal_rate_in_pence": 850,
-        "managing_rate_in_pence": 1050,
-        "director_rate_in_pence": 1250
+        "junior_rate_in_pence": 701,
+        "standard_rate_in_pence": 901,
+        "senior_rate_in_pence": 1101,
+        "principal_rate_in_pence": 1301,
+        "managing_rate_in_pence": 1501,
+        "director_rate_in_pence": 1701
       },
       {
         "lot": "MCF4.3",
         "rate_type": "Advice",
-        "junior_rate_in_pence": 894,
-        "standard_rate_in_pence": 1094,
-        "senior_rate_in_pence": 1294,
-        "principal_rate_in_pence": 1494,
-        "managing_rate_in_pence": 1694,
-        "director_rate_in_pence": 1894
+        "junior_rate_in_pence": 600,
+        "standard_rate_in_pence": 800,
+        "senior_rate_in_pence": 1000,
+        "principal_rate_in_pence": 1200,
+        "managing_rate_in_pence": 1400,
+        "director_rate_in_pence": 1600
       },
       {
         "lot": "MCF4.3",
         "rate_type": "Delivery",
-        "junior_rate_in_pence": 824,
-        "standard_rate_in_pence": 1024,
-        "senior_rate_in_pence": 1224,
-        "principal_rate_in_pence": 1424,
-        "managing_rate_in_pence": 1624,
-        "director_rate_in_pence": 1824
+        "junior_rate_in_pence": 882,
+        "standard_rate_in_pence": 1082,
+        "senior_rate_in_pence": 1282,
+        "principal_rate_in_pence": 1482,
+        "managing_rate_in_pence": 1682,
+        "director_rate_in_pence": 1882
       },
       {
         "lot": "MCF4.4",
         "rate_type": "Advice",
-        "junior_rate_in_pence": 772,
-        "standard_rate_in_pence": 972,
-        "senior_rate_in_pence": 1172,
-        "principal_rate_in_pence": 1372,
-        "managing_rate_in_pence": 1572,
-        "director_rate_in_pence": 1772
+        "junior_rate_in_pence": 291,
+        "standard_rate_in_pence": 491,
+        "senior_rate_in_pence": 691,
+        "principal_rate_in_pence": 891,
+        "managing_rate_in_pence": 1091,
+        "director_rate_in_pence": 1291
       },
       {
         "lot": "MCF4.4",
         "rate_type": "Delivery",
-        "junior_rate_in_pence": 580,
-        "standard_rate_in_pence": 780,
-        "senior_rate_in_pence": 980,
-        "principal_rate_in_pence": 1180,
-        "managing_rate_in_pence": 1380,
-        "director_rate_in_pence": 1580
+        "junior_rate_in_pence": 601,
+        "standard_rate_in_pence": 801,
+        "senior_rate_in_pence": 1001,
+        "principal_rate_in_pence": 1201,
+        "managing_rate_in_pence": 1401,
+        "director_rate_in_pence": 1601
       },
       {
         "lot": "MCF4.5",
         "rate_type": "Advice",
-        "junior_rate_in_pence": 626,
-        "standard_rate_in_pence": 826,
-        "senior_rate_in_pence": 1026,
-        "principal_rate_in_pence": 1226,
-        "managing_rate_in_pence": 1426,
-        "director_rate_in_pence": 1626
+        "junior_rate_in_pence": 439,
+        "standard_rate_in_pence": 639,
+        "senior_rate_in_pence": 839,
+        "principal_rate_in_pence": 1039,
+        "managing_rate_in_pence": 1239,
+        "director_rate_in_pence": 1439
       },
       {
         "lot": "MCF4.5",
         "rate_type": "Delivery",
-        "junior_rate_in_pence": 504,
-        "standard_rate_in_pence": 704,
-        "senior_rate_in_pence": 904,
-        "principal_rate_in_pence": 1104,
-        "managing_rate_in_pence": 1304,
-        "director_rate_in_pence": 1504
+        "junior_rate_in_pence": 562,
+        "standard_rate_in_pence": 762,
+        "senior_rate_in_pence": 962,
+        "principal_rate_in_pence": 1162,
+        "managing_rate_in_pence": 1362,
+        "director_rate_in_pence": 1562
       },
       {
         "lot": "MCF4.6",
         "rate_type": "Advice",
-        "junior_rate_in_pence": 392,
-        "standard_rate_in_pence": 592,
-        "senior_rate_in_pence": 792,
-        "principal_rate_in_pence": 992,
-        "managing_rate_in_pence": 1192,
-        "director_rate_in_pence": 1392
+        "junior_rate_in_pence": 967,
+        "standard_rate_in_pence": 1167,
+        "senior_rate_in_pence": 1367,
+        "principal_rate_in_pence": 1567,
+        "managing_rate_in_pence": 1767,
+        "director_rate_in_pence": 1967
       },
       {
         "lot": "MCF4.6",
         "rate_type": "Delivery",
-        "junior_rate_in_pence": 760,
-        "standard_rate_in_pence": 960,
-        "senior_rate_in_pence": 1160,
-        "principal_rate_in_pence": 1360,
-        "managing_rate_in_pence": 1560,
-        "director_rate_in_pence": 1760
+        "junior_rate_in_pence": 209,
+        "standard_rate_in_pence": 409,
+        "senior_rate_in_pence": 609,
+        "principal_rate_in_pence": 809,
+        "managing_rate_in_pence": 1009,
+        "director_rate_in_pence": 1209
       },
       {
         "lot": "MCF4.7",
         "rate_type": "Advice",
-        "junior_rate_in_pence": 452,
-        "standard_rate_in_pence": 652,
-        "senior_rate_in_pence": 852,
-        "principal_rate_in_pence": 1052,
-        "managing_rate_in_pence": 1252,
-        "director_rate_in_pence": 1452
+        "junior_rate_in_pence": 853,
+        "standard_rate_in_pence": 1053,
+        "senior_rate_in_pence": 1253,
+        "principal_rate_in_pence": 1453,
+        "managing_rate_in_pence": 1653,
+        "director_rate_in_pence": 1853
       },
       {
         "lot": "MCF4.7",
         "rate_type": "Delivery",
-        "junior_rate_in_pence": 744,
-        "standard_rate_in_pence": 944,
-        "senior_rate_in_pence": 1144,
-        "principal_rate_in_pence": 1344,
-        "managing_rate_in_pence": 1544,
-        "director_rate_in_pence": 1744
+        "junior_rate_in_pence": 246,
+        "standard_rate_in_pence": 446,
+        "senior_rate_in_pence": 646,
+        "principal_rate_in_pence": 846,
+        "managing_rate_in_pence": 1046,
+        "director_rate_in_pence": 1246
       },
       {
         "lot": "MCF4.8",
         "rate_type": "Advice",
-        "junior_rate_in_pence": 561,
-        "standard_rate_in_pence": 761,
-        "senior_rate_in_pence": 961,
-        "principal_rate_in_pence": 1161,
-        "managing_rate_in_pence": 1361,
-        "director_rate_in_pence": 1561
+        "junior_rate_in_pence": 607,
+        "standard_rate_in_pence": 807,
+        "senior_rate_in_pence": 1007,
+        "principal_rate_in_pence": 1207,
+        "managing_rate_in_pence": 1407,
+        "director_rate_in_pence": 1607
       },
       {
         "lot": "MCF4.8",
         "rate_type": "Delivery",
-        "junior_rate_in_pence": 640,
-        "standard_rate_in_pence": 840,
-        "senior_rate_in_pence": 1040,
-        "principal_rate_in_pence": 1240,
-        "managing_rate_in_pence": 1440,
-        "director_rate_in_pence": 1640
+        "junior_rate_in_pence": 839,
+        "standard_rate_in_pence": 1039,
+        "senior_rate_in_pence": 1239,
+        "principal_rate_in_pence": 1439,
+        "managing_rate_in_pence": 1639,
+        "director_rate_in_pence": 1839
       },
       {
         "lot": "MCF4.9",
+        "rate_type": "Advice",
+        "junior_rate_in_pence": 307,
+        "standard_rate_in_pence": 507,
+        "senior_rate_in_pence": 707,
+        "principal_rate_in_pence": 907,
+        "managing_rate_in_pence": 1107,
+        "director_rate_in_pence": 1307
+      },
+      {
+        "lot": "MCF4.9",
+        "rate_type": "Delivery",
+        "junior_rate_in_pence": 809,
+        "standard_rate_in_pence": 1009,
+        "senior_rate_in_pence": 1209,
+        "principal_rate_in_pence": 1409,
+        "managing_rate_in_pence": 1609,
+        "director_rate_in_pence": 1809
+      },
+      {
+        "lot": "MCF4.10",
+        "rate_type": "Complex",
+        "junior_rate_in_pence": 489,
+        "standard_rate_in_pence": 689,
+        "senior_rate_in_pence": 889,
+        "principal_rate_in_pence": 1089,
+        "managing_rate_in_pence": 1289,
+        "director_rate_in_pence": 1489
+      },
+      {
+        "lot": "MCF4.10",
+        "rate_type": "Non-Complex",
+        "junior_rate_in_pence": 213,
+        "standard_rate_in_pence": 413,
+        "senior_rate_in_pence": 613,
+        "principal_rate_in_pence": 813,
+        "managing_rate_in_pence": 1013,
+        "director_rate_in_pence": 1213
+      }
+    ]
+  },
+  {
+    "id": "02ddd4c7-0fc1-41ff-8d4d-4802f43f3764",
+    "name": "MOSCISKI-CROOKS",
+    "contact_name": "Elton Leuschke",
+    "contact_email": "crooks.mosciski@powlowski-daugherty.example",
+    "telephone_number": "870-477-4229",
+    "sme": true,
+    "address": "22223 Howell Corners, East Sanfordton, PA 74031-5337",
+    "website": "http://schultz.example/lance.cormier",
+    "duns": "051874371",
+    "lots": [
+      {
+        "lot_number": "MCF4.1",
+        "services": [
+          "MCF4.1.1",
+          "MCF4.1.2",
+          "MCF4.1.3",
+          "MCF4.1.4",
+          "MCF4.1.5",
+          "MCF4.1.6",
+          "MCF4.1.7",
+          "MCF4.1.8",
+          "MCF4.1.9",
+          "MCF4.1.10",
+          "MCF4.1.11",
+          "MCF4.1.12",
+          "MCF4.1.13",
+          "MCF4.1.14"
+        ]
+      },
+      {
+        "lot_number": "MCF4.2",
+        "services": [
+          "MCF4.2.1",
+          "MCF4.2.2",
+          "MCF4.2.3",
+          "MCF4.2.4",
+          "MCF4.2.5",
+          "MCF4.2.6",
+          "MCF4.2.7",
+          "MCF4.2.8",
+          "MCF4.2.9",
+          "MCF4.2.10",
+          "MCF4.2.12",
+          "MCF4.2.11"
+        ]
+      },
+      {
+        "lot_number": "MCF4.3",
+        "services": [
+          "MCF4.3.1",
+          "MCF4.3.2",
+          "MCF4.3.3",
+          "MCF4.3.4",
+          "MCF4.3.5",
+          "MCF4.3.6",
+          "MCF4.3.7",
+          "MCF4.3.8",
+          "MCF4.3.9",
+          "MCF4.3.10",
+          "MCF4.3.11",
+          "MCF4.3.12",
+          "MCF4.3.13",
+          "MCF4.3.14"
+        ]
+      },
+      {
+        "lot_number": "MCF4.4",
+        "services": [
+          "MCF4.4.1",
+          "MCF4.4.2",
+          "MCF4.4.3",
+          "MCF4.4.4",
+          "MCF4.4.5",
+          "MCF4.4.6",
+          "MCF4.4.7",
+          "MCF4.4.8",
+          "MCF4.4.9",
+          "MCF4.4.10",
+          "MCF4.4.11",
+          "MCF4.4.12",
+          "MCF4.4.13",
+          "MCF4.4.14",
+          "MCF4.4.15",
+          "MCF4.4.16",
+          "MCF4.4.17",
+          "MCF4.4.18",
+          "MCF4.4.19",
+          "MCF4.4.20"
+        ]
+      },
+      {
+        "lot_number": "MCF4.5",
+        "services": [
+          "MCF4.5.1",
+          "MCF4.5.2",
+          "MCF4.5.3",
+          "MCF4.5.4",
+          "MCF4.5.5",
+          "MCF4.5.6",
+          "MCF4.5.7",
+          "MCF4.5.8",
+          "MCF4.5.9"
+        ]
+      },
+      {
+        "lot_number": "MCF4.6",
+        "services": [
+          "MCF4.6.1",
+          "MCF4.6.2",
+          "MCF4.6.3",
+          "MCF4.6.4",
+          "MCF4.6.5",
+          "MCF4.6.6",
+          "MCF4.6.7",
+          "MCF4.6.8",
+          "MCF4.6.9",
+          "MCF4.6.10",
+          "MCF4.6.11",
+          "MCF4.6.12"
+        ]
+      },
+      {
+        "lot_number": "MCF4.7",
+        "services": [
+          "MCF4.7.1",
+          "MCF4.7.2",
+          "MCF4.7.3",
+          "MCF4.7.4",
+          "MCF4.7.5",
+          "MCF4.7.6",
+          "MCF4.7.7",
+          "MCF4.7.8",
+          "MCF4.7.9",
+          "MCF4.7.10",
+          "MCF4.7.11",
+          "MCF4.7.12",
+          "MCF4.7.13",
+          "MCF4.7.14",
+          "MCF4.7.15",
+          "MCF4.7.16",
+          "MCF4.7.17",
+          "MCF4.7.18",
+          "MCF4.7.19",
+          "MCF4.7.20"
+        ]
+      },
+      {
+        "lot_number": "MCF4.8",
+        "services": [
+          "MCF4.8.1",
+          "MCF4.8.2",
+          "MCF4.8.3",
+          "MCF4.8.4",
+          "MCF4.8.5",
+          "MCF4.8.6",
+          "MCF4.8.7",
+          "MCF4.8.8",
+          "MCF4.8.9",
+          "MCF4.8.10",
+          "MCF4.8.11",
+          "MCF4.8.12",
+          "MCF4.8.13"
+        ]
+      },
+      {
+        "lot_number": "MCF4.9",
+        "services": [
+          "MCF4.9.1",
+          "MCF4.9.2",
+          "MCF4.9.3",
+          "MCF4.9.4",
+          "MCF4.9.5",
+          "MCF4.9.6",
+          "MCF4.9.7",
+          "MCF4.9.8",
+          "MCF4.9.9",
+          "MCF4.9.10",
+          "MCF4.9.11",
+          "MCF4.9.12",
+          "MCF4.9.13",
+          "MCF4.9.14",
+          "MCF4.9.15",
+          "MCF4.9.16",
+          "MCF4.9.17",
+          "MCF4.9.18"
+        ]
+      },
+      {
+        "lot_number": "MCF4.10",
+        "services": [
+          "MCF4.10.1",
+          "MCF4.10.14",
+          "MCF4.10.15",
+          "MCF4.10.2",
+          "MCF4.10.16",
+          "MCF4.10.8",
+          "MCF4.10.3",
+          "MCF4.10.17",
+          "MCF4.10.18",
+          "MCF4.10.19",
+          "MCF4.10.4",
+          "MCF4.10.9",
+          "MCF4.10.20",
+          "MCF4.10.21",
+          "MCF4.10.22",
+          "MCF4.10.5",
+          "MCF4.10.23",
+          "MCF4.10.24",
+          "MCF4.10.6",
+          "MCF4.10.10",
+          "MCF4.10.25",
+          "MCF4.10.7",
+          "MCF4.10.11",
+          "MCF4.10.12",
+          "MCF4.10.13",
+          "MCF4.10.26",
+          "MCF4.10.27",
+          "MCF4.10.28",
+          "MCF4.10.29"
+        ]
+      }
+    ],
+    "rate_cards": [
+      {
+        "lot": "MCF4.1",
+        "rate_type": "Advice",
+        "junior_rate_in_pence": 403,
+        "standard_rate_in_pence": 603,
+        "senior_rate_in_pence": 803,
+        "principal_rate_in_pence": 1003,
+        "managing_rate_in_pence": 1203,
+        "director_rate_in_pence": 1403
+      },
+      {
+        "lot": "MCF4.1",
+        "rate_type": "Delivery",
+        "junior_rate_in_pence": 244,
+        "standard_rate_in_pence": 444,
+        "senior_rate_in_pence": 644,
+        "principal_rate_in_pence": 844,
+        "managing_rate_in_pence": 1044,
+        "director_rate_in_pence": 1244
+      },
+      {
+        "lot": "MCF4.2",
+        "rate_type": "Advice",
+        "junior_rate_in_pence": 372,
+        "standard_rate_in_pence": 572,
+        "senior_rate_in_pence": 772,
+        "principal_rate_in_pence": 972,
+        "managing_rate_in_pence": 1172,
+        "director_rate_in_pence": 1372
+      },
+      {
+        "lot": "MCF4.2",
+        "rate_type": "Delivery",
+        "junior_rate_in_pence": 287,
+        "standard_rate_in_pence": 487,
+        "senior_rate_in_pence": 687,
+        "principal_rate_in_pence": 887,
+        "managing_rate_in_pence": 1087,
+        "director_rate_in_pence": 1287
+      },
+      {
+        "lot": "MCF4.3",
+        "rate_type": "Advice",
+        "junior_rate_in_pence": 290,
+        "standard_rate_in_pence": 490,
+        "senior_rate_in_pence": 690,
+        "principal_rate_in_pence": 890,
+        "managing_rate_in_pence": 1090,
+        "director_rate_in_pence": 1290
+      },
+      {
+        "lot": "MCF4.3",
+        "rate_type": "Delivery",
+        "junior_rate_in_pence": 222,
+        "standard_rate_in_pence": 422,
+        "senior_rate_in_pence": 622,
+        "principal_rate_in_pence": 822,
+        "managing_rate_in_pence": 1022,
+        "director_rate_in_pence": 1222
+      },
+      {
+        "lot": "MCF4.4",
+        "rate_type": "Advice",
+        "junior_rate_in_pence": 515,
+        "standard_rate_in_pence": 715,
+        "senior_rate_in_pence": 915,
+        "principal_rate_in_pence": 1115,
+        "managing_rate_in_pence": 1315,
+        "director_rate_in_pence": 1515
+      },
+      {
+        "lot": "MCF4.4",
+        "rate_type": "Delivery",
+        "junior_rate_in_pence": 225,
+        "standard_rate_in_pence": 425,
+        "senior_rate_in_pence": 625,
+        "principal_rate_in_pence": 825,
+        "managing_rate_in_pence": 1025,
+        "director_rate_in_pence": 1225
+      },
+      {
+        "lot": "MCF4.5",
+        "rate_type": "Advice",
+        "junior_rate_in_pence": 749,
+        "standard_rate_in_pence": 949,
+        "senior_rate_in_pence": 1149,
+        "principal_rate_in_pence": 1349,
+        "managing_rate_in_pence": 1549,
+        "director_rate_in_pence": 1749
+      },
+      {
+        "lot": "MCF4.5",
+        "rate_type": "Delivery",
+        "junior_rate_in_pence": 992,
+        "standard_rate_in_pence": 1192,
+        "senior_rate_in_pence": 1392,
+        "principal_rate_in_pence": 1592,
+        "managing_rate_in_pence": 1792,
+        "director_rate_in_pence": 1992
+      },
+      {
+        "lot": "MCF4.6",
+        "rate_type": "Advice",
+        "junior_rate_in_pence": 972,
+        "standard_rate_in_pence": 1172,
+        "senior_rate_in_pence": 1372,
+        "principal_rate_in_pence": 1572,
+        "managing_rate_in_pence": 1772,
+        "director_rate_in_pence": 1972
+      },
+      {
+        "lot": "MCF4.6",
+        "rate_type": "Delivery",
+        "junior_rate_in_pence": 630,
+        "standard_rate_in_pence": 830,
+        "senior_rate_in_pence": 1030,
+        "principal_rate_in_pence": 1230,
+        "managing_rate_in_pence": 1430,
+        "director_rate_in_pence": 1630
+      },
+      {
+        "lot": "MCF4.7",
+        "rate_type": "Advice",
+        "junior_rate_in_pence": 718,
+        "standard_rate_in_pence": 918,
+        "senior_rate_in_pence": 1118,
+        "principal_rate_in_pence": 1318,
+        "managing_rate_in_pence": 1518,
+        "director_rate_in_pence": 1718
+      },
+      {
+        "lot": "MCF4.7",
+        "rate_type": "Delivery",
+        "junior_rate_in_pence": 412,
+        "standard_rate_in_pence": 612,
+        "senior_rate_in_pence": 812,
+        "principal_rate_in_pence": 1012,
+        "managing_rate_in_pence": 1212,
+        "director_rate_in_pence": 1412
+      },
+      {
+        "lot": "MCF4.8",
+        "rate_type": "Advice",
+        "junior_rate_in_pence": 787,
+        "standard_rate_in_pence": 987,
+        "senior_rate_in_pence": 1187,
+        "principal_rate_in_pence": 1387,
+        "managing_rate_in_pence": 1587,
+        "director_rate_in_pence": 1787
+      },
+      {
+        "lot": "MCF4.8",
+        "rate_type": "Delivery",
+        "junior_rate_in_pence": 927,
+        "standard_rate_in_pence": 1127,
+        "senior_rate_in_pence": 1327,
+        "principal_rate_in_pence": 1527,
+        "managing_rate_in_pence": 1727,
+        "director_rate_in_pence": 1927
+      },
+      {
+        "lot": "MCF4.9",
+        "rate_type": "Advice",
+        "junior_rate_in_pence": 525,
+        "standard_rate_in_pence": 725,
+        "senior_rate_in_pence": 925,
+        "principal_rate_in_pence": 1125,
+        "managing_rate_in_pence": 1325,
+        "director_rate_in_pence": 1525
+      },
+      {
+        "lot": "MCF4.9",
+        "rate_type": "Delivery",
+        "junior_rate_in_pence": 554,
+        "standard_rate_in_pence": 754,
+        "senior_rate_in_pence": 954,
+        "principal_rate_in_pence": 1154,
+        "managing_rate_in_pence": 1354,
+        "director_rate_in_pence": 1554
+      },
+      {
+        "lot": "MCF4.10",
+        "rate_type": "Complex",
+        "junior_rate_in_pence": 821,
+        "standard_rate_in_pence": 1021,
+        "senior_rate_in_pence": 1221,
+        "principal_rate_in_pence": 1421,
+        "managing_rate_in_pence": 1621,
+        "director_rate_in_pence": 1821
+      },
+      {
+        "lot": "MCF4.10",
+        "rate_type": "Non-Complex",
+        "junior_rate_in_pence": 489,
+        "standard_rate_in_pence": 689,
+        "senior_rate_in_pence": 889,
+        "principal_rate_in_pence": 1089,
+        "managing_rate_in_pence": 1289,
+        "director_rate_in_pence": 1489
+      }
+    ]
+  },
+  {
+    "id": "915bfb0c-9506-4c0b-87db-218fa527add0",
+    "name": "GREENFELDER-LEUSCHKE",
+    "contact_name": "Darwin Block",
+    "contact_email": "greenfelder_leuschke@nader.test",
+    "telephone_number": "4427521029",
+    "sme": true,
+    "address": "Apt. 885 290 Bahringer Highway, Port Martin, GA 58567",
+    "website": "http://predovic.example/judith",
+    "duns": "013370637",
+    "lots": [
+      {
+        "lot_number": "MCF4.1",
+        "services": [
+          "MCF4.1.1",
+          "MCF4.1.2",
+          "MCF4.1.3",
+          "MCF4.1.4",
+          "MCF4.1.5",
+          "MCF4.1.6",
+          "MCF4.1.7",
+          "MCF4.1.8",
+          "MCF4.1.9",
+          "MCF4.1.10",
+          "MCF4.1.11",
+          "MCF4.1.12",
+          "MCF4.1.13",
+          "MCF4.1.14"
+        ]
+      },
+      {
+        "lot_number": "MCF4.2",
+        "services": [
+          "MCF4.2.1",
+          "MCF4.2.2",
+          "MCF4.2.3",
+          "MCF4.2.4",
+          "MCF4.2.5",
+          "MCF4.2.6",
+          "MCF4.2.7",
+          "MCF4.2.8",
+          "MCF4.2.9",
+          "MCF4.2.10",
+          "MCF4.2.12",
+          "MCF4.2.11"
+        ]
+      },
+      {
+        "lot_number": "MCF4.3",
+        "services": [
+          "MCF4.3.1",
+          "MCF4.3.2",
+          "MCF4.3.3",
+          "MCF4.3.4",
+          "MCF4.3.5",
+          "MCF4.3.6",
+          "MCF4.3.7",
+          "MCF4.3.8",
+          "MCF4.3.9",
+          "MCF4.3.10",
+          "MCF4.3.11",
+          "MCF4.3.12",
+          "MCF4.3.13",
+          "MCF4.3.14"
+        ]
+      },
+      {
+        "lot_number": "MCF4.4",
+        "services": [
+          "MCF4.4.1",
+          "MCF4.4.2",
+          "MCF4.4.3",
+          "MCF4.4.4",
+          "MCF4.4.5",
+          "MCF4.4.6",
+          "MCF4.4.7",
+          "MCF4.4.8",
+          "MCF4.4.9",
+          "MCF4.4.10",
+          "MCF4.4.11",
+          "MCF4.4.12",
+          "MCF4.4.13",
+          "MCF4.4.14",
+          "MCF4.4.15",
+          "MCF4.4.16",
+          "MCF4.4.17",
+          "MCF4.4.18",
+          "MCF4.4.19",
+          "MCF4.4.20"
+        ]
+      },
+      {
+        "lot_number": "MCF4.5",
+        "services": [
+          "MCF4.5.1",
+          "MCF4.5.2",
+          "MCF4.5.3",
+          "MCF4.5.4",
+          "MCF4.5.5",
+          "MCF4.5.6",
+          "MCF4.5.7",
+          "MCF4.5.8",
+          "MCF4.5.9"
+        ]
+      },
+      {
+        "lot_number": "MCF4.6",
+        "services": [
+          "MCF4.6.1",
+          "MCF4.6.2",
+          "MCF4.6.3",
+          "MCF4.6.4",
+          "MCF4.6.5",
+          "MCF4.6.6",
+          "MCF4.6.7",
+          "MCF4.6.8",
+          "MCF4.6.9",
+          "MCF4.6.10",
+          "MCF4.6.11",
+          "MCF4.6.12"
+        ]
+      },
+      {
+        "lot_number": "MCF4.7",
+        "services": [
+          "MCF4.7.1",
+          "MCF4.7.2",
+          "MCF4.7.3",
+          "MCF4.7.4",
+          "MCF4.7.5",
+          "MCF4.7.6",
+          "MCF4.7.7",
+          "MCF4.7.8",
+          "MCF4.7.9",
+          "MCF4.7.10",
+          "MCF4.7.11",
+          "MCF4.7.12",
+          "MCF4.7.13",
+          "MCF4.7.14",
+          "MCF4.7.15",
+          "MCF4.7.16",
+          "MCF4.7.17",
+          "MCF4.7.18",
+          "MCF4.7.19",
+          "MCF4.7.20"
+        ]
+      },
+      {
+        "lot_number": "MCF4.8",
+        "services": [
+          "MCF4.8.1",
+          "MCF4.8.2",
+          "MCF4.8.3",
+          "MCF4.8.4",
+          "MCF4.8.5",
+          "MCF4.8.6",
+          "MCF4.8.7",
+          "MCF4.8.8",
+          "MCF4.8.9",
+          "MCF4.8.10",
+          "MCF4.8.11",
+          "MCF4.8.12",
+          "MCF4.8.13"
+        ]
+      },
+      {
+        "lot_number": "MCF4.9",
+        "services": [
+          "MCF4.9.1",
+          "MCF4.9.2",
+          "MCF4.9.3",
+          "MCF4.9.4",
+          "MCF4.9.5",
+          "MCF4.9.6",
+          "MCF4.9.7",
+          "MCF4.9.8",
+          "MCF4.9.9",
+          "MCF4.9.10",
+          "MCF4.9.11",
+          "MCF4.9.12",
+          "MCF4.9.13",
+          "MCF4.9.14",
+          "MCF4.9.15",
+          "MCF4.9.16",
+          "MCF4.9.17",
+          "MCF4.9.18"
+        ]
+      },
+      {
+        "lot_number": "MCF4.10",
+        "services": [
+          "MCF4.10.1",
+          "MCF4.10.14",
+          "MCF4.10.15",
+          "MCF4.10.2",
+          "MCF4.10.16",
+          "MCF4.10.8",
+          "MCF4.10.3",
+          "MCF4.10.17",
+          "MCF4.10.18",
+          "MCF4.10.19",
+          "MCF4.10.4",
+          "MCF4.10.9",
+          "MCF4.10.20",
+          "MCF4.10.21",
+          "MCF4.10.22",
+          "MCF4.10.5",
+          "MCF4.10.23",
+          "MCF4.10.24",
+          "MCF4.10.6",
+          "MCF4.10.10",
+          "MCF4.10.25",
+          "MCF4.10.7",
+          "MCF4.10.11",
+          "MCF4.10.12",
+          "MCF4.10.13",
+          "MCF4.10.26",
+          "MCF4.10.27",
+          "MCF4.10.28",
+          "MCF4.10.29"
+        ]
+      }
+    ],
+    "rate_cards": [
+      {
+        "lot": "MCF4.1",
+        "rate_type": "Advice",
+        "junior_rate_in_pence": 303,
+        "standard_rate_in_pence": 503,
+        "senior_rate_in_pence": 703,
+        "principal_rate_in_pence": 903,
+        "managing_rate_in_pence": 1103,
+        "director_rate_in_pence": 1303
+      },
+      {
+        "lot": "MCF4.1",
+        "rate_type": "Delivery",
+        "junior_rate_in_pence": 929,
+        "standard_rate_in_pence": 1129,
+        "senior_rate_in_pence": 1329,
+        "principal_rate_in_pence": 1529,
+        "managing_rate_in_pence": 1729,
+        "director_rate_in_pence": 1929
+      },
+      {
+        "lot": "MCF4.2",
+        "rate_type": "Advice",
+        "junior_rate_in_pence": 623,
+        "standard_rate_in_pence": 823,
+        "senior_rate_in_pence": 1023,
+        "principal_rate_in_pence": 1223,
+        "managing_rate_in_pence": 1423,
+        "director_rate_in_pence": 1623
+      },
+      {
+        "lot": "MCF4.2",
+        "rate_type": "Delivery",
+        "junior_rate_in_pence": 506,
+        "standard_rate_in_pence": 706,
+        "senior_rate_in_pence": 906,
+        "principal_rate_in_pence": 1106,
+        "managing_rate_in_pence": 1306,
+        "director_rate_in_pence": 1506
+      },
+      {
+        "lot": "MCF4.3",
+        "rate_type": "Advice",
+        "junior_rate_in_pence": 863,
+        "standard_rate_in_pence": 1063,
+        "senior_rate_in_pence": 1263,
+        "principal_rate_in_pence": 1463,
+        "managing_rate_in_pence": 1663,
+        "director_rate_in_pence": 1863
+      },
+      {
+        "lot": "MCF4.3",
+        "rate_type": "Delivery",
+        "junior_rate_in_pence": 572,
+        "standard_rate_in_pence": 772,
+        "senior_rate_in_pence": 972,
+        "principal_rate_in_pence": 1172,
+        "managing_rate_in_pence": 1372,
+        "director_rate_in_pence": 1572
+      },
+      {
+        "lot": "MCF4.4",
+        "rate_type": "Advice",
+        "junior_rate_in_pence": 949,
+        "standard_rate_in_pence": 1149,
+        "senior_rate_in_pence": 1349,
+        "principal_rate_in_pence": 1549,
+        "managing_rate_in_pence": 1749,
+        "director_rate_in_pence": 1949
+      },
+      {
+        "lot": "MCF4.4",
+        "rate_type": "Delivery",
+        "junior_rate_in_pence": 511,
+        "standard_rate_in_pence": 711,
+        "senior_rate_in_pence": 911,
+        "principal_rate_in_pence": 1111,
+        "managing_rate_in_pence": 1311,
+        "director_rate_in_pence": 1511
+      },
+      {
+        "lot": "MCF4.5",
+        "rate_type": "Advice",
+        "junior_rate_in_pence": 503,
+        "standard_rate_in_pence": 703,
+        "senior_rate_in_pence": 903,
+        "principal_rate_in_pence": 1103,
+        "managing_rate_in_pence": 1303,
+        "director_rate_in_pence": 1503
+      },
+      {
+        "lot": "MCF4.5",
+        "rate_type": "Delivery",
+        "junior_rate_in_pence": 304,
+        "standard_rate_in_pence": 504,
+        "senior_rate_in_pence": 704,
+        "principal_rate_in_pence": 904,
+        "managing_rate_in_pence": 1104,
+        "director_rate_in_pence": 1304
+      },
+      {
+        "lot": "MCF4.6",
+        "rate_type": "Advice",
+        "junior_rate_in_pence": 224,
+        "standard_rate_in_pence": 424,
+        "senior_rate_in_pence": 624,
+        "principal_rate_in_pence": 824,
+        "managing_rate_in_pence": 1024,
+        "director_rate_in_pence": 1224
+      },
+      {
+        "lot": "MCF4.6",
+        "rate_type": "Delivery",
+        "junior_rate_in_pence": 661,
+        "standard_rate_in_pence": 861,
+        "senior_rate_in_pence": 1061,
+        "principal_rate_in_pence": 1261,
+        "managing_rate_in_pence": 1461,
+        "director_rate_in_pence": 1661
+      },
+      {
+        "lot": "MCF4.7",
+        "rate_type": "Advice",
+        "junior_rate_in_pence": 655,
+        "standard_rate_in_pence": 855,
+        "senior_rate_in_pence": 1055,
+        "principal_rate_in_pence": 1255,
+        "managing_rate_in_pence": 1455,
+        "director_rate_in_pence": 1655
+      },
+      {
+        "lot": "MCF4.7",
+        "rate_type": "Delivery",
+        "junior_rate_in_pence": 668,
+        "standard_rate_in_pence": 868,
+        "senior_rate_in_pence": 1068,
+        "principal_rate_in_pence": 1268,
+        "managing_rate_in_pence": 1468,
+        "director_rate_in_pence": 1668
+      },
+      {
+        "lot": "MCF4.8",
+        "rate_type": "Advice",
+        "junior_rate_in_pence": 742,
+        "standard_rate_in_pence": 942,
+        "senior_rate_in_pence": 1142,
+        "principal_rate_in_pence": 1342,
+        "managing_rate_in_pence": 1542,
+        "director_rate_in_pence": 1742
+      },
+      {
+        "lot": "MCF4.8",
+        "rate_type": "Delivery",
+        "junior_rate_in_pence": 541,
+        "standard_rate_in_pence": 741,
+        "senior_rate_in_pence": 941,
+        "principal_rate_in_pence": 1141,
+        "managing_rate_in_pence": 1341,
+        "director_rate_in_pence": 1541
+      },
+      {
+        "lot": "MCF4.9",
+        "rate_type": "Advice",
+        "junior_rate_in_pence": 499,
+        "standard_rate_in_pence": 699,
+        "senior_rate_in_pence": 899,
+        "principal_rate_in_pence": 1099,
+        "managing_rate_in_pence": 1299,
+        "director_rate_in_pence": 1499
+      },
+      {
+        "lot": "MCF4.9",
+        "rate_type": "Delivery",
+        "junior_rate_in_pence": 207,
+        "standard_rate_in_pence": 407,
+        "senior_rate_in_pence": 607,
+        "principal_rate_in_pence": 807,
+        "managing_rate_in_pence": 1007,
+        "director_rate_in_pence": 1207
+      },
+      {
+        "lot": "MCF4.10",
+        "rate_type": "Complex",
+        "junior_rate_in_pence": 364,
+        "standard_rate_in_pence": 564,
+        "senior_rate_in_pence": 764,
+        "principal_rate_in_pence": 964,
+        "managing_rate_in_pence": 1164,
+        "director_rate_in_pence": 1364
+      },
+      {
+        "lot": "MCF4.10",
+        "rate_type": "Non-Complex",
+        "junior_rate_in_pence": 397,
+        "standard_rate_in_pence": 597,
+        "senior_rate_in_pence": 797,
+        "principal_rate_in_pence": 997,
+        "managing_rate_in_pence": 1197,
+        "director_rate_in_pence": 1397
+      }
+    ]
+  },
+  {
+    "id": "5693c35d-4c76-49ba-b82b-8a87f4d73713",
+    "name": "STROMAN-ROMAGUERA",
+    "contact_name": "Ruthe Dicki",
+    "contact_email": "stroman.romaguera@ullrich-ward.example",
+    "telephone_number": "757-852-3772",
+    "sme": true,
+    "address": "Suite 667 94220 Oren Garden, East Romeo, KS 29392",
+    "website": "http://willms-maggio.test/mildred_pfeffer",
+    "duns": "382250657",
+    "lots": [
+      {
+        "lot_number": "MCF4.7",
+        "services": [
+          "MCF4.7.19",
+          "MCF4.7.13",
+          "MCF4.7.4",
+          "MCF4.7.11",
+          "MCF4.7.3",
+          "MCF4.7.9",
+          "MCF4.7.1",
+          "MCF4.7.17",
+          "MCF4.7.2",
+          "MCF4.7.12",
+          "MCF4.7.8",
+          "MCF4.7.18"
+        ]
+      },
+      {
+        "lot_number": "MCF4.5",
+        "services": [
+          "MCF4.5.5",
+          "MCF4.5.1",
+          "MCF4.5.9",
+          "MCF4.5.4",
+          "MCF4.5.7",
+          "MCF4.5.2",
+          "MCF4.5.3",
+          "MCF4.5.8",
+          "MCF4.5.6"
+        ]
+      },
+      {
+        "lot_number": "MCF4.6",
+        "services": [
+          "MCF4.6.6",
+          "MCF4.6.10",
+          "MCF4.6.7",
+          "MCF4.6.4",
+          "MCF4.6.2",
+          "MCF4.6.9",
+          "MCF4.6.11",
+          "MCF4.6.5",
+          "MCF4.6.3",
+          "MCF4.6.8"
+        ]
+      },
+      {
+        "lot_number": "MCF4.9",
+        "services": [
+          "MCF4.9.18",
+          "MCF4.9.12",
+          "MCF4.9.7",
+          "MCF4.9.6",
+          "MCF4.9.14",
+          "MCF4.9.13",
+          "MCF4.9.15",
+          "MCF4.9.10",
+          "MCF4.9.9",
+          "MCF4.9.8",
+          "MCF4.9.3",
+          "MCF4.9.4",
+          "MCF4.9.17",
+          "MCF4.9.1",
+          "MCF4.9.11",
+          "MCF4.9.5",
+          "MCF4.9.2",
+          "MCF4.9.16"
+        ]
+      }
+    ],
+    "rate_cards": [
+      {
+        "lot": "MCF4.7",
+        "rate_type": "Advice",
+        "junior_rate_in_pence": 826,
+        "standard_rate_in_pence": 1026,
+        "senior_rate_in_pence": 1226,
+        "principal_rate_in_pence": 1426,
+        "managing_rate_in_pence": 1626,
+        "director_rate_in_pence": 1826
+      },
+      {
+        "lot": "MCF4.7",
+        "rate_type": "Delivery",
+        "junior_rate_in_pence": 533,
+        "standard_rate_in_pence": 733,
+        "senior_rate_in_pence": 933,
+        "principal_rate_in_pence": 1133,
+        "managing_rate_in_pence": 1333,
+        "director_rate_in_pence": 1533
+      },
+      {
+        "lot": "MCF4.5",
         "rate_type": "Advice",
         "junior_rate_in_pence": 887,
         "standard_rate_in_pence": 1087,
@@ -367,448 +1390,367 @@
         "director_rate_in_pence": 1887
       },
       {
-        "lot": "MCF4.9",
-        "rate_type": "Delivery",
-        "junior_rate_in_pence": 537,
-        "standard_rate_in_pence": 737,
-        "senior_rate_in_pence": 937,
-        "principal_rate_in_pence": 1137,
-        "managing_rate_in_pence": 1337,
-        "director_rate_in_pence": 1537
-      },
-      {
-        "lot": "MCF4.10",
-        "rate_type": "Complex",
-        "junior_rate_in_pence": 925,
-        "standard_rate_in_pence": 1125,
-        "senior_rate_in_pence": 1325,
-        "principal_rate_in_pence": 1525,
-        "managing_rate_in_pence": 1725,
-        "director_rate_in_pence": 1925
-      },
-      {
-        "lot": "MCF4.10",
-        "rate_type": "Non-Complex",
-        "junior_rate_in_pence": 804,
-        "standard_rate_in_pence": 1004,
-        "senior_rate_in_pence": 1204,
-        "principal_rate_in_pence": 1404,
-        "managing_rate_in_pence": 1604,
-        "director_rate_in_pence": 1804
-      }
-    ],
-    "lot_contact_details": [
-      {
-        "lot": "MCF4.1",
-        "contact_name": "Alfred Rempel",
-        "email": "alfred.rempel@jenkins.example",
-        "telephone_number": "815 657 5027"
-      },
-      {
-        "lot": "MCF4.2",
-        "contact_name": "Venetta McCullough",
-        "email": "mccullough.venetta@schaefer-ruecker.example",
-        "telephone_number": "(473) 951 5975"
-      },
-      {
-        "lot": "MCF4.3",
-        "contact_name": "Craig Lockman",
-        "email": "craig_lockman@carter.example",
-        "telephone_number": "414.176.7330"
-      },
-      {
-        "lot": "MCF4.4",
-        "contact_name": "Rocky Deckow",
-        "email": "rocky_deckow@nitzsche.example",
-        "telephone_number": "858.997.8769"
-      },
-      {
         "lot": "MCF4.5",
-        "contact_name": "Dennis Schaefer JD",
-        "email": "schaefer_jd_dennis@schuster-davis.test",
-        "telephone_number": "(106) 976 5628"
+        "rate_type": "Delivery",
+        "junior_rate_in_pence": 255,
+        "standard_rate_in_pence": 455,
+        "senior_rate_in_pence": 655,
+        "principal_rate_in_pence": 855,
+        "managing_rate_in_pence": 1055,
+        "director_rate_in_pence": 1255
       },
       {
         "lot": "MCF4.6",
-        "contact_name": "Horacio Breitenberg Ret.",
-        "email": "breitenberg_horacio_ret@kozey-wilderman.test",
-        "telephone_number": "346-469-5821"
+        "rate_type": "Advice",
+        "junior_rate_in_pence": 452,
+        "standard_rate_in_pence": 652,
+        "senior_rate_in_pence": 852,
+        "principal_rate_in_pence": 1052,
+        "managing_rate_in_pence": 1252,
+        "director_rate_in_pence": 1452
       },
       {
-        "lot": "MCF4.7",
-        "contact_name": "Adrian Anderson",
-        "email": "adrian.anderson@heller.example",
-        "telephone_number": "8547085343"
-      },
-      {
-        "lot": "MCF4.8",
-        "contact_name": "Msgr. Trinidad Klocko",
-        "email": "klocko.trinidad.msgr@greenfelder-ebert.test",
-        "telephone_number": "253.360.4115"
+        "lot": "MCF4.6",
+        "rate_type": "Delivery",
+        "junior_rate_in_pence": 477,
+        "standard_rate_in_pence": 677,
+        "senior_rate_in_pence": 877,
+        "principal_rate_in_pence": 1077,
+        "managing_rate_in_pence": 1277,
+        "director_rate_in_pence": 1477
       },
       {
         "lot": "MCF4.9",
-        "contact_name": "Thurman Lubowitz",
-        "email": "lubowitz.thurman@heathcote.example",
-        "telephone_number": "475-788-7452"
+        "rate_type": "Advice",
+        "junior_rate_in_pence": 250,
+        "standard_rate_in_pence": 450,
+        "senior_rate_in_pence": 650,
+        "principal_rate_in_pence": 850,
+        "managing_rate_in_pence": 1050,
+        "director_rate_in_pence": 1250
       },
       {
-        "lot": "MCF4.10",
-        "contact_name": "Derrick Marquardt",
-        "email": "derrick.marquardt@legros.example",
-        "telephone_number": "896.324.5832"
+        "lot": "MCF4.9",
+        "rate_type": "Delivery",
+        "junior_rate_in_pence": 835,
+        "standard_rate_in_pence": 1035,
+        "senior_rate_in_pence": 1235,
+        "principal_rate_in_pence": 1435,
+        "managing_rate_in_pence": 1635,
+        "director_rate_in_pence": 1835
       }
     ]
   },
   {
-    "id": "6ad34887-8f75-4fae-808a-d104805d3423",
-    "name": "GREENHOLT INC",
-    "contact_email": "greenholt_inc@purdy-zulauf.example",
-    "telephone_number": "9929911947",
+    "id": "aa1b33df-cc11-4743-b9ca-fee388597e60",
+    "name": "GOTTLIEB, HEATHCOTE AND JACOBI",
+    "contact_name": "Sen. Bunny Nicolas",
+    "contact_email": "jacobi.and.heathcote.gottlieb@rodriguez.test",
+    "telephone_number": "7276002849",
     "sme": true,
-    "address": "Apt. 387 374 Lindgren Club, New Mark, SC 07301",
-    "website": "http://jaskolski.example/gabriella.orn",
-    "duns": "104115257",
+    "address": "Suite 646 256 Huels Port, West Terrellport, SC 23437-4130",
+    "website": "http://weimann.test/nery.kilback",
+    "duns": "614412433",
     "lots": [
       {
-        "lot_number": "MCF4.1",
+        "lot_number": "MCF4.8",
         "services": [
-          "MCF4.1.1",
-          "MCF4.1.2",
-          "MCF4.1.3",
-          "MCF4.1.4",
-          "MCF4.1.5",
-          "MCF4.1.6",
-          "MCF4.1.7",
-          "MCF4.1.8",
-          "MCF4.1.9",
-          "MCF4.1.10",
-          "MCF4.1.11",
-          "MCF4.1.12",
-          "MCF4.1.13",
-          "MCF4.1.14"
-        ]
-      },
-      {
-        "lot_number": "MCF4.2",
-        "services": [
-          "MCF4.2.1",
-          "MCF4.2.2",
-          "MCF4.2.3",
-          "MCF4.2.4",
-          "MCF4.2.5",
-          "MCF4.2.6",
-          "MCF4.2.7",
-          "MCF4.2.8",
-          "MCF4.2.9",
-          "MCF4.2.10",
-          "MCF4.2.12",
-          "MCF4.2.11"
+          "MCF4.8.4",
+          "MCF4.8.13",
+          "MCF4.8.11",
+          "MCF4.8.7",
+          "MCF4.8.8",
+          "MCF4.8.3",
+          "MCF4.8.9",
+          "MCF4.8.6",
+          "MCF4.8.10",
+          "MCF4.8.12"
         ]
       },
       {
         "lot_number": "MCF4.3",
         "services": [
-          "MCF4.3.1",
-          "MCF4.3.2",
-          "MCF4.3.3",
-          "MCF4.3.4",
-          "MCF4.3.5",
-          "MCF4.3.6",
-          "MCF4.3.7",
-          "MCF4.3.8",
-          "MCF4.3.9",
           "MCF4.3.10",
-          "MCF4.3.11",
+          "MCF4.3.1",
+          "MCF4.3.5",
           "MCF4.3.12",
-          "MCF4.3.13",
-          "MCF4.3.14"
-        ]
-      },
-      {
-        "lot_number": "MCF4.4",
-        "services": [
-          "MCF4.4.1",
-          "MCF4.4.2",
-          "MCF4.4.3",
-          "MCF4.4.4",
-          "MCF4.4.5",
-          "MCF4.4.6",
-          "MCF4.4.7",
-          "MCF4.4.8",
-          "MCF4.4.9",
-          "MCF4.4.10",
-          "MCF4.4.11",
-          "MCF4.4.12",
-          "MCF4.4.13",
-          "MCF4.4.14",
-          "MCF4.4.15",
-          "MCF4.4.16",
-          "MCF4.4.17",
-          "MCF4.4.18",
-          "MCF4.4.19",
-          "MCF4.4.20"
-        ]
-      },
-      {
-        "lot_number": "MCF4.5",
-        "services": [
-          "MCF4.5.1",
-          "MCF4.5.2",
-          "MCF4.5.3",
-          "MCF4.5.4",
-          "MCF4.5.5",
-          "MCF4.5.6",
-          "MCF4.5.7",
-          "MCF4.5.8",
-          "MCF4.5.9"
-        ]
-      },
-      {
-        "lot_number": "MCF4.6",
-        "services": [
-          "MCF4.6.1",
-          "MCF4.6.2",
-          "MCF4.6.3",
-          "MCF4.6.4",
-          "MCF4.6.5",
-          "MCF4.6.6",
-          "MCF4.6.7",
-          "MCF4.6.8",
-          "MCF4.6.9",
-          "MCF4.6.10",
-          "MCF4.6.11",
-          "MCF4.6.12"
-        ]
-      },
-      {
-        "lot_number": "MCF4.7",
-        "services": [
-          "MCF4.7.1",
-          "MCF4.7.2",
-          "MCF4.7.3",
-          "MCF4.7.4",
-          "MCF4.7.5",
-          "MCF4.7.6",
-          "MCF4.7.7",
-          "MCF4.7.8",
-          "MCF4.7.9",
-          "MCF4.7.10",
-          "MCF4.7.11",
-          "MCF4.7.12",
-          "MCF4.7.13",
-          "MCF4.7.14",
-          "MCF4.7.15",
-          "MCF4.7.16",
-          "MCF4.7.17",
-          "MCF4.7.18",
-          "MCF4.7.19",
-          "MCF4.7.20"
-        ]
-      },
-      {
-        "lot_number": "MCF4.8",
-        "services": [
-          "MCF4.8.1",
-          "MCF4.8.2",
-          "MCF4.8.3",
-          "MCF4.8.4",
-          "MCF4.8.5",
-          "MCF4.8.6",
-          "MCF4.8.7",
-          "MCF4.8.8",
-          "MCF4.8.9",
-          "MCF4.8.10",
-          "MCF4.8.11",
-          "MCF4.8.12",
-          "MCF4.8.13"
+          "MCF4.3.4",
+          "MCF4.3.2",
+          "MCF4.3.11",
+          "MCF4.3.8",
+          "MCF4.3.6",
+          "MCF4.3.14",
+          "MCF4.3.9"
         ]
       },
       {
         "lot_number": "MCF4.9",
         "services": [
-          "MCF4.9.1",
-          "MCF4.9.2",
-          "MCF4.9.3",
-          "MCF4.9.4",
-          "MCF4.9.5",
-          "MCF4.9.6",
-          "MCF4.9.7",
-          "MCF4.9.8",
-          "MCF4.9.9",
-          "MCF4.9.10",
           "MCF4.9.11",
+          "MCF4.9.7",
+          "MCF4.9.15",
+          "MCF4.9.2",
+          "MCF4.9.5",
+          "MCF4.9.8",
+          "MCF4.9.3",
+          "MCF4.9.16",
+          "MCF4.9.18",
+          "MCF4.9.14",
+          "MCF4.9.9",
+          "MCF4.9.6",
+          "MCF4.9.1",
           "MCF4.9.12",
           "MCF4.9.13",
-          "MCF4.9.14",
-          "MCF4.9.15",
-          "MCF4.9.16",
+          "MCF4.9.4",
           "MCF4.9.17",
-          "MCF4.9.18"
+          "MCF4.9.10"
         ]
       },
       {
-        "lot_number": "MCF4.10",
+        "lot_number": "MCF4.5",
         "services": [
-          "MCF4.10.2",
-          "MCF4.10.1",
-          "MCF4.10.3"
+          "MCF4.5.3",
+          "MCF4.5.2",
+          "MCF4.5.5",
+          "MCF4.5.8",
+          "MCF4.5.7",
+          "MCF4.5.9",
+          "MCF4.5.6",
+          "MCF4.5.4"
         ]
       }
     ],
     "rate_cards": [
       {
-        "lot": "MCF4.1",
+        "lot": "MCF4.8",
         "rate_type": "Advice",
-        "junior_rate_in_pence": 861,
-        "standard_rate_in_pence": 1061,
-        "senior_rate_in_pence": 1261,
-        "principal_rate_in_pence": 1461,
-        "managing_rate_in_pence": 1661,
-        "director_rate_in_pence": 1861
+        "junior_rate_in_pence": 746,
+        "standard_rate_in_pence": 946,
+        "senior_rate_in_pence": 1146,
+        "principal_rate_in_pence": 1346,
+        "managing_rate_in_pence": 1546,
+        "director_rate_in_pence": 1746
       },
       {
-        "lot": "MCF4.1",
+        "lot": "MCF4.8",
         "rate_type": "Delivery",
-        "junior_rate_in_pence": 900,
-        "standard_rate_in_pence": 1100,
-        "senior_rate_in_pence": 1300,
-        "principal_rate_in_pence": 1500,
-        "managing_rate_in_pence": 1700,
-        "director_rate_in_pence": 1900
-      },
-      {
-        "lot": "MCF4.2",
-        "rate_type": "Advice",
-        "junior_rate_in_pence": 596,
-        "standard_rate_in_pence": 796,
-        "senior_rate_in_pence": 996,
-        "principal_rate_in_pence": 1196,
-        "managing_rate_in_pence": 1396,
-        "director_rate_in_pence": 1596
-      },
-      {
-        "lot": "MCF4.2",
-        "rate_type": "Delivery",
-        "junior_rate_in_pence": 354,
-        "standard_rate_in_pence": 554,
-        "senior_rate_in_pence": 754,
-        "principal_rate_in_pence": 954,
-        "managing_rate_in_pence": 1154,
-        "director_rate_in_pence": 1354
+        "junior_rate_in_pence": 544,
+        "standard_rate_in_pence": 744,
+        "senior_rate_in_pence": 944,
+        "principal_rate_in_pence": 1144,
+        "managing_rate_in_pence": 1344,
+        "director_rate_in_pence": 1544
       },
       {
         "lot": "MCF4.3",
         "rate_type": "Advice",
-        "junior_rate_in_pence": 898,
-        "standard_rate_in_pence": 1098,
-        "senior_rate_in_pence": 1298,
-        "principal_rate_in_pence": 1498,
-        "managing_rate_in_pence": 1698,
-        "director_rate_in_pence": 1898
+        "junior_rate_in_pence": 847,
+        "standard_rate_in_pence": 1047,
+        "senior_rate_in_pence": 1247,
+        "principal_rate_in_pence": 1447,
+        "managing_rate_in_pence": 1647,
+        "director_rate_in_pence": 1847
       },
       {
         "lot": "MCF4.3",
         "rate_type": "Delivery",
-        "junior_rate_in_pence": 430,
-        "standard_rate_in_pence": 630,
-        "senior_rate_in_pence": 830,
-        "principal_rate_in_pence": 1030,
-        "managing_rate_in_pence": 1230,
-        "director_rate_in_pence": 1430
+        "junior_rate_in_pence": 284,
+        "standard_rate_in_pence": 484,
+        "senior_rate_in_pence": 684,
+        "principal_rate_in_pence": 884,
+        "managing_rate_in_pence": 1084,
+        "director_rate_in_pence": 1284
       },
       {
-        "lot": "MCF4.4",
+        "lot": "MCF4.9",
         "rate_type": "Advice",
-        "junior_rate_in_pence": 682,
-        "standard_rate_in_pence": 882,
-        "senior_rate_in_pence": 1082,
-        "principal_rate_in_pence": 1282,
-        "managing_rate_in_pence": 1482,
-        "director_rate_in_pence": 1682
+        "junior_rate_in_pence": 652,
+        "standard_rate_in_pence": 852,
+        "senior_rate_in_pence": 1052,
+        "principal_rate_in_pence": 1252,
+        "managing_rate_in_pence": 1452,
+        "director_rate_in_pence": 1652
       },
       {
-        "lot": "MCF4.4",
+        "lot": "MCF4.9",
         "rate_type": "Delivery",
-        "junior_rate_in_pence": 310,
-        "standard_rate_in_pence": 510,
-        "senior_rate_in_pence": 710,
-        "principal_rate_in_pence": 910,
-        "managing_rate_in_pence": 1110,
-        "director_rate_in_pence": 1310
+        "junior_rate_in_pence": 744,
+        "standard_rate_in_pence": 944,
+        "senior_rate_in_pence": 1144,
+        "principal_rate_in_pence": 1344,
+        "managing_rate_in_pence": 1544,
+        "director_rate_in_pence": 1744
       },
       {
         "lot": "MCF4.5",
         "rate_type": "Advice",
-        "junior_rate_in_pence": 839,
-        "standard_rate_in_pence": 1039,
-        "senior_rate_in_pence": 1239,
-        "principal_rate_in_pence": 1439,
-        "managing_rate_in_pence": 1639,
-        "director_rate_in_pence": 1839
+        "junior_rate_in_pence": 419,
+        "standard_rate_in_pence": 619,
+        "senior_rate_in_pence": 819,
+        "principal_rate_in_pence": 1019,
+        "managing_rate_in_pence": 1219,
+        "director_rate_in_pence": 1419
       },
       {
         "lot": "MCF4.5",
         "rate_type": "Delivery",
-        "junior_rate_in_pence": 924,
-        "standard_rate_in_pence": 1124,
-        "senior_rate_in_pence": 1324,
-        "principal_rate_in_pence": 1524,
-        "managing_rate_in_pence": 1724,
-        "director_rate_in_pence": 1924
+        "junior_rate_in_pence": 943,
+        "standard_rate_in_pence": 1143,
+        "senior_rate_in_pence": 1343,
+        "principal_rate_in_pence": 1543,
+        "managing_rate_in_pence": 1743,
+        "director_rate_in_pence": 1943
+      }
+    ]
+  },
+  {
+    "id": "6a4cfa26-a1c2-464a-9781-651aaed6efaa",
+    "name": "KOHLER-STOKES",
+    "contact_name": "Gilbert Bruen",
+    "contact_email": "stokes.kohler@kuhic-funk.example",
+    "telephone_number": "281-490-6932",
+    "sme": true,
+    "address": "12468 Friesen Burgs, Port Gwyneth, DE 63971",
+    "website": "http://rowe-macgyver.test/jerri.mueller",
+    "duns": "259900049",
+    "lots": [
+      {
+        "lot_number": "MCF4.4",
+        "services": [
+          "MCF4.4.11",
+          "MCF4.4.17",
+          "MCF4.4.16",
+          "MCF4.4.10",
+          "MCF4.4.18",
+          "MCF4.4.2",
+          "MCF4.4.12",
+          "MCF4.4.20",
+          "MCF4.4.6",
+          "MCF4.4.5",
+          "MCF4.4.9",
+          "MCF4.4.13",
+          "MCF4.4.4",
+          "MCF4.4.7"
+        ]
       },
       {
-        "lot": "MCF4.6",
+        "lot_number": "MCF4.10",
+        "services": [
+          "MCF4.10.13",
+          "MCF4.10.29",
+          "MCF4.10.23",
+          "MCF4.10.5",
+          "MCF4.10.11",
+          "MCF4.10.14",
+          "MCF4.10.15",
+          "MCF4.10.10",
+          "MCF4.10.18",
+          "MCF4.10.1",
+          "MCF4.10.4",
+          "MCF4.10.21",
+          "MCF4.10.2",
+          "MCF4.10.3",
+          "MCF4.10.17",
+          "MCF4.10.19",
+          "MCF4.10.8",
+          "MCF4.10.28",
+          "MCF4.10.25",
+          "MCF4.10.7",
+          "MCF4.10.12",
+          "MCF4.10.6",
+          "MCF4.10.24",
+          "MCF4.10.9",
+          "MCF4.10.22",
+          "MCF4.10.27",
+          "MCF4.10.20",
+          "MCF4.10.26",
+          "MCF4.10.16"
+        ]
+      },
+      {
+        "lot_number": "MCF4.3",
+        "services": [
+          "MCF4.3.7",
+          "MCF4.3.12",
+          "MCF4.3.8",
+          "MCF4.3.5",
+          "MCF4.3.13",
+          "MCF4.3.11",
+          "MCF4.3.4",
+          "MCF4.3.1"
+        ]
+      },
+      {
+        "lot_number": "MCF4.9",
+        "services": [
+          "MCF4.9.4",
+          "MCF4.9.17",
+          "MCF4.9.10",
+          "MCF4.9.13",
+          "MCF4.9.15",
+          "MCF4.9.11",
+          "MCF4.9.5",
+          "MCF4.9.2",
+          "MCF4.9.6",
+          "MCF4.9.18",
+          "MCF4.9.14",
+          "MCF4.9.3"
+        ]
+      }
+    ],
+    "rate_cards": [
+      {
+        "lot": "MCF4.4",
         "rate_type": "Advice",
-        "junior_rate_in_pence": 564,
-        "standard_rate_in_pence": 764,
-        "senior_rate_in_pence": 964,
-        "principal_rate_in_pence": 1164,
-        "managing_rate_in_pence": 1364,
-        "director_rate_in_pence": 1564
+        "junior_rate_in_pence": 251,
+        "standard_rate_in_pence": 451,
+        "senior_rate_in_pence": 651,
+        "principal_rate_in_pence": 851,
+        "managing_rate_in_pence": 1051,
+        "director_rate_in_pence": 1251
       },
       {
-        "lot": "MCF4.6",
+        "lot": "MCF4.4",
         "rate_type": "Delivery",
-        "junior_rate_in_pence": 326,
-        "standard_rate_in_pence": 526,
-        "senior_rate_in_pence": 726,
-        "principal_rate_in_pence": 926,
-        "managing_rate_in_pence": 1126,
-        "director_rate_in_pence": 1326
+        "junior_rate_in_pence": 481,
+        "standard_rate_in_pence": 681,
+        "senior_rate_in_pence": 881,
+        "principal_rate_in_pence": 1081,
+        "managing_rate_in_pence": 1281,
+        "director_rate_in_pence": 1481
       },
       {
-        "lot": "MCF4.7",
+        "lot": "MCF4.10",
+        "rate_type": "Complex",
+        "junior_rate_in_pence": 815,
+        "standard_rate_in_pence": 1015,
+        "senior_rate_in_pence": 1215,
+        "principal_rate_in_pence": 1415,
+        "managing_rate_in_pence": 1615,
+        "director_rate_in_pence": 1815
+      },
+      {
+        "lot": "MCF4.10",
+        "rate_type": "Non-Complex",
+        "junior_rate_in_pence": 469,
+        "standard_rate_in_pence": 669,
+        "senior_rate_in_pence": 869,
+        "principal_rate_in_pence": 1069,
+        "managing_rate_in_pence": 1269,
+        "director_rate_in_pence": 1469
+      },
+      {
+        "lot": "MCF4.3",
         "rate_type": "Advice",
-        "junior_rate_in_pence": 940,
-        "standard_rate_in_pence": 1140,
-        "senior_rate_in_pence": 1340,
-        "principal_rate_in_pence": 1540,
-        "managing_rate_in_pence": 1740,
-        "director_rate_in_pence": 1940
+        "junior_rate_in_pence": 787,
+        "standard_rate_in_pence": 987,
+        "senior_rate_in_pence": 1187,
+        "principal_rate_in_pence": 1387,
+        "managing_rate_in_pence": 1587,
+        "director_rate_in_pence": 1787
       },
       {
-        "lot": "MCF4.7",
-        "rate_type": "Delivery",
-        "junior_rate_in_pence": 327,
-        "standard_rate_in_pence": 527,
-        "senior_rate_in_pence": 727,
-        "principal_rate_in_pence": 927,
-        "managing_rate_in_pence": 1127,
-        "director_rate_in_pence": 1327
-      },
-      {
-        "lot": "MCF4.8",
-        "rate_type": "Advice",
-        "junior_rate_in_pence": 272,
-        "standard_rate_in_pence": 472,
-        "senior_rate_in_pence": 672,
-        "principal_rate_in_pence": 872,
-        "managing_rate_in_pence": 1072,
-        "director_rate_in_pence": 1272
-      },
-      {
-        "lot": "MCF4.8",
+        "lot": "MCF4.3",
         "rate_type": "Delivery",
         "junior_rate_in_pence": 350,
         "standard_rate_in_pence": 550,
@@ -820,397 +1762,108 @@
       {
         "lot": "MCF4.9",
         "rate_type": "Advice",
-        "junior_rate_in_pence": 824,
-        "standard_rate_in_pence": 1024,
-        "senior_rate_in_pence": 1224,
-        "principal_rate_in_pence": 1424,
-        "managing_rate_in_pence": 1624,
-        "director_rate_in_pence": 1824
+        "junior_rate_in_pence": 832,
+        "standard_rate_in_pence": 1032,
+        "senior_rate_in_pence": 1232,
+        "principal_rate_in_pence": 1432,
+        "managing_rate_in_pence": 1632,
+        "director_rate_in_pence": 1832
       },
       {
         "lot": "MCF4.9",
         "rate_type": "Delivery",
-        "junior_rate_in_pence": 269,
-        "standard_rate_in_pence": 469,
-        "senior_rate_in_pence": 669,
-        "principal_rate_in_pence": 869,
-        "managing_rate_in_pence": 1069,
-        "director_rate_in_pence": 1269
-      },
-      {
-        "lot": "MCF4.10",
-        "rate_type": "Complex",
-        "junior_rate_in_pence": 677,
-        "standard_rate_in_pence": 877,
-        "senior_rate_in_pence": 1077,
-        "principal_rate_in_pence": 1277,
-        "managing_rate_in_pence": 1477,
-        "director_rate_in_pence": 1677
-      },
-      {
-        "lot": "MCF4.10",
-        "rate_type": "Non-Complex",
-        "junior_rate_in_pence": 661,
-        "standard_rate_in_pence": 861,
-        "senior_rate_in_pence": 1061,
-        "principal_rate_in_pence": 1261,
-        "managing_rate_in_pence": 1461,
-        "director_rate_in_pence": 1661
-      }
-    ],
-    "lot_contact_details": [
-      {
-        "lot": "MCF4.1",
-        "contact_name": "Cleveland Ullrich",
-        "email": "cleveland_ullrich@trantow-konopelski.example",
-        "telephone_number": "409-328-4821"
-      },
-      {
-        "lot": "MCF4.2",
-        "contact_name": "Hilario Wolf",
-        "email": "wolf_hilario@bosco-leffler.test",
-        "telephone_number": "867-009-1852"
-      },
-      {
-        "lot": "MCF4.3",
-        "contact_name": "Ping Shields",
-        "email": "ping.shields@schroeder.example",
-        "telephone_number": "(357) 154 8126"
-      },
-      {
-        "lot": "MCF4.4",
-        "contact_name": "Kimberley Stroman Jr.",
-        "email": "jr.stroman.kimberley@tromp.example",
-        "telephone_number": "584-833-3128"
-      },
-      {
-        "lot": "MCF4.5",
-        "contact_name": "Karey Frami DO",
-        "email": "karey_frami_do@koch-koch.test",
-        "telephone_number": "5792575821"
-      },
-      {
-        "lot": "MCF4.6",
-        "contact_name": "King Morar Jr.",
-        "email": "morar.king.jr@rosenbaum.example",
-        "telephone_number": "358.817.6647"
-      },
-      {
-        "lot": "MCF4.7",
-        "contact_name": "Cheri Jerde",
-        "email": "cheri_jerde@lakin-sawayn.test",
-        "telephone_number": "331-717-9707"
-      },
-      {
-        "lot": "MCF4.8",
-        "contact_name": "Renay Bode",
-        "email": "renay.bode@dickinson-russel.example",
-        "telephone_number": "5817548549"
-      },
-      {
-        "lot": "MCF4.9",
-        "contact_name": "Amb. Charlie Wehner",
-        "email": "amb.wehner.charlie@gutmann-kunze.test",
-        "telephone_number": "930-167-8044"
-      },
-      {
-        "lot": "MCF4.10",
-        "contact_name": "Roland Dibbert",
-        "email": "roland.dibbert@schmeler.test",
-        "telephone_number": "243.164.6129"
+        "junior_rate_in_pence": 850,
+        "standard_rate_in_pence": 1050,
+        "senior_rate_in_pence": 1250,
+        "principal_rate_in_pence": 1450,
+        "managing_rate_in_pence": 1650,
+        "director_rate_in_pence": 1850
       }
     ]
   },
   {
-    "id": "2ec4b607-8000-4d43-8113-c60f4e8119c0",
-    "name": "STROSIN-MEDHURST",
-    "contact_email": "medhurst.strosin@kulas-schuppe.example",
-    "telephone_number": "403-620-2250",
-    "sme": false,
-    "address": "Suite 271 2241 Dibbert Inlet, New Willetta, NC 00719-8282",
-    "website": "http://upton.test/maxie",
-    "duns": "595509620",
+    "id": "91068f4d-2337-4b50-b27e-b355d1c5da3e",
+    "name": "SCHUMM, GRANT AND SPORER",
+    "contact_name": "Louisa Veum",
+    "contact_email": "sporer.grant.and.schumm@lang.test",
+    "telephone_number": "542 622 0788",
+    "sme": true,
+    "address": "63548 Gulgowski Road, Elanorport, IL 93499-8259",
+    "website": "http://beatty.test/coleman.koss",
+    "duns": "249869633",
     "lots": [
-      {
-        "lot_number": "MCF4.1",
-        "services": [
-          "MCF4.1.1",
-          "MCF4.1.2",
-          "MCF4.1.3",
-          "MCF4.1.4",
-          "MCF4.1.5",
-          "MCF4.1.6",
-          "MCF4.1.7",
-          "MCF4.1.8",
-          "MCF4.1.9",
-          "MCF4.1.10",
-          "MCF4.1.11",
-          "MCF4.1.12",
-          "MCF4.1.13",
-          "MCF4.1.14"
-        ]
-      },
       {
         "lot_number": "MCF4.2",
         "services": [
           "MCF4.2.1",
-          "MCF4.2.2",
-          "MCF4.2.3",
-          "MCF4.2.4",
           "MCF4.2.5",
           "MCF4.2.6",
-          "MCF4.2.7",
-          "MCF4.2.8",
-          "MCF4.2.9",
-          "MCF4.2.10",
-          "MCF4.2.12",
           "MCF4.2.11"
-        ]
-      },
-      {
-        "lot_number": "MCF4.3",
-        "services": [
-          "MCF4.3.1",
-          "MCF4.3.2",
-          "MCF4.3.3",
-          "MCF4.3.4",
-          "MCF4.3.5",
-          "MCF4.3.6",
-          "MCF4.3.7",
-          "MCF4.3.8",
-          "MCF4.3.9",
-          "MCF4.3.10",
-          "MCF4.3.11",
-          "MCF4.3.12",
-          "MCF4.3.13",
-          "MCF4.3.14"
-        ]
-      },
-      {
-        "lot_number": "MCF4.4",
-        "services": [
-          "MCF4.4.1",
-          "MCF4.4.2",
-          "MCF4.4.3",
-          "MCF4.4.4",
-          "MCF4.4.5",
-          "MCF4.4.6",
-          "MCF4.4.7",
-          "MCF4.4.8",
-          "MCF4.4.9",
-          "MCF4.4.10",
-          "MCF4.4.11",
-          "MCF4.4.12",
-          "MCF4.4.13",
-          "MCF4.4.14",
-          "MCF4.4.15",
-          "MCF4.4.16",
-          "MCF4.4.17",
-          "MCF4.4.18",
-          "MCF4.4.19",
-          "MCF4.4.20"
-        ]
-      },
-      {
-        "lot_number": "MCF4.5",
-        "services": [
-          "MCF4.5.1",
-          "MCF4.5.2",
-          "MCF4.5.3",
-          "MCF4.5.4",
-          "MCF4.5.5",
-          "MCF4.5.6",
-          "MCF4.5.7",
-          "MCF4.5.8",
-          "MCF4.5.9"
-        ]
-      },
-      {
-        "lot_number": "MCF4.6",
-        "services": [
-          "MCF4.6.1",
-          "MCF4.6.2",
-          "MCF4.6.3",
-          "MCF4.6.4",
-          "MCF4.6.5",
-          "MCF4.6.6",
-          "MCF4.6.7",
-          "MCF4.6.8",
-          "MCF4.6.9",
-          "MCF4.6.10",
-          "MCF4.6.11",
-          "MCF4.6.12"
-        ]
-      },
-      {
-        "lot_number": "MCF4.7",
-        "services": [
-          "MCF4.7.1",
-          "MCF4.7.2",
-          "MCF4.7.3",
-          "MCF4.7.4",
-          "MCF4.7.5",
-          "MCF4.7.6",
-          "MCF4.7.7",
-          "MCF4.7.8",
-          "MCF4.7.9",
-          "MCF4.7.10",
-          "MCF4.7.11",
-          "MCF4.7.12",
-          "MCF4.7.13",
-          "MCF4.7.14",
-          "MCF4.7.15",
-          "MCF4.7.16",
-          "MCF4.7.17",
-          "MCF4.7.18",
-          "MCF4.7.19",
-          "MCF4.7.20"
         ]
       },
       {
         "lot_number": "MCF4.8",
         "services": [
-          "MCF4.8.1",
-          "MCF4.8.2",
-          "MCF4.8.3",
-          "MCF4.8.4",
-          "MCF4.8.5",
-          "MCF4.8.6",
-          "MCF4.8.7",
           "MCF4.8.8",
-          "MCF4.8.9",
-          "MCF4.8.10",
-          "MCF4.8.11",
+          "MCF4.8.6",
+          "MCF4.8.5",
+          "MCF4.8.13",
           "MCF4.8.12",
-          "MCF4.8.13"
+          "MCF4.8.4"
+        ]
+      },
+      {
+        "lot_number": "MCF4.6",
+        "services": [
+          "MCF4.6.9",
+          "MCF4.6.3",
+          "MCF4.6.6",
+          "MCF4.6.2",
+          "MCF4.6.7",
+          "MCF4.6.4",
+          "MCF4.6.10",
+          "MCF4.6.11",
+          "MCF4.6.1",
+          "MCF4.6.8",
+          "MCF4.6.5",
+          "MCF4.6.12"
         ]
       },
       {
         "lot_number": "MCF4.9",
         "services": [
-          "MCF4.9.1",
-          "MCF4.9.2",
-          "MCF4.9.3",
           "MCF4.9.4",
-          "MCF4.9.5",
-          "MCF4.9.6",
-          "MCF4.9.7",
-          "MCF4.9.8",
-          "MCF4.9.9",
           "MCF4.9.10",
-          "MCF4.9.11",
-          "MCF4.9.12",
-          "MCF4.9.13",
-          "MCF4.9.14",
-          "MCF4.9.15",
+          "MCF4.9.6",
+          "MCF4.9.5",
+          "MCF4.9.2",
+          "MCF4.9.7",
           "MCF4.9.16",
-          "MCF4.9.17",
-          "MCF4.9.18"
+          "MCF4.9.15",
+          "MCF4.9.18",
+          "MCF4.9.1",
+          "MCF4.9.14",
+          "MCF4.9.9"
         ]
       },
       {
-        "lot_number": "MCF4.10",
+        "lot_number": "MCF4.5",
         "services": [
-          "MCF4.10.2",
-          "MCF4.10.1",
-          "MCF4.10.3"
+          "MCF4.5.7",
+          "MCF4.5.8",
+          "MCF4.5.4",
+          "MCF4.5.6",
+          "MCF4.5.5",
+          "MCF4.5.9",
+          "MCF4.5.2",
+          "MCF4.5.3"
         ]
       }
     ],
     "rate_cards": [
       {
-        "lot": "MCF4.1",
-        "rate_type": "Advice",
-        "junior_rate_in_pence": 740,
-        "standard_rate_in_pence": 940,
-        "senior_rate_in_pence": 1140,
-        "principal_rate_in_pence": 1340,
-        "managing_rate_in_pence": 1540,
-        "director_rate_in_pence": 1740
-      },
-      {
-        "lot": "MCF4.1",
-        "rate_type": "Delivery",
-        "junior_rate_in_pence": 215,
-        "standard_rate_in_pence": 415,
-        "senior_rate_in_pence": 615,
-        "principal_rate_in_pence": 815,
-        "managing_rate_in_pence": 1015,
-        "director_rate_in_pence": 1215
-      },
-      {
         "lot": "MCF4.2",
         "rate_type": "Advice",
-        "junior_rate_in_pence": 308,
-        "standard_rate_in_pence": 508,
-        "senior_rate_in_pence": 708,
-        "principal_rate_in_pence": 908,
-        "managing_rate_in_pence": 1108,
-        "director_rate_in_pence": 1308
-      },
-      {
-        "lot": "MCF4.2",
-        "rate_type": "Delivery",
-        "junior_rate_in_pence": 626,
-        "standard_rate_in_pence": 826,
-        "senior_rate_in_pence": 1026,
-        "principal_rate_in_pence": 1226,
-        "managing_rate_in_pence": 1426,
-        "director_rate_in_pence": 1626
-      },
-      {
-        "lot": "MCF4.3",
-        "rate_type": "Advice",
-        "junior_rate_in_pence": 641,
-        "standard_rate_in_pence": 841,
-        "senior_rate_in_pence": 1041,
-        "principal_rate_in_pence": 1241,
-        "managing_rate_in_pence": 1441,
-        "director_rate_in_pence": 1641
-      },
-      {
-        "lot": "MCF4.3",
-        "rate_type": "Delivery",
-        "junior_rate_in_pence": 649,
-        "standard_rate_in_pence": 849,
-        "senior_rate_in_pence": 1049,
-        "principal_rate_in_pence": 1249,
-        "managing_rate_in_pence": 1449,
-        "director_rate_in_pence": 1649
-      },
-      {
-        "lot": "MCF4.4",
-        "rate_type": "Advice",
-        "junior_rate_in_pence": 704,
-        "standard_rate_in_pence": 904,
-        "senior_rate_in_pence": 1104,
-        "principal_rate_in_pence": 1304,
-        "managing_rate_in_pence": 1504,
-        "director_rate_in_pence": 1704
-      },
-      {
-        "lot": "MCF4.4",
-        "rate_type": "Delivery",
-        "junior_rate_in_pence": 797,
-        "standard_rate_in_pence": 997,
-        "senior_rate_in_pence": 1197,
-        "principal_rate_in_pence": 1397,
-        "managing_rate_in_pence": 1597,
-        "director_rate_in_pence": 1797
-      },
-      {
-        "lot": "MCF4.5",
-        "rate_type": "Advice",
-        "junior_rate_in_pence": 916,
-        "standard_rate_in_pence": 1116,
-        "senior_rate_in_pence": 1316,
-        "principal_rate_in_pence": 1516,
-        "managing_rate_in_pence": 1716,
-        "director_rate_in_pence": 1916
-      },
-      {
-        "lot": "MCF4.5",
-        "rate_type": "Delivery",
         "junior_rate_in_pence": 547,
         "standard_rate_in_pence": 747,
         "senior_rate_in_pence": 947,
@@ -1219,346 +1872,38 @@
         "director_rate_in_pence": 1547
       },
       {
-        "lot": "MCF4.6",
-        "rate_type": "Advice",
-        "junior_rate_in_pence": 384,
-        "standard_rate_in_pence": 584,
-        "senior_rate_in_pence": 784,
-        "principal_rate_in_pence": 984,
-        "managing_rate_in_pence": 1184,
-        "director_rate_in_pence": 1384
-      },
-      {
-        "lot": "MCF4.6",
-        "rate_type": "Delivery",
-        "junior_rate_in_pence": 831,
-        "standard_rate_in_pence": 1031,
-        "senior_rate_in_pence": 1231,
-        "principal_rate_in_pence": 1431,
-        "managing_rate_in_pence": 1631,
-        "director_rate_in_pence": 1831
-      },
-      {
-        "lot": "MCF4.7",
-        "rate_type": "Advice",
-        "junior_rate_in_pence": 272,
-        "standard_rate_in_pence": 472,
-        "senior_rate_in_pence": 672,
-        "principal_rate_in_pence": 872,
-        "managing_rate_in_pence": 1072,
-        "director_rate_in_pence": 1272
-      },
-      {
-        "lot": "MCF4.7",
-        "rate_type": "Delivery",
-        "junior_rate_in_pence": 855,
-        "standard_rate_in_pence": 1055,
-        "senior_rate_in_pence": 1255,
-        "principal_rate_in_pence": 1455,
-        "managing_rate_in_pence": 1655,
-        "director_rate_in_pence": 1855
-      },
-      {
-        "lot": "MCF4.8",
-        "rate_type": "Advice",
-        "junior_rate_in_pence": 295,
-        "standard_rate_in_pence": 495,
-        "senior_rate_in_pence": 695,
-        "principal_rate_in_pence": 895,
-        "managing_rate_in_pence": 1095,
-        "director_rate_in_pence": 1295
-      },
-      {
-        "lot": "MCF4.8",
-        "rate_type": "Delivery",
-        "junior_rate_in_pence": 215,
-        "standard_rate_in_pence": 415,
-        "senior_rate_in_pence": 615,
-        "principal_rate_in_pence": 815,
-        "managing_rate_in_pence": 1015,
-        "director_rate_in_pence": 1215
-      },
-      {
-        "lot": "MCF4.9",
-        "rate_type": "Advice",
-        "junior_rate_in_pence": 281,
-        "standard_rate_in_pence": 481,
-        "senior_rate_in_pence": 681,
-        "principal_rate_in_pence": 881,
-        "managing_rate_in_pence": 1081,
-        "director_rate_in_pence": 1281
-      },
-      {
-        "lot": "MCF4.9",
-        "rate_type": "Delivery",
-        "junior_rate_in_pence": 295,
-        "standard_rate_in_pence": 495,
-        "senior_rate_in_pence": 695,
-        "principal_rate_in_pence": 895,
-        "managing_rate_in_pence": 1095,
-        "director_rate_in_pence": 1295
-      },
-      {
-        "lot": "MCF4.10",
-        "rate_type": "Complex",
-        "junior_rate_in_pence": 543,
-        "standard_rate_in_pence": 743,
-        "senior_rate_in_pence": 943,
-        "principal_rate_in_pence": 1143,
-        "managing_rate_in_pence": 1343,
-        "director_rate_in_pence": 1543
-      },
-      {
-        "lot": "MCF4.10",
-        "rate_type": "Non-Complex",
-        "junior_rate_in_pence": 582,
-        "standard_rate_in_pence": 782,
-        "senior_rate_in_pence": 982,
-        "principal_rate_in_pence": 1182,
-        "managing_rate_in_pence": 1382,
-        "director_rate_in_pence": 1582
-      }
-    ],
-    "lot_contact_details": [
-      {
-        "lot": "MCF4.1",
-        "contact_name": "Ms. Agustin Senger",
-        "email": "agustin.senger.ms@metz.example",
-        "telephone_number": "665-304-9890"
-      },
-      {
         "lot": "MCF4.2",
-        "contact_name": "Hal Berge",
-        "email": "hal.berge@jacobi.example",
-        "telephone_number": "8334647812"
-      },
-      {
-        "lot": "MCF4.3",
-        "contact_name": "Jennine Greenholt",
-        "email": "jennine.greenholt@cassin.test",
-        "telephone_number": "5815166916"
-      },
-      {
-        "lot": "MCF4.4",
-        "contact_name": "Lakia Hagenes",
-        "email": "hagenes.lakia@rutherford-fay.example",
-        "telephone_number": "(284) 627-5194"
-      },
-      {
-        "lot": "MCF4.5",
-        "contact_name": "Anibal Crist",
-        "email": "crist.anibal@treutel.test",
-        "telephone_number": "691-914-3437"
-      },
-      {
-        "lot": "MCF4.6",
-        "contact_name": "Murray Sporer",
-        "email": "sporer_murray@miller.test",
-        "telephone_number": "(763) 217 5489"
-      },
-      {
-        "lot": "MCF4.7",
-        "contact_name": "Oren Streich",
-        "email": "streich.oren@connelly.test",
-        "telephone_number": "2269596461"
+        "rate_type": "Delivery",
+        "junior_rate_in_pence": 801,
+        "standard_rate_in_pence": 1001,
+        "senior_rate_in_pence": 1201,
+        "principal_rate_in_pence": 1401,
+        "managing_rate_in_pence": 1601,
+        "director_rate_in_pence": 1801
       },
       {
         "lot": "MCF4.8",
-        "contact_name": "Anita Quitzon",
-        "email": "quitzon_anita@torp.example",
-        "telephone_number": "140.011.4608"
-      },
-      {
-        "lot": "MCF4.9",
-        "contact_name": "Tobie Kshlerin",
-        "email": "kshlerin.tobie@deckow.test",
-        "telephone_number": "233 221 9084"
-      },
-      {
-        "lot": "MCF4.10",
-        "contact_name": "Brendon Barton V",
-        "email": "barton_brendon_v@volkman.example",
-        "telephone_number": "168-632-8737"
-      }
-    ]
-  },
-  {
-    "id": "a6390513-d375-43ee-af75-ec41ddf4d2da",
-    "name": "BLANDA, DONNELLY AND LARKIN",
-    "contact_email": "larkin_and_blanda_donnelly@oconnell-white.test",
-    "telephone_number": "768.644.5046",
-    "sme": true,
-    "address": "Suite 946 75520 Schneider Freeway, Montyside, AR 89904",
-    "website": "http://volkman-schoen.example/roosevelt.dickens",
-    "duns": "247802127",
-    "lots": [
-      {
-        "lot_number": "MCF4.3",
-        "services": [
-          "MCF4.3.2",
-          "MCF4.3.10",
-          "MCF4.3.1",
-          "MCF4.3.7",
-          "MCF4.3.14",
-          "MCF4.3.6",
-          "MCF4.3.3",
-          "MCF4.3.11",
-          "MCF4.3.9",
-          "MCF4.3.8",
-          "MCF4.3.5"
-        ]
-      },
-      {
-        "lot_number": "MCF4.9",
-        "services": [
-          "MCF4.9.15",
-          "MCF4.9.14",
-          "MCF4.9.2",
-          "MCF4.9.9",
-          "MCF4.9.6",
-          "MCF4.9.1",
-          "MCF4.9.11",
-          "MCF4.9.12",
-          "MCF4.9.18",
-          "MCF4.9.17",
-          "MCF4.9.4",
-          "MCF4.9.16",
-          "MCF4.9.7",
-          "MCF4.9.10",
-          "MCF4.9.13",
-          "MCF4.9.8",
-          "MCF4.9.5",
-          "MCF4.9.3"
-        ]
-      },
-      {
-        "lot_number": "MCF4.5",
-        "services": [
-          "MCF4.5.3",
-          "MCF4.5.1",
-          "MCF4.5.8",
-          "MCF4.5.2",
-          "MCF4.5.7",
-          "MCF4.5.9",
-          "MCF4.5.4"
-        ]
-      },
-      {
-        "lot_number": "MCF4.4",
-        "services": [
-          "MCF4.4.16",
-          "MCF4.4.17",
-          "MCF4.4.4",
-          "MCF4.4.3",
-          "MCF4.4.1",
-          "MCF4.4.6",
-          "MCF4.4.12",
-          "MCF4.4.14",
-          "MCF4.4.2",
-          "MCF4.4.20",
-          "MCF4.4.13",
-          "MCF4.4.18",
-          "MCF4.4.11",
-          "MCF4.4.15",
-          "MCF4.4.10",
-          "MCF4.4.9",
-          "MCF4.4.7",
-          "MCF4.4.19",
-          "MCF4.4.8",
-          "MCF4.4.5"
-        ]
-      },
-      {
-        "lot_number": "MCF4.10",
-        "services": [
-          "MCF4.10.2"
-        ]
-      }
-    ],
-    "rate_cards": [
-      {
-        "lot": "MCF4.3",
         "rate_type": "Advice",
-        "junior_rate_in_pence": 771,
-        "standard_rate_in_pence": 971,
-        "senior_rate_in_pence": 1171,
-        "principal_rate_in_pence": 1371,
-        "managing_rate_in_pence": 1571,
-        "director_rate_in_pence": 1771
+        "junior_rate_in_pence": 678,
+        "standard_rate_in_pence": 878,
+        "senior_rate_in_pence": 1078,
+        "principal_rate_in_pence": 1278,
+        "managing_rate_in_pence": 1478,
+        "director_rate_in_pence": 1678
       },
       {
-        "lot": "MCF4.3",
+        "lot": "MCF4.8",
         "rate_type": "Delivery",
-        "junior_rate_in_pence": 386,
-        "standard_rate_in_pence": 586,
-        "senior_rate_in_pence": 786,
-        "principal_rate_in_pence": 986,
-        "managing_rate_in_pence": 1186,
-        "director_rate_in_pence": 1386
+        "junior_rate_in_pence": 247,
+        "standard_rate_in_pence": 447,
+        "senior_rate_in_pence": 647,
+        "principal_rate_in_pence": 847,
+        "managing_rate_in_pence": 1047,
+        "director_rate_in_pence": 1247
       },
       {
-        "lot": "MCF4.9",
+        "lot": "MCF4.6",
         "rate_type": "Advice",
-        "junior_rate_in_pence": 471,
-        "standard_rate_in_pence": 671,
-        "senior_rate_in_pence": 871,
-        "principal_rate_in_pence": 1071,
-        "managing_rate_in_pence": 1271,
-        "director_rate_in_pence": 1471
-      },
-      {
-        "lot": "MCF4.9",
-        "rate_type": "Delivery",
-        "junior_rate_in_pence": 577,
-        "standard_rate_in_pence": 777,
-        "senior_rate_in_pence": 977,
-        "principal_rate_in_pence": 1177,
-        "managing_rate_in_pence": 1377,
-        "director_rate_in_pence": 1577
-      },
-      {
-        "lot": "MCF4.5",
-        "rate_type": "Advice",
-        "junior_rate_in_pence": 595,
-        "standard_rate_in_pence": 795,
-        "senior_rate_in_pence": 995,
-        "principal_rate_in_pence": 1195,
-        "managing_rate_in_pence": 1395,
-        "director_rate_in_pence": 1595
-      },
-      {
-        "lot": "MCF4.5",
-        "rate_type": "Delivery",
-        "junior_rate_in_pence": 522,
-        "standard_rate_in_pence": 722,
-        "senior_rate_in_pence": 922,
-        "principal_rate_in_pence": 1122,
-        "managing_rate_in_pence": 1322,
-        "director_rate_in_pence": 1522
-      },
-      {
-        "lot": "MCF4.4",
-        "rate_type": "Advice",
-        "junior_rate_in_pence": 758,
-        "standard_rate_in_pence": 958,
-        "senior_rate_in_pence": 1158,
-        "principal_rate_in_pence": 1358,
-        "managing_rate_in_pence": 1558,
-        "director_rate_in_pence": 1758
-      },
-      {
-        "lot": "MCF4.4",
-        "rate_type": "Delivery",
-        "junior_rate_in_pence": 354,
-        "standard_rate_in_pence": 554,
-        "senior_rate_in_pence": 754,
-        "principal_rate_in_pence": 954,
-        "managing_rate_in_pence": 1154,
-        "director_rate_in_pence": 1354
-      },
-      {
-        "lot": "MCF4.10",
-        "rate_type": "Complex",
         "junior_rate_in_pence": 643,
         "standard_rate_in_pence": 843,
         "senior_rate_in_pence": 1043,
@@ -1567,146 +1912,18 @@
         "director_rate_in_pence": 1643
       },
       {
-        "lot": "MCF4.10",
-        "rate_type": "Non-Complex",
-        "junior_rate_in_pence": 482,
-        "standard_rate_in_pence": 682,
-        "senior_rate_in_pence": 882,
-        "principal_rate_in_pence": 1082,
-        "managing_rate_in_pence": 1282,
-        "director_rate_in_pence": 1482
-      }
-    ],
-    "lot_contact_details": [
-      {
-        "lot": "MCF4.3",
-        "contact_name": "Douglas Fritsch",
-        "email": "fritsch.douglas@emmerich.example",
-        "telephone_number": "(370) 469-4212"
+        "lot": "MCF4.6",
+        "rate_type": "Delivery",
+        "junior_rate_in_pence": 279,
+        "standard_rate_in_pence": 479,
+        "senior_rate_in_pence": 679,
+        "principal_rate_in_pence": 879,
+        "managing_rate_in_pence": 1079,
+        "director_rate_in_pence": 1279
       },
       {
         "lot": "MCF4.9",
-        "contact_name": "Jacinto Goyette",
-        "email": "jacinto_goyette@skiles-boyer.test",
-        "telephone_number": "8903146473"
-      },
-      {
-        "lot": "MCF4.5",
-        "contact_name": "Donte Sporer",
-        "email": "donte.sporer@hilpert-corkery.test",
-        "telephone_number": "850.458.2959"
-      },
-      {
-        "lot": "MCF4.4",
-        "contact_name": "Micah Miller",
-        "email": "miller_micah@greenfelder.example",
-        "telephone_number": "859.639.0792"
-      }
-    ]
-  },
-  {
-    "id": "db4d23bf-1701-476e-86be-822199347e31",
-    "name": "KOVACEK, WIZA AND STROMAN",
-    "contact_email": "wiza.and.stroman.kovacek@brown-bosco.test",
-    "telephone_number": "527-774-2683",
-    "sme": false,
-    "address": "Suite 490 971 McDermott Prairie, Darrellmouth, NY 61018",
-    "website": "http://fahey.test/marcelo",
-    "duns": "380962198",
-    "lots": [
-      {
-        "lot_number": "MCF4.6",
-        "services": [
-          "MCF4.6.11",
-          "MCF4.6.5",
-          "MCF4.6.7",
-          "MCF4.6.6",
-          "MCF4.6.2",
-          "MCF4.6.4",
-          "MCF4.6.10"
-        ]
-      },
-      {
-        "lot_number": "MCF4.3",
-        "services": [
-          "MCF4.3.9",
-          "MCF4.3.2",
-          "MCF4.3.6",
-          "MCF4.3.11",
-          "MCF4.3.10",
-          "MCF4.3.13",
-          "MCF4.3.3",
-          "MCF4.3.4",
-          "MCF4.3.14",
-          "MCF4.3.12",
-          "MCF4.3.1",
-          "MCF4.3.8",
-          "MCF4.3.5",
-          "MCF4.3.7"
-        ]
-      },
-      {
-        "lot_number": "MCF4.9",
-        "services": [
-          "MCF4.9.3",
-          "MCF4.9.11",
-          "MCF4.9.13",
-          "MCF4.9.9",
-          "MCF4.9.8",
-          "MCF4.9.14",
-          "MCF4.9.17",
-          "MCF4.9.1",
-          "MCF4.9.5"
-        ]
-      },
-      {
-        "lot_number": "MCF4.1",
-        "services": [
-          "MCF4.1.12",
-          "MCF4.1.4",
-          "MCF4.1.6",
-          "MCF4.1.5",
-          "MCF4.1.7",
-          "MCF4.1.14",
-          "MCF4.1.8",
-          "MCF4.1.9"
-        ]
-      }
-    ],
-    "rate_cards": [
-      {
-        "lot": "MCF4.6",
         "rate_type": "Advice",
-        "junior_rate_in_pence": 883,
-        "standard_rate_in_pence": 1083,
-        "senior_rate_in_pence": 1283,
-        "principal_rate_in_pence": 1483,
-        "managing_rate_in_pence": 1683,
-        "director_rate_in_pence": 1883
-      },
-      {
-        "lot": "MCF4.6",
-        "rate_type": "Delivery",
-        "junior_rate_in_pence": 904,
-        "standard_rate_in_pence": 1104,
-        "senior_rate_in_pence": 1304,
-        "principal_rate_in_pence": 1504,
-        "managing_rate_in_pence": 1704,
-        "director_rate_in_pence": 1904
-      },
-      {
-        "lot": "MCF4.3",
-        "rate_type": "Advice",
-        "junior_rate_in_pence": 564,
-        "standard_rate_in_pence": 764,
-        "senior_rate_in_pence": 964,
-        "principal_rate_in_pence": 1164,
-        "managing_rate_in_pence": 1364,
-        "director_rate_in_pence": 1564
-      },
-      {
-        "lot": "MCF4.3",
-        "rate_type": "Delivery",
         "junior_rate_in_pence": 424,
         "standard_rate_in_pence": 624,
         "senior_rate_in_pence": 824,
@@ -1716,838 +1933,111 @@
       },
       {
         "lot": "MCF4.9",
-        "rate_type": "Advice",
-        "junior_rate_in_pence": 813,
-        "standard_rate_in_pence": 1013,
-        "senior_rate_in_pence": 1213,
-        "principal_rate_in_pence": 1413,
-        "managing_rate_in_pence": 1613,
-        "director_rate_in_pence": 1813
-      },
-      {
-        "lot": "MCF4.9",
         "rate_type": "Delivery",
-        "junior_rate_in_pence": 829,
-        "standard_rate_in_pence": 1029,
-        "senior_rate_in_pence": 1229,
-        "principal_rate_in_pence": 1429,
-        "managing_rate_in_pence": 1629,
-        "director_rate_in_pence": 1829
+        "junior_rate_in_pence": 720,
+        "standard_rate_in_pence": 920,
+        "senior_rate_in_pence": 1120,
+        "principal_rate_in_pence": 1320,
+        "managing_rate_in_pence": 1520,
+        "director_rate_in_pence": 1720
       },
       {
-        "lot": "MCF4.1",
+        "lot": "MCF4.5",
         "rate_type": "Advice",
-        "junior_rate_in_pence": 398,
-        "standard_rate_in_pence": 598,
-        "senior_rate_in_pence": 798,
-        "principal_rate_in_pence": 998,
-        "managing_rate_in_pence": 1198,
-        "director_rate_in_pence": 1398
+        "junior_rate_in_pence": 878,
+        "standard_rate_in_pence": 1078,
+        "senior_rate_in_pence": 1278,
+        "principal_rate_in_pence": 1478,
+        "managing_rate_in_pence": 1678,
+        "director_rate_in_pence": 1878
       },
       {
-        "lot": "MCF4.1",
+        "lot": "MCF4.5",
         "rate_type": "Delivery",
-        "junior_rate_in_pence": 893,
-        "standard_rate_in_pence": 1093,
-        "senior_rate_in_pence": 1293,
-        "principal_rate_in_pence": 1493,
-        "managing_rate_in_pence": 1693,
-        "director_rate_in_pence": 1893
-      }
-    ],
-    "lot_contact_details": [
-      {
-        "lot": "MCF4.6",
-        "contact_name": "Numbers Emmerich",
-        "email": "numbers_emmerich@friesen.example",
-        "telephone_number": "(180) 193-3286"
-      },
-      {
-        "lot": "MCF4.3",
-        "contact_name": "Bulah Kshlerin",
-        "email": "kshlerin_bulah@jast.example",
-        "telephone_number": "889.698.8139"
-      },
-      {
-        "lot": "MCF4.9",
-        "contact_name": "Tommy Okuneva",
-        "email": "tommy.okuneva@glover.example",
-        "telephone_number": "241-689-2572"
-      },
-      {
-        "lot": "MCF4.1",
-        "contact_name": "Sen. Abdul Runte",
-        "email": "runte_sen_abdul@haley-brekke.example",
-        "telephone_number": "520.741.1287"
+        "junior_rate_in_pence": 526,
+        "standard_rate_in_pence": 726,
+        "senior_rate_in_pence": 926,
+        "principal_rate_in_pence": 1126,
+        "managing_rate_in_pence": 1326,
+        "director_rate_in_pence": 1526
       }
     ]
   },
   {
-    "id": "93aafc4f-169d-480f-a496-03e97cb10709",
-    "name": "WELCH GROUP",
-    "contact_email": "welch.group@becker.example",
-    "telephone_number": "(825) 812-8692",
-    "sme": true,
-    "address": "95927 Hilpert Locks, West Romeostad, ND 51249-2298",
-    "website": "http://stanton.example/toby",
-    "duns": "147494689",
+    "id": "8671c1f4-202c-4385-bab3-f7da0f5e1916",
+    "name": "GUTMANN-PFEFFER",
+    "contact_name": "Amb. Setsuko Lind",
+    "contact_email": "pfeffer_gutmann@kilback-effertz.test",
+    "telephone_number": "(923) 899-9669",
+    "sme": false,
+    "address": "40470 Streich Groves, West Estefana, UT 57896-7173",
+    "website": "http://kassulke.test/alysha",
+    "duns": "334798706",
     "lots": [
-      {
-        "lot_number": "MCF4.6",
-        "services": [
-          "MCF4.6.2",
-          "MCF4.6.9",
-          "MCF4.6.11",
-          "MCF4.6.4",
-          "MCF4.6.7",
-          "MCF4.6.8",
-          "MCF4.6.6",
-          "MCF4.6.5",
-          "MCF4.6.1",
-          "MCF4.6.3"
-        ]
-      },
       {
         "lot_number": "MCF4.10",
         "services": [
+          "MCF4.10.14",
+          "MCF4.10.25",
+          "MCF4.10.9",
+          "MCF4.10.20",
+          "MCF4.10.28",
+          "MCF4.10.29",
           "MCF4.10.2",
           "MCF4.10.1",
-          "MCF4.10.3"
-        ]
-      },
-      {
-        "lot_number": "MCF4.4",
-        "services": [
-          "MCF4.4.16",
-          "MCF4.4.10",
-          "MCF4.4.6",
-          "MCF4.4.13",
-          "MCF4.4.17",
-          "MCF4.4.1",
-          "MCF4.4.3",
-          "MCF4.4.11",
-          "MCF4.4.18",
-          "MCF4.4.4",
-          "MCF4.4.9",
-          "MCF4.4.7",
-          "MCF4.4.8",
-          "MCF4.4.2",
-          "MCF4.4.5",
-          "MCF4.4.15"
-        ]
-      },
-      {
-        "lot_number": "MCF4.2",
-        "services": [
-          "MCF4.2.7",
-          "MCF4.2.11",
-          "MCF4.2.8",
-          "MCF4.2.3",
-          "MCF4.2.2",
-          "MCF4.2.5",
-          "MCF4.2.12",
-          "MCF4.2.9"
-        ]
-      }
-    ],
-    "rate_cards": [
-      {
-        "lot": "MCF4.6",
-        "rate_type": "Advice",
-        "junior_rate_in_pence": 312,
-        "standard_rate_in_pence": 512,
-        "senior_rate_in_pence": 712,
-        "principal_rate_in_pence": 912,
-        "managing_rate_in_pence": 1112,
-        "director_rate_in_pence": 1312
-      },
-      {
-        "lot": "MCF4.6",
-        "rate_type": "Delivery",
-        "junior_rate_in_pence": 776,
-        "standard_rate_in_pence": 976,
-        "senior_rate_in_pence": 1176,
-        "principal_rate_in_pence": 1376,
-        "managing_rate_in_pence": 1576,
-        "director_rate_in_pence": 1776
-      },
-      {
-        "lot": "MCF4.10",
-        "rate_type": "Complex",
-        "junior_rate_in_pence": 261,
-        "standard_rate_in_pence": 461,
-        "senior_rate_in_pence": 661,
-        "principal_rate_in_pence": 861,
-        "managing_rate_in_pence": 1061,
-        "director_rate_in_pence": 1261
-      },
-      {
-        "lot": "MCF4.10",
-        "rate_type": "Non-Complex",
-        "junior_rate_in_pence": 419,
-        "standard_rate_in_pence": 619,
-        "senior_rate_in_pence": 819,
-        "principal_rate_in_pence": 1019,
-        "managing_rate_in_pence": 1219,
-        "director_rate_in_pence": 1419
-      },
-      {
-        "lot": "MCF4.4",
-        "rate_type": "Advice",
-        "junior_rate_in_pence": 586,
-        "standard_rate_in_pence": 786,
-        "senior_rate_in_pence": 986,
-        "principal_rate_in_pence": 1186,
-        "managing_rate_in_pence": 1386,
-        "director_rate_in_pence": 1586
-      },
-      {
-        "lot": "MCF4.4",
-        "rate_type": "Delivery",
-        "junior_rate_in_pence": 581,
-        "standard_rate_in_pence": 781,
-        "senior_rate_in_pence": 981,
-        "principal_rate_in_pence": 1181,
-        "managing_rate_in_pence": 1381,
-        "director_rate_in_pence": 1581
-      },
-      {
-        "lot": "MCF4.2",
-        "rate_type": "Advice",
-        "junior_rate_in_pence": 846,
-        "standard_rate_in_pence": 1046,
-        "senior_rate_in_pence": 1246,
-        "principal_rate_in_pence": 1446,
-        "managing_rate_in_pence": 1646,
-        "director_rate_in_pence": 1846
-      },
-      {
-        "lot": "MCF4.2",
-        "rate_type": "Delivery",
-        "junior_rate_in_pence": 749,
-        "standard_rate_in_pence": 949,
-        "senior_rate_in_pence": 1149,
-        "principal_rate_in_pence": 1349,
-        "managing_rate_in_pence": 1549,
-        "director_rate_in_pence": 1749
-      }
-    ],
-    "lot_contact_details": [
-      {
-        "lot": "MCF4.6",
-        "contact_name": "Jerome Stokes",
-        "email": "jerome_stokes@white.example",
-        "telephone_number": "3447540822"
-      },
-      {
-        "lot": "MCF4.10",
-        "contact_name": "Cecille Collier",
-        "email": "cecille_collier@kuhlman.test",
-        "telephone_number": "822.631.8293"
-      },
-      {
-        "lot": "MCF4.4",
-        "contact_name": "Amb. Shayne Baumbach",
-        "email": "shayne_amb_baumbach@flatley.test",
-        "telephone_number": "298-820-0421"
-      },
-      {
-        "lot": "MCF4.2",
-        "contact_name": "Marla Koelpin Sr.",
-        "email": "sr_koelpin_marla@mosciski.test",
-        "telephone_number": "627.802.9798"
-      }
-    ]
-  },
-  {
-    "id": "afc0b03b-b0b3-4fd0-abf8-90fb3f6e5bdc",
-    "name": "HAMILL, UPTON AND BEER",
-    "contact_email": "hamill.and.beer.upton@schowalter.example",
-    "telephone_number": "407-623-3259",
-    "sme": false,
-    "address": "Suite 494 8395 Cherie Fall, Bulamouth, AL 64927",
-    "website": "http://zulauf.test/palma_kertzmann",
-    "duns": "703628531",
-    "lots": [
-      {
-        "lot_number": "MCF4.7",
-        "services": [
-          "MCF4.7.1",
-          "MCF4.7.7",
-          "MCF4.7.17",
-          "MCF4.7.18",
-          "MCF4.7.9",
-          "MCF4.7.15",
-          "MCF4.7.10",
-          "MCF4.7.12",
-          "MCF4.7.16",
-          "MCF4.7.20",
-          "MCF4.7.8",
-          "MCF4.7.19",
-          "MCF4.7.14",
-          "MCF4.7.3",
-          "MCF4.7.13",
-          "MCF4.7.5",
-          "MCF4.7.11",
-          "MCF4.7.6"
-        ]
-      },
-      {
-        "lot_number": "MCF4.5",
-        "services": [
-          "MCF4.5.2",
-          "MCF4.5.3",
-          "MCF4.5.7",
-          "MCF4.5.9",
-          "MCF4.5.8",
-          "MCF4.5.5"
-        ]
-      },
-      {
-        "lot_number": "MCF4.8",
-        "services": [
-          "MCF4.8.1",
-          "MCF4.8.3",
-          "MCF4.8.8",
-          "MCF4.8.12",
-          "MCF4.8.2",
-          "MCF4.8.7",
-          "MCF4.8.5",
-          "MCF4.8.10",
-          "MCF4.8.9"
-        ]
-      },
-      {
-        "lot_number": "MCF4.10",
-        "services": [
-          "MCF4.10.3",
-          "MCF4.10.2",
-          "MCF4.10.1"
-        ]
-      }
-    ],
-    "rate_cards": [
-      {
-        "lot": "MCF4.7",
-        "rate_type": "Advice",
-        "junior_rate_in_pence": 931,
-        "standard_rate_in_pence": 1131,
-        "senior_rate_in_pence": 1331,
-        "principal_rate_in_pence": 1531,
-        "managing_rate_in_pence": 1731,
-        "director_rate_in_pence": 1931
-      },
-      {
-        "lot": "MCF4.7",
-        "rate_type": "Delivery",
-        "junior_rate_in_pence": 330,
-        "standard_rate_in_pence": 530,
-        "senior_rate_in_pence": 730,
-        "principal_rate_in_pence": 930,
-        "managing_rate_in_pence": 1130,
-        "director_rate_in_pence": 1330
-      },
-      {
-        "lot": "MCF4.5",
-        "rate_type": "Advice",
-        "junior_rate_in_pence": 641,
-        "standard_rate_in_pence": 841,
-        "senior_rate_in_pence": 1041,
-        "principal_rate_in_pence": 1241,
-        "managing_rate_in_pence": 1441,
-        "director_rate_in_pence": 1641
-      },
-      {
-        "lot": "MCF4.5",
-        "rate_type": "Delivery",
-        "junior_rate_in_pence": 402,
-        "standard_rate_in_pence": 602,
-        "senior_rate_in_pence": 802,
-        "principal_rate_in_pence": 1002,
-        "managing_rate_in_pence": 1202,
-        "director_rate_in_pence": 1402
-      },
-      {
-        "lot": "MCF4.8",
-        "rate_type": "Advice",
-        "junior_rate_in_pence": 308,
-        "standard_rate_in_pence": 508,
-        "senior_rate_in_pence": 708,
-        "principal_rate_in_pence": 908,
-        "managing_rate_in_pence": 1108,
-        "director_rate_in_pence": 1308
-      },
-      {
-        "lot": "MCF4.8",
-        "rate_type": "Delivery",
-        "junior_rate_in_pence": 823,
-        "standard_rate_in_pence": 1023,
-        "senior_rate_in_pence": 1223,
-        "principal_rate_in_pence": 1423,
-        "managing_rate_in_pence": 1623,
-        "director_rate_in_pence": 1823
-      },
-      {
-        "lot": "MCF4.10",
-        "rate_type": "Complex",
-        "junior_rate_in_pence": 831,
-        "standard_rate_in_pence": 1031,
-        "senior_rate_in_pence": 1231,
-        "principal_rate_in_pence": 1431,
-        "managing_rate_in_pence": 1631,
-        "director_rate_in_pence": 1831
-      },
-      {
-        "lot": "MCF4.10",
-        "rate_type": "Non-Complex",
-        "junior_rate_in_pence": 736,
-        "standard_rate_in_pence": 936,
-        "senior_rate_in_pence": 1136,
-        "principal_rate_in_pence": 1336,
-        "managing_rate_in_pence": 1536,
-        "director_rate_in_pence": 1736
-      }
-    ],
-    "lot_contact_details": [
-      {
-        "lot": "MCF4.7",
-        "contact_name": "Deandrea Price",
-        "email": "deandrea_price@gerhold.example",
-        "telephone_number": "950.137.4038"
-      },
-      {
-        "lot": "MCF4.5",
-        "contact_name": "Brenton Balistreri",
-        "email": "balistreri.brenton@stiedemann.test",
-        "telephone_number": "9286066724"
-      },
-      {
-        "lot": "MCF4.8",
-        "contact_name": "Berry Hessel LLD",
-        "email": "lld.hessel.berry@bernier-rodriguez.test",
-        "telephone_number": "778-006-8915"
-      },
-      {
-        "lot": "MCF4.10",
-        "contact_name": "Brook Bode",
-        "email": "brook_bode@hayes.example",
-        "telephone_number": "(375) 674 9029"
-      }
-    ]
-  },
-  {
-    "id": "4e4c68e6-ccf8-4b26-a2ac-ba7c693dee7d",
-    "name": "SCHROEDER-STIEDEMANN",
-    "contact_email": "stiedemann.schroeder@walter-mckenzie.test",
-    "telephone_number": "(870) 077-2723",
-    "sme": false,
-    "address": "Suite 452 814 Prudence Flats, Olsontown, UT 40133",
-    "website": "http://hamill-sanford.example/claud",
-    "duns": "783712267",
-    "lots": [
-      {
-        "lot_number": "MCF4.2",
-        "services": [
-          "MCF4.2.3",
-          "MCF4.2.11",
-          "MCF4.2.6",
-          "MCF4.2.5",
-          "MCF4.2.12",
-          "MCF4.2.4",
-          "MCF4.2.10",
-          "MCF4.2.1"
-        ]
-      },
-      {
-        "lot_number": "MCF4.8",
-        "services": [
-          "MCF4.8.2",
-          "MCF4.8.13",
-          "MCF4.8.1",
-          "MCF4.8.9",
-          "MCF4.8.6",
-          "MCF4.8.12",
-          "MCF4.8.3",
-          "MCF4.8.5",
-          "MCF4.8.8",
-          "MCF4.8.7"
-        ]
-      },
-      {
-        "lot_number": "MCF4.5",
-        "services": [
-          "MCF4.5.7",
-          "MCF4.5.9",
-          "MCF4.5.2",
-          "MCF4.5.3",
-          "MCF4.5.5",
-          "MCF4.5.8",
-          "MCF4.5.6",
-          "MCF4.5.4",
-          "MCF4.5.1"
-        ]
-      },
-      {
-        "lot_number": "MCF4.7",
-        "services": [
-          "MCF4.7.14",
-          "MCF4.7.7",
-          "MCF4.7.12",
-          "MCF4.7.6",
-          "MCF4.7.8",
-          "MCF4.7.4",
-          "MCF4.7.13",
-          "MCF4.7.19",
-          "MCF4.7.16",
-          "MCF4.7.2"
-        ]
-      }
-    ],
-    "rate_cards": [
-      {
-        "lot": "MCF4.2",
-        "rate_type": "Advice",
-        "junior_rate_in_pence": 939,
-        "standard_rate_in_pence": 1139,
-        "senior_rate_in_pence": 1339,
-        "principal_rate_in_pence": 1539,
-        "managing_rate_in_pence": 1739,
-        "director_rate_in_pence": 1939
-      },
-      {
-        "lot": "MCF4.2",
-        "rate_type": "Delivery",
-        "junior_rate_in_pence": 749,
-        "standard_rate_in_pence": 949,
-        "senior_rate_in_pence": 1149,
-        "principal_rate_in_pence": 1349,
-        "managing_rate_in_pence": 1549,
-        "director_rate_in_pence": 1749
-      },
-      {
-        "lot": "MCF4.8",
-        "rate_type": "Advice",
-        "junior_rate_in_pence": 887,
-        "standard_rate_in_pence": 1087,
-        "senior_rate_in_pence": 1287,
-        "principal_rate_in_pence": 1487,
-        "managing_rate_in_pence": 1687,
-        "director_rate_in_pence": 1887
-      },
-      {
-        "lot": "MCF4.8",
-        "rate_type": "Delivery",
-        "junior_rate_in_pence": 572,
-        "standard_rate_in_pence": 772,
-        "senior_rate_in_pence": 972,
-        "principal_rate_in_pence": 1172,
-        "managing_rate_in_pence": 1372,
-        "director_rate_in_pence": 1572
-      },
-      {
-        "lot": "MCF4.5",
-        "rate_type": "Advice",
-        "junior_rate_in_pence": 704,
-        "standard_rate_in_pence": 904,
-        "senior_rate_in_pence": 1104,
-        "principal_rate_in_pence": 1304,
-        "managing_rate_in_pence": 1504,
-        "director_rate_in_pence": 1704
-      },
-      {
-        "lot": "MCF4.5",
-        "rate_type": "Delivery",
-        "junior_rate_in_pence": 252,
-        "standard_rate_in_pence": 452,
-        "senior_rate_in_pence": 652,
-        "principal_rate_in_pence": 852,
-        "managing_rate_in_pence": 1052,
-        "director_rate_in_pence": 1252
-      },
-      {
-        "lot": "MCF4.7",
-        "rate_type": "Advice",
-        "junior_rate_in_pence": 770,
-        "standard_rate_in_pence": 970,
-        "senior_rate_in_pence": 1170,
-        "principal_rate_in_pence": 1370,
-        "managing_rate_in_pence": 1570,
-        "director_rate_in_pence": 1770
-      },
-      {
-        "lot": "MCF4.7",
-        "rate_type": "Delivery",
-        "junior_rate_in_pence": 261,
-        "standard_rate_in_pence": 461,
-        "senior_rate_in_pence": 661,
-        "principal_rate_in_pence": 861,
-        "managing_rate_in_pence": 1061,
-        "director_rate_in_pence": 1261
-      }
-    ],
-    "lot_contact_details": [
-      {
-        "lot": "MCF4.2",
-        "contact_name": "Mr. Malissa Hayes",
-        "email": "hayes_malissa_mr@ledner.test",
-        "telephone_number": "533.477.9433"
-      },
-      {
-        "lot": "MCF4.8",
-        "contact_name": "Denna Murphy",
-        "email": "murphy_denna@haag.example",
-        "telephone_number": "(827) 728 9966"
-      },
-      {
-        "lot": "MCF4.5",
-        "contact_name": "Francie Ferry VM",
-        "email": "ferry_francie_vm@oconnell.test",
-        "telephone_number": "438 297 2816"
-      },
-      {
-        "lot": "MCF4.7",
-        "contact_name": "Dallas Olson",
-        "email": "dallas.olson@ward.example",
-        "telephone_number": "826.010.5275"
-      }
-    ]
-  },
-  {
-    "id": "2dce056b-7bc1-4821-a371-f61547e29dd4",
-    "name": "PACOCHA-CORWIN",
-    "contact_email": "pacocha.corwin@russel-casper.test",
-    "telephone_number": "116-280-3328",
-    "sme": true,
-    "address": "Apt. 730 9334 Wisoky Tunnel, East Brentonmouth, ME 30916",
-    "website": "http://ward.example/ahmad_funk",
-    "duns": "804698457",
-    "lots": [
-      {
-        "lot_number": "MCF4.3",
-        "services": [
-          "MCF4.3.12",
-          "MCF4.3.3",
-          "MCF4.3.1",
-          "MCF4.3.6",
-          "MCF4.3.9",
-          "MCF4.3.7",
-          "MCF4.3.13",
-          "MCF4.3.11",
-          "MCF4.3.14",
-          "MCF4.3.10",
-          "MCF4.3.4"
-        ]
-      },
-      {
-        "lot_number": "MCF4.5",
-        "services": [
-          "MCF4.5.1",
-          "MCF4.5.4",
-          "MCF4.5.6",
-          "MCF4.5.5"
-        ]
-      },
-      {
-        "lot_number": "MCF4.7",
-        "services": [
-          "MCF4.7.15",
-          "MCF4.7.1",
-          "MCF4.7.2",
-          "MCF4.7.16",
-          "MCF4.7.14",
-          "MCF4.7.19",
-          "MCF4.7.3",
-          "MCF4.7.4",
-          "MCF4.7.7",
-          "MCF4.7.11",
-          "MCF4.7.13",
-          "MCF4.7.17",
-          "MCF4.7.18",
-          "MCF4.7.12",
-          "MCF4.7.5",
-          "MCF4.7.10"
+          "MCF4.10.23",
+          "MCF4.10.22",
+          "MCF4.10.16",
+          "MCF4.10.13",
+          "MCF4.10.8",
+          "MCF4.10.11",
+          "MCF4.10.26",
+          "MCF4.10.27",
+          "MCF4.10.15",
+          "MCF4.10.24",
+          "MCF4.10.7",
+          "MCF4.10.17"
         ]
       },
       {
         "lot_number": "MCF4.1",
         "services": [
-          "MCF4.1.8",
-          "MCF4.1.10",
-          "MCF4.1.9",
-          "MCF4.1.7",
-          "MCF4.1.3",
+          "MCF4.1.4",
           "MCF4.1.11",
+          "MCF4.1.14",
           "MCF4.1.2",
           "MCF4.1.1",
-          "MCF4.1.14"
-        ]
-      }
-    ],
-    "rate_cards": [
-      {
-        "lot": "MCF4.3",
-        "rate_type": "Advice",
-        "junior_rate_in_pence": 703,
-        "standard_rate_in_pence": 903,
-        "senior_rate_in_pence": 1103,
-        "principal_rate_in_pence": 1303,
-        "managing_rate_in_pence": 1503,
-        "director_rate_in_pence": 1703
-      },
-      {
-        "lot": "MCF4.3",
-        "rate_type": "Delivery",
-        "junior_rate_in_pence": 508,
-        "standard_rate_in_pence": 708,
-        "senior_rate_in_pence": 908,
-        "principal_rate_in_pence": 1108,
-        "managing_rate_in_pence": 1308,
-        "director_rate_in_pence": 1508
-      },
-      {
-        "lot": "MCF4.5",
-        "rate_type": "Advice",
-        "junior_rate_in_pence": 759,
-        "standard_rate_in_pence": 959,
-        "senior_rate_in_pence": 1159,
-        "principal_rate_in_pence": 1359,
-        "managing_rate_in_pence": 1559,
-        "director_rate_in_pence": 1759
-      },
-      {
-        "lot": "MCF4.5",
-        "rate_type": "Delivery",
-        "junior_rate_in_pence": 921,
-        "standard_rate_in_pence": 1121,
-        "senior_rate_in_pence": 1321,
-        "principal_rate_in_pence": 1521,
-        "managing_rate_in_pence": 1721,
-        "director_rate_in_pence": 1921
-      },
-      {
-        "lot": "MCF4.7",
-        "rate_type": "Advice",
-        "junior_rate_in_pence": 799,
-        "standard_rate_in_pence": 999,
-        "senior_rate_in_pence": 1199,
-        "principal_rate_in_pence": 1399,
-        "managing_rate_in_pence": 1599,
-        "director_rate_in_pence": 1799
-      },
-      {
-        "lot": "MCF4.7",
-        "rate_type": "Delivery",
-        "junior_rate_in_pence": 918,
-        "standard_rate_in_pence": 1118,
-        "senior_rate_in_pence": 1318,
-        "principal_rate_in_pence": 1518,
-        "managing_rate_in_pence": 1718,
-        "director_rate_in_pence": 1918
-      },
-      {
-        "lot": "MCF4.1",
-        "rate_type": "Advice",
-        "junior_rate_in_pence": 828,
-        "standard_rate_in_pence": 1028,
-        "senior_rate_in_pence": 1228,
-        "principal_rate_in_pence": 1428,
-        "managing_rate_in_pence": 1628,
-        "director_rate_in_pence": 1828
-      },
-      {
-        "lot": "MCF4.1",
-        "rate_type": "Delivery",
-        "junior_rate_in_pence": 910,
-        "standard_rate_in_pence": 1110,
-        "senior_rate_in_pence": 1310,
-        "principal_rate_in_pence": 1510,
-        "managing_rate_in_pence": 1710,
-        "director_rate_in_pence": 1910
-      }
-    ],
-    "lot_contact_details": [
-      {
-        "lot": "MCF4.3",
-        "contact_name": "Astrid Hahn",
-        "email": "hahn.astrid@bednar.example",
-        "telephone_number": "(201) 088 6114"
-      },
-      {
-        "lot": "MCF4.5",
-        "contact_name": "Wilda Hessel DO",
-        "email": "do_hessel_wilda@oconner-gottlieb.test",
-        "telephone_number": "267-624-2348"
-      },
-      {
-        "lot": "MCF4.7",
-        "contact_name": "Rep. Kathlyn Mann",
-        "email": "mann.kathlyn.rep@mcclure-vonrueden.test",
-        "telephone_number": "247.338.1728"
-      },
-      {
-        "lot": "MCF4.1",
-        "contact_name": "Rocky Hessel",
-        "email": "rocky_hessel@breitenberg-jakubowski.test",
-        "telephone_number": "5026315998"
-      }
-    ]
-  },
-  {
-    "id": "6b2db28b-a540-4d32-8984-99443ed6dee0",
-    "name": "JERDE, MOHR AND POLLICH",
-    "contact_email": "jerde_mohr_and_pollich@rosenbaum.example",
-    "telephone_number": "386-051-2664",
-    "sme": false,
-    "address": "11617 Desirae Turnpike, D'Amoremouth, KS 77680-8465",
-    "website": "http://lemke.example/alfredo",
-    "duns": "477502839",
-    "lots": [
-      {
-        "lot_number": "MCF4.10",
-        "services": [
-          "MCF4.10.1",
-          "MCF4.10.2",
-          "MCF4.10.3"
+          "MCF4.1.12",
+          "MCF4.1.3",
+          "MCF4.1.6",
+          "MCF4.1.5",
+          "MCF4.1.9",
+          "MCF4.1.8"
         ]
       },
       {
-        "lot_number": "MCF4.8",
+        "lot_number": "MCF4.5",
         "services": [
-          "MCF4.8.9",
-          "MCF4.8.8",
-          "MCF4.8.2",
-          "MCF4.8.11",
-          "MCF4.8.10",
-          "MCF4.8.7",
-          "MCF4.8.6",
-          "MCF4.8.13",
-          "MCF4.8.3",
-          "MCF4.8.4"
+          "MCF4.5.3",
+          "MCF4.5.6",
+          "MCF4.5.9",
+          "MCF4.5.8",
+          "MCF4.5.7"
         ]
       },
       {
-        "lot_number": "MCF4.3",
+        "lot_number": "MCF4.9",
         "services": [
-          "MCF4.3.9",
-          "MCF4.3.1",
-          "MCF4.3.11",
-          "MCF4.3.2",
-          "MCF4.3.10",
-          "MCF4.3.6",
-          "MCF4.3.8"
-        ]
-      },
-      {
-        "lot_number": "MCF4.2",
-        "services": [
-          "MCF4.2.6",
-          "MCF4.2.11",
-          "MCF4.2.2",
-          "MCF4.2.12",
-          "MCF4.2.9",
-          "MCF4.2.5",
-          "MCF4.2.7",
-          "MCF4.2.8"
+          "MCF4.9.12",
+          "MCF4.9.18",
+          "MCF4.9.11",
+          "MCF4.9.9",
+          "MCF4.9.8",
+          "MCF4.9.10",
+          "MCF4.9.7",
+          "MCF4.9.5",
+          "MCF4.9.14",
+          "MCF4.9.3"
         ]
       }
     ],
@@ -2555,108 +2045,393 @@
       {
         "lot": "MCF4.10",
         "rate_type": "Complex",
-        "junior_rate_in_pence": 346,
-        "standard_rate_in_pence": 546,
-        "senior_rate_in_pence": 746,
-        "principal_rate_in_pence": 946,
-        "managing_rate_in_pence": 1146,
-        "director_rate_in_pence": 1346
+        "junior_rate_in_pence": 748,
+        "standard_rate_in_pence": 948,
+        "senior_rate_in_pence": 1148,
+        "principal_rate_in_pence": 1348,
+        "managing_rate_in_pence": 1548,
+        "director_rate_in_pence": 1748
       },
       {
         "lot": "MCF4.10",
         "rate_type": "Non-Complex",
-        "junior_rate_in_pence": 876,
-        "standard_rate_in_pence": 1076,
-        "senior_rate_in_pence": 1276,
-        "principal_rate_in_pence": 1476,
-        "managing_rate_in_pence": 1676,
-        "director_rate_in_pence": 1876
+        "junior_rate_in_pence": 522,
+        "standard_rate_in_pence": 722,
+        "senior_rate_in_pence": 922,
+        "principal_rate_in_pence": 1122,
+        "managing_rate_in_pence": 1322,
+        "director_rate_in_pence": 1522
       },
       {
-        "lot": "MCF4.8",
+        "lot": "MCF4.1",
         "rate_type": "Advice",
-        "junior_rate_in_pence": 757,
-        "standard_rate_in_pence": 957,
-        "senior_rate_in_pence": 1157,
-        "principal_rate_in_pence": 1357,
-        "managing_rate_in_pence": 1557,
-        "director_rate_in_pence": 1757
+        "junior_rate_in_pence": 845,
+        "standard_rate_in_pence": 1045,
+        "senior_rate_in_pence": 1245,
+        "principal_rate_in_pence": 1445,
+        "managing_rate_in_pence": 1645,
+        "director_rate_in_pence": 1845
       },
       {
-        "lot": "MCF4.8",
+        "lot": "MCF4.1",
         "rate_type": "Delivery",
-        "junior_rate_in_pence": 689,
-        "standard_rate_in_pence": 889,
-        "senior_rate_in_pence": 1089,
-        "principal_rate_in_pence": 1289,
-        "managing_rate_in_pence": 1489,
-        "director_rate_in_pence": 1689
+        "junior_rate_in_pence": 513,
+        "standard_rate_in_pence": 713,
+        "senior_rate_in_pence": 913,
+        "principal_rate_in_pence": 1113,
+        "managing_rate_in_pence": 1313,
+        "director_rate_in_pence": 1513
       },
       {
-        "lot": "MCF4.3",
+        "lot": "MCF4.5",
         "rate_type": "Advice",
-        "junior_rate_in_pence": 906,
-        "standard_rate_in_pence": 1106,
-        "senior_rate_in_pence": 1306,
-        "principal_rate_in_pence": 1506,
-        "managing_rate_in_pence": 1706,
-        "director_rate_in_pence": 1906
+        "junior_rate_in_pence": 477,
+        "standard_rate_in_pence": 677,
+        "senior_rate_in_pence": 877,
+        "principal_rate_in_pence": 1077,
+        "managing_rate_in_pence": 1277,
+        "director_rate_in_pence": 1477
       },
       {
-        "lot": "MCF4.3",
+        "lot": "MCF4.5",
         "rate_type": "Delivery",
-        "junior_rate_in_pence": 216,
-        "standard_rate_in_pence": 416,
-        "senior_rate_in_pence": 616,
-        "principal_rate_in_pence": 816,
-        "managing_rate_in_pence": 1016,
-        "director_rate_in_pence": 1216
+        "junior_rate_in_pence": 236,
+        "standard_rate_in_pence": 436,
+        "senior_rate_in_pence": 636,
+        "principal_rate_in_pence": 836,
+        "managing_rate_in_pence": 1036,
+        "director_rate_in_pence": 1236
       },
       {
-        "lot": "MCF4.2",
+        "lot": "MCF4.9",
         "rate_type": "Advice",
-        "junior_rate_in_pence": 220,
-        "standard_rate_in_pence": 420,
-        "senior_rate_in_pence": 620,
-        "principal_rate_in_pence": 820,
-        "managing_rate_in_pence": 1020,
-        "director_rate_in_pence": 1220
+        "junior_rate_in_pence": 563,
+        "standard_rate_in_pence": 763,
+        "senior_rate_in_pence": 963,
+        "principal_rate_in_pence": 1163,
+        "managing_rate_in_pence": 1363,
+        "director_rate_in_pence": 1563
       },
       {
-        "lot": "MCF4.2",
+        "lot": "MCF4.9",
         "rate_type": "Delivery",
-        "junior_rate_in_pence": 606,
-        "standard_rate_in_pence": 806,
-        "senior_rate_in_pence": 1006,
-        "principal_rate_in_pence": 1206,
-        "managing_rate_in_pence": 1406,
-        "director_rate_in_pence": 1606
+        "junior_rate_in_pence": 743,
+        "standard_rate_in_pence": 943,
+        "senior_rate_in_pence": 1143,
+        "principal_rate_in_pence": 1343,
+        "managing_rate_in_pence": 1543,
+        "director_rate_in_pence": 1743
+      }
+    ]
+  },
+  {
+    "id": "b646c155-582d-474d-8bed-f333579fd085",
+    "name": "NIENOW-KERTZMANN",
+    "contact_name": "Abel Macejkovic",
+    "contact_email": "nienow.kertzmann@adams.test",
+    "telephone_number": "7845039324",
+    "sme": false,
+    "address": "36004 Hudson Avenue, South Rolfchester, NC 33009",
+    "website": "http://crooks.example/jacques",
+    "duns": "647019872",
+    "lots": [
+      {
+        "lot_number": "MCF4.1",
+        "services": [
+          "MCF4.1.1",
+          "MCF4.1.7",
+          "MCF4.1.9",
+          "MCF4.1.2",
+          "MCF4.1.14",
+          "MCF4.1.11",
+          "MCF4.1.8",
+          "MCF4.1.5",
+          "MCF4.1.6",
+          "MCF4.1.4",
+          "MCF4.1.3",
+          "MCF4.1.10"
+        ]
+      },
+      {
+        "lot_number": "MCF4.7",
+        "services": [
+          "MCF4.7.16",
+          "MCF4.7.18",
+          "MCF4.7.12",
+          "MCF4.7.10",
+          "MCF4.7.15",
+          "MCF4.7.20",
+          "MCF4.7.8",
+          "MCF4.7.6",
+          "MCF4.7.4",
+          "MCF4.7.2",
+          "MCF4.7.3",
+          "MCF4.7.14"
+        ]
+      },
+      {
+        "lot_number": "MCF4.5",
+        "services": [
+          "MCF4.5.7",
+          "MCF4.5.1",
+          "MCF4.5.5",
+          "MCF4.5.3",
+          "MCF4.5.6",
+          "MCF4.5.9",
+          "MCF4.5.2",
+          "MCF4.5.4",
+          "MCF4.5.8"
+        ]
+      },
+      {
+        "lot_number": "MCF4.9",
+        "services": [
+          "MCF4.9.15",
+          "MCF4.9.10",
+          "MCF4.9.3",
+          "MCF4.9.7",
+          "MCF4.9.14",
+          "MCF4.9.13",
+          "MCF4.9.1",
+          "MCF4.9.12",
+          "MCF4.9.9",
+          "MCF4.9.16"
+        ]
       }
     ],
-    "lot_contact_details": [
+    "rate_cards": [
       {
-        "lot": "MCF4.10",
-        "contact_name": "Susie Yundt",
-        "email": "yundt_susie@russel.example",
-        "telephone_number": "2172087541"
+        "lot": "MCF4.1",
+        "rate_type": "Advice",
+        "junior_rate_in_pence": 682,
+        "standard_rate_in_pence": 882,
+        "senior_rate_in_pence": 1082,
+        "principal_rate_in_pence": 1282,
+        "managing_rate_in_pence": 1482,
+        "director_rate_in_pence": 1682
       },
       {
-        "lot": "MCF4.8",
-        "contact_name": "Kristeen Runolfsdottir",
-        "email": "kristeen.runolfsdottir@heller.example",
-        "telephone_number": "6900128657"
+        "lot": "MCF4.1",
+        "rate_type": "Delivery",
+        "junior_rate_in_pence": 247,
+        "standard_rate_in_pence": 447,
+        "senior_rate_in_pence": 647,
+        "principal_rate_in_pence": 847,
+        "managing_rate_in_pence": 1047,
+        "director_rate_in_pence": 1247
+      },
+      {
+        "lot": "MCF4.7",
+        "rate_type": "Advice",
+        "junior_rate_in_pence": 214,
+        "standard_rate_in_pence": 414,
+        "senior_rate_in_pence": 614,
+        "principal_rate_in_pence": 814,
+        "managing_rate_in_pence": 1014,
+        "director_rate_in_pence": 1214
+      },
+      {
+        "lot": "MCF4.7",
+        "rate_type": "Delivery",
+        "junior_rate_in_pence": 376,
+        "standard_rate_in_pence": 576,
+        "senior_rate_in_pence": 776,
+        "principal_rate_in_pence": 976,
+        "managing_rate_in_pence": 1176,
+        "director_rate_in_pence": 1376
+      },
+      {
+        "lot": "MCF4.5",
+        "rate_type": "Advice",
+        "junior_rate_in_pence": 221,
+        "standard_rate_in_pence": 421,
+        "senior_rate_in_pence": 621,
+        "principal_rate_in_pence": 821,
+        "managing_rate_in_pence": 1021,
+        "director_rate_in_pence": 1221
+      },
+      {
+        "lot": "MCF4.5",
+        "rate_type": "Delivery",
+        "junior_rate_in_pence": 373,
+        "standard_rate_in_pence": 573,
+        "senior_rate_in_pence": 773,
+        "principal_rate_in_pence": 973,
+        "managing_rate_in_pence": 1173,
+        "director_rate_in_pence": 1373
+      },
+      {
+        "lot": "MCF4.9",
+        "rate_type": "Advice",
+        "junior_rate_in_pence": 962,
+        "standard_rate_in_pence": 1162,
+        "senior_rate_in_pence": 1362,
+        "principal_rate_in_pence": 1562,
+        "managing_rate_in_pence": 1762,
+        "director_rate_in_pence": 1962
+      },
+      {
+        "lot": "MCF4.9",
+        "rate_type": "Delivery",
+        "junior_rate_in_pence": 356,
+        "standard_rate_in_pence": 556,
+        "senior_rate_in_pence": 756,
+        "principal_rate_in_pence": 956,
+        "managing_rate_in_pence": 1156,
+        "director_rate_in_pence": 1356
+      }
+    ]
+  },
+  {
+    "id": "37741fe6-89ab-45ef-87a9-81e489ff95ad",
+    "name": "SCHINNER-LAKIN",
+    "contact_name": "Adell Howe VM",
+    "contact_email": "schinner_lakin@macgyver.example",
+    "telephone_number": "2800128168",
+    "sme": false,
+    "address": "8108 Kuhlman Harbors, Marlinstad, WA 43595",
+    "website": "http://schmeler.test/clay_gottlieb",
+    "duns": "755162053",
+    "lots": [
+      {
+        "lot_number": "MCF4.5",
+        "services": [
+          "MCF4.5.7",
+          "MCF4.5.1",
+          "MCF4.5.4",
+          "MCF4.5.6",
+          "MCF4.5.8",
+          "MCF4.5.2"
+        ]
+      },
+      {
+        "lot_number": "MCF4.1",
+        "services": [
+          "MCF4.1.9",
+          "MCF4.1.5",
+          "MCF4.1.6",
+          "MCF4.1.10",
+          "MCF4.1.11",
+          "MCF4.1.7",
+          "MCF4.1.13",
+          "MCF4.1.2",
+          "MCF4.1.3"
+        ]
+      },
+      {
+        "lot_number": "MCF4.9",
+        "services": [
+          "MCF4.9.11",
+          "MCF4.9.13",
+          "MCF4.9.2",
+          "MCF4.9.14",
+          "MCF4.9.9",
+          "MCF4.9.8",
+          "MCF4.9.7",
+          "MCF4.9.6",
+          "MCF4.9.3",
+          "MCF4.9.4",
+          "MCF4.9.5",
+          "MCF4.9.15",
+          "MCF4.9.10",
+          "MCF4.9.17"
+        ]
+      },
+      {
+        "lot_number": "MCF4.3",
+        "services": [
+          "MCF4.3.14",
+          "MCF4.3.5",
+          "MCF4.3.9",
+          "MCF4.3.4",
+          "MCF4.3.1",
+          "MCF4.3.6",
+          "MCF4.3.8",
+          "MCF4.3.11",
+          "MCF4.3.13"
+        ]
+      }
+    ],
+    "rate_cards": [
+      {
+        "lot": "MCF4.5",
+        "rate_type": "Advice",
+        "junior_rate_in_pence": 244,
+        "standard_rate_in_pence": 444,
+        "senior_rate_in_pence": 644,
+        "principal_rate_in_pence": 844,
+        "managing_rate_in_pence": 1044,
+        "director_rate_in_pence": 1244
+      },
+      {
+        "lot": "MCF4.5",
+        "rate_type": "Delivery",
+        "junior_rate_in_pence": 818,
+        "standard_rate_in_pence": 1018,
+        "senior_rate_in_pence": 1218,
+        "principal_rate_in_pence": 1418,
+        "managing_rate_in_pence": 1618,
+        "director_rate_in_pence": 1818
+      },
+      {
+        "lot": "MCF4.1",
+        "rate_type": "Advice",
+        "junior_rate_in_pence": 655,
+        "standard_rate_in_pence": 855,
+        "senior_rate_in_pence": 1055,
+        "principal_rate_in_pence": 1255,
+        "managing_rate_in_pence": 1455,
+        "director_rate_in_pence": 1655
+      },
+      {
+        "lot": "MCF4.1",
+        "rate_type": "Delivery",
+        "junior_rate_in_pence": 587,
+        "standard_rate_in_pence": 787,
+        "senior_rate_in_pence": 987,
+        "principal_rate_in_pence": 1187,
+        "managing_rate_in_pence": 1387,
+        "director_rate_in_pence": 1587
+      },
+      {
+        "lot": "MCF4.9",
+        "rate_type": "Advice",
+        "junior_rate_in_pence": 236,
+        "standard_rate_in_pence": 436,
+        "senior_rate_in_pence": 636,
+        "principal_rate_in_pence": 836,
+        "managing_rate_in_pence": 1036,
+        "director_rate_in_pence": 1236
+      },
+      {
+        "lot": "MCF4.9",
+        "rate_type": "Delivery",
+        "junior_rate_in_pence": 362,
+        "standard_rate_in_pence": 562,
+        "senior_rate_in_pence": 762,
+        "principal_rate_in_pence": 962,
+        "managing_rate_in_pence": 1162,
+        "director_rate_in_pence": 1362
       },
       {
         "lot": "MCF4.3",
-        "contact_name": "Aaron Abbott DC",
-        "email": "dc_abbott_aaron@block.example",
-        "telephone_number": "864.796.0724"
+        "rate_type": "Advice",
+        "junior_rate_in_pence": 565,
+        "standard_rate_in_pence": 765,
+        "senior_rate_in_pence": 965,
+        "principal_rate_in_pence": 1165,
+        "managing_rate_in_pence": 1365,
+        "director_rate_in_pence": 1565
       },
       {
-        "lot": "MCF4.2",
-        "contact_name": "Mrs. Leigh Kutch",
-        "email": "mrs_leigh_kutch@macgyver.test",
-        "telephone_number": "586-755-6651"
+        "lot": "MCF4.3",
+        "rate_type": "Delivery",
+        "junior_rate_in_pence": 858,
+        "standard_rate_in_pence": 1058,
+        "senior_rate_in_pence": 1258,
+        "principal_rate_in_pence": 1458,
+        "managing_rate_in_pence": 1658,
+        "director_rate_in_pence": 1858
       }
     ]
   }

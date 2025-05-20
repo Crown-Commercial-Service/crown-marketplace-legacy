@@ -1,4 +1,4 @@
-code,name,lot_number
+code,name,lot_number,group
 MCF4.1.1,Automation,MCF4.1
 MCF4.1.2,Business case development,MCF4.1
 MCF4.1.3,Business consultancy,MCF4.1
@@ -131,6 +131,32 @@ MCF4.9.15,Pollution control (including noise),MCF4.9
 MCF4.9.16,Regulatory compliance,MCF4.9
 MCF4.9.17,Sustainability,MCF4.9
 MCF4.9.18,Waste management,MCF4.9
-MCF4.10.1,Primary capabilities,MCF4.10
-MCF4.10.2,Additional capabilities,MCF4.10
-MCF4.10.3,Sector specialisms,MCF4.10
+MCF4.10.1,Accelerated Mergers and Acquisitions,MCF4.10,Primary capabilities
+MCF4.10.2,Business review,MCF4.10,Primary capabilities
+MCF4.10.3,Cash-flow review,MCF4.10,Primary capabilities
+MCF4.10.4,Distressed debt restructuring,MCF4.10,Primary capabilities
+MCF4.10.5,General restructuring advice,MCF4.10,Primary capabilities
+MCF4.10.6,Insolvency contingency planning,MCF4.10,Primary capabilities
+MCF4.10.7,Options analysis,MCF4.10,Primary capabilities
+MCF4.10.8,Capital markets advice,MCF4.10,Additional capabilities
+MCF4.10.9,Economic consulting (Market Economy Operator Principle - “MEOP”),MCF4.10,Additional capabilities
+MCF4.10.10,International insolvency advice,MCF4.10,Additional capabilities
+MCF4.10.11,Pensions advisory,MCF4.10,Additional capabilities
+MCF4.10.12,Restructuring tax advice,MCF4.10,Additional capabilities
+MCF4.10.13,Special administration regimes,MCF4.10,Additional capabilities
+MCF4.10.14,"Advanced manufacturing, which includes aerospace manufacturing, automotive manufacturing, computers and electrical equipment manufacturing, machinery and equipment manufacturing, shipbuilding, chemicals manufacturing, and space",MCF4.10,Sector specialisms
+MCF4.10.15,Aviation,MCF4.10,Sector specialisms
+MCF4.10.16,"Business services, which includes outsourcing, professional services, recruitment services and facilities management",MCF4.10,Sector specialisms
+MCF4.10.17,Construction,MCF4.10,Sector specialisms
+MCF4.10.18,"Consumer, which includes retail, consumer goods, tourism, hospitality and leisure",MCF4.10,Sector specialisms
+MCF4.10.19,Defence,MCF4.10,Sector specialisms
+MCF4.10.20,Education,MCF4.10,Sector specialisms
+MCF4.10.21,"Energy, which includes electricity, gas markets, civil nuclear, oil and gas and refined petroleum products manufacturing",MCF4.10,Sector specialisms
+MCF4.10.22,Financial services,MCF4.10,Sector specialisms
+MCF4.10.23,Health and social care,MCF4.10,Sector specialisms
+MCF4.10.24,"Heavy industry, which includes agri-tech, cement manufacturing, construction material, ceramics, plastics manufacturing, rail manufacturing, paper manufacturing, mining, steel manufacturing, fabricated metal products manufacturing and other energy intensive industries",MCF4.10,Sector specialisms
+MCF4.10.25,Local authorities,MCF4.10,Sector specialisms
+MCF4.10.26,Sports and leisure,MCF4.10,Sector specialisms
+MCF4.10.27,"Technology, media and telecoms",MCF4.10,Sector specialisms
+MCF4.10.28,"Transport (excluding aviation) which includes maritime and ports, road haulage and logistics, rail, warehousing and storage, and postal and courier services",MCF4.10,Sector specialisms
+MCF4.10.29,Utilities,MCF4.10,Sector specialisms

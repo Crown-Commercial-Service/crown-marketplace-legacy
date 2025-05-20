@@ -22,7 +22,7 @@ class ManagementConsultancy::RM6309::Admin::FilesChecker
     check_sheets(suppliers_workbook, supplier_details_sheets, 'supplier_details') do |sheets_with_errors, empty_sheets, index|
       framework = "MCF#{index_to_framework[index]}"
 
-      if suppliers_workbook.sheet(index).row(1) != ['Supplier name', 'Email address', 'Phone number', 'Website URL', 'Postal address', 'Is an SME?', 'DUNS Number']
+      if suppliers_workbook.sheet(index).row(1) != ['Supplier name', 'Contact name', 'Email address', 'Phone number', 'Website URL', 'Postal address', 'Is an SME?', 'DUNS Number']
         sheets_with_errors << framework
       elsif suppliers_workbook.sheet(index).last_row == 1
         empty_sheets << framework
@@ -34,7 +34,7 @@ class ManagementConsultancy::RM6309::Admin::FilesChecker
     check_sheets(rate_cards_workbook, all_sheets, 'supplier_rate_cards') do |sheets_with_errors, empty_sheets, index|
       service_code = index_to_service_code(index)
 
-      if rate_cards_workbook.sheet(index).last_column != 16
+      if rate_cards_workbook.sheet(index).last_column != 13
         sheets_with_errors << service_code
       elsif rate_cards_workbook.sheet(index).last_row == 1
         empty_sheets << service_code
@@ -79,7 +79,7 @@ class ManagementConsultancy::RM6309::Admin::FilesChecker
   SUPPLIER_DETAILS_SHEETS = ['MCF4'].freeze
   INDEX_TO_FRAMEWORK = [4].freeze
   ALL_SHEETS = ['MCF4 Lot 1', 'MCF4 Lot 2', 'MCF4 Lot 3', 'MCF4 Lot 4', 'MCF4 Lot 5', 'MCF4 Lot 6', 'MCF4 Lot 7', 'MCF4 Lot 8', 'MCF4 Lot 9', 'MCF4 Lot 10'].freeze
-  SHEET_INDEX_TO_SERVICE_CODE = [{ mcf: 4, code: 1, rows: 15 }, { mcf: 4, code: 2, rows: 13 }, { mcf: 4, code: 3, rows: 15 }, { mcf: 4, code: 4, rows: 21 }, { mcf: 4, code: 5, rows: 10 }, { mcf: 4, code: 6, rows: 13 }, { mcf: 4, code: 7, rows: 21 }, { mcf: 4, code: 8, rows: 14 }, { mcf: 4, code: 9, rows: 19 }, { mcf: 4, code: 10, rows: 4 }].freeze
+  SHEET_INDEX_TO_SERVICE_CODE = [{ mcf: 4, code: 1, rows: 15 }, { mcf: 4, code: 2, rows: 13 }, { mcf: 4, code: 3, rows: 15 }, { mcf: 4, code: 4, rows: 21 }, { mcf: 4, code: 5, rows: 10 }, { mcf: 4, code: 6, rows: 13 }, { mcf: 4, code: 7, rows: 21 }, { mcf: 4, code: 8, rows: 14 }, { mcf: 4, code: 9, rows: 19 }, { mcf: 4, code: 10, rows: 30 }].freeze
 
   CHECK_FILES_AND_METHODS = {
     supplier_details_file: :check_supplier_details_spreadsheet,
