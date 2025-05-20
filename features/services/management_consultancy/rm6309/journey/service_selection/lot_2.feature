@@ -11,9 +11,6 @@ Feature: Management Consultancy - Lot 2 - Strategy and Policy - Service selectio
   Scenario: The correct options are available
     Then I should see the following options for the lot:
       | Business case development       |
-      | Social value                    |
-      | Strategy                        |
-      | Strategic advice                |
       | Business process re-engineering |
       | Business structure              |
       | Change management               |
@@ -22,6 +19,9 @@ Feature: Management Consultancy - Lot 2 - Strategy and Policy - Service selectio
       | Game plan                       |
       | Policy                          |
       | Regulatory advice               |
+      | Social value                    |
+      | Strategic advice                |
+      | Strategy                        |
 
   Scenario: Service selection appears in basked
     Then the basket should say 'No services selected'

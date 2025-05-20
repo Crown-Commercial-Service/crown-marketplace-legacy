@@ -7,7 +7,7 @@ module ManagementConsultancy
       validates :services, length: { minimum: 1 }
 
       def services_for_lot(lot_number)
-        Service.where(lot_number:).sort_by(&:code)
+        Service.where(lot_number:).sort_by(&:name)
       end
 
       def lot(lot_number)

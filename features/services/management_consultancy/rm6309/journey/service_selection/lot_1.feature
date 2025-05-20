@@ -11,11 +11,6 @@ Feature: Management Consultancy - Lot 1 - Business - Service selection
   Scenario: The correct options are available
     Then I should see the following options for the lot:
       | Automation                                                                        |
-      | Operational planning and/or improvement, including Target Operating Models (TOM)  |
-      | Organisational design and review, Enterprise Resource Planning (ERP)              |
-      | Programme and project management                                                  |
-      | Risk, opportunity and compliance                                                  |
-      | Value for money reviews                                                           |
       | Business case development                                                         |
       | Business consultancy                                                              |
       | Business policy development and/or appraisal                                      |
@@ -24,6 +19,11 @@ Feature: Management Consultancy - Lot 1 - Business - Service selection
       | Change management                                                                 |
       | Digital, technology and cyber                                                     | 
       | Innovation, growth and business models                                            |
+      | Operational planning and/or improvement, including Target Operating Models (TOM)  |
+      | Organisational design and review, Enterprise Resource Planning (ERP)              |
+      | Programme and project management                                                  |
+      | Risk, opportunity and compliance                                                  |
+      | Value for money reviews                                                           |
 
   Scenario: Service selection appears in basked
     Then the basket should say 'No services selected'

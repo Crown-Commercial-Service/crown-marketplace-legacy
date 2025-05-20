@@ -11,6 +11,14 @@ Feature: Management Consultancy - Lot 9 - Environment and Sustainability - Servi
   Scenario: The correct options are available
     Then I should see the following options for the lot:
       | Air quality                                                     |
+      | Carbon net zero and/or carbon management (including reporting)  |
+      | Climate change adaptation and/or mitigation                     |
+      | Coastal                                                         |
+      | Contaminated land and water                                     |
+      | Due diligence                                                   |
+      | Environmental planning and protection                           |
+      | Environmental, social and governance (ESG)                      |
+      | Feasibility studies and/or impact assessment                    |
       | Life sciences                                                   |
       | Monitoring environmental indicators                             |
       | Natural capital                                                 |
@@ -20,14 +28,6 @@ Feature: Management Consultancy - Lot 9 - Environment and Sustainability - Servi
       | Regulatory compliance                                           |
       | Sustainability                                                  |
       | Waste management                                                |
-      | Carbon net zero and/or carbon management (including reporting)  |
-      | Climate change adaptation and/or mitigation                     |
-      | Coastal                                                         |
-      | Contaminated land and water                                     |
-      | Due diligence                                                   |
-      | Environmental planning and protection                           |
-      | Environmental, social and governance (ESG)                      |
-      | Feasibility studies and/or impact assessment                    |
 
   Scenario: Service selection appears in basked
     Then the basket should say 'No services selected'

@@ -10,20 +10,20 @@ Feature: Management Consultancy - Lot 3 - Complex and Transformation - Service s
   
   Scenario: The correct options are available
     Then I should see the following options for the lot:
-      | Business                                              |
-      | Procurement and/or supply chain                       |
-      | Programme and project management                      |
-      | Strategy and/or policy                                |
-      | Supplier side services and delivery                   |
-      | Transformation management                             |
-      | Change management                                     |
-      | Complex programmes                                    |
-      | Delivery partner                                      |
-      | Digital, technology and cyber                         |
-      | Finance                                               |
-      | HR                                                    |
-      | Organisation design including target operating model  |
-      | Performance transformation                            |
+      | Business                                                    |
+      | Change management                                           |
+      | Complex programmes                                          |
+      | Delivery partner                                            |
+      | Digital, technology and cyber                               |
+      | Finance                                                     |
+      | HR                                                          |
+      | Organisation design including Target Operating Models (TOM) |
+      | Performance transformation                                  |
+      | Procurement and/or supply chain                             |
+      | Programme and project management                            |
+      | Strategy and/or policy                                      |
+      | Supplier side services and delivery                         |
+      | Transformation management                                   |
 
  Scenario: Service selection appears in basked
     Then the basket should say 'No services selected'
@@ -53,40 +53,40 @@ Feature: Management Consultancy - Lot 3 - Complex and Transformation - Service s
 
   Scenario: Changing the selection will change the basket
     When I check the following items:
-      | Change management                                     |
-      | Digital, technology and cyber                         |
-      | Finance                                               |
-      | Organisation design including target operating model  |
-      | Procurement and/or supply chain                       |
-      | Supplier side services and delivery                   |
+      | Change management                                           |
+      | Digital, technology and cyber                               |
+      | Finance                                                     |
+      | Organisation design including Target Operating Models (TOM) |
+      | Procurement and/or supply chain                             |
+      | Supplier side services and delivery                         |
     Then the basket should say '6 services selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
-      | Change management                                     |
-      | Digital, technology and cyber                         |
-      | Finance                                               |
-      | Organisation design including target operating model  |
-      | Procurement and/or supply chain                       |
-      | Supplier side services and delivery                   |
+      | Change management                                           |
+      | Digital, technology and cyber                               |
+      | Finance                                                     |
+      | Organisation design including Target Operating Models (TOM) |
+      | Procurement and/or supply chain                             |
+      | Supplier side services and delivery                         |
     When I deselect the following items:
-      | Change management                                     |
+      | Change management |
     Then the basket should say '5 services selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
-      | Digital, technology and cyber                         |
-      | Finance                                               |
-      | Organisation design including target operating model  |
-      | Procurement and/or supply chain                       |
-      | Supplier side services and delivery                   |
+      | Digital, technology and cyber                               |
+      | Finance                                                     |
+      | Organisation design including Target Operating Models (TOM) |
+      | Procurement and/or supply chain                             |
+      | Supplier side services and delivery                         |
     When I remove the following items from the basket:
-      | Finance                                               |
-      | Digital, technology and cyber                         |
+      | Finance                       |
+      | Digital, technology and cyber |
     Then the basket should say '3 services selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
-      | Organisation design including target operating model  |
-      | Procurement and/or supply chain                       |
-      | Supplier side services and delivery                   |
+      | Organisation design including Target Operating Models (TOM) |
+      | Procurement and/or supply chain                             |
+      | Supplier side services and delivery                         |
     When I click on 'Remove all'
     Then the basket should say 'No services selected'
 

@@ -10,8 +10,8 @@ Feature: Management Consultancy - Lot 10 - Restructuring and insolvency - Servic
   
   Scenario: The correct options are available
     Then I should see the following options for the lot:
-      | Primary capabilities    |
       | Additional capabilities |
+      | Primary capabilities    |
       | Sector specialisms      |
 
   Scenario: Service selection appears in basked
