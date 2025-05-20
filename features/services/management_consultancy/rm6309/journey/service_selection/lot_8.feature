@@ -11,10 +11,6 @@ Feature: Management Consultancy - Lot 8 - Infrastructure - Service selection
   Scenario: The correct options are available
     Then I should see the following options for the lot:
       | Aerospace                                     |
-      | Rail                                          |
-      | Smart infrastructure                          |
-      | Towns, cities and rural areas                 |
-      | Travel, transportation and logistics          |
       | Automotive                                    |
       | Aviation                                      |
       | Communications and technology infrastructure  |
@@ -23,6 +19,10 @@ Feature: Management Consultancy - Lot 8 - Infrastructure - Service selection
       | Nuclear                                       |
       | Ports and shipping                            |
       | Public transport                              |
+      | Rail                                          |
+      | Smart infrastructure                          |
+      | Towns, cities and rural areas                 |
+      | Travel, transportation and logistics          |
 
 
   Scenario: Service selection appears in basked

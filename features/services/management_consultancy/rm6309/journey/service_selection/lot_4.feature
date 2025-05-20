@@ -11,6 +11,14 @@ Feature: Management Consultancy - Lot 4 - Finance - Service selection
   Scenario: The correct options are available
     Then I should see the following options for the lot:
       | Asset finance                                             |
+      | Asset management including valuation, sales and disposals |
+      | Business analysis                                         |
+      | Capital fundraising, derivatives and hedging              |
+      | Cash management                                           |
+      | Cost benefit reviews, studies, analysis and evaluation    |
+      | Developing and assessing project proposals                |
+      | Economic analysis                                         |
+      | Financial accounting and/or reporting                     |
       | Financial due diligence                                   |
       | Financial performance review and viability studies        |
       | Financing public projects and negotiations                |
@@ -21,15 +29,7 @@ Feature: Management Consultancy - Lot 4 - Finance - Service selection
       | Pensions                                                  |
       | Regulation and statutory requirements                     |
       | Risk management                                           |
-      | Asset management including valuation, sales and disposals |
       | Tax including value added tax (VAT)                       |
-      | Business analysis                                         |
-      | Capital fundraising, derivatives and hedging              |
-      | Cash management                                           |
-      | Cost benefit reviews, studies, analysis and evaluation    |
-      | Developing and assessing project proposals                |
-      | Economic analysis                                         |
-      | Financial accounting and/or reporting                     |
 
   Scenario: Service selection appears in basked
     Then the basket should say 'No services selected'

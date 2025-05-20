@@ -331,13 +331,13 @@ en:
             mcf4_text_html: You need to know which lot the management consultancy services you need are in. Review the %{mcf4_link} for Management Consultancy Framework Four.
           guidance:
             heading: Guidance and other useful documents
-            mcf4_link_text: Management Consultancy Framework Four (MCF4) specification
+            mcf4_link_text: Management Consultancy Framework Four (MCF4)
           heading: Find management consultants
           use_this_service: Use this service to download a shortlist of suppliers that provide the management consultancy services you need.
           using_this_service: Using this service means you're following the public sector procurement procedures.
       journey:
         choose_lot:
-          mcf4_heading: Management Consultancy Framework 4 (MCF4)
+          mcf4_heading: Management Consultancy Framework Four (MCF4)
           question: Select the lot you need
           service_lines: Service lines
         choose_services:
@@ -348,11 +348,8 @@ en:
       suppliers:
         download:
           download_supplier_shortlist: Download supplier shortlist
-          expression_of_interest_template: Expression of interest template
-          expression_of_interest_template_link: https://assets.crowncommercial.gov.uk/wp-content/uploads/T1-Expression-of-Interest-2.odt?format=odt
           heading: Download the supplier shortlist
           lead_text: The spreadsheet includes the selections you made, for your records and audit trail
-          other_documents: Other documents
         index:
           download_suppliers_list: Download the supplier list
           heading: Supplier results
