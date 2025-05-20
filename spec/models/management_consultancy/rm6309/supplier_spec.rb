@@ -101,7 +101,6 @@ RSpec.describe ManagementConsultancy::RM6309::Supplier do
   describe 'when the supplier is destroyed' do
     let!(:supplier) { create(:management_consultancy_rm6309_supplier) }
     let!(:rate_card) { create(:management_consultancy_rm6309_rate_card, lot: 'MCF4.10', supplier: supplier) }
-    let!(:lot_contact_detail) { create(:management_consultancy_rm6309_lot_contact_detail, lot: 'MCF4.10', supplier: supplier) }
     let!(:service_offering) { create(:management_consultancy_rm6309_service_offering, lot_number: 'MCF4.10', supplier: supplier) }
 
     it 'destroys all suppliers' do
@@ -118,14 +117,6 @@ RSpec.describe ManagementConsultancy::RM6309::Supplier do
       supplier.destroy!
 
       expect(ManagementConsultancy::RM6309::RateCard.find_by(id: rate_card.id)).to be_nil
-    end
-
-    it 'destroys all lot contact details' do
-      expect(ManagementConsultancy::RM6309::LotContactDetail.find_by(id: lot_contact_detail.id)).to eq lot_contact_detail
-
-      supplier.destroy!
-
-      expect(ManagementConsultancy::RM6309::LotContactDetail.find_by(id: lot_contact_detail.id)).to be_nil
     end
 
     it 'destroys all service offerings' do

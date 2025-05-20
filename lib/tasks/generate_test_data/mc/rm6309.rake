@@ -5,7 +5,6 @@ module GenerateTestData
         generate_suppliers
         generate_lot_data
         generate_rate_cards
-        generate_lot_contact_details
         write_to_file
       end
 
@@ -15,6 +14,7 @@ module GenerateTestData
           {
             id: SecureRandom.uuid,
             name: supplier_name,
+            contact_name: Faker::Name.name,
             contact_email: Faker::Internet.email(name: supplier_name),
             telephone_number: Faker::PhoneNumber.phone_number,
             sme: rand < 0.5,
@@ -23,7 +23,6 @@ module GenerateTestData
             duns: Faker::Company.unique.duns_number.delete('-').to_s,
             lots: [],
             rate_cards: [],
-            lot_contact_details: []
           }
         end
       end
@@ -69,21 +68,6 @@ module GenerateTestData
                 director_rate_in_pence: min_rate + 1000,
               }
             end
-          end
-        end
-      end
-
-      def self.generate_lot_contact_details
-        @suppliers.each do |supplier|
-          supplier[:lots].each do |lot|
-            contact_name = Faker::Name.name
-
-            supplier[:lot_contact_details] << {
-              lot: lot[:lot_number],
-              contact_name: contact_name,
-              email: Faker::Internet.email(name: contact_name),
-              telephone_number: Faker::PhoneNumber.phone_number
-            }
           end
         end
       end

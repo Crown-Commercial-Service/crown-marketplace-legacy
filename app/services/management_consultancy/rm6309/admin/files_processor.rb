@@ -21,6 +21,7 @@ class ManagementConsultancy::RM6309::Admin::FilesProcessor
   def add_suppliers(suppliers_workbook)
     headers = {
       name: 'Supplier name',
+      contact_name: 'Contact name',
       contact_email: 'Email address',
       telephone_number: 'Phone number',
       website: 'Website URL',
@@ -78,7 +79,6 @@ class ManagementConsultancy::RM6309::Admin::FilesProcessor
   def add_rate_cards_to_suppliers(rate_cards_workbook)
     @supplier_data.each do |supplier|
       supplier['rate_cards'] = []
-      supplier['lot_contact_details'] = []
     end
 
     number_of_sheets(rate_cards_workbook).times do |sheet_number|
@@ -113,16 +113,8 @@ class ManagementConsultancy::RM6309::Admin::FilesProcessor
           end
         end
 
-        lot_contact_details = {
-          lot: lot_number,
-          contact_name: row[13],
-          email: row[14],
-          telephone_number: row[15]
-        }
-
         supplier['rate_cards'] << rate_cards[:advice]
         supplier['rate_cards'] << rate_cards[:delivery]
-        supplier['lot_contact_details'] << lot_contact_details
       end
     end
   end

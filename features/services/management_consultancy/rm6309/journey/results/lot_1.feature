@@ -11,9 +11,9 @@ Feature: Management Consultancy - Lot 1 - Business - Results
     Then I am on the 'Supplier results' page
     And I should see that '3' companies can provide consultants
     And the selected suppliers are:
-      | GREENHOLT INC     |
-      | PURDY-KEMMER      |
-      | STROSIN-MEDHURST  |
+      | GREENFELDER-LEUSCHKE  |
+      | MOSCISKI-CROOKS       |
+      | TURCOTTE GROUP        |
 
   Scenario: Service selection changes the results
     Given I click on the 'Back' back link
@@ -24,23 +24,23 @@ Feature: Management Consultancy - Lot 1 - Business - Results
     Then I am on the 'Supplier results' page
     And I should see that '5' companies can provide consultants
     And the selected suppliers are:
-      | GREENHOLT INC             |
-      | KOVACEK, WIZA AND STROMAN |
-      | PACOCHA-CORWIN            |
-      | PURDY-KEMMER              |
-      | STROSIN-MEDHURST          |
+      | GREENFELDER-LEUSCHKE  |
+      | MOSCISKI-CROOKS       |
+      | NIENOW-KERTZMANN      |
+      | SCHINNER-LAKIN        |
+      | TURCOTTE GROUP        |
 
   Scenario: Going back from a supplier
-    And I click on 'GREENHOLT INC'
-    Then I am on the 'GREENHOLT INC' page
+    And I click on 'GREENFELDER-LEUSCHKE'
+    Then I am on the 'GREENFELDER-LEUSCHKE' page
     And the sub title is 'MCF4 lot 1 - Business'
     And I click on the 'Back' back link
     Then I am on the 'Supplier results' page
     And I should see that '3' companies can provide consultants
     And the selected suppliers are:
-      | GREENHOLT INC     |
-      | PURDY-KEMMER      |
-      | STROSIN-MEDHURST  |
+      | GREENFELDER-LEUSCHKE  |
+      | MOSCISKI-CROOKS       |
+      | TURCOTTE GROUP        |
 
   Scenario: Going back from downloading documents
     And I click on 'Download the supplier list'
@@ -49,6 +49,6 @@ Feature: Management Consultancy - Lot 1 - Business - Results
     Then I am on the 'Supplier results' page
     And I should see that '3' companies can provide consultants
     And the selected suppliers are:
-      | GREENHOLT INC     |
-      | PURDY-KEMMER      |
-      | STROSIN-MEDHURST  |
+      | GREENFELDER-LEUSCHKE  |
+      | MOSCISKI-CROOKS       |
+      | TURCOTTE GROUP        |

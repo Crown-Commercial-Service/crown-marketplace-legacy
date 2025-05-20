@@ -370,12 +370,12 @@ en:
           day_rates: Day rates
           is_an_sme: This supplier is a small or medium-sized enterprise
           job_titles:
-            director: Partner
+            director: Partner / Managing Director
             junior: Analyst / Junior Consultant
             managing: Managing Consultant / Director
             principal: Principal Consultant / Associate Director
-            senior: Senior Consultant / Engagement Manager / Project Lead
-            standard: Consultant
+            senior: Senior Consultant / Manager / Project Lead
+            standard: Consultant / Senior Analyst
           max_day_rate: Max day rate (%{rate_type})
           maximum_day_rates: Maximum day rates (excluding V.A.T.)
           position: Position

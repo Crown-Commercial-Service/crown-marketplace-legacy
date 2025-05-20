@@ -23,7 +23,6 @@ module ManagementConsultancy
                       end.index_with do |rate_type|
                         @supplier.rate_cards.where(lot: params[:lot], rate_type: rate_type).first
                       end
-        @lot_contact_detail = @supplier.lot_contact_details.where(lot: params[:lot]).first
       end
 
       def download

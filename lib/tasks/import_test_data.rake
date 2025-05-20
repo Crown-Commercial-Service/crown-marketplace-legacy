@@ -36,7 +36,6 @@ module ImportTestData
 
       def self.empty_tables
         ManagementConsultancy::RM6309::RateCard.destroy_all
-        ManagementConsultancy::RM6309::LotContactDetail.destroy_all
         ManagementConsultancy::RM6309::ServiceOffering.destroy_all
         ManagementConsultancy::RM6309::Supplier.destroy_all
       end
