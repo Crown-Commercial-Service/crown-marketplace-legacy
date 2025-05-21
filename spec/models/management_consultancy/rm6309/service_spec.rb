@@ -7,7 +7,7 @@ RSpec.describe ManagementConsultancy::RM6309::Service do
   let(:all_codes) { described_class.all_codes }
 
   it 'loads services from CSV' do
-    expect(services.count).to eq(135)
+    expect(services.count).to eq(161)
   end
 
   it 'populates attributes of first service' do

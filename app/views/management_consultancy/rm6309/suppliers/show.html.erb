@@ -36,38 +36,11 @@
         [
           [
             {
-              text: t('.job_titles.junior')
+              text: t('.job_titles.director')
             },
           ] + @rate_cards.map do |_, rate_card|
             {
-              text: number_to_currency(rate_card.junior_rate_in_pence/100, precision: 0)
-            }
-          end,
-          [
-            {
-              text: t('.job_titles.standard')
-            },
-          ] + @rate_cards.map do |_, rate_card|
-            {
-              text: number_to_currency(rate_card.standard_rate_in_pence/100, precision: 0)
-            }
-          end,
-          [
-            {
-              text: t('.job_titles.senior')
-            },
-          ] + @rate_cards.map do |_, rate_card|
-            {
-              text: number_to_currency(rate_card.senior_rate_in_pence/100, precision: 0)
-            }
-          end,
-          [
-            {
-              text: t('.job_titles.principal')
-            },
-          ] + @rate_cards.map do |_, rate_card|
-            {
-              text: number_to_currency(rate_card.principal_rate_in_pence/100, precision: 0)
+              text: number_to_currency(rate_card.director_rate_in_pence/100, precision: 0)
             }
           end,
           [
@@ -81,11 +54,38 @@
           end,
           [
             {
-              text: t('.job_titles.director')
+              text: t('.job_titles.principal')
             },
           ] + @rate_cards.map do |_, rate_card|
             {
-              text: number_to_currency(rate_card.director_rate_in_pence/100, precision: 0)
+              text: number_to_currency(rate_card.principal_rate_in_pence/100, precision: 0)
+            }
+          end,
+          [
+            {
+              text: t('.job_titles.senior')
+            },
+          ] + @rate_cards.map do |_, rate_card|
+            {
+              text: number_to_currency(rate_card.senior_rate_in_pence/100, precision: 0)
+            }
+          end,
+          [
+            {
+              text: t('.job_titles.standard')
+            },
+          ] + @rate_cards.map do |_, rate_card|
+            {
+              text: number_to_currency(rate_card.standard_rate_in_pence/100, precision: 0)
+            }
+          end,
+          [
+            {
+              text: t('.job_titles.junior')
+            },
+          ] + @rate_cards.map do |_, rate_card|
+            {
+              text: number_to_currency(rate_card.junior_rate_in_pence/100, precision: 0)
             }
           end,
         ],
@@ -108,16 +108,15 @@
     <div class="ccs-info-panel ccs-info-panel--pull-up">
       <h3 class="govuk-heading-m"><%= t('.contact_details.heading') %></h3>
       <%= govuk_summary_list(
-        (@lot_contact_detail ? [
+        [
           {
             key: {
               text: t('.contact_details.person')
             },
             value: {
-              text: @lot_contact_detail.contact_name
+              text: @supplier.contact_name
             }
-          }
-        ] : []) + [
+          },
           {
             key: {
               text: t('.contact_details.email')

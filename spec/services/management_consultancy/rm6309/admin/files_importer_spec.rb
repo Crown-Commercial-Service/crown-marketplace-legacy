@@ -98,9 +98,9 @@ RSpec.describe ManagementConsultancy::RM6309::Admin::FilesImporter do
   describe 'import_data' do
     let(:expected_supplier_results) do
       {
-        'REX LTD': { service_offerings: 135, rate_cards: 20, lot_contact_details: 10 },
-        'MORAG JEWEL LTD': { service_offerings: 135, rate_cards: 20, lot_contact_details: 10 },
-        'ZEKE VON GEMBU CORP': { service_offerings: 135, rate_cards: 20, lot_contact_details: 10 }
+        'REX LTD': { service_offerings: 161, rate_cards: 20 },
+        'MORAG JEWEL LTD': { service_offerings: 161, rate_cards: 20 },
+        'ZEKE VON GEMBU CORP': { service_offerings: 161, rate_cards: 20 }
       }
     end
 
@@ -115,12 +115,24 @@ RSpec.describe ManagementConsultancy::RM6309::Admin::FilesImporter do
 
         expect(supplier.service_offerings.count).to eq expected_results[:service_offerings]
         expect(supplier.rate_cards.count).to eq expected_results[:rate_cards]
-        expect(supplier.lot_contact_details.count).to eq expected_results[:lot_contact_details]
       end
     end
 
     context 'when considering the data for a supplier' do
       let(:supplier) { ManagementConsultancy::RM6309::Supplier.find_by(name: 'REX LTD') }
+
+      it 'has the correct supplier details' do
+        expect(supplier.attributes.slice(*%w[name contact_name contact_email telephone_number sme address website duns])).to eq({
+                                                                                                                                  'name' => 'REX LTD',
+                                                                                                                                  'contact_name' => 'REX',
+                                                                                                                                  'contact_email' => 'rex@xenoblade.com',
+                                                                                                                                  'telephone_number' => '0202 123 4567',
+                                                                                                                                  'sme' => true,
+                                                                                                                                  'address' => 'Argentum AA3 1XC',
+                                                                                                                                  'website' => 'www.rex.com',
+                                                                                                                                  'duns' => 123456789
+                                                                                                                                })
+      end
 
       it 'has the correct rate card data for lot 1' do
         advice_rate = supplier.rate_cards.find_by(lot: 'MCF4.1', rate_type: 'Advice')
@@ -152,14 +164,6 @@ RSpec.describe ManagementConsultancy::RM6309::Admin::FilesImporter do
 
         expect(complex_rates).to eq([40000, 80000, 120000, 160000, 200000, 240000])
         expect(non_complex_rates).to eq([45000, 85000, 125000, 165000, 205000, 245000])
-      end
-
-      it 'has the correct lot contact details for lot 1' do
-        lot_contact_detail = supplier.lot_contact_details.find_by(lot: 'MCF4.1')
-
-        expect(lot_contact_detail.contact_name).to eq('Rex')
-        expect(lot_contact_detail.telephone_number).to eq('0202 123 4567')
-        expect(lot_contact_detail.email).to eq('rex@xenoblade.com')
       end
     end
   end

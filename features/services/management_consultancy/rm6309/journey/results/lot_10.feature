@@ -9,57 +9,49 @@ Feature: Management Consultancy - Lot 10 - Restructuring and insolvency - Result
     Given I select all the services
     And I click on 'Continue'
     Then I am on the 'Supplier results' page
-    And I should see that '6' companies can provide consultants
+    And I should see that '4' companies can provide consultants
     And the selected suppliers are:
-      | GREENHOLT INC           |
-      | HAMILL, UPTON AND BEER  |
-      | JERDE, MOHR AND POLLICH |
-      | PURDY-KEMMER            |
-      | STROSIN-MEDHURST        |
-      | WELCH GROUP             |
+      | GREENFELDER-LEUSCHKE  |
+      | KOHLER-STOKES         |
+      | MOSCISKI-CROOKS       |
+      | TURCOTTE GROUP        |
 
   Scenario: Service selection changes the results
     Given I click on the 'Back' back link
     Then I am on the 'Select the services you need' page
     And I deselect all the items
-    Given I check 'Additional capabilities'
+    Given I check 'Aviation'
     When I click on 'Continue'
     Then I am on the 'Supplier results' page
-    And I should see that '7' companies can provide consultants
+    And I should see that '5' companies can provide consultants
     And the selected suppliers are:
-      | BLANDA, DONNELLY AND LARKIN |
-      | GREENHOLT INC               |
-      | HAMILL, UPTON AND BEER      |
-      | JERDE, MOHR AND POLLICH     |
-      | PURDY-KEMMER                |
-      | STROSIN-MEDHURST            |
-      | WELCH GROUP                 |
+      | GREENFELDER-LEUSCHKE  |
+      | GUTMANN-PFEFFER       |
+      | KOHLER-STOKES         |
+      | MOSCISKI-CROOKS       |
+      | TURCOTTE GROUP        |
 
   Scenario: Going back from a supplier
-    And I click on 'JERDE, MOHR AND POLLICH'
-    Then I am on the 'JERDE, MOHR AND POLLICH' page
+    And I click on 'KOHLER-STOKES'
+    Then I am on the 'KOHLER-STOKES' page
     And the sub title is 'MCF4 lot 10 - Restructuring and insolvency'
     And I click on the 'Back' back link
     Then I am on the 'Supplier results' page
-    And I should see that '6' companies can provide consultants
+    And I should see that '4' companies can provide consultants
     And the selected suppliers are:
-      | GREENHOLT INC           |
-      | HAMILL, UPTON AND BEER  |
-      | JERDE, MOHR AND POLLICH |
-      | PURDY-KEMMER            |
-      | STROSIN-MEDHURST        |
-      | WELCH GROUP             |
+      | GREENFELDER-LEUSCHKE  |
+      | KOHLER-STOKES         |
+      | MOSCISKI-CROOKS       |
+      | TURCOTTE GROUP        |
 
   Scenario: Going back from downloading documents
     And I click on 'Download the supplier list'
     Then I am on the 'Download the supplier shortlist' page
     And I click on the 'Back' back link
     Then I am on the 'Supplier results' page
-    And I should see that '6' companies can provide consultants
+    And I should see that '4' companies can provide consultants
     And the selected suppliers are:
-      | GREENHOLT INC           |
-      | HAMILL, UPTON AND BEER  |
-      | JERDE, MOHR AND POLLICH |
-      | PURDY-KEMMER            |
-      | STROSIN-MEDHURST        |
-      | WELCH GROUP             |
+      | GREENFELDER-LEUSCHKE  |
+      | KOHLER-STOKES         |
+      | MOSCISKI-CROOKS       |
+      | TURCOTTE GROUP        |

@@ -18,11 +18,10 @@ class ManagementConsultancy::RM6309::SupplierSpreadsheetCreator < SupplierSpread
 
   def add_supplier_details(sheet)
     @suppliers.each do |supplier|
-      lot_contact_detail = supplier.lot_contact_details.where(lot: @params['lot']).first
       sheet.add_row(
         [
           supplier.name,
-          lot_contact_detail.contact_name,
+          supplier.contact_name,
           supplier.telephone_number,
           supplier.contact_email
         ]

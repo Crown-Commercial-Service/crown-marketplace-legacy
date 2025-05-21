@@ -9,12 +9,11 @@ Feature: Management Consultancy - Lot 3 - Complex and Transformation - Results
     Given I select all the services
     And I click on 'Continue'
     Then I am on the 'Supplier results' page
-    And I should see that '4' companies can provide consultants
+    And I should see that '3' companies can provide consultants
     And the selected suppliers are:
-      | GREENHOLT INC             |
-      | KOVACEK, WIZA AND STROMAN |
-      | PURDY-KEMMER              |
-      | STROSIN-MEDHURST          |
+      | GREENFELDER-LEUSCHKE  |
+      | MOSCISKI-CROOKS       |
+      | TURCOTTE GROUP        |
 
   Scenario: Service selection changes the results
     Given I click on the 'Back' back link
@@ -23,37 +22,34 @@ Feature: Management Consultancy - Lot 3 - Complex and Transformation - Results
     Given I check 'Business'
     When I click on 'Continue'
     Then I am on the 'Supplier results' page
-    And I should see that '7' companies can provide consultants
+    And I should see that '6' companies can provide consultants
     And the selected suppliers are:
-      | BLANDA, DONNELLY AND LARKIN |
-      | GREENHOLT INC               |
-      | JERDE, MOHR AND POLLICH     |
-      | KOVACEK, WIZA AND STROMAN   |
-      | PACOCHA-CORWIN              |
-      | PURDY-KEMMER                |
-      | STROSIN-MEDHURST            |
+      | GOTTLIEB, HEATHCOTE AND JACOBI  |
+      | GREENFELDER-LEUSCHKE            |
+      | KOHLER-STOKES                   |
+      | MOSCISKI-CROOKS                 |
+      | SCHINNER-LAKIN                  |
+      | TURCOTTE GROUP                  |
 
   Scenario: Going back from a supplier
-    And I click on 'KOVACEK, WIZA AND STROMAN'
-    Then I am on the 'KOVACEK, WIZA AND STROMAN' page
+    And I click on 'TURCOTTE GROUP'
+    Then I am on the 'TURCOTTE GROUP' page
     And the sub title is 'MCF4 lot 3 - Complex and Transformation'
     And I click on the 'Back' back link
     Then I am on the 'Supplier results' page
-    And I should see that '4' companies can provide consultants
+    And I should see that '3' companies can provide consultants
     And the selected suppliers are:
-      | GREENHOLT INC             |
-      | KOVACEK, WIZA AND STROMAN |
-      | PURDY-KEMMER              |
-      | STROSIN-MEDHURST          |
+      | GREENFELDER-LEUSCHKE  |
+      | MOSCISKI-CROOKS       |
+      | TURCOTTE GROUP        |
 
   Scenario: Going back from downloading documents
     And I click on 'Download the supplier list'
     Then I am on the 'Download the supplier shortlist' page
     And I click on the 'Back' back link
     Then I am on the 'Supplier results' page
-    And I should see that '4' companies can provide consultants
+    And I should see that '3' companies can provide consultants
     And the selected suppliers are:
-      | GREENHOLT INC             |
-      | KOVACEK, WIZA AND STROMAN |
-      | PURDY-KEMMER              |
-      | STROSIN-MEDHURST          |
+      | GREENFELDER-LEUSCHKE  |
+      | MOSCISKI-CROOKS       |
+      | TURCOTTE GROUP        |

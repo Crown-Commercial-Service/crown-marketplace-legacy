@@ -3,7 +3,7 @@ module ManagementConsultancy
     class Service
       include StaticRecord
 
-      attr_accessor :code, :name, :lot_number, :framework
+      attr_accessor :code, :name, :lot_number, :group, :framework
 
       def self.all_codes
         all.map(&:code)
