@@ -39,12 +39,22 @@ module HeaderNavigationLinksHelper
   end
 
   def service_navigation_links
-    [
-      {
-        text: t('header_navigation_links_helper.back_to_start'),
-        href: service_path_base,
-        active: current_page?(service_path_base)
-      }
-    ]
+    if user_signed_in? && params[:service] == 'management_consultancy'
+      [
+        {
+          text: t('header_navigation_links_helper.back_to_start'),
+          href: management_consultancy_journey_start_path(framework: params[:framework]),
+          active: current_page?(management_consultancy_journey_question_path(framework: params[:framework], slug: 'choose-lot'))
+        }
+      ]
+    else
+      [
+        {
+          text: t('header_navigation_links_helper.back_to_start'),
+          href: service_path_base,
+          active: current_page?(service_path_base)
+        }
+      ]
+    end
   end
 end

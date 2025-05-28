@@ -17,12 +17,12 @@ Feature: Management Consultancy - Navigation links when signed in
     And I should see the following authentication links:
       | Sign out      |
     And I click on the header link '<header_link>'
-    Then I am on the 'Find management consultants' page
+    Then I am on the '<page_title>' page
 
     Examples:
-      | header_link   |
-      | Back to start |
-      | Sign out      |
+      | header_link   | page_title                  |
+      | Back to start | Select the lot you need     |
+      | Sign out      | Find management consultants |
 
   Scenario Outline: Cookies policy
     When I click on 'Cookie policy'
@@ -32,12 +32,12 @@ Feature: Management Consultancy - Navigation links when signed in
     And I should see the following authentication links:
       | Sign out      |
     And I click on the header link '<header_link>'
-    Then I am on the 'Find management consultants' page
+    Then I am on the '<page_title>' page
 
     Examples:
-      | header_link   |
-      | Back to start |
-      | Sign out      |
+      | header_link   | page_title                  |
+      | Back to start | Select the lot you need     |
+      | Sign out      | Find management consultants |
 
   Scenario Outline: Cookies settings
     When I click on 'Cookie settings'
@@ -47,12 +47,12 @@ Feature: Management Consultancy - Navigation links when signed in
     And I should see the following authentication links:
       | Sign out      |
     And I click on the header link '<header_link>'
-    Then I am on the 'Find management consultants' page
+    Then I am on the '<page_title>' page
 
     Examples:
-      | header_link   |
-      | Back to start |
-      | Sign out      |
+      | header_link   | page_title                  |
+      | Back to start | Select the lot you need     |
+      | Sign out      | Find management consultants |
 
   Scenario Outline: Accessibility statement
     When I click on 'Accessibility statement'
@@ -62,12 +62,12 @@ Feature: Management Consultancy - Navigation links when signed in
     And I should see the following authentication links:
       | Sign out      |
     And I click on the header link '<header_link>'
-    Then I am on the 'Find management consultants' page
+    Then I am on the '<page_title>' page
 
     Examples:
-      | header_link   |
-      | Back to start |
-      | Sign out      |
+      | header_link   | page_title                  |
+      | Back to start | Select the lot you need     |
+      | Sign out      | Find management consultants |
 
   Scenario Outline: Home page
     And I should see the following navigation links:
@@ -75,9 +75,9 @@ Feature: Management Consultancy - Navigation links when signed in
     And I should see the following authentication links:
       | Sign out      |
     And I click on the header link '<header_link>'
-    Then I am on the 'Find management consultants' page
+    Then I am on the '<page_title>' page
 
     Examples:
-      | header_link   |
-      | Back to start |
-      | Sign out      |
+      | header_link   | page_title                  |
+      | Back to start | Select the lot you need     |
+      | Sign out      | Find management consultants |
