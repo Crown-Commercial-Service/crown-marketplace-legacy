@@ -7,4 +7,4 @@ Feature: Management Consultancy - Headers are responsive
     Then I click on 'Menu'
     And the header navigation links 'are' visible
     Then I click on the header link 'Back to start'
-    And I am on the 'Find management consultants' page
+    And I am on the 'Select the lot you need' page

@@ -222,16 +222,17 @@ RSpec.describe HeaderNavigationLinksHelper do
 
   describe '#service_navigation_links' do
     let(:result) { helper.service_navigation_links }
+    let(:user_signed_in) { true }
 
     before do
-      allow(helper).to receive(:service_path_base).and_return(service_path_base)
+      allow(helper).to receive_messages(user_signed_in?: user_signed_in, service_path_base: service_path_base)
       allow(helper).to receive(:current_page?).with(service_path_base).and_return(is_current_page)
     end
 
     context 'when the current path is not the same as service path base' do
       let(:is_current_page) { false }
 
-      it 'returns the beack to start link with the active false' do
+      it 'returns the back to start link with the active false' do
         expect(result).to eq(
           [
             { text: 'Back to start', href: '/crown-marketplace-legacy', active: false }
@@ -243,12 +244,64 @@ RSpec.describe HeaderNavigationLinksHelper do
     context 'when the current path is the same as service path base' do
       let(:is_current_page) { true }
 
-      it 'returns the beack to start link with the active true' do
+      it 'returns the back to start link with the active true' do
         expect(result).to eq(
           [
             { text: 'Back to start', href: '/crown-marketplace-legacy', active: true }
           ]
         )
+      end
+    end
+
+    context 'when the service is management consultancy' do
+      let(:is_current_page_2) { false }
+
+      before do
+        helper.params[:service] = 'management_consultancy'
+        helper.params[:framework] = 'RM6309'
+
+        allow(helper).to receive(:current_page?).with('/management-consultancy/RM6309/choose-lot').and_return(is_current_page)
+      end
+
+      # rubocop:disable RSpec/NestedGroups
+      context 'when the user is signed in' do
+        context 'when the current path is not the same as start base' do
+          let(:is_current_page) { false }
+
+          it 'returns the back to start link with the active false' do
+            expect(result).to eq(
+              [
+                { text: 'Back to start', href: '/management-consultancy/RM6309/start', active: false }
+              ]
+            )
+          end
+        end
+
+        context 'when the current path is not the same as start base but is the service start page' do
+          let(:is_current_page) { true }
+
+          it 'returns the back to start link with the active true' do
+            expect(result).to eq(
+              [
+                { text: 'Back to start', href: '/management-consultancy/RM6309/start', active: true }
+              ]
+            )
+          end
+        end
+      end
+      # rubocop:enable RSpec/NestedGroups
+
+      context 'when the user is not signed in' do
+        let(:user_signed_in) { false }
+        let(:is_current_page) { false }
+
+        it 'returns the back to start link with the active false' do
+          expect(result).to eq(
+            [
+              { text: 'Back to start', href: '/crown-marketplace-legacy', active: false }
+            ]
+          )
+        end
       end
     end
   end
