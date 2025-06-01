@@ -233,7 +233,7 @@ GEM
     email_validator (2.2.4)
       activemodel
     erubi (1.13.1)
-    excon (1.2.5)
+    excon (1.2.7)
       logger
     factory_bot (6.5.0)
       activesupport (>= 5.0.0)
@@ -251,7 +251,7 @@ GEM
     faraday-net_http (3.3.0)
       net-http
     ffi (1.17.1)
-    fog-aws (3.31.0)
+    fog-aws (3.32.0)
       base64 (~> 0.2.0)
       fog-core (~> 2.6)
       fog-json (~> 1.1)
@@ -352,7 +352,7 @@ GEM
     mime-types (3.7.0)
       logger
       mime-types-data (~> 3.2025, >= 3.2025.0507)
-    mime-types-data (3.2025.0514)
+    mime-types-data (3.2025.0527)
     mini_mime (1.1.5)
     mini_portile2 (2.8.9)
     minitest (5.25.5)
