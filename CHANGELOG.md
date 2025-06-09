@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [5.0.0] - 2025-06-09
+
+### Changed
+
 - Upgrade Rails to v7.2.2.1 ([PR 1898](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/1898))
 - Use Bun to manage our assets ([PR 1898](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/1898))
 - Use the `DistributedLocks` to prevent concurrent uploads of data ([PR 1898](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/1898))
@@ -19,7 +23,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [4.2.0] - 2025-01-23
 
-## Changed
+### Changed
 
 - Upgrade ruby version to v3.4.1 ([PR 1783](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/1783))
 - Upgrade alpine version to v3.21 ([PR 1783](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/1783))
@@ -33,7 +37,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Upgrade ruby version to v3.3.5 ([PR 1620](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/1620))
 - Upgrade ruby version to v3.3.4 ([PR 1598](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/1598))
 
-## Removed
+### Removed
 
 - Remove Turbolinks as it is no longer supported ([PR 1594](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/1594))
 
