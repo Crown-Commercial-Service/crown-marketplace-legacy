@@ -90,6 +90,7 @@ RSpec.feature 'Authentication' do
     expect(page).to have_text(I18n.t('home.not_permitted.title'))
   end
 
+  # rubocop:disable RSpec/ExampleLength
   scenario 'DfE users cannot see school pages if they are from a for-profit school' do
     OmniAuth.config.test_mode = true
     OmniAuth.config.mock_auth[:dfe] = OmniAuth::AuthHash.new(
@@ -122,6 +123,7 @@ RSpec.feature 'Authentication' do
     expect(page).to have_text(I18n.t('home.not_permitted.title'))
     OmniAuth.config.mock_auth[:dfe] = nil
   end
+  # rubocop:enable RSpec/ExampleLength
 
   scenario 'DfE users cannot see school pages if they are not on the safelist', :dfe do
     allow(Marketplace)

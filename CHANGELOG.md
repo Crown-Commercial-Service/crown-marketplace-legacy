@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [5.0.1] - 2025-06-13
+
+### Fixed
+
+ - Make sure DfE Sign In button uses a form ([PR 1967](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/1967))
+
 ## [5.0.0] - 2025-06-09
 
 ### Changed

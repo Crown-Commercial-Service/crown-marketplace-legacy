@@ -29,8 +29,6 @@ AllCops:
 # Capyabara rubocop config
 Capybara:
     Enabled: true
-    Exclude:
-        - 'spec/features/**/*'
 
 Capybara/ClickLinkOrButtonStyle:
     Enabled: false
@@ -74,13 +72,9 @@ RSpec/DescribeClass:
 
 RSpec/MultipleExpectations:
     Max: 3
-    Exclude:
-        - 'spec/features/**/*'
 
 RSpec/ExampleLength:
     Max: 10
-    Exclude:
-        - 'spec/features/**/*'
 
 RSpec/NestedGroups:
     Max: 4
