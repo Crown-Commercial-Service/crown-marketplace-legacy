@@ -50,6 +50,13 @@ Rails.application.routes.draw do
           concerns :authenticatable
         end
       end
+
+      namespace 'rm6309', path: 'RM6309', defaults: { framework: 'RM6309' } do
+        concerns %i[authenticatable registrable]
+        namespace :admin, defaults: { service: 'management_consultancy/admin' } do
+          concerns :authenticatable
+        end
+      end
     end
 
     namespace 'legal_services', path: 'legal-services', defaults: { service: 'legal_services' } do
@@ -131,7 +138,7 @@ Rails.application.routes.draw do
         collection do
           get '/master-vendors', action: :master_vendors
           get '/all-suppliers', action: :all_suppliers
-          get '/all-suppliers/search', action: :search_all_suppliers
+          post '/all-suppliers/search', action: :search_all_suppliers, format: :json
         end
       end
       resources :suppliers, only: %i[show]
@@ -189,6 +196,16 @@ Rails.application.routes.draw do
       end
     end
 
+    namespace 'rm6309', path: 'RM6309', defaults: { framework: 'RM6309' } do
+      concerns %i[buyer_shared_pages shared_pages]
+      get '/suppliers', to: 'suppliers#index'
+      get '/suppliers/download', to: 'suppliers#download', as: 'suppliers_download'
+      get '/suppliers/:id', to: 'suppliers#show', as: 'supplier'
+      namespace :admin, defaults: { service: 'management_consultancy/admin' } do
+        concerns %i[admin_uploads admin_shared_pages]
+      end
+    end
+
     get '/:framework', to: 'home#index', as: 'index'
     get '/:framework/admin', to: 'admin/home#index', defaults: { service: 'management_consultancy/admin' }, as: 'admin_index'
     get '/:framework/start', to: 'journey#start', as: 'journey_start'
@@ -227,13 +244,16 @@ Rails.application.routes.draw do
   end
 
   get '/404', to: 'errors#not_found', as: :errors_404
+  get '/406', to: 'errors#not_acceptable', as: :errors_406
   get '/422', to: 'errors#unacceptable', as: :errors_422
   get '/500', to: 'errors#internal_error', as: :errors_500
   get '/503', to: 'errors#service_unavailable', as: :errors_503
 
-  namespace :api, defaults: { format: :json } do
-    namespace :v2 do
-      put '/update-cookie-settings', to: 'cookie_settings#update_cookie_settings'
+  namespace :legacy do
+    namespace :api, defaults: { format: :json } do
+      namespace :v2 do
+        put '/update-cookie-settings', to: 'cookie_settings#update_cookie_settings'
+      end
     end
   end
 

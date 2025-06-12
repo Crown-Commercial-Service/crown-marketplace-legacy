@@ -1,14 +1,14 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.4.1'
+ruby '3.4.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 7.1.5'
+gem 'rails', '~> 8.0.2'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
-gem 'puma', '~> 6.5'
+gem 'puma', '~> 6.6'
 
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
 gem 'propshaft'
@@ -18,6 +18,9 @@ gem 'cssbundling-rails', '~> 1.4'
 
 # Bundle and transpile JavaScript [https://github.com/rails/jsbundling-rails]
 gem 'jsbundling-rails', '~> 1.3'
+
+# For making fetch request calls
+gem 'requestjs-rails'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.13'
@@ -34,7 +37,7 @@ gem 'jbuilder', '~> 2.13'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'geocoder', '>= 1.6.1'
-gem 'activerecord-postgis-adapter', '>= 6.0.3'
+gem 'activerecord-postgis-adapter', '~> 11.0.0'
 gem 'uk_postcode'
 gem 'rubyzip', '>= 1.2.1'
 gem 'caxlsx', '>= 3.2.0'
@@ -43,25 +46,20 @@ gem 'phonejack'
 gem 'holidays'
 gem 'virtus'
 
-gem 'rollbar', '~> 3.6.0'
+gem 'rollbar', '~> 3.6.2'
 
 # for dfe sign in
-gem 'omniauth', '~> 2.1.2'
+gem 'omniauth', '~> 2.1.3'
 gem 'omniauth-oauth2', '~> 1.8.0'
 gem 'omniauth-rails_csrf_protection', '>= 1.0.1'
-# The omniauth_openid_connect is no longer maintained so does not work with omniauth 2.0.
-# This is a custom gem to make omniauth_openid_connect work with omniauth 2.0.
-gem 'ccs_omniauth_openid_connect', '~> 0.4.0', git: 'https://github.com/Crown-Commercial-Service/ccs_omniauth_openid_connect.git'
+gem 'omniauth_openid_connect', '~> 0.8.0'
 gem 'json-jwt', '>= 1.11.0'
 
 # for authentication
 gem 'devise', '~> 4.9.4'
 
-# for timing out when session expires
-gem 'auto-session-timeout', '~> 1.2'
-
 # for cognito
-gem 'aws-sdk-cognitoidentityprovider', '~> 1.113.0'
+gem 'aws-sdk-cognitoidentityprovider', '~> 1.123.0'
 
 # for pagination
 gem 'kaminari', '~> 1.2.2'
@@ -81,7 +79,7 @@ gem 'jsonpath', '~> 1.1.5'
 gem 'aasm', '~> 5.5'
 
 # for running background jobs
-gem 'sidekiq', '~> 7.3.7'
+gem 'sidekiq', '~> 8.0.4'
 gem 'sinatra', '~> 4.1.1', require: false
 gem 'slim', '~> 5.2.1'
 
@@ -91,7 +89,8 @@ gem 'cancancan', '~> 3.6.1'
 gem 'role_model', '~> 0.8.2'
 
 # for clamav
-gem 'ratonvirus', '>= 0.1.1'
+# Because ratonvirus is not Rails 8 compatible, we use this fork
+gem 'ratonvirus', '>= 0.3.2', git: 'https://github.com/MaksJS/ratonvirus.git', ref: '13e4cd2bc2ef066f40634344f756b45cda3ac105'
 gem 'ratonvirus-clamby', '>= 0.1.0'
 # for active storage validation
 gem 'active_storage_validations', '>= 1.0.3'
@@ -107,12 +106,12 @@ gem 'capybara', '>= 3.38.0'
 gem 'gov_uk_date_fields', '>= 4.2.0'
 
 # Use CCS Frontend Helpers
-gem 'ccs-frontend_helpers', '~> 2.1.0'
+gem 'ccs-frontend_helpers', '~> 2.4.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
-  gem 'dotenv-rails', '>= 2.8.1'
+  gem 'dotenv-rails', '~> 3.1.8'
   gem 'factory_bot_rails', '>= 6.2.0'
   gem 'pry-rails'
   gem 'rails-controller-testing', '>= 1.0.5'
@@ -130,6 +129,7 @@ group :development, :test do
   gem 'wdm', '>= 0.1.0', platforms: %i[x64_mingw]
   gem 'tzinfo-data', platforms: %i[x64_mingw]
   gem 'faker', '~> 3.5.1'
+  gem 'brakeman', '~> 7.0.2'
 end
 
 group :development do
@@ -145,7 +145,7 @@ group :test do
   gem 'simplecov', '>= 0.16.1', require: false
   gem 'selenium-webdriver', '>= 3.142.3'
   gem 'cucumber-rails', '>= 2.6.1', require: false
-  gem 'database_cleaner', '>= 2.0.1'
+  gem 'database_cleaner-active_record', '>= 2.0.1', require: false
   gem 'site_prism', '>= 3.7.3'
   gem 'axe-core-capybara', '>= 4.2.1'
   gem 'axe-core-cucumber', '>= 4.2.1'

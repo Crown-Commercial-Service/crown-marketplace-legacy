@@ -7,9 +7,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [5.0.0] - 2025-06-09
+
+### Changed
+
+- Upgrade Rails to v7.2.2.1 ([PR 1898](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/1898))
+- Use Bun to manage our assets ([PR 1898](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/1898))
+- Use the `DistributedLocks` to prevent concurrent uploads of data ([PR 1898](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/1898))
+- Upgrade Bun to v1.2.13 ([PR 1922](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/1922))
+- Upgrade CCS Frontend Helpers version to v2.4.0 ([PR 1923](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/1923))
+- Upgrade CCS Frontend version to v1.4.1 ([PR 1923](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/1923))
+- Upgrade ruby version to v3.4.3 ([PR 1931](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/1931))
+- Replace our `omniauth_openid_connect` fork with the actual gem as it now being supported ([PR 1932](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/1932))
+- Upgrade Rails to v8.0.2.0 ([PR 1960](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/1960))
+
 ## [4.2.0] - 2025-01-23
 
-## Changed
+### Changed
 
 - Upgrade ruby version to v3.4.1 ([PR 1783](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/1783))
 - Upgrade alpine version to v3.21 ([PR 1783](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/1783))
@@ -23,7 +37,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Upgrade ruby version to v3.3.5 ([PR 1620](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/1620))
 - Upgrade ruby version to v3.3.4 ([PR 1598](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/1598))
 
-## Removed
+### Removed
 
 - Remove Turbolinks as it is no longer supported ([PR 1594](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/1594))
 

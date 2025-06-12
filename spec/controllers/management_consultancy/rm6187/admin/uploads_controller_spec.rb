@@ -4,6 +4,8 @@ RSpec.describe ManagementConsultancy::RM6187::Admin::UploadsController do
   let(:default_params) { { service: 'management_consultancy/admin', framework: framework } }
   let(:framework) { 'RM6187' }
 
+  include_context 'and RM6187 is live'
+
   describe 'GET index' do
     context 'when not logged in' do
       it 'redirects to the sign-in' do

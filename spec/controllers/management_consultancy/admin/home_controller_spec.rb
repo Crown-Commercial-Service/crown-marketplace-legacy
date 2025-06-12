@@ -4,9 +4,10 @@ RSpec.describe ManagementConsultancy::Admin::HomeController do
   let(:default_params) { { service: 'management_consultancy/admin' } }
 
   describe 'GET framework' do
-    it 'redirects to the RM6187 home page' do
+    it 'redirects to the RM6309 home page' do
       get :framework
-      expect(response).to redirect_to management_consultancy_rm6187_admin_path
+
+      expect(response).to redirect_to management_consultancy_rm6309_admin_path
     end
   end
 
@@ -25,7 +26,7 @@ RSpec.describe ManagementConsultancy::Admin::HomeController do
       # therefore, this test is just to make sure that the UnrecognisedLiveFrameworkError is not invoked
       it 'raises the MissingExactTemplate error' do
         expect do
-          get :index, params: { framework: 'RM6187' }
+          get :index, params: { framework: 'RM6309' }
         end.to raise_error(ActionController::MissingExactTemplate)
       end
     end

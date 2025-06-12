@@ -6,6 +6,10 @@ require 'rails_helper'
 
 RSpec.describe <module_service_name>::UsersController do
   let(:default_params) { { service: '<service_param_name>', framework: '<FRAMEWORK>' } }
+
+<rm6187_only>
+  include_context 'and RM6187 is live'
+</rm6187_only>
 <registration_only>
   describe 'GET confirm_new' do
     context 'when the framework is live' do

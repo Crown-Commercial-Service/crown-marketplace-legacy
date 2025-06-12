@@ -83,8 +83,20 @@ Then('the supplier {string} an SME') do |option|
   end
 end
 
+Then('the rate types are {string} and {string}') do |rate_type_1, rate_type_2|
+  expect(journey_page.supplier_rates_table_headings.rate_type_1).to have_content(rate_type_1)
+  expect(journey_page.supplier_rates_table_headings.rate_type_2).to have_content(rate_type_2)
+end
+
 Then('the rate for the {string} is {string}') do |role, rate|
   expect(journey_page.supplier_rates_table.rows[MC_ROLES.index(role)].rate).to have_content(rate)
+end
+
+Then('the rates for the {string} are {string}') do |role, rates|
+  rates = rates.split(':')
+
+  expect(journey_page.supplier_rates_table.rows[MCF4_ROLES.index(role)].rate_advice).to have_content(rates[0])
+  expect(journey_page.supplier_rates_table.rows[MCF4_ROLES.index(role)].rate_delivery).to have_content(rates[1])
 end
 
 Then('the contact details for the supplier are:') do |contact_details|
@@ -108,4 +120,5 @@ Then 'I click on the Back to start button' do
 end
 
 MC_ROLES = ['Analyst / Junior Consultant', 'Consultant', 'Senior Consultant / Engagement Manager / Project Lead', 'Principal Consultant / Associate Director', 'Managing Consultant / Director', 'Partner'].freeze
+MCF4_ROLES = ['Partner / Managing Director', 'Managing Consultant / Director', 'Principal Consultant / Associate Director', 'Senior Consultant / Manager / Project Lead', 'Consultant / Senior Analyst', 'Analyst / Junior Consultant'].freeze
 LS_RM6240_ROLES = ['Partner', 'Senior Solicitor, Senior Associate', 'Solicitor, Associate', 'NQ Solicitor/Associate, Junior Solicitor/Associate', 'Trainee', 'Paralegal, Legal Assistant', 'LMP (Legal project manager)'].freeze

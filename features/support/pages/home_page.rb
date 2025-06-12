@@ -6,6 +6,7 @@ module Pages
 
     section :authentication, '.ccs-header__service-authentication' do
       elements :links, 'a'
+      elements :buttons, 'button'
     end
 
     section :unrecognised_framework, '#main-content' do

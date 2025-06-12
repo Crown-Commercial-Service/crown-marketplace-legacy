@@ -9,6 +9,7 @@ RSpec.describe ManagementConsultancy::RM6187::Admin::SessionsController do
 
   before { request.env['devise.mapping'] = Devise.mappings[:user] }
 
+  include_context 'and RM6187 is live'
   describe 'GET new' do
     context 'when the framework is live' do
       it 'renders the new page' do

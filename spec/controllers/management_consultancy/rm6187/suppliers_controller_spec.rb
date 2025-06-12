@@ -15,6 +15,8 @@ RSpec.describe ManagementConsultancy::RM6187::SuppliersController do
       .with(lot_number, services).and_return(suppliers)
   end
 
+  include_context 'and RM6187 is live'
+
   describe 'GET index' do
     before { get :index, params: }
 

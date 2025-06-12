@@ -5,6 +5,8 @@ RSpec.describe ManagementConsultancy::RM6187::HomeController do
 
   login_mc_buyer
 
+  include_context 'and RM6187 is live'
+
   describe 'GET index' do
     it 'renders the index template' do
       get :index
