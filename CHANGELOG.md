@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Add the MCF4 lot document ([PR 1976](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/1976))
+
+### Changed
+
+- Set the correct dates for MCF3 and MCF4 ([PR 1976](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/1976))
+
 ## [5.0.1] - 2025-06-13
 
 ### Fixed
