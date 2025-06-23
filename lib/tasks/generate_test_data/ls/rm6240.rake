@@ -61,7 +61,7 @@ module GenerateTestData
 
       def self.generate_random_lot_data(supplier_range, lot_number)
         @suppliers[supplier_range].each.with_index do |supplier, index|
-          sample_services = SERVICE_CODES[lot_number].sample(rand(5..SERVICE_CODES[lot_number].length - 5)).sort
+          sample_services = SERVICE_CODES[lot_number].sample(rand(5..(SERVICE_CODES[lot_number].length - 5))).sort
 
           sample_services.each do |service_code|
             JURISDICTIONS.rotate(index)[..1].each do |jurisdiction|
