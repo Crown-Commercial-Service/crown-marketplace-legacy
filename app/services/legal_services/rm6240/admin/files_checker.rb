@@ -59,7 +59,7 @@ class LegalServices::RM6240::Admin::FilesChecker
       current_sheet_name = worksheet_data[:sheets][index]
       current_sheet = worksheet.sheet(index)
 
-      if current_sheet.last_row != worksheet_data[:last_row] || current_sheet.column(2)[2..].map(&:to_s) != (1..worksheet_data[:last_row] - 2).map { |service_number| "#{lot_number}.#{service_number}" }
+      if current_sheet.last_row != worksheet_data[:last_row] || current_sheet.column(2)[2..].map(&:to_s) != (1..(worksheet_data[:last_row] - 2)).map { |service_number| "#{lot_number}.#{service_number}" }
         sheets_with_errors << current_sheet_name
       elsif current_sheet.last_column == 2
         empty_sheets << current_sheet_name

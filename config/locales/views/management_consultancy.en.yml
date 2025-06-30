@@ -328,6 +328,7 @@ en:
           before_you_start:
             heading: Before you start
             mcf4_link_text: lot descriptions documents
+            mcf4_lots_document_file_path: management-consultancy/rm6309/RM6309 Lot Descriptions.pdf
             mcf4_text_html: You need to know which lot the management consultancy services you need are in. Review the %{mcf4_link} for Management Consultancy Framework Four.
           guidance:
             heading: Guidance and other useful documents
