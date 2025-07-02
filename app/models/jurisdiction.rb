@@ -1,0 +1,1 @@
+class Jurisdiction < ApplicationRecord; end

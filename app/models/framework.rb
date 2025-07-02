@@ -3,16 +3,18 @@ class Framework < ApplicationRecord
   scope :management_consultancy, -> { where(service: 'management_consultancy').order(live_at: :asc) }
   scope :legal_services, -> { where(service: 'legal_services').order(live_at: :asc) }
 
+  has_many :lots, inverse_of: :framework, dependent: :destroy
+
   acts_as_gov_uk_date :live_at, :expires_at, error_clash_behaviour: :omit_gov_uk_date_field_error
 
   validate :dates_are_valid, on: :update
 
   def self.frameworks
-    pluck(:framework)
+    pluck(:id)
   end
 
   def self.live_frameworks
-    where('live_at <= ? AND expires_at > ?', Time.now.in_time_zone('London'), Time.now.in_time_zone('London')).pluck(:framework)
+    where('live_at <= ? AND expires_at > ?', Time.now.in_time_zone('London'), Time.now.in_time_zone('London')).pluck(:id)
   end
 
   def self.current_framework
@@ -28,7 +30,7 @@ class Framework < ApplicationRecord
   end
 
   def status
-    if self.class.send(service).live_framework?(framework)
+    if self.class.send(service).live_framework?(id)
       :live
     else
       live_at <= Time.now.in_time_zone('London') ? :expired : :coming

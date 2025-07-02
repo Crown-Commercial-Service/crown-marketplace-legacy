@@ -2,6 +2,8 @@ require 'rails_helper'
 
 # rubocop:disable RSpec/NestedGroups
 RSpec.describe Framework do
+  it { is_expected.to have_many(:lots) }
+
   describe '.frameworks' do
     context 'when no scope is provided' do
       it 'returns RM6238, RM6187, RM6240 and RM6309' do
@@ -309,7 +311,7 @@ RSpec.describe Framework do
   end
 
   describe '.status' do
-    let(:result) { described_class.find_by(framework:).status }
+    let(:result) { described_class.find(framework).status }
 
     context 'when considering supply_teacher frameworks' do
       context 'and RM6238 goes live tomorrow' do

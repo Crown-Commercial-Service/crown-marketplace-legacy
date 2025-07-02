@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_06_17_075028) do
+ActiveRecord::Schema[8.0].define(version: 2025_07_02_122114) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
   enable_extension "pgcrypto"
@@ -43,13 +43,18 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_17_075028) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "frameworks", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.string "service", limit: 25
-    t.string "framework", limit: 6
+  create_table "frameworks", id: :text, force: :cascade do |t|
+    t.text "service"
     t.date "live_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.date "expires_at"
+  end
+
+  create_table "jurisdictions", id: :text, force: :cascade do |t|
+    t.text "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "legal_services_rm6240_admin_uploads", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -99,6 +104,15 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_17_075028) do
   create_table "legal_services_rm6240_uploads", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "lots", id: :text, force: :cascade do |t|
+    t.text "framework_id", null: false
+    t.text "number", null: false
+    t.text "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["framework_id"], name: "index_lots_on_framework_id"
   end
 
   create_table "management_consultancy_rm6187_admin_uploads", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -204,12 +218,14 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_17_075028) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "nuts_regions", id: false, force: :cascade do |t|
-    t.string "code", limit: 255
-    t.string "name", limit: 255
-    t.string "nuts1_code", limit: 255
-    t.string "nuts2_code", limit: 255
-    t.index ["code"], name: "nuts_regions_code_key", unique: true
+  create_table "services", id: :text, force: :cascade do |t|
+    t.text "lot_id", null: false
+    t.text "number", null: false
+    t.text "name", null: false
+    t.text "category"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["lot_id"], name: "index_services_on_lot_id"
   end
 
   create_table "supply_teachers_rm6238_admin_current_data", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -300,10 +316,12 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_17_075028) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "legal_services_rm6240_rates", "legal_services_rm6240_suppliers"
   add_foreign_key "legal_services_rm6240_service_offerings", "legal_services_rm6240_suppliers"
+  add_foreign_key "lots", "frameworks"
   add_foreign_key "management_consultancy_rm6187_rate_cards", "management_consultancy_rm6187_suppliers"
   add_foreign_key "management_consultancy_rm6187_service_offerings", "management_consultancy_rm6187_suppliers"
   add_foreign_key "management_consultancy_rm6309_rate_cards", "management_consultancy_rm6309_suppliers"
   add_foreign_key "management_consultancy_rm6309_service_offerings", "management_consultancy_rm6309_suppliers"
+  add_foreign_key "services", "lots"
   add_foreign_key "supply_teachers_rm6238_branches", "supply_teachers_rm6238_suppliers"
   add_foreign_key "supply_teachers_rm6238_managed_service_providers", "supply_teachers_rm6238_suppliers"
   add_foreign_key "supply_teachers_rm6238_rates", "supply_teachers_rm6238_suppliers"
