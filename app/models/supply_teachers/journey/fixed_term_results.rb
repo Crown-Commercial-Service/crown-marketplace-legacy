@@ -1,6 +1,7 @@
 module SupplyTeachers
   class Journey::FixedTermResults
     DATE_ATTIBUTES = %i[contract_start_date contract_end_date].freeze
+    POSITION_ID = 40
 
     include Steppable
     include Dateable
@@ -14,16 +15,12 @@ module SupplyTeachers
     attribute :contract_end_date_month
     attribute :contract_end_date_year
 
-    def rates
-      service_name::Rate.direct_provision.fixed_term
-    end
-
-    def rate(branch)
-      branch.supplier.fixed_term_rate
-    end
-
     def fixed_term_length
       difference_in_months(contract_start_date, contract_end_date)
+    end
+
+    def determine_position_id
+      self.class::POSITION_ID
     end
 
     def inputs

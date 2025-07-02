@@ -19,7 +19,7 @@ Feature: Supply Teachers - All agencies - suppliers
 
   Examples:
     | agency_name               | branch_1  | branch_2        |
-    | CORKERY INC               | Liverpool |Southend-on-Sea  |
+    | CORKERY INC               | Liverpool | Southend-on-Sea |
     | FEEST-MULLER              | Liverpool | London          |
     | STANTON, FADEL AND BOSCO  | Liverpool | Twickenham      |
 

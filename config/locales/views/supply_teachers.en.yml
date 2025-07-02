@@ -5,12 +5,12 @@ en:
       models:
         supply_teachers/rm6238/journey/agency_payroll:
           attributes:
-            job_type:
-              blank: Select the type of worker you need
             location:
               invalid_location: Enter a valid postcode
-            term:
+            offset:
               blank: Select how long you need the worker for
+            position_id:
+              blank: Select the type of worker you need
         supply_teachers/rm6238/journey/fta_calculator_contract_end:
           attributes:
             contract_end_date:
@@ -148,10 +148,6 @@ en:
               too_large: The 'Supplier lookup' file must be smaller than 10mb
               wrong_content_type: The 'Supplier lookup' file does not contain the expected content type
               wrong_extension: The 'Supplier lookup' file must be a CSV
-        supply_teachers/rm6238/branch:
-          attributes:
-            postcode:
-              invalid_postcode: Enter a valid postcode
   supply_teachers:
     admin:
       frameworks:
@@ -509,9 +505,6 @@ en:
           column2: Agency mark-up
       suppliers:
         education_technology_platform_vendor:
-          agency_management:
-            daily: 'Agency Management Fee: Daily supply worker (per worker, per day)'
-            six_weeks_plus: 'Agency Management Fee: Long term assignment (6 weeks+) (per worker, per day)'
           column1: Job type
           column2: Supplier fee
         education_technology_platform_vendors:

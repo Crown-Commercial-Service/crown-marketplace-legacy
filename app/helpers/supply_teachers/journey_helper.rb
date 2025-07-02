@@ -1,15 +1,18 @@
 module SupplyTeachers::JourneyHelper
-  def job_type_class
+  def positions
     case params[:framework]
     when 'RM6238'
-      SupplyTeachers::RM6238::JobType
+      Position.where(id: 41..44).order(:id)
     end
   end
 
-  def term_type_class
+  def offsets
     case params[:framework]
     when 'RM6238'
-      SupplyTeachers::RM6238::Term
+      [
+        [0, 'daily'],
+        [5, 'six_weeks_plus'],
+      ]
     end
   end
 end

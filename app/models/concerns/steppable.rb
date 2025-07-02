@@ -17,6 +17,10 @@ module Steppable
     def permitted_keys
       attribute_set.map(&:name)
     end
+
+    def framework
+      to_s.split('::')[1]
+    end
   end
 
   def slug

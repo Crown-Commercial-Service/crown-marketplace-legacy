@@ -1,4 +1,4 @@
-<%= content_for :page_title, @supplier.name  %>
+<%= content_for :page_title, @supplier_framework.supplier_name  %>
 <%= content_for :page_section, t("supply_teachers.#{params[:framework].downcase}.page_section") %>
 
 
@@ -8,14 +8,14 @@
       <%= t('.header') %>
     </span>
     <h1 class="govuk-heading-xl">
-      <%= @supplier.name %>
+      <%= @supplier_framework.supplier_name %>
     </h1>
   </div>
 </div>
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full govuk-!-margin-top-7 govuk-!-margin-bottom-7">
-    <%= render partial: "supply_teachers/#{params[:framework].downcase}/shared/rates_table", locals: { grouped_rates: @supplier.rates_grouped_by_job_type } %>
+    <%= render partial: "supply_teachers/#{params[:framework].downcase}/shared/rates_table", locals: { grouped_rates: @supplier_framework.grouped_rates_for_lot('RM6238.1') } %>
   </div>
 </div>
 

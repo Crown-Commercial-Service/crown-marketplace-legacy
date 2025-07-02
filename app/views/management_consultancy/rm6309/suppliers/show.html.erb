@@ -1,13 +1,13 @@
-<%= content_for :page_title, @supplier.name %>
+<%= content_for :page_title, @supplier_framework.supplier_name %>
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
     <span class="govuk-caption-xl">
-      <%= framework_lot_and_description(@lot.number, @lot.description) if @lot %>
+      <%= framework_lot_and_description(t('.framework_name'), @lot) if @lot %>
     </span>
     <h1 class="govuk-heading-xl">
-      <%= @supplier.name %>
-      <% if @supplier.sme? %>
+      <%= @supplier_framework.supplier_name %>
+      <% if @supplier_framework.supplier.sme %>
         <%= govuk_tag(t('sme'), 'grey', classes: 'ccs-tag') %>
       <% end %>
     </h1>
@@ -16,7 +16,7 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds govuk-!-padding-right-8">
-    <% if @rate_cards %>
+    <% if @rates %>
       <h2 class="govuk-heading-m govuk-!-margin-bottom-1"><%= t('.maximum_day_rates') %></h2>
       <p class="govuk-body"><%= t('.rates_are_fixed') %></p>
       <p class="govuk-body"><%= t('.rates_are_maximum') %></p>
@@ -27,68 +27,32 @@
             text: t('.position'),
             classes: 'govuk-!-width-one-half'
           }
-        ] + @rate_cards.map do |rate_type, _|
+        ] + rate_position_types[:names].map do |rate_position_type_name|
           {
-            text: t('.max_day_rate', rate_type: t(".rate_type.#{rate_type}")),
+            text: t('.max_day_rate', rate_type: t(".rate_type.#{rate_position_type_name}")),
             classes: 'govuk-!-width-one-quarter'
           }
         end,
         [
+          t('.job_titles.director'),
+          t('.job_titles.managing'),
+          t('.job_titles.principal'),
+          t('.job_titles.senior'),
+          t('.job_titles.standard'),
+          t('.job_titles.junior'),
+        ].map.with_index do |job_text, index|
           [
             {
-              text: t('.job_titles.director')
+              text: job_text
             },
-          ] + @rate_cards.map do |_, rate_card|
             {
-              text: number_to_currency(rate_card.director_rate_in_pence/100, precision: 0)
-            }
-          end,
-          [
-            {
-              text: t('.job_titles.managing')
+              text: number_to_currency(@rates[rate_position_types[:offset] - index].rate_in_pounds, precision: 0)
             },
-          ] + @rate_cards.map do |_, rate_card|
             {
-              text: number_to_currency(rate_card.managing_rate_in_pence/100, precision: 0)
+              text: number_to_currency(@rates[rate_position_types[:offset] + 6 - index].rate_in_pounds, precision: 0)
             }
-          end,
-          [
-            {
-              text: t('.job_titles.principal')
-            },
-          ] + @rate_cards.map do |_, rate_card|
-            {
-              text: number_to_currency(rate_card.principal_rate_in_pence/100, precision: 0)
-            }
-          end,
-          [
-            {
-              text: t('.job_titles.senior')
-            },
-          ] + @rate_cards.map do |_, rate_card|
-            {
-              text: number_to_currency(rate_card.senior_rate_in_pence/100, precision: 0)
-            }
-          end,
-          [
-            {
-              text: t('.job_titles.standard')
-            },
-          ] + @rate_cards.map do |_, rate_card|
-            {
-              text: number_to_currency(rate_card.standard_rate_in_pence/100, precision: 0)
-            }
-          end,
-          [
-            {
-              text: t('.job_titles.junior')
-            },
-          ] + @rate_cards.map do |_, rate_card|
-            {
-              text: number_to_currency(rate_card.junior_rate_in_pence/100, precision: 0)
-            }
-          end,
-        ],
+          ]
+        end,
         caption: {
           text: t('.day_rates'),
           classes: 'govuk-visually-hidden'
@@ -97,7 +61,7 @@
         classes: 'ccs-rates-table'
       ) %>
     <% end %>
-    <% if @supplier.sme? %>
+    <% if @supplier_framework.supplier.sme %>
       <p class="govuk-body">
         <%= govuk_tag(t('sme'), 'grey', classes: 'govuk-!-margin-right-1 ccs-tag') %>
         <%= t('.is_an_sme') %>
@@ -114,7 +78,7 @@
               text: t('.contact_details.person')
             },
             value: {
-              text: @supplier.contact_name
+              text: @supplier_framework.contact_detail.name
             }
           },
           {
@@ -122,7 +86,7 @@
               text: t('.contact_details.email')
             },
             value: {
-              text: mail_to(@supplier.contact_email, @supplier.contact_email, class: 'govuk-link')
+              text: mail_to(@supplier_framework.contact_detail.email, @supplier_framework.contact_detail.email, class: 'govuk-link')
             }
           },
           {
@@ -130,16 +94,16 @@
               text: t('.contact_details.phone_number')
             },
             value: {
-              text: @supplier.telephone_number
+              text: @supplier_framework.contact_detail.telephone_number
             }
           },
-        ] + (@supplier.website ? [
+        ] + (@supplier_framework.contact_detail.website ? [
           {
             key: {
               text: t('.contact_details.website')
             },
             value: {
-              text: link_to(@supplier.website, url_formatter(@supplier.website), class: 'govuk-link')
+              text: link_to(@supplier_framework.contact_detail.website, url_formatter(@supplier_framework.contact_detail.website), class: 'govuk-link')
             },
           }
         ] : []) + [
@@ -148,7 +112,7 @@
               text: t('.contact_details.address')
             },
             value: {
-              text: @supplier.address
+              text: @supplier_framework.contact_detail.additional_details['address']
             }
           }
         ],

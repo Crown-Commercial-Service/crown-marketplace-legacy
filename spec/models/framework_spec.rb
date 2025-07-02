@@ -2,6 +2,12 @@ require 'rails_helper'
 
 # rubocop:disable RSpec/NestedGroups
 RSpec.describe Framework do
+  describe 'associations' do
+    it { is_expected.to have_many(:lots) }
+    it { is_expected.to have_many(:supplier_frameworks) }
+    it { is_expected.to have_many(:uploads) }
+  end
+
   describe '.frameworks' do
     context 'when no scope is provided' do
       it 'returns RM6238, RM6187, RM6240 and RM6309' do
@@ -309,7 +315,7 @@ RSpec.describe Framework do
   end
 
   describe '.status' do
-    let(:result) { described_class.find_by(framework:).status }
+    let(:result) { described_class.find(framework).status }
 
     context 'when considering supply_teacher frameworks' do
       context 'and RM6238 goes live tomorrow' do
@@ -433,7 +439,7 @@ RSpec.describe Framework do
   end
 
   describe 'validating the live at date' do
-    let(:framework) { create(:legacy_framework) }
+    let(:framework) { create(:framework) }
     let(:live_at) { 1.day.from_now }
     let(:live_at_yyyy) { live_at.year.to_s }
     let(:live_at_mm) { live_at.month.to_s }
@@ -493,7 +499,7 @@ RSpec.describe Framework do
   end
 
   describe 'validating the expires at date' do
-    let(:framework) { create(:legacy_framework) }
+    let(:framework) { create(:framework) }
     let(:expires_at) { 2.years.from_now }
     let(:expires_at_yyyy) { expires_at.year.to_s }
     let(:expires_at_mm) { expires_at.month.to_s }
@@ -553,7 +559,7 @@ RSpec.describe Framework do
   end
 
   describe 'validating the expires at date is after the live at date' do
-    let(:framework) { create(:legacy_framework, live_at: today, expires_at: expires_at) }
+    let(:framework) { create(:framework, live_at: today, expires_at: expires_at) }
     let(:today) { Time.zone.today }
 
     context 'when the expires at date is in the future' do

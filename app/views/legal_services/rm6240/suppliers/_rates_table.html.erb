@@ -14,14 +14,14 @@
       classes: 'govuk-!-width-one-quarter'
     }
   ],
-  LegalServices::RM6240::Position.all.sort_by(&:code).map do |position|
-    rate = display_rate(position.code)
+  Position.where(id: legal_service_position_ids).order(:id).map do |position|
+    rate = display_rate(position.id)
 
     next if rate.nil?
 
     [
       {
-        text: position.name
+        text: position.position
       },
       {
         text: rate

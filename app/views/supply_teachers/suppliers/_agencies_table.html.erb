@@ -1,4 +1,4 @@
-<%= paginate paginated_suppliers, views_prefix: 'shared', window: 0, outer_window: 2, params: { controller: :suppliers, action: :all_suppliers } %>
+<%= paginate supplier_frameworks, views_prefix: 'shared', window: 0, outer_window: 2, params: { controller: :suppliers, action: :all_suppliers } %>
 
 <%= govuk_table(
   [
@@ -6,7 +6,7 @@
       text: t('.agency') 
     }
   ],
-  if paginated_suppliers.empty?
+  if supplier_frameworks.empty?
     [
       [
         {
@@ -15,11 +15,11 @@
       ]
     ]
   else
-    paginated_suppliers.map do |supplier|
+    supplier_frameworks.map do |supplier_framework|
       [
         {
           text: tag.h2(class: 'govuk-heading-m govuk-!-margin-bottom-0') do
-            link_to(supplier.name, show_path(supplier), class: 'govuk-link ccs-no-underline')
+            link_to(supplier_framework.supplier_name, show_path(supplier_framework), class: 'govuk-link ccs-no-underline')
           end,
           classes: 'agency-row'
         }
@@ -28,4 +28,4 @@
   end,
 ) %>
 
-<%= paginate paginated_suppliers, views_prefix: 'shared', window: 0, outer_window: 2, params: { controller: :suppliers, action: :all_suppliers } %>
+<%= paginate supplier_frameworks, views_prefix: 'shared', window: 0, outer_window: 2, params: { controller: :suppliers, action: :all_suppliers } %>

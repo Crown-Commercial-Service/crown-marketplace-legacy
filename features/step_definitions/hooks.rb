@@ -62,7 +62,7 @@ After do
   DatabaseCleaner.clean
   if Framework.none?
     Rake::Task['db:static'].reenable
-    Rake::Task['db:legacy_frameworks'].reenable
+    Rake::Task['db:frameworks'].reenable
     Rake::Task['db:import_test_data'].reenable
     Rake::Task['db:import_test_data'].invoke
   end

@@ -51,13 +51,13 @@ RSpec.describe LegalServices::RM6240::Journey::CheckSuitability do
 
   describe '.permit_list' do
     it 'returns a list of the permitted attributes' do
-      expect(described_class.permit_list).to eq [:service_suitable, :lot, {}]
+      expect(described_class.permit_list).to eq [:service_suitable, {}]
     end
   end
 
   describe '.permitted_keys' do
     it 'returns a list of the permitted keys' do
-      expect(described_class.permitted_keys).to eq %i[service_suitable lot]
+      expect(described_class.permitted_keys).to eq %i[service_suitable]
     end
   end
 

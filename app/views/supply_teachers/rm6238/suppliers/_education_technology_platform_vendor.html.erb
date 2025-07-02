@@ -1,27 +1,29 @@
 <div class="agency-record">
-  <h2 class="govuk-heading-m"><%= education_technology_platform_vendor.name %></h2>
+  <h2 class="govuk-heading-m"><%= education_technology_platform_vendor.supplier_name %></h2>
 
-  <% education_technology_platform_vendor_contact = managed_service_provider_contact(education_technology_platform_vendor, '4')%>
+  <% education_technology_platform_vendor_contact = education_technology_platform_vendor.contact_detail.additional_details['education_technology_platform'] %>
 
   <% if education_technology_platform_vendor_contact.present? %>
     <p class="govuk-body">
       <span class="managed-service-provider-contact-details__name">
-        <strong><%= education_technology_platform_vendor_contact.contact_name %></strong>
+        <strong><%= education_technology_platform_vendor_contact['name'] %></strong>
       </span>
       <br />
       <span class="managed-service-provider-contact-details__telephone">
-        <%= format_telephone_number(education_technology_platform_vendor_contact.telephone_number) %>
+        <%= format_telephone_number(education_technology_platform_vendor_contact['telephone_number']) %>
       </span>
       <br />
       <span class="managed-service-provider-contact-details__email">
-        <%= mail_to(education_technology_platform_vendor_contact.contact_email,
-                   education_technology_platform_vendor_contact.contact_email,
+        <%= mail_to(education_technology_platform_vendor_contact['email'],
+                   education_technology_platform_vendor_contact['email'],
                    aria: {
-                     label: "Email #{education_technology_platform_vendor_contact.contact_name} from #{education_technology_platform_vendor.name}"
+                     label: "Email #{education_technology_platform_vendor_contact['name']} from #{education_technology_platform_vendor.supplier_name}"
                    }) %>
       </span>
     </p>
   <% end %>
+
+  <% grouped_rates = education_technology_platform_vendor.grouped_rates_for_lot(@lot_id) %>
 
   <%= govuk_table(
     [
@@ -33,16 +35,19 @@
         classes: 'govuk-table__header--numeric agency-record__markup-column'
       }
     ],
-    education_technology_platform_vendor.education_technology_platforms_rates_grouped_by_job_type.map do |job_type, rates|
-      rates.map do |rate|
-        [
-          {
-            text: rates.length == 1 ? SupplyTeachers::RM6238::JobType[job_type] : t(".agency_management.#{rate.term}")
-          },
-          agency_rate_cell(rate)
-        ]
-      end
-    end.flatten(1),
+    [
+      [t('journey_step.supply_teachers.job_titles.agency_management_daily'), 45],
+      [t('journey_step.supply_teachers.job_titles.agency_management_six_weeks_plus'), 50],
+      [t('journey_step.supply_teachers.job_titles.nominated'), 39],
+      [t('journey_step.supply_teachers.job_titles.fixed_term'), 40],
+    ].map do |job_type, position_id|
+      [
+        {
+          text: job_type
+        },
+        agency_rate_cell(grouped_rates[position_id]),
+      ]
+    end,
     first_cell_is_header: true
   ) %>
 </div>

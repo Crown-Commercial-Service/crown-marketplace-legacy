@@ -1,11 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe SupplyTeachers::RM6238::Journey::AgencyPayroll do
-  subject(:step) { described_class.new(postcode:, job_type:, term:) }
+  subject(:step) { described_class.new(postcode:, position_id:, offset:) }
 
   let(:postcode) { 'SW1A 1AA' }
-  let(:job_type) { 'teacher' }
-  let(:term) { 'daily' }
+  let(:position_id) { 41 }
+  let(:offset) { 0 }
 
   describe 'validations' do
     before do
@@ -38,21 +38,21 @@ RSpec.describe SupplyTeachers::RM6238::Journey::AgencyPayroll do
       end
     end
 
-    context 'when no job_type is provided' do
-      let(:job_type) { nil }
+    context 'when no position_id is provided' do
+      let(:position_id) { nil }
 
       it 'is not valid and has the correct error message' do
         expect(step).not_to be_valid
-        expect(step.errors[:job_type].first).to eq 'Select the type of worker you need'
+        expect(step.errors[:position_id].first).to eq 'Select the type of worker you need'
       end
     end
 
-    context 'when no term is provided' do
-      let(:term) { nil }
+    context 'when no offset is provided' do
+      let(:offset) { nil }
 
       it 'is not valid and has the correct error message' do
         expect(step).not_to be_valid
-        expect(step.errors[:term].first).to eq 'Select how long you need the worker for'
+        expect(step.errors[:offset].first).to eq 'Select how long you need the worker for'
       end
     end
 
@@ -71,13 +71,13 @@ RSpec.describe SupplyTeachers::RM6238::Journey::AgencyPayroll do
 
   describe '.permit_list' do
     it 'returns a list of the permitted attributes' do
-      expect(described_class.permit_list).to eq [:postcode, :radius, :term, :job_type, {}]
+      expect(described_class.permit_list).to eq [:postcode, :radius, :offset, :position_id, {}]
     end
   end
 
   describe '.permitted_keys' do
     it 'returns a list of the permitted keys' do
-      expect(described_class.permitted_keys).to eq %i[postcode radius term job_type]
+      expect(described_class.permitted_keys).to eq %i[postcode radius offset position_id]
     end
   end
 

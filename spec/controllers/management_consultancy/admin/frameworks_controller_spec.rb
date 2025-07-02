@@ -31,7 +31,7 @@ RSpec.describe ManagementConsultancy::Admin::FrameworksController do
   end
 
   describe 'GET edit' do
-    let(:framework) { create(:legacy_framework) }
+    let(:framework) { create(:framework) }
 
     it 'renders the edit page' do
       get :edit, params: { id: framework.id }
@@ -40,7 +40,7 @@ RSpec.describe ManagementConsultancy::Admin::FrameworksController do
   end
 
   describe 'POST update' do
-    let(:framework) { create(:legacy_framework) }
+    let(:framework) { create(:framework) }
     let(:live_at_yyyy) { framework.live_at.year.to_s }
     let(:live_at_mm) { framework.live_at.month.to_s }
     let(:live_at_dd) { framework.live_at.day.to_s }

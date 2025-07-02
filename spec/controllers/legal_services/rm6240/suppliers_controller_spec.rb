@@ -3,31 +3,31 @@ require 'rails_helper'
 RSpec.describe LegalServices::RM6240::SuppliersController do
   let(:default_params) { { service: 'legal_services', framework: framework } }
   let(:framework) { 'RM6240' }
-  let(:supplier) { create(:legal_services_rm6240_supplier) }
-  let(:suppliers) { LegalServices::RM6240::Supplier.where(id: supplier.id) }
-  let(:lot) { LegalServices::RM6240::Lot.find_by(number: lot_number) }
-  let(:services) { LegalServices::RM6240::Service.where(lot_number:).sample(5).map(&:code) }
-  let(:jurisdiction) { nil }
+  let(:supplier_framework) { create(:supplier_framework) }
+  let(:supplier_frameworks) { Supplier::Framework.where(id: supplier_framework.id) }
+  let(:lot) { Lot.find(lot_id) }
+  let(:service_ids) { Service.where(lot_id:).sample(5).map(&:id) }
+  let(:jurisdiction_id) { nil }
   let(:central_government) { 'no' }
 
   login_ls_buyer
 
   before do
-    allow(LegalServices::RM6240::Supplier).to receive(:offering_services_in_jurisdiction)
-      .with(lot_number, services, jurisdiction).and_return(suppliers)
+    allow(Supplier::Framework).to receive(:with_services_in_jurisdiction).with(service_ids, jurisdiction_id).and_return(supplier_frameworks)
+    allow(Supplier::Framework).to receive(:with_services_in_jurisdiction).with(['RM6240.3.1'], 'GB').and_return(supplier_frameworks)
   end
 
   describe 'GET index' do
     before { get :index, params: }
 
     context 'when the lot answer is lot1' do
-      let(:lot_number) { '1' }
+      let(:lot_id) { 'RM6240.1' }
 
       let(:params) do
         {
           journey: 'legal_services',
-          lot: lot_number,
-          services: services,
+          lot_id: lot_id,
+          service_ids: service_ids,
           central_government: central_government,
         }
       end
@@ -36,8 +36,8 @@ RSpec.describe LegalServices::RM6240::SuppliersController do
         expect(response).to render_template('index')
       end
 
-      it 'assigns suppliers available in lot & regions, with services' do
-        expect(assigns(:suppliers)).to eq(suppliers)
+      it 'assigns supplier_frameworks available in lot & regions, with services' do
+        expect(assigns(:supplier_frameworks)).to eq(supplier_frameworks)
       end
 
       it 'assigns lot to the correct lot' do
@@ -48,11 +48,23 @@ RSpec.describe LegalServices::RM6240::SuppliersController do
         expected_path = journey_question_path(
           journey: 'legal-services',
           slug: 'choose-services',
-          lot: lot_number,
-          services: services,
+          lot_id: lot_id,
+          service_ids: service_ids,
           central_government: central_government
         )
         expect(assigns(:back_path)).to eq(expected_path)
+      end
+
+      it 'calls with_services_in_jurisdiction' do
+        expect(Supplier::Framework).to have_received(:with_services_in_jurisdiction).with(service_ids, jurisdiction_id)
+      end
+
+      context 'when the lot is RM6240.3' do
+        let(:lot_id) { 'RM6240.3' }
+
+        it 'calls with_services_in_jurisdiction with the correct params' do
+          expect(Supplier::Framework).to have_received(:with_services_in_jurisdiction).with(['RM6240.3.1'], 'GB')
+        end
       end
 
       context 'when the framework is not the current framework' do
@@ -67,13 +79,13 @@ RSpec.describe LegalServices::RM6240::SuppliersController do
   end
 
   describe 'GET download' do
-    let(:lot_number) { '1' }
+    let(:lot_id) { 'RM6240.1' }
 
     let(:params) do
       {
         journey: 'legal-services',
-        lot: lot_number,
-        services: services,
+        lot_id: lot_id,
+        service_ids: service_ids,
         central_government: central_government,
       }
     end
@@ -114,10 +126,14 @@ RSpec.describe LegalServices::RM6240::SuppliersController do
   end
 
   describe 'GET show' do
-    before { get :show, params: { id: supplier.id, lot: lot } }
+    before do
+      create(:supplier_framework_lot_rate, supplier_framework_lot: create(:supplier_framework_lot, supplier_framework: supplier_framework, lot_id: lot_id, jurisdiction_id: 'GB'))
 
-    context 'when the lot answer is lot1' do
-      let(:lot_number) { '1' }
+      get :show, params: { id: supplier_framework.id, lot_id: lot_id }
+    end
+
+    context 'when the lot answer is lot 1' do
+      let(:lot_id) { 'RM6240.1' }
 
       it 'renders the show template' do
         expect(response).to render_template('show')
@@ -130,14 +146,6 @@ RSpec.describe LegalServices::RM6240::SuppliersController do
           expect(response).to render_template('legal_services/home/unrecognised_framework')
           expect(response).to have_http_status(:bad_request)
         end
-      end
-    end
-
-    context 'with no lot number set' do
-      let(:lot_number) { '' }
-
-      it 'renders the show template' do
-        expect(response).to render_template('show')
       end
     end
   end

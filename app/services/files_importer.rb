@@ -27,6 +27,10 @@ class FilesImporter
     Rollbar.log('error', e)
   end
 
+  def framework
+    @import_module.to_s.split('::')[1]
+  end
+
   private
 
   def check_files
@@ -48,7 +52,7 @@ class FilesImporter
   end
 
   def publish_data
-    @upload_module::Upload.upload!(@supplier_data)
+    Upload.smart_upload!(framework, @supplier_data)
   rescue StandardError => e
     Rollbar.log('error', e)
     @errors << { error: 'file_publish_failed', details: e.message }

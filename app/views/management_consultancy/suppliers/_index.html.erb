@@ -1,0 +1,40 @@
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <span class="govuk-caption-xl">
+      <%= framework_lot_and_description(framework_name, @lot) %>
+    </span>
+    <% if @supplier_frameworks.total_count.zero? %>
+      <%= content_for :page_title, t('.no_suppliers_found.heading') %>
+      <h1 class="govuk-heading-xl"><%= t('.no_suppliers_found.heading') %></h1>
+      <p class="govuk-body govuk-!-font-size-24">
+        <%=t('.no_suppliers_found.text') %>
+      </p>
+      <br>
+      <p class="govuk-body">
+        <%= t('.no_suppliers_found.contact_html', contact_link: link_to(t('.no_suppliers_found.contact_link_text'), 'https://www.crowncommercial.gov.uk/contact')) %>
+      </p>
+    <% else %>
+      <%= content_for :page_title, t('.heading') %>
+      <h1 class="govuk-heading-xl"><%= t('.heading') %></h1>
+      <p class="govuk-body">
+        <%= t('.suppliers_found_html',
+              number: @supplier_frameworks.total_count,
+              suppliers: number_to_human(@supplier_frameworks.total_count, units: :companies, format: '%u')) %>
+      </p>
+      <%= govuk_button(t('.download_suppliers_list'), href: management_consultancy_suppliers_download_path(lot_id: params[:lot_id], service_ids: params[:service_ids])) %>
+      <br>
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds ccs-search-results">
+          <ul class="ccs-results-list">
+            <%= render partial: 'supplier_framework', collection: @supplier_frameworks %>
+          </ul>
+        </div>
+      </div>
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <%= paginate @supplier_frameworks, views_prefix: 'shared', window: 2, outer_window: 1 %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

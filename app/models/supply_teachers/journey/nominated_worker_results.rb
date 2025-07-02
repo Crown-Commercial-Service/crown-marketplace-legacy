@@ -3,12 +3,10 @@ module SupplyTeachers
     include Steppable
     include ActiveSupport::NumberHelper
 
-    def rates
-      service_name::Rate.direct_provision.nominated_worker
-    end
+    POSITION_ID = 39
 
-    def rate(branch)
-      branch.supplier.nominated_worker_rate
+    def determine_position_id
+      self.class::POSITION_ID
     end
 
     def inputs
