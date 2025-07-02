@@ -13,9 +13,9 @@ Feature: Management Consultancy - Lot 8 - Infrastructure including Transport - S
       | Aviation                                        |
       | Communications and technology infrastructure    |
       | Highways                                        |
+      | Ports and shipping                              |
       | Public transport (including buses and parking)  |
       | Rail                                            |
-      | Ports and shipping                              |
       | Smart infrastructure                            |
       | Towns and cities                                |
 

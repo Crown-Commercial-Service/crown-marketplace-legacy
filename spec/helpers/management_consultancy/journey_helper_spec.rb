@@ -1,22 +1,19 @@
 require 'rails_helper'
 
 RSpec.describe ManagementConsultancy::JourneyHelper do
-  describe '#lot_number_and_description' do
-    it 'returns the full title with lot and description' do
-      lot_number = 'MCF3.2'
-      description = 'Strategy and Policy'
+  let(:lot_number) { rand(1..10).to_s }
+  let(:lot) { Lot.find_by(framework_id: 'RM6309', number: lot_number) }
 
-      expect(helper.lot_number_and_description(lot_number, description)).to eq('Lot 2 - Strategy and Policy')
+  describe '#lot_full_description' do
+    it 'returns the full title with lot and description' do
+      expect(helper.lot_full_name(lot)).to eq("Lot #{lot_number} - #{lot.name}")
     end
   end
 
   describe '#framework_lot_and_description' do
     context 'when the lot is in MCF3' do
       it 'returns the full title with lot, framework and description' do
-        lot_number = 'MCF3.1'
-        description = 'Business'
-
-        expect(helper.framework_lot_and_description(lot_number, description)).to eq('MCF3 lot 1 - Business')
+        expect(helper.framework_lot_and_description('MCF4', lot)).to eq("MCF4 lot #{lot.number} - #{lot.name}")
       end
     end
   end

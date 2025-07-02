@@ -141,7 +141,7 @@ module ManagementConsultancy
       end
 
       def self.get_services_column(lot_number)
-        ManagementConsultancy::RM6309::Journey::ChooseServices.new.services_for_lot(lot_number).map { |service| "#{service.name} [#{service.code}]" }
+        ManagementConsultancy::RM6309::Journey::ChooseServices.new(lot_id: "RM6309.#{lot_number.split('.')[1]}").lot_services.map { |service| "#{service.name} [#{lot_number}.#{service.number}]" }
       end
 
       private

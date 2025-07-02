@@ -211,6 +211,8 @@ Rails.application.routes.draw do
     get '/:framework/start', to: 'journey#start', as: 'journey_start'
     get '/:framework/:slug', to: 'journey#question', as: 'journey_question'
     get '/:framework/:slug/answer', to: 'journey#answer', as: 'journey_answer'
+    get '/:framework/suppliers/download', to: 'suppliers#download', as: 'suppliers_download'
+    get '/:framework/suppliers/:id', to: 'suppliers#show', as: 'supplier'
   end
 
   namespace 'legal_services', path: 'legal-services', defaults: { service: 'legal_services' } do

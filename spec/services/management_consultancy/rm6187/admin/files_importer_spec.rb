@@ -81,7 +81,7 @@ RSpec.describe ManagementConsultancy::RM6187::Admin::FilesImporter do
 
       it 'changes the state to failed and has the correct errors' do
         expect(upload).to have_state(:failed)
-        expect(upload.import_errors).to eq [{ error: 'supplier_missing_lots', details: ['REX LTD'] }]
+        expect(upload.import_errors).to eq [{ error: 'supplier_missing_services', details: ['REX LTD'] }]
       end
     end
 
@@ -90,7 +90,7 @@ RSpec.describe ManagementConsultancy::RM6187::Admin::FilesImporter do
 
       it 'changes the state to failed and has the correct errors' do
         expect(upload).to have_state(:failed)
-        expect(upload.import_errors).to eq [{ error: 'supplier_missing_rate_cards', details: ['MORAG JEWEL LTD'] }]
+        expect(upload.import_errors).to eq [{ error: 'supplier_missing_rates', details: ['MORAG JEWEL LTD'] }]
       end
     end
   end
@@ -98,23 +98,24 @@ RSpec.describe ManagementConsultancy::RM6187::Admin::FilesImporter do
   describe 'import_data' do
     let(:expected_supplier_results) do
       {
-        'REX LTD': { service_offerings: 131, rate_cards: 9 },
-        'MORAG JEWEL LTD': { service_offerings: 131, rate_cards: 9 },
-        'ZEKE VON GEMBU CORP': { service_offerings: 131, rate_cards: 9 }
+        'REX LTD': { lots: 9, services: 131, rates: 54 },
+        'MORAG JEWEL LTD': { lots: 9, services: 131, rates: 54 },
+        'ZEKE VON GEMBU CORP': { lots: 9, services: 131, rates: 54 },
       }
     end
 
     it 'publishes the data and all the suppliers are imported' do
       expect(upload).to have_state(:published)
-      expect(ManagementConsultancy::RM6187::Supplier.count).to eq 3
+      expect(Supplier::Framework.where(framework_id: 'RM6187').count).to eq 3
     end
 
     it 'has the correct data for the suppliers' do
       expected_supplier_results.each do |name, expected_results|
-        supplier = ManagementConsultancy::RM6187::Supplier.find_by(name:)
+        supplier_framework = Supplier.find_by(name:).supplier_frameworks.find_by(framework_id: 'RM6187')
 
-        expect(supplier.service_offerings.count).to eq expected_results[:service_offerings]
-        expect(supplier.rate_cards.count).to eq expected_results[:rate_cards]
+        expect(supplier_framework.lots.count).to eq expected_results[:lots]
+        expect(supplier_framework.lots.sum { |lot| lot.services.count }).to eq expected_results[:services]
+        expect(supplier_framework.lots.sum { |lot| lot.rates.count }).to eq expected_results[:rates]
       end
     end
   end

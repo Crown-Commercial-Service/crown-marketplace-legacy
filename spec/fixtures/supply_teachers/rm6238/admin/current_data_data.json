@@ -1,0 +1,281 @@
+[
+  {
+    "supplier_name": "BARTOLETTI, KOEPP AND NIENOW",
+    "branches": [
+      {
+        "branch_name": "London",
+        "address_1": "London Stadium",
+        "address_2": "Queen Elizabeth Olympic Park",
+        "town": "London",
+        "postcode": "E20 2ST",
+        "telephone": "796.971.2756 x5567",
+        "region": "Inner London - East",
+        "contacts": [
+          {
+            "name": "Jae Bradtke JD",
+            "email": "jae_bradtke_jd@considine.org"
+          }
+        ],
+        "lat": 51.538636,
+        "lon": -0.0164035
+      },
+      {
+        "branch_name": "Southport",
+        "address_1": "Southport Pleasureland",
+        "address_2": "Marine Dr",
+        "town": "Southport",
+        "county": "Merseyside",
+        "postcode": "PR8 1RX",
+        "telephone": "1-239-638-8229 x18833",
+        "region": "Merseyside",
+        "contacts": [
+          {
+            "name": "Fr. Theda Ratke",
+            "email": "theda.fr.ratke@ortiz.com"
+          }
+        ],
+        "lat": 53.64547839999999,
+        "lon": -3.0208779
+      }
+    ],
+    "pricing": [
+      {
+        "job_type": "teacher",
+        "term": "daily",
+        "fee": 2759,
+        "lot_number": "1"
+      },
+      {
+        "job_type": "teacher",
+        "term": "six_weeks_plus",
+        "fee": 2621,
+        "lot_number": "1"
+      },
+      {
+        "job_type": "support",
+        "term": "daily",
+        "fee": 2483,
+        "lot_number": "1"
+      },
+      {
+        "job_type": "support",
+        "term": "six_weeks_plus",
+        "fee": 2358,
+        "lot_number": "1"
+      },
+      {
+        "job_type": "senior",
+        "term": "daily",
+        "fee": 3034,
+        "lot_number": "1"
+      },
+      {
+        "job_type": "senior",
+        "term": "six_weeks_plus",
+        "fee": 2882,
+        "lot_number": "1"
+      },
+      {
+        "job_type": "other",
+        "term": "daily",
+        "fee": 2621,
+        "lot_number": "1"
+      },
+      {
+        "job_type": "other",
+        "term": "six_weeks_plus",
+        "fee": 2489,
+        "lot_number": "1"
+      },
+      {
+        "job_type": "over_12_week",
+        "fee": 100,
+        "lot_number": "1"
+      },
+      {
+        "job_type": "nominated",
+        "fee": 2207,
+        "lot_number": "1"
+      },
+      {
+        "job_type": "fixed_term",
+        "fee": 1655,
+        "lot_number": "1"
+      }
+    ],
+    "supplier_id": "fc597adf-5034-4897-b2fb-2bb5264d8bd4",
+    "accreditation": true
+  },
+  {
+    "pricing": [
+      {
+        "job_type": "teacher",
+        "term": "daily",
+        "fee": 3030,
+        "lot_number": "2.1"
+      },
+      {
+        "job_type": "teacher",
+        "term": "six_weeks_plus",
+        "fee": 2878,
+        "lot_number": "2.1"
+      },
+      {
+        "job_type": "support",
+        "term": "daily",
+        "fee": 2727,
+        "lot_number": "2.1"
+      },
+      {
+        "job_type": "support",
+        "term": "six_weeks_plus",
+        "fee": 2590,
+        "lot_number": "2.1"
+      },
+      {
+        "job_type": "senior",
+        "term": "daily",
+        "fee": 3333,
+        "lot_number": "2.1"
+      },
+      {
+        "job_type": "senior",
+        "term": "six_weeks_plus",
+        "fee": 3166,
+        "lot_number": "2.1"
+      },
+      {
+        "job_type": "other",
+        "term": "daily",
+        "fee": 2878,
+        "lot_number": "2.1"
+      },
+      {
+        "job_type": "other",
+        "term": "six_weeks_plus",
+        "fee": 2734,
+        "lot_number": "2.1"
+      },
+      {
+        "job_type": "over_12_week",
+        "fee": 0,
+        "lot_number": "2.1"
+      },
+      {
+        "job_type": "nominated",
+        "fee": 2424,
+        "lot_number": "2.1"
+      },
+      {
+        "job_type": "fixed_term",
+        "fee": 1818,
+        "lot_number": "2.1"
+      },
+      {
+        "job_type": "teacher",
+        "term": "daily",
+        "fee": 5716,
+        "lot_number": "2.2"
+      },
+      {
+        "job_type": "teacher",
+        "term": "six_weeks_plus",
+        "fee": 5430,
+        "lot_number": "2.2"
+      },
+      {
+        "job_type": "support",
+        "term": "daily",
+        "fee": 5144,
+        "lot_number": "2.2"
+      },
+      {
+        "job_type": "support",
+        "term": "six_weeks_plus",
+        "fee": 4886,
+        "lot_number": "2.2"
+      },
+      {
+        "job_type": "senior",
+        "term": "daily",
+        "fee": 6287,
+        "lot_number": "2.2"
+      },
+      {
+        "job_type": "senior",
+        "term": "six_weeks_plus",
+        "fee": 5972,
+        "lot_number": "2.2"
+      },
+      {
+        "job_type": "other",
+        "term": "daily",
+        "fee": 5430,
+        "lot_number": "2.2"
+      },
+      {
+        "job_type": "other",
+        "term": "six_weeks_plus",
+        "fee": 5158,
+        "lot_number": "2.2"
+      },
+      {
+        "job_type": "over_12_week",
+        "fee": 600,
+        "lot_number": "2.2"
+      },
+      {
+        "job_type": "nominated",
+        "fee": 4572,
+        "lot_number": "2.2"
+      },
+      {
+        "job_type": "fixed_term",
+        "fee": 3429,
+        "lot_number": "2.2"
+      }
+    ],
+    "supplier_id": "2a0c8fb0-3e0b-4ca8-b66e-9e9397a26196",
+    "supplier_name": "BOGAN, REICHERT AND COLLIER",
+    "accreditation": true,
+    "master_vendor_contacts": {
+      "name": "Ok Kuphal",
+      "telephone": "(670) 117-8868 x86891",
+      "email": "bogan.and.collier.reichert@murray.net"
+    }
+  },
+  {
+    "pricing": [
+      {
+        "job_type": "agency_management",
+        "term": "daily",
+        "fee": 1951,
+        "lot_number": "4"
+      },
+      {
+        "job_type": "agency_management",
+        "term": "six_weeks_plus",
+        "fee": 1853,
+        "lot_number": "4"
+      },
+      {
+        "job_type": "nominated",
+        "fee": 1755,
+        "lot_number": "4"
+      },
+      {
+        "job_type": "fixed_term",
+        "fee": 1300,
+        "lot_number": "4"
+      }
+    ],
+    "supplier_id": "4b963011-e52c-47a2-982b-a9cb9e40023c",
+    "supplier_name": "BOYLE, KOEPP AND TURNER",
+    "accreditation": true,
+    "education_technology_platform_contacts": {
+      "name": "Hildred Padberg",
+      "telephone": "1-564-892-0394 x2677",
+      "email": "and.boyle.turner.koepp@lehner-cole.info"
+    }
+  }
+]

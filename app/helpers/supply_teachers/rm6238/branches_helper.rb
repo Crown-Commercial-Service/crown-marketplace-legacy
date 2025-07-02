@@ -6,10 +6,10 @@ module SupplyTeachers::RM6238::BranchesHelper
   end
 
   def daily_fee_or_markup(branch)
-    number_to_currency(branch.rate)
+    number_to_currency(branch.rate.rate_in_pounds)
   end
 
   def finders_fee(rate)
-    number_to_percentage(rate, precision: 1)
+    number_to_percentage(rate.rate_as_percentage, precision: 1)
   end
 end

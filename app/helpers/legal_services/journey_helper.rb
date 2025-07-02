@@ -1,13 +1,9 @@
 module LegalServices::JourneyHelper
-  def lot_full_description(lot)
-    "Lot #{lot.number} - #{lot.description}"
+  def lot_full_name(lot)
+    "Lot #{lot.number} - #{lot.name}"
   end
 
   def lot_legal_services(lot_number)
     "Lot #{lot_number} legal services"
-  end
-
-  def region_name(name)
-    name.split('(')[0].strip
   end
 end
