@@ -3,11 +3,11 @@ module SupplyTeachers
     include Steppable
     include Geolocatable
 
-    attribute :term
-    validates :term, presence: true
+    attribute :offset
+    validates :offset, presence: true
 
-    attribute :job_type
-    validates :job_type, presence: true
+    attribute :position_id
+    validates :position_id, presence: true
 
     def next_step_class
       service_name::Journey::AgencyPayrollResults

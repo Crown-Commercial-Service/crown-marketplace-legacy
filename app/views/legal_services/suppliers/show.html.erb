@@ -1,13 +1,13 @@
-<%= content_for :page_title, @supplier.name.html_safe  %>
+<%= content_for :page_title, @supplier_framework.supplier_name.html_safe  %>
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
     <span class="govuk-caption-xl">
-      <%= full_lot_description(@lot.number, @lot.description) if @lot %>
+      <%= full_lot_name(@lot) if @lot %>
     </span>
     <h1 class="govuk-heading-xl">
-      <%= @supplier.name %>
-      <% if @supplier.sme? %>
+      <%= @supplier_framework.supplier_name %>
+      <% if @supplier_framework.supplier.sme? %>
         <%= govuk_tag(t('sme'), 'grey', classes: 'ccs-tag') %>
       <% end %>
     </h1>
@@ -16,21 +16,21 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds govuk-!-padding-right-8">
-    <% if @rate_card.present? %>
+    <% if @rates.present? %>
       <%= render partial: "legal_services/#{params[:framework].downcase}/suppliers/rates_table" %>
     <% end %>
     <p><%= t('.fee_advice') %></p>
-    <% if params[:lot] && prospectus_link_present? %>
+    <% if params[:lot_id] && prospectus_link_present? %>
       <h2 class="govuk-heading-m govuk-!-margin-bottom-1"><%= t('.supplier_prospectus_headline') %></h2>
       <div class="govuk-!-margin-bottom-3">
         <% if prospectus_link_a_url? %>
           <%= link_to prospectus_link, url_formatter(prospectus_link), class: 'govuk-link govuk-!-font-size-19' %>
         <% else %>
-          <%= tag.p prospectus_link %>
+          <p><%= prospectus_link %></p>
         <% end %>
       </div>
     <% end %>
-    <% if @supplier.sme? %>
+    <% if @supplier_framework.supplier.sme? %>
       <p class="govuk-body">
         <%= govuk_tag(t('sme'), 'grey', classes: 'govuk-!-margin-right-1 ccs-tag') %>
         <%= t('.is_an_sme') %>
@@ -47,7 +47,7 @@
               text: t('.contact_details.email')
             },
             value: {
-              text: mail_to(@supplier.email, @supplier.email, class: 'govuk-link')
+              text: mail_to(@supplier_framework.contact_detail.email, @supplier_framework.contact_detail.email, class: 'govuk-link')
             }
           },
           {
@@ -55,16 +55,16 @@
               text: t('.contact_details.phone_number')
             },
             value: {
-              text: @supplier.phone_number
+              text: @supplier_framework.contact_detail.telephone_number
             }
           },
-        ] + (@supplier.website ? [
+        ] + (@supplier_framework.contact_detail.website ? [
           {
             key: {
               text: t('.contact_details.website')
             },
             value: {
-              text: link_to(@supplier.website, url_formatter(@supplier.website), class: 'govuk-link')
+              text: link_to(@supplier_framework.contact_detail.website, url_formatter(@supplier_framework.contact_detail.website), class: 'govuk-link')
             },
           }
         ] : []) + [
@@ -73,7 +73,7 @@
               text: t('.contact_details.address')
             },
             value: {
-              text: @supplier.address
+              text: @supplier_framework.contact_detail.additional_details['address']
             }
           }
         ],
