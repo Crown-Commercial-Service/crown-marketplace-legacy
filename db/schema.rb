@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_07_02_122114) do
+ActiveRecord::Schema[8.0].define(version: 2025_07_02_130751) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
   enable_extension "pgcrypto"
@@ -218,6 +218,15 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_02_122114) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "positions", id: :serial, force: :cascade do |t|
+    t.text "position", null: false
+    t.text "position_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["position", "position_type"], name: "index_positions_on_position_and_position_type", unique: true
+    t.index ["position"], name: "index_positions_on_position"
+  end
+
   create_table "services", id: :text, force: :cascade do |t|
     t.text "lot_id", null: false
     t.text "number", null: false
@@ -226,6 +235,105 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_02_122114) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["lot_id"], name: "index_services_on_lot_id"
+  end
+
+  create_table "supplier_framework_addresses", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "supplier_framework_id", null: false
+    t.text "address_line_1"
+    t.text "address_line_2"
+    t.text "town"
+    t.text "county"
+    t.text "postcode"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["supplier_framework_id"], name: "index_supplier_framework_addresses_on_supplier_framework_id"
+  end
+
+  create_table "supplier_framework_branches", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "supplier_framework_id", null: false
+    t.text "slug"
+    t.geography "location", limit: {srid: 4326, type: "st_point", geographic: true}
+    t.string "postcode", limit: 8, null: false
+    t.text "contact_name"
+    t.text "contact_email"
+    t.text "telephone_number"
+    t.text "name"
+    t.text "town"
+    t.text "address_line_1"
+    t.text "address_line_2"
+    t.text "county"
+    t.text "region"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["slug"], name: "index_supplier_framework_branches_on_slug"
+    t.index ["supplier_framework_id"], name: "index_supplier_framework_branches_on_supplier_framework_id"
+  end
+
+  create_table "supplier_framework_contact_details", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "supplier_framework_id", null: false
+    t.text "name"
+    t.text "email"
+    t.text "telephone_number"
+    t.text "website"
+    t.jsonb "additional_details"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["supplier_framework_id"], name: "idx_on_supplier_framework_id_9cfb9d6920"
+  end
+
+  create_table "supplier_framework_lot_rates", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "supplier_framework_lot_id", null: false
+    t.integer "position_id", null: false
+    t.integer "rate", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["position_id"], name: "index_supplier_framework_lot_rates_on_position_id"
+    t.index ["supplier_framework_lot_id", "position_id"], name: "idx_on_supplier_framework_lot_id_position_id_9bc6ba56d2", unique: true
+    t.index ["supplier_framework_lot_id"], name: "idx_on_supplier_framework_lot_id_03e2196cfb"
+  end
+
+  create_table "supplier_framework_lot_services", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "supplier_framework_lot_id", null: false
+    t.text "service_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["service_id"], name: "index_supplier_framework_lot_services_on_service_id"
+    t.index ["supplier_framework_lot_id", "service_id"], name: "idx_on_supplier_framework_lot_id_service_id_1b881a56ab", unique: true
+    t.index ["supplier_framework_lot_id"], name: "idx_on_supplier_framework_lot_id_21d10a1b69"
+  end
+
+  create_table "supplier_framework_lots", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "supplier_framework_id", null: false
+    t.text "lot_id", null: false
+    t.text "jurisdiction_id"
+    t.boolean "enabled"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["jurisdiction_id"], name: "index_supplier_framework_lots_on_jurisdiction_id"
+    t.index ["lot_id"], name: "index_supplier_framework_lots_on_lot_id"
+    t.index ["supplier_framework_id", "lot_id", "jurisdiction_id"], name: "idx_on_supplier_framework_id_lot_id_jurisdiction_id_9ddaa88450", unique: true
+    t.index ["supplier_framework_id"], name: "index_supplier_framework_lots_on_supplier_framework_id"
+  end
+
+  create_table "supplier_frameworks", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "supplier_id", null: false
+    t.text "framework_id", null: false
+    t.boolean "enabled"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["framework_id"], name: "index_supplier_frameworks_on_framework_id"
+    t.index ["supplier_id", "framework_id"], name: "index_supplier_frameworks_on_supplier_id_and_framework_id", unique: true
+    t.index ["supplier_id"], name: "index_supplier_frameworks_on_supplier_id"
+  end
+
+  create_table "suppliers", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.text "name", null: false
+    t.text "duns_number"
+    t.boolean "sme"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["duns_number"], name: "index_suppliers_on_duns_number", unique: true
+    t.index ["name"], name: "index_suppliers_on_name", unique: true
   end
 
   create_table "supply_teachers_rm6238_admin_current_data", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -322,6 +430,18 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_02_122114) do
   add_foreign_key "management_consultancy_rm6309_rate_cards", "management_consultancy_rm6309_suppliers"
   add_foreign_key "management_consultancy_rm6309_service_offerings", "management_consultancy_rm6309_suppliers"
   add_foreign_key "services", "lots"
+  add_foreign_key "supplier_framework_addresses", "supplier_frameworks"
+  add_foreign_key "supplier_framework_branches", "supplier_frameworks"
+  add_foreign_key "supplier_framework_contact_details", "supplier_frameworks"
+  add_foreign_key "supplier_framework_lot_rates", "positions"
+  add_foreign_key "supplier_framework_lot_rates", "supplier_framework_lots"
+  add_foreign_key "supplier_framework_lot_services", "services"
+  add_foreign_key "supplier_framework_lot_services", "supplier_framework_lots"
+  add_foreign_key "supplier_framework_lots", "jurisdictions"
+  add_foreign_key "supplier_framework_lots", "lots"
+  add_foreign_key "supplier_framework_lots", "supplier_frameworks"
+  add_foreign_key "supplier_frameworks", "frameworks"
+  add_foreign_key "supplier_frameworks", "suppliers"
   add_foreign_key "supply_teachers_rm6238_branches", "supply_teachers_rm6238_suppliers"
   add_foreign_key "supply_teachers_rm6238_managed_service_providers", "supply_teachers_rm6238_suppliers"
   add_foreign_key "supply_teachers_rm6238_rates", "supply_teachers_rm6238_suppliers"
