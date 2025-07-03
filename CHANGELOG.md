@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [5.1.0] - 2025-06-30
+
+### Added
+
+- Add the MCF4 lot document ([PR 1976](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/1976))
+
+### Changed
+
+- Set the correct dates for MCF3 and MCF4 ([PR 1976](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/1976))
+- Upgrade CCS Frontend Helpers version to v2.5.0 ([PR 1985](https://github.com/Crown-Commercial-Service/crown-marketplace/pull/1985))
+- Update the MCF4 lot document ([PR 1981](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/1981))
+
 ## [5.0.1] - 2025-06-13
 
 ### Fixed

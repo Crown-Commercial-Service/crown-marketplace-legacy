@@ -17,7 +17,7 @@
       <h2 class="govuk-heading-m"><%= t('.before_you_start.heading') %></h2>
 
       <p class="govuk-body">
-        <%= t('.before_you_start.mcf4_text_html', mcf4_link: link_to(t('.before_you_start.mcf4_link_text'), 'https://assets.crowncommercial.gov.uk/wp-content/uploads/RM6309-MCF4-Lot-descriptions.pdf')) %>
+        <%= t('.before_you_start.mcf4_text_html', mcf4_link: link_to(t('.before_you_start.mcf4_link_text'), "/#{t('.before_you_start.mcf4_lots_document_file_path')}?format=pdf")) %>
       </p>
 
       <%= govuk_button(t('shared.gateway.start_now'), href: journey_start_path(journey: ManagementConsultancy::Journey.journey_name), is_start_button: true, classes: 'govuk-!-margin-top-2 govuk-!-margin-bottom-8', attributes: { aria: { label: t('shared.gateway.start_now') } } ) %>

@@ -22,7 +22,7 @@ module Frameworks
       1.year.ago
     else
       # This is not correct but it is far in the future and we can update it with another migration later on
-      Time.new(2025, 9, 4).in_time_zone('London')
+      Time.new(2025, 8, 23).in_time_zone('London')
     end
   end
 
@@ -31,7 +31,7 @@ module Frameworks
       1.year.ago
     else
       # This is not correct but it is far in the future and we can update it with another migration later on
-      Time.new(2025, 9, 4).in_time_zone('London')
+      Time.new(2025, 8, 23).in_time_zone('London')
     end
   end
 
@@ -40,7 +40,7 @@ module Frameworks
       1.year.from_now
     else
       # This is not correct but it is far in the future and we can update it with another migration later on
-      Time.new(2028, 9, 4).in_time_zone('London')
+      Time.new(2028, 8, 23).in_time_zone('London')
     end
   end
 
