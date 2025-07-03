@@ -1,0 +1,8 @@
+<li>
+  <h2 class="govuk-heading-m">
+    <%= link_to supplier_framework.supplier_name, management_consultancy_supplier_path(id: supplier_framework.id, lot_id: params[:lot_id]), class: "govuk-!-font-size-20 ccs-no-underline" %>
+    <% if supplier_framework.supplier.sme? %>
+      <%= govuk_tag(t('sme'), 'grey', classes: 'ccs-tag') %>
+    <% end %>
+  </h2>
+</li>

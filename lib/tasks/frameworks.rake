@@ -45,6 +45,7 @@ module Frameworks
       :services,
       :jurisdictions,
       :positions,
+      :uploads,
       :supplier_frameworks,
       :supplier_framework_lots,
       :supplier_framework_contact_details,

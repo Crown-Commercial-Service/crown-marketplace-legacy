@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Supplier::Framework::Lot::Rate do
-  describe 'associations' do
-    let(:supplier_framework_lot_rate) { create(:supplier_framework_lot_rate) }
+  let(:supplier_framework_lot_rate) { create(:supplier_framework_lot_rate) }
 
+  describe 'associations' do
     it { is_expected.to belong_to(:supplier_framework_lot) }
     it { is_expected.to belong_to(:position) }
 
@@ -24,6 +24,26 @@ RSpec.describe Supplier::Framework::Lot::Rate do
       create(:supplier_framework_lot_rate, supplier_framework_lot:, position:)
 
       expect { create(:supplier_framework_lot_rate, supplier_framework_lot:, position:) }.to raise_error(ActiveRecord::RecordNotUnique)
+    end
+  end
+
+  describe '.rate_in_pounds' do
+    before { supplier_framework_lot_rate.rate = rate }
+
+    context 'and the rate is 3550' do
+      let(:rate) { 3550 }
+
+      it 'returns 35.5' do
+        expect(supplier_framework_lot_rate.rate_in_pounds).to eq 35.5
+      end
+    end
+
+    context 'and the rate is 1200' do
+      let(:rate) { 1200 }
+
+      it 'returns 12.0' do
+        expect(supplier_framework_lot_rate.rate_in_pounds).to eq 12.0
+      end
     end
   end
 end

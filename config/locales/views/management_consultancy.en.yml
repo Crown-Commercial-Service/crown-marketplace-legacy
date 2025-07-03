@@ -5,20 +5,20 @@ en:
       models:
         management_consultancy/rm6187/journey/choose_lot:
           attributes:
-            lot:
-              inclusion: Select the lot you need
+            lot_id:
+              blank: Select the lot you need
         management_consultancy/rm6187/journey/choose_services:
           attributes:
-            services:
-              too_short: Select the service or services you need
+            service_ids:
+              blank: Select the service or services you need
         management_consultancy/rm6309/journey/choose_lot:
           attributes:
-            lot:
-              inclusion: Select the lot you need
+            lot_id:
+              blank: Select the lot you need
         management_consultancy/rm6309/journey/choose_services:
           attributes:
-            services:
-              too_short: Select the service or services you need
+            service_ids:
+              blank: Select the service or services you need
   activerecord:
     errors:
       models:
@@ -82,6 +82,15 @@ en:
         make_sure_listed: The framework in the web address is '%{framework}'. Make sure the web address contains one of the listed frameworks.
         page_title: Unrecognised framework
         the_recognised_are: 'The Management Consultancy frameworks are:'
+    journey:
+      choose_lot:
+        question: Select the lot you need
+        service_lines: Service lines
+      choose_services:
+        no_services_selected: No services selected
+        question: Select the services you need
+        service_selected: service selected
+        services_selected: services selected
     rm6187:
       admin:
         uploads:
@@ -101,8 +110,8 @@ en:
               supplier_details_has_empty_sheets_html: 'The following sheets have no data: %{list} Make sure all sheets for ''Supplier details'' have been filled in'
               supplier_details_has_incorrect_headers_html: 'The following sheets have incorrect headers: %{list} Make sure all sheets for ''Supplier details'' have the following headers: ''Supplier name'', ''Email address'', ''Phone number'', ''Website URL'', ''Postal address'', ''Is an SME?'', ''DUNS Number'''
               supplier_details_missing_sheets: 'The ''Supplier details'' file should have 1 sheet with the following name: ''MCF3'''
-              supplier_missing_lots_html: 'The following suppliers do not offer any lots: %{list} Make sure all the suppliers have the correct name and DUNS number'
-              supplier_missing_rate_cards_html: 'The following suppliers do not have any rate cards: %{list} Make sure all the suppliers have the correct name and DUNS number'
+              supplier_missing_rates_html: 'The following suppliers do not have any rate cards: %{list} Make sure all the suppliers have the correct name and DUNS number'
+              supplier_missing_services_html: 'The following suppliers do not offer any lots: %{list} Make sure all the suppliers have the correct name and DUNS number'
               supplier_rate_cards_has_empty_sheets_html: 'The following sheets have no data: %{list} Make sure all sheets for ''Supplier rate cards'' have been filled in'
               supplier_rate_cards_has_incorrect_headers_html: 'The following sheets are missing columns: %{list} Make sure all sheets for ''Supplier rate cards'' have the 10 expected columns'
               supplier_rate_cards_missing_sheets: 'The ''Supplier rate cards'' file should have 9 sheets with the following names: ''MCF3 Lot 1'', ''MCF3 Lot 2'', ''MCF3 Lot 3'', ''MCF3 Lot 4'', ''MCF3 Lot 5'', ''MCF3 Lot 6'', ''MCF3 Lot 7'', ''MCF3 Lot 8'', ''MCF3 Lot 9'''
@@ -118,8 +127,8 @@ en:
               supplier_details_has_empty_sheets: There are sheets in 'Supplier details' without any data
               supplier_details_has_incorrect_headers: There are sheets in 'Supplier details' with incorrect headers
               supplier_details_missing_sheets: The 'Supplier details' file is missing sheets
-              supplier_missing_lots: There are suppliers without any lots
-              supplier_missing_rate_cards: There are suppliers without any rate cards
+              supplier_missing_rates: There are suppliers without any rate cards
+              supplier_missing_services: There are suppliers without any services
               supplier_rate_cards_has_empty_sheets: There are sheets in 'Supplier rate cards' without any data
               supplier_rate_cards_has_incorrect_headers: There are sheets in 'Supplier rate cards' with incorrect headers
               supplier_rate_cards_missing_sheets: The 'Supplier rate cards' file is missing sheets
@@ -187,13 +196,8 @@ en:
       journey:
         choose_lot:
           mcf3_heading: Management Consultancy Framework 3 (MCF3)
-          question: Select the lot you need
-          service_lines: Service lines
         choose_services:
-          no_services_selected: No services selected
-          question: Select the services you need
-          service_selected: service selected
-          services_selected: services selected
+          framework_name: MCF3
       suppliers:
         download:
           download_supplier_shortlist: Download supplier shortlist
@@ -203,14 +207,7 @@ en:
           lead_text: The spreadsheet includes the selections you made, for your records and audit trail
           other_documents: Other documents
         index:
-          download_suppliers_list: Download the supplier list
-          heading: Supplier results
-          no_suppliers_found:
-            contact_html: "%{contact_link} for help."
-            contact_link_text: Contact CCS Support
-            heading: No suppliers were found
-            text: No companies can provide consultants that can meet your requirements.
-          suppliers_found_html: "<span class='govuk-!-font-size-27 govuk-!-font-weight-bold'>%{number}</span> <span class='govuk-!-font-weight-bold'>%{suppliers}</span> can provide consultants that meet your requirements"
+          framework_name: MCF3
         show:
           contact_details:
             address: Address
@@ -220,6 +217,7 @@ en:
             phone_number: Phone number
             website: Website
           day_rates: Day rates
+          framework_name: MCF3
           is_an_sme: This supplier is a small or medium-sized enterprise
           job_titles:
             director: Partner
@@ -252,8 +250,8 @@ en:
               supplier_details_has_empty_sheets_html: 'The following sheets have no data: %{list} Make sure all sheets for ''Supplier details'' have been filled in'
               supplier_details_has_incorrect_headers_html: 'The following sheets have incorrect headers: %{list} Make sure all sheets for ''Supplier details'' have the following headers: ''Supplier name'', ''Email address'', ''Phone number'', ''Website URL'', ''Postal address'', ''Is an SME?'', ''DUNS Number'''
               supplier_details_missing_sheets: 'The ''Supplier details'' file should have 1 sheet with the following name: ''MCF4'''
-              supplier_missing_lots_html: 'The following suppliers do not offer any lots: %{list} Make sure all the suppliers have the correct name and DUNS number'
-              supplier_missing_rate_cards_html: 'The following suppliers do not have any rate cards: %{list} Make sure all the suppliers have the correct name and DUNS number'
+              supplier_missing_rates_html: 'The following suppliers do not have any rate cards: %{list} Make sure all the suppliers have the correct name and DUNS number'
+              supplier_missing_services_html: 'The following suppliers do not offer any lots: %{list} Make sure all the suppliers have the correct name and DUNS number'
               supplier_rate_cards_has_empty_sheets_html: 'The following sheets have no data: %{list} Make sure all sheets for ''Supplier rate cards'' have been filled in'
               supplier_rate_cards_has_incorrect_headers_html: 'The following sheets are missing columns: %{list} Make sure all sheets for ''Supplier rate cards'' have the 10 expected columns'
               supplier_rate_cards_missing_sheets: 'The ''Supplier rate cards'' file should have 9 sheets with the following names: ''MCF4 Lot 1'', ''MCF4 Lot 2'', ''MCF4 Lot 3'', ''MCF4 Lot 4'', ''MCF4 Lot 5'', ''MCF4 Lot 6'', ''MCF4 Lot 7'', ''MCF4 Lot 8'', ''MCF4 Lot 9'', ''MCF4 Lot 10'''
@@ -269,8 +267,8 @@ en:
               supplier_details_has_empty_sheets: There are sheets in 'Supplier details' without any data
               supplier_details_has_incorrect_headers: There are sheets in 'Supplier details' with incorrect headers
               supplier_details_missing_sheets: The 'Supplier details' file is missing sheets
-              supplier_missing_lots: There are suppliers without any lots
-              supplier_missing_rate_cards: There are suppliers without any rate cards
+              supplier_missing_rates: There are suppliers without any rate cards
+              supplier_missing_services: There are suppliers without any services
               supplier_rate_cards_has_empty_sheets: There are sheets in 'Supplier rate cards' without any data
               supplier_rate_cards_has_incorrect_headers: There are sheets in 'Supplier rate cards' with incorrect headers
               supplier_rate_cards_missing_sheets: The 'Supplier rate cards' file is missing sheets
@@ -339,27 +337,15 @@ en:
       journey:
         choose_lot:
           mcf4_heading: Management Consultancy Framework Four (MCF4)
-          question: Select the lot you need
-          service_lines: Service lines
         choose_services:
-          no_services_selected: No services selected
-          question: Select the services you need
-          service_selected: service selected
-          services_selected: services selected
+          framework_name: MCF4
       suppliers:
         download:
           download_supplier_shortlist: Download supplier shortlist
           heading: Download the supplier shortlist
           lead_text: The spreadsheet includes the selections you made, for your records and audit trail
         index:
-          download_suppliers_list: Download the supplier list
-          heading: Supplier results
-          no_suppliers_found:
-            contact_html: "%{contact_link} for help."
-            contact_link_text: Contact CCS Support
-            heading: No suppliers were found
-            text: No companies can provide consultants that can meet your requirements.
-          suppliers_found_html: "<span class='govuk-!-font-size-27 govuk-!-font-weight-bold'>%{number}</span> <span class='govuk-!-font-weight-bold'>%{suppliers}</span> can provide consultants that meet your requirements"
+          framework_name: MCF4
         show:
           contact_details:
             address: Address
@@ -369,6 +355,7 @@ en:
             phone_number: Phone number
             website: Website
           day_rates: Day rates
+          framework_name: MCF4
           is_an_sme: This supplier is a small or medium-sized enterprise
           job_titles:
             director: Partner / Managing Director
@@ -387,3 +374,13 @@ en:
             Non-Complex: Non-Complex
           rates_are_fixed: Rates are fixed for the life of the framework and any call-off. These rates, which exclude V.A.T. are for an 8 hour working day and include travel expenses to the base location as stipulated by the customer.
           rates_are_maximum: These are the maximum rates a supplier can charge and cannot be exceeded. Suppliers can reduce these rates to match or beat those on any other agreement.
+    suppliers:
+      index:
+        download_suppliers_list: Download the supplier list
+        heading: Supplier results
+        no_suppliers_found:
+          contact_html: "%{contact_link} for help."
+          contact_link_text: Contact CCS Support
+          heading: No suppliers were found
+          text: No companies can provide consultants that can meet your requirements.
+        suppliers_found_html: "<span class='govuk-!-font-size-27 govuk-!-font-weight-bold'>%{number}</span> <span class='govuk-!-font-weight-bold'>%{suppliers}</span> can provide consultants that meet your requirements"
