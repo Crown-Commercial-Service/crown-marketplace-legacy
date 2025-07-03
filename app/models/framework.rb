@@ -4,6 +4,7 @@ class Framework < ApplicationRecord
   scope :legal_services, -> { where(service: 'legal_services').order(live_at: :asc) }
 
   has_many :lots, inverse_of: :framework, dependent: :destroy
+  has_many :supplier_frameworks, inverse_of: :framework, class_name: 'Supplier::Framework', dependent: :destroy
 
   acts_as_gov_uk_date :live_at, :expires_at, error_clash_behaviour: :omit_gov_uk_date_field_error
 
