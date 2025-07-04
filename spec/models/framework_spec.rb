@@ -5,6 +5,7 @@ RSpec.describe Framework do
   describe 'associations' do
     it { is_expected.to have_many(:lots) }
     it { is_expected.to have_many(:supplier_frameworks) }
+    it { is_expected.to have_many(:uploads) }
   end
 
   describe '.frameworks' do

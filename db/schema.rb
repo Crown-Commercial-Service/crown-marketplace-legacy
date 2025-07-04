@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_07_02_130751) do
+ActiveRecord::Schema[8.0].define(version: 2025_07_04_120832) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
   enable_extension "pgcrypto"
@@ -404,6 +404,13 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_02_130751) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "uploads", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.text "framework_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["framework_id"], name: "index_uploads_on_framework_id"
+  end
+
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "email", limit: 255, default: "", null: false
     t.string "first_name", limit: 255
@@ -445,4 +452,5 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_02_130751) do
   add_foreign_key "supply_teachers_rm6238_branches", "supply_teachers_rm6238_suppliers"
   add_foreign_key "supply_teachers_rm6238_managed_service_providers", "supply_teachers_rm6238_suppliers"
   add_foreign_key "supply_teachers_rm6238_rates", "supply_teachers_rm6238_suppliers"
+  add_foreign_key "uploads", "frameworks"
 end

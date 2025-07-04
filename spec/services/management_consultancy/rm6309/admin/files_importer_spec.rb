@@ -81,7 +81,7 @@ RSpec.describe ManagementConsultancy::RM6309::Admin::FilesImporter do
 
       it 'changes the state to failed and has the correct errors' do
         expect(upload).to have_state(:failed)
-        expect(upload.import_errors).to eq [{ error: 'supplier_missing_lots', details: ['REX LTD'] }]
+        expect(upload.import_errors).to eq [{ error: 'supplier_missing_services', details: ['REX LTD'] }]
       end
     end
 
@@ -90,7 +90,7 @@ RSpec.describe ManagementConsultancy::RM6309::Admin::FilesImporter do
 
       it 'changes the state to failed and has the correct errors' do
         expect(upload).to have_state(:failed)
-        expect(upload.import_errors).to eq [{ error: 'supplier_missing_rate_cards', details: ['MORAG JEWEL LTD'] }]
+        expect(upload.import_errors).to eq [{ error: 'supplier_missing_rates', details: ['MORAG JEWEL LTD'] }]
       end
     end
   end
@@ -98,73 +98,100 @@ RSpec.describe ManagementConsultancy::RM6309::Admin::FilesImporter do
   describe 'import_data' do
     let(:expected_supplier_results) do
       {
-        'REX LTD': { service_offerings: 161, rate_cards: 20 },
-        'MORAG JEWEL LTD': { service_offerings: 161, rate_cards: 20 },
-        'ZEKE VON GEMBU CORP': { service_offerings: 161, rate_cards: 20 }
+        'REX LTD': { lots: 10, services: 161, rates: 120 },
+        'MORAG JEWEL LTD': { lots: 10, services: 161, rates: 120 },
+        'ZEKE VON GEMBU CORP': { lots: 10, services: 161, rates: 120 },
       }
     end
 
     it 'publishes the data and all the suppliers are imported' do
       expect(upload).to have_state(:published)
-      expect(ManagementConsultancy::RM6309::Supplier.count).to eq 3
+      expect(Supplier::Framework.where(framework_id: 'RM6309').count).to eq 3
     end
 
-    it 'has the correct counts for the suppliers' do
+    it 'has the correct data for the suppliers' do
       expected_supplier_results.each do |name, expected_results|
-        supplier = ManagementConsultancy::RM6309::Supplier.find_by(name:)
+        supplier_framework = Supplier.find_by(name:).supplier_frameworks.find_by(framework_id: 'RM6309')
 
-        expect(supplier.service_offerings.count).to eq expected_results[:service_offerings]
-        expect(supplier.rate_cards.count).to eq expected_results[:rate_cards]
+        expect(supplier_framework.lots.count).to eq expected_results[:lots]
+        expect(supplier_framework.lots.sum { |lot| lot.services.count }).to eq expected_results[:services]
+        expect(supplier_framework.lots.sum { |lot| lot.rates.count }).to eq expected_results[:rates]
       end
     end
 
+    # rubocop:disable RSpec/ExampleLength
     context 'when considering the data for a supplier' do
-      let(:supplier) { ManagementConsultancy::RM6309::Supplier.find_by(name: 'REX LTD') }
+      let(:supplier) { Supplier.find_by(name: 'REX LTD') }
+      let(:supplier_framework) { Supplier::Framework.find_by(framework_id: 'RM6309', supplier_id: supplier.id) }
+      let(:supplier_framework_lot_rates) { supplier_framework.lots.find_by(lot_id:).rates.order(:position_id).map { |rate| [rate.position_id, rate.rate] } }
 
       it 'has the correct supplier details' do
-        expect(supplier.attributes.slice(*%w[name contact_name contact_email telephone_number sme address website duns])).to eq({
-                                                                                                                                  'name' => 'REX LTD',
-                                                                                                                                  'contact_name' => 'REX',
-                                                                                                                                  'contact_email' => 'rex@xenoblade.com',
-                                                                                                                                  'telephone_number' => '0202 123 4567',
-                                                                                                                                  'sme' => true,
-                                                                                                                                  'address' => 'Argentum AA3 1XC',
-                                                                                                                                  'website' => 'www.rex.com',
-                                                                                                                                  'duns' => 123456789
-                                                                                                                                })
+        expect(supplier.attributes.slice(*%w[name sme duns_number])).to eq(
+          {
+            'name' => 'REX LTD',
+            'sme' => true,
+            'duns_number' => '123456789'
+          }
+        )
+        expect(supplier_framework.contact_detail.attributes.slice(*%w[name email telephone_number website additional_details])).to eq(
+          {
+            'name' => 'REX',
+            'email' => 'rex@xenoblade.com',
+            'telephone_number' => '0202 123 4567',
+            'website' => 'www.rex.com',
+            'additional_details' => {
+              'address' => 'Argentum AA3 1XC',
+            }
+          }
+        )
       end
 
-      it 'has the correct rate card data for lot 1' do
-        advice_rate = supplier.rate_cards.find_by(lot: 'MCF4.1', rate_type: 'Advice')
-        delivery_rate = supplier.rate_cards.find_by(lot: 'MCF4.1', rate_type: 'Delivery')
+      context 'when considering lot 1 rates' do
+        let(:lot_id) { 'RM6309.1' }
 
-        advice_rates = []
-        delivery_rates = []
-
-        %i[junior_rate_in_pence standard_rate_in_pence senior_rate_in_pence principal_rate_in_pence managing_rate_in_pence director_rate_in_pence].each do |rate_type|
-          advice_rates << advice_rate[rate_type]
-          delivery_rates << delivery_rate[rate_type]
+        it 'has the correct rates' do
+          expect(supplier_framework_lot_rates).to eq(
+            [
+              [14, 40000],
+              [15, 80000],
+              [16, 120000],
+              [17, 160000],
+              [18, 200000],
+              [19, 240000],
+              [20, 45000],
+              [21, 85000],
+              [22, 125000],
+              [23, 165000],
+              [24, 205000],
+              [25, 245000]
+            ]
+          )
         end
-
-        expect(advice_rates).to eq([40000, 80000, 120000, 160000, 200000, 240000])
-        expect(delivery_rates).to eq([45000, 85000, 125000, 165000, 205000, 245000])
       end
 
-      it 'has the correct rate card data for lot 10' do
-        complex_rate = supplier.rate_cards.find_by(lot: 'MCF4.10', rate_type: 'Complex')
-        non_complex_rate = supplier.rate_cards.find_by(lot: 'MCF4.10', rate_type: 'Non-Complex')
+      context 'when considering lot 10 rates' do
+        let(:lot_id) { 'RM6309.10' }
 
-        complex_rates = []
-        non_complex_rates = []
-
-        %i[junior_rate_in_pence standard_rate_in_pence senior_rate_in_pence principal_rate_in_pence managing_rate_in_pence director_rate_in_pence].each do |rate_type|
-          complex_rates << complex_rate[rate_type]
-          non_complex_rates << non_complex_rate[rate_type]
+        it 'has the correct rates' do
+          expect(supplier_framework_lot_rates).to eq(
+            [
+              [26, 40000],
+              [27, 80000],
+              [28, 120000],
+              [29, 160000],
+              [30, 200000],
+              [31, 240000],
+              [32, 45000],
+              [33, 85000],
+              [34, 125000],
+              [35, 165000],
+              [36, 205000],
+              [37, 245000]
+            ]
+          )
         end
-
-        expect(complex_rates).to eq([40000, 80000, 120000, 160000, 200000, 240000])
-        expect(non_complex_rates).to eq([45000, 85000, 125000, 165000, 205000, 245000])
       end
     end
+    # rubocop:enable RSpec/ExampleLength
   end
 end

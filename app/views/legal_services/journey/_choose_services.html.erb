@@ -6,16 +6,19 @@
 
   <%= form_with url: @form_path, method: :get, html: { specialvalidation: true, novalidate: true } do |f| %>
     <%= hidden_fields_for_previous_steps_and_responses(@journey) %>
-    <%= hidden_field_tag(:lot, @journey.params['lot']) %>
+    <%= hidden_field_tag(:lot_id, @journey.current_step.lot_id) %>
 
     <div class="govuk-grid-column-two-thirds" id="selection-checkboxes">
       <%= govuk_checkboxes(
-        :services,
-        @journey.current_step.services_for_lot(@journey.params['lot'], @journey.params['jurisdiction'], @journey.params['central_government']).map do |service|
+        :service_ids,
+        @journey.current_step.lot_services.map do |service|
           {
-            value: service.code,
+            value: service.id,
             label: {
               text: service.name
+            },
+            attributes: {
+              id: "service_#{service.id.gsub('.', '-')}"
             }
           }
         end,
@@ -26,7 +29,7 @@
             classes: 'govuk-fieldset__legend--m',
             is_page_heading: true,
             caption: {
-              text: lot_full_description(@journey.current_step.selected_lot),
+              text: lot_full_name(@journey.current_step.lot),
               classes: 'govuk-caption-m'
             }
           }

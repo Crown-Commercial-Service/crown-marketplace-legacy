@@ -7,21 +7,21 @@
     <%= form_with url: @form_path, method: :get, html: { specialvalidation: true, novalidate: true } do |f| %>
       <%= hidden_fields_for_previous_steps_and_responses(@journey) %>
       <%= govuk_radios(
-        :lot,
+        :lot_id,
         @journey.current_step.class.lots.map do |lot|
           {
-            value: lot.number,
+            value: lot.id,
             label: {
-              text: lot_full_description(lot),
+              text: lot_full_name(lot),
               classes: 'govuk-!-font-weight-bold'
             },
             hint: {
               text: capture do
                 concat(t(".extended_description.#{params[:framework].downcase}.lot_#{lot.number}"))
-                if lot.number == '1' || lot.number == '2'
+                if lot.number != '3'
                   concat(govuk_details(lot_legal_services(lot.number), classes: 'govuk-!-margin-top-2 govuk-!-margin-bottom-5') do
                     tag.ul(class: 'govuk-list') do
-                      @journey.current_step.service_name::Service.services_for_lot(lot.number).each do |service|
+                      lot.services.order(:number).each do |service|
                         concat(tag.li(service.name))
                       end
                     end

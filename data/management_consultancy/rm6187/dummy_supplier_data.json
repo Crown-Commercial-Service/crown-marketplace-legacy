@@ -2,1743 +2,4049 @@
   {
     "id": "d369dfe5-c680-4d6b-ab1d-69ba53984230",
     "name": "VEUM-RODRIGUEZ",
-    "contact_email": "rodriguez.veum@bartell.co",
-    "telephone_number": "645.157.0910",
+    "duns_number": "138672956",
     "sme": false,
-    "address": "Suite 747 62477 Tillman Plaza, Lake Carsonside, UT 21441-2938",
-    "website": "http://grimes.name/dixie_fay",
-    "duns": "138672956",
-    "lots": [
+    "supplier_frameworks": [
       {
-        "lot_number": "MCF3.1",
-        "services": [
-          "MCF3.1.1",
-          "MCF3.1.2",
-          "MCF3.1.3",
-          "MCF3.1.4",
-          "MCF3.1.5",
-          "MCF3.1.6",
-          "MCF3.1.7",
-          "MCF3.1.8",
-          "MCF3.1.9",
-          "MCF3.1.10",
-          "MCF3.1.11",
-          "MCF3.1.12",
-          "MCF3.1.13",
-          "MCF3.1.14"
+        "framework_id": "RM6187",
+        "enabled": true,
+        "supplier_framework_contact_detail": {
+          "name": "Rev. Holly Tillman",
+          "email": "rodriguez.veum@bartell.co",
+          "telephone_number": "645.157.0910",
+          "website": "http://grimes.name/dixie_fay",
+          "additional_details": {
+            "address": "Suite 747 62477 Tillman Plaza, Lake Carsonside, UT 21441-2938"
+          }
+        },
+        "supplier_framework_lots": [
+          {
+            "lot_id": "RM6187.1",
+            "jurisdiction_id": "GB",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6187.1.1"
+              },
+              {
+                "service_id": "RM6187.1.2"
+              },
+              {
+                "service_id": "RM6187.1.3"
+              },
+              {
+                "service_id": "RM6187.1.4"
+              },
+              {
+                "service_id": "RM6187.1.5"
+              },
+              {
+                "service_id": "RM6187.1.6"
+              },
+              {
+                "service_id": "RM6187.1.7"
+              },
+              {
+                "service_id": "RM6187.1.8"
+              },
+              {
+                "service_id": "RM6187.1.9"
+              },
+              {
+                "service_id": "RM6187.1.10"
+              },
+              {
+                "service_id": "RM6187.1.11"
+              },
+              {
+                "service_id": "RM6187.1.12"
+              },
+              {
+                "service_id": "RM6187.1.13"
+              },
+              {
+                "service_id": "RM6187.1.14"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": 8,
+                "rate": 651
+              },
+              {
+                "position_id": 9,
+                "rate": 851
+              },
+              {
+                "position_id": 10,
+                "rate": 1051
+              },
+              {
+                "position_id": 11,
+                "rate": 1251
+              },
+              {
+                "position_id": 12,
+                "rate": 1451
+              },
+              {
+                "position_id": 13,
+                "rate": 1651
+              }
+            ]
+          },
+          {
+            "lot_id": "RM6187.2",
+            "jurisdiction_id": "GB",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6187.2.2"
+              },
+              {
+                "service_id": "RM6187.2.3"
+              },
+              {
+                "service_id": "RM6187.2.1"
+              },
+              {
+                "service_id": "RM6187.2.4"
+              },
+              {
+                "service_id": "RM6187.2.5"
+              },
+              {
+                "service_id": "RM6187.2.6"
+              },
+              {
+                "service_id": "RM6187.2.7"
+              },
+              {
+                "service_id": "RM6187.2.8"
+              },
+              {
+                "service_id": "RM6187.2.9"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": 8,
+                "rate": 800
+              },
+              {
+                "position_id": 9,
+                "rate": 1000
+              },
+              {
+                "position_id": 10,
+                "rate": 1200
+              },
+              {
+                "position_id": 11,
+                "rate": 1400
+              },
+              {
+                "position_id": 12,
+                "rate": 1600
+              },
+              {
+                "position_id": 13,
+                "rate": 1800
+              }
+            ]
+          },
+          {
+            "lot_id": "RM6187.3",
+            "jurisdiction_id": "GB",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6187.3.1"
+              },
+              {
+                "service_id": "RM6187.3.2"
+              },
+              {
+                "service_id": "RM6187.3.3"
+              },
+              {
+                "service_id": "RM6187.3.4"
+              },
+              {
+                "service_id": "RM6187.3.5"
+              },
+              {
+                "service_id": "RM6187.3.6"
+              },
+              {
+                "service_id": "RM6187.3.7"
+              },
+              {
+                "service_id": "RM6187.3.8"
+              },
+              {
+                "service_id": "RM6187.3.9"
+              },
+              {
+                "service_id": "RM6187.3.10"
+              },
+              {
+                "service_id": "RM6187.3.11"
+              },
+              {
+                "service_id": "RM6187.3.12"
+              },
+              {
+                "service_id": "RM6187.3.13"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": 8,
+                "rate": 581
+              },
+              {
+                "position_id": 9,
+                "rate": 781
+              },
+              {
+                "position_id": 10,
+                "rate": 981
+              },
+              {
+                "position_id": 11,
+                "rate": 1181
+              },
+              {
+                "position_id": 12,
+                "rate": 1381
+              },
+              {
+                "position_id": 13,
+                "rate": 1581
+              }
+            ]
+          },
+          {
+            "lot_id": "RM6187.4",
+            "jurisdiction_id": "GB",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6187.4.1"
+              },
+              {
+                "service_id": "RM6187.4.2"
+              },
+              {
+                "service_id": "RM6187.4.3"
+              },
+              {
+                "service_id": "RM6187.4.4"
+              },
+              {
+                "service_id": "RM6187.4.5"
+              },
+              {
+                "service_id": "RM6187.4.6"
+              },
+              {
+                "service_id": "RM6187.4.7"
+              },
+              {
+                "service_id": "RM6187.4.8"
+              },
+              {
+                "service_id": "RM6187.4.9"
+              },
+              {
+                "service_id": "RM6187.4.11"
+              },
+              {
+                "service_id": "RM6187.4.12"
+              },
+              {
+                "service_id": "RM6187.4.10"
+              },
+              {
+                "service_id": "RM6187.4.13"
+              },
+              {
+                "service_id": "RM6187.4.14"
+              },
+              {
+                "service_id": "RM6187.4.15"
+              },
+              {
+                "service_id": "RM6187.4.16"
+              },
+              {
+                "service_id": "RM6187.4.17"
+              },
+              {
+                "service_id": "RM6187.4.18"
+              },
+              {
+                "service_id": "RM6187.4.19"
+              },
+              {
+                "service_id": "RM6187.4.20"
+              },
+              {
+                "service_id": "RM6187.4.21"
+              },
+              {
+                "service_id": "RM6187.4.22"
+              },
+              {
+                "service_id": "RM6187.4.23"
+              },
+              {
+                "service_id": "RM6187.4.24"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": 8,
+                "rate": 465
+              },
+              {
+                "position_id": 9,
+                "rate": 665
+              },
+              {
+                "position_id": 10,
+                "rate": 865
+              },
+              {
+                "position_id": 11,
+                "rate": 1065
+              },
+              {
+                "position_id": 12,
+                "rate": 1265
+              },
+              {
+                "position_id": 13,
+                "rate": 1465
+              }
+            ]
+          },
+          {
+            "lot_id": "RM6187.5",
+            "jurisdiction_id": "GB",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6187.5.1"
+              },
+              {
+                "service_id": "RM6187.5.2"
+              },
+              {
+                "service_id": "RM6187.5.3"
+              },
+              {
+                "service_id": "RM6187.5.4"
+              },
+              {
+                "service_id": "RM6187.5.5"
+              },
+              {
+                "service_id": "RM6187.5.6"
+              },
+              {
+                "service_id": "RM6187.5.7"
+              },
+              {
+                "service_id": "RM6187.5.8"
+              },
+              {
+                "service_id": "RM6187.5.9"
+              },
+              {
+                "service_id": "RM6187.5.10"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": 8,
+                "rate": 715
+              },
+              {
+                "position_id": 9,
+                "rate": 915
+              },
+              {
+                "position_id": 10,
+                "rate": 1115
+              },
+              {
+                "position_id": 11,
+                "rate": 1315
+              },
+              {
+                "position_id": 12,
+                "rate": 1515
+              },
+              {
+                "position_id": 13,
+                "rate": 1715
+              }
+            ]
+          },
+          {
+            "lot_id": "RM6187.6",
+            "jurisdiction_id": "GB",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6187.6.1"
+              },
+              {
+                "service_id": "RM6187.6.2"
+              },
+              {
+                "service_id": "RM6187.6.3"
+              },
+              {
+                "service_id": "RM6187.6.4"
+              },
+              {
+                "service_id": "RM6187.6.5"
+              },
+              {
+                "service_id": "RM6187.6.6"
+              },
+              {
+                "service_id": "RM6187.6.7"
+              },
+              {
+                "service_id": "RM6187.6.8"
+              },
+              {
+                "service_id": "RM6187.6.9"
+              },
+              {
+                "service_id": "RM6187.6.10"
+              },
+              {
+                "service_id": "RM6187.6.11"
+              },
+              {
+                "service_id": "RM6187.6.12"
+              },
+              {
+                "service_id": "RM6187.6.13"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": 8,
+                "rate": 356
+              },
+              {
+                "position_id": 9,
+                "rate": 556
+              },
+              {
+                "position_id": 10,
+                "rate": 756
+              },
+              {
+                "position_id": 11,
+                "rate": 956
+              },
+              {
+                "position_id": 12,
+                "rate": 1156
+              },
+              {
+                "position_id": 13,
+                "rate": 1356
+              }
+            ]
+          },
+          {
+            "lot_id": "RM6187.7",
+            "jurisdiction_id": "GB",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6187.7.1"
+              },
+              {
+                "service_id": "RM6187.7.2"
+              },
+              {
+                "service_id": "RM6187.7.4"
+              },
+              {
+                "service_id": "RM6187.7.3"
+              },
+              {
+                "service_id": "RM6187.7.5"
+              },
+              {
+                "service_id": "RM6187.7.6"
+              },
+              {
+                "service_id": "RM6187.7.7"
+              },
+              {
+                "service_id": "RM6187.7.8"
+              },
+              {
+                "service_id": "RM6187.7.10"
+              },
+              {
+                "service_id": "RM6187.7.9"
+              },
+              {
+                "service_id": "RM6187.7.11"
+              },
+              {
+                "service_id": "RM6187.7.12"
+              },
+              {
+                "service_id": "RM6187.7.13"
+              },
+              {
+                "service_id": "RM6187.7.14"
+              },
+              {
+                "service_id": "RM6187.7.15"
+              },
+              {
+                "service_id": "RM6187.7.16"
+              },
+              {
+                "service_id": "RM6187.7.17"
+              },
+              {
+                "service_id": "RM6187.7.18"
+              },
+              {
+                "service_id": "RM6187.7.19"
+              },
+              {
+                "service_id": "RM6187.7.20"
+              },
+              {
+                "service_id": "RM6187.7.21"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": 8,
+                "rate": 272
+              },
+              {
+                "position_id": 9,
+                "rate": 472
+              },
+              {
+                "position_id": 10,
+                "rate": 672
+              },
+              {
+                "position_id": 11,
+                "rate": 872
+              },
+              {
+                "position_id": 12,
+                "rate": 1072
+              },
+              {
+                "position_id": 13,
+                "rate": 1272
+              }
+            ]
+          },
+          {
+            "lot_id": "RM6187.8",
+            "jurisdiction_id": "GB",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6187.8.1"
+              },
+              {
+                "service_id": "RM6187.8.2"
+              },
+              {
+                "service_id": "RM6187.8.3"
+              },
+              {
+                "service_id": "RM6187.8.6"
+              },
+              {
+                "service_id": "RM6187.8.4"
+              },
+              {
+                "service_id": "RM6187.8.5"
+              },
+              {
+                "service_id": "RM6187.8.7"
+              },
+              {
+                "service_id": "RM6187.8.8"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": 8,
+                "rate": 938
+              },
+              {
+                "position_id": 9,
+                "rate": 1138
+              },
+              {
+                "position_id": 10,
+                "rate": 1338
+              },
+              {
+                "position_id": 11,
+                "rate": 1538
+              },
+              {
+                "position_id": 12,
+                "rate": 1738
+              },
+              {
+                "position_id": 13,
+                "rate": 1938
+              }
+            ]
+          },
+          {
+            "lot_id": "RM6187.9",
+            "jurisdiction_id": "GB",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6187.9.1"
+              },
+              {
+                "service_id": "RM6187.9.2"
+              },
+              {
+                "service_id": "RM6187.9.3"
+              },
+              {
+                "service_id": "RM6187.9.4"
+              },
+              {
+                "service_id": "RM6187.9.5"
+              },
+              {
+                "service_id": "RM6187.9.6"
+              },
+              {
+                "service_id": "RM6187.9.7"
+              },
+              {
+                "service_id": "RM6187.9.8"
+              },
+              {
+                "service_id": "RM6187.9.9"
+              },
+              {
+                "service_id": "RM6187.9.10"
+              },
+              {
+                "service_id": "RM6187.9.11"
+              },
+              {
+                "service_id": "RM6187.9.12"
+              },
+              {
+                "service_id": "RM6187.9.13"
+              },
+              {
+                "service_id": "RM6187.9.14"
+              },
+              {
+                "service_id": "RM6187.9.15"
+              },
+              {
+                "service_id": "RM6187.9.16"
+              },
+              {
+                "service_id": "RM6187.9.17"
+              },
+              {
+                "service_id": "RM6187.9.18"
+              },
+              {
+                "service_id": "RM6187.9.19"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": 8,
+                "rate": 474
+              },
+              {
+                "position_id": 9,
+                "rate": 674
+              },
+              {
+                "position_id": 10,
+                "rate": 874
+              },
+              {
+                "position_id": 11,
+                "rate": 1074
+              },
+              {
+                "position_id": 12,
+                "rate": 1274
+              },
+              {
+                "position_id": 13,
+                "rate": 1474
+              }
+            ]
+          }
         ]
-      },
-      {
-        "lot_number": "MCF3.2",
-        "services": [
-          "MCF3.2.2",
-          "MCF3.2.3",
-          "MCF3.2.1",
-          "MCF3.2.4",
-          "MCF3.2.5",
-          "MCF3.2.6",
-          "MCF3.2.7",
-          "MCF3.2.8",
-          "MCF3.2.9"
-        ]
-      },
-      {
-        "lot_number": "MCF3.3",
-        "services": [
-          "MCF3.3.1",
-          "MCF3.3.2",
-          "MCF3.3.3",
-          "MCF3.3.4",
-          "MCF3.3.5",
-          "MCF3.3.6",
-          "MCF3.3.7",
-          "MCF3.3.8",
-          "MCF3.3.9",
-          "MCF3.3.10",
-          "MCF3.3.11",
-          "MCF3.3.12",
-          "MCF3.3.13"
-        ]
-      },
-      {
-        "lot_number": "MCF3.4",
-        "services": [
-          "MCF3.4.1",
-          "MCF3.4.2",
-          "MCF3.4.3",
-          "MCF3.4.4",
-          "MCF3.4.5",
-          "MCF3.4.6",
-          "MCF3.4.7",
-          "MCF3.4.8",
-          "MCF3.4.9",
-          "MCF3.4.11",
-          "MCF3.4.12",
-          "MCF3.4.10",
-          "MCF3.4.13",
-          "MCF3.4.14",
-          "MCF3.4.15",
-          "MCF3.4.16",
-          "MCF3.4.17",
-          "MCF3.4.18",
-          "MCF3.4.19",
-          "MCF3.4.20",
-          "MCF3.4.21",
-          "MCF3.4.22",
-          "MCF3.4.23",
-          "MCF3.4.24"
-        ]
-      },
-      {
-        "lot_number": "MCF3.5",
-        "services": [
-          "MCF3.5.1",
-          "MCF3.5.2",
-          "MCF3.5.3",
-          "MCF3.5.4",
-          "MCF3.5.5",
-          "MCF3.5.6",
-          "MCF3.5.7",
-          "MCF3.5.8",
-          "MCF3.5.9",
-          "MCF3.5.10"
-        ]
-      },
-      {
-        "lot_number": "MCF3.6",
-        "services": [
-          "MCF3.6.1",
-          "MCF3.6.2",
-          "MCF3.6.3",
-          "MCF3.6.4",
-          "MCF3.6.5",
-          "MCF3.6.6",
-          "MCF3.6.7",
-          "MCF3.6.8",
-          "MCF3.6.9",
-          "MCF3.6.10",
-          "MCF3.6.11",
-          "MCF3.6.12",
-          "MCF3.6.13"
-        ]
-      },
-      {
-        "lot_number": "MCF3.7",
-        "services": [
-          "MCF3.7.1",
-          "MCF3.7.2",
-          "MCF3.7.4",
-          "MCF3.7.3",
-          "MCF3.7.5",
-          "MCF3.7.6",
-          "MCF3.7.7",
-          "MCF3.7.8",
-          "MCF3.7.10",
-          "MCF3.7.9",
-          "MCF3.7.11",
-          "MCF3.7.12",
-          "MCF3.7.13",
-          "MCF3.7.14",
-          "MCF3.7.15",
-          "MCF3.7.16",
-          "MCF3.7.17",
-          "MCF3.7.18",
-          "MCF3.7.19",
-          "MCF3.7.20",
-          "MCF3.7.21"
-        ]
-      },
-      {
-        "lot_number": "MCF3.8",
-        "services": [
-          "MCF3.8.1",
-          "MCF3.8.2",
-          "MCF3.8.3",
-          "MCF3.8.6",
-          "MCF3.8.4",
-          "MCF3.8.5",
-          "MCF3.8.7",
-          "MCF3.8.8"
-        ]
-      },
-      {
-        "lot_number": "MCF3.9",
-        "services": [
-          "MCF3.9.1",
-          "MCF3.9.2",
-          "MCF3.9.3",
-          "MCF3.9.4",
-          "MCF3.9.5",
-          "MCF3.9.6",
-          "MCF3.9.7",
-          "MCF3.9.8",
-          "MCF3.9.9",
-          "MCF3.9.10",
-          "MCF3.9.11",
-          "MCF3.9.12",
-          "MCF3.9.13",
-          "MCF3.9.14",
-          "MCF3.9.15",
-          "MCF3.9.16",
-          "MCF3.9.17",
-          "MCF3.9.18",
-          "MCF3.9.19"
-        ]
-      }
-    ],
-    "rate_cards": [
-      {
-        "lot": "MCF3.1",
-        "junior_rate_in_pence": 651,
-        "standard_rate_in_pence": 851,
-        "senior_rate_in_pence": 1051,
-        "principal_rate_in_pence": 1251,
-        "managing_rate_in_pence": 1451,
-        "director_rate_in_pence": 1651,
-        "contact_name": "Rev. Holly Tillman",
-        "email": "holly.rev.tillman@moore.net",
-        "telephone_number": "782.496.9335 x3445"
-      },
-      {
-        "lot": "MCF3.2",
-        "junior_rate_in_pence": 800,
-        "standard_rate_in_pence": 1000,
-        "senior_rate_in_pence": 1200,
-        "principal_rate_in_pence": 1400,
-        "managing_rate_in_pence": 1600,
-        "director_rate_in_pence": 1800,
-        "contact_name": "Parthenia Koss",
-        "email": "koss_parthenia@nader.co",
-        "telephone_number": "1-400-853-7266"
-      },
-      {
-        "lot": "MCF3.3",
-        "junior_rate_in_pence": 581,
-        "standard_rate_in_pence": 781,
-        "senior_rate_in_pence": 981,
-        "principal_rate_in_pence": 1181,
-        "managing_rate_in_pence": 1381,
-        "director_rate_in_pence": 1581,
-        "contact_name": "Ernie Monahan",
-        "email": "ernie_monahan@rath-braun.com",
-        "telephone_number": "1-844-104-6521"
-      },
-      {
-        "lot": "MCF3.4",
-        "junior_rate_in_pence": 465,
-        "standard_rate_in_pence": 665,
-        "senior_rate_in_pence": 865,
-        "principal_rate_in_pence": 1065,
-        "managing_rate_in_pence": 1265,
-        "director_rate_in_pence": 1465,
-        "contact_name": "Marcos Zemlak",
-        "email": "marcos.zemlak@beier.info",
-        "telephone_number": "182.103.8853 x270"
-      },
-      {
-        "lot": "MCF3.5",
-        "junior_rate_in_pence": 715,
-        "standard_rate_in_pence": 915,
-        "senior_rate_in_pence": 1115,
-        "principal_rate_in_pence": 1315,
-        "managing_rate_in_pence": 1515,
-        "director_rate_in_pence": 1715,
-        "contact_name": "Dannie Graham LLD",
-        "email": "graham_lld_dannie@hilll.org",
-        "telephone_number": "1-174-656-3019 x9073"
-      },
-      {
-        "lot": "MCF3.6",
-        "junior_rate_in_pence": 356,
-        "standard_rate_in_pence": 556,
-        "senior_rate_in_pence": 756,
-        "principal_rate_in_pence": 956,
-        "managing_rate_in_pence": 1156,
-        "director_rate_in_pence": 1356,
-        "contact_name": "Rep. William Osinski",
-        "email": "rep_william_osinski@bernier.info",
-        "telephone_number": "455.767.1357 x14870"
-      },
-      {
-        "lot": "MCF3.7",
-        "junior_rate_in_pence": 272,
-        "standard_rate_in_pence": 472,
-        "senior_rate_in_pence": 672,
-        "principal_rate_in_pence": 872,
-        "managing_rate_in_pence": 1072,
-        "director_rate_in_pence": 1272,
-        "contact_name": "Gaston Breitenberg Jr.",
-        "email": "gaston.jr.breitenberg@reinger.com",
-        "telephone_number": "1-474-228-2150 x8348"
-      },
-      {
-        "lot": "MCF3.8",
-        "junior_rate_in_pence": 938,
-        "standard_rate_in_pence": 1138,
-        "senior_rate_in_pence": 1338,
-        "principal_rate_in_pence": 1538,
-        "managing_rate_in_pence": 1738,
-        "director_rate_in_pence": 1938,
-        "contact_name": "Rosanne Gerlach",
-        "email": "gerlach_rosanne@powlowski-vonrueden.net",
-        "telephone_number": "654.559.0018 x3469"
-      },
-      {
-        "lot": "MCF3.9",
-        "junior_rate_in_pence": 474,
-        "standard_rate_in_pence": 674,
-        "senior_rate_in_pence": 874,
-        "principal_rate_in_pence": 1074,
-        "managing_rate_in_pence": 1274,
-        "director_rate_in_pence": 1474,
-        "contact_name": "Sen. Sharita Hand",
-        "email": "sen_sharita_hand@wisoky-collier.com",
-        "telephone_number": "1-765-899-4261 x206"
       }
     ]
   },
   {
     "id": "c340d7bf-9303-4414-81a2-b147ad3da8d8",
     "name": "VANDERVORT, KOVACEK AND MORAR",
-    "contact_email": "morar_kovacek_vandervort_and@farrell-grady.org",
-    "telephone_number": "337.949.3012 x62512",
+    "duns_number": "271939704",
     "sme": false,
-    "address": "6632 Rodolfo Highway, Port Caryton, IA 90303-6001",
-    "website": "http://jerde.org/vallie_bergstrom",
-    "duns": "271939704",
-    "lots": [
+    "supplier_frameworks": [
       {
-        "lot_number": "MCF3.1",
-        "services": [
-          "MCF3.1.1",
-          "MCF3.1.2",
-          "MCF3.1.3",
-          "MCF3.1.4",
-          "MCF3.1.5",
-          "MCF3.1.6",
-          "MCF3.1.7",
-          "MCF3.1.8",
-          "MCF3.1.9",
-          "MCF3.1.10",
-          "MCF3.1.11",
-          "MCF3.1.12",
-          "MCF3.1.13",
-          "MCF3.1.14"
+        "framework_id": "RM6187",
+        "enabled": true,
+        "supplier_framework_contact_detail": {
+          "name": "Judson Sauer",
+          "email": "morar_kovacek_vandervort_and@farrell-grady.org",
+          "telephone_number": "337.949.3012 x62512",
+          "website": "http://jerde.org/vallie_bergstrom",
+          "additional_details": {
+            "address": "6632 Rodolfo Highway, Port Caryton, IA 90303-6001"
+          }
+        },
+        "supplier_framework_lots": [
+          {
+            "lot_id": "RM6187.1",
+            "jurisdiction_id": "GB",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6187.1.1"
+              },
+              {
+                "service_id": "RM6187.1.2"
+              },
+              {
+                "service_id": "RM6187.1.3"
+              },
+              {
+                "service_id": "RM6187.1.4"
+              },
+              {
+                "service_id": "RM6187.1.5"
+              },
+              {
+                "service_id": "RM6187.1.6"
+              },
+              {
+                "service_id": "RM6187.1.7"
+              },
+              {
+                "service_id": "RM6187.1.8"
+              },
+              {
+                "service_id": "RM6187.1.9"
+              },
+              {
+                "service_id": "RM6187.1.10"
+              },
+              {
+                "service_id": "RM6187.1.11"
+              },
+              {
+                "service_id": "RM6187.1.12"
+              },
+              {
+                "service_id": "RM6187.1.13"
+              },
+              {
+                "service_id": "RM6187.1.14"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": 8,
+                "rate": 351
+              },
+              {
+                "position_id": 9,
+                "rate": 551
+              },
+              {
+                "position_id": 10,
+                "rate": 751
+              },
+              {
+                "position_id": 11,
+                "rate": 951
+              },
+              {
+                "position_id": 12,
+                "rate": 1151
+              },
+              {
+                "position_id": 13,
+                "rate": 1351
+              }
+            ]
+          },
+          {
+            "lot_id": "RM6187.2",
+            "jurisdiction_id": "GB",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6187.2.2"
+              },
+              {
+                "service_id": "RM6187.2.3"
+              },
+              {
+                "service_id": "RM6187.2.1"
+              },
+              {
+                "service_id": "RM6187.2.4"
+              },
+              {
+                "service_id": "RM6187.2.5"
+              },
+              {
+                "service_id": "RM6187.2.6"
+              },
+              {
+                "service_id": "RM6187.2.7"
+              },
+              {
+                "service_id": "RM6187.2.8"
+              },
+              {
+                "service_id": "RM6187.2.9"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": 8,
+                "rate": 773
+              },
+              {
+                "position_id": 9,
+                "rate": 973
+              },
+              {
+                "position_id": 10,
+                "rate": 1173
+              },
+              {
+                "position_id": 11,
+                "rate": 1373
+              },
+              {
+                "position_id": 12,
+                "rate": 1573
+              },
+              {
+                "position_id": 13,
+                "rate": 1773
+              }
+            ]
+          },
+          {
+            "lot_id": "RM6187.3",
+            "jurisdiction_id": "GB",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6187.3.1"
+              },
+              {
+                "service_id": "RM6187.3.2"
+              },
+              {
+                "service_id": "RM6187.3.3"
+              },
+              {
+                "service_id": "RM6187.3.4"
+              },
+              {
+                "service_id": "RM6187.3.5"
+              },
+              {
+                "service_id": "RM6187.3.6"
+              },
+              {
+                "service_id": "RM6187.3.7"
+              },
+              {
+                "service_id": "RM6187.3.8"
+              },
+              {
+                "service_id": "RM6187.3.9"
+              },
+              {
+                "service_id": "RM6187.3.10"
+              },
+              {
+                "service_id": "RM6187.3.11"
+              },
+              {
+                "service_id": "RM6187.3.12"
+              },
+              {
+                "service_id": "RM6187.3.13"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": 8,
+                "rate": 941
+              },
+              {
+                "position_id": 9,
+                "rate": 1141
+              },
+              {
+                "position_id": 10,
+                "rate": 1341
+              },
+              {
+                "position_id": 11,
+                "rate": 1541
+              },
+              {
+                "position_id": 12,
+                "rate": 1741
+              },
+              {
+                "position_id": 13,
+                "rate": 1941
+              }
+            ]
+          },
+          {
+            "lot_id": "RM6187.4",
+            "jurisdiction_id": "GB",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6187.4.1"
+              },
+              {
+                "service_id": "RM6187.4.2"
+              },
+              {
+                "service_id": "RM6187.4.3"
+              },
+              {
+                "service_id": "RM6187.4.4"
+              },
+              {
+                "service_id": "RM6187.4.5"
+              },
+              {
+                "service_id": "RM6187.4.6"
+              },
+              {
+                "service_id": "RM6187.4.7"
+              },
+              {
+                "service_id": "RM6187.4.8"
+              },
+              {
+                "service_id": "RM6187.4.9"
+              },
+              {
+                "service_id": "RM6187.4.11"
+              },
+              {
+                "service_id": "RM6187.4.12"
+              },
+              {
+                "service_id": "RM6187.4.10"
+              },
+              {
+                "service_id": "RM6187.4.13"
+              },
+              {
+                "service_id": "RM6187.4.14"
+              },
+              {
+                "service_id": "RM6187.4.15"
+              },
+              {
+                "service_id": "RM6187.4.16"
+              },
+              {
+                "service_id": "RM6187.4.17"
+              },
+              {
+                "service_id": "RM6187.4.18"
+              },
+              {
+                "service_id": "RM6187.4.19"
+              },
+              {
+                "service_id": "RM6187.4.20"
+              },
+              {
+                "service_id": "RM6187.4.21"
+              },
+              {
+                "service_id": "RM6187.4.22"
+              },
+              {
+                "service_id": "RM6187.4.23"
+              },
+              {
+                "service_id": "RM6187.4.24"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": 8,
+                "rate": 865
+              },
+              {
+                "position_id": 9,
+                "rate": 1065
+              },
+              {
+                "position_id": 10,
+                "rate": 1265
+              },
+              {
+                "position_id": 11,
+                "rate": 1465
+              },
+              {
+                "position_id": 12,
+                "rate": 1665
+              },
+              {
+                "position_id": 13,
+                "rate": 1865
+              }
+            ]
+          },
+          {
+            "lot_id": "RM6187.5",
+            "jurisdiction_id": "GB",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6187.5.1"
+              },
+              {
+                "service_id": "RM6187.5.2"
+              },
+              {
+                "service_id": "RM6187.5.3"
+              },
+              {
+                "service_id": "RM6187.5.4"
+              },
+              {
+                "service_id": "RM6187.5.5"
+              },
+              {
+                "service_id": "RM6187.5.6"
+              },
+              {
+                "service_id": "RM6187.5.7"
+              },
+              {
+                "service_id": "RM6187.5.8"
+              },
+              {
+                "service_id": "RM6187.5.9"
+              },
+              {
+                "service_id": "RM6187.5.10"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": 8,
+                "rate": 344
+              },
+              {
+                "position_id": 9,
+                "rate": 544
+              },
+              {
+                "position_id": 10,
+                "rate": 744
+              },
+              {
+                "position_id": 11,
+                "rate": 944
+              },
+              {
+                "position_id": 12,
+                "rate": 1144
+              },
+              {
+                "position_id": 13,
+                "rate": 1344
+              }
+            ]
+          },
+          {
+            "lot_id": "RM6187.6",
+            "jurisdiction_id": "GB",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6187.6.1"
+              },
+              {
+                "service_id": "RM6187.6.2"
+              },
+              {
+                "service_id": "RM6187.6.3"
+              },
+              {
+                "service_id": "RM6187.6.4"
+              },
+              {
+                "service_id": "RM6187.6.5"
+              },
+              {
+                "service_id": "RM6187.6.6"
+              },
+              {
+                "service_id": "RM6187.6.7"
+              },
+              {
+                "service_id": "RM6187.6.8"
+              },
+              {
+                "service_id": "RM6187.6.9"
+              },
+              {
+                "service_id": "RM6187.6.10"
+              },
+              {
+                "service_id": "RM6187.6.11"
+              },
+              {
+                "service_id": "RM6187.6.12"
+              },
+              {
+                "service_id": "RM6187.6.13"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": 8,
+                "rate": 580
+              },
+              {
+                "position_id": 9,
+                "rate": 780
+              },
+              {
+                "position_id": 10,
+                "rate": 980
+              },
+              {
+                "position_id": 11,
+                "rate": 1180
+              },
+              {
+                "position_id": 12,
+                "rate": 1380
+              },
+              {
+                "position_id": 13,
+                "rate": 1580
+              }
+            ]
+          },
+          {
+            "lot_id": "RM6187.7",
+            "jurisdiction_id": "GB",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6187.7.1"
+              },
+              {
+                "service_id": "RM6187.7.2"
+              },
+              {
+                "service_id": "RM6187.7.4"
+              },
+              {
+                "service_id": "RM6187.7.3"
+              },
+              {
+                "service_id": "RM6187.7.5"
+              },
+              {
+                "service_id": "RM6187.7.6"
+              },
+              {
+                "service_id": "RM6187.7.7"
+              },
+              {
+                "service_id": "RM6187.7.8"
+              },
+              {
+                "service_id": "RM6187.7.10"
+              },
+              {
+                "service_id": "RM6187.7.9"
+              },
+              {
+                "service_id": "RM6187.7.11"
+              },
+              {
+                "service_id": "RM6187.7.12"
+              },
+              {
+                "service_id": "RM6187.7.13"
+              },
+              {
+                "service_id": "RM6187.7.14"
+              },
+              {
+                "service_id": "RM6187.7.15"
+              },
+              {
+                "service_id": "RM6187.7.16"
+              },
+              {
+                "service_id": "RM6187.7.17"
+              },
+              {
+                "service_id": "RM6187.7.18"
+              },
+              {
+                "service_id": "RM6187.7.19"
+              },
+              {
+                "service_id": "RM6187.7.20"
+              },
+              {
+                "service_id": "RM6187.7.21"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": 8,
+                "rate": 793
+              },
+              {
+                "position_id": 9,
+                "rate": 993
+              },
+              {
+                "position_id": 10,
+                "rate": 1193
+              },
+              {
+                "position_id": 11,
+                "rate": 1393
+              },
+              {
+                "position_id": 12,
+                "rate": 1593
+              },
+              {
+                "position_id": 13,
+                "rate": 1793
+              }
+            ]
+          },
+          {
+            "lot_id": "RM6187.8",
+            "jurisdiction_id": "GB",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6187.8.1"
+              },
+              {
+                "service_id": "RM6187.8.2"
+              },
+              {
+                "service_id": "RM6187.8.3"
+              },
+              {
+                "service_id": "RM6187.8.6"
+              },
+              {
+                "service_id": "RM6187.8.4"
+              },
+              {
+                "service_id": "RM6187.8.5"
+              },
+              {
+                "service_id": "RM6187.8.7"
+              },
+              {
+                "service_id": "RM6187.8.8"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": 8,
+                "rate": 266
+              },
+              {
+                "position_id": 9,
+                "rate": 466
+              },
+              {
+                "position_id": 10,
+                "rate": 666
+              },
+              {
+                "position_id": 11,
+                "rate": 866
+              },
+              {
+                "position_id": 12,
+                "rate": 1066
+              },
+              {
+                "position_id": 13,
+                "rate": 1266
+              }
+            ]
+          },
+          {
+            "lot_id": "RM6187.9",
+            "jurisdiction_id": "GB",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6187.9.1"
+              },
+              {
+                "service_id": "RM6187.9.2"
+              },
+              {
+                "service_id": "RM6187.9.3"
+              },
+              {
+                "service_id": "RM6187.9.4"
+              },
+              {
+                "service_id": "RM6187.9.5"
+              },
+              {
+                "service_id": "RM6187.9.6"
+              },
+              {
+                "service_id": "RM6187.9.7"
+              },
+              {
+                "service_id": "RM6187.9.8"
+              },
+              {
+                "service_id": "RM6187.9.9"
+              },
+              {
+                "service_id": "RM6187.9.10"
+              },
+              {
+                "service_id": "RM6187.9.11"
+              },
+              {
+                "service_id": "RM6187.9.12"
+              },
+              {
+                "service_id": "RM6187.9.13"
+              },
+              {
+                "service_id": "RM6187.9.14"
+              },
+              {
+                "service_id": "RM6187.9.15"
+              },
+              {
+                "service_id": "RM6187.9.16"
+              },
+              {
+                "service_id": "RM6187.9.17"
+              },
+              {
+                "service_id": "RM6187.9.18"
+              },
+              {
+                "service_id": "RM6187.9.19"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": 8,
+                "rate": 532
+              },
+              {
+                "position_id": 9,
+                "rate": 732
+              },
+              {
+                "position_id": 10,
+                "rate": 932
+              },
+              {
+                "position_id": 11,
+                "rate": 1132
+              },
+              {
+                "position_id": 12,
+                "rate": 1332
+              },
+              {
+                "position_id": 13,
+                "rate": 1532
+              }
+            ]
+          }
         ]
-      },
-      {
-        "lot_number": "MCF3.2",
-        "services": [
-          "MCF3.2.2",
-          "MCF3.2.3",
-          "MCF3.2.1",
-          "MCF3.2.4",
-          "MCF3.2.5",
-          "MCF3.2.6",
-          "MCF3.2.7",
-          "MCF3.2.8",
-          "MCF3.2.9"
-        ]
-      },
-      {
-        "lot_number": "MCF3.3",
-        "services": [
-          "MCF3.3.1",
-          "MCF3.3.2",
-          "MCF3.3.3",
-          "MCF3.3.4",
-          "MCF3.3.5",
-          "MCF3.3.6",
-          "MCF3.3.7",
-          "MCF3.3.8",
-          "MCF3.3.9",
-          "MCF3.3.10",
-          "MCF3.3.11",
-          "MCF3.3.12",
-          "MCF3.3.13"
-        ]
-      },
-      {
-        "lot_number": "MCF3.4",
-        "services": [
-          "MCF3.4.1",
-          "MCF3.4.2",
-          "MCF3.4.3",
-          "MCF3.4.4",
-          "MCF3.4.5",
-          "MCF3.4.6",
-          "MCF3.4.7",
-          "MCF3.4.8",
-          "MCF3.4.9",
-          "MCF3.4.11",
-          "MCF3.4.12",
-          "MCF3.4.10",
-          "MCF3.4.13",
-          "MCF3.4.14",
-          "MCF3.4.15",
-          "MCF3.4.16",
-          "MCF3.4.17",
-          "MCF3.4.18",
-          "MCF3.4.19",
-          "MCF3.4.20",
-          "MCF3.4.21",
-          "MCF3.4.22",
-          "MCF3.4.23",
-          "MCF3.4.24"
-        ]
-      },
-      {
-        "lot_number": "MCF3.5",
-        "services": [
-          "MCF3.5.1",
-          "MCF3.5.2",
-          "MCF3.5.3",
-          "MCF3.5.4",
-          "MCF3.5.5",
-          "MCF3.5.6",
-          "MCF3.5.7",
-          "MCF3.5.8",
-          "MCF3.5.9",
-          "MCF3.5.10"
-        ]
-      },
-      {
-        "lot_number": "MCF3.6",
-        "services": [
-          "MCF3.6.1",
-          "MCF3.6.2",
-          "MCF3.6.3",
-          "MCF3.6.4",
-          "MCF3.6.5",
-          "MCF3.6.6",
-          "MCF3.6.7",
-          "MCF3.6.8",
-          "MCF3.6.9",
-          "MCF3.6.10",
-          "MCF3.6.11",
-          "MCF3.6.12",
-          "MCF3.6.13"
-        ]
-      },
-      {
-        "lot_number": "MCF3.7",
-        "services": [
-          "MCF3.7.1",
-          "MCF3.7.2",
-          "MCF3.7.4",
-          "MCF3.7.3",
-          "MCF3.7.5",
-          "MCF3.7.6",
-          "MCF3.7.7",
-          "MCF3.7.8",
-          "MCF3.7.10",
-          "MCF3.7.9",
-          "MCF3.7.11",
-          "MCF3.7.12",
-          "MCF3.7.13",
-          "MCF3.7.14",
-          "MCF3.7.15",
-          "MCF3.7.16",
-          "MCF3.7.17",
-          "MCF3.7.18",
-          "MCF3.7.19",
-          "MCF3.7.20",
-          "MCF3.7.21"
-        ]
-      },
-      {
-        "lot_number": "MCF3.8",
-        "services": [
-          "MCF3.8.1",
-          "MCF3.8.2",
-          "MCF3.8.3",
-          "MCF3.8.6",
-          "MCF3.8.4",
-          "MCF3.8.5",
-          "MCF3.8.7",
-          "MCF3.8.8"
-        ]
-      },
-      {
-        "lot_number": "MCF3.9",
-        "services": [
-          "MCF3.9.1",
-          "MCF3.9.2",
-          "MCF3.9.3",
-          "MCF3.9.4",
-          "MCF3.9.5",
-          "MCF3.9.6",
-          "MCF3.9.7",
-          "MCF3.9.8",
-          "MCF3.9.9",
-          "MCF3.9.10",
-          "MCF3.9.11",
-          "MCF3.9.12",
-          "MCF3.9.13",
-          "MCF3.9.14",
-          "MCF3.9.15",
-          "MCF3.9.16",
-          "MCF3.9.17",
-          "MCF3.9.18",
-          "MCF3.9.19"
-        ]
-      }
-    ],
-    "rate_cards": [
-      {
-        "lot": "MCF3.1",
-        "junior_rate_in_pence": 351,
-        "standard_rate_in_pence": 551,
-        "senior_rate_in_pence": 751,
-        "principal_rate_in_pence": 951,
-        "managing_rate_in_pence": 1151,
-        "director_rate_in_pence": 1351,
-        "contact_name": "Judson Sauer",
-        "email": "judson_sauer@williamson-wunsch.com",
-        "telephone_number": "(390) 137-6220 x154"
-      },
-      {
-        "lot": "MCF3.2",
-        "junior_rate_in_pence": 773,
-        "standard_rate_in_pence": 973,
-        "senior_rate_in_pence": 1173,
-        "principal_rate_in_pence": 1373,
-        "managing_rate_in_pence": 1573,
-        "director_rate_in_pence": 1773,
-        "contact_name": "Tommie Strosin",
-        "email": "strosin.tommie@keeling.co",
-        "telephone_number": "1-383-869-4959 x90365"
-      },
-      {
-        "lot": "MCF3.3",
-        "junior_rate_in_pence": 941,
-        "standard_rate_in_pence": 1141,
-        "senior_rate_in_pence": 1341,
-        "principal_rate_in_pence": 1541,
-        "managing_rate_in_pence": 1741,
-        "director_rate_in_pence": 1941,
-        "contact_name": "Phillis Block",
-        "email": "phillis.block@williamson-torphy.co",
-        "telephone_number": "131.854.2287 x6628"
-      },
-      {
-        "lot": "MCF3.4",
-        "junior_rate_in_pence": 865,
-        "standard_rate_in_pence": 1065,
-        "senior_rate_in_pence": 1265,
-        "principal_rate_in_pence": 1465,
-        "managing_rate_in_pence": 1665,
-        "director_rate_in_pence": 1865,
-        "contact_name": "Georgie Schinner",
-        "email": "georgie.schinner@douglas.biz",
-        "telephone_number": "1-375-750-0520 x258"
-      },
-      {
-        "lot": "MCF3.5",
-        "junior_rate_in_pence": 344,
-        "standard_rate_in_pence": 544,
-        "senior_rate_in_pence": 744,
-        "principal_rate_in_pence": 944,
-        "managing_rate_in_pence": 1144,
-        "director_rate_in_pence": 1344,
-        "contact_name": "Almeta Reilly",
-        "email": "almeta_reilly@runte.info",
-        "telephone_number": "1-688-843-1068"
-      },
-      {
-        "lot": "MCF3.6",
-        "junior_rate_in_pence": 580,
-        "standard_rate_in_pence": 780,
-        "senior_rate_in_pence": 980,
-        "principal_rate_in_pence": 1180,
-        "managing_rate_in_pence": 1380,
-        "director_rate_in_pence": 1580,
-        "contact_name": "Miguel Schmitt",
-        "email": "schmitt.miguel@jenkins.biz",
-        "telephone_number": "1-722-188-4535 x221"
-      },
-      {
-        "lot": "MCF3.7",
-        "junior_rate_in_pence": 793,
-        "standard_rate_in_pence": 993,
-        "senior_rate_in_pence": 1193,
-        "principal_rate_in_pence": 1393,
-        "managing_rate_in_pence": 1593,
-        "director_rate_in_pence": 1793,
-        "contact_name": "Rev. Manuel Runolfsson",
-        "email": "rev_runolfsson_manuel@kuhic.org",
-        "telephone_number": "950-676-1548 x046"
-      },
-      {
-        "lot": "MCF3.8",
-        "junior_rate_in_pence": 266,
-        "standard_rate_in_pence": 466,
-        "senior_rate_in_pence": 666,
-        "principal_rate_in_pence": 866,
-        "managing_rate_in_pence": 1066,
-        "director_rate_in_pence": 1266,
-        "contact_name": "Millie Reynolds",
-        "email": "reynolds_millie@leannon.co",
-        "telephone_number": "718.355.5733 x2651"
-      },
-      {
-        "lot": "MCF3.9",
-        "junior_rate_in_pence": 532,
-        "standard_rate_in_pence": 732,
-        "senior_rate_in_pence": 932,
-        "principal_rate_in_pence": 1132,
-        "managing_rate_in_pence": 1332,
-        "director_rate_in_pence": 1532,
-        "contact_name": "Pasquale Greenfelder",
-        "email": "greenfelder.pasquale@roob.biz",
-        "telephone_number": "(846) 366-4337 x9192"
       }
     ]
   },
   {
     "id": "d6fb5793-9324-46a8-b5b1-c8dd5f236ebe",
     "name": "WILLIAMSON, DOYLE AND GLOVER",
-    "contact_email": "glover.williamson.and.doyle@lind.biz",
-    "telephone_number": "563-160-3456 x526",
+    "duns_number": "657114622",
     "sme": true,
-    "address": "Apt. 802 53662 Friesen Creek, Louishaven, MS 08488-5259",
-    "website": "http://shanahan-labadie.info/jeremiah",
-    "duns": "657114622",
-    "lots": [
+    "supplier_frameworks": [
       {
-        "lot_number": "MCF3.1",
-        "services": [
-          "MCF3.1.1",
-          "MCF3.1.2",
-          "MCF3.1.3",
-          "MCF3.1.4",
-          "MCF3.1.5",
-          "MCF3.1.6",
-          "MCF3.1.7",
-          "MCF3.1.8",
-          "MCF3.1.9",
-          "MCF3.1.10",
-          "MCF3.1.11",
-          "MCF3.1.12",
-          "MCF3.1.13",
-          "MCF3.1.14"
+        "framework_id": "RM6187",
+        "enabled": true,
+        "supplier_framework_contact_detail": {
+          "name": "Nathanial Carter",
+          "email": "glover.williamson.and.doyle@lind.biz",
+          "telephone_number": "563-160-3456 x526",
+          "website": "http://shanahan-labadie.info/jeremiah",
+          "additional_details": {
+            "address": "Apt. 802 53662 Friesen Creek, Louishaven, MS 08488-5259"
+          }
+        },
+        "supplier_framework_lots": [
+          {
+            "lot_id": "RM6187.1",
+            "jurisdiction_id": "GB",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6187.1.1"
+              },
+              {
+                "service_id": "RM6187.1.2"
+              },
+              {
+                "service_id": "RM6187.1.3"
+              },
+              {
+                "service_id": "RM6187.1.4"
+              },
+              {
+                "service_id": "RM6187.1.5"
+              },
+              {
+                "service_id": "RM6187.1.6"
+              },
+              {
+                "service_id": "RM6187.1.7"
+              },
+              {
+                "service_id": "RM6187.1.8"
+              },
+              {
+                "service_id": "RM6187.1.9"
+              },
+              {
+                "service_id": "RM6187.1.10"
+              },
+              {
+                "service_id": "RM6187.1.11"
+              },
+              {
+                "service_id": "RM6187.1.12"
+              },
+              {
+                "service_id": "RM6187.1.13"
+              },
+              {
+                "service_id": "RM6187.1.14"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": 8,
+                "rate": 522
+              },
+              {
+                "position_id": 9,
+                "rate": 722
+              },
+              {
+                "position_id": 10,
+                "rate": 922
+              },
+              {
+                "position_id": 11,
+                "rate": 1122
+              },
+              {
+                "position_id": 12,
+                "rate": 1322
+              },
+              {
+                "position_id": 13,
+                "rate": 1522
+              }
+            ]
+          },
+          {
+            "lot_id": "RM6187.2",
+            "jurisdiction_id": "GB",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6187.2.2"
+              },
+              {
+                "service_id": "RM6187.2.3"
+              },
+              {
+                "service_id": "RM6187.2.1"
+              },
+              {
+                "service_id": "RM6187.2.4"
+              },
+              {
+                "service_id": "RM6187.2.5"
+              },
+              {
+                "service_id": "RM6187.2.6"
+              },
+              {
+                "service_id": "RM6187.2.7"
+              },
+              {
+                "service_id": "RM6187.2.8"
+              },
+              {
+                "service_id": "RM6187.2.9"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": 8,
+                "rate": 271
+              },
+              {
+                "position_id": 9,
+                "rate": 471
+              },
+              {
+                "position_id": 10,
+                "rate": 671
+              },
+              {
+                "position_id": 11,
+                "rate": 871
+              },
+              {
+                "position_id": 12,
+                "rate": 1071
+              },
+              {
+                "position_id": 13,
+                "rate": 1271
+              }
+            ]
+          },
+          {
+            "lot_id": "RM6187.3",
+            "jurisdiction_id": "GB",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6187.3.1"
+              },
+              {
+                "service_id": "RM6187.3.2"
+              },
+              {
+                "service_id": "RM6187.3.3"
+              },
+              {
+                "service_id": "RM6187.3.4"
+              },
+              {
+                "service_id": "RM6187.3.5"
+              },
+              {
+                "service_id": "RM6187.3.6"
+              },
+              {
+                "service_id": "RM6187.3.7"
+              },
+              {
+                "service_id": "RM6187.3.8"
+              },
+              {
+                "service_id": "RM6187.3.9"
+              },
+              {
+                "service_id": "RM6187.3.10"
+              },
+              {
+                "service_id": "RM6187.3.11"
+              },
+              {
+                "service_id": "RM6187.3.12"
+              },
+              {
+                "service_id": "RM6187.3.13"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": 8,
+                "rate": 631
+              },
+              {
+                "position_id": 9,
+                "rate": 831
+              },
+              {
+                "position_id": 10,
+                "rate": 1031
+              },
+              {
+                "position_id": 11,
+                "rate": 1231
+              },
+              {
+                "position_id": 12,
+                "rate": 1431
+              },
+              {
+                "position_id": 13,
+                "rate": 1631
+              }
+            ]
+          },
+          {
+            "lot_id": "RM6187.4",
+            "jurisdiction_id": "GB",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6187.4.1"
+              },
+              {
+                "service_id": "RM6187.4.2"
+              },
+              {
+                "service_id": "RM6187.4.3"
+              },
+              {
+                "service_id": "RM6187.4.4"
+              },
+              {
+                "service_id": "RM6187.4.5"
+              },
+              {
+                "service_id": "RM6187.4.6"
+              },
+              {
+                "service_id": "RM6187.4.7"
+              },
+              {
+                "service_id": "RM6187.4.8"
+              },
+              {
+                "service_id": "RM6187.4.9"
+              },
+              {
+                "service_id": "RM6187.4.11"
+              },
+              {
+                "service_id": "RM6187.4.12"
+              },
+              {
+                "service_id": "RM6187.4.10"
+              },
+              {
+                "service_id": "RM6187.4.13"
+              },
+              {
+                "service_id": "RM6187.4.14"
+              },
+              {
+                "service_id": "RM6187.4.15"
+              },
+              {
+                "service_id": "RM6187.4.16"
+              },
+              {
+                "service_id": "RM6187.4.17"
+              },
+              {
+                "service_id": "RM6187.4.18"
+              },
+              {
+                "service_id": "RM6187.4.19"
+              },
+              {
+                "service_id": "RM6187.4.20"
+              },
+              {
+                "service_id": "RM6187.4.21"
+              },
+              {
+                "service_id": "RM6187.4.22"
+              },
+              {
+                "service_id": "RM6187.4.23"
+              },
+              {
+                "service_id": "RM6187.4.24"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": 8,
+                "rate": 875
+              },
+              {
+                "position_id": 9,
+                "rate": 1075
+              },
+              {
+                "position_id": 10,
+                "rate": 1275
+              },
+              {
+                "position_id": 11,
+                "rate": 1475
+              },
+              {
+                "position_id": 12,
+                "rate": 1675
+              },
+              {
+                "position_id": 13,
+                "rate": 1875
+              }
+            ]
+          },
+          {
+            "lot_id": "RM6187.5",
+            "jurisdiction_id": "GB",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6187.5.1"
+              },
+              {
+                "service_id": "RM6187.5.2"
+              },
+              {
+                "service_id": "RM6187.5.3"
+              },
+              {
+                "service_id": "RM6187.5.4"
+              },
+              {
+                "service_id": "RM6187.5.5"
+              },
+              {
+                "service_id": "RM6187.5.6"
+              },
+              {
+                "service_id": "RM6187.5.7"
+              },
+              {
+                "service_id": "RM6187.5.8"
+              },
+              {
+                "service_id": "RM6187.5.9"
+              },
+              {
+                "service_id": "RM6187.5.10"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": 8,
+                "rate": 438
+              },
+              {
+                "position_id": 9,
+                "rate": 638
+              },
+              {
+                "position_id": 10,
+                "rate": 838
+              },
+              {
+                "position_id": 11,
+                "rate": 1038
+              },
+              {
+                "position_id": 12,
+                "rate": 1238
+              },
+              {
+                "position_id": 13,
+                "rate": 1438
+              }
+            ]
+          },
+          {
+            "lot_id": "RM6187.6",
+            "jurisdiction_id": "GB",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6187.6.1"
+              },
+              {
+                "service_id": "RM6187.6.2"
+              },
+              {
+                "service_id": "RM6187.6.3"
+              },
+              {
+                "service_id": "RM6187.6.4"
+              },
+              {
+                "service_id": "RM6187.6.5"
+              },
+              {
+                "service_id": "RM6187.6.6"
+              },
+              {
+                "service_id": "RM6187.6.7"
+              },
+              {
+                "service_id": "RM6187.6.8"
+              },
+              {
+                "service_id": "RM6187.6.9"
+              },
+              {
+                "service_id": "RM6187.6.10"
+              },
+              {
+                "service_id": "RM6187.6.11"
+              },
+              {
+                "service_id": "RM6187.6.12"
+              },
+              {
+                "service_id": "RM6187.6.13"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": 8,
+                "rate": 447
+              },
+              {
+                "position_id": 9,
+                "rate": 647
+              },
+              {
+                "position_id": 10,
+                "rate": 847
+              },
+              {
+                "position_id": 11,
+                "rate": 1047
+              },
+              {
+                "position_id": 12,
+                "rate": 1247
+              },
+              {
+                "position_id": 13,
+                "rate": 1447
+              }
+            ]
+          },
+          {
+            "lot_id": "RM6187.7",
+            "jurisdiction_id": "GB",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6187.7.1"
+              },
+              {
+                "service_id": "RM6187.7.2"
+              },
+              {
+                "service_id": "RM6187.7.4"
+              },
+              {
+                "service_id": "RM6187.7.3"
+              },
+              {
+                "service_id": "RM6187.7.5"
+              },
+              {
+                "service_id": "RM6187.7.6"
+              },
+              {
+                "service_id": "RM6187.7.7"
+              },
+              {
+                "service_id": "RM6187.7.8"
+              },
+              {
+                "service_id": "RM6187.7.10"
+              },
+              {
+                "service_id": "RM6187.7.9"
+              },
+              {
+                "service_id": "RM6187.7.11"
+              },
+              {
+                "service_id": "RM6187.7.12"
+              },
+              {
+                "service_id": "RM6187.7.13"
+              },
+              {
+                "service_id": "RM6187.7.14"
+              },
+              {
+                "service_id": "RM6187.7.15"
+              },
+              {
+                "service_id": "RM6187.7.16"
+              },
+              {
+                "service_id": "RM6187.7.17"
+              },
+              {
+                "service_id": "RM6187.7.18"
+              },
+              {
+                "service_id": "RM6187.7.19"
+              },
+              {
+                "service_id": "RM6187.7.20"
+              },
+              {
+                "service_id": "RM6187.7.21"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": 8,
+                "rate": 633
+              },
+              {
+                "position_id": 9,
+                "rate": 833
+              },
+              {
+                "position_id": 10,
+                "rate": 1033
+              },
+              {
+                "position_id": 11,
+                "rate": 1233
+              },
+              {
+                "position_id": 12,
+                "rate": 1433
+              },
+              {
+                "position_id": 13,
+                "rate": 1633
+              }
+            ]
+          },
+          {
+            "lot_id": "RM6187.8",
+            "jurisdiction_id": "GB",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6187.8.1"
+              },
+              {
+                "service_id": "RM6187.8.2"
+              },
+              {
+                "service_id": "RM6187.8.3"
+              },
+              {
+                "service_id": "RM6187.8.6"
+              },
+              {
+                "service_id": "RM6187.8.4"
+              },
+              {
+                "service_id": "RM6187.8.5"
+              },
+              {
+                "service_id": "RM6187.8.7"
+              },
+              {
+                "service_id": "RM6187.8.8"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": 8,
+                "rate": 436
+              },
+              {
+                "position_id": 9,
+                "rate": 636
+              },
+              {
+                "position_id": 10,
+                "rate": 836
+              },
+              {
+                "position_id": 11,
+                "rate": 1036
+              },
+              {
+                "position_id": 12,
+                "rate": 1236
+              },
+              {
+                "position_id": 13,
+                "rate": 1436
+              }
+            ]
+          },
+          {
+            "lot_id": "RM6187.9",
+            "jurisdiction_id": "GB",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6187.9.1"
+              },
+              {
+                "service_id": "RM6187.9.2"
+              },
+              {
+                "service_id": "RM6187.9.3"
+              },
+              {
+                "service_id": "RM6187.9.4"
+              },
+              {
+                "service_id": "RM6187.9.5"
+              },
+              {
+                "service_id": "RM6187.9.6"
+              },
+              {
+                "service_id": "RM6187.9.7"
+              },
+              {
+                "service_id": "RM6187.9.8"
+              },
+              {
+                "service_id": "RM6187.9.9"
+              },
+              {
+                "service_id": "RM6187.9.10"
+              },
+              {
+                "service_id": "RM6187.9.11"
+              },
+              {
+                "service_id": "RM6187.9.12"
+              },
+              {
+                "service_id": "RM6187.9.13"
+              },
+              {
+                "service_id": "RM6187.9.14"
+              },
+              {
+                "service_id": "RM6187.9.15"
+              },
+              {
+                "service_id": "RM6187.9.16"
+              },
+              {
+                "service_id": "RM6187.9.17"
+              },
+              {
+                "service_id": "RM6187.9.18"
+              },
+              {
+                "service_id": "RM6187.9.19"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": 8,
+                "rate": 410
+              },
+              {
+                "position_id": 9,
+                "rate": 610
+              },
+              {
+                "position_id": 10,
+                "rate": 810
+              },
+              {
+                "position_id": 11,
+                "rate": 1010
+              },
+              {
+                "position_id": 12,
+                "rate": 1210
+              },
+              {
+                "position_id": 13,
+                "rate": 1410
+              }
+            ]
+          }
         ]
-      },
-      {
-        "lot_number": "MCF3.2",
-        "services": [
-          "MCF3.2.2",
-          "MCF3.2.3",
-          "MCF3.2.1",
-          "MCF3.2.4",
-          "MCF3.2.5",
-          "MCF3.2.6",
-          "MCF3.2.7",
-          "MCF3.2.8",
-          "MCF3.2.9"
-        ]
-      },
-      {
-        "lot_number": "MCF3.3",
-        "services": [
-          "MCF3.3.1",
-          "MCF3.3.2",
-          "MCF3.3.3",
-          "MCF3.3.4",
-          "MCF3.3.5",
-          "MCF3.3.6",
-          "MCF3.3.7",
-          "MCF3.3.8",
-          "MCF3.3.9",
-          "MCF3.3.10",
-          "MCF3.3.11",
-          "MCF3.3.12",
-          "MCF3.3.13"
-        ]
-      },
-      {
-        "lot_number": "MCF3.4",
-        "services": [
-          "MCF3.4.1",
-          "MCF3.4.2",
-          "MCF3.4.3",
-          "MCF3.4.4",
-          "MCF3.4.5",
-          "MCF3.4.6",
-          "MCF3.4.7",
-          "MCF3.4.8",
-          "MCF3.4.9",
-          "MCF3.4.11",
-          "MCF3.4.12",
-          "MCF3.4.10",
-          "MCF3.4.13",
-          "MCF3.4.14",
-          "MCF3.4.15",
-          "MCF3.4.16",
-          "MCF3.4.17",
-          "MCF3.4.18",
-          "MCF3.4.19",
-          "MCF3.4.20",
-          "MCF3.4.21",
-          "MCF3.4.22",
-          "MCF3.4.23",
-          "MCF3.4.24"
-        ]
-      },
-      {
-        "lot_number": "MCF3.5",
-        "services": [
-          "MCF3.5.1",
-          "MCF3.5.2",
-          "MCF3.5.3",
-          "MCF3.5.4",
-          "MCF3.5.5",
-          "MCF3.5.6",
-          "MCF3.5.7",
-          "MCF3.5.8",
-          "MCF3.5.9",
-          "MCF3.5.10"
-        ]
-      },
-      {
-        "lot_number": "MCF3.6",
-        "services": [
-          "MCF3.6.1",
-          "MCF3.6.2",
-          "MCF3.6.3",
-          "MCF3.6.4",
-          "MCF3.6.5",
-          "MCF3.6.6",
-          "MCF3.6.7",
-          "MCF3.6.8",
-          "MCF3.6.9",
-          "MCF3.6.10",
-          "MCF3.6.11",
-          "MCF3.6.12",
-          "MCF3.6.13"
-        ]
-      },
-      {
-        "lot_number": "MCF3.7",
-        "services": [
-          "MCF3.7.1",
-          "MCF3.7.2",
-          "MCF3.7.4",
-          "MCF3.7.3",
-          "MCF3.7.5",
-          "MCF3.7.6",
-          "MCF3.7.7",
-          "MCF3.7.8",
-          "MCF3.7.10",
-          "MCF3.7.9",
-          "MCF3.7.11",
-          "MCF3.7.12",
-          "MCF3.7.13",
-          "MCF3.7.14",
-          "MCF3.7.15",
-          "MCF3.7.16",
-          "MCF3.7.17",
-          "MCF3.7.18",
-          "MCF3.7.19",
-          "MCF3.7.20",
-          "MCF3.7.21"
-        ]
-      },
-      {
-        "lot_number": "MCF3.8",
-        "services": [
-          "MCF3.8.1",
-          "MCF3.8.2",
-          "MCF3.8.3",
-          "MCF3.8.6",
-          "MCF3.8.4",
-          "MCF3.8.5",
-          "MCF3.8.7",
-          "MCF3.8.8"
-        ]
-      },
-      {
-        "lot_number": "MCF3.9",
-        "services": [
-          "MCF3.9.1",
-          "MCF3.9.2",
-          "MCF3.9.3",
-          "MCF3.9.4",
-          "MCF3.9.5",
-          "MCF3.9.6",
-          "MCF3.9.7",
-          "MCF3.9.8",
-          "MCF3.9.9",
-          "MCF3.9.10",
-          "MCF3.9.11",
-          "MCF3.9.12",
-          "MCF3.9.13",
-          "MCF3.9.14",
-          "MCF3.9.15",
-          "MCF3.9.16",
-          "MCF3.9.17",
-          "MCF3.9.18",
-          "MCF3.9.19"
-        ]
-      }
-    ],
-    "rate_cards": [
-      {
-        "lot": "MCF3.1",
-        "junior_rate_in_pence": 522,
-        "standard_rate_in_pence": 722,
-        "senior_rate_in_pence": 922,
-        "principal_rate_in_pence": 1122,
-        "managing_rate_in_pence": 1322,
-        "director_rate_in_pence": 1522,
-        "contact_name": "Nathanial Carter",
-        "email": "nathanial.carter@huel.net",
-        "telephone_number": "545.532.3492 x3138"
-      },
-      {
-        "lot": "MCF3.2",
-        "junior_rate_in_pence": 271,
-        "standard_rate_in_pence": 471,
-        "senior_rate_in_pence": 671,
-        "principal_rate_in_pence": 871,
-        "managing_rate_in_pence": 1071,
-        "director_rate_in_pence": 1271,
-        "contact_name": "Sidney Tromp",
-        "email": "sidney_tromp@schmeler-huel.biz",
-        "telephone_number": "(562) 937-8931"
-      },
-      {
-        "lot": "MCF3.3",
-        "junior_rate_in_pence": 631,
-        "standard_rate_in_pence": 831,
-        "senior_rate_in_pence": 1031,
-        "principal_rate_in_pence": 1231,
-        "managing_rate_in_pence": 1431,
-        "director_rate_in_pence": 1631,
-        "contact_name": "Vincent Windler",
-        "email": "windler.vincent@stokes.org",
-        "telephone_number": "664.099.9815"
-      },
-      {
-        "lot": "MCF3.4",
-        "junior_rate_in_pence": 875,
-        "standard_rate_in_pence": 1075,
-        "senior_rate_in_pence": 1275,
-        "principal_rate_in_pence": 1475,
-        "managing_rate_in_pence": 1675,
-        "director_rate_in_pence": 1875,
-        "contact_name": "Necole Ryan",
-        "email": "necole_ryan@toy.info",
-        "telephone_number": "502-538-8185 x634"
-      },
-      {
-        "lot": "MCF3.5",
-        "junior_rate_in_pence": 438,
-        "standard_rate_in_pence": 638,
-        "senior_rate_in_pence": 838,
-        "principal_rate_in_pence": 1038,
-        "managing_rate_in_pence": 1238,
-        "director_rate_in_pence": 1438,
-        "contact_name": "Amb. Javier Mueller",
-        "email": "amb.mueller.javier@koelpin.name",
-        "telephone_number": "787-115-0917"
-      },
-      {
-        "lot": "MCF3.6",
-        "junior_rate_in_pence": 447,
-        "standard_rate_in_pence": 647,
-        "senior_rate_in_pence": 847,
-        "principal_rate_in_pence": 1047,
-        "managing_rate_in_pence": 1247,
-        "director_rate_in_pence": 1447,
-        "contact_name": "Jan Tillman VM",
-        "email": "vm.jan.tillman@fay-leuschke.biz",
-        "telephone_number": "461-577-4351 x0886"
-      },
-      {
-        "lot": "MCF3.7",
-        "junior_rate_in_pence": 633,
-        "standard_rate_in_pence": 833,
-        "senior_rate_in_pence": 1033,
-        "principal_rate_in_pence": 1233,
-        "managing_rate_in_pence": 1433,
-        "director_rate_in_pence": 1633,
-        "contact_name": "Katharine Senger",
-        "email": "katharine.senger@doyle.biz",
-        "telephone_number": "633-788-9694 x241"
-      },
-      {
-        "lot": "MCF3.8",
-        "junior_rate_in_pence": 436,
-        "standard_rate_in_pence": 636,
-        "senior_rate_in_pence": 836,
-        "principal_rate_in_pence": 1036,
-        "managing_rate_in_pence": 1236,
-        "director_rate_in_pence": 1436,
-        "contact_name": "Clinton Metz",
-        "email": "clinton.metz@hilll.io",
-        "telephone_number": "(372) 077-1273 x4815"
-      },
-      {
-        "lot": "MCF3.9",
-        "junior_rate_in_pence": 410,
-        "standard_rate_in_pence": 610,
-        "senior_rate_in_pence": 810,
-        "principal_rate_in_pence": 1010,
-        "managing_rate_in_pence": 1210,
-        "director_rate_in_pence": 1410,
-        "contact_name": "Ozzie Bailey",
-        "email": "bailey_ozzie@macgyver.info",
-        "telephone_number": "208.791.4339 x078"
       }
     ]
   },
   {
     "id": "ed8e2164-98a9-4b67-bb29-3488384d8c7a",
     "name": "BATZ, BROWN AND BREITENBERG",
-    "contact_email": "batz.brown.and.breitenberg@williamson-emard.io",
-    "telephone_number": "402.108.0190 x08147",
+    "duns_number": "763187532",
     "sme": true,
-    "address": "Suite 973 3708 Leonard Place, Mingview, SC 99734",
-    "website": "http://considine.biz/evonne",
-    "duns": "763187532",
-    "lots": [
+    "supplier_frameworks": [
       {
-        "lot_number": "MCF3.9",
-        "services": [
-          "MCF3.9.5",
-          "MCF3.9.10",
-          "MCF3.9.2",
-          "MCF3.9.17",
-          "MCF3.9.6",
-          "MCF3.9.14",
-          "MCF3.9.7",
-          "MCF3.9.4",
-          "MCF3.9.9",
-          "MCF3.9.15",
-          "MCF3.9.16",
-          "MCF3.9.18",
-          "MCF3.9.8"
+        "framework_id": "RM6187",
+        "enabled": true,
+        "supplier_framework_contact_detail": {
+          "name": "Ezra O'Keefe",
+          "email": "batz.brown.and.breitenberg@williamson-emard.io",
+          "telephone_number": "402.108.0190 x08147",
+          "website": "http://considine.biz/evonne",
+          "additional_details": {
+            "address": "Suite 973 3708 Leonard Place, Mingview, SC 99734"
+          }
+        },
+        "supplier_framework_lots": [
+          {
+            "lot_id": "RM6187.9",
+            "jurisdiction_id": "GB",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6187.9.5"
+              },
+              {
+                "service_id": "RM6187.9.10"
+              },
+              {
+                "service_id": "RM6187.9.2"
+              },
+              {
+                "service_id": "RM6187.9.17"
+              },
+              {
+                "service_id": "RM6187.9.6"
+              },
+              {
+                "service_id": "RM6187.9.14"
+              },
+              {
+                "service_id": "RM6187.9.7"
+              },
+              {
+                "service_id": "RM6187.9.4"
+              },
+              {
+                "service_id": "RM6187.9.9"
+              },
+              {
+                "service_id": "RM6187.9.15"
+              },
+              {
+                "service_id": "RM6187.9.16"
+              },
+              {
+                "service_id": "RM6187.9.18"
+              },
+              {
+                "service_id": "RM6187.9.8"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": 8,
+                "rate": 484
+              },
+              {
+                "position_id": 9,
+                "rate": 684
+              },
+              {
+                "position_id": 10,
+                "rate": 884
+              },
+              {
+                "position_id": 11,
+                "rate": 1084
+              },
+              {
+                "position_id": 12,
+                "rate": 1284
+              },
+              {
+                "position_id": 13,
+                "rate": 1484
+              }
+            ]
+          },
+          {
+            "lot_id": "RM6187.6",
+            "jurisdiction_id": "GB",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6187.6.6"
+              },
+              {
+                "service_id": "RM6187.6.7"
+              },
+              {
+                "service_id": "RM6187.6.3"
+              },
+              {
+                "service_id": "RM6187.6.12"
+              },
+              {
+                "service_id": "RM6187.6.4"
+              },
+              {
+                "service_id": "RM6187.6.8"
+              },
+              {
+                "service_id": "RM6187.6.1"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": 8,
+                "rate": 222
+              },
+              {
+                "position_id": 9,
+                "rate": 422
+              },
+              {
+                "position_id": 10,
+                "rate": 622
+              },
+              {
+                "position_id": 11,
+                "rate": 822
+              },
+              {
+                "position_id": 12,
+                "rate": 1022
+              },
+              {
+                "position_id": 13,
+                "rate": 1222
+              }
+            ]
+          },
+          {
+            "lot_id": "RM6187.1",
+            "jurisdiction_id": "GB",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6187.1.11"
+              },
+              {
+                "service_id": "RM6187.1.5"
+              },
+              {
+                "service_id": "RM6187.1.13"
+              },
+              {
+                "service_id": "RM6187.1.1"
+              },
+              {
+                "service_id": "RM6187.1.3"
+              },
+              {
+                "service_id": "RM6187.1.4"
+              },
+              {
+                "service_id": "RM6187.1.6"
+              },
+              {
+                "service_id": "RM6187.1.8"
+              },
+              {
+                "service_id": "RM6187.1.2"
+              },
+              {
+                "service_id": "RM6187.1.14"
+              },
+              {
+                "service_id": "RM6187.1.10"
+              },
+              {
+                "service_id": "RM6187.1.12"
+              },
+              {
+                "service_id": "RM6187.1.9"
+              },
+              {
+                "service_id": "RM6187.1.7"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": 8,
+                "rate": 936
+              },
+              {
+                "position_id": 9,
+                "rate": 1136
+              },
+              {
+                "position_id": 10,
+                "rate": 1336
+              },
+              {
+                "position_id": 11,
+                "rate": 1536
+              },
+              {
+                "position_id": 12,
+                "rate": 1736
+              },
+              {
+                "position_id": 13,
+                "rate": 1936
+              }
+            ]
+          },
+          {
+            "lot_id": "RM6187.7",
+            "jurisdiction_id": "GB",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6187.7.17"
+              },
+              {
+                "service_id": "RM6187.7.18"
+              },
+              {
+                "service_id": "RM6187.7.12"
+              },
+              {
+                "service_id": "RM6187.7.20"
+              },
+              {
+                "service_id": "RM6187.7.21"
+              },
+              {
+                "service_id": "RM6187.7.1"
+              },
+              {
+                "service_id": "RM6187.7.19"
+              },
+              {
+                "service_id": "RM6187.7.16"
+              },
+              {
+                "service_id": "RM6187.7.5"
+              },
+              {
+                "service_id": "RM6187.7.9"
+              },
+              {
+                "service_id": "RM6187.7.8"
+              },
+              {
+                "service_id": "RM6187.7.4"
+              },
+              {
+                "service_id": "RM6187.7.11"
+              },
+              {
+                "service_id": "RM6187.7.3"
+              },
+              {
+                "service_id": "RM6187.7.10"
+              },
+              {
+                "service_id": "RM6187.7.2"
+              },
+              {
+                "service_id": "RM6187.7.13"
+              },
+              {
+                "service_id": "RM6187.7.6"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": 8,
+                "rate": 448
+              },
+              {
+                "position_id": 9,
+                "rate": 648
+              },
+              {
+                "position_id": 10,
+                "rate": 848
+              },
+              {
+                "position_id": 11,
+                "rate": 1048
+              },
+              {
+                "position_id": 12,
+                "rate": 1248
+              },
+              {
+                "position_id": 13,
+                "rate": 1448
+              }
+            ]
+          }
         ]
-      },
-      {
-        "lot_number": "MCF3.6",
-        "services": [
-          "MCF3.6.6",
-          "MCF3.6.7",
-          "MCF3.6.3",
-          "MCF3.6.12",
-          "MCF3.6.4",
-          "MCF3.6.8",
-          "MCF3.6.1"
-        ]
-      },
-      {
-        "lot_number": "MCF3.1",
-        "services": [
-          "MCF3.1.11",
-          "MCF3.1.5",
-          "MCF3.1.13",
-          "MCF3.1.1",
-          "MCF3.1.3",
-          "MCF3.1.4",
-          "MCF3.1.6",
-          "MCF3.1.8",
-          "MCF3.1.2",
-          "MCF3.1.14",
-          "MCF3.1.10",
-          "MCF3.1.12",
-          "MCF3.1.9",
-          "MCF3.1.7"
-        ]
-      },
-      {
-        "lot_number": "MCF3.7",
-        "services": [
-          "MCF3.7.17",
-          "MCF3.7.18",
-          "MCF3.7.12",
-          "MCF3.7.20",
-          "MCF3.7.21",
-          "MCF3.7.1",
-          "MCF3.7.19",
-          "MCF3.7.16",
-          "MCF3.7.5",
-          "MCF3.7.9",
-          "MCF3.7.8",
-          "MCF3.7.4",
-          "MCF3.7.11",
-          "MCF3.7.3",
-          "MCF3.7.10",
-          "MCF3.7.2",
-          "MCF3.7.13",
-          "MCF3.7.6"
-        ]
-      }
-    ],
-    "rate_cards": [
-      {
-        "lot": "MCF3.9",
-        "junior_rate_in_pence": 484,
-        "standard_rate_in_pence": 684,
-        "senior_rate_in_pence": 884,
-        "principal_rate_in_pence": 1084,
-        "managing_rate_in_pence": 1284,
-        "director_rate_in_pence": 1484,
-        "contact_name": "Ezra O'Keefe",
-        "email": "o_keefe_ezra@effertz-olson.com",
-        "telephone_number": "211.326.5998"
-      },
-      {
-        "lot": "MCF3.6",
-        "junior_rate_in_pence": 222,
-        "standard_rate_in_pence": 422,
-        "senior_rate_in_pence": 622,
-        "principal_rate_in_pence": 822,
-        "managing_rate_in_pence": 1022,
-        "director_rate_in_pence": 1222,
-        "contact_name": "Man Bartell DDS",
-        "email": "bartell.man.dds@goyette.info",
-        "telephone_number": "426-577-5760 x4738"
-      },
-      {
-        "lot": "MCF3.1",
-        "junior_rate_in_pence": 936,
-        "standard_rate_in_pence": 1136,
-        "senior_rate_in_pence": 1336,
-        "principal_rate_in_pence": 1536,
-        "managing_rate_in_pence": 1736,
-        "director_rate_in_pence": 1936,
-        "contact_name": "Lorelei Parker DDS",
-        "email": "lorelei.parker.dds@kuhlman-kassulke.org",
-        "telephone_number": "(624) 813-5268 x4572"
-      },
-      {
-        "lot": "MCF3.7",
-        "junior_rate_in_pence": 448,
-        "standard_rate_in_pence": 648,
-        "senior_rate_in_pence": 848,
-        "principal_rate_in_pence": 1048,
-        "managing_rate_in_pence": 1248,
-        "director_rate_in_pence": 1448,
-        "contact_name": "Kelsie Weissnat",
-        "email": "kelsie.weissnat@hyatt.biz",
-        "telephone_number": "(614) 437-2031"
       }
     ]
   },
   {
     "id": "ec995fba-846d-4f95-bfcd-c3934a6c4547",
     "name": "BERNHARD INC",
-    "contact_email": "bernhard.inc@harris-dietrich.info",
-    "telephone_number": "117.153.6094",
+    "duns_number": "614904125",
     "sme": false,
-    "address": "65238 Davis Shores, Ikeshire, KS 98575-1023",
-    "website": "http://homenick.info/walter",
-    "duns": "614904125",
-    "lots": [
+    "supplier_frameworks": [
       {
-        "lot_number": "MCF3.8",
-        "services": [
-          "MCF3.8.4",
-          "MCF3.8.7",
-          "MCF3.8.6",
-          "MCF3.8.3"
+        "framework_id": "RM6187",
+        "enabled": true,
+        "supplier_framework_contact_detail": {
+          "name": "Rev. Dave Kemmer",
+          "email": "bernhard.inc@harris-dietrich.info",
+          "telephone_number": "117.153.6094",
+          "website": "http://homenick.info/walter",
+          "additional_details": {
+            "address": "65238 Davis Shores, Ikeshire, KS 98575-1023"
+          }
+        },
+        "supplier_framework_lots": [
+          {
+            "lot_id": "RM6187.8",
+            "jurisdiction_id": "GB",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6187.8.4"
+              },
+              {
+                "service_id": "RM6187.8.7"
+              },
+              {
+                "service_id": "RM6187.8.6"
+              },
+              {
+                "service_id": "RM6187.8.3"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": 8,
+                "rate": 922
+              },
+              {
+                "position_id": 9,
+                "rate": 1122
+              },
+              {
+                "position_id": 10,
+                "rate": 1322
+              },
+              {
+                "position_id": 11,
+                "rate": 1522
+              },
+              {
+                "position_id": 12,
+                "rate": 1722
+              },
+              {
+                "position_id": 13,
+                "rate": 1922
+              }
+            ]
+          },
+          {
+            "lot_id": "RM6187.3",
+            "jurisdiction_id": "GB",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6187.3.12"
+              },
+              {
+                "service_id": "RM6187.3.1"
+              },
+              {
+                "service_id": "RM6187.3.10"
+              },
+              {
+                "service_id": "RM6187.3.3"
+              },
+              {
+                "service_id": "RM6187.3.9"
+              },
+              {
+                "service_id": "RM6187.3.13"
+              },
+              {
+                "service_id": "RM6187.3.5"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": 8,
+                "rate": 539
+              },
+              {
+                "position_id": 9,
+                "rate": 739
+              },
+              {
+                "position_id": 10,
+                "rate": 939
+              },
+              {
+                "position_id": 11,
+                "rate": 1139
+              },
+              {
+                "position_id": 12,
+                "rate": 1339
+              },
+              {
+                "position_id": 13,
+                "rate": 1539
+              }
+            ]
+          },
+          {
+            "lot_id": "RM6187.2",
+            "jurisdiction_id": "GB",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6187.2.3"
+              },
+              {
+                "service_id": "RM6187.2.7"
+              },
+              {
+                "service_id": "RM6187.2.5"
+              },
+              {
+                "service_id": "RM6187.2.2"
+              },
+              {
+                "service_id": "RM6187.2.1"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": 8,
+                "rate": 385
+              },
+              {
+                "position_id": 9,
+                "rate": 585
+              },
+              {
+                "position_id": 10,
+                "rate": 785
+              },
+              {
+                "position_id": 11,
+                "rate": 985
+              },
+              {
+                "position_id": 12,
+                "rate": 1185
+              },
+              {
+                "position_id": 13,
+                "rate": 1385
+              }
+            ]
+          },
+          {
+            "lot_id": "RM6187.5",
+            "jurisdiction_id": "GB",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6187.5.2"
+              },
+              {
+                "service_id": "RM6187.5.8"
+              },
+              {
+                "service_id": "RM6187.5.3"
+              },
+              {
+                "service_id": "RM6187.5.1"
+              },
+              {
+                "service_id": "RM6187.5.5"
+              },
+              {
+                "service_id": "RM6187.5.9"
+              },
+              {
+                "service_id": "RM6187.5.10"
+              },
+              {
+                "service_id": "RM6187.5.4"
+              },
+              {
+                "service_id": "RM6187.5.6"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": 8,
+                "rate": 329
+              },
+              {
+                "position_id": 9,
+                "rate": 529
+              },
+              {
+                "position_id": 10,
+                "rate": 729
+              },
+              {
+                "position_id": 11,
+                "rate": 929
+              },
+              {
+                "position_id": 12,
+                "rate": 1129
+              },
+              {
+                "position_id": 13,
+                "rate": 1329
+              }
+            ]
+          }
         ]
-      },
-      {
-        "lot_number": "MCF3.3",
-        "services": [
-          "MCF3.3.12",
-          "MCF3.3.1",
-          "MCF3.3.10",
-          "MCF3.3.3",
-          "MCF3.3.9",
-          "MCF3.3.13",
-          "MCF3.3.5"
-        ]
-      },
-      {
-        "lot_number": "MCF3.2",
-        "services": [
-          "MCF3.2.3",
-          "MCF3.2.7",
-          "MCF3.2.5",
-          "MCF3.2.2",
-          "MCF3.2.1"
-        ]
-      },
-      {
-        "lot_number": "MCF3.5",
-        "services": [
-          "MCF3.5.2",
-          "MCF3.5.8",
-          "MCF3.5.3",
-          "MCF3.5.1",
-          "MCF3.5.5",
-          "MCF3.5.9",
-          "MCF3.5.10",
-          "MCF3.5.4",
-          "MCF3.5.6"
-        ]
-      }
-    ],
-    "rate_cards": [
-      {
-        "lot": "MCF3.8",
-        "junior_rate_in_pence": 922,
-        "standard_rate_in_pence": 1122,
-        "senior_rate_in_pence": 1322,
-        "principal_rate_in_pence": 1522,
-        "managing_rate_in_pence": 1722,
-        "director_rate_in_pence": 1922,
-        "contact_name": "Rev. Dave Kemmer",
-        "email": "dave_kemmer_rev@kuhic.info",
-        "telephone_number": "510-093-0311 x049"
-      },
-      {
-        "lot": "MCF3.3",
-        "junior_rate_in_pence": 539,
-        "standard_rate_in_pence": 739,
-        "senior_rate_in_pence": 939,
-        "principal_rate_in_pence": 1139,
-        "managing_rate_in_pence": 1339,
-        "director_rate_in_pence": 1539,
-        "contact_name": "Brant Beer",
-        "email": "brant.beer@dickinson-spencer.com",
-        "telephone_number": "(220) 056-6845 x600"
-      },
-      {
-        "lot": "MCF3.2",
-        "junior_rate_in_pence": 385,
-        "standard_rate_in_pence": 585,
-        "senior_rate_in_pence": 785,
-        "principal_rate_in_pence": 985,
-        "managing_rate_in_pence": 1185,
-        "director_rate_in_pence": 1385,
-        "contact_name": "Nancey Metz",
-        "email": "metz.nancey@gislason.info",
-        "telephone_number": "401-028-8542 x168"
-      },
-      {
-        "lot": "MCF3.5",
-        "junior_rate_in_pence": 329,
-        "standard_rate_in_pence": 529,
-        "senior_rate_in_pence": 729,
-        "principal_rate_in_pence": 929,
-        "managing_rate_in_pence": 1129,
-        "director_rate_in_pence": 1329,
-        "contact_name": "Deon Cummings",
-        "email": "cummings.deon@nienow.co",
-        "telephone_number": "321.418.5323"
       }
     ]
   },
   {
     "id": "76da9571-fa5e-44a1-9874-b20d21e19880",
     "name": "BOSCO-EBERT",
-    "contact_email": "bosco_ebert@trantow.net",
-    "telephone_number": "919.309.6719 x57624",
+    "duns_number": "990179311",
     "sme": true,
-    "address": "Suite 213 7313 Nienow Crossroad, Balistreriview, MO 70402",
-    "website": "http://schoen.name/efrain_doyle",
-    "duns": "990179311",
-    "lots": [
+    "supplier_frameworks": [
       {
-        "lot_number": "MCF3.5",
-        "services": [
-          "MCF3.5.2",
-          "MCF3.5.10",
-          "MCF3.5.3",
-          "MCF3.5.6",
-          "MCF3.5.4",
-          "MCF3.5.9",
-          "MCF3.5.1",
-          "MCF3.5.5",
-          "MCF3.5.8"
+        "framework_id": "RM6187",
+        "enabled": true,
+        "supplier_framework_contact_detail": {
+          "name": "Nadene Sipes VM",
+          "email": "bosco_ebert@trantow.net",
+          "telephone_number": "919.309.6719 x57624",
+          "website": "http://schoen.name/efrain_doyle",
+          "additional_details": {
+            "address": "Suite 213 7313 Nienow Crossroad, Balistreriview, MO 70402"
+          }
+        },
+        "supplier_framework_lots": [
+          {
+            "lot_id": "RM6187.5",
+            "jurisdiction_id": "GB",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6187.5.2"
+              },
+              {
+                "service_id": "RM6187.5.10"
+              },
+              {
+                "service_id": "RM6187.5.3"
+              },
+              {
+                "service_id": "RM6187.5.6"
+              },
+              {
+                "service_id": "RM6187.5.4"
+              },
+              {
+                "service_id": "RM6187.5.9"
+              },
+              {
+                "service_id": "RM6187.5.1"
+              },
+              {
+                "service_id": "RM6187.5.5"
+              },
+              {
+                "service_id": "RM6187.5.8"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": 8,
+                "rate": 640
+              },
+              {
+                "position_id": 9,
+                "rate": 840
+              },
+              {
+                "position_id": 10,
+                "rate": 1040
+              },
+              {
+                "position_id": 11,
+                "rate": 1240
+              },
+              {
+                "position_id": 12,
+                "rate": 1440
+              },
+              {
+                "position_id": 13,
+                "rate": 1640
+              }
+            ]
+          },
+          {
+            "lot_id": "RM6187.8",
+            "jurisdiction_id": "GB",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6187.8.5"
+              },
+              {
+                "service_id": "RM6187.8.4"
+              },
+              {
+                "service_id": "RM6187.8.6"
+              },
+              {
+                "service_id": "RM6187.8.7"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": 8,
+                "rate": 930
+              },
+              {
+                "position_id": 9,
+                "rate": 1130
+              },
+              {
+                "position_id": 10,
+                "rate": 1330
+              },
+              {
+                "position_id": 11,
+                "rate": 1530
+              },
+              {
+                "position_id": 12,
+                "rate": 1730
+              },
+              {
+                "position_id": 13,
+                "rate": 1930
+              }
+            ]
+          },
+          {
+            "lot_id": "RM6187.3",
+            "jurisdiction_id": "GB",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6187.3.11"
+              },
+              {
+                "service_id": "RM6187.3.12"
+              },
+              {
+                "service_id": "RM6187.3.9"
+              },
+              {
+                "service_id": "RM6187.3.10"
+              },
+              {
+                "service_id": "RM6187.3.5"
+              },
+              {
+                "service_id": "RM6187.3.8"
+              },
+              {
+                "service_id": "RM6187.3.6"
+              },
+              {
+                "service_id": "RM6187.3.13"
+              },
+              {
+                "service_id": "RM6187.3.7"
+              },
+              {
+                "service_id": "RM6187.3.2"
+              },
+              {
+                "service_id": "RM6187.3.4"
+              },
+              {
+                "service_id": "RM6187.3.1"
+              },
+              {
+                "service_id": "RM6187.3.3"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": 8,
+                "rate": 931
+              },
+              {
+                "position_id": 9,
+                "rate": 1131
+              },
+              {
+                "position_id": 10,
+                "rate": 1331
+              },
+              {
+                "position_id": 11,
+                "rate": 1531
+              },
+              {
+                "position_id": 12,
+                "rate": 1731
+              },
+              {
+                "position_id": 13,
+                "rate": 1931
+              }
+            ]
+          },
+          {
+            "lot_id": "RM6187.6",
+            "jurisdiction_id": "GB",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6187.6.11"
+              },
+              {
+                "service_id": "RM6187.6.6"
+              },
+              {
+                "service_id": "RM6187.6.1"
+              },
+              {
+                "service_id": "RM6187.6.13"
+              },
+              {
+                "service_id": "RM6187.6.7"
+              },
+              {
+                "service_id": "RM6187.6.8"
+              },
+              {
+                "service_id": "RM6187.6.9"
+              },
+              {
+                "service_id": "RM6187.6.2"
+              },
+              {
+                "service_id": "RM6187.6.5"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": 8,
+                "rate": 869
+              },
+              {
+                "position_id": 9,
+                "rate": 1069
+              },
+              {
+                "position_id": 10,
+                "rate": 1269
+              },
+              {
+                "position_id": 11,
+                "rate": 1469
+              },
+              {
+                "position_id": 12,
+                "rate": 1669
+              },
+              {
+                "position_id": 13,
+                "rate": 1869
+              }
+            ]
+          }
         ]
-      },
-      {
-        "lot_number": "MCF3.8",
-        "services": [
-          "MCF3.8.5",
-          "MCF3.8.4",
-          "MCF3.8.6",
-          "MCF3.8.7"
-        ]
-      },
-      {
-        "lot_number": "MCF3.3",
-        "services": [
-          "MCF3.3.11",
-          "MCF3.3.12",
-          "MCF3.3.9",
-          "MCF3.3.10",
-          "MCF3.3.5",
-          "MCF3.3.8",
-          "MCF3.3.6",
-          "MCF3.3.13",
-          "MCF3.3.7",
-          "MCF3.3.2",
-          "MCF3.3.4",
-          "MCF3.3.1",
-          "MCF3.3.3"
-        ]
-      },
-      {
-        "lot_number": "MCF3.6",
-        "services": [
-          "MCF3.6.11",
-          "MCF3.6.6",
-          "MCF3.6.1",
-          "MCF3.6.13",
-          "MCF3.6.7",
-          "MCF3.6.8",
-          "MCF3.6.9",
-          "MCF3.6.2",
-          "MCF3.6.5"
-        ]
-      }
-    ],
-    "rate_cards": [
-      {
-        "lot": "MCF3.5",
-        "junior_rate_in_pence": 640,
-        "standard_rate_in_pence": 840,
-        "senior_rate_in_pence": 1040,
-        "principal_rate_in_pence": 1240,
-        "managing_rate_in_pence": 1440,
-        "director_rate_in_pence": 1640,
-        "contact_name": "Nadene Sipes VM",
-        "email": "vm_nadene_sipes@jacobs-fritsch.name",
-        "telephone_number": "(608) 332-1557 x890"
-      },
-      {
-        "lot": "MCF3.8",
-        "junior_rate_in_pence": 930,
-        "standard_rate_in_pence": 1130,
-        "senior_rate_in_pence": 1330,
-        "principal_rate_in_pence": 1530,
-        "managing_rate_in_pence": 1730,
-        "director_rate_in_pence": 1930,
-        "contact_name": "Abdul Bartell",
-        "email": "abdul.bartell@considine.io",
-        "telephone_number": "978.523.4378 x52719"
-      },
-      {
-        "lot": "MCF3.3",
-        "junior_rate_in_pence": 931,
-        "standard_rate_in_pence": 1131,
-        "senior_rate_in_pence": 1331,
-        "principal_rate_in_pence": 1531,
-        "managing_rate_in_pence": 1731,
-        "director_rate_in_pence": 1931,
-        "contact_name": "Millard Greenholt",
-        "email": "greenholt_millard@hodkiewicz.co",
-        "telephone_number": "136.173.4871 x4375"
-      },
-      {
-        "lot": "MCF3.6",
-        "junior_rate_in_pence": 869,
-        "standard_rate_in_pence": 1069,
-        "senior_rate_in_pence": 1269,
-        "principal_rate_in_pence": 1469,
-        "managing_rate_in_pence": 1669,
-        "director_rate_in_pence": 1869,
-        "contact_name": "Trevor Halvorson",
-        "email": "halvorson_trevor@gerlach.org",
-        "telephone_number": "(425) 326-2469 x936"
       }
     ]
   },
   {
     "id": "fc344c4a-115b-4a90-a255-f58af54dfa9c",
     "name": "O'REILLY, ZULAUF AND BEATTY",
-    "contact_email": "beatty_and_o_reilly_zulauf@grimes.co",
-    "telephone_number": "(247) 523-5636",
+    "duns_number": "972284001",
     "sme": true,
-    "address": "Suite 789 46658 Ka Forks, Hermannfort, PA 02627",
-    "website": "http://gislason.com/genie",
-    "duns": "972284001",
-    "lots": [
+    "supplier_frameworks": [
       {
-        "lot_number": "MCF3.8",
-        "services": [
-          "MCF3.8.2",
-          "MCF3.8.1",
-          "MCF3.8.4",
-          "MCF3.8.6",
-          "MCF3.8.7",
-          "MCF3.8.3"
+        "framework_id": "RM6187",
+        "enabled": true,
+        "supplier_framework_contact_detail": {
+          "name": "Amb. Ruben Kihn",
+          "email": "beatty_and_o_reilly_zulauf@grimes.co",
+          "telephone_number": "(247) 523-5636",
+          "website": "http://gislason.com/genie",
+          "additional_details": {
+            "address": "Suite 789 46658 Ka Forks, Hermannfort, PA 02627"
+          }
+        },
+        "supplier_framework_lots": [
+          {
+            "lot_id": "RM6187.8",
+            "jurisdiction_id": "GB",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6187.8.2"
+              },
+              {
+                "service_id": "RM6187.8.1"
+              },
+              {
+                "service_id": "RM6187.8.4"
+              },
+              {
+                "service_id": "RM6187.8.6"
+              },
+              {
+                "service_id": "RM6187.8.7"
+              },
+              {
+                "service_id": "RM6187.8.3"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": 8,
+                "rate": 602
+              },
+              {
+                "position_id": 9,
+                "rate": 802
+              },
+              {
+                "position_id": 10,
+                "rate": 1002
+              },
+              {
+                "position_id": 11,
+                "rate": 1202
+              },
+              {
+                "position_id": 12,
+                "rate": 1402
+              },
+              {
+                "position_id": 13,
+                "rate": 1602
+              }
+            ]
+          },
+          {
+            "lot_id": "RM6187.2",
+            "jurisdiction_id": "GB",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6187.2.5"
+              },
+              {
+                "service_id": "RM6187.2.2"
+              },
+              {
+                "service_id": "RM6187.2.4"
+              },
+              {
+                "service_id": "RM6187.2.7"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": 8,
+                "rate": 947
+              },
+              {
+                "position_id": 9,
+                "rate": 1147
+              },
+              {
+                "position_id": 10,
+                "rate": 1347
+              },
+              {
+                "position_id": 11,
+                "rate": 1547
+              },
+              {
+                "position_id": 12,
+                "rate": 1747
+              },
+              {
+                "position_id": 13,
+                "rate": 1947
+              }
+            ]
+          },
+          {
+            "lot_id": "RM6187.6",
+            "jurisdiction_id": "GB",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6187.6.6"
+              },
+              {
+                "service_id": "RM6187.6.1"
+              },
+              {
+                "service_id": "RM6187.6.2"
+              },
+              {
+                "service_id": "RM6187.6.9"
+              },
+              {
+                "service_id": "RM6187.6.13"
+              },
+              {
+                "service_id": "RM6187.6.5"
+              },
+              {
+                "service_id": "RM6187.6.3"
+              },
+              {
+                "service_id": "RM6187.6.7"
+              },
+              {
+                "service_id": "RM6187.6.8"
+              },
+              {
+                "service_id": "RM6187.6.10"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": 8,
+                "rate": 655
+              },
+              {
+                "position_id": 9,
+                "rate": 855
+              },
+              {
+                "position_id": 10,
+                "rate": 1055
+              },
+              {
+                "position_id": 11,
+                "rate": 1255
+              },
+              {
+                "position_id": 12,
+                "rate": 1455
+              },
+              {
+                "position_id": 13,
+                "rate": 1655
+              }
+            ]
+          },
+          {
+            "lot_id": "RM6187.4",
+            "jurisdiction_id": "GB",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6187.4.7"
+              },
+              {
+                "service_id": "RM6187.4.13"
+              },
+              {
+                "service_id": "RM6187.4.21"
+              },
+              {
+                "service_id": "RM6187.4.2"
+              },
+              {
+                "service_id": "RM6187.4.18"
+              },
+              {
+                "service_id": "RM6187.4.24"
+              },
+              {
+                "service_id": "RM6187.4.8"
+              },
+              {
+                "service_id": "RM6187.4.6"
+              },
+              {
+                "service_id": "RM6187.4.23"
+              },
+              {
+                "service_id": "RM6187.4.16"
+              },
+              {
+                "service_id": "RM6187.4.12"
+              },
+              {
+                "service_id": "RM6187.4.22"
+              },
+              {
+                "service_id": "RM6187.4.1"
+              },
+              {
+                "service_id": "RM6187.4.11"
+              },
+              {
+                "service_id": "RM6187.4.17"
+              },
+              {
+                "service_id": "RM6187.4.19"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": 8,
+                "rate": 259
+              },
+              {
+                "position_id": 9,
+                "rate": 459
+              },
+              {
+                "position_id": 10,
+                "rate": 659
+              },
+              {
+                "position_id": 11,
+                "rate": 859
+              },
+              {
+                "position_id": 12,
+                "rate": 1059
+              },
+              {
+                "position_id": 13,
+                "rate": 1259
+              }
+            ]
+          }
         ]
-      },
-      {
-        "lot_number": "MCF3.2",
-        "services": [
-          "MCF3.2.5",
-          "MCF3.2.2",
-          "MCF3.2.4",
-          "MCF3.2.7"
-        ]
-      },
-      {
-        "lot_number": "MCF3.6",
-        "services": [
-          "MCF3.6.6",
-          "MCF3.6.1",
-          "MCF3.6.2",
-          "MCF3.6.9",
-          "MCF3.6.13",
-          "MCF3.6.5",
-          "MCF3.6.3",
-          "MCF3.6.7",
-          "MCF3.6.8",
-          "MCF3.6.10"
-        ]
-      },
-      {
-        "lot_number": "MCF3.4",
-        "services": [
-          "MCF3.4.7",
-          "MCF3.4.13",
-          "MCF3.4.21",
-          "MCF3.4.2",
-          "MCF3.4.18",
-          "MCF3.4.24",
-          "MCF3.4.8",
-          "MCF3.4.6",
-          "MCF3.4.23",
-          "MCF3.4.16",
-          "MCF3.4.12",
-          "MCF3.4.22",
-          "MCF3.4.1",
-          "MCF3.4.11",
-          "MCF3.4.17",
-          "MCF3.4.19"
-        ]
-      }
-    ],
-    "rate_cards": [
-      {
-        "lot": "MCF3.8",
-        "junior_rate_in_pence": 602,
-        "standard_rate_in_pence": 802,
-        "senior_rate_in_pence": 1002,
-        "principal_rate_in_pence": 1202,
-        "managing_rate_in_pence": 1402,
-        "director_rate_in_pence": 1602,
-        "contact_name": "Amb. Ruben Kihn",
-        "email": "kihn_amb_ruben@schmeler.io",
-        "telephone_number": "(598) 999-3299 x17228"
-      },
-      {
-        "lot": "MCF3.2",
-        "junior_rate_in_pence": 947,
-        "standard_rate_in_pence": 1147,
-        "senior_rate_in_pence": 1347,
-        "principal_rate_in_pence": 1547,
-        "managing_rate_in_pence": 1747,
-        "director_rate_in_pence": 1947,
-        "contact_name": "Danilo Cormier",
-        "email": "danilo.cormier@goodwin.info",
-        "telephone_number": "339-201-9588 x0238"
-      },
-      {
-        "lot": "MCF3.6",
-        "junior_rate_in_pence": 655,
-        "standard_rate_in_pence": 855,
-        "senior_rate_in_pence": 1055,
-        "principal_rate_in_pence": 1255,
-        "managing_rate_in_pence": 1455,
-        "director_rate_in_pence": 1655,
-        "contact_name": "Elwood Beer",
-        "email": "elwood.beer@upton-boyle.com",
-        "telephone_number": "736-633-4085 x2496"
-      },
-      {
-        "lot": "MCF3.4",
-        "junior_rate_in_pence": 259,
-        "standard_rate_in_pence": 459,
-        "senior_rate_in_pence": 659,
-        "principal_rate_in_pence": 859,
-        "managing_rate_in_pence": 1059,
-        "director_rate_in_pence": 1259,
-        "contact_name": "Miquel Effertz",
-        "email": "effertz.miquel@gleason.org",
-        "telephone_number": "410.501.3383 x4608"
       }
     ]
   },
   {
     "id": "d9704a54-ab80-43da-b323-cefcd2f9ba2f",
     "name": "ROMAGUERA INC",
-    "contact_email": "romaguera.inc@feeney.biz",
-    "telephone_number": "1-321-071-7291",
+    "duns_number": "587892530",
     "sme": true,
-    "address": "170 Carmelo Meadow, New Susieside, UT 28036",
-    "website": "http://schimmel-yundt.name/jan.heller",
-    "duns": "587892530",
-    "lots": [
+    "supplier_frameworks": [
       {
-        "lot_number": "MCF3.4",
-        "services": [
-          "MCF3.4.1",
-          "MCF3.4.15",
-          "MCF3.4.23",
-          "MCF3.4.14",
-          "MCF3.4.19",
-          "MCF3.4.11",
-          "MCF3.4.17",
-          "MCF3.4.6",
-          "MCF3.4.22",
-          "MCF3.4.12",
-          "MCF3.4.2",
-          "MCF3.4.4",
-          "MCF3.4.18",
-          "MCF3.4.20"
+        "framework_id": "RM6187",
+        "enabled": true,
+        "supplier_framework_contact_detail": {
+          "name": "Astrid Hickle DC",
+          "email": "romaguera.inc@feeney.biz",
+          "telephone_number": "1-321-071-7291",
+          "website": "http://schimmel-yundt.name/jan.heller",
+          "additional_details": {
+            "address": "170 Carmelo Meadow, New Susieside, UT 28036"
+          }
+        },
+        "supplier_framework_lots": [
+          {
+            "lot_id": "RM6187.4",
+            "jurisdiction_id": "GB",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6187.4.1"
+              },
+              {
+                "service_id": "RM6187.4.15"
+              },
+              {
+                "service_id": "RM6187.4.23"
+              },
+              {
+                "service_id": "RM6187.4.14"
+              },
+              {
+                "service_id": "RM6187.4.19"
+              },
+              {
+                "service_id": "RM6187.4.11"
+              },
+              {
+                "service_id": "RM6187.4.17"
+              },
+              {
+                "service_id": "RM6187.4.6"
+              },
+              {
+                "service_id": "RM6187.4.22"
+              },
+              {
+                "service_id": "RM6187.4.12"
+              },
+              {
+                "service_id": "RM6187.4.2"
+              },
+              {
+                "service_id": "RM6187.4.4"
+              },
+              {
+                "service_id": "RM6187.4.18"
+              },
+              {
+                "service_id": "RM6187.4.20"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": 8,
+                "rate": 389
+              },
+              {
+                "position_id": 9,
+                "rate": 589
+              },
+              {
+                "position_id": 10,
+                "rate": 789
+              },
+              {
+                "position_id": 11,
+                "rate": 989
+              },
+              {
+                "position_id": 12,
+                "rate": 1189
+              },
+              {
+                "position_id": 13,
+                "rate": 1389
+              }
+            ]
+          },
+          {
+            "lot_id": "RM6187.1",
+            "jurisdiction_id": "GB",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6187.1.13"
+              },
+              {
+                "service_id": "RM6187.1.12"
+              },
+              {
+                "service_id": "RM6187.1.3"
+              },
+              {
+                "service_id": "RM6187.1.10"
+              },
+              {
+                "service_id": "RM6187.1.11"
+              },
+              {
+                "service_id": "RM6187.1.6"
+              },
+              {
+                "service_id": "RM6187.1.1"
+              },
+              {
+                "service_id": "RM6187.1.4"
+              },
+              {
+                "service_id": "RM6187.1.9"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": 8,
+                "rate": 214
+              },
+              {
+                "position_id": 9,
+                "rate": 414
+              },
+              {
+                "position_id": 10,
+                "rate": 614
+              },
+              {
+                "position_id": 11,
+                "rate": 814
+              },
+              {
+                "position_id": 12,
+                "rate": 1014
+              },
+              {
+                "position_id": 13,
+                "rate": 1214
+              }
+            ]
+          },
+          {
+            "lot_id": "RM6187.3",
+            "jurisdiction_id": "GB",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6187.3.2"
+              },
+              {
+                "service_id": "RM6187.3.4"
+              },
+              {
+                "service_id": "RM6187.3.3"
+              },
+              {
+                "service_id": "RM6187.3.8"
+              },
+              {
+                "service_id": "RM6187.3.11"
+              },
+              {
+                "service_id": "RM6187.3.1"
+              },
+              {
+                "service_id": "RM6187.3.9"
+              },
+              {
+                "service_id": "RM6187.3.6"
+              },
+              {
+                "service_id": "RM6187.3.7"
+              },
+              {
+                "service_id": "RM6187.3.12"
+              },
+              {
+                "service_id": "RM6187.3.10"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": 8,
+                "rate": 376
+              },
+              {
+                "position_id": 9,
+                "rate": 576
+              },
+              {
+                "position_id": 10,
+                "rate": 776
+              },
+              {
+                "position_id": 11,
+                "rate": 976
+              },
+              {
+                "position_id": 12,
+                "rate": 1176
+              },
+              {
+                "position_id": 13,
+                "rate": 1376
+              }
+            ]
+          },
+          {
+            "lot_id": "RM6187.9",
+            "jurisdiction_id": "GB",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6187.9.19"
+              },
+              {
+                "service_id": "RM6187.9.10"
+              },
+              {
+                "service_id": "RM6187.9.14"
+              },
+              {
+                "service_id": "RM6187.9.4"
+              },
+              {
+                "service_id": "RM6187.9.15"
+              },
+              {
+                "service_id": "RM6187.9.8"
+              },
+              {
+                "service_id": "RM6187.9.17"
+              },
+              {
+                "service_id": "RM6187.9.11"
+              },
+              {
+                "service_id": "RM6187.9.7"
+              },
+              {
+                "service_id": "RM6187.9.13"
+              },
+              {
+                "service_id": "RM6187.9.6"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": 8,
+                "rate": 921
+              },
+              {
+                "position_id": 9,
+                "rate": 1121
+              },
+              {
+                "position_id": 10,
+                "rate": 1321
+              },
+              {
+                "position_id": 11,
+                "rate": 1521
+              },
+              {
+                "position_id": 12,
+                "rate": 1721
+              },
+              {
+                "position_id": 13,
+                "rate": 1921
+              }
+            ]
+          }
         ]
-      },
-      {
-        "lot_number": "MCF3.1",
-        "services": [
-          "MCF3.1.13",
-          "MCF3.1.12",
-          "MCF3.1.3",
-          "MCF3.1.10",
-          "MCF3.1.11",
-          "MCF3.1.6",
-          "MCF3.1.1",
-          "MCF3.1.4",
-          "MCF3.1.9"
-        ]
-      },
-      {
-        "lot_number": "MCF3.3",
-        "services": [
-          "MCF3.3.2",
-          "MCF3.3.4",
-          "MCF3.3.3",
-          "MCF3.3.8",
-          "MCF3.3.11",
-          "MCF3.3.1",
-          "MCF3.3.9",
-          "MCF3.3.6",
-          "MCF3.3.7",
-          "MCF3.3.12",
-          "MCF3.3.10"
-        ]
-      },
-      {
-        "lot_number": "MCF3.9",
-        "services": [
-          "MCF3.9.19",
-          "MCF3.9.10",
-          "MCF3.9.14",
-          "MCF3.9.4",
-          "MCF3.9.15",
-          "MCF3.9.8",
-          "MCF3.9.17",
-          "MCF3.9.11",
-          "MCF3.9.7",
-          "MCF3.9.13",
-          "MCF3.9.6"
-        ]
-      }
-    ],
-    "rate_cards": [
-      {
-        "lot": "MCF3.4",
-        "junior_rate_in_pence": 389,
-        "standard_rate_in_pence": 589,
-        "senior_rate_in_pence": 789,
-        "principal_rate_in_pence": 989,
-        "managing_rate_in_pence": 1189,
-        "director_rate_in_pence": 1389,
-        "contact_name": "Astrid Hickle DC",
-        "email": "astrid_dc_hickle@nienow-kuhn.name",
-        "telephone_number": "(188) 391-6026 x97793"
-      },
-      {
-        "lot": "MCF3.1",
-        "junior_rate_in_pence": 214,
-        "standard_rate_in_pence": 414,
-        "senior_rate_in_pence": 614,
-        "principal_rate_in_pence": 814,
-        "managing_rate_in_pence": 1014,
-        "director_rate_in_pence": 1214,
-        "contact_name": "Galen Mitchell Sr.",
-        "email": "sr.mitchell.galen@willms.net",
-        "telephone_number": "514.255.5477 x7225"
-      },
-      {
-        "lot": "MCF3.3",
-        "junior_rate_in_pence": 376,
-        "standard_rate_in_pence": 576,
-        "senior_rate_in_pence": 776,
-        "principal_rate_in_pence": 976,
-        "managing_rate_in_pence": 1176,
-        "director_rate_in_pence": 1376,
-        "contact_name": "Dominica Herzog",
-        "email": "herzog_dominica@okon-tremblay.net",
-        "telephone_number": "211-254-3527 x3025"
-      },
-      {
-        "lot": "MCF3.9",
-        "junior_rate_in_pence": 921,
-        "standard_rate_in_pence": 1121,
-        "senior_rate_in_pence": 1321,
-        "principal_rate_in_pence": 1521,
-        "managing_rate_in_pence": 1721,
-        "director_rate_in_pence": 1921,
-        "contact_name": "Cordell Quitzon",
-        "email": "cordell.quitzon@zboncak.io",
-        "telephone_number": "(101) 890-4186 x9430"
       }
     ]
   },
   {
     "id": "aa528e1b-5cf9-4855-96c5-3db62a0c10aa",
     "name": "SCHUSTER, LEHNER AND KSHLERIN",
-    "contact_email": "kshlerin.lehner.and.schuster@mosciski.biz",
-    "telephone_number": "563.216.2557 x057",
+    "duns_number": "185011384",
     "sme": true,
-    "address": "487 Collier Island, Hiltonshire, CO 52619-1371",
-    "website": "http://breitenberg.io/alma_herman",
-    "duns": "185011384",
-    "lots": [
+    "supplier_frameworks": [
       {
-        "lot_number": "MCF3.9",
-        "services": [
-          "MCF3.9.15",
-          "MCF3.9.9",
-          "MCF3.9.18",
-          "MCF3.9.17",
-          "MCF3.9.8",
-          "MCF3.9.2",
-          "MCF3.9.19",
-          "MCF3.9.10",
-          "MCF3.9.3",
-          "MCF3.9.16",
-          "MCF3.9.4",
-          "MCF3.9.5",
-          "MCF3.9.13",
-          "MCF3.9.1",
-          "MCF3.9.14",
-          "MCF3.9.12",
-          "MCF3.9.11",
-          "MCF3.9.6",
-          "MCF3.9.7"
+        "framework_id": "RM6187",
+        "enabled": true,
+        "supplier_framework_contact_detail": {
+          "name": "Nakita Howe",
+          "email": "kshlerin.lehner.and.schuster@mosciski.biz",
+          "telephone_number": "563.216.2557 x057",
+          "website": "http://breitenberg.io/alma_herman",
+          "additional_details": {
+            "address": "487 Collier Island, Hiltonshire, CO 52619-1371"
+          }
+        },
+        "supplier_framework_lots": [
+          {
+            "lot_id": "RM6187.9",
+            "jurisdiction_id": "GB",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6187.9.15"
+              },
+              {
+                "service_id": "RM6187.9.9"
+              },
+              {
+                "service_id": "RM6187.9.18"
+              },
+              {
+                "service_id": "RM6187.9.17"
+              },
+              {
+                "service_id": "RM6187.9.8"
+              },
+              {
+                "service_id": "RM6187.9.2"
+              },
+              {
+                "service_id": "RM6187.9.19"
+              },
+              {
+                "service_id": "RM6187.9.10"
+              },
+              {
+                "service_id": "RM6187.9.3"
+              },
+              {
+                "service_id": "RM6187.9.16"
+              },
+              {
+                "service_id": "RM6187.9.4"
+              },
+              {
+                "service_id": "RM6187.9.5"
+              },
+              {
+                "service_id": "RM6187.9.13"
+              },
+              {
+                "service_id": "RM6187.9.1"
+              },
+              {
+                "service_id": "RM6187.9.14"
+              },
+              {
+                "service_id": "RM6187.9.12"
+              },
+              {
+                "service_id": "RM6187.9.11"
+              },
+              {
+                "service_id": "RM6187.9.6"
+              },
+              {
+                "service_id": "RM6187.9.7"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": 8,
+                "rate": 406
+              },
+              {
+                "position_id": 9,
+                "rate": 606
+              },
+              {
+                "position_id": 10,
+                "rate": 806
+              },
+              {
+                "position_id": 11,
+                "rate": 1006
+              },
+              {
+                "position_id": 12,
+                "rate": 1206
+              },
+              {
+                "position_id": 13,
+                "rate": 1406
+              }
+            ]
+          },
+          {
+            "lot_id": "RM6187.3",
+            "jurisdiction_id": "GB",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6187.3.1"
+              },
+              {
+                "service_id": "RM6187.3.2"
+              },
+              {
+                "service_id": "RM6187.3.4"
+              },
+              {
+                "service_id": "RM6187.3.3"
+              },
+              {
+                "service_id": "RM6187.3.9"
+              },
+              {
+                "service_id": "RM6187.3.7"
+              },
+              {
+                "service_id": "RM6187.3.13"
+              },
+              {
+                "service_id": "RM6187.3.6"
+              },
+              {
+                "service_id": "RM6187.3.8"
+              },
+              {
+                "service_id": "RM6187.3.5"
+              },
+              {
+                "service_id": "RM6187.3.12"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": 8,
+                "rate": 928
+              },
+              {
+                "position_id": 9,
+                "rate": 1128
+              },
+              {
+                "position_id": 10,
+                "rate": 1328
+              },
+              {
+                "position_id": 11,
+                "rate": 1528
+              },
+              {
+                "position_id": 12,
+                "rate": 1728
+              },
+              {
+                "position_id": 13,
+                "rate": 1928
+              }
+            ]
+          },
+          {
+            "lot_id": "RM6187.6",
+            "jurisdiction_id": "GB",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6187.6.13"
+              },
+              {
+                "service_id": "RM6187.6.3"
+              },
+              {
+                "service_id": "RM6187.6.7"
+              },
+              {
+                "service_id": "RM6187.6.8"
+              },
+              {
+                "service_id": "RM6187.6.11"
+              },
+              {
+                "service_id": "RM6187.6.5"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": 8,
+                "rate": 555
+              },
+              {
+                "position_id": 9,
+                "rate": 755
+              },
+              {
+                "position_id": 10,
+                "rate": 955
+              },
+              {
+                "position_id": 11,
+                "rate": 1155
+              },
+              {
+                "position_id": 12,
+                "rate": 1355
+              },
+              {
+                "position_id": 13,
+                "rate": 1555
+              }
+            ]
+          },
+          {
+            "lot_id": "RM6187.7",
+            "jurisdiction_id": "GB",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6187.7.11"
+              },
+              {
+                "service_id": "RM6187.7.19"
+              },
+              {
+                "service_id": "RM6187.7.4"
+              },
+              {
+                "service_id": "RM6187.7.3"
+              },
+              {
+                "service_id": "RM6187.7.18"
+              },
+              {
+                "service_id": "RM6187.7.8"
+              },
+              {
+                "service_id": "RM6187.7.5"
+              },
+              {
+                "service_id": "RM6187.7.14"
+              },
+              {
+                "service_id": "RM6187.7.21"
+              },
+              {
+                "service_id": "RM6187.7.12"
+              },
+              {
+                "service_id": "RM6187.7.15"
+              },
+              {
+                "service_id": "RM6187.7.1"
+              },
+              {
+                "service_id": "RM6187.7.13"
+              },
+              {
+                "service_id": "RM6187.7.20"
+              },
+              {
+                "service_id": "RM6187.7.2"
+              },
+              {
+                "service_id": "RM6187.7.16"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": 8,
+                "rate": 708
+              },
+              {
+                "position_id": 9,
+                "rate": 908
+              },
+              {
+                "position_id": 10,
+                "rate": 1108
+              },
+              {
+                "position_id": 11,
+                "rate": 1308
+              },
+              {
+                "position_id": 12,
+                "rate": 1508
+              },
+              {
+                "position_id": 13,
+                "rate": 1708
+              }
+            ]
+          }
         ]
-      },
-      {
-        "lot_number": "MCF3.3",
-        "services": [
-          "MCF3.3.1",
-          "MCF3.3.2",
-          "MCF3.3.4",
-          "MCF3.3.3",
-          "MCF3.3.9",
-          "MCF3.3.7",
-          "MCF3.3.13",
-          "MCF3.3.6",
-          "MCF3.3.8",
-          "MCF3.3.5",
-          "MCF3.3.12"
-        ]
-      },
-      {
-        "lot_number": "MCF3.6",
-        "services": [
-          "MCF3.6.13",
-          "MCF3.6.3",
-          "MCF3.6.7",
-          "MCF3.6.8",
-          "MCF3.6.11",
-          "MCF3.6.5"
-        ]
-      },
-      {
-        "lot_number": "MCF3.7",
-        "services": [
-          "MCF3.7.11",
-          "MCF3.7.19",
-          "MCF3.7.4",
-          "MCF3.7.3",
-          "MCF3.7.18",
-          "MCF3.7.8",
-          "MCF3.7.5",
-          "MCF3.7.14",
-          "MCF3.7.21",
-          "MCF3.7.12",
-          "MCF3.7.15",
-          "MCF3.7.1",
-          "MCF3.7.13",
-          "MCF3.7.20",
-          "MCF3.7.2",
-          "MCF3.7.16"
-        ]
-      }
-    ],
-    "rate_cards": [
-      {
-        "lot": "MCF3.9",
-        "junior_rate_in_pence": 406,
-        "standard_rate_in_pence": 606,
-        "senior_rate_in_pence": 806,
-        "principal_rate_in_pence": 1006,
-        "managing_rate_in_pence": 1206,
-        "director_rate_in_pence": 1406,
-        "contact_name": "Nakita Howe",
-        "email": "nakita_howe@marvin-boyer.org",
-        "telephone_number": "1-890-721-8887 x698"
-      },
-      {
-        "lot": "MCF3.3",
-        "junior_rate_in_pence": 928,
-        "standard_rate_in_pence": 1128,
-        "senior_rate_in_pence": 1328,
-        "principal_rate_in_pence": 1528,
-        "managing_rate_in_pence": 1728,
-        "director_rate_in_pence": 1928,
-        "contact_name": "Miss Bryce Becker",
-        "email": "bryce_miss_becker@ondricka-kuhn.name",
-        "telephone_number": "1-593-966-1461"
-      },
-      {
-        "lot": "MCF3.6",
-        "junior_rate_in_pence": 555,
-        "standard_rate_in_pence": 755,
-        "senior_rate_in_pence": 955,
-        "principal_rate_in_pence": 1155,
-        "managing_rate_in_pence": 1355,
-        "director_rate_in_pence": 1555,
-        "contact_name": "Rosanna Adams",
-        "email": "adams_rosanna@hermiston-grady.net",
-        "telephone_number": "800.374.9864 x307"
-      },
-      {
-        "lot": "MCF3.7",
-        "junior_rate_in_pence": 708,
-        "standard_rate_in_pence": 908,
-        "senior_rate_in_pence": 1108,
-        "principal_rate_in_pence": 1308,
-        "managing_rate_in_pence": 1508,
-        "director_rate_in_pence": 1708,
-        "contact_name": "Ray Okuneva",
-        "email": "okuneva_ray@terry.org",
-        "telephone_number": "488.072.5889 x2630"
       }
     ]
   },
   {
     "id": "34eae052-b118-49a6-9e20-01a0a5b60d9f",
     "name": "TREMBLAY-MOORE",
-    "contact_email": "moore_tremblay@swift.info",
-    "telephone_number": "(367) 229-3746 x48993",
+    "duns_number": "882353010",
     "sme": true,
-    "address": "Apt. 408 30822 Larkin Run, Kshlerinstad, IL 50958-6548",
-    "website": "http://rosenbaum.net/russell",
-    "duns": "882353010",
-    "lots": [
+    "supplier_frameworks": [
       {
-        "lot_number": "MCF3.2",
-        "services": [
-          "MCF3.2.4",
-          "MCF3.2.2",
-          "MCF3.2.1",
-          "MCF3.2.6",
-          "MCF3.2.8"
+        "framework_id": "RM6187",
+        "enabled": true,
+        "supplier_framework_contact_detail": {
+          "name": "Ali Koelpin",
+          "email": "moore_tremblay@swift.info",
+          "telephone_number": "(367) 229-3746 x48993",
+          "website": "http://rosenbaum.net/russell",
+          "additional_details": {
+            "address": "Apt. 408 30822 Larkin Run, Kshlerinstad, IL 50958-6548"
+          }
+        },
+        "supplier_framework_lots": [
+          {
+            "lot_id": "RM6187.2",
+            "jurisdiction_id": "GB",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6187.2.4"
+              },
+              {
+                "service_id": "RM6187.2.2"
+              },
+              {
+                "service_id": "RM6187.2.1"
+              },
+              {
+                "service_id": "RM6187.2.6"
+              },
+              {
+                "service_id": "RM6187.2.8"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": 8,
+                "rate": 989
+              },
+              {
+                "position_id": 9,
+                "rate": 1189
+              },
+              {
+                "position_id": 10,
+                "rate": 1389
+              },
+              {
+                "position_id": 11,
+                "rate": 1589
+              },
+              {
+                "position_id": 12,
+                "rate": 1789
+              },
+              {
+                "position_id": 13,
+                "rate": 1989
+              }
+            ]
+          },
+          {
+            "lot_id": "RM6187.1",
+            "jurisdiction_id": "GB",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6187.1.8"
+              },
+              {
+                "service_id": "RM6187.1.13"
+              },
+              {
+                "service_id": "RM6187.1.6"
+              },
+              {
+                "service_id": "RM6187.1.1"
+              },
+              {
+                "service_id": "RM6187.1.3"
+              },
+              {
+                "service_id": "RM6187.1.14"
+              },
+              {
+                "service_id": "RM6187.1.11"
+              },
+              {
+                "service_id": "RM6187.1.12"
+              },
+              {
+                "service_id": "RM6187.1.4"
+              },
+              {
+                "service_id": "RM6187.1.5"
+              },
+              {
+                "service_id": "RM6187.1.9"
+              },
+              {
+                "service_id": "RM6187.1.10"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": 8,
+                "rate": 618
+              },
+              {
+                "position_id": 9,
+                "rate": 818
+              },
+              {
+                "position_id": 10,
+                "rate": 1018
+              },
+              {
+                "position_id": 11,
+                "rate": 1218
+              },
+              {
+                "position_id": 12,
+                "rate": 1418
+              },
+              {
+                "position_id": 13,
+                "rate": 1618
+              }
+            ]
+          },
+          {
+            "lot_id": "RM6187.8",
+            "jurisdiction_id": "GB",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6187.8.4"
+              },
+              {
+                "service_id": "RM6187.8.1"
+              },
+              {
+                "service_id": "RM6187.8.7"
+              },
+              {
+                "service_id": "RM6187.8.3"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": 8,
+                "rate": 432
+              },
+              {
+                "position_id": 9,
+                "rate": 632
+              },
+              {
+                "position_id": 10,
+                "rate": 832
+              },
+              {
+                "position_id": 11,
+                "rate": 1032
+              },
+              {
+                "position_id": 12,
+                "rate": 1232
+              },
+              {
+                "position_id": 13,
+                "rate": 1432
+              }
+            ]
+          },
+          {
+            "lot_id": "RM6187.6",
+            "jurisdiction_id": "GB",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6187.6.5"
+              },
+              {
+                "service_id": "RM6187.6.12"
+              },
+              {
+                "service_id": "RM6187.6.9"
+              },
+              {
+                "service_id": "RM6187.6.11"
+              },
+              {
+                "service_id": "RM6187.6.13"
+              },
+              {
+                "service_id": "RM6187.6.6"
+              },
+              {
+                "service_id": "RM6187.6.3"
+              },
+              {
+                "service_id": "RM6187.6.8"
+              },
+              {
+                "service_id": "RM6187.6.4"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": 8,
+                "rate": 386
+              },
+              {
+                "position_id": 9,
+                "rate": 586
+              },
+              {
+                "position_id": 10,
+                "rate": 786
+              },
+              {
+                "position_id": 11,
+                "rate": 986
+              },
+              {
+                "position_id": 12,
+                "rate": 1186
+              },
+              {
+                "position_id": 13,
+                "rate": 1386
+              }
+            ]
+          }
         ]
-      },
-      {
-        "lot_number": "MCF3.1",
-        "services": [
-          "MCF3.1.8",
-          "MCF3.1.13",
-          "MCF3.1.6",
-          "MCF3.1.1",
-          "MCF3.1.3",
-          "MCF3.1.14",
-          "MCF3.1.11",
-          "MCF3.1.12",
-          "MCF3.1.4",
-          "MCF3.1.5",
-          "MCF3.1.9",
-          "MCF3.1.10"
-        ]
-      },
-      {
-        "lot_number": "MCF3.8",
-        "services": [
-          "MCF3.8.4",
-          "MCF3.8.1",
-          "MCF3.8.7",
-          "MCF3.8.3"
-        ]
-      },
-      {
-        "lot_number": "MCF3.6",
-        "services": [
-          "MCF3.6.5",
-          "MCF3.6.12",
-          "MCF3.6.9",
-          "MCF3.6.11",
-          "MCF3.6.13",
-          "MCF3.6.6",
-          "MCF3.6.3",
-          "MCF3.6.8",
-          "MCF3.6.4"
-        ]
-      }
-    ],
-    "rate_cards": [
-      {
-        "lot": "MCF3.2",
-        "junior_rate_in_pence": 989,
-        "standard_rate_in_pence": 1189,
-        "senior_rate_in_pence": 1389,
-        "principal_rate_in_pence": 1589,
-        "managing_rate_in_pence": 1789,
-        "director_rate_in_pence": 1989,
-        "contact_name": "Ali Koelpin",
-        "email": "koelpin.ali@waelchi-howell.net",
-        "telephone_number": "495.988.5318 x778"
-      },
-      {
-        "lot": "MCF3.1",
-        "junior_rate_in_pence": 618,
-        "standard_rate_in_pence": 818,
-        "senior_rate_in_pence": 1018,
-        "principal_rate_in_pence": 1218,
-        "managing_rate_in_pence": 1418,
-        "director_rate_in_pence": 1618,
-        "contact_name": "Gene Mosciski Ret.",
-        "email": "gene_ret_mosciski@schoen.org",
-        "telephone_number": "192.929.0892"
-      },
-      {
-        "lot": "MCF3.8",
-        "junior_rate_in_pence": 432,
-        "standard_rate_in_pence": 632,
-        "senior_rate_in_pence": 832,
-        "principal_rate_in_pence": 1032,
-        "managing_rate_in_pence": 1232,
-        "director_rate_in_pence": 1432,
-        "contact_name": "Weston Bergstrom",
-        "email": "weston.bergstrom@durgan.biz",
-        "telephone_number": "(985) 507-9607 x778"
-      },
-      {
-        "lot": "MCF3.6",
-        "junior_rate_in_pence": 386,
-        "standard_rate_in_pence": 586,
-        "senior_rate_in_pence": 786,
-        "principal_rate_in_pence": 986,
-        "managing_rate_in_pence": 1186,
-        "director_rate_in_pence": 1386,
-        "contact_name": "Domenic Grant",
-        "email": "domenic_grant@emard-oconner.info",
-        "telephone_number": "(533) 739-5304 x8991"
       }
     ]
   }
