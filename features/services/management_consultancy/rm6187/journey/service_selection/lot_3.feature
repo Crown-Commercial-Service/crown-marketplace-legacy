@@ -11,10 +11,6 @@ Feature: Management Consultancy - Lot 3 - Complex and Transformation - Service s
   Scenario: The correct options are available
     Then I should see the following options for the lot:
       | Business                            |
-      | Project and programme management    |
-      | Strategy and/or policy              |
-      | Supplier side services and delivery |
-      | Transformation management.          |
       | Change management                   |
       | Complex programmes                  |
       | Digital, technology and cyber       |
@@ -23,6 +19,10 @@ Feature: Management Consultancy - Lot 3 - Complex and Transformation - Service s
       | Organisation and operating model    |
       | Performance transformation          |
       | Procurement and/or supply chain     |
+      | Project and programme management    |
+      | Strategy and/or policy              |
+      | Supplier side services and delivery |
+      | Transformation management           |
 
  Scenario: Service selection appears in basked
     Then the basket should say 'No services selected'
@@ -38,7 +38,7 @@ Feature: Management Consultancy - Lot 3 - Complex and Transformation - Service s
       | Performance transformation          |
       | Project and programme management    |
       | Supplier side services and delivery |
-      | Transformation management.          |
+      | Transformation management           |
     Then the basket should say '7 services selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
@@ -48,7 +48,7 @@ Feature: Management Consultancy - Lot 3 - Complex and Transformation - Service s
       | Performance transformation          |
       | Project and programme management    |
       | Supplier side services and delivery |
-      | Transformation management.          |
+      | Transformation management           |
 
   Scenario: Changing the selection will change the basket
     When I check the following items:

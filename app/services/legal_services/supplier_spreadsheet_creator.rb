@@ -1,8 +1,4 @@
 class LegalServices::SupplierSpreadsheetCreator < SupplierSpreadsheetCreator
-  def initialize(suppliers, params)
-    super(suppliers, params, self.class.module_parent::Service)
-  end
-
   def build
     super do |shortlist_sheet, audit_sheet|
       add_supplier_details(shortlist_sheet)
@@ -15,19 +11,19 @@ class LegalServices::SupplierSpreadsheetCreator < SupplierSpreadsheetCreator
   def add_supplier_details(shortlist_sheet)
     shortlist_sheet.add_row ['Supplier name', 'Phone number', 'Email']
 
-    @suppliers.each do |supplier|
+    @supplier_frameworks.each do |supplier_framework|
       shortlist_sheet.add_row(
         [
-          supplier.name,
-          supplier.phone_number,
-          supplier.email
+          supplier_framework.supplier_name,
+          supplier_framework.contact_detail.telephone_number,
+          supplier_framework.contact_detail.email
         ]
       )
     end
   end
 
   def add_jurisdiction(sheet)
-    jurisdictions = { 'a' => 'England & Wales', 'b' => 'Scotland', 'c' => 'Northern Ireland' }
-    sheet.add_row ['Jurisdiction', jurisdictions[@params['jurisdiction']]]
+    jurisdictions = { 'GB-EW' => 'England & Wales', 'GB-SC' => 'Scotland', 'GB-NI' => 'Northern Ireland' }
+    sheet.add_row ['Jurisdiction', jurisdictions[@params['jurisdiction_id']]]
   end
 end

@@ -13,8 +13,8 @@ RSpec.describe ManagementConsultancy::RM6187::Admin::UploadsHelper do
       end
     end
 
-    context 'when the error is supplier_missing_lots' do
-      let(:error) { :supplier_missing_lots }
+    context 'when the error is supplier_missing_services' do
+      let(:error) { :supplier_missing_services }
       let(:details) { ['Derrick Johnson & Sons', 'Bannas mighty MC', 'Alrest consultancy'] }
 
       it 'returns the correct error message' do
@@ -22,8 +22,8 @@ RSpec.describe ManagementConsultancy::RM6187::Admin::UploadsHelper do
       end
     end
 
-    context 'when the error is supplier_missing_rate_cards' do
-      let(:error) { :supplier_missing_rate_cards }
+    context 'when the error is supplier_missing_rates' do
+      let(:error) { :supplier_missing_rates }
       let(:details) { ['Dunban MC (UK)'] }
 
       it 'returns the correct error message' do

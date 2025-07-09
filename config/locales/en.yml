@@ -83,6 +83,10 @@ en:
             live_at:
               blank: Enter a valid 'live at' date
               not_a_date: Enter a valid 'live at' date
+        supplier/framework/lot/branch:
+          attributes:
+            postcode:
+              invalid_postcode: Enter a valid postcode
   base:
     passwords:
       edit:
@@ -449,6 +453,16 @@ en:
       title: Sorry, you are not authorised to view this page
   journey_step:
     supply_teachers:
+      job_titles:
+        agency_management_daily: 'Agency Management Fee: Daily supply worker (per worker, per day)'
+        agency_management_six_weeks_plus: 'Agency Management Fee: Long term assignment (6 weeks+) (per worker, per day)'
+        fixed_term: Fixed Term
+        nominated: Nominated Worker
+        other: 'Other Roles: (Invigilators, Admin & Clerical, IT Staff, Finance Staff, Cleaners etc.)'
+        over_12_week: Over 12 Week Reduction
+        senior: 'Senior Roles: Headteacher and Senior Leadership positions'
+        support: 'Educational Support Staff: (incl. Cover Supervisor, Teaching Assistants)'
+        teacher: 'Teacher: (Incl. Qualified and Unqualified Teachers, Tutors)'
       looking_for:
         managed_service_provider: Managed service provider
         worker: Individual worker
@@ -458,6 +472,9 @@ en:
       payroll_provider:
         agency: Agency
         school: School
+      term_types:
+        daily: Daily Supply
+        six_weeks_plus: Long Term (6 weeks+)
       worker_type:
         agency_supplied: Supplied by agency
         nominated: Nominated

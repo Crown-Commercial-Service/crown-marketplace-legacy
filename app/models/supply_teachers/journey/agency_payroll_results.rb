@@ -3,23 +3,15 @@ module SupplyTeachers
     include Steppable
     include ActiveSupport::NumberHelper
 
-    attribute :job_type
-    attribute :term
+    attribute :position_id
+    attribute :offset
 
-    def rates
-      service_name::Rate.direct_provision.rate_for(job_type:, term:)
+    def determine_position_id
+      @determine_position_id ||= position_id.to_i + offset.to_i
     end
 
-    def rate(branch)
-      branch.supplier.rate_for(job_type:, term:)
-    end
-
-    def job_type
-      service_name::JobType.find_role_by(code: @job_type)
-    end
-
-    def term
-      service_name::Term.find_by(code: @term)
+    def position
+      Position.find(determine_position_id)
     end
 
     def inputs
@@ -29,8 +21,8 @@ module SupplyTeachers
         payroll_provider: translate_input('supply_teachers.payroll_provider.agency'),
         postcode: postcode,
         radius: number_to_human(radius, units: :miles),
-        job_type: job_type.description,
-        term: term.description,
+        job_type: translate_input("supply_teachers.job_titles.#{position.position}"),
+        term: translate_input("supply_teachers.term_types.#{position.position_type}"),
       }
     end
   end

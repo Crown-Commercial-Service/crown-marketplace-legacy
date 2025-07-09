@@ -11,7 +11,6 @@ Feature: Management Consultancy - Lot 5 - HR - Service selection
   Scenario: The correct options are available
     Then I should see the following options for the lot:
       | Capability development                          |
-      | Training and development                        |
       | Cultural transformation                         |
       | Dispute management                              |
       | Diversity and inclusion                         |
@@ -20,6 +19,7 @@ Feature: Management Consultancy - Lot 5 - HR - Service selection
       | HR policy                                       |
       | Organisational design and/or workforce planning |
       | Performance management                          |
+      | Training and development                        |
 
   Scenario: Service selection appears in basked
     Then the basket should say 'No services selected'

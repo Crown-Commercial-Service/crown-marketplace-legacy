@@ -32,7 +32,7 @@ Feature: Management Consultancy - Service selection - Accessibility
       | Organisational review                                 |
       | Programme & project management                        |
       | Risk, compliance and/or opportunity management        |
-      | Value for money reviews.                              |
+      | Value for money reviews                               |
       | Business consultancy                                  |
       | Business continuity and/or disaster recovery planning |
       | Business policy strategy and/or appraisal             |

@@ -4,15 +4,17 @@ RSpec.describe SupplyTeachers::RM6238::Journey::Results do
   describe '.branches' do
     subject(:results) { results_class.new(**params).branches(salary:, fixed_term_length:) }
 
-    let(:first_branch) { create(:supply_teachers_rm6238_branch, :with_rates) }
-    let(:second_branch) { create(:supply_teachers_rm6238_branch, :with_rates, :with_extra_rates) }
+    let(:supplier_framework_lot_branch_1) { create(:supplier_framework_lot, :with_rates, lot_id: 'RM6238.1', supplier_framework: create(:supplier_framework, framework_id: 'RM6238')) }
+    let(:supplier_framework_lot_branch_2) { create(:supplier_framework_lot, :with_rates, :with_extra_rates, lot_id: 'RM6238.1', supplier_framework: create(:supplier_framework, framework_id: 'RM6238')) }
+    let(:first_branch) { create(:supplier_framework_lot_branch, supplier_framework_lot: supplier_framework_lot_branch_1) }
+    let(:second_branch) { create(:supplier_framework_lot_branch, supplier_framework_lot: supplier_framework_lot_branch_2) }
     let(:branches) { [first_branch, second_branch] }
     let(:postcode) { 'SW1A 1AA' }
     let(:salary) { nil }
     let(:fixed_term_length) { nil }
 
     before do
-      allow(SupplyTeachers::RM6238::Branch).to receive(:search).and_return(branches)
+      allow(Supplier::Framework::Lot::Branch).to receive(:search).and_return(branches)
 
       Geocoder::Lookup::Test.add_stub(
         postcode, [{ 'coordinates' => [51.5149666, -0.119098] }]
@@ -43,7 +45,7 @@ RSpec.describe SupplyTeachers::RM6238::Journey::Results do
       end
 
       it 'has the correct rates for the branches' do
-        expect(results.map(&:rate)).to eq([10.5, 10.5])
+        expect(results.map { |result| result.rate.rate }).to eq([1050, 1050])
       end
     end
 
@@ -71,7 +73,7 @@ RSpec.describe SupplyTeachers::RM6238::Journey::Results do
         end
 
         it 'has the correct rates and finders fee for the branches' do
-          expect(results.map(&:rate)).to eq([30.5, 30.5])
+          expect(results.map { |result| result.rate.rate }).to eq([3050, 3050])
           expect(results.map(&:finders_fee)).to eq([305, 305])
         end
       end
@@ -88,7 +90,7 @@ RSpec.describe SupplyTeachers::RM6238::Journey::Results do
         let(:salary) { { first_branch.id => '2000' } }
 
         it 'has the finders fee only for the first branch but the rate for both' do
-          expect(results.map(&:rate)).to eq([30.5, 30.5])
+          expect(results.map { |result| result.rate.rate }).to eq([3050, 3050])
           expect(results.map(&:finders_fee)).to eq([610.0, nil])
         end
       end
@@ -99,15 +101,15 @@ RSpec.describe SupplyTeachers::RM6238::Journey::Results do
 
       let(:params) do
         {
-          job_type:,
-          term:,
+          position_id:,
+          offset:,
           postcode:
         }
       end
 
       context 'when both suppliers supply the job type for the term' do
-        let(:job_type) { 'teacher' }
-        let(:term) { 'daily' }
+        let(:position_id) { 41 }
+        let(:offset) { 0 }
 
         it 'returns the two branches' do
           expect(results.length).to eq 2
@@ -120,26 +122,28 @@ RSpec.describe SupplyTeachers::RM6238::Journey::Results do
         end
 
         it 'has the correct rates for the branches' do
-          expect(results.map(&:rate)).to eq([20.5, 20.5])
+          expect(results.map { |result| result.rate.rate }).to eq([2050, 2050])
         end
       end
 
       context 'when one suppliers does the job type for the term' do
-        let(:job_type) { 'senior' }
-        let(:term) { 'daily' }
+        let(:position_id) { 43 }
+        let(:offset) { 0 }
 
-        it 'returns the two branches' do
-          expect(results.length).to eq 2
+        before { allow(Supplier::Framework::Lot::Branch).to receive(:search).and_return([second_branch]) }
+
+        it 'returns the second branch' do
+          expect(results.length).to eq 1
 
           expect(results.map(&:class).uniq).to eq(
             [SupplyTeachers::BranchSearchResult]
           )
 
-          expect(results.map(&:name)).to eq([first_branch.name, second_branch.name])
+          expect(results.map(&:name)).to eq([second_branch.name])
         end
 
         it 'has the rate only for the second branch' do
-          expect(results.map(&:rate)).to eq([nil, 40.5])
+          expect(results.map { |result| result.rate.rate }).to eq([4050])
         end
       end
     end

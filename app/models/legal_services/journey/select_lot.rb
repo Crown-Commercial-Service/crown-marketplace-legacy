@@ -2,11 +2,11 @@ module LegalServices
   class Journey::SelectLot
     include Steppable
 
-    attribute :lot
-    validates :lot, presence: true
+    attribute :lot_id
+    validates :lot_id, presence: true
 
     def self.lots
-      module_parent.module_parent::Lot.all.sort_by(&:number)
+      Lot.where(framework_id: framework).order('lots.number::integer')
     end
   end
 end
