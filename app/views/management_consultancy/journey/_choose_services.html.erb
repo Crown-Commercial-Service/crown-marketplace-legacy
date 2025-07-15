@@ -2,7 +2,12 @@
 
 <%= add_optional_error_prefix_to_page_title(@journey.errors) %>
 <div class="govuk-grid-row">
-  <%= render partial: 'shared/error_summary', locals: { errors: @journey.errors } %>
+  <div class="govuk-grid-column-two-thirds">
+    <%= render partial: 'shared/error_summary', locals: { errors: @journey.errors } %>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
   <%= form_tag @form_path, method: :get do |f| %>
     <%= hidden_fields_for_previous_steps_and_responses(@journey) %>
     <%= hidden_field_tag(:lot_id, @journey.current_step.lot_id) %>

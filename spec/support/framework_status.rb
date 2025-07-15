@@ -41,3 +41,15 @@ end
 RSpec.shared_context 'and RM6309 has expired' do
   before { Framework.find('RM6309').update(expires_at: Time.zone.now) }
 end
+
+RSpec.shared_context 'and RM6360 is live in the future' do
+  before { Framework.find('RM6360').update(live_at: 1.day.from_now) }
+end
+
+RSpec.shared_context 'and RM6360 is live today' do
+  before { Framework.find('RM6360').update(live_at: Time.zone.now) }
+end
+
+RSpec.shared_context 'and RM6360 has expired' do
+  before { Framework.find('RM6360').update(expires_at: Time.zone.now) }
+end

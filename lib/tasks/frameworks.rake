@@ -28,7 +28,7 @@ module Frameworks
         framework['expires_at'] = 1.year.from_now
       when 'RM6187'
         framework['expires_at'] = 1.year.ago
-      when 'RM6309'
+      when 'RM6309', 'RM6360'
         framework['live_at'] = 1.year.ago
         framework['expires_at'] = 1.year.from_now
       end

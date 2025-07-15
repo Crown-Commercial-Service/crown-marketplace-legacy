@@ -10,8 +10,8 @@ RSpec.describe Framework do
 
   describe '.frameworks' do
     context 'when no scope is provided' do
-      it 'returns RM6238, RM6187, RM6240 and RM6309' do
-        expect(described_class.frameworks).to eq %w[RM6238 RM6187 RM6240 RM6309]
+      it 'returns RM6238, RM6187, RM6240, RM6309 and RM6360' do
+        expect(described_class.frameworks).to eq %w[RM6238 RM6187 RM6240 RM6309 RM6360]
       end
     end
 
@@ -32,14 +32,20 @@ RSpec.describe Framework do
         expect(described_class.legal_services.frameworks).to eq %w[RM6240]
       end
     end
+
+    context 'when the legal_panel_for_government scope is provided' do
+      it 'returns and RM6360' do
+        expect(described_class.legal_panel_for_government.frameworks).to eq %w[RM6360]
+      end
+    end
   end
 
   describe '.live_frameworks' do
     context 'when RM6238 goes live tomorrow' do
       include_context 'and RM6238 is live in the future'
 
-      it 'returns RM6240 and RM6309' do
-        expect(described_class.live_frameworks).to eq %w[RM6240 RM6309]
+      it 'returns RM6240, RM6309 and RM6360' do
+        expect(described_class.live_frameworks).to eq %w[RM6240 RM6309 RM6360]
       end
 
       context 'and the supply_teachers scope is provided' do
@@ -52,8 +58,8 @@ RSpec.describe Framework do
     context 'when RM6240 goes live tomorrow' do
       include_context 'and RM6240 is live in the future'
 
-      it 'returns RM6238 and RM6309,' do
-        expect(described_class.live_frameworks).to eq %w[RM6238 RM6309]
+      it 'returns RM6238, RM6309 and RM6360' do
+        expect(described_class.live_frameworks).to eq %w[RM6238 RM6309 RM6360]
       end
 
       context 'and the legal_services scope is provided' do
@@ -63,11 +69,25 @@ RSpec.describe Framework do
       end
     end
 
+    context 'when RM6360 goes live tomorrow' do
+      include_context 'and RM6360 is live in the future'
+
+      it 'returns RM6238, RM6240 and RM6309' do
+        expect(described_class.live_frameworks).to eq %w[RM6238 RM6240 RM6309]
+      end
+
+      context 'and the legal_panel_for_government scope is provided' do
+        it 'returns an empty array' do
+          expect(described_class.legal_panel_for_government.live_frameworks).to eq %w[]
+        end
+      end
+    end
+
     context 'when RM6238 is live today' do
       include_context 'and RM6238 is live today'
 
-      it 'returns RM6238, RM6309 and RM6240' do
-        expect(described_class.live_frameworks).to eq %w[RM6240 RM6309 RM6238]
+      it 'returns RM6238, RM6309, RM6240 and RM6360' do
+        expect(described_class.live_frameworks).to eq %w[RM6240 RM6309 RM6360 RM6238]
       end
 
       context 'and the supply_teachers scope is provided' do
@@ -80,8 +100,8 @@ RSpec.describe Framework do
     context 'when RM6240 is live today' do
       include_context 'and RM6240 is live today'
 
-      it 'returns RM6238, RM6309 and RM6240' do
-        expect(described_class.live_frameworks).to eq %w[RM6238 RM6309 RM6240]
+      it 'returns RM6238, RM6309, RM6240 and RM6360' do
+        expect(described_class.live_frameworks).to eq %w[RM6238 RM6309 RM6360 RM6240]
       end
 
       context 'and the legal_services scope is provided' do
@@ -91,9 +111,23 @@ RSpec.describe Framework do
       end
     end
 
+    context 'when RM6360 is live today' do
+      include_context 'and RM6360 is live today'
+
+      it 'returns RM6238, RM6309 and RM6240' do
+        expect(described_class.live_frameworks).to eq %w[RM6238 RM6240 RM6309 RM6360]
+      end
+
+      context 'and the legal_panel_for_government scope is provided' do
+        it 'returns RM6360' do
+          expect(described_class.legal_panel_for_government.live_frameworks).to eq %w[RM6360]
+        end
+      end
+    end
+
     context 'when RM6238 went live yesterday' do
-      it 'returns RM6238, RM6240 and RM6309' do
-        expect(described_class.live_frameworks).to eq %w[RM6238 RM6240 RM6309]
+      it 'returns RM6238, RM6240, RM6309 and RM6360' do
+        expect(described_class.live_frameworks).to eq %w[RM6238 RM6240 RM6309 RM6360]
       end
 
       context 'and the supply_teachers scope is provided' do
@@ -104,13 +138,25 @@ RSpec.describe Framework do
     end
 
     context 'when RM6240 went live yesterday' do
-      it 'returns RM6240, RM6240 and RM6309' do
-        expect(described_class.live_frameworks).to eq %w[RM6238 RM6240 RM6309]
+      it 'returns RM6240, RM6240, RM6309 and RM6360' do
+        expect(described_class.live_frameworks).to eq %w[RM6238 RM6240 RM6309 RM6360]
       end
 
       context 'and the legal_services scope is provided' do
         it 'returns RM6240' do
           expect(described_class.legal_services.live_frameworks).to eq %w[RM6240]
+        end
+      end
+    end
+
+    context 'when RM6360 went live yesterday' do
+      it 'returns RM6240, RM6240, RM6309 and RM6360' do
+        expect(described_class.live_frameworks).to eq %w[RM6238 RM6240 RM6309 RM6360]
+      end
+
+      context 'and the legal_panel_for_government scope is provided' do
+        it 'returns RM6360' do
+          expect(described_class.legal_panel_for_government.live_frameworks).to eq %w[RM6360]
         end
       end
     end
@@ -185,6 +231,30 @@ RSpec.describe Framework do
       context 'when RM6240 went live yesterday' do
         it 'returns RM6240' do
           expect(described_class.legal_services.current_framework).to eq 'RM6240'
+        end
+      end
+    end
+
+    context 'when the legal_panel_for_government scope is provided' do
+      context 'when RM6360 goes live tomorrow' do
+        include_context 'and RM6360 is live in the future'
+
+        it 'returns nil' do
+          expect(described_class.legal_panel_for_government.current_framework).to be_nil
+        end
+      end
+
+      context 'when RM6360 is live today' do
+        include_context 'and RM6360 is live today'
+
+        it 'returns RM6360' do
+          expect(described_class.legal_panel_for_government.current_framework).to eq 'RM6360'
+        end
+      end
+
+      context 'when RM6360 went live yesterday' do
+        it 'returns RM6360' do
+          expect(described_class.legal_panel_for_government.current_framework).to eq 'RM6360'
         end
       end
     end
@@ -429,6 +499,42 @@ RSpec.describe Framework do
       context 'and RM6240 went live yesterday' do
         context 'and the frameworks is RM6240' do
           let(:framework) { 'RM6240' }
+
+          it 'returns live' do
+            expect(result).to eq :live
+          end
+        end
+      end
+    end
+
+    context 'when considering legal_panel_for_government frameworks' do
+      context 'and RM6360 goes live tomorrow' do
+        include_context 'and RM6360 is live in the future'
+
+        context 'and the frameworks is RM6360' do
+          let(:framework) { 'RM6360' }
+
+          it 'returns coming' do
+            expect(result).to eq :coming
+          end
+        end
+      end
+
+      context 'when RM6360 is live today' do
+        include_context 'and RM6360 is live today'
+
+        context 'and the frameworks is RM6360' do
+          let(:framework) { 'RM6360' }
+
+          it 'returns live' do
+            expect(result).to eq :live
+          end
+        end
+      end
+
+      context 'and RM6360 went live yesterday' do
+        context 'and the frameworks is RM6360' do
+          let(:framework) { 'RM6360' }
 
           it 'returns live' do
             expect(result).to eq :live

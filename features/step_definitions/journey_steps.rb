@@ -3,9 +3,15 @@ Then('the sub title is {string}') do |title|
 end
 
 Then('I should see the following options for the lot:') do |services|
+  expect(journey_page.service_selection.length).to eq(services.raw.flatten.length)
+
   journey_page.service_selection.zip(services.raw.flatten) do |element, service|
     expect(element).to have_content(service)
   end
+end
+
+Then('I should see no options for the lot') do
+  expect(journey_page.service_selection.length).to be_zero
 end
 
 Then('the basket should say {string}') do |basket_text|

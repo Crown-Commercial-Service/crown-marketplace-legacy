@@ -10,5 +10,6 @@ wip: --tags @wip:3 --wip features --publish-quiet
 rerun: <%= rerun_opts %> --format rerun --out rerun.txt --strict --tags 'not @wip'
 accessibility: <%= accessibility_opts %> features/accessibility
 legal-services: <%= std_opts %> features/services/legal_services
+legal-panel-for-government: <%= std_opts %> features/services/legal_panel_for_government
 management-consultancy: <%= std_opts %> features/services/management_consultancy
 supply-teachers: <%= std_opts %> features/services/supply_teachers

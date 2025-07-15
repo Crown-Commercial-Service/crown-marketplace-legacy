@@ -6,6 +6,10 @@ Given('I sign in and navigate to the start page for the {string} framework in {s
     create_buyer_user('ls')
     start_page_title = 'Do you work for central government?'
     visit "/legal-services/#{framework}/sign-in"
+  when 'legal panel for government'
+    create_buyer_user('ls')
+    start_page_title = 'Do you work for central government?'
+    visit "/legal-panel-for-government/#{framework}/sign-in"
   when 'management consultancy'
     create_buyer_user('mc')
     start_page_title = 'Select the lot you need'
@@ -25,6 +29,8 @@ When('I go to the {string} start page for {string}') do |service, framework|
   case service
   when 'legal services'
     visit "/legal-services/#{framework}"
+  when 'legal panel for government'
+    visit "/legal-panel-for-government/#{framework}"
   when 'management consultancy'
     visit "/management-consultancy/#{framework}"
   when 'supply teachers'
@@ -40,6 +46,10 @@ Given('I sign in as an admin for the {string} framework in {string}') do |framew
     create_admin_user('ls')
     admin_dashboard_title = 'Manage supplier data'
     visit "/legal-services/#{framework}/admin/sign-in"
+  when 'legal panel for government'
+    create_admin_user('ls')
+    admin_dashboard_title = 'Manage supplier data'
+    visit "/legal-panel-for-government/#{framework}/admin/sign-in"
   when 'management consultancy'
     create_admin_user('mc')
     admin_dashboard_title = 'Manage supplier data'
@@ -92,6 +102,20 @@ end
 Then('I enter the following details into the form:') do |table|
   table.raw.to_h.each do |field, value|
     fill_in field, with: value
+  end
+end
+
+Then('I type the following details into the form:') do |table|
+  table.raw.to_h.each do |field, value|
+    find_field(field).send_keys(value)
+  end
+end
+
+Then('I clear the form with backspaces:') do |table|
+  table.raw.flatten.each do |field|
+    element = find_field(field)
+
+    find_field(field).send_keys([:backspace] * element.value.length)
   end
 end
 

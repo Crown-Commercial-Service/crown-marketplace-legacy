@@ -13,6 +13,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   In all seriousness this is something I’ve wanted to do for a while.
   I have made generic framework and supplier models that can be used by all the frameworks in this service.
   This should make managing and adding new services and frameworks easier going forward ([PR 1996](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/1996))
+- Make jurisdiction more like a lot service to help with Legal Panel for Government ([PR 2001](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2001))
+- Add the first set of code for Legal Panel for Government ([PR 2000](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2000))
+- Upgrade Bun to v1.2.18 ([PR 2000](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2000))
 
 ## [5.1.0] - 2025-06-30
 

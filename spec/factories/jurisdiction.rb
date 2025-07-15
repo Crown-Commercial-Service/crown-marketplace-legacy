@@ -8,7 +8,7 @@ FactoryBot.define do
       if jurisdiction.present?
         jurisdiction
       else
-        new(id: country_code, name: Faker::Address.unique.country)
+        new(id: country_code, name: Faker::Address.unique.country, mapping_name: Faker::Address.unique.country)
       end
     end
   end
