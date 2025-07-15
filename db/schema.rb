@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_07_16_082620) do
+ActiveRecord::Schema[8.0].define(version: 2025_07_17_152309) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
   enable_extension "pgcrypto"
@@ -53,6 +53,14 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_16_082620) do
 
   create_table "jurisdictions", id: :text, force: :cascade do |t|
     t.text "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "mapping_name"
+  end
+
+  create_table "legal_panel_for_government_rm6360_admin_uploads", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "aasm_state", limit: 30
+    t.text "import_errors"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

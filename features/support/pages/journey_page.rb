@@ -1,7 +1,7 @@
 module Pages
   class Journey < SitePrism::Page
     element :sub_title, :xpath, '//h1/../span'
-    elements :service_selection, '#selection-checkboxes label'
+    elements :service_selection, '#selection-checkboxes .govuk-checkboxes__item:not(.govuk-visually-hidden) label'
 
     section :basket, '#css-list-basket' do
       elements :selection, 'ul > li > span'

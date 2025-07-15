@@ -1,6 +1,26 @@
 <div id="css-list-basket">
   <%= govuk_button(t('common.submit'), form: form, attributes: { name: t('common.submit') }) %>
-  <div>
+  <% if defined? search_text %>
+    <div class="ccs-list-basket__search">
+      <%= govuk_input(
+        :search,
+        label: {
+          text: search_text,
+          classes: 'govuk-label--m'
+        },
+        attributes: { type: 'search' },
+        form_group: {
+          classes: 'govuk-!-margin-bottom-0',
+          attributes: {
+            data: {
+              module: 'search-items'
+            }
+          }
+        }
+      ) %>
+    </div>
+  <% end %>
+  <div class="ccs-list-basket__basket">
     <h2 class="govuk-heading-m" data-txt01="<%= data_text_1 %>" data-txt02="<%= data_text_2 %>" data-txt03="<%= data_text_3 %>">
       <span id="selected-items-count"></span>
       <span></span>

@@ -24,6 +24,22 @@ RSpec.describe HeaderNavigationLinksHelper do
       end
     end
 
+    context 'when the service is legal_panel_for_government' do
+      let(:service) { 'legal_panel_for_government' }
+
+      it 'returns Find legal service for the wider public sector' do
+        expect(result).to eq('Find legal service for government')
+      end
+    end
+
+    context 'when the service is legal_panel_for_government/admin' do
+      let(:service) { 'legal_panel_for_government/admin' }
+
+      it 'returns Crown Marketplace' do
+        expect(result).to eq('Crown Marketplace')
+      end
+    end
+
     context 'when the service is management_consultancy' do
       let(:service) { 'management_consultancy' }
 
@@ -82,6 +98,30 @@ RSpec.describe HeaderNavigationLinksHelper do
 
       context 'when the service is legal_services/admin' do
         let(:service) { 'legal_services/admin' }
+
+        it 'returns the sign out link with the right options' do
+          expect(result).to eq(
+            [
+              { text: 'Sign out', href: '/crown-marketplace-legacy/sign-out', method: :delete }
+            ]
+          )
+        end
+      end
+
+      context 'when the service is legal_panel_for_government' do
+        let(:service) { 'legal_panel_for_government' }
+
+        it 'returns the sign out link with the right options' do
+          expect(result).to eq(
+            [
+              { text: 'Sign out', href: '/crown-marketplace-legacy/sign-out', method: :delete }
+            ]
+          )
+        end
+      end
+
+      context 'when the service is legal_panel_for_government/admin' do
+        let(:service) { 'legal_panel_for_government/admin' }
 
         it 'returns the sign out link with the right options' do
           expect(result).to eq(
@@ -159,6 +199,31 @@ RSpec.describe HeaderNavigationLinksHelper do
 
       context 'when the service is legal_services/admin' do
         let(:service) { 'legal_services/admin' }
+
+        it 'returns the sign in link' do
+          expect(result).to eq(
+            [
+              { text: 'Sign in', href: '/crown-marketplace-legacy/sign-in' }
+            ]
+          )
+        end
+      end
+
+      context 'when the service is legal_panel_for_government' do
+        let(:service) { 'legal_panel_for_government' }
+
+        it 'returns the create account and sign in link' do
+          expect(result).to eq(
+            [
+              { text: 'Create an account', href: '/crown-marketplace-legacy/sign-up' },
+              { text: 'Sign in', href: '/crown-marketplace-legacy/sign-in' }
+            ]
+          )
+        end
+      end
+
+      context 'when the service is legal_panel_for_government/admin' do
+        let(:service) { 'legal_panel_for_government/admin' }
 
         it 'returns the sign in link' do
           expect(result).to eq(

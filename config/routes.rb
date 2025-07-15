@@ -68,6 +68,15 @@ Rails.application.routes.draw do
       end
     end
 
+    namespace 'legal_panel_for_government', path: 'legal-panel-for-government', defaults: { service: 'legal_panel_for_government' } do
+      namespace 'rm6360', path: 'RM6360', defaults: { framework: 'RM6360' } do
+        concerns %i[authenticatable registrable]
+        namespace :admin, defaults: { service: 'legal_panel_for_government/admin' } do
+          concerns :authenticatable
+        end
+      end
+    end
+
     get '/legacy-session/active'  => 'base/sessions#active', as: :active
     get '/legacy-session/timeout' => 'base/sessions#timeout', as: :timeout
   end
@@ -240,6 +249,36 @@ Rails.application.routes.draw do
 
     get '/:framework', to: 'home#index', as: 'index'
     get '/:framework/admin', to: 'admin/home#index', defaults: { service: 'legal_services/admin' }, as: 'admin_index'
+    get '/:framework/start', to: 'journey#start', as: 'journey_start'
+    get '/:framework/:slug', to: 'journey#question', as: 'journey_question'
+    get '/:framework/:slug/answer', to: 'journey#answer', as: 'journey_answer'
+  end
+
+  namespace 'legal_panel_for_government', path: 'legal-panel-for-government', defaults: { service: 'legal_panel_for_government' } do
+    concerns :framework
+
+    concern :suppliers do
+      resources :suppliers, only: %i[index show] do
+        collection do
+          get '/download', action: :download
+        end
+      end
+    end
+
+    namespace :admin, defaults: { service: 'legal_panel_for_government/admin' } do
+      concerns %i[framework admin_frameworks]
+    end
+
+    namespace 'rm6360', path: 'RM6360', defaults: { framework: 'RM6360' } do
+      concerns %i[buyer_shared_pages shared_pages suppliers]
+
+      namespace :admin, defaults: { service: 'legal_panel_for_government/admin' } do
+        concerns %i[admin_uploads admin_shared_pages]
+      end
+    end
+
+    get '/:framework', to: 'home#index', as: 'index'
+    get '/:framework/admin', to: 'admin/home#index', defaults: { service: 'legal_panel_for_government/admin' }, as: 'admin_index'
     get '/:framework/start', to: 'journey#start', as: 'journey_start'
     get '/:framework/:slug', to: 'journey#question', as: 'journey_question'
     get '/:framework/:slug/answer', to: 'journey#answer', as: 'journey_answer'

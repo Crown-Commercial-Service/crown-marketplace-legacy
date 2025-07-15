@@ -4,6 +4,7 @@
   - st
   - mc
   - ls
+  - lpg
   - rollbar
   - legacy_active_storage_analysis
   - legacy_active_storage_purge
