@@ -65,7 +65,6 @@ class ManagementConsultancy::RM6309::Admin::FilesProcessor < FilesProcessor
     end
   end
 
-  # rubocop:disable Metrics/AbcSize
   def add_services(supplier, service_names, column)
     supplier_framework_lots_data = supplier[:supplier_frameworks][0][:supplier_framework_lots_data]
 
@@ -81,12 +80,10 @@ class ManagementConsultancy::RM6309::Admin::FilesProcessor < FilesProcessor
       service_id = "RM6309.#{service_number_parts[1]}.#{service_number_parts[2]}"
       lot_id = "RM6309.#{service_number_parts[1]}"
 
-      supplier_framework_lots_data[lot_id] ||= { jurisdiction: {} }
-      supplier_framework_lots_data[lot_id][:jurisdiction]['GB'] ||= { services: [], rates: [] }
-      supplier_framework_lots_data[lot_id][:jurisdiction]['GB'][:services] << { service_id: }
+      supplier_framework_lots_data[lot_id] ||= { services: [], rates: [], jurisdictions: [], branches: [] }
+      supplier_framework_lots_data[lot_id][:services] << { service_id: }
     end
   end
-  # rubocop:enable Metrics/AbcSize
 
   def add_rate_cards_to_suppliers(rate_cards_workbook)
     number_of_sheets(rate_cards_workbook).times do |sheet_number|
@@ -104,27 +101,24 @@ class ManagementConsultancy::RM6309::Admin::FilesProcessor < FilesProcessor
     end
   end
 
-  # rubocop:disable Metrics/AbcSize
   def add_rates(supplier, row, lot_id)
     supplier_framework_lots_data = supplier[:supplier_frameworks][0][:supplier_framework_lots_data]
 
     offset = lot_id == 'RM6309.10' ? 12 : 0
 
     (1..6).each do |index|
-      supplier_framework_lots_data[lot_id] ||= { jurisdiction: {} }
-      supplier_framework_lots_data[lot_id][:jurisdiction]['GB'] ||= { services: [], rates: [] }
+      supplier_framework_lots_data[lot_id] ||= { services: [], rates: [], jurisdictions: [], branches: [] }
 
-      supplier_framework_lots_data[lot_id][:jurisdiction]['GB'][:rates] << {
+      supplier_framework_lots_data[lot_id][:rates] << {
         position_id: 13 + index + offset,
         rate: convert_price(row[index]),
       }
-      supplier_framework_lots_data[lot_id][:jurisdiction]['GB'][:rates] << {
+      supplier_framework_lots_data[lot_id][:rates] << {
         position_id: 19 + index + offset,
         rate: convert_price(row[index + 6]),
       }
     end
   end
-  # rubocop:enable Metrics/AbcSize
 
   def zero_number_service_line?(service_name)
     service_number = extract_service_number(service_name)

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_07_08_072044) do
+ActiveRecord::Schema[8.0].define(version: 2025_07_16_082620) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
   enable_extension "pgcrypto"
@@ -281,6 +281,16 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_08_072044) do
     t.index ["supplier_framework_lot_id"], name: "idx_on_supplier_framework_lot_id_5cc87a7153"
   end
 
+  create_table "supplier_framework_lot_jurisdictions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "supplier_framework_lot_id", null: false
+    t.text "jurisdiction_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["jurisdiction_id"], name: "index_supplier_framework_lot_jurisdictions_on_jurisdiction_id"
+    t.index ["supplier_framework_lot_id", "jurisdiction_id"], name: "idx_on_supplier_framework_lot_id_jurisdiction_id_bf241ce276", unique: true
+    t.index ["supplier_framework_lot_id"], name: "idx_on_supplier_framework_lot_id_57bebdac3f"
+  end
+
   create_table "supplier_framework_lot_rates", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "supplier_framework_lot_id", null: false
     t.integer "position_id", null: false
@@ -305,13 +315,11 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_08_072044) do
   create_table "supplier_framework_lots", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "supplier_framework_id", null: false
     t.text "lot_id", null: false
-    t.text "jurisdiction_id"
     t.boolean "enabled"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["jurisdiction_id"], name: "index_supplier_framework_lots_on_jurisdiction_id"
     t.index ["lot_id"], name: "index_supplier_framework_lots_on_lot_id"
-    t.index ["supplier_framework_id", "lot_id", "jurisdiction_id"], name: "idx_on_supplier_framework_id_lot_id_jurisdiction_id_9ddaa88450", unique: true
+    t.index ["supplier_framework_id", "lot_id"], name: "idx_on_supplier_framework_id_lot_id_d9c0566119", unique: true
     t.index ["supplier_framework_id"], name: "index_supplier_framework_lots_on_supplier_framework_id"
   end
 
@@ -440,11 +448,12 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_08_072044) do
   add_foreign_key "supplier_framework_addresses", "supplier_frameworks"
   add_foreign_key "supplier_framework_contact_details", "supplier_frameworks"
   add_foreign_key "supplier_framework_lot_branches", "supplier_framework_lots"
+  add_foreign_key "supplier_framework_lot_jurisdictions", "jurisdictions"
+  add_foreign_key "supplier_framework_lot_jurisdictions", "supplier_framework_lots"
   add_foreign_key "supplier_framework_lot_rates", "positions"
   add_foreign_key "supplier_framework_lot_rates", "supplier_framework_lots"
   add_foreign_key "supplier_framework_lot_services", "services"
   add_foreign_key "supplier_framework_lot_services", "supplier_framework_lots"
-  add_foreign_key "supplier_framework_lots", "jurisdictions"
   add_foreign_key "supplier_framework_lots", "lots"
   add_foreign_key "supplier_framework_lots", "supplier_frameworks"
   add_foreign_key "supplier_frameworks", "frameworks"

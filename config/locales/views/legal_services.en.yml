@@ -9,7 +9,7 @@ en:
               inclusion: Select yes if your requirements allow you to continue
         legal_services/rm6240/journey/choose_jurisdiction:
           attributes:
-            jurisdiction_id:
+            jurisdiction:
               inclusion: Select the jurisdiction you need
         legal_services/rm6240/journey/choose_organisation_type:
           attributes:
@@ -17,11 +17,11 @@ en:
               inclusion: Select yes if you work for central government
         legal_services/rm6240/journey/choose_services:
           attributes:
-            service_ids:
+            service_numbers:
               blank: Select at least one legal service
         legal_services/rm6240/journey/select_lot:
           attributes:
-            lot_id:
+            lot_number:
               blank: Select the lot you need
   activerecord:
     errors:
@@ -139,9 +139,9 @@ en:
     journey:
       choose_jurisdiction:
         answer:
-          GB-EW: England and Wales
-          GB-NI: Northern Ireland
-          GB-SC: Scotland
+          a: England and Wales
+          b: Scotland
+          c: Northern Ireland
         question: Select the jurisdiction you need
       choose_organisation_type:
         question: Do you work for central government?

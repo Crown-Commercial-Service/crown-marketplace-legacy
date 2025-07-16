@@ -11,7 +11,7 @@ RSpec.describe ManagementConsultancy::RM6309::SuppliersController do
   login_mc_buyer
 
   before do
-    allow(Supplier::Framework).to receive(:with_services_in_jurisdiction).with(service_ids, 'GB').and_return(supplier_frameworks)
+    allow(Supplier::Framework).to receive(:with_services).with(service_ids).and_return(supplier_frameworks)
   end
 
   describe 'GET index' do
@@ -116,7 +116,7 @@ RSpec.describe ManagementConsultancy::RM6309::SuppliersController do
 
   describe 'GET show' do
     before do
-      create(:supplier_framework_lot_rate, supplier_framework_lot: create(:supplier_framework_lot, supplier_framework: supplier_framework, lot_id: lot_id, jurisdiction_id: 'GB'))
+      create(:supplier_framework_lot_rate, supplier_framework_lot: create(:supplier_framework_lot, supplier_framework:, lot_id:))
 
       get :show, params: { id: supplier_framework.id, lot_id: lot_id }
     end

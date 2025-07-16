@@ -42,7 +42,7 @@ class Upload < ApplicationRecord
     raise error if error
   end
 
-  # rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity
+  # rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
   def self.add_supplier_framework!(supplier, supplier_data)
     supplier_data[:supplier_frameworks].each do |supplier_framework_data|
       supplier_framework = supplier.supplier_frameworks.create!(supplier_framework_data.slice(:framework_id, :enabled))
@@ -51,10 +51,14 @@ class Upload < ApplicationRecord
       Supplier::Framework::Address.create!(supplier_framework:, **supplier_framework_data[:supplier_framework_address]) if supplier_framework_data[:supplier_framework_address]
 
       supplier_framework_data[:supplier_framework_lots].each do |supplier_framework_lot_data|
-        supplier_framework_lot = supplier_framework.lots.create!(supplier_framework_lot_data.slice(:lot_id, :jurisdiction_id, :enabled))
+        supplier_framework_lot = supplier_framework.lots.create!(supplier_framework_lot_data.slice(:lot_id, :enabled))
 
         supplier_framework_lot_data[:supplier_framework_lot_services].each do |supplier_framework_lot_service_data|
           supplier_framework_lot.services.create!(supplier_framework_lot_service_data)
+        end
+
+        supplier_framework_lot_data[:supplier_framework_lot_jurisdictions].each do |supplier_framework_lot_jurisdiction_data|
+          supplier_framework_lot.jurisdictions.create!(supplier_framework_lot_jurisdiction_data)
         end
 
         supplier_framework_lot_data[:supplier_framework_lot_rates].each do |supplier_framework_lot_rate_data|
@@ -72,7 +76,7 @@ class Upload < ApplicationRecord
       end
     end
   end
-  # rubocop:enable Metrics/AbcSize, Metrics/CyclomaticComplexity
+  # rubocop:enable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
 
   def self.all_or_none(framework)
     error = nil

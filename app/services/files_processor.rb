@@ -22,17 +22,15 @@ class FilesProcessor
 
   def clean_supplier_data_service_and_rates
     @supplier_data.each do |supplier|
-      supplier[:supplier_frameworks][0][:supplier_framework_lots_data].each do |lot_id, jurisdictions|
-        jurisdictions[:jurisdiction].each do |jurisdiction_id, service_and_rates|
-          supplier[:supplier_frameworks][0][:supplier_framework_lots] << {
-            lot_id: lot_id,
-            jurisdiction_id: jurisdiction_id,
-            enabled: true,
-            supplier_framework_lot_services: service_and_rates[:services],
-            supplier_framework_lot_rates: service_and_rates[:rates],
-            supplier_framework_lot_branches: [],
-          }
-        end
+      supplier[:supplier_frameworks][0][:supplier_framework_lots_data].each do |lot_id, supplier_framework_lot_data|
+        supplier[:supplier_frameworks][0][:supplier_framework_lots] << {
+          lot_id: lot_id,
+          enabled: true,
+          supplier_framework_lot_services: supplier_framework_lot_data[:services],
+          supplier_framework_lot_jurisdictions: supplier_framework_lot_data[:jurisdictions],
+          supplier_framework_lot_rates: supplier_framework_lot_data[:rates],
+          supplier_framework_lot_branches: supplier_framework_lot_data[:branches],
+        }
       end
 
       supplier[:supplier_frameworks][0].delete(:supplier_framework_lots_data)
