@@ -21,129 +21,128 @@
         },
         "supplier_framework_lots": [
           {
-            "lot_id": "RM6240.1",
-            "jurisdiction_id": "GB-EW",
+            "lot_id": "RM6240.1a",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
-                "service_id": "RM6240.1.1"
+                "service_id": "RM6240.1a.1"
               },
               {
-                "service_id": "RM6240.1.2"
+                "service_id": "RM6240.1a.2"
               },
               {
-                "service_id": "RM6240.1.3"
+                "service_id": "RM6240.1a.3"
               },
               {
-                "service_id": "RM6240.1.4"
+                "service_id": "RM6240.1a.4"
               },
               {
-                "service_id": "RM6240.1.5"
+                "service_id": "RM6240.1a.5"
               },
               {
-                "service_id": "RM6240.1.6"
+                "service_id": "RM6240.1a.6"
               },
               {
-                "service_id": "RM6240.1.7"
+                "service_id": "RM6240.1a.7"
               },
               {
-                "service_id": "RM6240.1.8"
+                "service_id": "RM6240.1a.8"
               },
               {
-                "service_id": "RM6240.1.9"
+                "service_id": "RM6240.1a.9"
               },
               {
-                "service_id": "RM6240.1.10"
+                "service_id": "RM6240.1a.10"
               },
               {
-                "service_id": "RM6240.1.11"
+                "service_id": "RM6240.1a.11"
               },
               {
-                "service_id": "RM6240.1.12"
+                "service_id": "RM6240.1a.12"
               },
               {
-                "service_id": "RM6240.1.13"
+                "service_id": "RM6240.1a.13"
               },
               {
-                "service_id": "RM6240.1.14"
+                "service_id": "RM6240.1a.14"
               },
               {
-                "service_id": "RM6240.1.15"
+                "service_id": "RM6240.1a.15"
               },
               {
-                "service_id": "RM6240.1.16"
+                "service_id": "RM6240.1a.16"
               },
               {
-                "service_id": "RM6240.1.17"
+                "service_id": "RM6240.1a.17"
               },
               {
-                "service_id": "RM6240.1.18"
+                "service_id": "RM6240.1a.18"
               },
               {
-                "service_id": "RM6240.1.19"
+                "service_id": "RM6240.1a.19"
               },
               {
-                "service_id": "RM6240.1.20"
+                "service_id": "RM6240.1a.20"
               },
               {
-                "service_id": "RM6240.1.21"
+                "service_id": "RM6240.1a.21"
               },
               {
-                "service_id": "RM6240.1.22"
+                "service_id": "RM6240.1a.22"
               },
               {
-                "service_id": "RM6240.1.23"
+                "service_id": "RM6240.1a.23"
               },
               {
-                "service_id": "RM6240.1.24"
+                "service_id": "RM6240.1a.24"
               },
               {
-                "service_id": "RM6240.1.25"
+                "service_id": "RM6240.1a.25"
               },
               {
-                "service_id": "RM6240.1.26"
+                "service_id": "RM6240.1a.26"
               },
               {
-                "service_id": "RM6240.1.27"
+                "service_id": "RM6240.1a.27"
               },
               {
-                "service_id": "RM6240.1.28"
+                "service_id": "RM6240.1a.28"
               },
               {
-                "service_id": "RM6240.1.29"
+                "service_id": "RM6240.1a.29"
               },
               {
-                "service_id": "RM6240.1.30"
+                "service_id": "RM6240.1a.30"
               },
               {
-                "service_id": "RM6240.1.31"
+                "service_id": "RM6240.1a.31"
               },
               {
-                "service_id": "RM6240.1.32"
+                "service_id": "RM6240.1a.32"
               },
               {
-                "service_id": "RM6240.1.33"
+                "service_id": "RM6240.1a.33"
               },
               {
-                "service_id": "RM6240.1.34"
+                "service_id": "RM6240.1a.34"
               },
               {
-                "service_id": "RM6240.1.35"
+                "service_id": "RM6240.1a.35"
               },
               {
-                "service_id": "RM6240.1.36"
+                "service_id": "RM6240.1a.36"
               },
               {
-                "service_id": "RM6240.1.37"
+                "service_id": "RM6240.1a.37"
               },
               {
-                "service_id": "RM6240.1.38"
+                "service_id": "RM6240.1a.38"
               },
               {
-                "service_id": "RM6240.1.39"
+                "service_id": "RM6240.1a.39"
               },
               {
-                "service_id": "RM6240.1.40"
+                "service_id": "RM6240.1a.40"
               }
             ],
             "supplier_framework_lot_rates": [
@@ -176,132 +175,132 @@
                 "rate": 16500
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           },
           {
-            "lot_id": "RM6240.1",
-            "jurisdiction_id": "GB-SC",
+            "lot_id": "RM6240.1b",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
-                "service_id": "RM6240.1.1"
+                "service_id": "RM6240.1b.1"
               },
               {
-                "service_id": "RM6240.1.2"
+                "service_id": "RM6240.1b.2"
               },
               {
-                "service_id": "RM6240.1.3"
+                "service_id": "RM6240.1b.3"
               },
               {
-                "service_id": "RM6240.1.4"
+                "service_id": "RM6240.1b.4"
               },
               {
-                "service_id": "RM6240.1.5"
+                "service_id": "RM6240.1b.5"
               },
               {
-                "service_id": "RM6240.1.6"
+                "service_id": "RM6240.1b.6"
               },
               {
-                "service_id": "RM6240.1.7"
+                "service_id": "RM6240.1b.7"
               },
               {
-                "service_id": "RM6240.1.8"
+                "service_id": "RM6240.1b.8"
               },
               {
-                "service_id": "RM6240.1.9"
+                "service_id": "RM6240.1b.9"
               },
               {
-                "service_id": "RM6240.1.10"
+                "service_id": "RM6240.1b.10"
               },
               {
-                "service_id": "RM6240.1.11"
+                "service_id": "RM6240.1b.11"
               },
               {
-                "service_id": "RM6240.1.12"
+                "service_id": "RM6240.1b.12"
               },
               {
-                "service_id": "RM6240.1.13"
+                "service_id": "RM6240.1b.13"
               },
               {
-                "service_id": "RM6240.1.14"
+                "service_id": "RM6240.1b.14"
               },
               {
-                "service_id": "RM6240.1.15"
+                "service_id": "RM6240.1b.15"
               },
               {
-                "service_id": "RM6240.1.16"
+                "service_id": "RM6240.1b.16"
               },
               {
-                "service_id": "RM6240.1.17"
+                "service_id": "RM6240.1b.17"
               },
               {
-                "service_id": "RM6240.1.18"
+                "service_id": "RM6240.1b.18"
               },
               {
-                "service_id": "RM6240.1.19"
+                "service_id": "RM6240.1b.19"
               },
               {
-                "service_id": "RM6240.1.20"
+                "service_id": "RM6240.1b.20"
               },
               {
-                "service_id": "RM6240.1.21"
+                "service_id": "RM6240.1b.21"
               },
               {
-                "service_id": "RM6240.1.22"
+                "service_id": "RM6240.1b.22"
               },
               {
-                "service_id": "RM6240.1.23"
+                "service_id": "RM6240.1b.23"
               },
               {
-                "service_id": "RM6240.1.24"
+                "service_id": "RM6240.1b.24"
               },
               {
-                "service_id": "RM6240.1.25"
+                "service_id": "RM6240.1b.25"
               },
               {
-                "service_id": "RM6240.1.26"
+                "service_id": "RM6240.1b.26"
               },
               {
-                "service_id": "RM6240.1.27"
+                "service_id": "RM6240.1b.27"
               },
               {
-                "service_id": "RM6240.1.28"
+                "service_id": "RM6240.1b.28"
               },
               {
-                "service_id": "RM6240.1.29"
+                "service_id": "RM6240.1b.29"
               },
               {
-                "service_id": "RM6240.1.30"
+                "service_id": "RM6240.1b.30"
               },
               {
-                "service_id": "RM6240.1.31"
+                "service_id": "RM6240.1b.31"
               },
               {
-                "service_id": "RM6240.1.32"
+                "service_id": "RM6240.1b.32"
               },
               {
-                "service_id": "RM6240.1.33"
+                "service_id": "RM6240.1b.33"
               },
               {
-                "service_id": "RM6240.1.34"
+                "service_id": "RM6240.1b.34"
               },
               {
-                "service_id": "RM6240.1.35"
+                "service_id": "RM6240.1b.35"
               },
               {
-                "service_id": "RM6240.1.36"
+                "service_id": "RM6240.1b.36"
               },
               {
-                "service_id": "RM6240.1.37"
+                "service_id": "RM6240.1b.37"
               },
               {
-                "service_id": "RM6240.1.38"
+                "service_id": "RM6240.1b.38"
               },
               {
-                "service_id": "RM6240.1.39"
+                "service_id": "RM6240.1b.39"
               },
               {
-                "service_id": "RM6240.1.40"
+                "service_id": "RM6240.1b.40"
               }
             ],
             "supplier_framework_lot_rates": [
@@ -334,7 +333,8 @@
                 "rate": 19250
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           }
         ]
       }
@@ -362,129 +362,128 @@
         },
         "supplier_framework_lots": [
           {
-            "lot_id": "RM6240.1",
-            "jurisdiction_id": "GB-SC",
+            "lot_id": "RM6240.1b",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
-                "service_id": "RM6240.1.1"
+                "service_id": "RM6240.1b.1"
               },
               {
-                "service_id": "RM6240.1.2"
+                "service_id": "RM6240.1b.2"
               },
               {
-                "service_id": "RM6240.1.3"
+                "service_id": "RM6240.1b.3"
               },
               {
-                "service_id": "RM6240.1.4"
+                "service_id": "RM6240.1b.4"
               },
               {
-                "service_id": "RM6240.1.5"
+                "service_id": "RM6240.1b.5"
               },
               {
-                "service_id": "RM6240.1.6"
+                "service_id": "RM6240.1b.6"
               },
               {
-                "service_id": "RM6240.1.7"
+                "service_id": "RM6240.1b.7"
               },
               {
-                "service_id": "RM6240.1.8"
+                "service_id": "RM6240.1b.8"
               },
               {
-                "service_id": "RM6240.1.9"
+                "service_id": "RM6240.1b.9"
               },
               {
-                "service_id": "RM6240.1.10"
+                "service_id": "RM6240.1b.10"
               },
               {
-                "service_id": "RM6240.1.11"
+                "service_id": "RM6240.1b.11"
               },
               {
-                "service_id": "RM6240.1.12"
+                "service_id": "RM6240.1b.12"
               },
               {
-                "service_id": "RM6240.1.13"
+                "service_id": "RM6240.1b.13"
               },
               {
-                "service_id": "RM6240.1.14"
+                "service_id": "RM6240.1b.14"
               },
               {
-                "service_id": "RM6240.1.15"
+                "service_id": "RM6240.1b.15"
               },
               {
-                "service_id": "RM6240.1.16"
+                "service_id": "RM6240.1b.16"
               },
               {
-                "service_id": "RM6240.1.17"
+                "service_id": "RM6240.1b.17"
               },
               {
-                "service_id": "RM6240.1.18"
+                "service_id": "RM6240.1b.18"
               },
               {
-                "service_id": "RM6240.1.19"
+                "service_id": "RM6240.1b.19"
               },
               {
-                "service_id": "RM6240.1.20"
+                "service_id": "RM6240.1b.20"
               },
               {
-                "service_id": "RM6240.1.21"
+                "service_id": "RM6240.1b.21"
               },
               {
-                "service_id": "RM6240.1.22"
+                "service_id": "RM6240.1b.22"
               },
               {
-                "service_id": "RM6240.1.23"
+                "service_id": "RM6240.1b.23"
               },
               {
-                "service_id": "RM6240.1.24"
+                "service_id": "RM6240.1b.24"
               },
               {
-                "service_id": "RM6240.1.25"
+                "service_id": "RM6240.1b.25"
               },
               {
-                "service_id": "RM6240.1.26"
+                "service_id": "RM6240.1b.26"
               },
               {
-                "service_id": "RM6240.1.27"
+                "service_id": "RM6240.1b.27"
               },
               {
-                "service_id": "RM6240.1.28"
+                "service_id": "RM6240.1b.28"
               },
               {
-                "service_id": "RM6240.1.29"
+                "service_id": "RM6240.1b.29"
               },
               {
-                "service_id": "RM6240.1.30"
+                "service_id": "RM6240.1b.30"
               },
               {
-                "service_id": "RM6240.1.31"
+                "service_id": "RM6240.1b.31"
               },
               {
-                "service_id": "RM6240.1.32"
+                "service_id": "RM6240.1b.32"
               },
               {
-                "service_id": "RM6240.1.33"
+                "service_id": "RM6240.1b.33"
               },
               {
-                "service_id": "RM6240.1.34"
+                "service_id": "RM6240.1b.34"
               },
               {
-                "service_id": "RM6240.1.35"
+                "service_id": "RM6240.1b.35"
               },
               {
-                "service_id": "RM6240.1.36"
+                "service_id": "RM6240.1b.36"
               },
               {
-                "service_id": "RM6240.1.37"
+                "service_id": "RM6240.1b.37"
               },
               {
-                "service_id": "RM6240.1.38"
+                "service_id": "RM6240.1b.38"
               },
               {
-                "service_id": "RM6240.1.39"
+                "service_id": "RM6240.1b.39"
               },
               {
-                "service_id": "RM6240.1.40"
+                "service_id": "RM6240.1b.40"
               }
             ],
             "supplier_framework_lot_rates": [
@@ -517,132 +516,132 @@
                 "rate": 0
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           },
           {
-            "lot_id": "RM6240.1",
-            "jurisdiction_id": "GB-NI",
+            "lot_id": "RM6240.1c",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
-                "service_id": "RM6240.1.1"
+                "service_id": "RM6240.1c.1"
               },
               {
-                "service_id": "RM6240.1.2"
+                "service_id": "RM6240.1c.2"
               },
               {
-                "service_id": "RM6240.1.3"
+                "service_id": "RM6240.1c.3"
               },
               {
-                "service_id": "RM6240.1.4"
+                "service_id": "RM6240.1c.4"
               },
               {
-                "service_id": "RM6240.1.5"
+                "service_id": "RM6240.1c.5"
               },
               {
-                "service_id": "RM6240.1.6"
+                "service_id": "RM6240.1c.6"
               },
               {
-                "service_id": "RM6240.1.7"
+                "service_id": "RM6240.1c.7"
               },
               {
-                "service_id": "RM6240.1.8"
+                "service_id": "RM6240.1c.8"
               },
               {
-                "service_id": "RM6240.1.9"
+                "service_id": "RM6240.1c.9"
               },
               {
-                "service_id": "RM6240.1.10"
+                "service_id": "RM6240.1c.10"
               },
               {
-                "service_id": "RM6240.1.11"
+                "service_id": "RM6240.1c.11"
               },
               {
-                "service_id": "RM6240.1.12"
+                "service_id": "RM6240.1c.12"
               },
               {
-                "service_id": "RM6240.1.13"
+                "service_id": "RM6240.1c.13"
               },
               {
-                "service_id": "RM6240.1.14"
+                "service_id": "RM6240.1c.14"
               },
               {
-                "service_id": "RM6240.1.15"
+                "service_id": "RM6240.1c.15"
               },
               {
-                "service_id": "RM6240.1.16"
+                "service_id": "RM6240.1c.16"
               },
               {
-                "service_id": "RM6240.1.17"
+                "service_id": "RM6240.1c.17"
               },
               {
-                "service_id": "RM6240.1.18"
+                "service_id": "RM6240.1c.18"
               },
               {
-                "service_id": "RM6240.1.19"
+                "service_id": "RM6240.1c.19"
               },
               {
-                "service_id": "RM6240.1.20"
+                "service_id": "RM6240.1c.20"
               },
               {
-                "service_id": "RM6240.1.21"
+                "service_id": "RM6240.1c.21"
               },
               {
-                "service_id": "RM6240.1.22"
+                "service_id": "RM6240.1c.22"
               },
               {
-                "service_id": "RM6240.1.23"
+                "service_id": "RM6240.1c.23"
               },
               {
-                "service_id": "RM6240.1.24"
+                "service_id": "RM6240.1c.24"
               },
               {
-                "service_id": "RM6240.1.25"
+                "service_id": "RM6240.1c.25"
               },
               {
-                "service_id": "RM6240.1.26"
+                "service_id": "RM6240.1c.26"
               },
               {
-                "service_id": "RM6240.1.27"
+                "service_id": "RM6240.1c.27"
               },
               {
-                "service_id": "RM6240.1.28"
+                "service_id": "RM6240.1c.28"
               },
               {
-                "service_id": "RM6240.1.29"
+                "service_id": "RM6240.1c.29"
               },
               {
-                "service_id": "RM6240.1.30"
+                "service_id": "RM6240.1c.30"
               },
               {
-                "service_id": "RM6240.1.31"
+                "service_id": "RM6240.1c.31"
               },
               {
-                "service_id": "RM6240.1.32"
+                "service_id": "RM6240.1c.32"
               },
               {
-                "service_id": "RM6240.1.33"
+                "service_id": "RM6240.1c.33"
               },
               {
-                "service_id": "RM6240.1.34"
+                "service_id": "RM6240.1c.34"
               },
               {
-                "service_id": "RM6240.1.35"
+                "service_id": "RM6240.1c.35"
               },
               {
-                "service_id": "RM6240.1.36"
+                "service_id": "RM6240.1c.36"
               },
               {
-                "service_id": "RM6240.1.37"
+                "service_id": "RM6240.1c.37"
               },
               {
-                "service_id": "RM6240.1.38"
+                "service_id": "RM6240.1c.38"
               },
               {
-                "service_id": "RM6240.1.39"
+                "service_id": "RM6240.1c.39"
               },
               {
-                "service_id": "RM6240.1.40"
+                "service_id": "RM6240.1c.40"
               }
             ],
             "supplier_framework_lot_rates": [
@@ -675,7 +674,8 @@
                 "rate": 16500
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           }
         ]
       }
@@ -703,129 +703,128 @@
         },
         "supplier_framework_lots": [
           {
-            "lot_id": "RM6240.1",
-            "jurisdiction_id": "GB-NI",
+            "lot_id": "RM6240.1c",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
-                "service_id": "RM6240.1.1"
+                "service_id": "RM6240.1c.1"
               },
               {
-                "service_id": "RM6240.1.2"
+                "service_id": "RM6240.1c.2"
               },
               {
-                "service_id": "RM6240.1.3"
+                "service_id": "RM6240.1c.3"
               },
               {
-                "service_id": "RM6240.1.4"
+                "service_id": "RM6240.1c.4"
               },
               {
-                "service_id": "RM6240.1.5"
+                "service_id": "RM6240.1c.5"
               },
               {
-                "service_id": "RM6240.1.6"
+                "service_id": "RM6240.1c.6"
               },
               {
-                "service_id": "RM6240.1.7"
+                "service_id": "RM6240.1c.7"
               },
               {
-                "service_id": "RM6240.1.8"
+                "service_id": "RM6240.1c.8"
               },
               {
-                "service_id": "RM6240.1.9"
+                "service_id": "RM6240.1c.9"
               },
               {
-                "service_id": "RM6240.1.10"
+                "service_id": "RM6240.1c.10"
               },
               {
-                "service_id": "RM6240.1.11"
+                "service_id": "RM6240.1c.11"
               },
               {
-                "service_id": "RM6240.1.12"
+                "service_id": "RM6240.1c.12"
               },
               {
-                "service_id": "RM6240.1.13"
+                "service_id": "RM6240.1c.13"
               },
               {
-                "service_id": "RM6240.1.14"
+                "service_id": "RM6240.1c.14"
               },
               {
-                "service_id": "RM6240.1.15"
+                "service_id": "RM6240.1c.15"
               },
               {
-                "service_id": "RM6240.1.16"
+                "service_id": "RM6240.1c.16"
               },
               {
-                "service_id": "RM6240.1.17"
+                "service_id": "RM6240.1c.17"
               },
               {
-                "service_id": "RM6240.1.18"
+                "service_id": "RM6240.1c.18"
               },
               {
-                "service_id": "RM6240.1.19"
+                "service_id": "RM6240.1c.19"
               },
               {
-                "service_id": "RM6240.1.20"
+                "service_id": "RM6240.1c.20"
               },
               {
-                "service_id": "RM6240.1.21"
+                "service_id": "RM6240.1c.21"
               },
               {
-                "service_id": "RM6240.1.22"
+                "service_id": "RM6240.1c.22"
               },
               {
-                "service_id": "RM6240.1.23"
+                "service_id": "RM6240.1c.23"
               },
               {
-                "service_id": "RM6240.1.24"
+                "service_id": "RM6240.1c.24"
               },
               {
-                "service_id": "RM6240.1.25"
+                "service_id": "RM6240.1c.25"
               },
               {
-                "service_id": "RM6240.1.26"
+                "service_id": "RM6240.1c.26"
               },
               {
-                "service_id": "RM6240.1.27"
+                "service_id": "RM6240.1c.27"
               },
               {
-                "service_id": "RM6240.1.28"
+                "service_id": "RM6240.1c.28"
               },
               {
-                "service_id": "RM6240.1.29"
+                "service_id": "RM6240.1c.29"
               },
               {
-                "service_id": "RM6240.1.30"
+                "service_id": "RM6240.1c.30"
               },
               {
-                "service_id": "RM6240.1.31"
+                "service_id": "RM6240.1c.31"
               },
               {
-                "service_id": "RM6240.1.32"
+                "service_id": "RM6240.1c.32"
               },
               {
-                "service_id": "RM6240.1.33"
+                "service_id": "RM6240.1c.33"
               },
               {
-                "service_id": "RM6240.1.34"
+                "service_id": "RM6240.1c.34"
               },
               {
-                "service_id": "RM6240.1.35"
+                "service_id": "RM6240.1c.35"
               },
               {
-                "service_id": "RM6240.1.36"
+                "service_id": "RM6240.1c.36"
               },
               {
-                "service_id": "RM6240.1.37"
+                "service_id": "RM6240.1c.37"
               },
               {
-                "service_id": "RM6240.1.38"
+                "service_id": "RM6240.1c.38"
               },
               {
-                "service_id": "RM6240.1.39"
+                "service_id": "RM6240.1c.39"
               },
               {
-                "service_id": "RM6240.1.40"
+                "service_id": "RM6240.1c.40"
               }
             ],
             "supplier_framework_lot_rates": [
@@ -858,132 +857,132 @@
                 "rate": 16500
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           },
           {
-            "lot_id": "RM6240.1",
-            "jurisdiction_id": "GB-EW",
+            "lot_id": "RM6240.1a",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
-                "service_id": "RM6240.1.1"
+                "service_id": "RM6240.1a.1"
               },
               {
-                "service_id": "RM6240.1.2"
+                "service_id": "RM6240.1a.2"
               },
               {
-                "service_id": "RM6240.1.3"
+                "service_id": "RM6240.1a.3"
               },
               {
-                "service_id": "RM6240.1.4"
+                "service_id": "RM6240.1a.4"
               },
               {
-                "service_id": "RM6240.1.5"
+                "service_id": "RM6240.1a.5"
               },
               {
-                "service_id": "RM6240.1.6"
+                "service_id": "RM6240.1a.6"
               },
               {
-                "service_id": "RM6240.1.7"
+                "service_id": "RM6240.1a.7"
               },
               {
-                "service_id": "RM6240.1.8"
+                "service_id": "RM6240.1a.8"
               },
               {
-                "service_id": "RM6240.1.9"
+                "service_id": "RM6240.1a.9"
               },
               {
-                "service_id": "RM6240.1.10"
+                "service_id": "RM6240.1a.10"
               },
               {
-                "service_id": "RM6240.1.11"
+                "service_id": "RM6240.1a.11"
               },
               {
-                "service_id": "RM6240.1.12"
+                "service_id": "RM6240.1a.12"
               },
               {
-                "service_id": "RM6240.1.13"
+                "service_id": "RM6240.1a.13"
               },
               {
-                "service_id": "RM6240.1.14"
+                "service_id": "RM6240.1a.14"
               },
               {
-                "service_id": "RM6240.1.15"
+                "service_id": "RM6240.1a.15"
               },
               {
-                "service_id": "RM6240.1.16"
+                "service_id": "RM6240.1a.16"
               },
               {
-                "service_id": "RM6240.1.17"
+                "service_id": "RM6240.1a.17"
               },
               {
-                "service_id": "RM6240.1.18"
+                "service_id": "RM6240.1a.18"
               },
               {
-                "service_id": "RM6240.1.19"
+                "service_id": "RM6240.1a.19"
               },
               {
-                "service_id": "RM6240.1.20"
+                "service_id": "RM6240.1a.20"
               },
               {
-                "service_id": "RM6240.1.21"
+                "service_id": "RM6240.1a.21"
               },
               {
-                "service_id": "RM6240.1.22"
+                "service_id": "RM6240.1a.22"
               },
               {
-                "service_id": "RM6240.1.23"
+                "service_id": "RM6240.1a.23"
               },
               {
-                "service_id": "RM6240.1.24"
+                "service_id": "RM6240.1a.24"
               },
               {
-                "service_id": "RM6240.1.25"
+                "service_id": "RM6240.1a.25"
               },
               {
-                "service_id": "RM6240.1.26"
+                "service_id": "RM6240.1a.26"
               },
               {
-                "service_id": "RM6240.1.27"
+                "service_id": "RM6240.1a.27"
               },
               {
-                "service_id": "RM6240.1.28"
+                "service_id": "RM6240.1a.28"
               },
               {
-                "service_id": "RM6240.1.29"
+                "service_id": "RM6240.1a.29"
               },
               {
-                "service_id": "RM6240.1.30"
+                "service_id": "RM6240.1a.30"
               },
               {
-                "service_id": "RM6240.1.31"
+                "service_id": "RM6240.1a.31"
               },
               {
-                "service_id": "RM6240.1.32"
+                "service_id": "RM6240.1a.32"
               },
               {
-                "service_id": "RM6240.1.33"
+                "service_id": "RM6240.1a.33"
               },
               {
-                "service_id": "RM6240.1.34"
+                "service_id": "RM6240.1a.34"
               },
               {
-                "service_id": "RM6240.1.35"
+                "service_id": "RM6240.1a.35"
               },
               {
-                "service_id": "RM6240.1.36"
+                "service_id": "RM6240.1a.36"
               },
               {
-                "service_id": "RM6240.1.37"
+                "service_id": "RM6240.1a.37"
               },
               {
-                "service_id": "RM6240.1.38"
+                "service_id": "RM6240.1a.38"
               },
               {
-                "service_id": "RM6240.1.39"
+                "service_id": "RM6240.1a.39"
               },
               {
-                "service_id": "RM6240.1.40"
+                "service_id": "RM6240.1a.40"
               }
             ],
             "supplier_framework_lot_rates": [
@@ -1016,57 +1015,57 @@
                 "rate": 0
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           },
           {
-            "lot_id": "RM6240.2",
-            "jurisdiction_id": "GB-EW",
+            "lot_id": "RM6240.2a",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
-                "service_id": "RM6240.2.1"
+                "service_id": "RM6240.2a.1"
               },
               {
-                "service_id": "RM6240.2.2"
+                "service_id": "RM6240.2a.2"
               },
               {
-                "service_id": "RM6240.2.3"
+                "service_id": "RM6240.2a.3"
               },
               {
-                "service_id": "RM6240.2.4"
+                "service_id": "RM6240.2a.4"
               },
               {
-                "service_id": "RM6240.2.5"
+                "service_id": "RM6240.2a.5"
               },
               {
-                "service_id": "RM6240.2.6"
+                "service_id": "RM6240.2a.6"
               },
               {
-                "service_id": "RM6240.2.7"
+                "service_id": "RM6240.2a.7"
               },
               {
-                "service_id": "RM6240.2.8"
+                "service_id": "RM6240.2a.8"
               },
               {
-                "service_id": "RM6240.2.9"
+                "service_id": "RM6240.2a.9"
               },
               {
-                "service_id": "RM6240.2.10"
+                "service_id": "RM6240.2a.10"
               },
               {
-                "service_id": "RM6240.2.11"
+                "service_id": "RM6240.2a.11"
               },
               {
-                "service_id": "RM6240.2.12"
+                "service_id": "RM6240.2a.12"
               },
               {
-                "service_id": "RM6240.2.13"
+                "service_id": "RM6240.2a.13"
               },
               {
-                "service_id": "RM6240.2.14"
+                "service_id": "RM6240.2a.14"
               },
               {
-                "service_id": "RM6240.2.15"
+                "service_id": "RM6240.2a.15"
               }
             ],
             "supplier_framework_lot_rates": [
@@ -1099,57 +1098,57 @@
                 "rate": 16500
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           },
           {
-            "lot_id": "RM6240.2",
-            "jurisdiction_id": "GB-SC",
+            "lot_id": "RM6240.2b",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
-                "service_id": "RM6240.2.1"
+                "service_id": "RM6240.2b.1"
               },
               {
-                "service_id": "RM6240.2.2"
+                "service_id": "RM6240.2b.2"
               },
               {
-                "service_id": "RM6240.2.3"
+                "service_id": "RM6240.2b.3"
               },
               {
-                "service_id": "RM6240.2.4"
+                "service_id": "RM6240.2b.4"
               },
               {
-                "service_id": "RM6240.2.5"
+                "service_id": "RM6240.2b.5"
               },
               {
-                "service_id": "RM6240.2.6"
+                "service_id": "RM6240.2b.6"
               },
               {
-                "service_id": "RM6240.2.7"
+                "service_id": "RM6240.2b.7"
               },
               {
-                "service_id": "RM6240.2.8"
+                "service_id": "RM6240.2b.8"
               },
               {
-                "service_id": "RM6240.2.9"
+                "service_id": "RM6240.2b.9"
               },
               {
-                "service_id": "RM6240.2.10"
+                "service_id": "RM6240.2b.10"
               },
               {
-                "service_id": "RM6240.2.11"
+                "service_id": "RM6240.2b.11"
               },
               {
-                "service_id": "RM6240.2.12"
+                "service_id": "RM6240.2b.12"
               },
               {
-                "service_id": "RM6240.2.13"
+                "service_id": "RM6240.2b.13"
               },
               {
-                "service_id": "RM6240.2.14"
+                "service_id": "RM6240.2b.14"
               },
               {
-                "service_id": "RM6240.2.15"
+                "service_id": "RM6240.2b.15"
               }
             ],
             "supplier_framework_lot_rates": [
@@ -1182,7 +1181,8 @@
                 "rate": 0
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           }
         ]
       }
@@ -1210,54 +1210,53 @@
         },
         "supplier_framework_lots": [
           {
-            "lot_id": "RM6240.2",
-            "jurisdiction_id": "GB-SC",
+            "lot_id": "RM6240.2b",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
-                "service_id": "RM6240.2.1"
+                "service_id": "RM6240.2b.1"
               },
               {
-                "service_id": "RM6240.2.2"
+                "service_id": "RM6240.2b.2"
               },
               {
-                "service_id": "RM6240.2.3"
+                "service_id": "RM6240.2b.3"
               },
               {
-                "service_id": "RM6240.2.4"
+                "service_id": "RM6240.2b.4"
               },
               {
-                "service_id": "RM6240.2.5"
+                "service_id": "RM6240.2b.5"
               },
               {
-                "service_id": "RM6240.2.6"
+                "service_id": "RM6240.2b.6"
               },
               {
-                "service_id": "RM6240.2.7"
+                "service_id": "RM6240.2b.7"
               },
               {
-                "service_id": "RM6240.2.8"
+                "service_id": "RM6240.2b.8"
               },
               {
-                "service_id": "RM6240.2.9"
+                "service_id": "RM6240.2b.9"
               },
               {
-                "service_id": "RM6240.2.10"
+                "service_id": "RM6240.2b.10"
               },
               {
-                "service_id": "RM6240.2.11"
+                "service_id": "RM6240.2b.11"
               },
               {
-                "service_id": "RM6240.2.12"
+                "service_id": "RM6240.2b.12"
               },
               {
-                "service_id": "RM6240.2.13"
+                "service_id": "RM6240.2b.13"
               },
               {
-                "service_id": "RM6240.2.14"
+                "service_id": "RM6240.2b.14"
               },
               {
-                "service_id": "RM6240.2.15"
+                "service_id": "RM6240.2b.15"
               }
             ],
             "supplier_framework_lot_rates": [
@@ -1290,57 +1289,57 @@
                 "rate": 0
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           },
           {
-            "lot_id": "RM6240.2",
-            "jurisdiction_id": "GB-NI",
+            "lot_id": "RM6240.2c",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
-                "service_id": "RM6240.2.1"
+                "service_id": "RM6240.2c.1"
               },
               {
-                "service_id": "RM6240.2.2"
+                "service_id": "RM6240.2c.2"
               },
               {
-                "service_id": "RM6240.2.3"
+                "service_id": "RM6240.2c.3"
               },
               {
-                "service_id": "RM6240.2.4"
+                "service_id": "RM6240.2c.4"
               },
               {
-                "service_id": "RM6240.2.5"
+                "service_id": "RM6240.2c.5"
               },
               {
-                "service_id": "RM6240.2.6"
+                "service_id": "RM6240.2c.6"
               },
               {
-                "service_id": "RM6240.2.7"
+                "service_id": "RM6240.2c.7"
               },
               {
-                "service_id": "RM6240.2.8"
+                "service_id": "RM6240.2c.8"
               },
               {
-                "service_id": "RM6240.2.9"
+                "service_id": "RM6240.2c.9"
               },
               {
-                "service_id": "RM6240.2.10"
+                "service_id": "RM6240.2c.10"
               },
               {
-                "service_id": "RM6240.2.11"
+                "service_id": "RM6240.2c.11"
               },
               {
-                "service_id": "RM6240.2.12"
+                "service_id": "RM6240.2c.12"
               },
               {
-                "service_id": "RM6240.2.13"
+                "service_id": "RM6240.2c.13"
               },
               {
-                "service_id": "RM6240.2.14"
+                "service_id": "RM6240.2c.14"
               },
               {
-                "service_id": "RM6240.2.15"
+                "service_id": "RM6240.2c.15"
               }
             ],
             "supplier_framework_lot_rates": [
@@ -1373,7 +1372,8 @@
                 "rate": 19250
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           }
         ]
       }
@@ -1401,54 +1401,53 @@
         },
         "supplier_framework_lots": [
           {
-            "lot_id": "RM6240.2",
-            "jurisdiction_id": "GB-NI",
+            "lot_id": "RM6240.2c",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
-                "service_id": "RM6240.2.1"
+                "service_id": "RM6240.2c.1"
               },
               {
-                "service_id": "RM6240.2.2"
+                "service_id": "RM6240.2c.2"
               },
               {
-                "service_id": "RM6240.2.3"
+                "service_id": "RM6240.2c.3"
               },
               {
-                "service_id": "RM6240.2.4"
+                "service_id": "RM6240.2c.4"
               },
               {
-                "service_id": "RM6240.2.5"
+                "service_id": "RM6240.2c.5"
               },
               {
-                "service_id": "RM6240.2.6"
+                "service_id": "RM6240.2c.6"
               },
               {
-                "service_id": "RM6240.2.7"
+                "service_id": "RM6240.2c.7"
               },
               {
-                "service_id": "RM6240.2.8"
+                "service_id": "RM6240.2c.8"
               },
               {
-                "service_id": "RM6240.2.9"
+                "service_id": "RM6240.2c.9"
               },
               {
-                "service_id": "RM6240.2.10"
+                "service_id": "RM6240.2c.10"
               },
               {
-                "service_id": "RM6240.2.11"
+                "service_id": "RM6240.2c.11"
               },
               {
-                "service_id": "RM6240.2.12"
+                "service_id": "RM6240.2c.12"
               },
               {
-                "service_id": "RM6240.2.13"
+                "service_id": "RM6240.2c.13"
               },
               {
-                "service_id": "RM6240.2.14"
+                "service_id": "RM6240.2c.14"
               },
               {
-                "service_id": "RM6240.2.15"
+                "service_id": "RM6240.2c.15"
               }
             ],
             "supplier_framework_lot_rates": [
@@ -1481,57 +1480,57 @@
                 "rate": 16500
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           },
           {
-            "lot_id": "RM6240.2",
-            "jurisdiction_id": "GB-EW",
+            "lot_id": "RM6240.2a",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
-                "service_id": "RM6240.2.1"
+                "service_id": "RM6240.2a.1"
               },
               {
-                "service_id": "RM6240.2.2"
+                "service_id": "RM6240.2a.2"
               },
               {
-                "service_id": "RM6240.2.3"
+                "service_id": "RM6240.2a.3"
               },
               {
-                "service_id": "RM6240.2.4"
+                "service_id": "RM6240.2a.4"
               },
               {
-                "service_id": "RM6240.2.5"
+                "service_id": "RM6240.2a.5"
               },
               {
-                "service_id": "RM6240.2.6"
+                "service_id": "RM6240.2a.6"
               },
               {
-                "service_id": "RM6240.2.7"
+                "service_id": "RM6240.2a.7"
               },
               {
-                "service_id": "RM6240.2.8"
+                "service_id": "RM6240.2a.8"
               },
               {
-                "service_id": "RM6240.2.9"
+                "service_id": "RM6240.2a.9"
               },
               {
-                "service_id": "RM6240.2.10"
+                "service_id": "RM6240.2a.10"
               },
               {
-                "service_id": "RM6240.2.11"
+                "service_id": "RM6240.2a.11"
               },
               {
-                "service_id": "RM6240.2.12"
+                "service_id": "RM6240.2a.12"
               },
               {
-                "service_id": "RM6240.2.13"
+                "service_id": "RM6240.2a.13"
               },
               {
-                "service_id": "RM6240.2.14"
+                "service_id": "RM6240.2a.14"
               },
               {
-                "service_id": "RM6240.2.15"
+                "service_id": "RM6240.2a.15"
               }
             ],
             "supplier_framework_lot_rates": [
@@ -1564,7 +1563,8 @@
                 "rate": 19250
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           }
         ]
       }
@@ -1592,69 +1592,68 @@
         },
         "supplier_framework_lots": [
           {
-            "lot_id": "RM6240.1",
-            "jurisdiction_id": "GB-EW",
+            "lot_id": "RM6240.1a",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
-                "service_id": "RM6240.1.1"
+                "service_id": "RM6240.1a.1"
               },
               {
-                "service_id": "RM6240.1.10"
+                "service_id": "RM6240.1a.10"
               },
               {
-                "service_id": "RM6240.1.13"
+                "service_id": "RM6240.1a.13"
               },
               {
-                "service_id": "RM6240.1.14"
+                "service_id": "RM6240.1a.14"
               },
               {
-                "service_id": "RM6240.1.15"
+                "service_id": "RM6240.1a.15"
               },
               {
-                "service_id": "RM6240.1.18"
+                "service_id": "RM6240.1a.18"
               },
               {
-                "service_id": "RM6240.1.22"
+                "service_id": "RM6240.1a.22"
               },
               {
-                "service_id": "RM6240.1.24"
+                "service_id": "RM6240.1a.24"
               },
               {
-                "service_id": "RM6240.1.26"
+                "service_id": "RM6240.1a.26"
               },
               {
-                "service_id": "RM6240.1.28"
+                "service_id": "RM6240.1a.28"
               },
               {
-                "service_id": "RM6240.1.29"
+                "service_id": "RM6240.1a.29"
               },
               {
-                "service_id": "RM6240.1.31"
+                "service_id": "RM6240.1a.31"
               },
               {
-                "service_id": "RM6240.1.33"
+                "service_id": "RM6240.1a.33"
               },
               {
-                "service_id": "RM6240.1.34"
+                "service_id": "RM6240.1a.34"
               },
               {
-                "service_id": "RM6240.1.35"
+                "service_id": "RM6240.1a.35"
               },
               {
-                "service_id": "RM6240.1.39"
+                "service_id": "RM6240.1a.39"
               },
               {
-                "service_id": "RM6240.1.40"
+                "service_id": "RM6240.1a.40"
               },
               {
-                "service_id": "RM6240.1.5"
+                "service_id": "RM6240.1a.5"
               },
               {
-                "service_id": "RM6240.1.6"
+                "service_id": "RM6240.1a.6"
               },
               {
-                "service_id": "RM6240.1.8"
+                "service_id": "RM6240.1a.8"
               }
             ],
             "supplier_framework_lot_rates": [
@@ -1687,72 +1686,72 @@
                 "rate": 0
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           },
           {
-            "lot_id": "RM6240.1",
-            "jurisdiction_id": "GB-SC",
+            "lot_id": "RM6240.1b",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
-                "service_id": "RM6240.1.1"
+                "service_id": "RM6240.1b.1"
               },
               {
-                "service_id": "RM6240.1.10"
+                "service_id": "RM6240.1b.10"
               },
               {
-                "service_id": "RM6240.1.13"
+                "service_id": "RM6240.1b.13"
               },
               {
-                "service_id": "RM6240.1.14"
+                "service_id": "RM6240.1b.14"
               },
               {
-                "service_id": "RM6240.1.15"
+                "service_id": "RM6240.1b.15"
               },
               {
-                "service_id": "RM6240.1.18"
+                "service_id": "RM6240.1b.18"
               },
               {
-                "service_id": "RM6240.1.22"
+                "service_id": "RM6240.1b.22"
               },
               {
-                "service_id": "RM6240.1.24"
+                "service_id": "RM6240.1b.24"
               },
               {
-                "service_id": "RM6240.1.26"
+                "service_id": "RM6240.1b.26"
               },
               {
-                "service_id": "RM6240.1.28"
+                "service_id": "RM6240.1b.28"
               },
               {
-                "service_id": "RM6240.1.29"
+                "service_id": "RM6240.1b.29"
               },
               {
-                "service_id": "RM6240.1.31"
+                "service_id": "RM6240.1b.31"
               },
               {
-                "service_id": "RM6240.1.33"
+                "service_id": "RM6240.1b.33"
               },
               {
-                "service_id": "RM6240.1.34"
+                "service_id": "RM6240.1b.34"
               },
               {
-                "service_id": "RM6240.1.35"
+                "service_id": "RM6240.1b.35"
               },
               {
-                "service_id": "RM6240.1.39"
+                "service_id": "RM6240.1b.39"
               },
               {
-                "service_id": "RM6240.1.40"
+                "service_id": "RM6240.1b.40"
               },
               {
-                "service_id": "RM6240.1.5"
+                "service_id": "RM6240.1b.5"
               },
               {
-                "service_id": "RM6240.1.6"
+                "service_id": "RM6240.1b.6"
               },
               {
-                "service_id": "RM6240.1.8"
+                "service_id": "RM6240.1b.8"
               }
             ],
             "supplier_framework_lot_rates": [
@@ -1785,7 +1784,8 @@
                 "rate": 0
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           }
         ]
       }
@@ -1813,66 +1813,65 @@
         },
         "supplier_framework_lots": [
           {
-            "lot_id": "RM6240.1",
-            "jurisdiction_id": "GB-SC",
+            "lot_id": "RM6240.1b",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
-                "service_id": "RM6240.1.10"
+                "service_id": "RM6240.1b.10"
               },
               {
-                "service_id": "RM6240.1.14"
+                "service_id": "RM6240.1b.14"
               },
               {
-                "service_id": "RM6240.1.15"
+                "service_id": "RM6240.1b.15"
               },
               {
-                "service_id": "RM6240.1.16"
+                "service_id": "RM6240.1b.16"
               },
               {
-                "service_id": "RM6240.1.17"
+                "service_id": "RM6240.1b.17"
               },
               {
-                "service_id": "RM6240.1.18"
+                "service_id": "RM6240.1b.18"
               },
               {
-                "service_id": "RM6240.1.2"
+                "service_id": "RM6240.1b.2"
               },
               {
-                "service_id": "RM6240.1.20"
+                "service_id": "RM6240.1b.20"
               },
               {
-                "service_id": "RM6240.1.21"
+                "service_id": "RM6240.1b.21"
               },
               {
-                "service_id": "RM6240.1.23"
+                "service_id": "RM6240.1b.23"
               },
               {
-                "service_id": "RM6240.1.26"
+                "service_id": "RM6240.1b.26"
               },
               {
-                "service_id": "RM6240.1.3"
+                "service_id": "RM6240.1b.3"
               },
               {
-                "service_id": "RM6240.1.34"
+                "service_id": "RM6240.1b.34"
               },
               {
-                "service_id": "RM6240.1.36"
+                "service_id": "RM6240.1b.36"
               },
               {
-                "service_id": "RM6240.1.38"
+                "service_id": "RM6240.1b.38"
               },
               {
-                "service_id": "RM6240.1.4"
+                "service_id": "RM6240.1b.4"
               },
               {
-                "service_id": "RM6240.1.7"
+                "service_id": "RM6240.1b.7"
               },
               {
-                "service_id": "RM6240.1.8"
+                "service_id": "RM6240.1b.8"
               },
               {
-                "service_id": "RM6240.1.9"
+                "service_id": "RM6240.1b.9"
               }
             ],
             "supplier_framework_lot_rates": [
@@ -1905,69 +1904,69 @@
                 "rate": 13750
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           },
           {
-            "lot_id": "RM6240.1",
-            "jurisdiction_id": "GB-NI",
+            "lot_id": "RM6240.1c",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
-                "service_id": "RM6240.1.10"
+                "service_id": "RM6240.1c.10"
               },
               {
-                "service_id": "RM6240.1.14"
+                "service_id": "RM6240.1c.14"
               },
               {
-                "service_id": "RM6240.1.15"
+                "service_id": "RM6240.1c.15"
               },
               {
-                "service_id": "RM6240.1.16"
+                "service_id": "RM6240.1c.16"
               },
               {
-                "service_id": "RM6240.1.17"
+                "service_id": "RM6240.1c.17"
               },
               {
-                "service_id": "RM6240.1.18"
+                "service_id": "RM6240.1c.18"
               },
               {
-                "service_id": "RM6240.1.2"
+                "service_id": "RM6240.1c.2"
               },
               {
-                "service_id": "RM6240.1.20"
+                "service_id": "RM6240.1c.20"
               },
               {
-                "service_id": "RM6240.1.21"
+                "service_id": "RM6240.1c.21"
               },
               {
-                "service_id": "RM6240.1.23"
+                "service_id": "RM6240.1c.23"
               },
               {
-                "service_id": "RM6240.1.26"
+                "service_id": "RM6240.1c.26"
               },
               {
-                "service_id": "RM6240.1.3"
+                "service_id": "RM6240.1c.3"
               },
               {
-                "service_id": "RM6240.1.34"
+                "service_id": "RM6240.1c.34"
               },
               {
-                "service_id": "RM6240.1.36"
+                "service_id": "RM6240.1c.36"
               },
               {
-                "service_id": "RM6240.1.38"
+                "service_id": "RM6240.1c.38"
               },
               {
-                "service_id": "RM6240.1.4"
+                "service_id": "RM6240.1c.4"
               },
               {
-                "service_id": "RM6240.1.7"
+                "service_id": "RM6240.1c.7"
               },
               {
-                "service_id": "RM6240.1.8"
+                "service_id": "RM6240.1c.8"
               },
               {
-                "service_id": "RM6240.1.9"
+                "service_id": "RM6240.1c.9"
               }
             ],
             "supplier_framework_lot_rates": [
@@ -2000,7 +1999,8 @@
                 "rate": 19250
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           }
         ]
       }
@@ -2028,108 +2028,107 @@
         },
         "supplier_framework_lots": [
           {
-            "lot_id": "RM6240.1",
-            "jurisdiction_id": "GB-NI",
+            "lot_id": "RM6240.1c",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
-                "service_id": "RM6240.1.11"
+                "service_id": "RM6240.1c.11"
               },
               {
-                "service_id": "RM6240.1.12"
+                "service_id": "RM6240.1c.12"
               },
               {
-                "service_id": "RM6240.1.13"
+                "service_id": "RM6240.1c.13"
               },
               {
-                "service_id": "RM6240.1.14"
+                "service_id": "RM6240.1c.14"
               },
               {
-                "service_id": "RM6240.1.16"
+                "service_id": "RM6240.1c.16"
               },
               {
-                "service_id": "RM6240.1.17"
+                "service_id": "RM6240.1c.17"
               },
               {
-                "service_id": "RM6240.1.18"
+                "service_id": "RM6240.1c.18"
               },
               {
-                "service_id": "RM6240.1.2"
+                "service_id": "RM6240.1c.2"
               },
               {
-                "service_id": "RM6240.1.21"
+                "service_id": "RM6240.1c.21"
               },
               {
-                "service_id": "RM6240.1.22"
+                "service_id": "RM6240.1c.22"
               },
               {
-                "service_id": "RM6240.1.24"
+                "service_id": "RM6240.1c.24"
               },
               {
-                "service_id": "RM6240.1.25"
+                "service_id": "RM6240.1c.25"
               },
               {
-                "service_id": "RM6240.1.26"
+                "service_id": "RM6240.1c.26"
               },
               {
-                "service_id": "RM6240.1.27"
+                "service_id": "RM6240.1c.27"
               },
               {
-                "service_id": "RM6240.1.28"
+                "service_id": "RM6240.1c.28"
               },
               {
-                "service_id": "RM6240.1.29"
+                "service_id": "RM6240.1c.29"
               },
               {
-                "service_id": "RM6240.1.3"
+                "service_id": "RM6240.1c.3"
               },
               {
-                "service_id": "RM6240.1.30"
+                "service_id": "RM6240.1c.30"
               },
               {
-                "service_id": "RM6240.1.31"
+                "service_id": "RM6240.1c.31"
               },
               {
-                "service_id": "RM6240.1.32"
+                "service_id": "RM6240.1c.32"
               },
               {
-                "service_id": "RM6240.1.33"
+                "service_id": "RM6240.1c.33"
               },
               {
-                "service_id": "RM6240.1.34"
+                "service_id": "RM6240.1c.34"
               },
               {
-                "service_id": "RM6240.1.35"
+                "service_id": "RM6240.1c.35"
               },
               {
-                "service_id": "RM6240.1.36"
+                "service_id": "RM6240.1c.36"
               },
               {
-                "service_id": "RM6240.1.37"
+                "service_id": "RM6240.1c.37"
               },
               {
-                "service_id": "RM6240.1.38"
+                "service_id": "RM6240.1c.38"
               },
               {
-                "service_id": "RM6240.1.39"
+                "service_id": "RM6240.1c.39"
               },
               {
-                "service_id": "RM6240.1.4"
+                "service_id": "RM6240.1c.4"
               },
               {
-                "service_id": "RM6240.1.5"
+                "service_id": "RM6240.1c.5"
               },
               {
-                "service_id": "RM6240.1.6"
+                "service_id": "RM6240.1c.6"
               },
               {
-                "service_id": "RM6240.1.7"
+                "service_id": "RM6240.1c.7"
               },
               {
-                "service_id": "RM6240.1.8"
+                "service_id": "RM6240.1c.8"
               },
               {
-                "service_id": "RM6240.1.9"
+                "service_id": "RM6240.1c.9"
               }
             ],
             "supplier_framework_lot_rates": [
@@ -2162,111 +2161,111 @@
                 "rate": 13750
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           },
           {
-            "lot_id": "RM6240.1",
-            "jurisdiction_id": "GB-EW",
+            "lot_id": "RM6240.1a",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
-                "service_id": "RM6240.1.11"
+                "service_id": "RM6240.1a.11"
               },
               {
-                "service_id": "RM6240.1.12"
+                "service_id": "RM6240.1a.12"
               },
               {
-                "service_id": "RM6240.1.13"
+                "service_id": "RM6240.1a.13"
               },
               {
-                "service_id": "RM6240.1.14"
+                "service_id": "RM6240.1a.14"
               },
               {
-                "service_id": "RM6240.1.16"
+                "service_id": "RM6240.1a.16"
               },
               {
-                "service_id": "RM6240.1.17"
+                "service_id": "RM6240.1a.17"
               },
               {
-                "service_id": "RM6240.1.18"
+                "service_id": "RM6240.1a.18"
               },
               {
-                "service_id": "RM6240.1.2"
+                "service_id": "RM6240.1a.2"
               },
               {
-                "service_id": "RM6240.1.21"
+                "service_id": "RM6240.1a.21"
               },
               {
-                "service_id": "RM6240.1.22"
+                "service_id": "RM6240.1a.22"
               },
               {
-                "service_id": "RM6240.1.24"
+                "service_id": "RM6240.1a.24"
               },
               {
-                "service_id": "RM6240.1.25"
+                "service_id": "RM6240.1a.25"
               },
               {
-                "service_id": "RM6240.1.26"
+                "service_id": "RM6240.1a.26"
               },
               {
-                "service_id": "RM6240.1.27"
+                "service_id": "RM6240.1a.27"
               },
               {
-                "service_id": "RM6240.1.28"
+                "service_id": "RM6240.1a.28"
               },
               {
-                "service_id": "RM6240.1.29"
+                "service_id": "RM6240.1a.29"
               },
               {
-                "service_id": "RM6240.1.3"
+                "service_id": "RM6240.1a.3"
               },
               {
-                "service_id": "RM6240.1.30"
+                "service_id": "RM6240.1a.30"
               },
               {
-                "service_id": "RM6240.1.31"
+                "service_id": "RM6240.1a.31"
               },
               {
-                "service_id": "RM6240.1.32"
+                "service_id": "RM6240.1a.32"
               },
               {
-                "service_id": "RM6240.1.33"
+                "service_id": "RM6240.1a.33"
               },
               {
-                "service_id": "RM6240.1.34"
+                "service_id": "RM6240.1a.34"
               },
               {
-                "service_id": "RM6240.1.35"
+                "service_id": "RM6240.1a.35"
               },
               {
-                "service_id": "RM6240.1.36"
+                "service_id": "RM6240.1a.36"
               },
               {
-                "service_id": "RM6240.1.37"
+                "service_id": "RM6240.1a.37"
               },
               {
-                "service_id": "RM6240.1.38"
+                "service_id": "RM6240.1a.38"
               },
               {
-                "service_id": "RM6240.1.39"
+                "service_id": "RM6240.1a.39"
               },
               {
-                "service_id": "RM6240.1.4"
+                "service_id": "RM6240.1a.4"
               },
               {
-                "service_id": "RM6240.1.5"
+                "service_id": "RM6240.1a.5"
               },
               {
-                "service_id": "RM6240.1.6"
+                "service_id": "RM6240.1a.6"
               },
               {
-                "service_id": "RM6240.1.7"
+                "service_id": "RM6240.1a.7"
               },
               {
-                "service_id": "RM6240.1.8"
+                "service_id": "RM6240.1a.8"
               },
               {
-                "service_id": "RM6240.1.9"
+                "service_id": "RM6240.1a.9"
               }
             ],
             "supplier_framework_lot_rates": [
@@ -2299,11 +2298,11 @@
                 "rate": 19250
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           },
           {
             "lot_id": "RM6240.3",
-            "jurisdiction_id": "GB",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
@@ -2340,7 +2339,8 @@
                 "rate": 19250
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           }
         ]
       }
@@ -2369,7 +2369,6 @@
         "supplier_framework_lots": [
           {
             "lot_id": "RM6240.3",
-            "jurisdiction_id": "GB",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
@@ -2406,7 +2405,8 @@
                 "rate": 16500
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           }
         ]
       }
@@ -2434,30 +2434,29 @@
         },
         "supplier_framework_lots": [
           {
-            "lot_id": "RM6240.2",
-            "jurisdiction_id": "GB-EW",
+            "lot_id": "RM6240.2a",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
-                "service_id": "RM6240.2.1"
+                "service_id": "RM6240.2a.1"
               },
               {
-                "service_id": "RM6240.2.10"
+                "service_id": "RM6240.2a.10"
               },
               {
-                "service_id": "RM6240.2.12"
+                "service_id": "RM6240.2a.12"
               },
               {
-                "service_id": "RM6240.2.13"
+                "service_id": "RM6240.2a.13"
               },
               {
-                "service_id": "RM6240.2.4"
+                "service_id": "RM6240.2a.4"
               },
               {
-                "service_id": "RM6240.2.8"
+                "service_id": "RM6240.2a.8"
               },
               {
-                "service_id": "RM6240.2.9"
+                "service_id": "RM6240.2a.9"
               }
             ],
             "supplier_framework_lot_rates": [
@@ -2490,33 +2489,33 @@
                 "rate": 16500
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           },
           {
-            "lot_id": "RM6240.2",
-            "jurisdiction_id": "GB-SC",
+            "lot_id": "RM6240.2b",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
-                "service_id": "RM6240.2.1"
+                "service_id": "RM6240.2b.1"
               },
               {
-                "service_id": "RM6240.2.10"
+                "service_id": "RM6240.2b.10"
               },
               {
-                "service_id": "RM6240.2.12"
+                "service_id": "RM6240.2b.12"
               },
               {
-                "service_id": "RM6240.2.13"
+                "service_id": "RM6240.2b.13"
               },
               {
-                "service_id": "RM6240.2.4"
+                "service_id": "RM6240.2b.4"
               },
               {
-                "service_id": "RM6240.2.8"
+                "service_id": "RM6240.2b.8"
               },
               {
-                "service_id": "RM6240.2.9"
+                "service_id": "RM6240.2b.9"
               }
             ],
             "supplier_framework_lot_rates": [
@@ -2549,11 +2548,11 @@
                 "rate": 13750
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           },
           {
             "lot_id": "RM6240.3",
-            "jurisdiction_id": "GB",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
@@ -2590,7 +2589,8 @@
                 "rate": 13750
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           }
         ]
       }
@@ -2618,27 +2618,26 @@
         },
         "supplier_framework_lots": [
           {
-            "lot_id": "RM6240.2",
-            "jurisdiction_id": "GB-SC",
+            "lot_id": "RM6240.2b",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
-                "service_id": "RM6240.2.12"
+                "service_id": "RM6240.2b.12"
               },
               {
-                "service_id": "RM6240.2.13"
+                "service_id": "RM6240.2b.13"
               },
               {
-                "service_id": "RM6240.2.14"
+                "service_id": "RM6240.2b.14"
               },
               {
-                "service_id": "RM6240.2.15"
+                "service_id": "RM6240.2b.15"
               },
               {
-                "service_id": "RM6240.2.2"
+                "service_id": "RM6240.2b.2"
               },
               {
-                "service_id": "RM6240.2.7"
+                "service_id": "RM6240.2b.7"
               }
             ],
             "supplier_framework_lot_rates": [
@@ -2671,30 +2670,30 @@
                 "rate": 16500
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           },
           {
-            "lot_id": "RM6240.2",
-            "jurisdiction_id": "GB-NI",
+            "lot_id": "RM6240.2c",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
-                "service_id": "RM6240.2.12"
+                "service_id": "RM6240.2c.12"
               },
               {
-                "service_id": "RM6240.2.13"
+                "service_id": "RM6240.2c.13"
               },
               {
-                "service_id": "RM6240.2.14"
+                "service_id": "RM6240.2c.14"
               },
               {
-                "service_id": "RM6240.2.15"
+                "service_id": "RM6240.2c.15"
               },
               {
-                "service_id": "RM6240.2.2"
+                "service_id": "RM6240.2c.2"
               },
               {
-                "service_id": "RM6240.2.7"
+                "service_id": "RM6240.2c.7"
               }
             ],
             "supplier_framework_lot_rates": [
@@ -2727,11 +2726,11 @@
                 "rate": 13750
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           },
           {
             "lot_id": "RM6240.3",
-            "jurisdiction_id": "GB",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
@@ -2768,7 +2767,8 @@
                 "rate": 19250
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           }
         ]
       }
@@ -2797,7 +2797,6 @@
         "supplier_framework_lots": [
           {
             "lot_id": "RM6240.3",
-            "jurisdiction_id": "GB",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
@@ -2834,7 +2833,8 @@
                 "rate": 19250
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           }
         ]
       }
@@ -2863,7 +2863,6 @@
         "supplier_framework_lots": [
           {
             "lot_id": "RM6240.3",
-            "jurisdiction_id": "GB",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
@@ -2900,7 +2899,8 @@
                 "rate": 13750
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           }
         ]
       }
@@ -2929,7 +2929,6 @@
         "supplier_framework_lots": [
           {
             "lot_id": "RM6240.3",
-            "jurisdiction_id": "GB",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
@@ -2966,7 +2965,8 @@
                 "rate": 0
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           }
         ]
       }
@@ -2995,7 +2995,6 @@
         "supplier_framework_lots": [
           {
             "lot_id": "RM6240.3",
-            "jurisdiction_id": "GB",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
@@ -3032,7 +3031,8 @@
                 "rate": 13750
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           }
         ]
       }

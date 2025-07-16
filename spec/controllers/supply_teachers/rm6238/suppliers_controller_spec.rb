@@ -73,8 +73,8 @@ RSpec.describe SupplyTeachers::RM6238::SuppliersController do
     let(:supplier_framework_2) { create(:supplier_framework, framework_id: 'RM6238') }
 
     before do
-      create(:supplier_framework_lot, supplier_framework: supplier_framework_1, lot_id: lot_id, jurisdiction_id: 'GB')
-      create(:supplier_framework_lot, supplier_framework: supplier_framework_2, lot_id: lot_id, jurisdiction_id: 'GB')
+      create(:supplier_framework_lot, supplier_framework: supplier_framework_1, lot_id: lot_id)
+      create(:supplier_framework_lot, supplier_framework: supplier_framework_2, lot_id: lot_id)
 
       get :all_suppliers, params: {
         journey: 'supply-teachers',
@@ -128,8 +128,8 @@ RSpec.describe SupplyTeachers::RM6238::SuppliersController do
     let(:paginated_supplier_names) { assigns(:supplier_frameworks).map(&:supplier_name) }
 
     before do
-      create(:supplier_framework_lot, supplier_framework: supplier_framework_1, lot_id: lot_id, jurisdiction_id: 'GB')
-      create(:supplier_framework_lot, supplier_framework: supplier_framework_2, lot_id: lot_id, jurisdiction_id: 'GB')
+      create(:supplier_framework_lot, supplier_framework: supplier_framework_1, lot_id: lot_id)
+      create(:supplier_framework_lot, supplier_framework: supplier_framework_2, lot_id: lot_id)
 
       post :search_all_suppliers, params: { agency_name: }
     end

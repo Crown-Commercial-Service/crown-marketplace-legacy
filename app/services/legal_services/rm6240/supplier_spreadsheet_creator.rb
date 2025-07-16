@@ -3,8 +3,8 @@ class LegalServices::RM6240::SupplierSpreadsheetCreator < LegalServices::Supplie
 
   def add_audit_trail(audit_sheet)
     audit_sheet.add_row ['Central Government user?', @params['central_government'] || 'no']
-    lot = Lot.find(@params['lot_id'])
-    audit_sheet.add_row ['Lot', "#{lot.number} - #{lot.name}"]
+    lot = Lot.find("RM6240.#{@params['lot_number']}#{@params['jurisdiction']}")
+    audit_sheet.add_row ['Lot', "#{lot.number[0]} - #{lot.name}"]
 
     return if lot.id == 'RM6240.3'
 

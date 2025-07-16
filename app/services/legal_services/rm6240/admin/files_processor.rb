@@ -73,7 +73,6 @@ class LegalServices::RM6240::Admin::FilesProcessor < FilesProcessor
     end
   end
 
-  # rubocop:disable Metrics/AbcSize
   def add_services(supplier, service_codes, jurisdiction, column)
     supplier_framework_lots_data = supplier[:supplier_frameworks][0][:supplier_framework_lots_data]
 
@@ -82,16 +81,15 @@ class LegalServices::RM6240::Admin::FilesProcessor < FilesProcessor
 
       next if service_codes[index].nil?
 
-      lot_id = "RM6240.#{service_codes[index].split('.').first}"
-      service_id = "RM6240.#{service_codes[index]}"
-      jurisdiction_id = JURISDICTION_LETTER_TO_ID[jurisdiction]
+      lot_number, service_number = service_codes[index].split('.')
 
-      supplier_framework_lots_data[lot_id] ||= { jurisdiction: {} }
-      supplier_framework_lots_data[lot_id][:jurisdiction][jurisdiction_id] ||= { services: [], rates: [] }
-      supplier_framework_lots_data[lot_id][:jurisdiction][jurisdiction_id][:services] << { service_id: }
+      lot_id = "RM6240.#{lot_number}#{jurisdiction}"
+      service_id = "#{lot_id}.#{service_number}"
+
+      supplier_framework_lots_data[lot_id] ||= { services: [], rates: [], jurisdictions: [], branches: [] }
+      supplier_framework_lots_data[lot_id][:services] << { service_id: }
     end
   end
-  # rubocop:enable Metrics/AbcSize
 
   def add_rate_cards_to_suppliers(rate_cards_workbook)
     7.times do |sheet_number|
@@ -110,13 +108,11 @@ class LegalServices::RM6240::Admin::FilesProcessor < FilesProcessor
 
   def add_rates(supplier, row, sheet_number)
     supplier_framework_lots_data = supplier[:supplier_frameworks][0][:supplier_framework_lots_data]
-    lot_id = "RM6240.#{LOT_NUMBERS[sheet_number][0]}"
-    jurisdiction_id = JURISDICTION_LETTER_TO_ID[LOT_NUMBERS[sheet_number][1]]
+    lot_id = "RM6240.#{LOT_NUMBERS[sheet_number]}"
 
     row[2..].each.with_index(1) do |rate, position_id|
-      supplier_framework_lots_data[lot_id] ||= { jurisdiction: {} }
-      supplier_framework_lots_data[lot_id][:jurisdiction][jurisdiction_id] ||= { services: [], rates: [] }
-      supplier_framework_lots_data[lot_id][:jurisdiction][jurisdiction_id][:rates] << {
+      supplier_framework_lots_data[lot_id] ||= { services: [], rates: [], jurisdictions: [], branches: [] }
+      supplier_framework_lots_data[lot_id][:rates] << {
         position_id: position_id,
         rate: convert_rate_to_pence(rate),
       }
@@ -128,7 +124,6 @@ class LegalServices::RM6240::Admin::FilesProcessor < FilesProcessor
   end
 
   LOT_NUMBERS = ['1a', '1b', '1c', '2a', '2b', '2c', '3'].freeze
-  JURISDICTION_LETTER_TO_ID = { 'a' => 'GB-EW', 'b' => 'GB-SC', 'c' => 'GB-NI', nil => 'GB' }.freeze
 
   PROCESS_FILES_AND_METHODS = {
     supplier_details_file: :add_suppliers,

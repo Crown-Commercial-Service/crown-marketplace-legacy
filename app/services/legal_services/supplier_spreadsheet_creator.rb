@@ -23,7 +23,12 @@ class LegalServices::SupplierSpreadsheetCreator < SupplierSpreadsheetCreator
   end
 
   def add_jurisdiction(sheet)
-    jurisdictions = { 'GB-EW' => 'England & Wales', 'GB-SC' => 'Scotland', 'GB-NI' => 'Northern Ireland' }
-    sheet.add_row ['Jurisdiction', jurisdictions[@params['jurisdiction_id']]]
+    jurisdictions = { 'a' => 'England & Wales', 'b' => 'Scotland', 'c' => 'Northern Ireland' }
+    sheet.add_row ['Jurisdiction', jurisdictions[@params['jurisdiction']]]
+  end
+
+  def add_services(sheet)
+    services = Service.where(id: @params['service_numbers'].map { |service_number| "RM6240.#{@params['lot_number']}#{@params['jurisdiction']}.#{service_number}" }).order(:id).pluck(:name)
+    sheet.add_row ['Services', services.join(', ')]
   end
 end

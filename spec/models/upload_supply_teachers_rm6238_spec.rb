@@ -119,9 +119,9 @@ RSpec.describe Upload do
           [
             {
               lot_id: 'RM6238.1',
-              jurisdiction_id: 'GB',
               enabled: true,
               supplier_framework_lot_services: [],
+              supplier_framework_lot_jurisdictions: [],
               supplier_framework_lot_rates: [
                 {
                   position_id: 41,
@@ -132,9 +132,9 @@ RSpec.describe Upload do
             },
             {
               lot_id: 'RM6238.2.1',
-              jurisdiction_id: 'GB',
               enabled: true,
               supplier_framework_lot_services: [],
+              supplier_framework_lot_jurisdictions: [],
               supplier_framework_lot_rates: [
                 {
                   position_id: 41,
@@ -163,9 +163,9 @@ RSpec.describe Upload do
           [
             {
               lot_id: 'RM6238.1',
-              jurisdiction_id: 'GB',
               enabled: true,
               supplier_framework_lot_services: [],
+              supplier_framework_lot_jurisdictions: [],
               supplier_framework_lot_rates: [],
               supplier_framework_lot_branches: [
                 {
@@ -206,7 +206,7 @@ RSpec.describe Upload do
         it 'assigns attributes to the framework lot' do
           result
 
-          expect(supplier_framework.lots.pluck(:lot_id, :jurisdiction_id)).to eq([['RM6238.1', 'GB']])
+          expect(supplier_framework.lots.pluck(:lot_id)).to eq(['RM6238.1'])
         end
 
         it 'assigns attributes to the branch' do
@@ -296,9 +296,9 @@ RSpec.describe Upload do
         [
           {
             lot_id: 'RM6238.1',
-            jurisdiction_id: 'GB',
             enabled: true,
             supplier_framework_lot_services: [],
+            supplier_framework_lot_jurisdictions: [],
             supplier_framework_lot_rates: [],
             supplier_framework_lot_branches: [
               {
@@ -337,9 +337,9 @@ RSpec.describe Upload do
         [
           {
             lot_id: 'RM6238.1',
-            jurisdiction_id: 'GB',
             enabled: true,
             supplier_framework_lot_services: [],
+            supplier_framework_lot_jurisdictions: [],
             supplier_framework_lot_rates: [
               {
                 position_id: 441,
@@ -350,9 +350,9 @@ RSpec.describe Upload do
           },
           {
             lot_id: 'RM6238.3',
-            jurisdiction_id: 'GB',
             enabled: true,
             supplier_framework_lot_services: [],
+            supplier_framework_lot_jurisdictions: [],
             supplier_framework_lot_rates: [
               {
                 position_id: 41,
@@ -383,9 +383,9 @@ RSpec.describe Upload do
       [
         {
           lot_id: 'RM6238.1',
-          jurisdiction_id: 'GB',
           enabled: true,
           supplier_framework_lot_services: [],
+          supplier_framework_lot_jurisdictions: [],
           supplier_framework_lot_rates: [
             {
               position_id: 41,
@@ -411,9 +411,9 @@ RSpec.describe Upload do
         },
         {
           lot_id: 'RM6238.2.2',
-          jurisdiction_id: 'GB',
           enabled: true,
           supplier_framework_lot_services: [],
+          supplier_framework_lot_jurisdictions: [],
           supplier_framework_lot_rates: [
             {
               position_id: 41,

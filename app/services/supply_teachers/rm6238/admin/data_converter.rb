@@ -21,17 +21,15 @@ module SupplyTeachers
 
               supplier[:supplier_frameworks][0][:supplier_framework_lots] = []
 
-              supplier_framework_lots.each do |lot_id, jurisdictions|
-                jurisdictions[:jurisdiction].each do |jurisdiction_id, supplier_framework_lot_data|
-                  supplier[:supplier_frameworks][0][:supplier_framework_lots] << {
-                    lot_id: lot_id,
-                    jurisdiction_id: jurisdiction_id,
-                    enabled: true,
-                    supplier_framework_lot_services: supplier_framework_lot_data[:services],
-                    supplier_framework_lot_rates: supplier_framework_lot_data[:rates],
-                    supplier_framework_lot_branches: supplier_framework_lot_data[:branches],
-                  }
-                end
+              supplier_framework_lots.each do |lot_id, supplier_framework_lot_data|
+                supplier[:supplier_frameworks][0][:supplier_framework_lots] << {
+                  lot_id: lot_id,
+                  enabled: true,
+                  supplier_framework_lot_services: supplier_framework_lot_data[:services],
+                  supplier_framework_lot_jurisdictions: supplier_framework_lot_data[:jurisdictions],
+                  supplier_framework_lot_rates: supplier_framework_lot_data[:rates],
+                  supplier_framework_lot_branches: supplier_framework_lot_data[:branches],
+                }
               end
 
               supplier
@@ -72,22 +70,19 @@ module SupplyTeachers
               lot_id = "RM6238.#{pricing['lot_number']}"
               position_id = JOB_TYPE_TO_POSITION_ID[pricing['job_type']][pricing['term']]
 
-              supplier_framework_lots[lot_id] ||= { jurisdiction: {} }
-              supplier_framework_lots[lot_id][:jurisdiction]['GB'] ||= { services: [], rates: [], branches: [] }
-              supplier_framework_lots[lot_id][:jurisdiction]['GB'][:rates] << {
+              supplier_framework_lots[lot_id] ||= { services: [], jurisdictions: [], rates: [], branches: [] }
+              supplier_framework_lots[lot_id][:rates] << {
                 position_id: position_id,
                 rate: pricing['fee'],
               }
             end
           end
 
-          # rubocop:disable Metrics/AbcSize
           def add_branches(supplier_framework_lots, supplier_data)
             supplier_data['branches']&.each do |branch|
               lot_id = 'RM6238.1'
-              supplier_framework_lots[lot_id] ||= { jurisdiction: {} }
-              supplier_framework_lots[lot_id][:jurisdiction]['GB'] ||= { services: [], rates: [], branches: [] }
-              supplier_framework_lots[lot_id][:jurisdiction]['GB'][:branches] << {
+              supplier_framework_lots[lot_id] ||= { services: [], jurisdictions: [], rates: [], branches: [] }
+              supplier_framework_lots[lot_id][:branches] << {
                 lat: branch['lat'],
                 lon: branch['lon'],
                 postcode: branch['postcode'],
@@ -103,8 +98,6 @@ module SupplyTeachers
               }
             end
           end
-          # rubocop:enable Metrics/AbcSize
-
           JOB_TYPE_TO_POSITION_ID = {
             'over_12_week' => {
               nil => 38

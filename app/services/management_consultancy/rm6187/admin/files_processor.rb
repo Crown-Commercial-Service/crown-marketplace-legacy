@@ -63,7 +63,6 @@ class ManagementConsultancy::RM6187::Admin::FilesProcessor < FilesProcessor
     end
   end
 
-  # rubocop:disable Metrics/AbcSize
   def add_services(supplier, service_names, column)
     supplier_framework_lots_data = supplier[:supplier_frameworks][0][:supplier_framework_lots_data]
 
@@ -79,12 +78,10 @@ class ManagementConsultancy::RM6187::Admin::FilesProcessor < FilesProcessor
       service_id = "RM6187.#{service_number_parts[1]}.#{service_number_parts[2]}"
       lot_id = "RM6187.#{service_number_parts[1]}"
 
-      supplier_framework_lots_data[lot_id] ||= { jurisdiction: {} }
-      supplier_framework_lots_data[lot_id][:jurisdiction]['GB'] ||= { services: [], rates: [] }
-      supplier_framework_lots_data[lot_id][:jurisdiction]['GB'][:services] << { service_id: }
+      supplier_framework_lots_data[lot_id] ||= { services: [], rates: [], jurisdictions: [], branches: [] }
+      supplier_framework_lots_data[lot_id][:services] << { service_id: }
     end
   end
-  # rubocop:enable Metrics/AbcSize
 
   def add_rate_cards_to_suppliers(rate_cards_workbook)
     number_of_sheets(rate_cards_workbook).times do |sheet_number|
@@ -106,9 +103,8 @@ class ManagementConsultancy::RM6187::Admin::FilesProcessor < FilesProcessor
     supplier_framework_lots_data = supplier[:supplier_frameworks][0][:supplier_framework_lots_data]
 
     row[1..6].each.with_index(8) do |rate, position_id|
-      supplier_framework_lots_data[lot_id] ||= { jurisdiction: {} }
-      supplier_framework_lots_data[lot_id][:jurisdiction]['GB'] ||= { services: [], rates: [] }
-      supplier_framework_lots_data[lot_id][:jurisdiction]['GB'][:rates] << {
+      supplier_framework_lots_data[lot_id] ||= { services: [], rates: [], jurisdictions: [], branches: [] }
+      supplier_framework_lots_data[lot_id][:rates] << {
         position_id: position_id,
         rate: convert_price(rate),
       }

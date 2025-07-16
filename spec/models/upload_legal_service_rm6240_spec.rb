@@ -81,29 +81,29 @@ RSpec.describe Upload do
         let(:supplier_framework_lots) do
           [
             {
-              lot_id: 'RM6240.1',
-              jurisdiction_id: 'GB-EW',
+              lot_id: 'RM6240.1a',
               enabled: true,
               supplier_framework_lot_services: [
                 {
-                  service_id: 'RM6240.1.1'
+                  service_id: 'RM6240.1a.1'
                 },
                 {
-                  service_id: 'RM6240.1.2'
+                  service_id: 'RM6240.1a.2'
                 }
               ],
+              supplier_framework_lot_jurisdictions: [],
               supplier_framework_lot_rates: [],
               supplier_framework_lot_branches: []
             },
             {
-              lot_id: 'RM6240.1',
-              jurisdiction_id: 'GB-SC',
+              lot_id: 'RM6240.1b',
               enabled: true,
               supplier_framework_lot_services: [
                 {
-                  service_id: 'RM6240.1.1'
+                  service_id: 'RM6240.1b.1'
                 },
               ],
+              supplier_framework_lot_jurisdictions: [],
               supplier_framework_lot_rates: [],
               supplier_framework_lot_branches: []
             }
@@ -123,13 +123,13 @@ RSpec.describe Upload do
         it 'assigns attributes to the framework lot' do
           result
 
-          expect(supplier_framework.lots.pluck(:lot_id, :jurisdiction_id)).to eq([['RM6240.1', 'GB-EW'], ['RM6240.1', 'GB-SC']])
+          expect(supplier_framework.lots.pluck(:lot_id)).to eq(['RM6240.1a', 'RM6240.1b'])
         end
 
         it 'assigns attributes to the framework lot services' do
           result
 
-          expect(supplier_framework.lots.map { |lot| lot.services.pluck(:service_id) }).to eq([['RM6240.1.1', 'RM6240.1.2'], ['RM6240.1.1']])
+          expect(supplier_framework.lots.map { |lot| lot.services.pluck(:service_id) }).to eq([['RM6240.1a.1', 'RM6240.1a.2'], ['RM6240.1b.1']])
         end
       end
 
@@ -137,10 +137,10 @@ RSpec.describe Upload do
         let(:supplier_framework_lots) do
           [
             {
-              lot_id: 'RM6240.1',
-              jurisdiction_id: 'GB-EW',
+              lot_id: 'RM6240.1a',
               enabled: true,
               supplier_framework_lot_services: [],
+              supplier_framework_lot_jurisdictions: [],
               supplier_framework_lot_rates: [
                 {
                   position_id: 1,
@@ -151,9 +151,9 @@ RSpec.describe Upload do
             },
             {
               lot_id: 'RM6240.3',
-              jurisdiction_id: 'GB',
               enabled: true,
               supplier_framework_lot_services: [],
+              supplier_framework_lot_jurisdictions: [],
               supplier_framework_lot_rates: [
                 {
                   position_id: 1,
@@ -232,29 +232,29 @@ RSpec.describe Upload do
       let(:supplier_framework_lots) do
         [
           {
-            lot_id: 'RM6240.1',
-            jurisdiction_id: 'GB-EW',
+            lot_id: 'RM6240.1a',
             enabled: true,
             supplier_framework_lot_services: [
               {
-                service_id: 'RM6240.1.1'
+                service_id: 'RM6240.1a.1'
               },
               {
                 service_id: 'invalid'
               }
             ],
+            supplier_framework_lot_jurisdictions: [],
             supplier_framework_lot_rates: [],
             supplier_framework_lot_branches: []
           },
           {
-            lot_id: 'RM6240.1',
-            jurisdiction_id: 'GB-SC',
+            lot_id: 'RM6240.1b',
             enabled: true,
             supplier_framework_lot_services: [
               {
-                service_id: 'RM6240.1.1'
+                service_id: 'RM6240.1b.1'
               },
             ],
+            supplier_framework_lot_jurisdictions: [],
             supplier_framework_lot_rates: [],
             supplier_framework_lot_branches: []
           }
@@ -276,10 +276,10 @@ RSpec.describe Upload do
       let(:supplier_framework_lots) do
         [
           {
-            lot_id: 'RM6240.1',
-            jurisdiction_id: 'GB-EW',
+            lot_id: 'RM6240.1a',
             enabled: true,
             supplier_framework_lot_services: [],
+            supplier_framework_lot_jurisdictions: [],
             supplier_framework_lot_rates: [
               {
                 position_id: 88,
@@ -290,9 +290,9 @@ RSpec.describe Upload do
           },
           {
             lot_id: 'RM6240.3',
-            jurisdiction_id: 'GB',
             enabled: true,
             supplier_framework_lot_services: [],
+            supplier_framework_lot_jurisdictions: [],
             supplier_framework_lot_rates: [
               {
                 position_id: 1,
@@ -322,17 +322,17 @@ RSpec.describe Upload do
     let(:supplier_framework_lots) do
       [
         {
-          lot_id: 'RM6240.1',
-          jurisdiction_id: 'GB-EW',
+          lot_id: 'RM6240.1a',
           enabled: true,
           supplier_framework_lot_services: [
             {
-              service_id: 'RM6240.1.1'
+              service_id: 'RM6240.1a.1'
             },
             {
-              service_id: 'RM6240.1.2'
+              service_id: 'RM6240.1a.2'
             }
           ],
+          supplier_framework_lot_jurisdictions: [],
           supplier_framework_lot_rates: [
             {
               position_id: 1,
@@ -342,14 +342,14 @@ RSpec.describe Upload do
           supplier_framework_lot_branches: []
         },
         {
-          lot_id: 'RM6240.1',
-          jurisdiction_id: 'GB-SC',
+          lot_id: 'RM6240.1b',
           enabled: true,
           supplier_framework_lot_services: [
             {
-              service_id: 'RM6240.1.1'
+              service_id: 'RM6240.1b.1'
             },
           ],
+          supplier_framework_lot_jurisdictions: [],
           supplier_framework_lot_rates: [
             {
               position_id: 1,
