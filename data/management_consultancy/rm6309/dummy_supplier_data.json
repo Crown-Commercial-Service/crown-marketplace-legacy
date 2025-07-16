@@ -20,7 +20,6 @@
         "supplier_framework_lots": [
           {
             "lot_id": "RM6309.1",
-            "jurisdiction_id": "GB",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
@@ -116,11 +115,11 @@
                 "rate": 1531
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           },
           {
             "lot_id": "RM6309.2",
-            "jurisdiction_id": "GB",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
@@ -210,11 +209,11 @@
                 "rate": 1701
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           },
           {
             "lot_id": "RM6309.3",
-            "jurisdiction_id": "GB",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
@@ -310,11 +309,11 @@
                 "rate": 1882
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           },
           {
             "lot_id": "RM6309.4",
-            "jurisdiction_id": "GB",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
@@ -428,11 +427,11 @@
                 "rate": 1601
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           },
           {
             "lot_id": "RM6309.5",
-            "jurisdiction_id": "GB",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
@@ -513,11 +512,11 @@
                 "rate": 1562
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           },
           {
             "lot_id": "RM6309.6",
-            "jurisdiction_id": "GB",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
@@ -607,11 +606,11 @@
                 "rate": 1209
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           },
           {
             "lot_id": "RM6309.7",
-            "jurisdiction_id": "GB",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
@@ -725,11 +724,11 @@
                 "rate": 1246
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           },
           {
             "lot_id": "RM6309.8",
-            "jurisdiction_id": "GB",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
@@ -822,11 +821,11 @@
                 "rate": 1839
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           },
           {
             "lot_id": "RM6309.9",
-            "jurisdiction_id": "GB",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
@@ -934,11 +933,11 @@
                 "rate": 1809
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           },
           {
             "lot_id": "RM6309.10",
-            "jurisdiction_id": "GB",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
@@ -1079,7 +1078,8 @@
                 "rate": 1213
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           }
         ]
       }
@@ -1106,7 +1106,6 @@
         "supplier_framework_lots": [
           {
             "lot_id": "RM6309.1",
-            "jurisdiction_id": "GB",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
@@ -1202,11 +1201,11 @@
                 "rate": 1244
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           },
           {
             "lot_id": "RM6309.2",
-            "jurisdiction_id": "GB",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
@@ -1296,11 +1295,11 @@
                 "rate": 1287
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           },
           {
             "lot_id": "RM6309.3",
-            "jurisdiction_id": "GB",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
@@ -1396,11 +1395,11 @@
                 "rate": 1222
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           },
           {
             "lot_id": "RM6309.4",
-            "jurisdiction_id": "GB",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
@@ -1514,11 +1513,11 @@
                 "rate": 1225
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           },
           {
             "lot_id": "RM6309.5",
-            "jurisdiction_id": "GB",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
@@ -1599,11 +1598,11 @@
                 "rate": 1992
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           },
           {
             "lot_id": "RM6309.6",
-            "jurisdiction_id": "GB",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
@@ -1693,11 +1692,11 @@
                 "rate": 1630
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           },
           {
             "lot_id": "RM6309.7",
-            "jurisdiction_id": "GB",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
@@ -1811,11 +1810,11 @@
                 "rate": 1412
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           },
           {
             "lot_id": "RM6309.8",
-            "jurisdiction_id": "GB",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
@@ -1908,11 +1907,11 @@
                 "rate": 1927
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           },
           {
             "lot_id": "RM6309.9",
-            "jurisdiction_id": "GB",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
@@ -2020,11 +2019,11 @@
                 "rate": 1554
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           },
           {
             "lot_id": "RM6309.10",
-            "jurisdiction_id": "GB",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
@@ -2165,7 +2164,8 @@
                 "rate": 1489
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           }
         ]
       }
@@ -2192,7 +2192,6 @@
         "supplier_framework_lots": [
           {
             "lot_id": "RM6309.1",
-            "jurisdiction_id": "GB",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
@@ -2288,11 +2287,11 @@
                 "rate": 1929
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           },
           {
             "lot_id": "RM6309.2",
-            "jurisdiction_id": "GB",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
@@ -2382,11 +2381,11 @@
                 "rate": 1506
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           },
           {
             "lot_id": "RM6309.3",
-            "jurisdiction_id": "GB",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
@@ -2482,11 +2481,11 @@
                 "rate": 1572
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           },
           {
             "lot_id": "RM6309.4",
-            "jurisdiction_id": "GB",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
@@ -2600,11 +2599,11 @@
                 "rate": 1511
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           },
           {
             "lot_id": "RM6309.5",
-            "jurisdiction_id": "GB",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
@@ -2685,11 +2684,11 @@
                 "rate": 1304
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           },
           {
             "lot_id": "RM6309.6",
-            "jurisdiction_id": "GB",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
@@ -2779,11 +2778,11 @@
                 "rate": 1661
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           },
           {
             "lot_id": "RM6309.7",
-            "jurisdiction_id": "GB",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
@@ -2897,11 +2896,11 @@
                 "rate": 1668
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           },
           {
             "lot_id": "RM6309.8",
-            "jurisdiction_id": "GB",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
@@ -2994,11 +2993,11 @@
                 "rate": 1541
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           },
           {
             "lot_id": "RM6309.9",
-            "jurisdiction_id": "GB",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
@@ -3106,11 +3105,11 @@
                 "rate": 1207
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           },
           {
             "lot_id": "RM6309.10",
-            "jurisdiction_id": "GB",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
@@ -3251,7 +3250,8 @@
                 "rate": 1397
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           }
         ]
       }
@@ -3278,7 +3278,6 @@
         "supplier_framework_lots": [
           {
             "lot_id": "RM6309.7",
-            "jurisdiction_id": "GB",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
@@ -3368,11 +3367,11 @@
                 "rate": 1533
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           },
           {
             "lot_id": "RM6309.5",
-            "jurisdiction_id": "GB",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
@@ -3453,11 +3452,11 @@
                 "rate": 1255
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           },
           {
             "lot_id": "RM6309.6",
-            "jurisdiction_id": "GB",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
@@ -3541,11 +3540,11 @@
                 "rate": 1477
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           },
           {
             "lot_id": "RM6309.9",
-            "jurisdiction_id": "GB",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
@@ -3653,7 +3652,8 @@
                 "rate": 1835
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           }
         ]
       }
@@ -3680,7 +3680,6 @@
         "supplier_framework_lots": [
           {
             "lot_id": "RM6309.8",
-            "jurisdiction_id": "GB",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
@@ -3764,11 +3763,11 @@
                 "rate": 1544
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           },
           {
             "lot_id": "RM6309.3",
-            "jurisdiction_id": "GB",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
@@ -3855,11 +3854,11 @@
                 "rate": 1284
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           },
           {
             "lot_id": "RM6309.9",
-            "jurisdiction_id": "GB",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
@@ -3967,11 +3966,11 @@
                 "rate": 1744
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           },
           {
             "lot_id": "RM6309.5",
-            "jurisdiction_id": "GB",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
@@ -4049,7 +4048,8 @@
                 "rate": 1943
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           }
         ]
       }
@@ -4076,7 +4076,6 @@
         "supplier_framework_lots": [
           {
             "lot_id": "RM6309.4",
-            "jurisdiction_id": "GB",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
@@ -4172,11 +4171,11 @@
                 "rate": 1481
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           },
           {
             "lot_id": "RM6309.10",
-            "jurisdiction_id": "GB",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
@@ -4317,11 +4316,11 @@
                 "rate": 1469
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           },
           {
             "lot_id": "RM6309.3",
-            "jurisdiction_id": "GB",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
@@ -4399,11 +4398,11 @@
                 "rate": 1350
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           },
           {
             "lot_id": "RM6309.9",
-            "jurisdiction_id": "GB",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
@@ -4493,7 +4492,8 @@
                 "rate": 1850
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           }
         ]
       }
@@ -4520,7 +4520,6 @@
         "supplier_framework_lots": [
           {
             "lot_id": "RM6309.2",
-            "jurisdiction_id": "GB",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
@@ -4586,11 +4585,11 @@
                 "rate": 1801
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           },
           {
             "lot_id": "RM6309.8",
-            "jurisdiction_id": "GB",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
@@ -4662,11 +4661,11 @@
                 "rate": 1247
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           },
           {
             "lot_id": "RM6309.6",
-            "jurisdiction_id": "GB",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
@@ -4756,11 +4755,11 @@
                 "rate": 1279
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           },
           {
             "lot_id": "RM6309.9",
-            "jurisdiction_id": "GB",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
@@ -4850,11 +4849,11 @@
                 "rate": 1720
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           },
           {
             "lot_id": "RM6309.5",
-            "jurisdiction_id": "GB",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
@@ -4932,7 +4931,8 @@
                 "rate": 1526
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           }
         ]
       }
@@ -4959,7 +4959,6 @@
         "supplier_framework_lots": [
           {
             "lot_id": "RM6309.10",
-            "jurisdiction_id": "GB",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
@@ -5073,11 +5072,11 @@
                 "rate": 1522
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           },
           {
             "lot_id": "RM6309.1",
-            "jurisdiction_id": "GB",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
@@ -5164,11 +5163,11 @@
                 "rate": 1513
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           },
           {
             "lot_id": "RM6309.5",
-            "jurisdiction_id": "GB",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
@@ -5237,11 +5236,11 @@
                 "rate": 1236
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           },
           {
             "lot_id": "RM6309.9",
-            "jurisdiction_id": "GB",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
@@ -5325,7 +5324,8 @@
                 "rate": 1743
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           }
         ]
       }
@@ -5352,7 +5352,6 @@
         "supplier_framework_lots": [
           {
             "lot_id": "RM6309.1",
-            "jurisdiction_id": "GB",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
@@ -5442,11 +5441,11 @@
                 "rate": 1247
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           },
           {
             "lot_id": "RM6309.7",
-            "jurisdiction_id": "GB",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
@@ -5536,11 +5535,11 @@
                 "rate": 1376
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           },
           {
             "lot_id": "RM6309.5",
-            "jurisdiction_id": "GB",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
@@ -5621,11 +5620,11 @@
                 "rate": 1373
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           },
           {
             "lot_id": "RM6309.9",
-            "jurisdiction_id": "GB",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
@@ -5709,7 +5708,8 @@
                 "rate": 1356
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           }
         ]
       }
@@ -5736,7 +5736,6 @@
         "supplier_framework_lots": [
           {
             "lot_id": "RM6309.5",
-            "jurisdiction_id": "GB",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
@@ -5808,11 +5807,11 @@
                 "rate": 1818
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           },
           {
             "lot_id": "RM6309.1",
-            "jurisdiction_id": "GB",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
@@ -5893,11 +5892,11 @@
                 "rate": 1587
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           },
           {
             "lot_id": "RM6309.9",
-            "jurisdiction_id": "GB",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
@@ -5993,11 +5992,11 @@
                 "rate": 1362
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           },
           {
             "lot_id": "RM6309.3",
-            "jurisdiction_id": "GB",
             "enabled": true,
             "supplier_framework_lot_services": [
               {
@@ -6078,7 +6077,8 @@
                 "rate": 1858
               }
             ],
-            "supplier_framework_lot_branches": []
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": []
           }
         ]
       }

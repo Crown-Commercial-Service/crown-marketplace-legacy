@@ -2,7 +2,8 @@ require 'rails_helper'
 
 RSpec.describe LegalServices::JourneyHelper do
   let(:lot_number) { rand(1..3).to_s }
-  let(:lot) { Lot.find_by(framework_id: 'RM6240', number: lot_number) }
+  let(:jursidiction) { lot_number == '3' ? nil : ('a'..'c').to_a.sample }
+  let(:lot) { Lot.find_by(framework_id: 'RM6240', number: "#{lot_number}#{jursidiction}") }
 
   describe '#lot_full_description' do
     it 'returns the full title with lot and description' do

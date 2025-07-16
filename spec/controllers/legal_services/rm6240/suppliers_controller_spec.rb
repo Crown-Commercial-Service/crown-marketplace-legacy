@@ -5,29 +5,33 @@ RSpec.describe LegalServices::RM6240::SuppliersController do
   let(:framework) { 'RM6240' }
   let(:supplier_framework) { create(:supplier_framework) }
   let(:supplier_frameworks) { Supplier::Framework.where(id: supplier_framework.id) }
+  let(:lot_id) { "RM6240.#{lot_number}#{jurisdiction}" }
   let(:lot) { Lot.find(lot_id) }
-  let(:service_ids) { Service.where(lot_id:).sample(5).map(&:id) }
-  let(:jurisdiction_id) { nil }
+  let(:services) { Service.where(lot_id:).sample(5) }
+  let(:service_ids) { services.map(&:id) }
+  let(:service_numbers) { services.map(&:number) }
+  let(:jurisdiction) { 'a' }
   let(:central_government) { 'no' }
 
   login_ls_buyer
 
   before do
-    allow(Supplier::Framework).to receive(:with_services_in_jurisdiction).with(service_ids, jurisdiction_id).and_return(supplier_frameworks)
-    allow(Supplier::Framework).to receive(:with_services_in_jurisdiction).with(['RM6240.3.1'], 'GB').and_return(supplier_frameworks)
+    allow(Supplier::Framework).to receive(:with_services).with(service_ids).and_return(supplier_frameworks)
+    allow(Supplier::Framework).to receive(:with_services).with(['RM6240.3.1'], 'GB').and_return(supplier_frameworks)
   end
 
   describe 'GET index' do
     before { get :index, params: }
 
     context 'when the lot answer is lot1' do
-      let(:lot_id) { 'RM6240.1' }
+      let(:lot_number) { '1' }
 
       let(:params) do
         {
           journey: 'legal_services',
-          lot_id: lot_id,
-          service_ids: service_ids,
+          lot_number: lot_number,
+          service_numbers: service_numbers,
+          jurisdiction: jurisdiction,
           central_government: central_government,
         }
       end
@@ -47,23 +51,25 @@ RSpec.describe LegalServices::RM6240::SuppliersController do
       it 'sets the back path to the managed-service-provider question' do
         expected_path = journey_question_path(
           journey: 'legal-services',
-          slug: 'choose-services',
-          lot_id: lot_id,
-          service_ids: service_ids,
+          slug: 'choose-jurisdiction',
+          lot_number: lot_number,
+          service_numbers: service_numbers,
+          jurisdiction: jurisdiction,
           central_government: central_government
         )
         expect(assigns(:back_path)).to eq(expected_path)
       end
 
-      it 'calls with_services_in_jurisdiction' do
-        expect(Supplier::Framework).to have_received(:with_services_in_jurisdiction).with(service_ids, jurisdiction_id)
+      it 'calls with_services' do
+        expect(Supplier::Framework).to have_received(:with_services).with(service_ids)
       end
 
       context 'when the lot is RM6240.3' do
-        let(:lot_id) { 'RM6240.3' }
+        let(:lot_number) { '3' }
+        let(:jurisdiction) { nil }
 
-        it 'calls with_services_in_jurisdiction with the correct params' do
-          expect(Supplier::Framework).to have_received(:with_services_in_jurisdiction).with(['RM6240.3.1'], 'GB')
+        it 'calls with_services with the correct params' do
+          expect(Supplier::Framework).to have_received(:with_services).with(['RM6240.3.1'])
         end
       end
 
@@ -79,13 +85,14 @@ RSpec.describe LegalServices::RM6240::SuppliersController do
   end
 
   describe 'GET download' do
-    let(:lot_id) { 'RM6240.1' }
+    let(:lot_number) { '1' }
 
     let(:params) do
       {
         journey: 'legal-services',
-        lot_id: lot_id,
-        service_ids: service_ids,
+        lot_number: lot_number,
+        service_numbers: service_numbers,
+        jurisdiction: jurisdiction,
         central_government: central_government,
       }
     end
@@ -127,13 +134,13 @@ RSpec.describe LegalServices::RM6240::SuppliersController do
 
   describe 'GET show' do
     before do
-      create(:supplier_framework_lot_rate, supplier_framework_lot: create(:supplier_framework_lot, supplier_framework: supplier_framework, lot_id: lot_id, jurisdiction_id: 'GB'))
+      create(:supplier_framework_lot_rate, supplier_framework_lot: create(:supplier_framework_lot, supplier_framework:, lot_id:))
 
-      get :show, params: { id: supplier_framework.id, lot_id: lot_id }
+      get :show, params: { id: supplier_framework.id, lot_number: lot_number, jurisdiction: jurisdiction }
     end
 
     context 'when the lot answer is lot 1' do
-      let(:lot_id) { 'RM6240.1' }
+      let(:lot_number) { '1' }
 
       it 'renders the show template' do
         expect(response).to render_template('show')

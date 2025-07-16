@@ -1,27 +1,27 @@
 require 'rails_helper'
 
 RSpec.describe LegalServices::RM6240::Journey::ChooseJurisdiction do
-  subject(:step) { described_class.new(jurisdiction_id:, lot_id:) }
+  subject(:step) { described_class.new(jurisdiction:, lot_number:) }
 
-  let(:jurisdiction_id) { 'GB-EW' }
-  let(:lot_id) { 'RM6240.1' }
+  let(:jurisdiction) { 'a' }
+  let(:lot_number) { '1' }
 
   describe 'validations' do
     context 'when no jurisdiction is provided' do
-      let(:jurisdiction_id) { '' }
+      let(:jurisdiction) { '' }
 
       it 'is not valid and has the correct error message' do
         expect(step).not_to be_valid
-        expect(step.errors[:jurisdiction_id].first).to eq 'Select the jurisdiction you need'
+        expect(step.errors[:jurisdiction].first).to eq 'Select the jurisdiction you need'
       end
     end
 
     context 'when jurisdiction is not in the list' do
-      let(:jurisdiction_id) { 'non-valid-option' }
+      let(:jurisdiction) { 'non-valid-option' }
 
       it 'is not valid and has the correct error message' do
         expect(step).not_to be_valid
-        expect(step.errors[:jurisdiction_id].first).to eq 'Select the jurisdiction you need'
+        expect(step.errors[:jurisdiction].first).to eq 'Select the jurisdiction you need'
       end
     end
 
@@ -40,13 +40,13 @@ RSpec.describe LegalServices::RM6240::Journey::ChooseJurisdiction do
 
   describe '.permit_list' do
     it 'returns a list of the permitted attributes' do
-      expect(described_class.permit_list).to eq [:lot_id, :jurisdiction_id, {}]
+      expect(described_class.permit_list).to eq [:lot_number, :jurisdiction, {}]
     end
   end
 
   describe '.permitted_keys' do
     it 'returns a list of the permitted keys' do
-      expect(described_class.permitted_keys).to eq %i[lot_id jurisdiction_id]
+      expect(described_class.permitted_keys).to eq %i[lot_number jurisdiction]
     end
   end
 
@@ -73,13 +73,13 @@ RSpec.describe LegalServices::RM6240::Journey::ChooseJurisdiction do
 
     context 'when the lot exists' do
       it 'returns the lot' do
-        expect(result.id).to eq 'RM6240.1'
+        expect(result.id).to eq 'RM6240.1a'
         expect(result.name).to eq 'Full service provision'
       end
     end
 
     context 'when the lot does not exist' do
-      let(:lot_id) { 'RM6240.4' }
+      let(:lot_number) { '4' }
 
       it 'returns nil' do
         expect { result }.to raise_error(ActiveRecord::RecordNotFound)

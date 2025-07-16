@@ -4,7 +4,7 @@ RSpec.describe Jurisdiction do
   describe 'associations' do
     let(:jurisdiction) { described_class.first }
 
-    it { is_expected.to have_many(:supplier_framework_lots) }
+    it { is_expected.to have_many(:supplier_framework_lot_jurisdictions) }
   end
 
   it 'has all the jurisdictions loaded' do

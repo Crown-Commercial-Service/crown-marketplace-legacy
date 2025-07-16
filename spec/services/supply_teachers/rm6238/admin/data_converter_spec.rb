@@ -18,9 +18,9 @@ RSpec.describe SupplyTeachers::RM6238::Admin::DataConverter do
                 supplier_framework_contact_detail: {},
                 supplier_framework_lots: [
                   { lot_id: 'RM6238.1',
-                    jurisdiction_id: 'GB',
                     enabled: true,
                     supplier_framework_lot_services: [],
+                    supplier_framework_lot_jurisdictions: [],
                     supplier_framework_lot_rates: [
                       { position_id: 41, rate: 2759 },
                       { position_id: 46, rate: 2621 },
@@ -87,9 +87,9 @@ RSpec.describe SupplyTeachers::RM6238::Admin::DataConverter do
                 supplier_framework_lots: [
                   {
                     lot_id: 'RM6238.2.1',
-                    jurisdiction_id: 'GB',
                     enabled: true,
                     supplier_framework_lot_services: [],
+                    supplier_framework_lot_jurisdictions: [],
                     supplier_framework_lot_rates: [
                       { position_id: 41, rate: 3030 },
                       { position_id: 46, rate: 2878 },
@@ -107,9 +107,9 @@ RSpec.describe SupplyTeachers::RM6238::Admin::DataConverter do
                   },
                   {
                     lot_id: 'RM6238.2.2',
-                    jurisdiction_id: 'GB',
                     enabled: true,
                     supplier_framework_lot_services: [],
+                    supplier_framework_lot_jurisdictions: [],
                     supplier_framework_lot_rates: [
                       { position_id: 41, rate: 5716 },
                       { position_id: 46, rate: 5430 },
@@ -148,9 +148,9 @@ RSpec.describe SupplyTeachers::RM6238::Admin::DataConverter do
                 supplier_framework_lots: [
                   {
                     lot_id: 'RM6238.4',
-                    jurisdiction_id: 'GB',
                     enabled: true,
                     supplier_framework_lot_services: [],
+                    supplier_framework_lot_jurisdictions: [],
                     supplier_framework_lot_rates: [
                       { position_id: 45, rate: 1951 },
                       { position_id: 50, rate: 1853 },

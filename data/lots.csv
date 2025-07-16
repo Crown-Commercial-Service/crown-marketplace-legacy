@@ -1,6 +1,10 @@
 id,framework_id,number,name
-RM6240.1,RM6240,1,Full service provision
-RM6240.2,RM6240,2,General service provision
+RM6240.1a,RM6240,1a,Full service provision
+RM6240.1b,RM6240,1b,Full service provision
+RM6240.1c,RM6240,1c,Full service provision
+RM6240.2a,RM6240,2a,General service provision
+RM6240.2b,RM6240,2b,General service provision
+RM6240.2c,RM6240,2c,General service provision
 RM6240.3,RM6240,3,Transport rail legal services
 RM6187.1,RM6187,1,Business
 RM6187.2,RM6187,2,Strategy and Policy

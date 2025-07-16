@@ -1,18 +1,17 @@
 module LegalServices
   class SuppliersController < LegalServices::FrameworkController
+    before_action :fetch_lot
     before_action :fetch_supplier_frameworks, only: %i[index download]
 
     def index
       @journey = LegalServices::Journey.new(params[:framework], params[:slug], params)
       @back_path = @journey.previous_step_path
-      @lot = Lot.find(params[:lot_id])
     end
 
     def show
       @back_path = :back
       @supplier_framework = Supplier::Framework.joins(:supplier).find(params[:id])
       @rates = fetch_rates
-      @lot = Lot.find(params[:lot_id])
     end
 
     def download

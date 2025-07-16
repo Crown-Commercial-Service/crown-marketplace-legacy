@@ -51,6 +51,7 @@ module Frameworks
       :supplier_framework_contact_details,
       :supplier_framework_addresses,
       :supplier_framework_lot_services,
+      :supplier_framework_lot_jurisdictions,
       :supplier_framework_lot_rates,
       :supplier_framework_lot_branches,
     )

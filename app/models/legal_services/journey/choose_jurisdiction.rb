@@ -2,14 +2,10 @@ module LegalServices
   class Journey::ChooseJurisdiction
     include Steppable
 
-    JURISDICTION_IDS = %w[GB-EW GB-SC GB-NI].freeze
+    JURISDICTIONS = %w[a b c].freeze
 
-    attribute :lot_id
-    attribute :jurisdiction_id
-    validates :jurisdiction_id, inclusion: JURISDICTION_IDS
-
-    def lot
-      Lot.find(lot_id)
-    end
+    attribute :lot_number
+    attribute :jurisdiction
+    validates :jurisdiction, inclusion: JURISDICTIONS
   end
 end

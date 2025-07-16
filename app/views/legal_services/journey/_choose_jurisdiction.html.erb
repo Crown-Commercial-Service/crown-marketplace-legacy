@@ -7,11 +7,11 @@
 
     <%= form_with url: @form_path, method: :get, html: { specialvalidation: true, novalidate: true } do |f| %>
       <%= hidden_fields_for_previous_steps_and_responses(@journey) %>
-      <%= hidden_field_tag(:lot_id, @journey.current_step.lot_id) %>
+      <%= hidden_field_tag(:lot_number, @journey.current_step.lot_number) %>
 
       <%= govuk_radios(
-        :jurisdiction_id,
-        @journey.current_step.class::JURISDICTION_IDS.map do |option|
+        :jurisdiction,
+        @journey.current_step.class::JURISDICTIONS.map do |option|
           {
             value: option,
             label: {

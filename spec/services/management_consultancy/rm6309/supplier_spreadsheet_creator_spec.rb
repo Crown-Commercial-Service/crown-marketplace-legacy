@@ -24,7 +24,7 @@ RSpec.describe ManagementConsultancy::RM6309::SupplierSpreadsheetCreator do
   end
 
   before do
-    allow(Supplier::Framework).to receive(:with_services_in_jurisdiction).with(service_ids, 'GB').and_return(supplier_frameworks)
+    allow(Supplier::Framework).to receive(:with_services).with(service_ids).and_return(supplier_frameworks)
 
     supplier_details.each do |supplier_detail|
       supplier = create(:supplier, name: supplier_detail[:supplier_name])

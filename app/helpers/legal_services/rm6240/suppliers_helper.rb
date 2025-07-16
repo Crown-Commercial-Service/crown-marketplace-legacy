@@ -3,15 +3,15 @@ module LegalServices::RM6240::SuppliersHelper
 
   def download_legal_services_suppliers_path
     download_legal_services_rm6240_suppliers_path(
-      lot_id: params[:lot_id],
-      service_ids: params[:service_ids],
-      jurisdiction_id: params[:jurisdiction_id],
+      lot_number: params[:lot_number],
+      service_numbers: params[:service_numbers],
+      jurisdiction: params[:jurisdiction],
       central_government: params[:central_government]
     )
   end
 
   def legal_services_supplier_path(supplier)
-    legal_services_rm6240_supplier_path(supplier, lot_id: params[:lot_id], jurisdiction_id: params[:jurisdiction_id])
+    legal_services_rm6240_supplier_path(supplier, lot_number: params[:lot_number], service_numbers: params[:service_numbers], jurisdiction: params[:jurisdiction])
   end
 
   def legal_service_position_ids
