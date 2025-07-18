@@ -54,7 +54,7 @@ RSpec.describe Supplier::Framework do
       }
     end
 
-    context 'when we pass the lot and jursidiction' do
+    context 'when we pass the lot and jurisdiction' do
       let(:lot_id) { 'RM6240.1a' }
 
       it 'returns the 4 grouped rates' do
@@ -179,6 +179,100 @@ RSpec.describe Supplier::Framework do
 
       it 'returns the second supplier' do
         expect(result).to contain_exactly(supplier_framework_2_id)
+      end
+    end
+  end
+
+  describe '.with_services_and_jurisdictions' do
+    let(:result) { described_class.with_services_and_jurisdiction(service_ids, jurisdiction_ids).pluck(:id) }
+    let(:supplier_frameworks) { create_list(:supplier_framework, 5, framework_id: 'RM6240') }
+    let(:supplier_framework_1_id) { supplier_frameworks[0].id }
+    let(:supplier_framework_2_id) { supplier_frameworks[1].id }
+    let(:supplier_framework_3_id) { supplier_frameworks[2].id }
+
+    before do
+      supplier_frameworks[3].update(enabled: false)
+
+      supplier_framework_1_lot_a = create(:supplier_framework_lot, supplier_framework: supplier_frameworks[0], lot_id: 'RM6240.1a')
+      supplier_framework_2_lot_a = create(:supplier_framework_lot, supplier_framework: supplier_frameworks[1], lot_id: 'RM6240.1a')
+      supplier_framework_3_lot_a = create(:supplier_framework_lot, supplier_framework: supplier_frameworks[2], lot_id: 'RM6240.1a')
+      supplier_framework_4_lot_a = create(:supplier_framework_lot, supplier_framework: supplier_frameworks[3], lot_id: 'RM6240.1a')
+      supplier_framework_5_lot_a = create(:supplier_framework_lot, supplier_framework: supplier_frameworks[4], lot_id: 'RM6240.1a', enabled: false)
+
+      create(:supplier_framework_lot_service, supplier_framework_lot: supplier_framework_1_lot_a, service_id: 'RM6240.1a.1')
+      create(:supplier_framework_lot_service, supplier_framework_lot: supplier_framework_2_lot_a, service_id: 'RM6240.1a.1')
+      create(:supplier_framework_lot_service, supplier_framework_lot: supplier_framework_3_lot_a, service_id: 'RM6240.1a.1')
+      create(:supplier_framework_lot_service, supplier_framework_lot: supplier_framework_4_lot_a, service_id: 'RM6240.1a.1')
+      create(:supplier_framework_lot_service, supplier_framework_lot: supplier_framework_5_lot_a, service_id: 'RM6240.1a.1')
+
+      create(:supplier_framework_lot_service, supplier_framework_lot: supplier_framework_1_lot_a, service_id: 'RM6240.1a.2')
+      create(:supplier_framework_lot_service, supplier_framework_lot: supplier_framework_2_lot_a, service_id: 'RM6240.1a.2')
+
+      create(:supplier_framework_lot_service, supplier_framework_lot: supplier_framework_2_lot_a, service_id: 'RM6240.1a.3')
+      create(:supplier_framework_lot_service, supplier_framework_lot: supplier_framework_3_lot_a, service_id: 'RM6240.1a.3')
+
+      create(:supplier_framework_lot_service, supplier_framework_lot: supplier_framework_3_lot_a, service_id: 'RM6240.1a.4')
+
+      create(:supplier_framework_lot_jurisdiction, supplier_framework_lot: supplier_framework_1_lot_a, jurisdiction_id: 'GB')
+      create(:supplier_framework_lot_jurisdiction, supplier_framework_lot: supplier_framework_2_lot_a, jurisdiction_id: 'GB')
+      create(:supplier_framework_lot_jurisdiction, supplier_framework_lot: supplier_framework_2_lot_a, jurisdiction_id: 'AX')
+      create(:supplier_framework_lot_jurisdiction, supplier_framework_lot: supplier_framework_3_lot_a, jurisdiction_id: 'GB')
+      create(:supplier_framework_lot_jurisdiction, supplier_framework_lot: supplier_framework_3_lot_a, jurisdiction_id: 'AX')
+      create(:supplier_framework_lot_jurisdiction, supplier_framework_lot: supplier_framework_4_lot_a, jurisdiction_id: 'GB')
+      create(:supplier_framework_lot_jurisdiction, supplier_framework_lot: supplier_framework_5_lot_a, jurisdiction_id: 'GB')
+    end
+
+    context 'when we pass a single service code and jurisdiction id' do
+      let(:service_ids) { ['RM6240.1a.1'] }
+      let(:jurisdiction_ids) { ['GB'] }
+
+      it 'returns three suppliers' do
+        expect(result).to contain_exactly(supplier_framework_1_id, supplier_framework_2_id, supplier_framework_3_id)
+      end
+    end
+
+    context 'when we pass multiple service codes and a single jurisdiction id' do
+      let(:service_ids) { ['RM6240.1a.1', 'RM6240.1a.2'] }
+      let(:jurisdiction_ids) { ['GB'] }
+
+      it 'returns the first and second suppliers' do
+        expect(result).to contain_exactly(supplier_framework_1_id, supplier_framework_2_id)
+      end
+    end
+
+    context 'when we pass multiple jurisdiction ids and single service ids' do
+      let(:service_ids) { ['RM6240.1a.1'] }
+      let(:jurisdiction_ids) { ['GB', 'AX'] }
+
+      it 'returns the second and third suppliers' do
+        expect(result).to contain_exactly(supplier_framework_2_id, supplier_framework_3_id)
+      end
+    end
+
+    context 'when we pass multiple service codes and a multiple jurisdiction ids' do
+      let(:service_ids) { ['RM6240.1a.3', 'RM6240.1a.4'] }
+      let(:jurisdiction_ids) { ['GB', 'AX'] }
+
+      it 'returns the third supplier' do
+        expect(result).to contain_exactly(supplier_framework_3_id)
+      end
+    end
+
+    context 'when we pass service codes neither supplier does' do
+      let(:service_ids) { ['RM6240.2a.1'] }
+      let(:jurisdiction_ids) { ['GB'] }
+
+      it 'returns an emoty array' do
+        expect(result).to be_empty
+      end
+    end
+
+    context 'when we pass jurisdictions neither supplier does' do
+      let(:service_ids) { ['RM6240.1a.1'] }
+      let(:jurisdiction_ids) { ['DE'] }
+
+      it 'returns an emoty array' do
+        expect(result).to be_empty
       end
     end
   end

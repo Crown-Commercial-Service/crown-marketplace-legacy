@@ -119,13 +119,13 @@ module LegalServices::RM6240::Admin
     describe 'import_data' do
       let(:expected_supplier_results) do
         {
-          'NOAH LTD': { lots: 3, services: 78, rates: 21 },
-          'MIO CORP': { lots: 3, services: 81, rates: 21 },
-          'REKU LTD': { lots: 6, services: 111, rates: 42 },
-          'GUERNICA EXEC CORP': { lots: 3, services: 30, rates: 21 },
-          'ETHEL LTD': { lots: 4, services: 31, rates: 28 },
-          'LANZ CORP': { lots: 1, services: 1, rates: 7 },
-          'EUNIE CORP': { lots: 1, services: 1, rates: 7 }
+          'NOAH LTD': { lots: 3, services: 78, jurisdictions: 3, rates: 21 },
+          'MIO CORP': { lots: 3, services: 81, jurisdictions: 3, rates: 21 },
+          'REKU LTD': { lots: 6, services: 111, jurisdictions: 6, rates: 42 },
+          'GUERNICA EXEC CORP': { lots: 3, services: 30, jurisdictions: 3, rates: 21 },
+          'ETHEL LTD': { lots: 4, services: 31, jurisdictions: 4, rates: 28 },
+          'LANZ CORP': { lots: 1, services: 1, jurisdictions: 1, rates: 7 },
+          'EUNIE CORP': { lots: 1, services: 1, jurisdictions: 1, rates: 7 }
         }
       end
 
@@ -134,15 +134,18 @@ module LegalServices::RM6240::Admin
         expect(Supplier::Framework.where(framework_id: 'RM6240').count).to eq 7
       end
 
+      # rubocop:disable RSpec/MultipleExpectations
       it 'has the correct data for the suppliers' do
         expected_supplier_results.each do |name, expected_results|
           supplier_framework = Supplier.find_by(name:).supplier_frameworks.find_by(framework_id: 'RM6240')
 
           expect(supplier_framework.lots.count).to eq expected_results[:lots]
           expect(supplier_framework.lots.sum { |lot| lot.services.count }).to eq expected_results[:services]
+          expect(supplier_framework.lots.sum { |lot| lot.jurisdictions.count }).to eq expected_results[:jurisdictions]
           expect(supplier_framework.lots.sum { |lot| lot.rates.count }).to eq expected_results[:rates]
         end
       end
+      # rubocop:enable RSpec/MultipleExpectations
     end
   end
 end

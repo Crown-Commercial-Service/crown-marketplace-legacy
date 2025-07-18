@@ -36,6 +36,18 @@ module ImportTestData
     end
   end
 
+  module LPG
+    module RM6360
+      def self.import_data
+        puts 'Importing LPG RM6360 data'
+
+        File.open('data/legal_panel_for_government/rm6360/dummy_supplier_data.json', 'r') do |file|
+          Upload.upload!('RM6360', JSON.parse(file.read, symbolize_names: true))
+        end
+      end
+    end
+  end
+
   module ST
     module RM6238
       def self.import_data
@@ -68,6 +80,7 @@ module ImportTestData
     MC::RM6187.import_data
     MC::RM6309.import_data
     LS::RM6240.import_data
+    LPG::RM6360.import_data
     ST::RM6238.import_data
   end
 
@@ -80,6 +93,8 @@ module ImportTestData
       MC::RM6309.import_data
     when 'RM6240'
       LS::RM6240.import_data
+    when 'RM6360'
+      LPG::RM6360.import_data
     when 'RM6238'
       ST::RM6238.import_data
     end

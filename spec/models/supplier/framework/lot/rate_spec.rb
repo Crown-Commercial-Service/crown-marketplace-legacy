@@ -6,6 +6,7 @@ RSpec.describe Supplier::Framework::Lot::Rate do
   describe 'associations' do
     it { is_expected.to belong_to(:supplier_framework_lot) }
     it { is_expected.to belong_to(:position) }
+    it { is_expected.to belong_to(:jurisdiction) }
 
     it 'has the supplier_framework_lot relationship' do
       expect(supplier_framework_lot_rate.supplier_framework_lot).to be_present
@@ -14,16 +15,21 @@ RSpec.describe Supplier::Framework::Lot::Rate do
     it 'has the position relationship' do
       expect(supplier_framework_lot_rate.position).to be_present
     end
+
+    it 'has the jurisdiction relationship' do
+      expect(supplier_framework_lot_rate.jurisdiction).to be_present
+    end
   end
 
   describe 'uniqueness' do
     let(:supplier_framework_lot) { create(:supplier_framework_lot) }
     let(:position) { create(:position) }
+    let(:jurisdiction) { create(:supplier_framework_lot_jurisdiction) }
 
-    it 'raises an error if a record already exists for a supplier_framework_lot and position' do
-      create(:supplier_framework_lot_rate, supplier_framework_lot:, position:)
+    it 'raises an error if a record already exists for a supplier_framework_lot, position and jurisdiction' do
+      create(:supplier_framework_lot_rate, supplier_framework_lot:, position:, jurisdiction:)
 
-      expect { create(:supplier_framework_lot_rate, supplier_framework_lot:, position:) }.to raise_error(ActiveRecord::RecordNotUnique)
+      expect { create(:supplier_framework_lot_rate, supplier_framework_lot:, position:, jurisdiction:) }.to raise_error(ActiveRecord::RecordNotUnique)
     end
   end
 

@@ -7,6 +7,8 @@ RSpec.describe Supplier::Framework::Lot::Jurisdiction do
     it { is_expected.to belong_to(:supplier_framework_lot) }
     it { is_expected.to belong_to(:jurisdiction) }
 
+    it { is_expected.to have_many(:rates) }
+
     it 'has the supplier_framework_lot relationship' do
       expect(supplier_framework_lot_jurisdiction.supplier_framework_lot).to be_present
     end
