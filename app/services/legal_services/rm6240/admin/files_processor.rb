@@ -86,7 +86,7 @@ class LegalServices::RM6240::Admin::FilesProcessor < FilesProcessor
       lot_id = "RM6240.#{lot_number}#{jurisdiction}"
       service_id = "#{lot_id}.#{service_number}"
 
-      supplier_framework_lots_data[lot_id] ||= { services: [], rates: [], jurisdictions: [], branches: [] }
+      supplier_framework_lots_data[lot_id] ||= { services: [], rates: [], jurisdictions: [{ jurisdiction_id: 'GB' }], branches: [] }
       supplier_framework_lots_data[lot_id][:services] << { service_id: }
     end
   end
@@ -111,10 +111,11 @@ class LegalServices::RM6240::Admin::FilesProcessor < FilesProcessor
     lot_id = "RM6240.#{LOT_NUMBERS[sheet_number]}"
 
     row[2..].each.with_index(1) do |rate, position_id|
-      supplier_framework_lots_data[lot_id] ||= { services: [], rates: [], jurisdictions: [], branches: [] }
+      supplier_framework_lots_data[lot_id] ||= { services: [], rates: [], jurisdictions: [{ jurisdiction_id: 'GB' }], branches: [] }
       supplier_framework_lots_data[lot_id][:rates] << {
         position_id: position_id,
         rate: convert_rate_to_pence(rate),
+        jurisdiction_id: 'GB'
       }
     end
   end

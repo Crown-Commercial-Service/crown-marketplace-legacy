@@ -1,6 +1,8 @@
 FactoryBot.define do
   factory :supplier_framework_lot_service, class: 'Supplier::Framework::Lot::Service' do
-    supplier_framework_lot factory: %i[supplier_framework_lot]
-    service factory: %i[service]
+    after(:build) do |supplier_framework_lot_service, evaluator|
+      supplier_framework_lot_service.supplier_framework_lot ||= evaluator.supplier_framework_lot || create(:supplier_framework_lot)
+      supplier_framework_lot_service.service ||= evaluator.service || create(:service)
+    end
   end
 end

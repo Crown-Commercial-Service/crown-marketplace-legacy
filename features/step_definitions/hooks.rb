@@ -58,6 +58,10 @@ Before('@mobile') do
   resize_window_to_mobile
 end
 
+After('@mobile') do
+  resize_window_to_pc
+end
+
 After do
   DatabaseCleaner.clean
   if Framework.none?

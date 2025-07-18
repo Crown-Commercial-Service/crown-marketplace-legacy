@@ -80,7 +80,7 @@ class ManagementConsultancy::RM6309::Admin::FilesProcessor < FilesProcessor
       service_id = "RM6309.#{service_number_parts[1]}.#{service_number_parts[2]}"
       lot_id = "RM6309.#{service_number_parts[1]}"
 
-      supplier_framework_lots_data[lot_id] ||= { services: [], rates: [], jurisdictions: [], branches: [] }
+      supplier_framework_lots_data[lot_id] ||= { services: [], rates: [], jurisdictions: [{ jurisdiction_id: 'GB' }], branches: [] }
       supplier_framework_lots_data[lot_id][:services] << { service_id: }
     end
   end
@@ -107,15 +107,17 @@ class ManagementConsultancy::RM6309::Admin::FilesProcessor < FilesProcessor
     offset = lot_id == 'RM6309.10' ? 12 : 0
 
     (1..6).each do |index|
-      supplier_framework_lots_data[lot_id] ||= { services: [], rates: [], jurisdictions: [], branches: [] }
+      supplier_framework_lots_data[lot_id] ||= { services: [], rates: [], jurisdictions: [{ jurisdiction_id: 'GB' }], branches: [] }
 
       supplier_framework_lots_data[lot_id][:rates] << {
         position_id: 13 + index + offset,
         rate: convert_price(row[index]),
+        jurisdiction_id: 'GB'
       }
       supplier_framework_lots_data[lot_id][:rates] << {
         position_id: 19 + index + offset,
         rate: convert_price(row[index + 6]),
+        jurisdiction_id: 'GB'
       }
     end
   end

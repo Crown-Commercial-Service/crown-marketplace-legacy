@@ -69,6 +69,8 @@ GEM
       activemodel (= 8.0.2)
       activesupport (= 8.0.2)
       timeout (>= 0.4.0)
+    activerecord-import (2.2.0)
+      activerecord (>= 4.2)
     activerecord-postgis-adapter (11.0.0)
       activerecord (~> 8.0.0)
       rgeo-activerecord (~> 8.0.0)
@@ -713,6 +715,7 @@ PLATFORMS
 DEPENDENCIES
   aasm (~> 5.5)
   active_storage_validations (>= 1.0.3)
+  activerecord-import (~> 2.2.0)
   activerecord-postgis-adapter (~> 11.0.0)
   asset_sync (>= 2.19.1)
   aws-sdk-cognitoidentityprovider (~> 1.124.0)

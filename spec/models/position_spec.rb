@@ -8,6 +8,6 @@ RSpec.describe Position do
   end
 
   it 'has all the positions loaded' do
-    expect(described_class.count).to eq(50)
+    expect(described_class.count).to eq(60)
   end
 end

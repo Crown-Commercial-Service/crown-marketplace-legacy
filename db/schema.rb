@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_07_17_152309) do
+ActiveRecord::Schema[8.0].define(version: 2025_07_22_154808) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
   enable_extension "pgcrypto"
@@ -305,9 +305,11 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_17_152309) do
     t.integer "rate", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.uuid "supplier_framework_lot_jurisdiction_id", null: false
     t.index ["position_id"], name: "index_supplier_framework_lot_rates_on_position_id"
-    t.index ["supplier_framework_lot_id", "position_id"], name: "idx_on_supplier_framework_lot_id_position_id_9bc6ba56d2", unique: true
+    t.index ["supplier_framework_lot_id", "position_id", "supplier_framework_lot_jurisdiction_id"], name: "idx_on_supplier_framework_lot_id_position_id_suppli_ed53e87c0a", unique: true
     t.index ["supplier_framework_lot_id"], name: "idx_on_supplier_framework_lot_id_03e2196cfb"
+    t.index ["supplier_framework_lot_jurisdiction_id"], name: "idx_on_supplier_framework_lot_jurisdiction_id_e5ffe73c62"
   end
 
   create_table "supplier_framework_lot_services", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -459,6 +461,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_17_152309) do
   add_foreign_key "supplier_framework_lot_jurisdictions", "jurisdictions"
   add_foreign_key "supplier_framework_lot_jurisdictions", "supplier_framework_lots"
   add_foreign_key "supplier_framework_lot_rates", "positions"
+  add_foreign_key "supplier_framework_lot_rates", "supplier_framework_lot_jurisdictions"
   add_foreign_key "supplier_framework_lot_rates", "supplier_framework_lots"
   add_foreign_key "supplier_framework_lot_services", "services"
   add_foreign_key "supplier_framework_lot_services", "supplier_framework_lots"

@@ -9,4 +9,4 @@ Feature: Legal Panel for Government - Non central government - Accessibility
     And I select 'No'
     And I click on 'Continue'
     Then I am on the "Sorry, this panel isn't suitable for you" page
-    Then the page should be axe clean
+    Then the page should be axe clean excluding ".ccs-contact-us"

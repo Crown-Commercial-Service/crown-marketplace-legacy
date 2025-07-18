@@ -20,6 +20,21 @@ class Supplier < ApplicationRecord
       )
     end
 
+    def grouped_rates_for_lot_and_jurisdictions(lot_id, jurisdiction_ids)
+      lots.includes(
+        :rates,
+        :jurisdictions,
+      ).find_by(
+        lot_id:
+      ).rates.includes(
+        :jurisdiction
+      ).where(
+        jurisdiction: { jurisdiction_id: jurisdiction_ids }
+      ).each_with_object({}) do |rate, grouped_rates|
+        (grouped_rates[rate.position_id] ||= {})[rate.jurisdiction.jurisdiction_id] = rate
+      end
+    end
+
     def self.with_lots(lot_id)
       includes(
         :supplier, :lots
@@ -48,6 +63,37 @@ class Supplier < ApplicationRecord
                                                .having('COUNT(*) = ?', service_ids.length)
                                                .select(:supplier_framework_lot_id)
         }
+      ).distinct
+    end
+
+    def self.with_services_and_jurisdiction(service_ids, jurisdiction_ids)
+      includes(
+        :supplier, :lots
+      ).joins(
+        :supplier, :lots
+      ).where(
+        enabled: true,
+        lots: {
+          enabled: true,
+        }
+      ).and(
+        where(
+          lots: {
+            id: Supplier::Framework::Lot::Service.where(service_id: service_ids)
+                                                .group(:supplier_framework_lot_id)
+                                                .having('COUNT(*) = ?', service_ids.length)
+                                                .select(:supplier_framework_lot_id)
+          }
+        )
+      ).and(
+        where(
+          lots: {
+            id: Supplier::Framework::Lot::Jurisdiction.where(jurisdiction_id: jurisdiction_ids)
+                                                      .group(:supplier_framework_lot_id)
+                                                      .having('COUNT(*) = ?', jurisdiction_ids.length)
+                                                      .select(:supplier_framework_lot_id)
+          }
+        )
       ).distinct
     end
   end

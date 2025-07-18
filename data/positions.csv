@@ -1,5 +1,5 @@
 id,position,position_type
-1,Parnter,
+1,Partner,
 2,"Senior Solicitor, Senior Associate",
 3,"Solicitor, Associate",
 4,"NQ Solicitor/Associate, Junior Solicitor/Associate",
@@ -49,3 +49,13 @@ id,position,position_type
 48,senior,six_weeks_plus
 49,other,six_weeks_plus
 50,agency_management,six_weeks_plus
+51,Legal Director/Counsel or equivalent,
+52,"Senior Solicitor, Senior Associate/Senior Legal Executive",
+53,"Solicitor, Associate/Legal Executive",
+54,"NQ Solicitor/Associate, Junior Solicitor/Associate/Legal Executive",
+55,Trainee/Legal Apprentice,
+56,"Senior Counsel, Senior Partner (20 years +PQE)",
+57,Senior Analyst,
+58,"Analyst, Associate Analyst, Research Associate, Research Officer",
+59,"Senior Modeller, Senior Econometrician, Senior Analyst",
+60,"Modeller, Econometrician, Analyst, Associate Analyst",

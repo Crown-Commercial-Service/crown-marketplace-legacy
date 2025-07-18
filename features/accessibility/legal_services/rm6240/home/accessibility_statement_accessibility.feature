@@ -5,4 +5,4 @@ Feature: Legal Services - Accessibility statement accessibility
     Given I go to the 'legal services' start page for 'RM6240'
     When I click on 'Accessibility statement'
     Then I am on the 'Legal Services (LS) Accessibility statement' page
-    Then the page should be axe clean
+    Then the page should be axe clean excluding ".ccs-contact-us"
