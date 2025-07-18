@@ -64,6 +64,9 @@ public/management_consultancy/data/*
 
 public/legal_services/data/*
 
+# LegalPanelForGovernment data folders
+public/legal_panel_for_government/data/*
+
 # Facilities Management data folders
 
 public/facilities_management/*

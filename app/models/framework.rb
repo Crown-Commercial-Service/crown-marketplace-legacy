@@ -2,6 +2,7 @@ class Framework < ApplicationRecord
   scope :supply_teachers, -> { where(service: 'supply_teachers').order(live_at: :asc) }
   scope :management_consultancy, -> { where(service: 'management_consultancy').order(live_at: :asc) }
   scope :legal_services, -> { where(service: 'legal_services').order(live_at: :asc) }
+  scope :legal_panel_for_government, -> { where(service: 'legal_panel_for_government').order(live_at: :asc) }
 
   has_many :lots, inverse_of: :framework, dependent: :destroy
   has_many :supplier_frameworks, inverse_of: :framework, class_name: 'Supplier::Framework', dependent: :destroy

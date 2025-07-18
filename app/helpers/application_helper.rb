@@ -3,8 +3,8 @@ module ApplicationHelper
   include CCS::FrontendHelpers
   include HeaderNavigationLinksHelper
 
-  ADMIN_CONTROLLERS = ['supply_teachers/admin', 'management_consultancy/admin', 'legal_services/admin'].freeze
-  PLATFORM_LANDINGPAGES = ['', 'legal_services/home', 'supply_teachers/home', 'management_consultancy/home'].freeze
+  ADMIN_CONTROLLERS = ['supply_teachers/admin', 'management_consultancy/admin', 'legal_services/admin', 'legal_panel_for_government/admin'].freeze
+  PLATFORM_LANDINGPAGES = ['', 'legal_panel_for_government/home', 'legal_services/home', 'supply_teachers/home', 'management_consultancy/home'].freeze
 
   delegate :miles_to_metres, to: :DistanceConverter
 
@@ -14,6 +14,8 @@ module ApplicationHelper
     return link_to(t('common.feedback'), Marketplace.st_survey_link, target: '_blank', rel: 'noopener', class: 'govuk-link') if params[:service].to_s.starts_with? 'supply_teachers'
 
     return link_to(t('common.feedback'), Marketplace.ls_survey_link, target: '_blank', rel: 'noopener', class: 'govuk-link') if params[:service].to_s.starts_with? 'legal_services'
+
+    return link_to(t('common.feedback'), Marketplace.lpg_survey_link, target: '_blank', rel: 'noopener', class: 'govuk-link') if params[:service].to_s.starts_with? 'legal_panel_for_government'
 
     link_to(t('common.feedback'), Marketplace.mc_survey_link, target: '_blank', rel: 'noopener', class: 'govuk-link')
   end
@@ -137,6 +139,8 @@ module ApplicationHelper
                      'Management Consultancy'
                    when 'legal_services', 'legal_services/admin'
                      'Legal Services'
+                   when 'legal_panel_for_government', 'legal_panel_for_government/admin'
+                     'Legal Panel for Government'
                    when 'supply_teachers', 'supply_teachers/admin', 'auth'
                      'Supply Teachers'
                    end
