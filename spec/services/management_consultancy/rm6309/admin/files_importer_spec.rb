@@ -98,9 +98,9 @@ RSpec.describe ManagementConsultancy::RM6309::Admin::FilesImporter do
   describe 'import_data' do
     let(:expected_supplier_results) do
       {
-        'REX LTD': { lots: 10, services: 161, rates: 120 },
-        'MORAG JEWEL LTD': { lots: 10, services: 161, rates: 120 },
-        'ZEKE VON GEMBU CORP': { lots: 10, services: 161, rates: 120 },
+        'REX LTD': { lots: 10, services: 161, jurisdictions: 10, rates: 120 },
+        'MORAG JEWEL LTD': { lots: 10, services: 161, jurisdictions: 10, rates: 120 },
+        'ZEKE VON GEMBU CORP': { lots: 10, services: 161, jurisdictions: 10, rates: 120 },
       }
     end
 
@@ -109,15 +109,18 @@ RSpec.describe ManagementConsultancy::RM6309::Admin::FilesImporter do
       expect(Supplier::Framework.where(framework_id: 'RM6309').count).to eq 3
     end
 
+    # rubocop:disable RSpec/MultipleExpectations
     it 'has the correct data for the suppliers' do
       expected_supplier_results.each do |name, expected_results|
         supplier_framework = Supplier.find_by(name:).supplier_frameworks.find_by(framework_id: 'RM6309')
 
         expect(supplier_framework.lots.count).to eq expected_results[:lots]
         expect(supplier_framework.lots.sum { |lot| lot.services.count }).to eq expected_results[:services]
+        expect(supplier_framework.lots.sum { |lot| lot.jurisdictions.count }).to eq expected_results[:jurisdictions]
         expect(supplier_framework.lots.sum { |lot| lot.rates.count }).to eq expected_results[:rates]
       end
     end
+    # rubocop:enable RSpec/MultipleExpectations
 
     # rubocop:disable RSpec/ExampleLength
     context 'when considering the data for a supplier' do

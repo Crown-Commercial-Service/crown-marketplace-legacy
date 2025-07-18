@@ -4,6 +4,7 @@ class Supplier < ApplicationRecord
       class Rate < ApplicationRecord
         belongs_to :supplier_framework_lot, inverse_of: :rates, class_name: 'Supplier::Framework::Lot'
         belongs_to :position, inverse_of: :supplier_framework_lot_rates
+        belongs_to :jurisdiction, inverse_of: :rates, class_name: 'Supplier::Framework::Lot::Jurisdiction', foreign_key: :supplier_framework_lot_jurisdiction_id
 
         def rate_in_pounds
           rate / 100.0

@@ -140,11 +140,16 @@ RSpec.describe Upload do
               lot_id: 'RM6187.1',
               enabled: true,
               supplier_framework_lot_services: [],
-              supplier_framework_lot_jurisdictions: [],
+              supplier_framework_lot_jurisdictions: [
+                {
+                  jurisdiction_id: 'GB'
+                }
+              ],
               supplier_framework_lot_rates: [
                 {
                   position_id: 8,
-                  rate: 10000
+                  rate: 10000,
+                  jurisdiction_id: 'GB'
                 }
               ],
               supplier_framework_lot_branches: []
@@ -153,11 +158,16 @@ RSpec.describe Upload do
               lot_id: 'RM6187.3',
               enabled: true,
               supplier_framework_lot_services: [],
-              supplier_framework_lot_jurisdictions: [],
+              supplier_framework_lot_jurisdictions: [
+                {
+                  jurisdiction_id: 'GB'
+                }
+              ],
               supplier_framework_lot_rates: [
                 {
                   position_id: 8,
-                  rate: 20000
+                  rate: 20000,
+                  jurisdiction_id: 'GB'
                 }
               ],
               supplier_framework_lot_branches: []
@@ -166,8 +176,18 @@ RSpec.describe Upload do
         end
         let(:supplier_framework) { Supplier::Framework.last }
 
+        it 'creates supplier framework lot jurisdictions associated with supplier' do
+          expect { result }.to change(Supplier::Framework::Lot::Jurisdiction, :count).by(2)
+        end
+
         it 'creates supplier framework lot rates associated with supplier' do
           expect { result }.to change(Supplier::Framework::Lot::Rate, :count).by(2)
+        end
+
+        it 'assigns attributes to the jurisdictions' do
+          result
+
+          expect(supplier_framework.lots.map { |lot| lot.jurisdictions.pluck(:jurisdiction_id) }).to eq([['GB'], ['GB']])
         end
 
         it 'assigns attributes to the rates' do
@@ -279,11 +299,16 @@ RSpec.describe Upload do
             lot_id: 'RM6187.1',
             enabled: true,
             supplier_framework_lot_services: [],
-            supplier_framework_lot_jurisdictions: [],
+            supplier_framework_lot_jurisdictions: [
+              {
+                jurisdiction_id: 'GB'
+              }
+            ],
             supplier_framework_lot_rates: [
               {
                 position_id: 88,
-                rate: 10000
+                rate: 10000,
+                jurisdiction_id: 'GB'
               }
             ],
             supplier_framework_lot_branches: []
@@ -292,11 +317,16 @@ RSpec.describe Upload do
             lot_id: 'RM6187.3',
             enabled: true,
             supplier_framework_lot_services: [],
-            supplier_framework_lot_jurisdictions: [],
+            supplier_framework_lot_jurisdictions: [
+              {
+                jurisdiction_id: 'GB'
+              }
+            ],
             supplier_framework_lot_rates: [
               {
                 position_id: 8,
-                rate: 20000
+                rate: 20000,
+                jurisdiction_id: 'GB'
               }
             ],
             supplier_framework_lot_branches: []
@@ -332,11 +362,16 @@ RSpec.describe Upload do
               service_id: 'RM6187.1.2'
             }
           ],
-          supplier_framework_lot_jurisdictions: [],
+          supplier_framework_lot_jurisdictions: [
+            {
+              jurisdiction_id: 'GB'
+            }
+          ],
           supplier_framework_lot_rates: [
             {
               position_id: 8,
-              rate: 10000
+              rate: 10000,
+              jurisdiction_id: 'GB'
             }
           ],
           supplier_framework_lot_branches: []
@@ -349,11 +384,16 @@ RSpec.describe Upload do
               service_id: 'RM6187.2.1'
             },
           ],
-          supplier_framework_lot_jurisdictions: [],
+          supplier_framework_lot_jurisdictions: [
+            {
+              jurisdiction_id: 'GB'
+            }
+          ],
           supplier_framework_lot_rates: [
             {
               position_id: 8,
-              rate: 20000
+              rate: 20000,
+              jurisdiction_id: 'GB'
             }
           ],
           supplier_framework_lot_branches: []
@@ -429,6 +469,10 @@ RSpec.describe Upload do
         expect { result }.to change(Supplier::Framework::Lot::Service, :count).by(3)
       end
 
+      it 'creates supplier framework lot jurisdictions associated with supplier' do
+        expect { result }.to change(Supplier::Framework::Lot::Jurisdiction, :count).by(2)
+      end
+
       it 'creates supplier framework lot rates associated with supplier' do
         expect { result }.to change(Supplier::Framework::Lot::Rate, :count).by(2)
       end
@@ -487,6 +531,10 @@ RSpec.describe Upload do
 
       it 'removes the supplier framework lot services associated with supplier' do
         expect { result }.to change(Supplier::Framework::Lot::Service, :count).by(-3)
+      end
+
+      it 'creates supplier framework lot jurisdictions associated with supplier' do
+        expect { result }.to change(Supplier::Framework::Lot::Jurisdiction, :count).by(-2)
       end
 
       it 'removes the supplier framework lot rates associated with supplier' do
