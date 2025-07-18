@@ -200,3 +200,41 @@ en:
           heading: Sorry, this panel isn't suitable for you
           lead_1: This panel is the default route to market offering a range of legal services to Central Government Departments, their executive agencies and ALBS
           lead_2: Wider public sector organisations and departments granted an exception from GLD should consider using RM6240 Public sector legal services
+      suppliers:
+        download:
+          back_to_start: Back to start
+          download_statement: The spreadsheet includes the selections you made, for your records and audit trail
+          download_supplier_shortlist_link: Download supplier shortlist
+          heading: Download the supplier shortlist
+        index:
+          back_to_start: Back to start
+          can_provide_legal_services: can provide legal services that meet your requirements.
+          download_suppliers_list: Download the supplier list
+          heading: Supplier results
+          no_suppliers_found:
+            contact_html: "%{contact_link} for help."
+            contact_link_text: Contact CCS Support
+            general_legal_advice_services_link_text: Public Sector Legal Services (RM6240)
+            general_legal_advice_services_link_url: https://www.crowncommercial.gov.uk/agreements/RM6240
+            heading: No suppliers were found
+            text: There are no suppliers on this panel that can provide the law services you need
+            text_central_government_users_html: The %{general_legal_advice_service_link} agreement provides legal services for the wider public sector.
+          page_title: Supplier results
+          supplier: supplier
+        rates_table:
+          hourly: Hourly
+          position: Position
+          rates: Rates
+        show:
+          contact_details:
+            address: Address
+            email: Email
+            heading: Contact details
+            phone_number: Phone number
+            website: Website
+          fee_advice: You are also able to use alternative fee arrangements such as fixed or capped fees, which may deliver greater value.
+          fixed_until: Fixed until September 2024 and based on an 8 hour working day.
+          further_competition: These are the maximum rates the supplier charges for a direct award. You may get a cheaper rate by running a further competition.
+          is_an_sme: This supplier is a small or medium-sized enterprise
+          rates: Rates
+          supplier_prospectus_headline: Supplier prospectus

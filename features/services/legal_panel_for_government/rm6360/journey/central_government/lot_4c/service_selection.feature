@@ -81,17 +81,14 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4bc- Service 
     When I click on 'Remove all'
     Then the basket should say 'No services selected'
 
-  # TODO: Add this scenario
-  # Scenario: Go back from jurisdiction and change selection
-  #   When I check the following items:
-  #     | Infrastructure                                  |
-  #     | Intellectual Property Law                       |
-  #     | International Trade, Investment and Regulation  |
-  #   And I click on 'Continue'
-  #   Then I am on the 'Select the jurisdiction you need' page
-  #   And I click on the 'Back' back link
-  #   Then I am on the 'Select the legal services you need' page
-  #   And the following items should appear in the basket:
-  #     | Infrastructure                                  |
-  #     | Intellectual Property Law                       |
-  #     | International Trade, Investment and Regulation  |
+  Scenario: Go back from suppliers and change selection
+    When I check the following items:
+      | Investment dispute risk advice                                  |
+      | Litigation and dispute resolution for trade investment disputes |
+    And I click on 'Continue'
+    Then I am on the 'Supplier results' page
+    And I click on the 'Back' back link
+    Then I am on the 'Select the legal services you need' page
+    And the following items should appear in the basket:
+      | Investment dispute risk advice                                  |
+      | Litigation and dispute resolution for trade investment disputes |

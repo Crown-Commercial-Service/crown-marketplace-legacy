@@ -70,10 +70,11 @@ module SupplyTeachers
               lot_id = "RM6238.#{pricing['lot_number']}"
               position_id = JOB_TYPE_TO_POSITION_ID[pricing['job_type']][pricing['term']]
 
-              supplier_framework_lots[lot_id] ||= { services: [], jurisdictions: [], rates: [], branches: [] }
+              supplier_framework_lots[lot_id] ||= { services: [], jurisdictions: [{ jurisdiction_id: 'GB' }], rates: [], branches: [] }
               supplier_framework_lots[lot_id][:rates] << {
                 position_id: position_id,
                 rate: pricing['fee'],
+                jurisdiction_id: 'GB'
               }
             end
           end
@@ -81,7 +82,7 @@ module SupplyTeachers
           def add_branches(supplier_framework_lots, supplier_data)
             supplier_data['branches']&.each do |branch|
               lot_id = 'RM6238.1'
-              supplier_framework_lots[lot_id] ||= { services: [], jurisdictions: [], rates: [], branches: [] }
+              supplier_framework_lots[lot_id] ||= { services: [], jurisdictions: [{ jurisdiction_id: 'GB' }], rates: [], branches: [] }
               supplier_framework_lots[lot_id][:branches] << {
                 lat: branch['lat'],
                 lon: branch['lon'],
@@ -98,6 +99,7 @@ module SupplyTeachers
               }
             end
           end
+
           JOB_TYPE_TO_POSITION_ID = {
             'over_12_week' => {
               nil => 38

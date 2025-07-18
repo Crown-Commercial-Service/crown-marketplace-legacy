@@ -44,7 +44,7 @@ Feature: Legal services - Non central governemnt - Lot 1 - Results
       | WILLIAMSON-BERGSTROM        |
       | ZIEME GROUP                 |
 
-  Scenario: Jursidiction selection changes the results
+  Scenario: Jurisdiction selection changes the results
     Given I click on the 'Back' back link
     Then I am on the 'Select the jurisdiction you need' page
     And I select 'Northern Ireland'

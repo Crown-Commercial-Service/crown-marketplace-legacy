@@ -1,8 +1,11 @@
 FactoryBot.define do
   factory :supplier_framework_lot, class: 'Supplier::Framework::Lot' do
-    supplier_framework factory: %i[supplier_framework]
-    lot factory: %i[lot]
     enabled { true }
+
+    after(:build) do |supplier_framework_lot, evaluator|
+      supplier_framework_lot.supplier_framework ||= evaluator.supplier_framework || create(:supplier_framework)
+      supplier_framework_lot.lot ||= evaluator.lot || create(:lot)
+    end
 
     trait :with_rates do
       after(:create) do |supplier_framework_lot|

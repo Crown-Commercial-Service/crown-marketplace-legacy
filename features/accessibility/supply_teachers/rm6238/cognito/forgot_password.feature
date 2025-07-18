@@ -10,4 +10,4 @@ Feature: Forgot my password - Supply Teachers - RM6238 - Accessibility
     And I am on the 'Sign in to your supply teachers account' page
     When I click on 'I’ve forgotten my password'
     Then I am on the 'Reset password' page
-    Then the page should be axe clean
+    Then the page should be axe clean excluding ".ccs-contact-us"

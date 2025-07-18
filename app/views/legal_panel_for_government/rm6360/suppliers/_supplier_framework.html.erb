@@ -1,0 +1,17 @@
+<li>
+  <h2 class="govuk-heading-m">
+    <div class="ccs-results-list__supplier-name">
+      <%= link_to supplier_framework.supplier_name, legal_panel_for_government_path(supplier_framework), class: 'govuk-link ccs-no-underline' %>
+      <% if supplier_framework.supplier.sme %>
+        <%= govuk_tag(t('sme'), 'grey', classes: 'ccs-tag') %>
+      <% end %>
+    </div>
+    <div class="ccs-results-list__prospectus">
+      <% if prospectus_link_a_url?(supplier_framework) %>
+        <%= link_to prospectus_link(supplier_framework), url_formatter(prospectus_link(supplier_framework)), class: 'govuk-link govuk-!-font-size-19' %>
+      <% else %>
+        <p><%= prospectus_link(supplier_framework) %></p>
+      <% end %>
+    </div>
+  </h2>
+</li>

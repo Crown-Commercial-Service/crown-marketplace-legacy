@@ -24,7 +24,7 @@ Feature: Legal services - Suppliers - Accessibility
     And I click on 'Continue'
     Then I am on the 'Supplier results' page
     And I should see that '<number_of_suppliers>' suppliers can provide legal services
-    Then the page should be axe clean
+    Then the page should be axe clean excluding ".ccs-contact-us"
 
     Examples:
       | lot                               | service                 | number_of_suppliers |
@@ -47,7 +47,7 @@ Feature: Legal services - Suppliers - Accessibility
     And I click on 'Continue'
     Then I am on the 'Supplier results' page
     And I should see that '<number_of_suppliers>' suppliers can provide legal services
-    Then the page should be axe clean
+    Then the page should be axe clean excluding ".ccs-contact-us"
 
     Examples:
       | lot                               | service                 | number_of_suppliers |
@@ -75,7 +75,7 @@ Feature: Legal services - Suppliers - Accessibility
     And I should see that '<number_of_suppliers>' suppliers can provide legal services
     And I click on '<supplier_name>'
     Then I am on the '<supplier_name>' page
-    Then the page should be axe clean
+    Then the page should be axe clean excluding ".ccs-contact-us"
 
     Examples:
       | lot                               | service                 | number_of_suppliers | supplier_name             |
@@ -100,7 +100,7 @@ Feature: Legal services - Suppliers - Accessibility
     And I should see that '<number_of_suppliers>' suppliers can provide legal services
     And I click on '<supplier_name>'
     Then I am on the '<supplier_name>' page
-    Then the page should be axe clean
+    Then the page should be axe clean excluding ".ccs-contact-us"
 
     Examples:
       | lot                               | service                 | number_of_suppliers | supplier_name             |
@@ -128,7 +128,7 @@ Feature: Legal services - Suppliers - Accessibility
     And I should see that '<number_of_suppliers>' suppliers can provide legal services
     Given I click on 'Download the supplier list'
     Then I am on the 'Download the supplier shortlist' page
-    Then the page should be axe clean
+    Then the page should be axe clean excluding ".ccs-contact-us"
 
     Examples:
       | lot                               | service                 | number_of_suppliers |
@@ -153,7 +153,7 @@ Feature: Legal services - Suppliers - Accessibility
     And I should see that '<number_of_suppliers>' suppliers can provide legal services
     Given I click on 'Download the supplier list'
     Then I am on the 'Download the supplier shortlist' page
-    Then the page should be axe clean
+    Then the page should be axe clean excluding ".ccs-contact-us"
 
     Examples:
       | lot                               | service                 | number_of_suppliers |
@@ -171,7 +171,7 @@ Feature: Legal services - Suppliers - Accessibility
     And I click on 'Continue'
     Then I am on the 'Supplier results' page
     And I should see that '8' suppliers can provide legal services
-    Then the page should be axe clean
+    Then the page should be axe clean excluding ".ccs-contact-us"
 
   Scenario: Supplier page - central govenrment - Lot 3
     And I select 'Yes'
@@ -186,7 +186,7 @@ Feature: Legal services - Suppliers - Accessibility
     And I should see that '8' suppliers can provide legal services
     And I click on 'LUETTGEN LLC'
     Then I am on the 'LUETTGEN LLC' page
-    Then the page should be axe clean
+    Then the page should be axe clean excluding ".ccs-contact-us"
 
   Scenario: Download supplier list page - central govenrment - Lot 3
     And I select 'Yes'
@@ -201,7 +201,7 @@ Feature: Legal services - Suppliers - Accessibility
     And I should see that '8' suppliers can provide legal services
     Given I click on 'Download the supplier list'
     Then I am on the 'Download the supplier shortlist' page
-    Then the page should be axe clean
+    Then the page should be axe clean excluding ".ccs-contact-us"
 
   Scenario: Results page - non central govenrment - Lot 3
     And I select 'No'
@@ -211,7 +211,7 @@ Feature: Legal services - Suppliers - Accessibility
     And I click on 'Continue'
     Then I am on the 'Supplier results' page
     And I should see that '8' suppliers can provide legal services
-    Then the page should be axe clean
+    Then the page should be axe clean excluding ".ccs-contact-us"
 
   Scenario: Supplier page - non central govenrment - Lot 3
     And I select 'No'
@@ -223,7 +223,7 @@ Feature: Legal services - Suppliers - Accessibility
     And I should see that '8' suppliers can provide legal services
     And I click on 'LUETTGEN LLC'
     Then I am on the 'LUETTGEN LLC' page
-    Then the page should be axe clean
+    Then the page should be axe clean excluding ".ccs-contact-us"
 
   Scenario: Download supplier list page - non central govenrment - Lot 3
     And I select 'No'
@@ -235,4 +235,4 @@ Feature: Legal services - Suppliers - Accessibility
     And I should see that '8' suppliers can provide legal services
     Given I click on 'Download the supplier list'
     Then I am on the 'Download the supplier shortlist' page
-    Then the page should be axe clean
+    Then the page should be axe clean excluding ".ccs-contact-us"

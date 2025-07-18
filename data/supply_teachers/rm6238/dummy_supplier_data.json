@@ -28,51 +28,66 @@
             "supplier_framework_lot_rates": [
               {
                 "position_id": 41,
-                "rate": 5432
+                "rate": 5432,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 46,
-                "rate": 5160
+                "rate": 5160,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 42,
-                "rate": 4888
+                "rate": 4888,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 47,
-                "rate": 4643
+                "rate": 4643,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 43,
-                "rate": 5975
+                "rate": 5975,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 48,
-                "rate": 5676
+                "rate": 5676,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 44,
-                "rate": 5160
+                "rate": 5160,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 49,
-                "rate": 4902
+                "rate": 4902,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 38,
-                "rate": 0
+                "rate": 0,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 39,
-                "rate": 4345
+                "rate": 4345,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 40,
-                "rate": 3259
+                "rate": 3259,
+                "jurisdiction_id": "GB"
               }
             ],
             "supplier_framework_lot_branches": [],
-            "supplier_framework_lot_jurisdictions": []
+            "supplier_framework_lot_jurisdictions": [
+              {
+                "jurisdiction_id": "GB"
+              }
+            ]
           }
         ]
       }
@@ -107,51 +122,66 @@
             "supplier_framework_lot_rates": [
               {
                 "position_id": 41,
-                "rate": 2824
+                "rate": 2824,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 46,
-                "rate": 2682
+                "rate": 2682,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 42,
-                "rate": 2541
+                "rate": 2541,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 47,
-                "rate": 2413
+                "rate": 2413,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 43,
-                "rate": 3106
+                "rate": 3106,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 48,
-                "rate": 2950
+                "rate": 2950,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 44,
-                "rate": 2682
+                "rate": 2682,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 49,
-                "rate": 2547
+                "rate": 2547,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 38,
-                "rate": 0
+                "rate": 0,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 39,
-                "rate": 2259
+                "rate": 2259,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 40,
-                "rate": 1694
+                "rate": 1694,
+                "jurisdiction_id": "GB"
               }
             ],
             "supplier_framework_lot_branches": [],
-            "supplier_framework_lot_jurisdictions": []
+            "supplier_framework_lot_jurisdictions": [
+              {
+                "jurisdiction_id": "GB"
+              }
+            ]
           },
           {
             "lot_id": "RM6238.2.2",
@@ -160,51 +190,66 @@
             "supplier_framework_lot_rates": [
               {
                 "position_id": 41,
-                "rate": 5189
+                "rate": 5189,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 46,
-                "rate": 4929
+                "rate": 4929,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 42,
-                "rate": 4670
+                "rate": 4670,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 47,
-                "rate": 4436
+                "rate": 4436,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 43,
-                "rate": 5707
+                "rate": 5707,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 48,
-                "rate": 5421
+                "rate": 5421,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 44,
-                "rate": 4929
+                "rate": 4929,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 49,
-                "rate": 4682
+                "rate": 4682,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 38,
-                "rate": 800
+                "rate": 800,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 39,
-                "rate": 4151
+                "rate": 4151,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 40,
-                "rate": 3113
+                "rate": 3113,
+                "jurisdiction_id": "GB"
               }
             ],
             "supplier_framework_lot_branches": [],
-            "supplier_framework_lot_jurisdictions": []
+            "supplier_framework_lot_jurisdictions": [
+              {
+                "jurisdiction_id": "GB"
+              }
+            ]
           }
         ]
       }
@@ -239,51 +284,66 @@
             "supplier_framework_lot_rates": [
               {
                 "position_id": 41,
-                "rate": 3030
+                "rate": 3030,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 46,
-                "rate": 2878
+                "rate": 2878,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 42,
-                "rate": 2727
+                "rate": 2727,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 47,
-                "rate": 2590
+                "rate": 2590,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 43,
-                "rate": 3333
+                "rate": 3333,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 48,
-                "rate": 3166
+                "rate": 3166,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 44,
-                "rate": 2878
+                "rate": 2878,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 49,
-                "rate": 2734
+                "rate": 2734,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 38,
-                "rate": 0
+                "rate": 0,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 39,
-                "rate": 2424
+                "rate": 2424,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 40,
-                "rate": 1818
+                "rate": 1818,
+                "jurisdiction_id": "GB"
               }
             ],
             "supplier_framework_lot_branches": [],
-            "supplier_framework_lot_jurisdictions": []
+            "supplier_framework_lot_jurisdictions": [
+              {
+                "jurisdiction_id": "GB"
+              }
+            ]
           },
           {
             "lot_id": "RM6238.2.2",
@@ -292,51 +352,66 @@
             "supplier_framework_lot_rates": [
               {
                 "position_id": 41,
-                "rate": 5716
+                "rate": 5716,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 46,
-                "rate": 5430
+                "rate": 5430,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 42,
-                "rate": 5144
+                "rate": 5144,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 47,
-                "rate": 4886
+                "rate": 4886,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 43,
-                "rate": 6287
+                "rate": 6287,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 48,
-                "rate": 5972
+                "rate": 5972,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 44,
-                "rate": 5430
+                "rate": 5430,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 49,
-                "rate": 5158
+                "rate": 5158,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 38,
-                "rate": 600
+                "rate": 600,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 39,
-                "rate": 4572
+                "rate": 4572,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 40,
-                "rate": 3429
+                "rate": 3429,
+                "jurisdiction_id": "GB"
               }
             ],
             "supplier_framework_lot_branches": [],
-            "supplier_framework_lot_jurisdictions": []
+            "supplier_framework_lot_jurisdictions": [
+              {
+                "jurisdiction_id": "GB"
+              }
+            ]
           }
         ]
       }
@@ -371,51 +446,66 @@
             "supplier_framework_lot_rates": [
               {
                 "position_id": 41,
-                "rate": 5638
+                "rate": 5638,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 46,
-                "rate": 5356
+                "rate": 5356,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 42,
-                "rate": 5074
+                "rate": 5074,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 47,
-                "rate": 4820
+                "rate": 4820,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 43,
-                "rate": 6201
+                "rate": 6201,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 48,
-                "rate": 5890
+                "rate": 5890,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 44,
-                "rate": 5356
+                "rate": 5356,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 49,
-                "rate": 5088
+                "rate": 5088,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 38,
-                "rate": 1000
+                "rate": 1000,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 39,
-                "rate": 4510
+                "rate": 4510,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 40,
-                "rate": 3382
+                "rate": 3382,
+                "jurisdiction_id": "GB"
               }
             ],
             "supplier_framework_lot_branches": [],
-            "supplier_framework_lot_jurisdictions": []
+            "supplier_framework_lot_jurisdictions": [
+              {
+                "jurisdiction_id": "GB"
+              }
+            ]
           }
         ]
       }
@@ -450,47 +540,58 @@
             "supplier_framework_lot_rates": [
               {
                 "position_id": 41,
-                "rate": 3984
+                "rate": 3984,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 46,
-                "rate": 3784
+                "rate": 3784,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 42,
-                "rate": 3585
+                "rate": 3585,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 47,
-                "rate": 3405
+                "rate": 3405,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 43,
-                "rate": 4382
+                "rate": 4382,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 48,
-                "rate": 4162
+                "rate": 4162,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 44,
-                "rate": 3784
+                "rate": 3784,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 49,
-                "rate": 3594
+                "rate": 3594,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 38,
-                "rate": 100
+                "rate": 100,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 39,
-                "rate": 3187
+                "rate": 3187,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 40,
-                "rate": 2390
+                "rate": 2390,
+                "jurisdiction_id": "GB"
               }
             ],
             "supplier_framework_lot_branches": [
@@ -523,7 +624,11 @@
                 "region": "Greater Manchester"
               }
             ],
-            "supplier_framework_lot_jurisdictions": []
+            "supplier_framework_lot_jurisdictions": [
+              {
+                "jurisdiction_id": "GB"
+              }
+            ]
           }
         ]
       }
@@ -558,47 +663,58 @@
             "supplier_framework_lot_rates": [
               {
                 "position_id": 41,
-                "rate": 2759
+                "rate": 2759,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 46,
-                "rate": 2621
+                "rate": 2621,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 42,
-                "rate": 2483
+                "rate": 2483,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 47,
-                "rate": 2358
+                "rate": 2358,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 43,
-                "rate": 3034
+                "rate": 3034,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 48,
-                "rate": 2882
+                "rate": 2882,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 44,
-                "rate": 2621
+                "rate": 2621,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 49,
-                "rate": 2489
+                "rate": 2489,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 38,
-                "rate": 100
+                "rate": 100,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 39,
-                "rate": 2207
+                "rate": 2207,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 40,
-                "rate": 1655
+                "rate": 1655,
+                "jurisdiction_id": "GB"
               }
             ],
             "supplier_framework_lot_branches": [
@@ -631,7 +747,11 @@
                 "region": "Merseyside"
               }
             ],
-            "supplier_framework_lot_jurisdictions": []
+            "supplier_framework_lot_jurisdictions": [
+              {
+                "jurisdiction_id": "GB"
+              }
+            ]
           }
         ]
       }
@@ -666,47 +786,58 @@
             "supplier_framework_lot_rates": [
               {
                 "position_id": 41,
-                "rate": 5955
+                "rate": 5955,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 46,
-                "rate": 5657
+                "rate": 5657,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 42,
-                "rate": 5359
+                "rate": 5359,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 47,
-                "rate": 5091
+                "rate": 5091,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 43,
-                "rate": 6550
+                "rate": 6550,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 48,
-                "rate": 6222
+                "rate": 6222,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 44,
-                "rate": 5657
+                "rate": 5657,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 49,
-                "rate": 5374
+                "rate": 5374,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 38,
-                "rate": 1000
+                "rate": 1000,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 39,
-                "rate": 4764
+                "rate": 4764,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 40,
-                "rate": 3573
+                "rate": 3573,
+                "jurisdiction_id": "GB"
               }
             ],
             "supplier_framework_lot_branches": [
@@ -739,7 +870,11 @@
                 "region": "Merseyside"
               }
             ],
-            "supplier_framework_lot_jurisdictions": []
+            "supplier_framework_lot_jurisdictions": [
+              {
+                "jurisdiction_id": "GB"
+              }
+            ]
           }
         ]
       }
@@ -774,47 +909,58 @@
             "supplier_framework_lot_rates": [
               {
                 "position_id": 41,
-                "rate": 5835
+                "rate": 5835,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 46,
-                "rate": 5543
+                "rate": 5543,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 42,
-                "rate": 5251
+                "rate": 5251,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 47,
-                "rate": 4988
+                "rate": 4988,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 43,
-                "rate": 6418
+                "rate": 6418,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 48,
-                "rate": 6097
+                "rate": 6097,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 44,
-                "rate": 5543
+                "rate": 5543,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 49,
-                "rate": 5265
+                "rate": 5265,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 38,
-                "rate": 300
+                "rate": 300,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 39,
-                "rate": 4668
+                "rate": 4668,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 40,
-                "rate": 3501
+                "rate": 3501,
+                "jurisdiction_id": "GB"
               }
             ],
             "supplier_framework_lot_branches": [
@@ -847,7 +993,11 @@
                 "region": "Merseyside"
               }
             ],
-            "supplier_framework_lot_jurisdictions": []
+            "supplier_framework_lot_jurisdictions": [
+              {
+                "jurisdiction_id": "GB"
+              }
+            ]
           }
         ]
       }
@@ -882,47 +1032,58 @@
             "supplier_framework_lot_rates": [
               {
                 "position_id": 41,
-                "rate": 4794
+                "rate": 4794,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 46,
-                "rate": 4554
+                "rate": 4554,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 42,
-                "rate": 4314
+                "rate": 4314,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 47,
-                "rate": 4098
+                "rate": 4098,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 43,
-                "rate": 5273
+                "rate": 5273,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 48,
-                "rate": 5009
+                "rate": 5009,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 44,
-                "rate": 4554
+                "rate": 4554,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 49,
-                "rate": 4326
+                "rate": 4326,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 38,
-                "rate": 600
+                "rate": 600,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 39,
-                "rate": 3835
+                "rate": 3835,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 40,
-                "rate": 2876
+                "rate": 2876,
+                "jurisdiction_id": "GB"
               }
             ],
             "supplier_framework_lot_branches": [
@@ -955,7 +1116,11 @@
                 "region": "Merseyside"
               }
             ],
-            "supplier_framework_lot_jurisdictions": []
+            "supplier_framework_lot_jurisdictions": [
+              {
+                "jurisdiction_id": "GB"
+              }
+            ]
           }
         ]
       }
@@ -990,23 +1155,28 @@
             "supplier_framework_lot_rates": [
               {
                 "position_id": 44,
-                "rate": 4748
+                "rate": 4748,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 49,
-                "rate": 4510
+                "rate": 4510,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 38,
-                "rate": 100
+                "rate": 100,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 39,
-                "rate": 3998
+                "rate": 3998,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 40,
-                "rate": 2998
+                "rate": 2998,
+                "jurisdiction_id": "GB"
               }
             ],
             "supplier_framework_lot_branches": [
@@ -1039,7 +1209,11 @@
                 "region": "Greater Manchester"
               }
             ],
-            "supplier_framework_lot_jurisdictions": []
+            "supplier_framework_lot_jurisdictions": [
+              {
+                "jurisdiction_id": "GB"
+              }
+            ]
           }
         ]
       }
@@ -1074,23 +1248,28 @@
             "supplier_framework_lot_rates": [
               {
                 "position_id": 43,
-                "rate": 4692
+                "rate": 4692,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 48,
-                "rate": 4457
+                "rate": 4457,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 38,
-                "rate": 600
+                "rate": 600,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 39,
-                "rate": 3412
+                "rate": 3412,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 40,
-                "rate": 2559
+                "rate": 2559,
+                "jurisdiction_id": "GB"
               }
             ],
             "supplier_framework_lot_branches": [
@@ -1123,7 +1302,11 @@
                 "region": "Merseyside"
               }
             ],
-            "supplier_framework_lot_jurisdictions": []
+            "supplier_framework_lot_jurisdictions": [
+              {
+                "jurisdiction_id": "GB"
+              }
+            ]
           }
         ]
       }
@@ -1158,31 +1341,38 @@
             "supplier_framework_lot_rates": [
               {
                 "position_id": 43,
-                "rate": 5892
+                "rate": 5892,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 48,
-                "rate": 5597
+                "rate": 5597,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 44,
-                "rate": 5089
+                "rate": 5089,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 49,
-                "rate": 4834
+                "rate": 4834,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 38,
-                "rate": 200
+                "rate": 200,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 39,
-                "rate": 4285
+                "rate": 4285,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 40,
-                "rate": 3214
+                "rate": 3214,
+                "jurisdiction_id": "GB"
               }
             ],
             "supplier_framework_lot_branches": [
@@ -1215,7 +1405,11 @@
                 "region": "Merseyside"
               }
             ],
-            "supplier_framework_lot_jurisdictions": []
+            "supplier_framework_lot_jurisdictions": [
+              {
+                "jurisdiction_id": "GB"
+              }
+            ]
           }
         ]
       }
@@ -1250,23 +1444,28 @@
             "supplier_framework_lot_rates": [
               {
                 "position_id": 41,
-                "rate": 4145
+                "rate": 4145,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 46,
-                "rate": 3937
+                "rate": 3937,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 38,
-                "rate": 100
+                "rate": 100,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 39,
-                "rate": 3316
+                "rate": 3316,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 40,
-                "rate": 2487
+                "rate": 2487,
+                "jurisdiction_id": "GB"
               }
             ],
             "supplier_framework_lot_branches": [
@@ -1299,7 +1498,11 @@
                 "region": "Merseyside"
               }
             ],
-            "supplier_framework_lot_jurisdictions": []
+            "supplier_framework_lot_jurisdictions": [
+              {
+                "jurisdiction_id": "GB"
+              }
+            ]
           }
         ]
       }
@@ -1334,39 +1537,48 @@
             "supplier_framework_lot_rates": [
               {
                 "position_id": 42,
-                "rate": 3553
+                "rate": 3553,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 47,
-                "rate": 3375
+                "rate": 3375,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 43,
-                "rate": 4342
+                "rate": 4342,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 48,
-                "rate": 4124
+                "rate": 4124,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 44,
-                "rate": 3750
+                "rate": 3750,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 49,
-                "rate": 3562
+                "rate": 3562,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 38,
-                "rate": 500
+                "rate": 500,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 39,
-                "rate": 3158
+                "rate": 3158,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 40,
-                "rate": 2368
+                "rate": 2368,
+                "jurisdiction_id": "GB"
               }
             ],
             "supplier_framework_lot_branches": [
@@ -1399,7 +1611,11 @@
                 "region": "Merseyside"
               }
             ],
-            "supplier_framework_lot_jurisdictions": []
+            "supplier_framework_lot_jurisdictions": [
+              {
+                "jurisdiction_id": "GB"
+              }
+            ]
           }
         ]
       }
@@ -1434,23 +1650,31 @@
             "supplier_framework_lot_rates": [
               {
                 "position_id": 45,
-                "rate": 1407
+                "rate": 1407,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 50,
-                "rate": 1336
+                "rate": 1336,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 39,
-                "rate": 1266
+                "rate": 1266,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 40,
-                "rate": 1400
+                "rate": 1400,
+                "jurisdiction_id": "GB"
               }
             ],
             "supplier_framework_lot_branches": [],
-            "supplier_framework_lot_jurisdictions": []
+            "supplier_framework_lot_jurisdictions": [
+              {
+                "jurisdiction_id": "GB"
+              }
+            ]
           }
         ]
       }
@@ -1485,23 +1709,31 @@
             "supplier_framework_lot_rates": [
               {
                 "position_id": 45,
-                "rate": 831
+                "rate": 831,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 50,
-                "rate": 789
+                "rate": 789,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 39,
-                "rate": 747
+                "rate": 747,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 40,
-                "rate": 600
+                "rate": 600,
+                "jurisdiction_id": "GB"
               }
             ],
             "supplier_framework_lot_branches": [],
-            "supplier_framework_lot_jurisdictions": []
+            "supplier_framework_lot_jurisdictions": [
+              {
+                "jurisdiction_id": "GB"
+              }
+            ]
           }
         ]
       }
@@ -1536,23 +1768,31 @@
             "supplier_framework_lot_rates": [
               {
                 "position_id": 45,
-                "rate": 1951
+                "rate": 1951,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 50,
-                "rate": 1853
+                "rate": 1853,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 39,
-                "rate": 1755
+                "rate": 1755,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 40,
-                "rate": 1300
+                "rate": 1300,
+                "jurisdiction_id": "GB"
               }
             ],
             "supplier_framework_lot_branches": [],
-            "supplier_framework_lot_jurisdictions": []
+            "supplier_framework_lot_jurisdictions": [
+              {
+                "jurisdiction_id": "GB"
+              }
+            ]
           }
         ]
       }
@@ -1587,23 +1827,31 @@
             "supplier_framework_lot_rates": [
               {
                 "position_id": 45,
-                "rate": 518
+                "rate": 518,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 50,
-                "rate": 492
+                "rate": 492,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 39,
-                "rate": 466
+                "rate": 466,
+                "jurisdiction_id": "GB"
               },
               {
                 "position_id": 40,
-                "rate": 900
+                "rate": 900,
+                "jurisdiction_id": "GB"
               }
             ],
             "supplier_framework_lot_branches": [],
-            "supplier_framework_lot_jurisdictions": []
+            "supplier_framework_lot_jurisdictions": [
+              {
+                "jurisdiction_id": "GB"
+              }
+            ]
           }
         ]
       }

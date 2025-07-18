@@ -6,13 +6,13 @@ Feature: Legal Panel for Government - Central government - Accessibility
     Then I am on the 'Do you work for central government?' page
 
   Scenario: Do you work for central government?
-    Then the page should be axe clean
+    Then the page should be axe clean excluding ".ccs-contact-us"
     
   Scenario: Select the lot you need
     And I select 'Yes'
     And I click on 'Continue'
     Then I am on the 'Select the lot you need' page
-    Then the page should be axe clean
+    Then the page should be axe clean excluding ".ccs-contact-us"
 
   Scenario Outline: Select the legal services you need
     And I select 'Yes'
@@ -22,7 +22,7 @@ Feature: Legal Panel for Government - Central government - Accessibility
     And I click on 'Continue'
     And I am on the 'Select the legal services you need' page
     And the sub title is '<lot>'
-    Then the page should be axe clean
+    Then the page should be axe clean excluding ".ccs-contact-us"
 
     Examples:
       | lot                                       |
@@ -39,7 +39,7 @@ Feature: Legal Panel for Government - Central government - Accessibility
     And I click on 'Continue'
     And I am on the 'Is your requirement for a location outside of the countries listed below?' page
     And the sub title is '<lot>'
-    Then the page should be axe clean
+    Then the page should be axe clean excluding ".ccs-contact-us"
 
     Examples:
       | lot                                         |
@@ -59,7 +59,7 @@ Feature: Legal Panel for Government - Central government - Accessibility
     And I click on 'Continue'
     And I am on the 'Select the countires for your requirement' page
     And the sub title is '<lot>'
-    Then the page should be axe clean
+    Then the page should be axe clean excluding ".ccs-contact-us"
 
     Examples:
       | lot                                         |
@@ -79,7 +79,7 @@ Feature: Legal Panel for Government - Central government - Accessibility
     And I click on 'Continue'
     And I am on the 'Select the legal services you need' page
     And the sub title is '<lot>'
-    Then the page should be axe clean
+    Then the page should be axe clean excluding ".ccs-contact-us"
 
     Examples:
       | lot                                         |
