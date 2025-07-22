@@ -59,7 +59,7 @@ gem 'json-jwt', '>= 1.11.0'
 gem 'devise', '~> 4.9.4'
 
 # for cognito
-gem 'aws-sdk-cognitoidentityprovider', '~> 1.123.0'
+gem 'aws-sdk-cognitoidentityprovider', '~> 1.124.0'
 
 # for pagination
 gem 'kaminari', '~> 1.2.2'
