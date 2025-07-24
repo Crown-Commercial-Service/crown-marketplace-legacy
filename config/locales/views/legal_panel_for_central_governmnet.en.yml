@@ -90,6 +90,60 @@ en:
           failed:
             below_is_a_list: Below is a list of the issues that have occurred with the file upload and details on how they might be fixed.
             details: Details
+            error_details:
+              file_check_failed: Something went wrong when checking the files, please try uploading the files again
+              file_check_failed_html: 'Something went wrong when checking the files, the following error was returned: <br> <strong>%{list}</strong>'
+              file_process_failed: Something went wrong when processing the files, please try uploading the files again
+              file_process_failed_html: 'Something went wrong when processing the files, the following error was returned: <br> <strong>%{list}</strong>'
+              file_publish_failed: Something went wrong when publishing the files, please try uploading the files again
+              file_publish_failed_html: 'Something went wrong when publishing the files, the following error was returned: <br> <strong>%{list}</strong>'
+              supplier_details_has_empty_sheets: Make sure the sheet for 'Supplier details' have been filled in
+              supplier_details_has_incorrect_headers: 'Make sure the sheet for ''Supplier details'' has the following headers: ''Supplier Name'', ''Email address'', ''Phone number'', ''Website URL'', ''Postal address'', ''Is an SME'', ''DUNS Number'', ''Lot 1: Prospectus Link'', ''Lot 2: Prospectus Link'', ''Lot 3: Prospectus Link'', ''Lot 4a: Prospectus Link'', ''Lot 4b: Prospectus Link'', ''Lot 4c: Prospectus Link'', ''Lot 5: Prospectus Link'''
+              supplier_details_missing_sheets: The 'Supplier details' file should have 1 sheet named 'All Suppliers'
+              supplier_lot_4a_rate_cards_has_empty_sheets_html: 'The following sheets have no data: %{list} Make sure all sheets for ''Supplier lot 4a rate cards'' have been filled in'
+              supplier_lot_4a_rate_cards_has_incorrect_headers_html: 'The following sheets have incorrect headers: %{list} Make sure all sheets for ''Supplier lot 4a rate cards'' have the right jurisdictions for the rates'
+              supplier_lot_4a_rate_cards_missing_sheets: 'The ''Supplier lot 4a rate cards'' file should have 12 sheets with the following names: ''Senior Counsel'', ''Partner'', ''Legal Director'', ''Senior Solicitor'', ''Solicitor'', ''NQ Solicitor'', ''Trainee'', ''Paralegal'', ''Senior Analyst'', ''Analyst'', ''Senior Modeller'', ''Modeller'''
+              supplier_lot_4b_rate_cards_has_empty_sheets_html: 'The following sheets have no data: %{list} Make sure all sheets for ''Supplier lot 4b rate cards'' have been filled in'
+              supplier_lot_4b_rate_cards_has_incorrect_headers_html: 'The following sheets have incorrect headers: %{list} Make sure all sheets for ''Supplier lot 4b rate cards'' have the right jurisdictions for the rates'
+              supplier_lot_4b_rate_cards_missing_sheets: 'The ''Supplier lot 4b rate cards'' file should have 12 sheets with the following names: ''Senior Counsel'', ''Partner'', ''Legal Director'', ''Senior Solicitor'', ''Solicitor'', ''NQ Solicitor'', ''Trainee'', ''Paralegal'', ''Senior Analyst'', ''Analyst'', ''Senior Modeller'', ''Modeller'''
+              supplier_lot_4c_rate_cards_has_empty_sheets_html: 'The following sheets have no data: %{list} Make sure all sheets for ''Supplier lot 4c rate cards'' have been filled in'
+              supplier_lot_4c_rate_cards_has_incorrect_headers_html: 'The following sheets have incorrect headers: %{list} Make sure all sheets for ''Supplier lot 4c rate cards'' have the right jurisdictions for the rates'
+              supplier_lot_4c_rate_cards_missing_sheets: 'The ''Supplier lot 4c rate cards'' file should have 12 sheets with the following names: ''Senior Counsel'', ''Partner'', ''Legal Director'', ''Senior Solicitor'', ''Solicitor'', ''NQ Solicitor'', ''Trainee'', ''Paralegal'', ''Senior Analyst'', ''Analyst'', ''Senior Modeller'', ''Modeller'''
+              supplier_missing_rates_html: 'The following suppliers do not have any rate cards: %{list} Make sure all the suppliers have the correct name and DUNS number'
+              supplier_missing_services_html: 'The following suppliers do not offer any lots: %{list} Make sure all the suppliers have the correct name and DUNS number'
+              supplier_other_lots_rate_cards_has_empty_sheets_html: 'The following sheets have no data: %{list} Make sure all sheets for ''Supplier rate cards (lots 1, 2, 3, 5)'' have been filled in'
+              supplier_other_lots_rate_cards_has_incorrect_headers_html: 'The following sheets have incorrect headers: %{list} Make sure all sheets for ''Supplier rate cards (lots 1, 2, 3, 5)'' have the right catagories for the rates'
+              supplier_other_lots_rate_cards_missing_sheets: 'The ''Supplier rate cards (lots 1, 2, 3, 5)'' file should have 4 sheets with the following names: ''Lot 1'', ''Lot 2'', ''Lot 3'', ''Lot 5'''
+              supplier_service_offerings_has_empty_sheets_html: 'The following sheets have no data: %{list} Make sure all sheets for ''Supplier service offerings'' have been filled in'
+              supplier_service_offerings_has_incorrect_headers_html: 'The following sheets have incorrect column headers: %{list} Make sure all sheets for ''Supplier service offerings'' have the expected services'
+              supplier_service_offerings_missing_sheets: 'The ''Supplier service offerings'' file should have 7 sheets with the following names: ''Lot 1'', ''Lot 2'', ''Lot 3'', ''Lot 4a'', ''Lot 4b'', ''Lot 4c'', ''Lot 5'''
+              upload_failed: Something went wrong with the file upload, please try uploading the files again
+              upload_failed_html: 'Something went wrong with the file upload, the following error was returned: <br> <strong>%{list}</strong>'
+            error_name:
+              file_check_failed: File check failed
+              file_process_failed: File processing failed
+              file_publish_failed: File publishing failed
+              supplier_details_has_empty_sheets: There are sheets in 'Supplier details' without any data
+              supplier_details_has_incorrect_headers: There are sheets in 'Supplier details' with incorrect headers
+              supplier_details_missing_sheets: The 'Supplier details' file is missing sheets
+              supplier_lot_4a_rate_cards_has_empty_sheets: There are sheets in 'Supplier lot 4a rate cards' without any data
+              supplier_lot_4a_rate_cards_has_incorrect_headers: There are sheets in 'Supplier lot 4a rate cards' with incorrect headers
+              supplier_lot_4a_rate_cards_missing_sheets: The 'Supplier lot 4a rate cards' file is missing sheets
+              supplier_lot_4b_rate_cards_has_empty_sheets: There are sheets in 'Supplier lot 4b rate cards' without any data
+              supplier_lot_4b_rate_cards_has_incorrect_headers: There are sheets in 'Supplier lot 4b rate cards' with incorrect headers
+              supplier_lot_4b_rate_cards_missing_sheets: The 'Supplier lot 4b rate cards' file is missing sheets
+              supplier_lot_4c_rate_cards_has_empty_sheets: There are sheets in 'Supplier lot 4c rate cards' without any data
+              supplier_lot_4c_rate_cards_has_incorrect_headers: There are sheets in 'Supplier lot 4c rate cards' with incorrect headers
+              supplier_lot_4c_rate_cards_missing_sheets: The 'Supplier lot 4c rate cards' file is missing sheets
+              supplier_missing_rates: There are suppliers without any rate cards
+              supplier_missing_services: There are suppliers without any services
+              supplier_other_lots_rate_cards_has_empty_sheets: There are sheets in 'Supplier rate cards (lots 1, 2, 3, 5)' without any data
+              supplier_other_lots_rate_cards_has_incorrect_headers: There are sheets in 'Supplier rate cards (lots 1, 2, 3, 5)' with incorrect headers
+              supplier_other_lots_rate_cards_missing_sheets: The 'Supplier rate cards (lots 1, 2, 3, 5)' file is missing sheets
+              supplier_service_offerings_has_empty_sheets: There are sheets in 'Supplier service offerings' without any data
+              supplier_service_offerings_has_incorrect_headers: There are sheets in 'Supplier service offerings' with incorrect services
+              supplier_service_offerings_missing_sheets: The 'Supplier service offerings' file is missing sheets
+              upload_failed: Upload failed
             errors_with_upload: Errors with the upload
             issue: Issue
           index:
@@ -101,8 +155,8 @@ en:
             file_name:
               supplier_details_file: Supplier details
               supplier_lot_4a_rate_cards_file: Supplier lot 4a rate cards
-              supplier_lot_4b_rate_cards_file: Supplier lot 4a rate cards
-              supplier_lot_4c_rate_cards_file: Supplier lot 4a rate cards
+              supplier_lot_4b_rate_cards_file: Supplier lot 4b rate cards
+              supplier_lot_4c_rate_cards_file: Supplier lot 4c rate cards
               supplier_other_lots_rate_cards_file: Supplier rate cards (lots 1, 2, 3, 5)
               supplier_service_offerings_file: Supplier service offerings
             heading: Manage supplier data
@@ -116,8 +170,8 @@ en:
             file_label:
               supplier_details_file: Supplier details
               supplier_lot_4a_rate_cards_file: Supplier lot 4a rate cards
-              supplier_lot_4b_rate_cards_file: Supplier lot 4a rate cards
-              supplier_lot_4c_rate_cards_file: Supplier lot 4a rate cards
+              supplier_lot_4b_rate_cards_file: Supplier lot 4b rate cards
+              supplier_lot_4c_rate_cards_file: Supplier lot 4c rate cards
               supplier_other_lots_rate_cards_file: Supplier rate cards (lots 1, 2, 3, 5)
               supplier_service_offerings_file: Supplier service offerings
             heading: New data upload
@@ -135,8 +189,8 @@ en:
             file_name:
               supplier_details_file: Supplier details
               supplier_lot_4a_rate_cards_file: Supplier lot 4a rate cards
-              supplier_lot_4b_rate_cards_file: Supplier lot 4a rate cards
-              supplier_lot_4c_rate_cards_file: Supplier lot 4a rate cards
+              supplier_lot_4b_rate_cards_file: Supplier lot 4b rate cards
+              supplier_lot_4c_rate_cards_file: Supplier lot 4c rate cards
               supplier_other_lots_rate_cards_file: Supplier rate cards (lots 1, 2, 3, 5)
               supplier_rate_cards_file: Supplier rate cards
               supplier_service_offerings_file: Supplier service offerings
