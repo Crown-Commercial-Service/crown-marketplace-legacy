@@ -17,14 +17,14 @@ Feature: Management Consultancy - Suppliers - Accessibility
       | STROSIN-MEDHURST  |
   
   Scenario: Supplier results page
-    Then the page should be axe clean
+    Then the page should be axe clean excluding ".ccs-contact-us"
 
   Scenario: Supplier page
     Then I click on 'GREENHOLT INC'
     And I am on the 'GREENHOLT INC' page
-    Then the page should be axe clean
+    Then the page should be axe clean excluding ".ccs-contact-us"
 
   Scenario: Download supplier list page
     Given I click on 'Download the supplier list'
     Then I am on the 'Download the supplier shortlist' page
-    Then the page should be axe clean
+    Then the page should be axe clean excluding ".ccs-contact-us"

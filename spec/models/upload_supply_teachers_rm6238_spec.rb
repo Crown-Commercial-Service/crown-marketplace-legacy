@@ -121,11 +121,16 @@ RSpec.describe Upload do
               lot_id: 'RM6238.1',
               enabled: true,
               supplier_framework_lot_services: [],
-              supplier_framework_lot_jurisdictions: [],
+              supplier_framework_lot_jurisdictions: [
+                {
+                  jurisdiction_id: 'GB'
+                }
+              ],
               supplier_framework_lot_rates: [
                 {
                   position_id: 41,
-                  rate: 10000
+                  rate: 10000,
+                  jurisdiction_id: 'GB'
                 }
               ],
               supplier_framework_lot_branches: []
@@ -134,11 +139,16 @@ RSpec.describe Upload do
               lot_id: 'RM6238.2.1',
               enabled: true,
               supplier_framework_lot_services: [],
-              supplier_framework_lot_jurisdictions: [],
+              supplier_framework_lot_jurisdictions: [
+                {
+                  jurisdiction_id: 'GB'
+                }
+              ],
               supplier_framework_lot_rates: [
                 {
                   position_id: 41,
-                  rate: 20000
+                  rate: 20000,
+                  jurisdiction_id: 'GB'
                 }
               ],
               supplier_framework_lot_branches: []
@@ -147,8 +157,18 @@ RSpec.describe Upload do
         end
         let(:supplier_framework) { Supplier::Framework.last }
 
+        it 'creates supplier framework lot jurisdictions associated with supplier' do
+          expect { result }.to change(Supplier::Framework::Lot::Jurisdiction, :count).by(2)
+        end
+
         it 'creates supplier framework lot rates associated with supplier' do
           expect { result }.to change(Supplier::Framework::Lot::Rate, :count).by(2)
+        end
+
+        it 'assigns attributes to the jurisdictions' do
+          result
+
+          expect(supplier_framework.lots.map { |lot| lot.jurisdictions.pluck(:jurisdiction_id) }).to eq([['GB'], ['GB']])
         end
 
         it 'assigns attributes to the rates' do
@@ -339,11 +359,16 @@ RSpec.describe Upload do
             lot_id: 'RM6238.1',
             enabled: true,
             supplier_framework_lot_services: [],
-            supplier_framework_lot_jurisdictions: [],
+            supplier_framework_lot_jurisdictions: [
+              {
+                jurisdiction_id: 'GB'
+              }
+            ],
             supplier_framework_lot_rates: [
               {
                 position_id: 441,
-                rate: 10000
+                rate: 10000,
+                jurisdiction_id: 'GB'
               }
             ],
             supplier_framework_lot_branches: []
@@ -352,11 +377,16 @@ RSpec.describe Upload do
             lot_id: 'RM6238.3',
             enabled: true,
             supplier_framework_lot_services: [],
-            supplier_framework_lot_jurisdictions: [],
+            supplier_framework_lot_jurisdictions: [
+              {
+                jurisdiction_id: 'GB'
+              }
+            ],
             supplier_framework_lot_rates: [
               {
                 position_id: 41,
-                rate: 20000
+                rate: 20000,
+                jurisdiction_id: 'GB'
               }
             ],
             supplier_framework_lot_branches: []
@@ -364,13 +394,13 @@ RSpec.describe Upload do
         ]
       end
 
-      it 'raises ActiveRecord::RecordInvalid exception' do
-        expect { result }.to raise_error(ActiveRecord::RecordInvalid)
+      it 'raises ActiveRecord::InvalidForeignKey exception' do
+        expect { result }.to raise_error(ActiveRecord::InvalidForeignKey)
       end
 
       it 'does not create any suppliers' do
         expect do
-          ignoring_exception(ActiveRecord::RecordInvalid) { result }
+          ignoring_exception(ActiveRecord::InvalidForeignKey) { result }
         end.not_to change(Supplier, :count)
       end
     end
@@ -385,11 +415,16 @@ RSpec.describe Upload do
           lot_id: 'RM6238.1',
           enabled: true,
           supplier_framework_lot_services: [],
-          supplier_framework_lot_jurisdictions: [],
+          supplier_framework_lot_jurisdictions: [
+            {
+              jurisdiction_id: 'GB'
+            }
+          ],
           supplier_framework_lot_rates: [
             {
               position_id: 41,
-              rate: 10000
+              rate: 10000,
+              jurisdiction_id: 'GB'
             }
           ],
           supplier_framework_lot_branches: [
@@ -413,11 +448,16 @@ RSpec.describe Upload do
           lot_id: 'RM6238.2.2',
           enabled: true,
           supplier_framework_lot_services: [],
-          supplier_framework_lot_jurisdictions: [],
+          supplier_framework_lot_jurisdictions: [
+            {
+              jurisdiction_id: 'GB'
+            }
+          ],
           supplier_framework_lot_rates: [
             {
               position_id: 41,
-              rate: 20000
+              rate: 20000,
+              jurisdiction_id: 'GB'
             }
           ],
           supplier_framework_lot_branches: []
@@ -486,6 +526,10 @@ RSpec.describe Upload do
         expect { result }.to change(Supplier::Framework::Lot, :count).by(2)
       end
 
+      it 'creates supplier framework lot jurisdictions associated with supplier' do
+        expect { result }.to change(Supplier::Framework::Lot::Jurisdiction, :count).by(2)
+      end
+
       it 'creates supplier framework lot rates associated with supplier' do
         expect { result }.to change(Supplier::Framework::Lot::Rate, :count).by(2)
       end
@@ -543,6 +587,10 @@ RSpec.describe Upload do
 
       it 'removes the supplier framework lot associated with supplier' do
         expect { result }.to change(Supplier::Framework::Lot, :count).by(-2)
+      end
+
+      it 'creates supplier framework lot jurisdictions associated with supplier' do
+        expect { result }.to change(Supplier::Framework::Lot::Jurisdiction, :count).by(-2)
       end
 
       it 'removes the supplier framework lot rates associated with supplier' do

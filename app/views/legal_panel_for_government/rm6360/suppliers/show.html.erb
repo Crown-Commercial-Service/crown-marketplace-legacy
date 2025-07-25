@@ -1,0 +1,105 @@
+<%= content_for :page_title, @supplier_framework.supplier_name.html_safe  %>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <span class="govuk-caption-xl">
+      <%= full_lot_name(@lot) if @lot %>
+    </span>
+    <h1 class="govuk-heading-xl">
+      <%= @supplier_framework.supplier_name %>
+      <% if @supplier_framework.supplier.sme? %>
+        <%= govuk_tag(t('sme'), 'grey', classes: 'ccs-tag') %>
+      <% end %>
+    </h1>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds govuk-!-padding-right-8">
+    <% if @rates.present? %>
+      <h2 class="govuk-heading-m govuk-!-margin-bottom-1"><%= t('.rates') %></h2>
+      <p class="govuk-body">
+        <%= t('.fixed_until') %>
+      </p>
+      <p class="govuk-body"><%= t('.further_competition') %></p>
+      <% if @jurisdictions.count > 0 %>
+        <%= govuk_tabs(
+          @jurisdictions.map do |jurisdiction|
+            {
+              label: jurisdiction.name,
+              panel: {
+                content: render(partial: 'rates_table', locals: { jurisdiction_id: jurisdiction.id }),
+                attributes: {
+                  id: jurisdiction.id
+                }
+              }
+            }
+          end
+        ) %>
+      <% else %>
+        <%= render(partial: 'rates_table', locals: { jurisdiction_id: 'GB' }) %>
+      <% end %>
+    <% end %>
+    <p><%= t('.fee_advice') %></p>
+    <% if params[:lot_id] && prospectus_link_present?(@supplier_framework) %>
+      <h2 class="govuk-heading-m govuk-!-margin-bottom-1"><%= t('.supplier_prospectus_headline') %></h2>
+      <div class="govuk-!-margin-bottom-3 ccs-supplier-prospectus">
+        <% if prospectus_link_a_url?(@supplier_framework) %>
+          <%= link_to prospectus_link(@supplier_framework), url_formatter(prospectus_link(@supplier_framework)), class: 'govuk-link govuk-!-font-size-19' %>
+        <% else %>
+          <p><%= prospectus_link(@supplier_framework) %></p>
+        <% end %>
+      </div>
+    <% end %>
+    <% if @supplier_framework.supplier.sme? %>
+      <p class="govuk-body">
+        <%= govuk_tag(t('sme'), 'grey', classes: 'govuk-!-margin-right-1 ccs-tag') %>
+        <%= t('.is_an_sme') %>
+      </p>
+    <% end %>
+  </div>
+  <div class="govuk-grid-column-one-third">
+    <div class="ccs-info-panel ccs-info-panel--pull-up">
+      <h3 class="govuk-heading-m"><%= t('.contact_details.heading') %></h3>
+      <%= govuk_summary_list(
+        [
+          {
+            key: {
+              text: t('.contact_details.email')
+            },
+            value: {
+              text: mail_to(@supplier_framework.contact_detail.email, @supplier_framework.contact_detail.email, class: 'govuk-link')
+            }
+          },
+          {
+            key: {
+              text: t('.contact_details.phone_number')
+            },
+            value: {
+              text: @supplier_framework.contact_detail.telephone_number
+            }
+          },
+        ] + (@supplier_framework.contact_detail.website ? [
+          {
+            key: {
+              text: t('.contact_details.website')
+            },
+            value: {
+              text: link_to(@supplier_framework.contact_detail.website, url_formatter(@supplier_framework.contact_detail.website), class: 'govuk-link')
+            },
+          }
+        ] : []) + [
+          {
+            key: {
+              text: t('.contact_details.address')
+            },
+            value: {
+              text: @supplier_framework.contact_detail.additional_details['address']
+            }
+          }
+        ],
+        classes: 'govuk-summary-list--no-border ccs-contact-details'
+      ) %>
+    </div>
+  </div>
+</div>

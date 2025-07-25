@@ -38,6 +38,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'geocoder', '>= 1.6.1'
 gem 'activerecord-postgis-adapter', '~> 11.0.0'
+gem 'activerecord-import', '~> 2.2.0', require: false
 gem 'uk_postcode'
 gem 'rubyzip', '>= 1.2.1'
 gem 'caxlsx', '>= 3.2.0'

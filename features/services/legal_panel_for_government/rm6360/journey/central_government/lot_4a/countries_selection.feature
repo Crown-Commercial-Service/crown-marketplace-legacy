@@ -624,3 +624,17 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4a - Select c
       | Zambia                                       |
       | Zimbabwe                                     |
       | Åland Islands                                |
+
+  Scenario: Go back from services and change selection
+    When I check the following items:
+      | Gibraltar |
+      | Greece    |
+      | Greenland |
+    And I click on 'Continue'
+    Then I am on the 'Select the legal services you need' page
+    And I click on the 'Back' back link
+    Then I am on the 'Select the countires for your requirement' page
+    And the following items should appear in the basket:
+      | Gibraltar |
+      | Greece    |
+      | Greenland |
