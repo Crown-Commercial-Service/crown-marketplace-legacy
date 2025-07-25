@@ -10,8 +10,9 @@ module GenerateTestData
       end
 
       def self.generate_suppliers
-        @suppliers = (0..23).map do
+        @suppliers = (0..60).map do
           supplier_name = Faker::Company.unique.name.upcase
+          domain = Faker::Internet.domain_name(domain: supplier_name)
 
           {
             id: SecureRandom.uuid,
@@ -25,16 +26,16 @@ module GenerateTestData
                 supplier_framework_contact_detail: {
                   email: Faker::Internet.email(name: supplier_name),
                   telephone_number: Faker::PhoneNumber.phone_number,
-                  website: Faker::Internet.url,
+                  website: Faker::Internet.url(host: domain),
                   additional_details: {
                     address: Faker::Address.full_address,
-                    lot_1_prospectus_link: Faker::Internet.url,
-                    lot_2_prospectus_link: Faker::Internet.url,
-                    lot_3_prospectus_link: Faker::Internet.url,
-                    lot_4a_prospectus_link: Faker::Internet.url,
-                    lot_4b_prospectus_link: Faker::Internet.url,
-                    lot_4c_prospectus_link: Faker::Internet.url,
-                    lot_5_prospectus_link: Faker::Internet.url,
+                    lot_1_prospectus_link: Faker::Internet.url(host: domain),
+                    lot_2_prospectus_link: Faker::Internet.url(host: domain),
+                    lot_3_prospectus_link: Faker::Internet.url(host: domain),
+                    lot_4a_prospectus_link: Faker::Internet.url(host: domain),
+                    lot_4b_prospectus_link: Faker::Internet.url(host: domain),
+                    lot_4c_prospectus_link: Faker::Internet.url(host: domain),
+                    lot_5_prospectus_link: Faker::Internet.url(host: domain),
                   }
                 },
                 supplier_framework_lots: []
