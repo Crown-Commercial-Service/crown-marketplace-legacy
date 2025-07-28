@@ -2,6 +2,7 @@ module SupplyTeachers
   module Admin
     class DataUploadWorker
       include Sidekiq::Worker
+
       sidekiq_options queue: 'st'
 
       # rubocop:disable Metrics/AbcSize
