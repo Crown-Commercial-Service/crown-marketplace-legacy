@@ -41,6 +41,7 @@ class LegalPanelForGovernment::RM6360::Admin::FilesProcessor < FilesProcessor
                 lot_3_prospectus_link: supplier['lot_3_prospectus_link'],
                 lot_4a_prospectus_link: supplier['lot_4a_prospectus_link'],
                 lot_4b_prospectus_link: supplier['lot_4b_prospectus_link'],
+                lot_4c_prospectus_link: supplier['lot_4c_prospectus_link'],
                 lot_5_prospectus_link: supplier['lot_5_prospectus_link'],
               }
             },
