@@ -13,7 +13,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4c - Results
     And the sub title is 'Lot 4c - International Investment Disputes'
     And I select 'Yes'
     And I click on 'Continue'
-    Then I am on the 'Select the countires for your requirement' page
+    Then I am on the 'Select the countries for your requirement' page
     And the sub title is 'Lot 4c - International Investment Disputes'
     When I check the following items:
       | Malta   |
