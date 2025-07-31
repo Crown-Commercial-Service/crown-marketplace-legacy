@@ -1,0 +1,52 @@
+<%= add_optional_error_prefix_to_page_title(@journey.errors) %>
+<%= content_for :page_title, t('.question') %>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <%= render partial: 'shared/error_summary', locals: { errors: @journey.errors } %>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <%= form_with url: @form_path, method: :get, html: { specialvalidation: true, novalidate: true } do |f| %>
+    <%= hidden_fields_for_previous_steps_and_responses(@journey) %>
+    <%= hidden_field_tag(:lot_id, @journey.current_step.lot_id) %>
+    <%= hidden_field_tag(:not_core_jurisdiction, @journey.current_step.not_core_jurisdiction) %>
+    <% @journey.current_step.service_ids.each do |service_id| %>
+      <%= hidden_field_tag(:'service_ids[]', service_id) %>
+    <% end %>
+    <% @journey.current_step.jurisdiction_ids.each do |jurisdiction_id| %>
+      <%= hidden_field_tag(:'jurisdiction_ids[]', jurisdiction_id) %>
+    <% end %>
+
+    <div class="govuk-grid-column-two-thirds" id="selection-checkboxes">
+      <%= govuk_checkboxes(
+        :supplier_framework_ids,
+        @journey.current_step.supplier_frameworks.map do |supplier_framework|
+          {
+            value: supplier_framework.id,
+            label: {
+              text: supplier_framework.supplier_name
+            }
+          }
+        end,
+        model: @journey.current_step,
+        fieldset: {
+          legend: {
+            text: t('.question'),
+            classes: 'govuk-fieldset__legend--m',
+            is_page_heading: true,
+            caption: {
+              text: lot_full_name(@journey.current_step.lot),
+              classes: 'govuk-caption-m'
+            }
+          }
+        }
+      ) %>
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+      <%= render partial: 'shared/basket', locals: { form: f, data_text_1:  t('.suppliers_selected'), data_text_2: t('.no_suppliers_selected'), data_text_3: t('.supplier_selected') } %>
+    </div>
+  <% end %>
+</div>

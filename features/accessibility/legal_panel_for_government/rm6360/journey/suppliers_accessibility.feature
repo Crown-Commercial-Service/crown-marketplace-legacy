@@ -1,5 +1,5 @@
 @accessibility @javascript
-Feature: Legal Panel for Government - Non central government - Accessibility
+Feature: Legal Panel for Government - Suppliers - Accessibility
 
   Background: Login and then navigate to the select the lot you need page
     Given I sign in and navigate to the start page for the 'RM6360' framework in 'legal panel for government'

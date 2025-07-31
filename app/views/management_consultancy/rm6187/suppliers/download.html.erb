@@ -5,7 +5,7 @@
     <h1 class="govuk-heading-xl"><%= t('.heading') %></h1>
     <p class="govuk-heading-m govuk-!-margin-bottom-8"><%= t('.lead_text') %></p>
     <p class="govuk-body">
-      <%= link_to_generated_file_for_download(management_consultancy_rm6187_suppliers_download_path(lot_id: params[:lot_id], service_ids: params[:service_ids]), :xlsx, t('.download_supplier_shortlist'), true) %>
+      <%= link_to_generated_file_for_download(download_management_consultancy_rm6187_suppliers_path(lot_id: params[:lot_id], service_ids: params[:service_ids]), :xlsx, t('.download_supplier_shortlist'), true) %>
     </p>
 
     <h2 class="govuk-heading-m"><%= t('.other_documents') %></h2>
