@@ -42,7 +42,7 @@ Feature: Legal Panel for Government - Jounrey validations
     Then I should see the following error messages:
       | Select if your requirement is for a country outside the listed locations |
 
-  Scenario: Select the countires for your requirement
+  Scenario: Select the countries for your requirement
     Given I am on the 'Do you work for central government?' page
     And I select 'Yes'
     And I click on 'Continue'
@@ -52,7 +52,7 @@ Feature: Legal Panel for Government - Jounrey validations
     Then I am on the 'Is your requirement for a location outside of the countries listed below?' page
     And I select 'Yes'
     And I click on 'Continue'
-    Then I am on the 'Select the countires for your requirement' page
+    Then I am on the 'Select the countries for your requirement' page
     When I click on 'Continue'
     Then I should see the following error messages:
       | Select the countries for your requirement |

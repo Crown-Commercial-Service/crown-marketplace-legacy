@@ -12,7 +12,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4a - Results 
     And the sub title is 'Lot 4a - Trade and Investment Negotiations'
     And I select 'Yes'
     And I click on 'Continue'
-    Then I am on the 'Select the countires for your requirement' page
+    Then I am on the 'Select the countries for your requirement' page
     And the sub title is 'Lot 4a - Trade and Investment Negotiations'
     When I check the following items:
       | Finland     |
@@ -50,7 +50,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4a - Results 
     Given I click on the 'Back' back link
     Then I am on the 'Select the legal services you need' page
     Given I click on the 'Back' back link
-     Then I am on the 'Select the countires for your requirement' page
+     Then I am on the 'Select the countries for your requirement' page
     And I deselect all the items
     When I check the following items:
       | Benin   |

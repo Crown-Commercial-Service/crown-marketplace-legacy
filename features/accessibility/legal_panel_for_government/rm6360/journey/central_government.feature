@@ -47,7 +47,7 @@ Feature: Legal Panel for Government - Central government - Accessibility
       | Lot 4b - International Trade Disputes       |
       | Lot 4c - International Investment Disputes  |
 
-  Scenario Outline: Select the countires for your requirement
+  Scenario Outline: Select the countries for your requirement
     And I select 'Yes'
     And I click on 'Continue'
     Then I am on the 'Select the lot you need' page
@@ -57,7 +57,7 @@ Feature: Legal Panel for Government - Central government - Accessibility
     And the sub title is '<lot>'
     And I select 'Yes'
     And I click on 'Continue'
-    And I am on the 'Select the countires for your requirement' page
+    And I am on the 'Select the countries for your requirement' page
     And the sub title is '<lot>'
     Then the page should be axe clean excluding ".ccs-contact-us"
 

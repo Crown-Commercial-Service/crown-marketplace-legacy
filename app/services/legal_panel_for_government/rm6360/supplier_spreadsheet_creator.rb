@@ -16,7 +16,7 @@ class LegalPanelForGovernment::RM6360::SupplierSpreadsheetCreator < SupplierSpre
 
     return unless lot.id.starts_with?('RM6360.4')
 
-    add_countires(audit_sheet)
+    add_countries(audit_sheet)
   end
 
   def add_supplier_details(shortlist_sheet)
@@ -38,8 +38,8 @@ class LegalPanelForGovernment::RM6360::SupplierSpreadsheetCreator < SupplierSpre
     sheet.add_row ['Services', services.join('; ')]
   end
 
-  def add_countires(sheet)
-    countires = Jurisdiction.where(
+  def add_countries(sheet)
+    countries = Jurisdiction.where(
       id: if @params['not_core_jurisdiction'] == 'no'
             LegalPanelForGovernment::RM6360::Journey::ChooseJurisdiction::CORE_JURISDICTIONS
           else
@@ -47,6 +47,6 @@ class LegalPanelForGovernment::RM6360::SupplierSpreadsheetCreator < SupplierSpre
           end
     ).order(:name).pluck(:name)
 
-    sheet.add_row ['Countries', countires.join('; ')]
+    sheet.add_row ['Countries', countries.join('; ')]
   end
 end
