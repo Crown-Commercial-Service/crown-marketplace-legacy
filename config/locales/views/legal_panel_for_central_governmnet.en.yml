@@ -23,6 +23,10 @@ en:
           attributes:
             lot_id:
               blank: Select the lot you need
+        legal_panel_for_government/rm6360/journey/select_suppliers_for_comparison:
+          attributes:
+            supplier_framework_ids:
+              too_short: You must select at least two suppliers for comparison
   activerecord:
     errors:
       models:
@@ -249,6 +253,11 @@ en:
             lot_4: Lot 4 - Lots 4 a), b) and c) are for Trade Legal Services and are intended to cover the majority of the technical international trade and investment work that government may need on the trading relationships between sovereign states
             lot_5: Offers buyers legal services which require a deep understanding of the rail industry and its regulatory framework
           heading: Select the lot you need
+        select_suppliers_for_comparison:
+          no_suppliers_selected: No suppliers selected
+          question: Select suppliers for comparison
+          supplier_selected: supplier selected
+          suppliers_selected: suppliers selected
         sorry:
           back_to_start: Back to start
           heading: Sorry, this panel isn't suitable for you
@@ -263,6 +272,7 @@ en:
         index:
           back_to_start: Back to start
           can_provide_legal_services: can provide legal services that meet your requirements.
+          compare_supplier_rates: Compare the supplier rates
           download_suppliers_list: Download the supplier list
           heading: Supplier results
           no_suppliers_found:
@@ -292,3 +302,13 @@ en:
           is_an_sme: This supplier is a small or medium-sized enterprise
           rates: Rates
           supplier_prospectus_headline: Supplier prospectus
+      suppliers_comparison:
+        index:
+          back_to_results: Back to results
+          have_been_selected_for_comparison: have been selected for comparison.
+          heading: Compare supplier rates
+          page_title: Compare supplier rates
+          supplier: supplier
+        rates_table:
+          rates: Rates
+          supplier: Supplier

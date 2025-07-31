@@ -1,0 +1,11 @@
+.ccs-suppliers-comparison-container {
+  overflow-x: auto;
+}
+
+.ccs-suppliers-comparison-table {
+  @include govuk-font-size($size: 16);
+
+  thead > tr > th {
+    vertical-align: bottom;
+  }
+}
