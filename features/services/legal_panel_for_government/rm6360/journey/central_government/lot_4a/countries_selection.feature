@@ -13,7 +13,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4a - Select c
     And the sub title is 'Lot 4a - Trade and Investment Negotiations'
     And I select 'Yes'
     And I click on 'Continue'
-    Then I am on the 'Select the countires for your requirement' page
+    Then I am on the 'Select the countries for your requirement' page
     And the sub title is 'Lot 4a - Trade and Investment Negotiations'
 
   Scenario: The correct options are available
@@ -332,7 +332,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4a - Select c
     And I click on 'Continue'
     Then I am on the 'Select the legal services you need' page
     And I click on the 'Back' back link
-    Then I am on the 'Select the countires for your requirement' page
+    Then I am on the 'Select the countries for your requirement' page
     And the following items should appear in the basket:
       | Madagascar  |
       | Tonga       |
@@ -633,7 +633,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4a - Select c
     And I click on 'Continue'
     Then I am on the 'Select the legal services you need' page
     And I click on the 'Back' back link
-    Then I am on the 'Select the countires for your requirement' page
+    Then I am on the 'Select the countries for your requirement' page
     And the following items should appear in the basket:
       | Gibraltar |
       | Greece    |

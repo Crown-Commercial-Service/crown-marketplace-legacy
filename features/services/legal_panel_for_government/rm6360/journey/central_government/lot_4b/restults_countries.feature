@@ -12,7 +12,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4b - Results 
     And the sub title is 'Lot 4b - International Trade Disputes'
     And I select 'Yes'
     And I click on 'Continue'
-    Then I am on the 'Select the countires for your requirement' page
+    Then I am on the 'Select the countries for your requirement' page
     And the sub title is 'Lot 4b - International Trade Disputes'
     When I check the following items:
       | Algeria         |
@@ -48,7 +48,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4b - Results 
     Given I click on the 'Back' back link
     Then I am on the 'Select the legal services you need' page
     Given I click on the 'Back' back link
-     Then I am on the 'Select the countires for your requirement' page
+     Then I am on the 'Select the countries for your requirement' page
     And I deselect all the items
     When I check the following items:
       | Afghanistan |

@@ -219,7 +219,7 @@ en:
           countries_selected: countries selected
           country_selected: country selected
           no_countries_selected: No countries selected
-          question: Select the countires for your requirement
+          question: Select the countries for your requirement
           search_jurisdictions: Start typing to find a country
         choose_organisation_type:
           question: Do you work for central government?
@@ -238,7 +238,7 @@ en:
             germany: Germany
             ireland: Ireland
             switzerland: Switzerland
-            united_kingdom: United kingdom
+            united_kingdom: United Kingdom
             usa: United States
           question: Is your requirement for a location outside of the countries listed below?
         select_lot:
