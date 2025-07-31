@@ -1,0 +1,54 @@
+<%= content_for :page_title, t('.page_title')  %>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <span class="govuk-caption-xl">
+      <%= full_lot_name(@lot) %>
+    </span>
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-4 govuk-!-margin-top-0"><%= t('.heading') %></h1>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <p class="govuk-body">
+          <span class='govuk-!-font-weight-bold'>
+            <span class='govuk-!-font-size-27 govuk-!-font-weight-bold'>
+              <%= @supplier_frameworks.count %>
+            </span>
+            <%= t('.supplier').pluralize(@supplier_frameworks.count) %>
+          </span>
+          <%= t('.have_been_selected_for_comparison') %>
+        </p>
+      </div>
+    </div>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full ccs-supplier-comparison">
+        <% if @jurisdictions.count > 0 %>
+          <%= govuk_tabs(
+            @jurisdictions.map do |jurisdiction|
+              {
+                label: jurisdiction.name,
+                panel: {
+                  content: render(partial: 'rates_table', locals: { jurisdiction_id: jurisdiction.id }),
+                  attributes: {
+                    id: jurisdiction.id
+                  }
+                }
+              }
+            end
+          ) %>
+        <% else %>
+          <%= render(partial: 'rates_table', locals: { jurisdiction_id: 'GB' }) %>
+        <% end %>
+      </div>
+    </div>
+
+    <hr class="govuk-section-break govuk-section-break--m">
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <div class="govuk-button-group">
+          <%= govuk_button(t('.back_to_results'), href: legal_panel_for_government_journey_question_path(slug: 'suppliers', **@journey.params.except(:supplier_framework_ids))) %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

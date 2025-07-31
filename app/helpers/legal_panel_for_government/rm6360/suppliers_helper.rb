@@ -39,9 +39,13 @@ module LegalPanelForGovernment::RM6360::SuppliersHelper
                                         end
   end
 
-  def display_rate(position_id, jurisdiction_id)
-    return if @rates[position_id].nil? || @rates[position_id][jurisdiction_id].nil? || @rates[position_id][jurisdiction_id].rate.zero?
+  def positions
+    @positions ||= Position.where(id: legal_panel_for_government_ids).sort_by { |position| legal_panel_for_government_ids.index(position.id) }
+  end
 
-    number_to_currency(@rates[position_id][jurisdiction_id].rate_in_pounds, precision: 2)
+  def display_rate(position_id, jurisdiction_id, rates = @rates)
+    return if rates[position_id].nil? || rates[position_id][jurisdiction_id].nil? || rates[position_id][jurisdiction_id].rate.zero?
+
+    number_to_currency(rates[position_id][jurisdiction_id].rate_in_pounds, precision: 2)
   end
 end
