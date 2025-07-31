@@ -54,6 +54,10 @@ Then('I should see that {string} suppliers can provide legal services') do |numb
   expect(journey_page.number_of_suppliers).to have_content "#{number_of_suppliers} suppliers can provide legal services that meet your requirements."
 end
 
+Then('I should see that {string} suppliers have been selected for comparison') do |number_of_suppliers|
+  expect(journey_page.number_of_suppliers).to have_content "#{number_of_suppliers} suppliers have been selected for comparison."
+end
+
 Then('the selected suppliers are:') do |suppliers|
   supplier_elements = journey_page.suppliers
   supplier_names = suppliers.raw.flatten
@@ -135,6 +139,24 @@ Then('the {string} hourly rate is {string}') do |role, hourly_rate|
   table_row = journey_page.supplier_rates_table.rows.find { |row| row.position.text == role }
 
   expect(table_row.rate).to have_content(hourly_rate)
+end
+
+Then('I should see the rates in the comparison table:') do |comparison_rates_table|
+  comparison_rates_table_raw = comparison_rates_table.raw
+  table_headers = comparison_rates_table_raw[0]
+  table_rows = comparison_rates_table_raw[1..]
+
+  journey_page.supplier_rates_comparison_table.headers.zip(table_headers) do |header_element, expected_text|
+    expect(header_element).to have_content(expected_text)
+  end
+
+  journey_page.supplier_rates_comparison_table.rows.zip(table_rows) do |row, expected_row|
+    expect(row.supplier_name).to have_content(expected_row[0])
+
+    row.rates.zip(expected_row[1..]).each do |rate_element, expected_text|
+      expect(rate_element).to have_content(expected_text)
+    end
+  end
 end
 
 Then('there is no LMP \(Legal project manager) hourly rate') do

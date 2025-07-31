@@ -9,7 +9,7 @@
       classes: 'govuk-!-width-one-quarter'
     }
   ],
-  Position.where(id: legal_panel_for_government_ids).sort_by { |position| legal_panel_for_government_ids.index(position.id) }.map do |position|
+  positions.map do |position|
     rate = display_rate(position.id, jurisdiction_id)
 
     next if rate.nil?
