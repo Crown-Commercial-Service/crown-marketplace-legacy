@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [6.0.0] - 2025-08-07
+
 ### Added
 
 - Add the first set of code for Legal Panel for Government ([PR 2000](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2000))
