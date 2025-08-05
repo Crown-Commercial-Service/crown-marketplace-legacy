@@ -48,13 +48,18 @@
       </div>
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-full">
-          <%= govuk_button(t('.download_suppliers_list'), href: download_legal_panel_for_government_suppliers_path) %>
+          <div class="govuk-button-group">
+            <%= govuk_button(t('.download_suppliers_list'), href: download_legal_panel_for_government_suppliers_path) %>
+            <%= govuk_button(t('.compare_supplier_rates'), href: legal_panel_for_government_journey_question_path(slug: 'select-suppliers-for-comparison', **@journey.params), classes: 'govuk-button--secondary') %>
+          </div>
         </div>
       </div>
-      <div class="govuk-grid-column-two-thirds ccs-search-results govuk-!-padding-left-0 govuk-!-padding-right-0">
-        <ul class="ccs-results-list">
-          <%= render partial: 'supplier_framework', collection: @supplier_frameworks %>
-        </ul>
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds ccs-search-results">
+          <ul class="ccs-results-list">
+            <%= render partial: 'supplier_framework', collection: @supplier_frameworks %>
+          </ul>
+        </div>
       </div>
     <% end %>
   </div>
