@@ -3,22 +3,24 @@ module LegalServices::RM6240::SuppliersHelper
 
   def download_legal_services_suppliers_path
     download_legal_services_rm6240_suppliers_path(
-      lot: params[:lot],
-      services: params[:services],
+      lot_number: params[:lot_number],
+      service_numbers: params[:service_numbers],
       jurisdiction: params[:jurisdiction],
       central_government: params[:central_government]
     )
   end
 
   def legal_services_supplier_path(supplier)
-    legal_services_rm6240_supplier_path(supplier, lot: params[:lot], jurisdiction: params[:jurisdiction])
+    legal_services_rm6240_supplier_path(supplier, lot_number: params[:lot_number], service_numbers: params[:service_numbers], jurisdiction: params[:jurisdiction])
   end
 
-  def display_rate(position)
-    found_rate = @rate_card.find { |rate| rate.position == position }
+  def legal_service_position_ids
+    (1..7)
+  end
 
-    return if found_rate.nil? || found_rate.rate.zero?
+  def display_rate(position_id)
+    return if @rates[position_id].nil? || @rates[position_id].rate.zero?
 
-    number_to_currency(found_rate.value, precision: 2)
+    number_to_currency(@rates[position_id].rate_in_pounds, precision: 2)
   end
 end

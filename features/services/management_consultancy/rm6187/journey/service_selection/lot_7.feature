@@ -11,7 +11,15 @@ Feature: Management Consultancy - Lot 7 - Health, Social Care and Community - Se
   Scenario: The correct options are available
     Then I should see the following options for the lot:
       | Alternative delivery models                                 |
+      | Business case development                                   |
+      | Capability development                                      |
+      | Charity/third sector improvement review                     |
+      | Clinical evaluations                                        |
+      | Commissioning models                                        |
+      | Community services                                          |
+      | Digital, technology and cyber                               |
       | Healthcare operational review, improvement and/or modelling |
+      | Healthcare services                                         |
       | Healthcare transformation, change and delivery              |
       | Housing                                                     |
       | Mental healthcare                                           |
@@ -21,16 +29,8 @@ Feature: Management Consultancy - Lot 7 - Health, Social Care and Community - Se
       | Public service improvement review                           |
       | Regeneration                                                |
       | Safeguarding                                                |
-      | Business case development                                   |
       | Social care services                                        |
       | Strategy and policy                                         |
-      | Charity/third sector improvement review                     |
-      | Capability development                                      |
-      | Clinical evaluations                                        |
-      | Commissioning models                                        |
-      | Community services                                          |
-      | Digital, technology and cyber                               |
-      | Healthcare services                                         |
 
   Scenario: Service selection appears in basked
     Then the basket should say 'No services selected'

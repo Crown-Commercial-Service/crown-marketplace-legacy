@@ -3,17 +3,18 @@ module SupplyTeachers
     extend ActiveSupport::Concern
     include Geolocatable
 
-    def branches(daily_rates: {}, salary: nil, fixed_term_length: nil)
+    def branches(salary: nil, fixed_term_length: nil)
       point = location.point
-      service_name::Branch.search(point, rates:, radius:).map do |branch|
-        search_result_attributes(branch, point, daily_rates, fixed_term_length, salary)
+
+      Supplier::Framework::Lot::Branch.search(point, lot_id: lot_id, position_id: determine_position_id, radius: radius).map do |branch|
+        search_result_attributes(branch, point, fixed_term_length, salary)
       end
     end
 
     def search_result_for(branch)
       BranchSearchResult.new(
         id: branch.id,
-        supplier_name: branch.supplier.name,
+        supplier_name: branch.supplier_name,
         name: display_name_for_branch(branch),
         contact_name: branch.contact_name,
         telephone_number: branch.telephone_number,

@@ -4,12 +4,8 @@ module LegalServices
 
     JURISDICTIONS = %w[a b c].freeze
 
-    attribute :lot
+    attribute :lot_number
     attribute :jurisdiction
     validates :jurisdiction, inclusion: JURISDICTIONS
-
-    def selected_lot
-      service_name::Lot.find_by(number: lot)
-    end
   end
 end

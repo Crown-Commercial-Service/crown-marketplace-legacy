@@ -42,7 +42,7 @@ Feature: Legal services - Non central governemnt - Lot 2 - Results
       | COLLINS, COLE AND PACOCHA   |
       | WILLIAMSON-BERGSTROM        |
 
-  Scenario: Jursidiction selection changes the results
+  Scenario: Jurisdiction selection changes the results
     Given I click on the 'Back' back link
     Then I am on the 'Select the jurisdiction you need' page
     And I select 'Scotland'

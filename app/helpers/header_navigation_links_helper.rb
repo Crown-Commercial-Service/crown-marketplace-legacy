@@ -3,6 +3,8 @@ module HeaderNavigationLinksHelper
     case params[:service]
     when 'legal_services'
       t('home.index.legal_services_link')
+    when 'legal_panel_for_government'
+      t('home.index.legal_panel_for_government_link')
     when 'management_consultancy'
       t('home.index.management_consultancy_link')
     when 'supply_teachers'
@@ -22,7 +24,7 @@ module HeaderNavigationLinksHelper
         method: :delete
       }
     else
-      if ['legal_services', 'management_consultancy'].include?(params[:service])
+      if ['legal_services', 'legal_panel_for_government', 'management_consultancy'].include?(params[:service])
         navigation_links << {
           text: t('header_navigation_links_helper.sign_up'),
           href: "#{service_path_base}/sign-up"

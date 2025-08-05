@@ -19,7 +19,7 @@ module SupplyTeachers
 
     def show
       @back_path = :back
-      @branch = service_name::Branch.friendly.find(params[:id])
+      @branch = Supplier::Framework::Lot::Branch.friendly.find(params[:id])
     end
 
     private
@@ -31,7 +31,7 @@ module SupplyTeachers
       @alternative_radiuses = SEARCH_RADIUSES - [@radius_in_miles]
       @salary = params[:annual_salary] || params[:salary]
       @fixed_term_length = step.try(:fixed_term_length)
-      @branches = step.branches(daily_rates: daily_rates, salary: @salary, fixed_term_length: @fixed_term_length)
+      @branches = step.branches(salary: @salary, fixed_term_length: @fixed_term_length)
 
       respond_to do |format|
         format.json { render json: @branches.find { |branch| rate_params(step.class.name.include?('FixedTermResults'))[branch.id].present? } }
@@ -47,10 +47,6 @@ module SupplyTeachers
 
     def step
       @step ||= @journey.current_step
-    end
-
-    def daily_rates
-      params[:daily_rate] || {}
     end
 
     def rate_params(is_fixed_term_results)

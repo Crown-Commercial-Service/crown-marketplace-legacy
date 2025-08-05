@@ -1,8 +1,7 @@
 class SupplierSpreadsheetCreator
-  def initialize(suppliers, params, service_model)
-    @suppliers = suppliers
+  def initialize(supplier_frameworks, params)
+    @supplier_frameworks = supplier_frameworks
     @params = params
-    @service_model = service_model
   end
 
   def build
@@ -17,7 +16,7 @@ class SupplierSpreadsheetCreator
   private
 
   def add_services(sheet)
-    services = @params['services'].map { |service_code| @service_model.find_by(code: service_code).name }
+    services = Service.where(id: @params['service_ids']).order(:id).pluck(:name)
     sheet.add_row ['Services', services.join(', ')]
   end
 end

@@ -7,13 +7,15 @@ RSpec.describe SupplyTeachers::RM6238::Spreadsheet do
 
   before do
     branch1.distance = 1600.0
-    branch1.rate = 100.0
+    branch1.rate = create(:supplier_framework_lot_rate, rate: 10000, position_id: position_id)
     branch2.distance = 3200.0
-    branch2.rate = 200.0
+    branch2.rate = create(:supplier_framework_lot_rate, rate: 20000, position_id: position_id)
   end
 
   context 'without fixed term results' do
     subject(:spreadsheet) { described_class.new([branch1, branch2], slug: 'agency-payroll-results') }
+
+    let(:position_id) { 41 }
 
     describe 'the generated worksheet' do
       let(:worksheet) { workbook.worksheets.first }
@@ -91,6 +93,8 @@ RSpec.describe SupplyTeachers::RM6238::Spreadsheet do
 
   context 'with fixed term results' do
     subject(:spreadsheet) { described_class.new([branch1, branch2], slug: 'fixed-term-results') }
+
+    let(:position_id) { 40 }
 
     describe 'the generated worksheet' do
       let(:worksheet) { workbook.worksheets.first }

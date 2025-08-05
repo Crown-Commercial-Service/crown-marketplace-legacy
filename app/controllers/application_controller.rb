@@ -91,5 +91,5 @@ class ApplicationController < ActionController::Base
     redirect_to errors_404_path unless VALID_SERVICE_NAMES.include? params[:service]
   end
 
-  VALID_SERVICE_NAMES = %w[supply_teachers supply_teachers/admin auth management_consultancy management_consultancy/admin legal_services legal_services/admin].freeze
+  VALID_SERVICE_NAMES = %w[supply_teachers supply_teachers/admin auth management_consultancy management_consultancy/admin legal_services legal_services/admin legal_panel_for_government legal_panel_for_government/admin].freeze
 end

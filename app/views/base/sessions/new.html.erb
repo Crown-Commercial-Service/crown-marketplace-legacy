@@ -53,7 +53,7 @@
       <%= govuk_button(t('common.sign_in'), form: f, classes: 'govuk-!-padding-left-7 govuk-!-padding-right-7', attributes: { aria: { label: t('common.sign_in') } }) %>
     <% end %>
 
-    <% if params[:service] == 'legal_services' || params[:service] == 'management_consultancy' %>
+    <% if ['legal_services', 'legal_panel_for_government', 'management_consultancy'].include?(params[:service]) %>
       <p class="govuk-body govuk-!-margin-bottom-7">
         <%= link_to t('.create_ccs_account'), sign_up_path, class: "govuk-link" %>
       </p>

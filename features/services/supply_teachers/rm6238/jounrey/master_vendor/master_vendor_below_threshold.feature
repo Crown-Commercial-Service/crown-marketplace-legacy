@@ -11,9 +11,9 @@ Feature: Supply Teachers - Master vendors - Below threshold
     And the caption is 'Contract worth less than £2.5 million'
     And there are 3 managed service provider agencies
     And the managed service provider agencies are:
+      | BOGAN, REICHERT AND COLLIER |
       | LUETTGEN-GUTMANN            |
       | O'HARA LLC                  |
-      | BOGAN, REICHERT AND COLLIER |
     And the contact details for the managed service provider 'LUETTGEN-GUTMANN' are:
       | Adrian Hane                                   |
       | 1-943-719-6600 x77799                         |

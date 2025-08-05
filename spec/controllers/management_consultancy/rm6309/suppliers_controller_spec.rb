@@ -3,16 +3,15 @@ require 'rails_helper'
 RSpec.describe ManagementConsultancy::RM6309::SuppliersController do
   let(:default_params) { { service: 'management_consultancy', framework: framework } }
   let(:framework) { 'RM6309' }
-  let(:supplier) { create(:management_consultancy_rm6309_supplier) }
-  let(:suppliers) { ManagementConsultancy::RM6309::Supplier.where(id: supplier.id) }
-  let(:lot) { ManagementConsultancy::RM6309::Lot.find_by(number: lot_number) }
-  let(:services) { ManagementConsultancy::RM6309::Service.all.sample(5).map(&:code) }
+  let(:supplier_framework) { create(:supplier_framework) }
+  let(:supplier_frameworks) { Supplier::Framework.where(id: supplier_framework.id) }
+  let(:lot) { Lot.find(lot_id) }
+  let(:service_ids) { Service.where(lot_id:).sample(5).map(&:id) }
 
   login_mc_buyer
 
   before do
-    allow(ManagementConsultancy::RM6309::Supplier).to receive(:offering_services)
-      .with(lot_number, services).and_return(suppliers)
+    allow(Supplier::Framework).to receive(:with_services).with(service_ids).and_return(supplier_frameworks)
   end
 
   describe 'GET index' do
@@ -21,13 +20,13 @@ RSpec.describe ManagementConsultancy::RM6309::SuppliersController do
     let(:params) do
       {
         journey: 'management-consultancy',
-        lot: lot_number,
-        services: services,
+        lot_id: lot_id,
+        service_ids: service_ids,
       }
     end
 
-    context 'when the lot answer is MCF4 lot 4' do
-      let(:lot_number) { 'MCF4.4' }
+    context 'when the lot answer is MCF3 lot 4' do
+      let(:lot_id) { 'RM6309.4' }
 
       it 'renders the index template' do
         expect(response).to render_template('index')
@@ -41,8 +40,8 @@ RSpec.describe ManagementConsultancy::RM6309::SuppliersController do
         expected_path = journey_question_path(
           journey: 'management-consultancy',
           slug: 'choose-services',
-          lot: lot_number,
-          services: services
+          lot_id: lot_id,
+          service_ids: service_ids
         )
         expect(assigns(:back_path)).to eq(expected_path)
       end
@@ -56,24 +55,16 @@ RSpec.describe ManagementConsultancy::RM6309::SuppliersController do
         end
       end
     end
-
-    context 'and the lot number is for MCF1' do
-      let(:lot_number) { 'MCF1.5' }
-
-      it 'redirects back to the start' do
-        expect(response).to redirect_to management_consultancy_rm6309_path
-      end
-    end
   end
 
   describe 'GET download' do
-    let(:lot_number) { 'MCF4.4' }
+    let(:lot_id) { 'RM6309.4' }
 
     let(:params) do
       {
         journey: 'management-consultancy',
-        lot: lot_number,
-        services: services
+        lot_id: lot_id,
+        service_ids: service_ids
       }
     end
 
@@ -82,14 +73,6 @@ RSpec.describe ManagementConsultancy::RM6309::SuppliersController do
 
       it 'renders the download template' do
         expect(response).to render_template('download')
-      end
-
-      context 'and the lot number is for MCF' do
-        let(:lot_number) { 'MCF1.2' }
-
-        it 'redirects back to the start' do
-          expect(response).to redirect_to management_consultancy_rm6309_path
-        end
       end
 
       context 'when the framework is not the current framework' do
@@ -132,10 +115,14 @@ RSpec.describe ManagementConsultancy::RM6309::SuppliersController do
   end
 
   describe 'GET show' do
-    before { get :show, params: { id: supplier.id, lot: lot_number } }
+    before do
+      create(:supplier_framework_lot_rate, supplier_framework_lot: create(:supplier_framework_lot, supplier_framework:, lot_id:))
 
-    context 'when the lot answer is MCF4 lot 8' do
-      let(:lot_number) { 'MCF4.8' }
+      get :show, params: { id: supplier_framework.id, lot_id: lot_id }
+    end
+
+    context 'when the lot answer is MCF3 lot 8' do
+      let(:lot_id) { 'RM6309.8' }
 
       it 'renders the show template' do
         expect(response).to render_template('show')
@@ -148,14 +135,6 @@ RSpec.describe ManagementConsultancy::RM6309::SuppliersController do
           expect(response).to render_template('management_consultancy/home/unrecognised_framework')
           expect(response).to have_http_status(:bad_request)
         end
-      end
-    end
-
-    context 'and the lot number is for MCF3' do
-      let(:lot_number) { 'MCF3.2' }
-
-      it 'redirects back to the start' do
-        expect(response).to redirect_to management_consultancy_rm6309_path
       end
     end
   end

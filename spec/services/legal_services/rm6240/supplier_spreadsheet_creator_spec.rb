@@ -3,20 +3,22 @@ require 'rails_helper'
 RSpec.describe LegalServices::RM6240::SupplierSpreadsheetCreator do
   let(:supplier_details) do
     [
-      { name: 'COLONY 4 CORP', email: 'ethel@colony.four.ltd.com 4 CORP', phone_number: '0203 234 5678' },
-      { name: 'MAKTHA AGENCY', email: 'juniper@flowers.com', phone_number: '0204 345 6789' },
-      { name: 'KEVIS CASTLE SERVICE', email: 'melia@kevis.castle.com', phone_number: '0204 567 8901' }
+      { name: 'COLONY 4 CORP', email: 'ethel@colony.four.ltd.com 4 CORP', telephone_number: '0203 234 5678' },
+      { name: 'MAKTHA AGENCY', email: 'juniper@flowers.com', telephone_number: '0204 345 6789' },
+      { name: 'KEVIS CASTLE SERVICE', email: 'melia@kevis.castle.com', telephone_number: '0204 567 8901' }
     ]
   end
 
-  let(:suppliers) { LegalServices::RM6240::Supplier.order(:name) }
+  let(:supplier_frameworks) { Supplier::Framework.joins(:supplier).order('supplier.name ASC') }
   let(:lot_number) { '1' }
+  let(:lot_id) { "RM6240.#{lot_number}#{jurisdiction}" }
+  let(:services) { Service.where(lot_id:).sample(5).sort_by(&:id) }
+  let(:service_ids) { services.map(&:id) }
+  let(:service_numbers) { services.map(&:number) }
   let(:jurisdiction) { 'a' }
-  let(:services) { LegalServices::RM6240::Service.services_for_lot(lot_number).sample(5).sort_by(&:service_number) }
-  let(:service_codes) { services.map(&:service_number) }
   let(:central_government) { 'no' }
-  let(:params) { { 'central_government' => central_government, 'jurisdiction' => jurisdiction, 'services' => service_codes, 'lot' => lot_number } }
-  let(:spreadsheet_creator) { described_class.new(suppliers, params) }
+  let(:params) { { 'central_government' => central_government, 'jurisdiction' => jurisdiction, 'service_numbers' => service_numbers, 'lot_number' => lot_number } }
+  let(:spreadsheet_creator) { described_class.new(supplier_frameworks, params) }
 
   let(:work_book) do
     File.write('/tmp/ls_supplier_spreadsheet.xlsx', spreadsheet_creator.build.to_stream.read, binmode: true)
@@ -24,11 +26,11 @@ RSpec.describe LegalServices::RM6240::SupplierSpreadsheetCreator do
   end
 
   before do
-    allow(LegalServices::RM6240::Supplier).to receive(:offering_services_in_jurisdiction)
-      .with(lot_number, service_codes, jurisdiction).and_return(suppliers)
-
     supplier_details.each do |supplier_detail|
-      create(:legal_services_rm6240_supplier, **supplier_detail)
+      supplier = create(:supplier, name: supplier_detail[:name])
+      supplier_framework = create(:supplier_framework, supplier:)
+
+      create(:supplier_framework_contact_detail, supplier_framework:, **supplier_detail.except(:name))
     end
   end
 

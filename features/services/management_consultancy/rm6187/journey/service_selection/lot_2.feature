@@ -10,9 +10,9 @@ Feature: Management Consultancy - Lot 2 - Strategy and Policy - Service selectio
 
   Scenario: The correct options are available
     Then I should see the following options for the lot:
-      | Business structure              |
       | Business case development       |
       | Business process re-engineering |
+      | Business structure              |
       | Change management               |
       | Digital, technology and cyber   |
       | Policy                          |

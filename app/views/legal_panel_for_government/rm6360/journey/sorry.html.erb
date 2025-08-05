@@ -1,0 +1,21 @@
+<%= add_optional_error_prefix_to_page_title(@journey.errors) %>
+<%= content_for :page_title, t('.heading').html_safe %>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">
+      <%= t('.heading') %>
+    </h1>
+
+    <p class="govuk-body-l">
+      <%= t('.lead_1') %>
+    </p>
+
+    <p class="govuk-body-l">
+      <%= t('.lead_2_html', link: link_to(t('.lead_2_link_text'), t('.lead_2_link_url'), class: 'govuk-link')) %>
+    </p>
+
+    <%= govuk_button(t('.back_to_start'), href: legal_panel_for_government_rm6360_path, classes: 'govuk-!-margin-top-4 govuk-!-padding-left-4 govuk-!-padding-right-4') %>
+  </div>
+</div>

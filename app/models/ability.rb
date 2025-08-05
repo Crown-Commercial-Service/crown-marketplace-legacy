@@ -21,6 +21,7 @@ class Ability
     if user.has_any_role? :mc_access, :ls_access
       can :read, ManagementConsultancy
       can :read, LegalServices
+      can :read, LegalPanelForGovernment
     end
     can :read, SupplyTeachers if user.has_role? :st_access
   end
@@ -28,6 +29,7 @@ class Ability
   def service_admin_specific_auth(user)
     can :manage, ManagementConsultancy::Admin if user.has_role? :mc_access
     can :manage, LegalServices::Admin if user.has_role? :ls_access
+    can :manage, LegalPanelForGovernment::Admin if user.has_role? :ls_access
     can :manage, SupplyTeachers::Admin if user.has_role? :st_access
   end
 

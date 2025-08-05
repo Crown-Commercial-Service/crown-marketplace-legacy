@@ -26,6 +26,12 @@ unless ARGV.any? { |a| a =~ /^gems/ } # Don't load anything when running the gem
         t.profile = 'legal-services'
       end
 
+      Cucumber::Rake::Task.new({ 'legal-panel-for-government': 'test:prepare' }, 'Run the full suite of features that should pass for Legal Panel for Government') do |t|
+        t.binary = vendored_cucumber_bin # If nil, the gem's binary is used.
+        t.fork = true # You may get faster startup if you set this to false
+        t.profile = 'legal-panel-for-government'
+      end
+
       Cucumber::Rake::Task.new({ 'management-consultancy': 'test:prepare' }, 'Run the full suite of features that should pass for Management Consultancy') do |t|
         t.binary = vendored_cucumber_bin # If nil, the gem's binary is used.
         t.fork = true # You may get faster startup if you set this to false

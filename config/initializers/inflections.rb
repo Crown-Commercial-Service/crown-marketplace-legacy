@@ -12,8 +12,7 @@
 
 # These inflection rules are supported but not enabled by default:
 ActiveSupport::Inflector.inflections(:en) do |inflect|
-  inflect.acronym 'RM6187'
-  inflect.acronym 'RM6238'
-  inflect.acronym 'RM6240'
-  inflect.acronym 'RM6309'
+  %w[6187 6238 6240 6309 6360].each do |framework_number|
+    inflect.acronym "RM#{framework_number}"
+  end
 end

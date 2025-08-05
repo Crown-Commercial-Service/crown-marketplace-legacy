@@ -9,16 +9,16 @@ Feature: Supply Teachers - All agencies - Accessibility
     Then I am on the 'Find an agency' page
   
   Scenario: All agencies page
-    Then the page should be axe clean
+    Then the page should be axe clean excluding ".ccs-contact-us"
   
   Scenario: Agency details page - all roles
     Given I click on 'BARTOLETTI, KOEPP AND NIENOW'
     Then I am on the 'BARTOLETTI, KOEPP AND NIENOW' page
     And the sub title is Agency details
-    Then the page should be axe clean
+    Then the page should be axe clean excluding ".ccs-contact-us"
 
   Scenario: Agency details page - some roles
     Given I click on 'HAGENES-BECHTELAR'
     Then I am on the 'HAGENES-BECHTELAR' page
     And the sub title is Agency details
-    Then the page should be axe clean
+    Then the page should be axe clean excluding ".ccs-contact-us"

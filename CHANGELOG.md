@@ -7,6 +7,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [6.0.0] - 2025-08-07
+
+### Added
+
+- Add the first set of code for Legal Panel for Government ([PR 2000](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2000))
+- Add the next set of code for Legal Panel for Government with supplier results ([PR 2003](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2003))
+- Add the admin upload Legal Panel for Government ([PR 2016](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2016))
+- Add supplier comparison for Legal Panel for Government ([PR 2023](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2023))
+
+### Changed
+
+- Small change...
+  In all seriousness this is something I’ve wanted to do for a while.
+  I have made generic framework and supplier models that can be used by all the frameworks in this service.
+  This should make managing and adding new services and frameworks easier going forward ([PR 1996](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/1996))
+- Make jurisdiction more like a lot service to help with Legal Panel for Government ([PR 2001](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2001))
+- Upgrade Bun to v1.2.18 ([PR 2000](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2000))
+- Use javascript for file uploads ([PR 2002](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2002))
+
 ## [5.1.0] - 2025-06-30
 
 ### Added

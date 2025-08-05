@@ -11,22 +11,7 @@ Feature: Management Consultancy - Lot 4 - Finance - Service selection
   Scenario: The correct options are available
     Then I should see the following options for the lot:
       | Actuarial services                                        |
-      | Financial due diligence                                   |
-      | Economic analysis                                         |
-      | Financial accounting and/or reporting                     |
-      | Financial performance review and viability studies        |
-      | Financing public infrastructure projects and negotiations |
-      | Forecasting and budgeting                                 |
-      | Foreign exchange                                          |
-      | Investment, financial advice and market services          |
-      | Mergers, acquisitions and divestment                      |
-      | Payment structure advice and risk                         |
       | Asset management including valuation, sales and disposals |
-      | Pensions services                                         |
-      | Policy impact assessments                                 |
-      | Regulation and statutory requirements and/or reporting    |
-      | Risk management                                           |
-      | Tax including value added tax (VAT)                       |
       | Business analysis                                         |
       | Capital fundraising, derivatives and hedging              |
       | Cash management                                           |
@@ -34,6 +19,21 @@ Feature: Management Consultancy - Lot 4 - Finance - Service selection
       | Cost benefit reviews, studies, analysis and evaluation    |
       | Debt restructuring, management and insolvency             |
       | Developing and assessing project proposals                |
+      | Economic analysis                                         |
+      | Financial accounting and/or reporting                     |
+      | Financial due diligence                                   |
+      | Financial performance review and viability studies        |
+      | Financing public infrastructure projects and negotiations |
+      | Forecasting and budgeting                                 |
+      | Foreign exchange                                          |
+      | Investment, financial advice and market services          |
+      | Mergers, acquisitions and divestment                      |
+      | Payment structure advice and risk                         |
+      | Pensions services                                         |
+      | Policy impact assessments                                 |
+      | Regulation and statutory requirements and/or reporting    |
+      | Risk management                                           |
+      | Tax including value added tax (VAT)                       |
 
   Scenario: Service selection appears in basked
     Then the basket should say 'No services selected'

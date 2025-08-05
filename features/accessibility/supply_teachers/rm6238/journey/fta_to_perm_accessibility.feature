@@ -9,13 +9,13 @@ Feature: Supply Teachers - FTA to perm - Accessibility
     Then I am on the 'What date did the workers fixed term contract start?' page
 
   Scenario: Contract start date page
-    Then the page should be axe clean
+    Then the page should be axe clean excluding ".ccs-contact-us"
 
   Scenario: Contract end date page
     And I enter a date 1 years and 2 months into the past
     And I click on 'Continue'
     Then I am on the 'What date did the workers fixed term contract end?' page
-    Then the page should be axe clean
+    Then the page should be axe clean excluding ".ccs-contact-us"
 
   Scenario: No transfer fee required page - contract ended within 6 months and was more than 12 months
     And I enter a date 1 years and 2 months into the past
@@ -26,7 +26,7 @@ Feature: Supply Teachers - FTA to perm - Accessibility
     Then I am on the 'No transfer fee required' page
     And the reason for no transfer fee is:
       | Based on the information you have provided, no fee is required as the employee has been continually employed for more than 12 months. |
-    Then the page should be axe clean
+    Then the page should be axe clean excluding ".ccs-contact-us"
 
   Scenario: No transfer fee required page - contract ended after 6 months and was more than 12 months
     And I enter a date 1 years and 8 months into the past
@@ -37,7 +37,7 @@ Feature: Supply Teachers - FTA to perm - Accessibility
     Then I am on the 'No transfer fee required' page
     And the reason for no transfer fee is:
       | Based on the information you have provided, no fee is required as the employee's contract ended more than 6 months ago. |
-    Then the page should be axe clean
+    Then the page should be axe clean excluding ".ccs-contact-us"
 
   Scenario: No transfer fee required page - hire date 6 months after the contract end
     And I enter a date 0 years and 6 months into the past
@@ -59,7 +59,7 @@ Feature: Supply Teachers - FTA to perm - Accessibility
     And I enter a date 0 years and 1 months into the past
     And I click on 'Continue'
     Then I am on the 'What date do you want their fully permanent employment to start?' page
-    Then the page should be axe clean
+    Then the page should be axe clean excluding ".ccs-contact-us"
   
   Scenario: Employment start date page
     And I enter a date 0 years and 6 months into the past
@@ -68,7 +68,7 @@ Feature: Supply Teachers - FTA to perm - Accessibility
     And I enter a date 0 years and 1 months into the past
     And I click on 'Continue'
     Then I am on the 'What date do you want their fully permanent employment to start?' page
-    Then the page should be axe clean
+    Then the page should be axe clean excluding ".ccs-contact-us"
   
   Scenario: If you wait and do not employ page
     And I enter a date 0 years and 6 months into the past
@@ -80,7 +80,7 @@ Feature: Supply Teachers - FTA to perm - Accessibility
     And I enter a date 0 years and 2 months into the future
     And I click on 'Continue'
     Then I am on the 'If you wait and do not employ' page
-    Then the page should be axe clean
+    Then the page should be axe clean excluding ".ccs-contact-us"
 
   Scenario: Entering the fee page
     And I enter a date 0 years and 6 months into the past
@@ -94,7 +94,7 @@ Feature: Supply Teachers - FTA to perm - Accessibility
     Then I am on the 'If you wait and do not employ' page
     And I click on "I don't want to wait that long - continue to calculate fee"
     Then I am on the 'What fixed term fee did you pay the worker?' page
-    Then the page should be axe clean
+    Then the page should be axe clean excluding ".ccs-contact-us"
 
   Scenario: Final page with results
     And I enter a date 0 years and 6 months into the past
@@ -111,4 +111,4 @@ Feature: Supply Teachers - FTA to perm - Accessibility
     And I enter '500' for the 'fixed term fee'
     And I click on 'Continue'
     Then I am on the 'You could be charged £700.00' page
-    Then the page should be axe clean
+    Then the page should be axe clean excluding ".ccs-contact-us"

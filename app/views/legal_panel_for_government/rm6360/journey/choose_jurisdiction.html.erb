@@ -1,0 +1,45 @@
+<%= add_optional_error_prefix_to_page_title(@journey.errors) %>
+<%= content_for :page_title, t('.question') %>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <%= render partial: 'shared/error_summary', locals: { errors: @journey.errors } %>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <%= form_with url: @form_path, method: :get, html: { specialvalidation: true, novalidate: true } do |f| %>
+    <%= hidden_fields_for_previous_steps_and_responses(@journey) %>
+    <%= hidden_field_tag(:lot_id, @journey.current_step.lot_id) %>
+
+    <div class="govuk-grid-column-two-thirds" id="selection-checkboxes">
+      <%= govuk_checkboxes(
+        :jurisdiction_ids,
+        @journey.current_step.non_core_jurisdictions.map do |jurisdiction|
+          {
+            value: jurisdiction.id,
+            label: {
+              text: jurisdiction.name
+            }
+          }
+        end,
+        model: @journey.current_step,
+        fieldset: {
+          legend: {
+            text: t('.question'),
+            classes: 'govuk-fieldset__legend--m',
+            is_page_heading: true,
+            caption: {
+              text: lot_full_name(@journey.current_step.lot),
+              classes: 'govuk-caption-m'
+            },
+          }
+        }
+      ) %>
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+      <%= render partial: 'shared/basket', locals: { form: f, data_text_1:  t('.countries_selected'), data_text_2: t('.no_countries_selected'), data_text_3: t('.country_selected'), search_text: t('.search_jurisdictions') } %>
+    </div>
+  <% end %>
+</div>

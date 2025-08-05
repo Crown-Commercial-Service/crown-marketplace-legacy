@@ -68,6 +68,15 @@ Rails.application.routes.draw do
       end
     end
 
+    namespace 'legal_panel_for_government', path: 'legal-panel-for-government', defaults: { service: 'legal_panel_for_government' } do
+      namespace 'rm6360', path: 'RM6360', defaults: { framework: 'RM6360' } do
+        concerns %i[authenticatable registrable]
+        namespace :admin, defaults: { service: 'legal_panel_for_government/admin' } do
+          concerns :authenticatable
+        end
+      end
+    end
+
     get '/legacy-session/active'  => 'base/sessions#active', as: :active
     get '/legacy-session/timeout' => 'base/sessions#timeout', as: :timeout
   end
@@ -107,6 +116,14 @@ Rails.application.routes.draw do
     get '/', to: 'uploads#index'
   end
 
+  concern :suppliers do
+    resources :suppliers, only: %i[index show] do
+      collection do
+        get '/download', action: :download
+      end
+    end
+  end
+
   namespace 'supply_teachers', path: 'supply-teachers', defaults: { service: 'supply_teachers' } do
     concern :gateway do
       get '/cognito', to: 'gateway#index', cognito_enabled: true
@@ -133,7 +150,7 @@ Rails.application.routes.draw do
       end
     end
 
-    concern :suppliers do
+    concern :supply_teachers_suppliers do
       resources :suppliers, path: '/', only: %i[] do
         collection do
           get '/master-vendors', action: :master_vendors
@@ -163,7 +180,7 @@ Rails.application.routes.draw do
     end
 
     namespace 'rm6238', path: 'RM6238', defaults: { framework: 'RM6238' } do
-      concerns %i[buyer_shared_pages shared_pages gateway branches admin calculations suppliers]
+      concerns %i[buyer_shared_pages shared_pages gateway branches admin calculations supply_teachers_suppliers]
 
       resources :suppliers, path: '/', only: %i[] do
         collection do
@@ -187,20 +204,16 @@ Rails.application.routes.draw do
     end
 
     namespace 'rm6187', path: 'RM6187', defaults: { framework: 'RM6187' } do
-      concerns %i[buyer_shared_pages shared_pages]
-      get '/suppliers', to: 'suppliers#index'
-      get '/suppliers/download', to: 'suppliers#download', as: 'suppliers_download'
-      get '/suppliers/:id', to: 'suppliers#show', as: 'supplier'
+      concerns %i[buyer_shared_pages shared_pages suppliers]
+
       namespace :admin, defaults: { service: 'management_consultancy/admin' } do
         concerns %i[admin_uploads admin_shared_pages]
       end
     end
 
     namespace 'rm6309', path: 'RM6309', defaults: { framework: 'RM6309' } do
-      concerns %i[buyer_shared_pages shared_pages]
-      get '/suppliers', to: 'suppliers#index'
-      get '/suppliers/download', to: 'suppliers#download', as: 'suppliers_download'
-      get '/suppliers/:id', to: 'suppliers#show', as: 'supplier'
+      concerns %i[buyer_shared_pages shared_pages suppliers]
+
       namespace :admin, defaults: { service: 'management_consultancy/admin' } do
         concerns %i[admin_uploads admin_shared_pages]
       end
@@ -211,18 +224,12 @@ Rails.application.routes.draw do
     get '/:framework/start', to: 'journey#start', as: 'journey_start'
     get '/:framework/:slug', to: 'journey#question', as: 'journey_question'
     get '/:framework/:slug/answer', to: 'journey#answer', as: 'journey_answer'
+    get '/:framework/suppliers/download', to: 'suppliers#download', as: 'suppliers_download'
+    get '/:framework/suppliers/:id', to: 'suppliers#show', as: 'supplier'
   end
 
   namespace 'legal_services', path: 'legal-services', defaults: { service: 'legal_services' } do
     concerns :framework
-
-    concern :suppliers do
-      resources :suppliers, only: %i[index show] do
-        collection do
-          get '/download', action: :download
-        end
-      end
-    end
 
     namespace :admin, defaults: { service: 'legal_services/admin' } do
       concerns %i[framework admin_frameworks]
@@ -238,6 +245,30 @@ Rails.application.routes.draw do
 
     get '/:framework', to: 'home#index', as: 'index'
     get '/:framework/admin', to: 'admin/home#index', defaults: { service: 'legal_services/admin' }, as: 'admin_index'
+    get '/:framework/start', to: 'journey#start', as: 'journey_start'
+    get '/:framework/:slug', to: 'journey#question', as: 'journey_question'
+    get '/:framework/:slug/answer', to: 'journey#answer', as: 'journey_answer'
+  end
+
+  namespace 'legal_panel_for_government', path: 'legal-panel-for-government', defaults: { service: 'legal_panel_for_government' } do
+    concerns :framework
+
+    namespace :admin, defaults: { service: 'legal_panel_for_government/admin' } do
+      concerns %i[framework admin_frameworks]
+    end
+
+    namespace 'rm6360', path: 'RM6360', defaults: { framework: 'RM6360' } do
+      concerns %i[buyer_shared_pages shared_pages suppliers]
+
+      get '/suppliers-comparison', to: 'suppliers_comparison#index'
+
+      namespace :admin, defaults: { service: 'legal_panel_for_government/admin' } do
+        concerns %i[admin_uploads admin_shared_pages]
+      end
+    end
+
+    get '/:framework', to: 'home#index', as: 'index'
+    get '/:framework/admin', to: 'admin/home#index', defaults: { service: 'legal_panel_for_government/admin' }, as: 'admin_index'
     get '/:framework/start', to: 'journey#start', as: 'journey_start'
     get '/:framework/:slug', to: 'journey#question', as: 'journey_question'
     get '/:framework/:slug/answer', to: 'journey#answer', as: 'journey_answer'

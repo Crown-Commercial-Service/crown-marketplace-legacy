@@ -17,11 +17,11 @@ en:
               inclusion: Select yes if you work for central government
         legal_services/rm6240/journey/choose_services:
           attributes:
-            services:
+            service_numbers:
               blank: Select at least one legal service
         legal_services/rm6240/journey/select_lot:
           attributes:
-            lot:
+            lot_number:
               blank: Select the lot you need
   activerecord:
     errors:
@@ -182,8 +182,8 @@ en:
               supplier_lot_3_service_offerings_has_empty_sheets_html: Make sure the sheet for 'Supplier lot 3 service offerings' have been filled in
               supplier_lot_3_service_offerings_has_incorrect_headers_html: Make sure the sheet for 'Supplier lot 3 service offerings' only has the single service 'Transport (Rail) 3.1'
               supplier_lot_3_service_offerings_missing_sheets: The ''Supplier lot 3 service offerings' file should have 1 sheet named 'All regions'
-              supplier_missing_lots_html: 'The following suppliers do not offer any lots: %{list} Make sure all the suppliers have the correct name and DUNS number'
-              supplier_missing_rate_cards_html: 'The following suppliers do not have any rate cards: %{list} Make sure all the suppliers have the correct name and DUNS number'
+              supplier_missing_rates_html: 'The following suppliers do not have any rate cards: %{list} Make sure all the suppliers have the correct name and DUNS number'
+              supplier_missing_services_html: 'The following suppliers do not offer any lots: %{list} Make sure all the suppliers have the correct name and DUNS number'
               supplier_rate_cards_has_empty_sheets_html: 'The following sheets have no data: %{list} Make sure all sheets for ''Supplier rate cards'' have been filled in'
               supplier_rate_cards_has_incorrect_headers_html: 'The following sheets have incorrect headers: %{list} Make sure all sheets for ''Supplier rate cards'' have the right catagories for the rates'
               supplier_rate_cards_missing_sheets: 'The ''Supplier rate cards'' file should have 7 sheets with the following names: ''Lot 1a - England & Wales'', ''Lot 1b - Scotland'', ''Lot 1c - Northern Ireland'', ''Lot 2a - England & Wales'', ''Lot 2b - Scotland'', ''Lot 2c - Northern Ireland'', ''Lot 3'''
@@ -205,8 +205,8 @@ en:
               supplier_lot_3_service_offerings_has_empty_sheets: There are sheets in 'Supplier lot 3 service offerings' without any data
               supplier_lot_3_service_offerings_has_incorrect_headers: There are sheets in 'Supplier lot 3 service offerings' with incorrect services
               supplier_lot_3_service_offerings_missing_sheets: The 'Supplier lot 3 service offerings' file is missing sheets
-              supplier_missing_lots: There are suppliers without any lots
-              supplier_missing_rate_cards: There are suppliers without any rate cards
+              supplier_missing_rates: There are suppliers without any rate cards
+              supplier_missing_services: There are suppliers without any services
               supplier_rate_cards_has_empty_sheets: There are sheets in 'Supplier rate cards' without any data
               supplier_rate_cards_has_incorrect_headers: There are sheets in 'Supplier rate cards' with incorrect headers
               supplier_rate_cards_missing_sheets: The 'Supplier rate cards' file is missing sheets

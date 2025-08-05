@@ -7,7 +7,7 @@
       text: capture do
         concat(t('.column2'))
         concat(tag.br)
-        concat(SupplyTeachers::RM6238::Term['daily'])
+        concat(t('journey_step.supply_teachers.term_types.daily'))
       end,
       classes: 'govuk-table__header--numeric agency-record__markup-column'
     },
@@ -15,18 +15,28 @@
       text: capture do
         concat(t('.column2'))
         concat(tag.br)
-        concat(SupplyTeachers::RM6238::Term['six_weeks_plus'])
+        concat(t('journey_step.supply_teachers.term_types.six_weeks_plus'))
       end,
       classes: 'govuk-table__header--numeric agency-record__markup-column'
     }
   ],
-  grouped_rates_sorted_by_job_type(grouped_rates).map do |job_type, rates|
+  [
+    [t('journey_step.supply_teachers.job_titles.teacher'), 41, 46],
+    [t('journey_step.supply_teachers.job_titles.support'), 42, 47],
+    [t('journey_step.supply_teachers.job_titles.senior'), 43, 48],
+    [t('journey_step.supply_teachers.job_titles.other'), 44, 49],
+    [t('journey_step.supply_teachers.job_titles.over_12_week'), 38, 38],
+    [t('journey_step.supply_teachers.job_titles.nominated'), 39, 39],
+    [t('journey_step.supply_teachers.job_titles.fixed_term'), 40, 40],
+  ].map do |job_type, position_id_1, position_id_2|    
     [
       {
-        text: SupplyTeachers::RM6238::JobType[job_type]
-      }
-    ] + agency_rate_cells(rates)
-  end,
+        text: job_type
+      },
+      agency_rate_cell(grouped_rates[position_id_1]),
+      agency_rate_cell(grouped_rates[position_id_2]),
+    ] if grouped_rates.key?(position_id_1)
+  end.compact,
   first_cell_is_header: true,
   classes: 'agency_rates'
 ) %>

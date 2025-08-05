@@ -7,11 +7,11 @@ RSpec.describe SupplyTeachers::RM6238::SuppliersController do
   login_st_buyer
 
   describe 'GET master_vendors' do
-    let(:supplier) { build(:supply_teachers_rm6238_supplier) }
-    let(:suppliers) { [supplier] }
+    let(:supplier_framework) { build(:supplier_framework) }
+    let(:supplier_frameworks) { [supplier_framework] }
 
     before do
-      allow(SupplyTeachers::RM6238::Supplier).to receive(:with_master_vendor_rates).and_return(suppliers)
+      allow(Supplier::Framework).to receive(:with_lots).with('RM6238.2.2').and_return(supplier_frameworks)
 
       get :master_vendors, params: {
         looking_for: 'master_vendor', threshold_position: 'above_threshold'
@@ -22,8 +22,8 @@ RSpec.describe SupplyTeachers::RM6238::SuppliersController do
       expect(response).to render_template('master_vendors')
     end
 
-    it 'assigns suppliers with master vendor rates to suppliers' do
-      expect(assigns(:suppliers)).to eq(suppliers)
+    it 'assigns supplier_frameworks with master vendor rates to supplier_frameworks' do
+      expect(assigns(:supplier_frameworks)).to eq(supplier_frameworks)
     end
 
     it 'sets the back path to the master-vendor-options question' do
@@ -38,11 +38,11 @@ RSpec.describe SupplyTeachers::RM6238::SuppliersController do
   end
 
   describe 'GET education_technology_platform_vendors' do
-    let(:supplier) { build(:supply_teachers_rm6238_supplier) }
-    let(:suppliers) { [supplier] }
+    let(:supplier_framework) { build(:supplier_framework) }
+    let(:supplier_frameworks) { [supplier_framework] }
 
     before do
-      allow(SupplyTeachers::RM6238::Supplier).to receive(:with_education_technology_platforms_rates).and_return(suppliers)
+      allow(Supplier::Framework).to receive(:with_lots).with('RM6238.4').and_return(supplier_frameworks)
 
       get :education_technology_platform_vendors, params: {
         looking_for: 'education_technology_platform'
@@ -53,8 +53,8 @@ RSpec.describe SupplyTeachers::RM6238::SuppliersController do
       expect(response).to render_template('education_technology_platform_vendors')
     end
 
-    it 'assigns suppliers with education technology platform vendor rates to suppliers' do
-      expect(assigns(:suppliers)).to eq(suppliers)
+    it 'assigns supplier_frameworks with education technology platform vendor rates to supplier_frameworks' do
+      expect(assigns(:supplier_frameworks)).to eq(supplier_frameworks)
     end
 
     it 'sets the back path to the looking-for question' do
@@ -68,10 +68,14 @@ RSpec.describe SupplyTeachers::RM6238::SuppliersController do
   end
 
   describe 'GET all suppliers' do
-    let!(:branch_1) { create(:supply_teachers_rm6238_branch) }
-    let!(:branch_2) { create(:supply_teachers_rm6238_branch) }
+    let(:lot_id) { 'RM6238.1' }
+    let(:supplier_framework_1) { create(:supplier_framework, framework_id: 'RM6238') }
+    let(:supplier_framework_2) { create(:supplier_framework, framework_id: 'RM6238') }
 
     before do
+      create(:supplier_framework_lot, supplier_framework: supplier_framework_1, lot_id: lot_id)
+      create(:supplier_framework_lot, supplier_framework: supplier_framework_2, lot_id: lot_id)
+
       get :all_suppliers, params: {
         journey: 'supply-teachers',
         looking_for: 'all_suppliers'
@@ -83,16 +87,16 @@ RSpec.describe SupplyTeachers::RM6238::SuppliersController do
     end
 
     # rubocop:disable RSpec/ExampleLength
-    it 'assigns paginated_suppliers' do
-      expect(assigns(:paginated_suppliers).map do |supplier|
+    it 'assigns supplier_frameworks' do
+      expect(assigns(:supplier_frameworks).map do |supplier_framework|
         {
-          supplier_id: supplier.id,
-          name: supplier.name
+          supplier_framework_id: supplier_framework.id,
+          name: supplier_framework.supplier_name
         }
-      end).to match_array([branch_1, branch_2].map do |supplier|
+      end).to match_array([supplier_framework_1, supplier_framework_2].map do |supplier_framework|
         {
-          supplier_id: supplier.supply_teachers_rm6238_supplier_id,
-          name: supplier.supplier.name
+          supplier_framework_id: supplier_framework.id,
+          name: supplier_framework.supplier_name
         }
       end)
     end
@@ -118,13 +122,14 @@ RSpec.describe SupplyTeachers::RM6238::SuppliersController do
   end
 
   describe 'POST search_all_suppliers' do
-    let(:supplier_1) { create(:supply_teachers_rm6238_supplier, name: 'aaa') }
-    let(:supplier_2) { create(:supply_teachers_rm6238_supplier, name: 'zzz') }
-    let(:paginated_supplier_names) { assigns(:paginated_suppliers).map(&:name) }
+    let(:lot_id) { 'RM6238.1' }
+    let(:supplier_framework_1) { create(:supplier_framework, framework_id: 'RM6238', supplier: create(:supplier, name: 'aaa')) }
+    let(:supplier_framework_2) { create(:supplier_framework, framework_id: 'RM6238', supplier: create(:supplier, name: 'zzz')) }
+    let(:paginated_supplier_names) { assigns(:supplier_frameworks).map(&:supplier_name) }
 
     before do
-      create(:supply_teachers_rm6238_branch, slug: 'branch-a', supplier: supplier_1)
-      create(:supply_teachers_rm6238_branch, slug: 'branch-z', supplier: supplier_2)
+      create(:supplier_framework_lot, supplier_framework: supplier_framework_1, lot_id: lot_id)
+      create(:supplier_framework_lot, supplier_framework: supplier_framework_2, lot_id: lot_id)
 
       post :search_all_suppliers, params: { agency_name: }
     end

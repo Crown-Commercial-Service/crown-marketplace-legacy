@@ -20,7 +20,7 @@ class SupplyTeachers::RM6238::Spreadsheet < SupplyTeachers::Spreadsheet
         branch.contact_name,
         branch.contact_email,
         format_telephone_number(branch.telephone_number),
-        branch.rate&./(@devisor),
+        branch.rate.rate_in_pounds&./(@devisor),
         DistanceConverter.metres_to_miles(branch.distance).round(1)
       ]
     end

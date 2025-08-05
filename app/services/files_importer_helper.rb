@@ -33,7 +33,7 @@ module FilesImporterHelper
   end
 
   def get_supplier(supplier_duns)
-    @supplier_data.find { |s| s['duns'] == supplier_duns }
+    @supplier_data.find { |s| s[:duns_number] == supplier_duns }
   end
 
   def extract_duns(supplier_name)

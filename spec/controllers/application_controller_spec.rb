@@ -150,5 +150,41 @@ RSpec.describe ApplicationController do
         end
       end
     end
+
+    context 'when the service is legal services central government' do
+      let(:service) { 'legal_panel_for_government' }
+
+      context 'when the framework is nil' do
+        it 'returns /legal-panel-for-government/RM6360' do
+          expect(result).to eq '/legal-panel-for-government/RM6360'
+        end
+      end
+
+      context 'when the framework is present' do
+        let(:framework) { 'RM3788' }
+
+        it 'returns /legal-panel-for-government/RM3788' do
+          expect(result).to eq '/legal-panel-for-government/RM3788'
+        end
+      end
+    end
+
+    context 'when the service is legal services central government admin' do
+      let(:service) { 'legal_panel_for_government/admin' }
+
+      context 'when the framework is nil' do
+        it 'returns /legal-panel-for-government/RM6360/admin' do
+          expect(result).to eq '/legal-panel-for-government/RM6360/admin'
+        end
+      end
+
+      context 'when the framework is present' do
+        let(:framework) { 'RM3788' }
+
+        it 'returns /legal-panel-for-government/RM3788/admin' do
+          expect(result).to eq '/legal-panel-for-government/RM3788/admin'
+        end
+      end
+    end
   end
 end

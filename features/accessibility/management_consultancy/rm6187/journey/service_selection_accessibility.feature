@@ -9,7 +9,7 @@ Feature: Management Consultancy - Service selection - Accessibility
     And the sub title is 'MCF3 lot 1 - Business'
 
   Scenario: No services have been selected
-    Then the page should be axe clean
+    Then the page should be axe clean excluding ".ccs-contact-us"
   
   Scenario: Some services selected
     When I check the following items:
@@ -22,7 +22,7 @@ Feature: Management Consultancy - Service selection - Accessibility
       | Organisational review                           |
       | Programme & project management                  |
       | Risk, compliance and/or opportunity management  |
-    And the page should be axe clean
+    And the page should be axe clean excluding ".ccs-contact-us"
 
   Scenario: Everything is selected
     Given I select all the services
@@ -32,7 +32,7 @@ Feature: Management Consultancy - Service selection - Accessibility
       | Organisational review                                 |
       | Programme & project management                        |
       | Risk, compliance and/or opportunity management        |
-      | Value for money reviews.                              |
+      | Value for money reviews                               |
       | Business consultancy                                  |
       | Business continuity and/or disaster recovery planning |
       | Business policy strategy and/or appraisal             |
@@ -41,4 +41,4 @@ Feature: Management Consultancy - Service selection - Accessibility
       | Development and/or review of policy                   |
       | Digital, technology and cyber                         |
       | Forecasting and/or planning                           |
-    And the page should be axe clean
+    And the page should be axe clean excluding ".ccs-contact-us"

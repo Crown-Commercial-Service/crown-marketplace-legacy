@@ -11,11 +11,6 @@ Feature: Management Consultancy - Lot 1 - Business - Service selection
   Scenario: The correct options are available
     Then I should see the following options for the lot:
       | Business case development                             |
-      | Operational planning and/or improvement               |
-      | Organisational review                                 |
-      | Programme & project management                        |
-      | Risk, compliance and/or opportunity management        |
-      | Value for money reviews.                              |
       | Business consultancy                                  |
       | Business continuity and/or disaster recovery planning |
       | Business policy strategy and/or appraisal             |
@@ -24,6 +19,11 @@ Feature: Management Consultancy - Lot 1 - Business - Service selection
       | Development and/or review of policy                   |
       | Digital, technology and cyber                         |
       | Forecasting and/or planning                           |
+      | Operational planning and/or improvement               |
+      | Organisational review                                 |
+      | Programme & project management                        |
+      | Risk, compliance and/or opportunity management        |
+      | Value for money reviews                               |
 
   Scenario: Service selection appears in basked
     Then the basket should say 'No services selected'
@@ -38,7 +38,7 @@ Feature: Management Consultancy - Lot 1 - Business - Service selection
       | Organisational review                           |
       | Programme & project management                  |
       | Risk, compliance and/or opportunity management  |
-      | Value for money reviews.                        |
+      | Value for money reviews                         |
       | Business consultancy                            |
     Then the basket should say '7 services selected'
     And the remove all link should be visible
@@ -48,14 +48,14 @@ Feature: Management Consultancy - Lot 1 - Business - Service selection
       | Organisational review                           |
       | Programme & project management                  |
       | Risk, compliance and/or opportunity management  |
-      | Value for money reviews.                        |
+      | Value for money reviews                         |
       | Business consultancy                            |
 
   Scenario: Changing the selection will change the basket
     When I check the following items:
       | Business case development                             |
       | Programme & project management                        |
-      | Value for money reviews.                              |
+      | Value for money reviews                               |
       | Business continuity and/or disaster recovery planning |
       | Business processes                                    |
       | Digital, technology and cyber                         |
@@ -64,7 +64,7 @@ Feature: Management Consultancy - Lot 1 - Business - Service selection
     And the following items should appear in the basket:
       | Business case development                             |
       | Programme & project management                        |
-      | Value for money reviews.                              |
+      | Value for money reviews                               |
       | Business continuity and/or disaster recovery planning |
       | Business processes                                    |
       | Digital, technology and cyber                         |
@@ -75,7 +75,7 @@ Feature: Management Consultancy - Lot 1 - Business - Service selection
     And the following items should appear in the basket:
       | Business case development                             |
       | Programme & project management                        |
-      | Value for money reviews.                              |
+      | Value for money reviews                               |
       | Business processes                                    |
       | Digital, technology and cyber                         |
     When I remove the following items from the basket:
@@ -85,7 +85,7 @@ Feature: Management Consultancy - Lot 1 - Business - Service selection
     And the remove all link should be visible
     And the following items should appear in the basket:
       | Business case development                             |
-      | Value for money reviews.                              |
+      | Value for money reviews                               |
       | Digital, technology and cyber                         |
     When I click on 'Remove all'
     Then the basket should say 'No services selected'

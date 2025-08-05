@@ -38,6 +38,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'geocoder', '>= 1.6.1'
 gem 'activerecord-postgis-adapter', '~> 11.0.0'
+gem 'activerecord-import', '~> 2.2.0', require: false
 gem 'uk_postcode'
 gem 'rubyzip', '>= 1.2.1'
 gem 'caxlsx', '>= 3.2.0'
@@ -59,7 +60,7 @@ gem 'json-jwt', '>= 1.11.0'
 gem 'devise', '~> 4.9.4'
 
 # for cognito
-gem 'aws-sdk-cognitoidentityprovider', '~> 1.123.0'
+gem 'aws-sdk-cognitoidentityprovider', '~> 1.125.0'
 
 # for pagination
 gem 'kaminari', '~> 1.2.2'
@@ -79,7 +80,7 @@ gem 'jsonpath', '~> 1.1.5'
 gem 'aasm', '~> 5.5'
 
 # for running background jobs
-gem 'sidekiq', '~> 8.0.4'
+gem 'sidekiq', '~> 8.0.6'
 gem 'sinatra', '~> 4.1.1', require: false
 gem 'slim', '~> 5.2.1'
 
@@ -128,8 +129,8 @@ group :development, :test do
   gem 'poltergeist', '>= 1.18.1'
   gem 'wdm', '>= 0.1.0', platforms: %i[x64_mingw]
   gem 'tzinfo-data', platforms: %i[x64_mingw]
-  gem 'faker', '~> 3.5.1'
-  gem 'brakeman', '~> 7.0.2'
+  gem 'faker', '~> 3.5.2'
+  gem 'brakeman', '~> 7.1.0'
 end
 
 group :development do

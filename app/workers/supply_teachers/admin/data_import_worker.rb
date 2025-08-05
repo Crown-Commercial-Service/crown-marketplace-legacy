@@ -2,6 +2,7 @@ module SupplyTeachers
   module Admin
     class DataImportWorker
       include Sidekiq::Worker
+
       sidekiq_options queue: 'st'
 
       def perform(upload_id)

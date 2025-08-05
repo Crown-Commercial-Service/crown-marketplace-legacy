@@ -1,3484 +1,3370 @@
 [
   {
-    "supplier_id": "af47147e-2384-4912-b16a-f05087625764",
+    "id": "af47147e-2384-4912-b16a-f05087625764",
     "name": "DUBUQUE-PADBERG",
-    "email": "dubuque_padberg@kerluke-cole.name",
-    "phone_number": "144.165.4586",
+    "duns_number": "992930364",
     "sme": false,
-    "address": "502 Edward Row, Dorethahaven, NC 19736-7968",
-    "website": "http://miller-gulgowski.net/luise",
-    "duns": "992930364",
-    "lot_1_prospectus_link": null,
-    "lot_2_prospectus_link": null,
-    "lot_3_prospectus_link": null,
-    "service_offerings": [
-      {
-        "service_code": "1.1",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.1",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.2",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.2",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.3",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.3",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.4",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.4",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.5",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.5",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.6",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.6",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.7",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.7",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.8",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.8",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.9",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.9",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.10",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.10",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.11",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.11",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.12",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.12",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.13",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.13",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.14",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.14",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.15",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.15",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.16",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.16",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.17",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.17",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.18",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.18",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.19",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.19",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.20",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.20",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.21",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.21",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.22",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.22",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.23",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.23",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.24",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.24",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.25",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.25",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.26",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.26",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.27",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.27",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.28",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.28",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.29",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.29",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.30",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.30",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.31",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.31",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.32",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.32",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.33",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.33",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.34",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.34",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.35",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.35",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.36",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.36",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.37",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.37",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.38",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.38",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.39",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.39",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.40",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.40",
-        "jurisdiction": "b"
-      }
-    ],
-    "rates": [
-      {
-        "lot_number": "1",
-        "jurisdiction": "a",
-        "position": "1",
-        "rate": 17500
-      },
-      {
-        "lot_number": "1",
-        "jurisdiction": "a",
-        "position": "2",
-        "rate": 15000
-      },
-      {
-        "lot_number": "1",
-        "jurisdiction": "a",
-        "position": "3",
-        "rate": 12500
-      },
-      {
-        "lot_number": "1",
-        "jurisdiction": "a",
-        "position": "4",
-        "rate": 10000
-      },
-      {
-        "lot_number": "1",
-        "jurisdiction": "a",
-        "position": "5",
-        "rate": 7500
-      },
-      {
-        "lot_number": "1",
-        "jurisdiction": "a",
-        "position": "6",
-        "rate": 5000
-      },
-      {
-        "lot_number": "1",
-        "jurisdiction": "b",
-        "position": "1",
-        "rate": 21000
-      },
-      {
-        "lot_number": "1",
-        "jurisdiction": "b",
-        "position": "2",
-        "rate": 18000
-      },
-      {
-        "lot_number": "1",
-        "jurisdiction": "b",
-        "position": "3",
-        "rate": 15000
-      },
-      {
-        "lot_number": "1",
-        "jurisdiction": "b",
-        "position": "4",
-        "rate": 12000
-      },
-      {
-        "lot_number": "1",
-        "jurisdiction": "b",
-        "position": "5",
-        "rate": 9000
-      },
-      {
-        "lot_number": "1",
-        "jurisdiction": "b",
-        "position": "6",
-        "rate": 6000
-      },
-      {
-        "lot_number": "1",
-        "jurisdiction": "a",
-        "position": "7",
-        "rate": 16500
-      },
-      {
-        "lot_number": "1",
-        "jurisdiction": "b",
-        "position": "7",
-        "rate": 19250
+    "supplier_frameworks": [
+      {
+        "framework_id": "RM6240",
+        "enabled": true,
+        "supplier_framework_contact_detail": {
+          "email": "dubuque_padberg@kerluke-cole.name",
+          "telephone_number": "144.165.4586",
+          "website": "http://miller-gulgowski.net/luise",
+          "additional_details": {
+            "address": "502 Edward Row, Dorethahaven, NC 19736-7968",
+            "lot_1_prospectus_link": null,
+            "lot_2_prospectus_link": null,
+            "lot_3_prospectus_link": null
+          }
+        },
+        "supplier_framework_lots": [
+          {
+            "lot_id": "RM6240.1a",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6240.1a.1"
+              },
+              {
+                "service_id": "RM6240.1a.2"
+              },
+              {
+                "service_id": "RM6240.1a.3"
+              },
+              {
+                "service_id": "RM6240.1a.4"
+              },
+              {
+                "service_id": "RM6240.1a.5"
+              },
+              {
+                "service_id": "RM6240.1a.6"
+              },
+              {
+                "service_id": "RM6240.1a.7"
+              },
+              {
+                "service_id": "RM6240.1a.8"
+              },
+              {
+                "service_id": "RM6240.1a.9"
+              },
+              {
+                "service_id": "RM6240.1a.10"
+              },
+              {
+                "service_id": "RM6240.1a.11"
+              },
+              {
+                "service_id": "RM6240.1a.12"
+              },
+              {
+                "service_id": "RM6240.1a.13"
+              },
+              {
+                "service_id": "RM6240.1a.14"
+              },
+              {
+                "service_id": "RM6240.1a.15"
+              },
+              {
+                "service_id": "RM6240.1a.16"
+              },
+              {
+                "service_id": "RM6240.1a.17"
+              },
+              {
+                "service_id": "RM6240.1a.18"
+              },
+              {
+                "service_id": "RM6240.1a.19"
+              },
+              {
+                "service_id": "RM6240.1a.20"
+              },
+              {
+                "service_id": "RM6240.1a.21"
+              },
+              {
+                "service_id": "RM6240.1a.22"
+              },
+              {
+                "service_id": "RM6240.1a.23"
+              },
+              {
+                "service_id": "RM6240.1a.24"
+              },
+              {
+                "service_id": "RM6240.1a.25"
+              },
+              {
+                "service_id": "RM6240.1a.26"
+              },
+              {
+                "service_id": "RM6240.1a.27"
+              },
+              {
+                "service_id": "RM6240.1a.28"
+              },
+              {
+                "service_id": "RM6240.1a.29"
+              },
+              {
+                "service_id": "RM6240.1a.30"
+              },
+              {
+                "service_id": "RM6240.1a.31"
+              },
+              {
+                "service_id": "RM6240.1a.32"
+              },
+              {
+                "service_id": "RM6240.1a.33"
+              },
+              {
+                "service_id": "RM6240.1a.34"
+              },
+              {
+                "service_id": "RM6240.1a.35"
+              },
+              {
+                "service_id": "RM6240.1a.36"
+              },
+              {
+                "service_id": "RM6240.1a.37"
+              },
+              {
+                "service_id": "RM6240.1a.38"
+              },
+              {
+                "service_id": "RM6240.1a.39"
+              },
+              {
+                "service_id": "RM6240.1a.40"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": "1",
+                "rate": 17500,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "2",
+                "rate": 15000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "3",
+                "rate": 12500,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "4",
+                "rate": 10000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "5",
+                "rate": 7500,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "6",
+                "rate": 5000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "7",
+                "rate": 16500,
+                "jurisdiction_id": "GB"
+              }
+            ],
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": [
+              {
+                "jurisdiction_id": "GB"
+              }
+            ]
+          },
+          {
+            "lot_id": "RM6240.1b",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6240.1b.1"
+              },
+              {
+                "service_id": "RM6240.1b.2"
+              },
+              {
+                "service_id": "RM6240.1b.3"
+              },
+              {
+                "service_id": "RM6240.1b.4"
+              },
+              {
+                "service_id": "RM6240.1b.5"
+              },
+              {
+                "service_id": "RM6240.1b.6"
+              },
+              {
+                "service_id": "RM6240.1b.7"
+              },
+              {
+                "service_id": "RM6240.1b.8"
+              },
+              {
+                "service_id": "RM6240.1b.9"
+              },
+              {
+                "service_id": "RM6240.1b.10"
+              },
+              {
+                "service_id": "RM6240.1b.11"
+              },
+              {
+                "service_id": "RM6240.1b.12"
+              },
+              {
+                "service_id": "RM6240.1b.13"
+              },
+              {
+                "service_id": "RM6240.1b.14"
+              },
+              {
+                "service_id": "RM6240.1b.15"
+              },
+              {
+                "service_id": "RM6240.1b.16"
+              },
+              {
+                "service_id": "RM6240.1b.17"
+              },
+              {
+                "service_id": "RM6240.1b.18"
+              },
+              {
+                "service_id": "RM6240.1b.19"
+              },
+              {
+                "service_id": "RM6240.1b.20"
+              },
+              {
+                "service_id": "RM6240.1b.21"
+              },
+              {
+                "service_id": "RM6240.1b.22"
+              },
+              {
+                "service_id": "RM6240.1b.23"
+              },
+              {
+                "service_id": "RM6240.1b.24"
+              },
+              {
+                "service_id": "RM6240.1b.25"
+              },
+              {
+                "service_id": "RM6240.1b.26"
+              },
+              {
+                "service_id": "RM6240.1b.27"
+              },
+              {
+                "service_id": "RM6240.1b.28"
+              },
+              {
+                "service_id": "RM6240.1b.29"
+              },
+              {
+                "service_id": "RM6240.1b.30"
+              },
+              {
+                "service_id": "RM6240.1b.31"
+              },
+              {
+                "service_id": "RM6240.1b.32"
+              },
+              {
+                "service_id": "RM6240.1b.33"
+              },
+              {
+                "service_id": "RM6240.1b.34"
+              },
+              {
+                "service_id": "RM6240.1b.35"
+              },
+              {
+                "service_id": "RM6240.1b.36"
+              },
+              {
+                "service_id": "RM6240.1b.37"
+              },
+              {
+                "service_id": "RM6240.1b.38"
+              },
+              {
+                "service_id": "RM6240.1b.39"
+              },
+              {
+                "service_id": "RM6240.1b.40"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": "1",
+                "rate": 21000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "2",
+                "rate": 18000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "3",
+                "rate": 15000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "4",
+                "rate": 12000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "5",
+                "rate": 9000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "6",
+                "rate": 6000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "7",
+                "rate": 19250,
+                "jurisdiction_id": "GB"
+              }
+            ],
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": [
+              {
+                "jurisdiction_id": "GB"
+              }
+            ]
+          }
+        ]
       }
     ]
   },
   {
-    "supplier_id": "58108cc8-2f29-414e-b418-c44cdfe70cb3",
+    "id": "58108cc8-2f29-414e-b418-c44cdfe70cb3",
     "name": "HALEY-FAY",
-    "email": "fay.haley@walsh.name",
-    "phone_number": "1-558-665-2572",
+    "duns_number": "634050459",
     "sme": true,
-    "address": "544 Deckow Throughway, Port Dellashire, VA 82640",
-    "website": "http://mcdermott.io/allyn",
-    "duns": "634050459",
-    "lot_1_prospectus_link": null,
-    "lot_2_prospectus_link": null,
-    "lot_3_prospectus_link": null,
-    "service_offerings": [
-      {
-        "service_code": "1.1",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.1",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.2",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.2",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.3",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.3",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.4",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.4",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.5",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.5",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.6",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.6",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.7",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.7",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.8",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.8",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.9",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.9",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.10",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.10",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.11",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.11",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.12",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.12",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.13",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.13",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.14",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.14",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.15",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.15",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.16",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.16",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.17",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.17",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.18",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.18",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.19",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.19",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.20",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.20",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.21",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.21",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.22",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.22",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.23",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.23",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.24",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.24",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.25",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.25",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.26",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.26",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.27",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.27",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.28",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.28",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.29",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.29",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.30",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.30",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.31",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.31",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.32",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.32",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.33",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.33",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.34",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.34",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.35",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.35",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.36",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.36",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.37",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.37",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.38",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.38",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.39",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.39",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.40",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.40",
-        "jurisdiction": "c"
-      }
-    ],
-    "rates": [
-      {
-        "lot_number": "1",
-        "jurisdiction": "b",
-        "position": "1",
-        "rate": 21000
-      },
-      {
-        "lot_number": "1",
-        "jurisdiction": "b",
-        "position": "2",
-        "rate": 18000
-      },
-      {
-        "lot_number": "1",
-        "jurisdiction": "b",
-        "position": "3",
-        "rate": 15000
-      },
-      {
-        "lot_number": "1",
-        "jurisdiction": "b",
-        "position": "4",
-        "rate": 12000
-      },
-      {
-        "lot_number": "1",
-        "jurisdiction": "b",
-        "position": "5",
-        "rate": 9000
-      },
-      {
-        "lot_number": "1",
-        "jurisdiction": "b",
-        "position": "6",
-        "rate": 6000
-      },
-      {
-        "lot_number": "1",
-        "jurisdiction": "c",
-        "position": "1",
-        "rate": 21000
-      },
-      {
-        "lot_number": "1",
-        "jurisdiction": "c",
-        "position": "2",
-        "rate": 18000
-      },
-      {
-        "lot_number": "1",
-        "jurisdiction": "c",
-        "position": "3",
-        "rate": 15000
-      },
-      {
-        "lot_number": "1",
-        "jurisdiction": "c",
-        "position": "4",
-        "rate": 12000
-      },
-      {
-        "lot_number": "1",
-        "jurisdiction": "c",
-        "position": "5",
-        "rate": 9000
-      },
-      {
-        "lot_number": "1",
-        "jurisdiction": "c",
-        "position": "6",
-        "rate": 6000
-      },
-      {
-        "lot_number": "1",
-        "jurisdiction": "b",
-        "position": "7",
-        "rate": 0
-      },
-      {
-        "lot_number": "1",
-        "jurisdiction": "c",
-        "position": "7",
-        "rate": 16500
+    "supplier_frameworks": [
+      {
+        "framework_id": "RM6240",
+        "enabled": true,
+        "supplier_framework_contact_detail": {
+          "email": "fay.haley@walsh.name",
+          "telephone_number": "1-558-665-2572",
+          "website": "http://mcdermott.io/allyn",
+          "additional_details": {
+            "address": "544 Deckow Throughway, Port Dellashire, VA 82640",
+            "lot_1_prospectus_link": null,
+            "lot_2_prospectus_link": null,
+            "lot_3_prospectus_link": null
+          }
+        },
+        "supplier_framework_lots": [
+          {
+            "lot_id": "RM6240.1b",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6240.1b.1"
+              },
+              {
+                "service_id": "RM6240.1b.2"
+              },
+              {
+                "service_id": "RM6240.1b.3"
+              },
+              {
+                "service_id": "RM6240.1b.4"
+              },
+              {
+                "service_id": "RM6240.1b.5"
+              },
+              {
+                "service_id": "RM6240.1b.6"
+              },
+              {
+                "service_id": "RM6240.1b.7"
+              },
+              {
+                "service_id": "RM6240.1b.8"
+              },
+              {
+                "service_id": "RM6240.1b.9"
+              },
+              {
+                "service_id": "RM6240.1b.10"
+              },
+              {
+                "service_id": "RM6240.1b.11"
+              },
+              {
+                "service_id": "RM6240.1b.12"
+              },
+              {
+                "service_id": "RM6240.1b.13"
+              },
+              {
+                "service_id": "RM6240.1b.14"
+              },
+              {
+                "service_id": "RM6240.1b.15"
+              },
+              {
+                "service_id": "RM6240.1b.16"
+              },
+              {
+                "service_id": "RM6240.1b.17"
+              },
+              {
+                "service_id": "RM6240.1b.18"
+              },
+              {
+                "service_id": "RM6240.1b.19"
+              },
+              {
+                "service_id": "RM6240.1b.20"
+              },
+              {
+                "service_id": "RM6240.1b.21"
+              },
+              {
+                "service_id": "RM6240.1b.22"
+              },
+              {
+                "service_id": "RM6240.1b.23"
+              },
+              {
+                "service_id": "RM6240.1b.24"
+              },
+              {
+                "service_id": "RM6240.1b.25"
+              },
+              {
+                "service_id": "RM6240.1b.26"
+              },
+              {
+                "service_id": "RM6240.1b.27"
+              },
+              {
+                "service_id": "RM6240.1b.28"
+              },
+              {
+                "service_id": "RM6240.1b.29"
+              },
+              {
+                "service_id": "RM6240.1b.30"
+              },
+              {
+                "service_id": "RM6240.1b.31"
+              },
+              {
+                "service_id": "RM6240.1b.32"
+              },
+              {
+                "service_id": "RM6240.1b.33"
+              },
+              {
+                "service_id": "RM6240.1b.34"
+              },
+              {
+                "service_id": "RM6240.1b.35"
+              },
+              {
+                "service_id": "RM6240.1b.36"
+              },
+              {
+                "service_id": "RM6240.1b.37"
+              },
+              {
+                "service_id": "RM6240.1b.38"
+              },
+              {
+                "service_id": "RM6240.1b.39"
+              },
+              {
+                "service_id": "RM6240.1b.40"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": "1",
+                "rate": 21000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "2",
+                "rate": 18000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "3",
+                "rate": 15000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "4",
+                "rate": 12000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "5",
+                "rate": 9000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "6",
+                "rate": 6000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "7",
+                "rate": 0,
+                "jurisdiction_id": "GB"
+              }
+            ],
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": [
+              {
+                "jurisdiction_id": "GB"
+              }
+            ]
+          },
+          {
+            "lot_id": "RM6240.1c",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6240.1c.1"
+              },
+              {
+                "service_id": "RM6240.1c.2"
+              },
+              {
+                "service_id": "RM6240.1c.3"
+              },
+              {
+                "service_id": "RM6240.1c.4"
+              },
+              {
+                "service_id": "RM6240.1c.5"
+              },
+              {
+                "service_id": "RM6240.1c.6"
+              },
+              {
+                "service_id": "RM6240.1c.7"
+              },
+              {
+                "service_id": "RM6240.1c.8"
+              },
+              {
+                "service_id": "RM6240.1c.9"
+              },
+              {
+                "service_id": "RM6240.1c.10"
+              },
+              {
+                "service_id": "RM6240.1c.11"
+              },
+              {
+                "service_id": "RM6240.1c.12"
+              },
+              {
+                "service_id": "RM6240.1c.13"
+              },
+              {
+                "service_id": "RM6240.1c.14"
+              },
+              {
+                "service_id": "RM6240.1c.15"
+              },
+              {
+                "service_id": "RM6240.1c.16"
+              },
+              {
+                "service_id": "RM6240.1c.17"
+              },
+              {
+                "service_id": "RM6240.1c.18"
+              },
+              {
+                "service_id": "RM6240.1c.19"
+              },
+              {
+                "service_id": "RM6240.1c.20"
+              },
+              {
+                "service_id": "RM6240.1c.21"
+              },
+              {
+                "service_id": "RM6240.1c.22"
+              },
+              {
+                "service_id": "RM6240.1c.23"
+              },
+              {
+                "service_id": "RM6240.1c.24"
+              },
+              {
+                "service_id": "RM6240.1c.25"
+              },
+              {
+                "service_id": "RM6240.1c.26"
+              },
+              {
+                "service_id": "RM6240.1c.27"
+              },
+              {
+                "service_id": "RM6240.1c.28"
+              },
+              {
+                "service_id": "RM6240.1c.29"
+              },
+              {
+                "service_id": "RM6240.1c.30"
+              },
+              {
+                "service_id": "RM6240.1c.31"
+              },
+              {
+                "service_id": "RM6240.1c.32"
+              },
+              {
+                "service_id": "RM6240.1c.33"
+              },
+              {
+                "service_id": "RM6240.1c.34"
+              },
+              {
+                "service_id": "RM6240.1c.35"
+              },
+              {
+                "service_id": "RM6240.1c.36"
+              },
+              {
+                "service_id": "RM6240.1c.37"
+              },
+              {
+                "service_id": "RM6240.1c.38"
+              },
+              {
+                "service_id": "RM6240.1c.39"
+              },
+              {
+                "service_id": "RM6240.1c.40"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": "1",
+                "rate": 21000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "2",
+                "rate": 18000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "3",
+                "rate": 15000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "4",
+                "rate": 12000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "5",
+                "rate": 9000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "6",
+                "rate": 6000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "7",
+                "rate": 16500,
+                "jurisdiction_id": "GB"
+              }
+            ],
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": [
+              {
+                "jurisdiction_id": "GB"
+              }
+            ]
+          }
+        ]
       }
     ]
   },
   {
-    "supplier_id": "021fe0c8-2350-453a-819c-13e6aaf223e0",
+    "id": "021fe0c8-2350-453a-819c-13e6aaf223e0",
     "name": "WILLIAMSON-BERGSTROM",
-    "email": "williamson_bergstrom@volkman-johnston.name",
-    "phone_number": "(951) 158-9443",
+    "duns_number": "893562137",
     "sme": false,
-    "address": "707 Melida Row, Greenfelderfurt, RI 25780",
-    "website": "http://pollich.net/jerold_bauch",
-    "duns": "893562137",
-    "lot_1_prospectus_link": null,
-    "lot_2_prospectus_link": null,
-    "lot_3_prospectus_link": null,
-    "service_offerings": [
-      {
-        "service_code": "1.1",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.1",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.2",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.2",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.3",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.3",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.4",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.4",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.5",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.5",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.6",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.6",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.7",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.7",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.8",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.8",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.9",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.9",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.10",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.10",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.11",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.11",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.12",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.12",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.13",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.13",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.14",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.14",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.15",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.15",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.16",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.16",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.17",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.17",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.18",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.18",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.19",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.19",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.20",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.20",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.21",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.21",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.22",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.22",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.23",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.23",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.24",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.24",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.25",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.25",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.26",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.26",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.27",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.27",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.28",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.28",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.29",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.29",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.30",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.30",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.31",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.31",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.32",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.32",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.33",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.33",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.34",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.34",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.35",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.35",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.36",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.36",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.37",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.37",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.38",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.38",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.39",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.39",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.40",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.40",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "2.1",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "2.1",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "2.2",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "2.2",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "2.3",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "2.3",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "2.4",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "2.4",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "2.5",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "2.5",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "2.6",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "2.6",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "2.7",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "2.7",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "2.8",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "2.8",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "2.9",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "2.9",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "2.10",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "2.10",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "2.11",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "2.11",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "2.12",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "2.12",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "2.13",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "2.13",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "2.14",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "2.14",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "2.15",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "2.15",
-        "jurisdiction": "b"
-      }
-    ],
-    "rates": [
-      {
-        "lot_number": "1",
-        "jurisdiction": "c",
-        "position": "1",
-        "rate": 24500
-      },
-      {
-        "lot_number": "1",
-        "jurisdiction": "c",
-        "position": "2",
-        "rate": 21000
-      },
-      {
-        "lot_number": "1",
-        "jurisdiction": "c",
-        "position": "3",
-        "rate": 17500
-      },
-      {
-        "lot_number": "1",
-        "jurisdiction": "c",
-        "position": "4",
-        "rate": 14000
-      },
-      {
-        "lot_number": "1",
-        "jurisdiction": "c",
-        "position": "5",
-        "rate": 10500
-      },
-      {
-        "lot_number": "1",
-        "jurisdiction": "c",
-        "position": "6",
-        "rate": 7000
-      },
-      {
-        "lot_number": "1",
-        "jurisdiction": "a",
-        "position": "1",
-        "rate": 21000
-      },
-      {
-        "lot_number": "1",
-        "jurisdiction": "a",
-        "position": "2",
-        "rate": 18000
-      },
-      {
-        "lot_number": "1",
-        "jurisdiction": "a",
-        "position": "3",
-        "rate": 15000
-      },
-      {
-        "lot_number": "1",
-        "jurisdiction": "a",
-        "position": "4",
-        "rate": 12000
-      },
-      {
-        "lot_number": "1",
-        "jurisdiction": "a",
-        "position": "5",
-        "rate": 9000
-      },
-      {
-        "lot_number": "1",
-        "jurisdiction": "a",
-        "position": "6",
-        "rate": 6000
-      },
-      {
-        "lot_number": "2",
-        "jurisdiction": "a",
-        "position": "1",
-        "rate": 24500
-      },
-      {
-        "lot_number": "2",
-        "jurisdiction": "a",
-        "position": "2",
-        "rate": 21000
-      },
-      {
-        "lot_number": "2",
-        "jurisdiction": "a",
-        "position": "3",
-        "rate": 17500
-      },
-      {
-        "lot_number": "2",
-        "jurisdiction": "a",
-        "position": "4",
-        "rate": 14000
-      },
-      {
-        "lot_number": "2",
-        "jurisdiction": "a",
-        "position": "5",
-        "rate": 10500
-      },
-      {
-        "lot_number": "2",
-        "jurisdiction": "a",
-        "position": "6",
-        "rate": 7000
-      },
-      {
-        "lot_number": "2",
-        "jurisdiction": "b",
-        "position": "1",
-        "rate": 17500
-      },
-      {
-        "lot_number": "2",
-        "jurisdiction": "b",
-        "position": "2",
-        "rate": 15000
-      },
-      {
-        "lot_number": "2",
-        "jurisdiction": "b",
-        "position": "3",
-        "rate": 12500
-      },
-      {
-        "lot_number": "2",
-        "jurisdiction": "b",
-        "position": "4",
-        "rate": 10000
-      },
-      {
-        "lot_number": "2",
-        "jurisdiction": "b",
-        "position": "5",
-        "rate": 7500
-      },
-      {
-        "lot_number": "2",
-        "jurisdiction": "b",
-        "position": "6",
-        "rate": 5000
-      },
-      {
-        "lot_number": "1",
-        "jurisdiction": "c",
-        "position": "7",
-        "rate": 16500
-      },
-      {
-        "lot_number": "1",
-        "jurisdiction": "a",
-        "position": "7",
-        "rate": 0
-      },
-      {
-        "lot_number": "2",
-        "jurisdiction": "a",
-        "position": "7",
-        "rate": 16500
-      },
-      {
-        "lot_number": "2",
-        "jurisdiction": "b",
-        "position": "7",
-        "rate": 0
+    "supplier_frameworks": [
+      {
+        "framework_id": "RM6240",
+        "enabled": true,
+        "supplier_framework_contact_detail": {
+          "email": "williamson_bergstrom@volkman-johnston.name",
+          "telephone_number": "(951) 158-9443",
+          "website": "http://pollich.net/jerold_bauch",
+          "additional_details": {
+            "address": "707 Melida Row, Greenfelderfurt, RI 25780",
+            "lot_1_prospectus_link": "Lot 1 link",
+            "lot_2_prospectus_link": "Lot 2 link",
+            "lot_3_prospectus_link": "Lot 3 link"
+          }
+        },
+        "supplier_framework_lots": [
+          {
+            "lot_id": "RM6240.1c",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6240.1c.1"
+              },
+              {
+                "service_id": "RM6240.1c.2"
+              },
+              {
+                "service_id": "RM6240.1c.3"
+              },
+              {
+                "service_id": "RM6240.1c.4"
+              },
+              {
+                "service_id": "RM6240.1c.5"
+              },
+              {
+                "service_id": "RM6240.1c.6"
+              },
+              {
+                "service_id": "RM6240.1c.7"
+              },
+              {
+                "service_id": "RM6240.1c.8"
+              },
+              {
+                "service_id": "RM6240.1c.9"
+              },
+              {
+                "service_id": "RM6240.1c.10"
+              },
+              {
+                "service_id": "RM6240.1c.11"
+              },
+              {
+                "service_id": "RM6240.1c.12"
+              },
+              {
+                "service_id": "RM6240.1c.13"
+              },
+              {
+                "service_id": "RM6240.1c.14"
+              },
+              {
+                "service_id": "RM6240.1c.15"
+              },
+              {
+                "service_id": "RM6240.1c.16"
+              },
+              {
+                "service_id": "RM6240.1c.17"
+              },
+              {
+                "service_id": "RM6240.1c.18"
+              },
+              {
+                "service_id": "RM6240.1c.19"
+              },
+              {
+                "service_id": "RM6240.1c.20"
+              },
+              {
+                "service_id": "RM6240.1c.21"
+              },
+              {
+                "service_id": "RM6240.1c.22"
+              },
+              {
+                "service_id": "RM6240.1c.23"
+              },
+              {
+                "service_id": "RM6240.1c.24"
+              },
+              {
+                "service_id": "RM6240.1c.25"
+              },
+              {
+                "service_id": "RM6240.1c.26"
+              },
+              {
+                "service_id": "RM6240.1c.27"
+              },
+              {
+                "service_id": "RM6240.1c.28"
+              },
+              {
+                "service_id": "RM6240.1c.29"
+              },
+              {
+                "service_id": "RM6240.1c.30"
+              },
+              {
+                "service_id": "RM6240.1c.31"
+              },
+              {
+                "service_id": "RM6240.1c.32"
+              },
+              {
+                "service_id": "RM6240.1c.33"
+              },
+              {
+                "service_id": "RM6240.1c.34"
+              },
+              {
+                "service_id": "RM6240.1c.35"
+              },
+              {
+                "service_id": "RM6240.1c.36"
+              },
+              {
+                "service_id": "RM6240.1c.37"
+              },
+              {
+                "service_id": "RM6240.1c.38"
+              },
+              {
+                "service_id": "RM6240.1c.39"
+              },
+              {
+                "service_id": "RM6240.1c.40"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": "1",
+                "rate": 24500,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "2",
+                "rate": 21000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "3",
+                "rate": 17500,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "4",
+                "rate": 14000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "5",
+                "rate": 10500,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "6",
+                "rate": 7000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "7",
+                "rate": 16500,
+                "jurisdiction_id": "GB"
+              }
+            ],
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": [
+              {
+                "jurisdiction_id": "GB"
+              }
+            ]
+          },
+          {
+            "lot_id": "RM6240.1a",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6240.1a.1"
+              },
+              {
+                "service_id": "RM6240.1a.2"
+              },
+              {
+                "service_id": "RM6240.1a.3"
+              },
+              {
+                "service_id": "RM6240.1a.4"
+              },
+              {
+                "service_id": "RM6240.1a.5"
+              },
+              {
+                "service_id": "RM6240.1a.6"
+              },
+              {
+                "service_id": "RM6240.1a.7"
+              },
+              {
+                "service_id": "RM6240.1a.8"
+              },
+              {
+                "service_id": "RM6240.1a.9"
+              },
+              {
+                "service_id": "RM6240.1a.10"
+              },
+              {
+                "service_id": "RM6240.1a.11"
+              },
+              {
+                "service_id": "RM6240.1a.12"
+              },
+              {
+                "service_id": "RM6240.1a.13"
+              },
+              {
+                "service_id": "RM6240.1a.14"
+              },
+              {
+                "service_id": "RM6240.1a.15"
+              },
+              {
+                "service_id": "RM6240.1a.16"
+              },
+              {
+                "service_id": "RM6240.1a.17"
+              },
+              {
+                "service_id": "RM6240.1a.18"
+              },
+              {
+                "service_id": "RM6240.1a.19"
+              },
+              {
+                "service_id": "RM6240.1a.20"
+              },
+              {
+                "service_id": "RM6240.1a.21"
+              },
+              {
+                "service_id": "RM6240.1a.22"
+              },
+              {
+                "service_id": "RM6240.1a.23"
+              },
+              {
+                "service_id": "RM6240.1a.24"
+              },
+              {
+                "service_id": "RM6240.1a.25"
+              },
+              {
+                "service_id": "RM6240.1a.26"
+              },
+              {
+                "service_id": "RM6240.1a.27"
+              },
+              {
+                "service_id": "RM6240.1a.28"
+              },
+              {
+                "service_id": "RM6240.1a.29"
+              },
+              {
+                "service_id": "RM6240.1a.30"
+              },
+              {
+                "service_id": "RM6240.1a.31"
+              },
+              {
+                "service_id": "RM6240.1a.32"
+              },
+              {
+                "service_id": "RM6240.1a.33"
+              },
+              {
+                "service_id": "RM6240.1a.34"
+              },
+              {
+                "service_id": "RM6240.1a.35"
+              },
+              {
+                "service_id": "RM6240.1a.36"
+              },
+              {
+                "service_id": "RM6240.1a.37"
+              },
+              {
+                "service_id": "RM6240.1a.38"
+              },
+              {
+                "service_id": "RM6240.1a.39"
+              },
+              {
+                "service_id": "RM6240.1a.40"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": "1",
+                "rate": 21000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "2",
+                "rate": 18000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "3",
+                "rate": 15000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "4",
+                "rate": 12000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "5",
+                "rate": 9000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "6",
+                "rate": 6000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "7",
+                "rate": 0,
+                "jurisdiction_id": "GB"
+              }
+            ],
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": [
+              {
+                "jurisdiction_id": "GB"
+              }
+            ]
+          },
+          {
+            "lot_id": "RM6240.2a",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6240.2a.1"
+              },
+              {
+                "service_id": "RM6240.2a.2"
+              },
+              {
+                "service_id": "RM6240.2a.3"
+              },
+              {
+                "service_id": "RM6240.2a.4"
+              },
+              {
+                "service_id": "RM6240.2a.5"
+              },
+              {
+                "service_id": "RM6240.2a.6"
+              },
+              {
+                "service_id": "RM6240.2a.7"
+              },
+              {
+                "service_id": "RM6240.2a.8"
+              },
+              {
+                "service_id": "RM6240.2a.9"
+              },
+              {
+                "service_id": "RM6240.2a.10"
+              },
+              {
+                "service_id": "RM6240.2a.11"
+              },
+              {
+                "service_id": "RM6240.2a.12"
+              },
+              {
+                "service_id": "RM6240.2a.13"
+              },
+              {
+                "service_id": "RM6240.2a.14"
+              },
+              {
+                "service_id": "RM6240.2a.15"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": "1",
+                "rate": 24500,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "2",
+                "rate": 21000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "3",
+                "rate": 17500,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "4",
+                "rate": 14000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "5",
+                "rate": 10500,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "6",
+                "rate": 7000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "7",
+                "rate": 16500,
+                "jurisdiction_id": "GB"
+              }
+            ],
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": [
+              {
+                "jurisdiction_id": "GB"
+              }
+            ]
+          },
+          {
+            "lot_id": "RM6240.2b",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6240.2b.1"
+              },
+              {
+                "service_id": "RM6240.2b.2"
+              },
+              {
+                "service_id": "RM6240.2b.3"
+              },
+              {
+                "service_id": "RM6240.2b.4"
+              },
+              {
+                "service_id": "RM6240.2b.5"
+              },
+              {
+                "service_id": "RM6240.2b.6"
+              },
+              {
+                "service_id": "RM6240.2b.7"
+              },
+              {
+                "service_id": "RM6240.2b.8"
+              },
+              {
+                "service_id": "RM6240.2b.9"
+              },
+              {
+                "service_id": "RM6240.2b.10"
+              },
+              {
+                "service_id": "RM6240.2b.11"
+              },
+              {
+                "service_id": "RM6240.2b.12"
+              },
+              {
+                "service_id": "RM6240.2b.13"
+              },
+              {
+                "service_id": "RM6240.2b.14"
+              },
+              {
+                "service_id": "RM6240.2b.15"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": "1",
+                "rate": 17500,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "2",
+                "rate": 15000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "3",
+                "rate": 12500,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "4",
+                "rate": 10000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "5",
+                "rate": 7500,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "6",
+                "rate": 5000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "7",
+                "rate": 0,
+                "jurisdiction_id": "GB"
+              }
+            ],
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": [
+              {
+                "jurisdiction_id": "GB"
+              }
+            ]
+          }
+        ]
       }
     ]
   },
   {
-    "supplier_id": "3a0ffe89-50a8-45bc-86a2-843b645cb54f",
+    "id": "3a0ffe89-50a8-45bc-86a2-843b645cb54f",
     "name": "TREUTEL, GERLACH AND SPORER",
-    "email": "and_gerlach_sporer_treutel@osinski.org",
-    "phone_number": "(428) 979-0794 x788",
+    "duns_number": "849113968",
     "sme": false,
-    "address": "Suite 888 41223 Scot Harbors, North Jay, IA 43449",
-    "website": "http://trantow.co/noble",
-    "duns": "849113968",
-    "lot_1_prospectus_link": null,
-    "lot_2_prospectus_link": null,
-    "lot_3_prospectus_link": null,
-    "service_offerings": [
+    "supplier_frameworks": [
       {
-        "service_code": "2.1",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "2.1",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "2.2",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "2.2",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "2.3",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "2.3",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "2.4",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "2.4",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "2.5",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "2.5",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "2.6",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "2.6",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "2.7",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "2.7",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "2.8",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "2.8",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "2.9",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "2.9",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "2.10",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "2.10",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "2.11",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "2.11",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "2.12",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "2.12",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "2.13",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "2.13",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "2.14",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "2.14",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "2.15",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "2.15",
-        "jurisdiction": "c"
-      }
-    ],
-    "rates": [
-      {
-        "lot_number": "2",
-        "jurisdiction": "b",
-        "position": "1",
-        "rate": 21000
-      },
-      {
-        "lot_number": "2",
-        "jurisdiction": "b",
-        "position": "2",
-        "rate": 18000
-      },
-      {
-        "lot_number": "2",
-        "jurisdiction": "b",
-        "position": "3",
-        "rate": 15000
-      },
-      {
-        "lot_number": "2",
-        "jurisdiction": "b",
-        "position": "4",
-        "rate": 12000
-      },
-      {
-        "lot_number": "2",
-        "jurisdiction": "b",
-        "position": "5",
-        "rate": 9000
-      },
-      {
-        "lot_number": "2",
-        "jurisdiction": "b",
-        "position": "6",
-        "rate": 6000
-      },
-      {
-        "lot_number": "2",
-        "jurisdiction": "c",
-        "position": "1",
-        "rate": 24500
-      },
-      {
-        "lot_number": "2",
-        "jurisdiction": "c",
-        "position": "2",
-        "rate": 21000
-      },
-      {
-        "lot_number": "2",
-        "jurisdiction": "c",
-        "position": "3",
-        "rate": 17500
-      },
-      {
-        "lot_number": "2",
-        "jurisdiction": "c",
-        "position": "4",
-        "rate": 14000
-      },
-      {
-        "lot_number": "2",
-        "jurisdiction": "c",
-        "position": "5",
-        "rate": 10500
-      },
-      {
-        "lot_number": "2",
-        "jurisdiction": "c",
-        "position": "6",
-        "rate": 7000
-      },
-      {
-        "lot_number": "2",
-        "jurisdiction": "b",
-        "position": "7",
-        "rate": 0
-      },
-      {
-        "lot_number": "2",
-        "jurisdiction": "c",
-        "position": "7",
-        "rate": 19250
+        "framework_id": "RM6240",
+        "enabled": true,
+        "supplier_framework_contact_detail": {
+          "email": "and_gerlach_sporer_treutel@osinski.org",
+          "telephone_number": "(428) 979-0794 x788",
+          "website": "http://trantow.co/noble",
+          "additional_details": {
+            "address": "Suite 888 41223 Scot Harbors, North Jay, IA 43449",
+            "lot_1_prospectus_link": null,
+            "lot_2_prospectus_link": null,
+            "lot_3_prospectus_link": null
+          }
+        },
+        "supplier_framework_lots": [
+          {
+            "lot_id": "RM6240.2b",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6240.2b.1"
+              },
+              {
+                "service_id": "RM6240.2b.2"
+              },
+              {
+                "service_id": "RM6240.2b.3"
+              },
+              {
+                "service_id": "RM6240.2b.4"
+              },
+              {
+                "service_id": "RM6240.2b.5"
+              },
+              {
+                "service_id": "RM6240.2b.6"
+              },
+              {
+                "service_id": "RM6240.2b.7"
+              },
+              {
+                "service_id": "RM6240.2b.8"
+              },
+              {
+                "service_id": "RM6240.2b.9"
+              },
+              {
+                "service_id": "RM6240.2b.10"
+              },
+              {
+                "service_id": "RM6240.2b.11"
+              },
+              {
+                "service_id": "RM6240.2b.12"
+              },
+              {
+                "service_id": "RM6240.2b.13"
+              },
+              {
+                "service_id": "RM6240.2b.14"
+              },
+              {
+                "service_id": "RM6240.2b.15"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": "1",
+                "rate": 21000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "2",
+                "rate": 18000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "3",
+                "rate": 15000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "4",
+                "rate": 12000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "5",
+                "rate": 9000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "6",
+                "rate": 6000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "7",
+                "rate": 0,
+                "jurisdiction_id": "GB"
+              }
+            ],
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": [
+              {
+                "jurisdiction_id": "GB"
+              }
+            ]
+          },
+          {
+            "lot_id": "RM6240.2c",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6240.2c.1"
+              },
+              {
+                "service_id": "RM6240.2c.2"
+              },
+              {
+                "service_id": "RM6240.2c.3"
+              },
+              {
+                "service_id": "RM6240.2c.4"
+              },
+              {
+                "service_id": "RM6240.2c.5"
+              },
+              {
+                "service_id": "RM6240.2c.6"
+              },
+              {
+                "service_id": "RM6240.2c.7"
+              },
+              {
+                "service_id": "RM6240.2c.8"
+              },
+              {
+                "service_id": "RM6240.2c.9"
+              },
+              {
+                "service_id": "RM6240.2c.10"
+              },
+              {
+                "service_id": "RM6240.2c.11"
+              },
+              {
+                "service_id": "RM6240.2c.12"
+              },
+              {
+                "service_id": "RM6240.2c.13"
+              },
+              {
+                "service_id": "RM6240.2c.14"
+              },
+              {
+                "service_id": "RM6240.2c.15"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": "1",
+                "rate": 24500,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "2",
+                "rate": 21000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "3",
+                "rate": 17500,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "4",
+                "rate": 14000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "5",
+                "rate": 10500,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "6",
+                "rate": 7000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "7",
+                "rate": 19250,
+                "jurisdiction_id": "GB"
+              }
+            ],
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": [
+              {
+                "jurisdiction_id": "GB"
+              }
+            ]
+          }
+        ]
       }
     ]
   },
   {
-    "supplier_id": "af6ab194-3ca4-49cc-887f-f06a9aba2824",
+    "id": "af6ab194-3ca4-49cc-887f-f06a9aba2824",
     "name": "COLLINS, COLE AND PACOCHA",
-    "email": "collins.pacocha.cole.and@heller.org",
-    "phone_number": "(586) 211-3866 x2278",
+    "duns_number": "402524592",
     "sme": false,
-    "address": "Apt. 904 35922 Lueilwitz Skyway, Port Jodyhaven, AK 17231-2349",
-    "website": "http://lind-effertz.name/jama_jacobson",
-    "duns": "402524592",
-    "lot_1_prospectus_link": null,
-    "lot_2_prospectus_link": null,
-    "lot_3_prospectus_link": null,
-    "service_offerings": [
+    "supplier_frameworks": [
       {
-        "service_code": "2.1",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "2.1",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "2.2",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "2.2",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "2.3",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "2.3",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "2.4",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "2.4",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "2.5",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "2.5",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "2.6",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "2.6",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "2.7",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "2.7",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "2.8",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "2.8",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "2.9",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "2.9",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "2.10",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "2.10",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "2.11",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "2.11",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "2.12",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "2.12",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "2.13",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "2.13",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "2.14",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "2.14",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "2.15",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "2.15",
-        "jurisdiction": "a"
-      }
-    ],
-    "rates": [
-      {
-        "lot_number": "2",
-        "jurisdiction": "c",
-        "position": "1",
-        "rate": 17500
-      },
-      {
-        "lot_number": "2",
-        "jurisdiction": "c",
-        "position": "2",
-        "rate": 15000
-      },
-      {
-        "lot_number": "2",
-        "jurisdiction": "c",
-        "position": "3",
-        "rate": 12500
-      },
-      {
-        "lot_number": "2",
-        "jurisdiction": "c",
-        "position": "4",
-        "rate": 10000
-      },
-      {
-        "lot_number": "2",
-        "jurisdiction": "c",
-        "position": "5",
-        "rate": 7500
-      },
-      {
-        "lot_number": "2",
-        "jurisdiction": "c",
-        "position": "6",
-        "rate": 5000
-      },
-      {
-        "lot_number": "2",
-        "jurisdiction": "a",
-        "position": "1",
-        "rate": 21000
-      },
-      {
-        "lot_number": "2",
-        "jurisdiction": "a",
-        "position": "2",
-        "rate": 18000
-      },
-      {
-        "lot_number": "2",
-        "jurisdiction": "a",
-        "position": "3",
-        "rate": 15000
-      },
-      {
-        "lot_number": "2",
-        "jurisdiction": "a",
-        "position": "4",
-        "rate": 12000
-      },
-      {
-        "lot_number": "2",
-        "jurisdiction": "a",
-        "position": "5",
-        "rate": 9000
-      },
-      {
-        "lot_number": "2",
-        "jurisdiction": "a",
-        "position": "6",
-        "rate": 6000
-      },
-      {
-        "lot_number": "2",
-        "jurisdiction": "c",
-        "position": "7",
-        "rate": 16500
-      },
-      {
-        "lot_number": "2",
-        "jurisdiction": "a",
-        "position": "7",
-        "rate": 19250
+        "framework_id": "RM6240",
+        "enabled": true,
+        "supplier_framework_contact_detail": {
+          "email": "collins.pacocha.cole.and@heller.org",
+          "telephone_number": "(586) 211-3866 x2278",
+          "website": "http://lind-effertz.name/jama_jacobson",
+          "additional_details": {
+            "address": "Apt. 904 35922 Lueilwitz Skyway, Port Jodyhaven, AK 17231-2349",
+            "lot_1_prospectus_link": null,
+            "lot_2_prospectus_link": null,
+            "lot_3_prospectus_link": null
+          }
+        },
+        "supplier_framework_lots": [
+          {
+            "lot_id": "RM6240.2c",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6240.2c.1"
+              },
+              {
+                "service_id": "RM6240.2c.2"
+              },
+              {
+                "service_id": "RM6240.2c.3"
+              },
+              {
+                "service_id": "RM6240.2c.4"
+              },
+              {
+                "service_id": "RM6240.2c.5"
+              },
+              {
+                "service_id": "RM6240.2c.6"
+              },
+              {
+                "service_id": "RM6240.2c.7"
+              },
+              {
+                "service_id": "RM6240.2c.8"
+              },
+              {
+                "service_id": "RM6240.2c.9"
+              },
+              {
+                "service_id": "RM6240.2c.10"
+              },
+              {
+                "service_id": "RM6240.2c.11"
+              },
+              {
+                "service_id": "RM6240.2c.12"
+              },
+              {
+                "service_id": "RM6240.2c.13"
+              },
+              {
+                "service_id": "RM6240.2c.14"
+              },
+              {
+                "service_id": "RM6240.2c.15"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": "1",
+                "rate": 17500,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "2",
+                "rate": 15000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "3",
+                "rate": 12500,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "4",
+                "rate": 10000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "5",
+                "rate": 7500,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "6",
+                "rate": 5000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "7",
+                "rate": 16500,
+                "jurisdiction_id": "GB"
+              }
+            ],
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": [
+              {
+                "jurisdiction_id": "GB"
+              }
+            ]
+          },
+          {
+            "lot_id": "RM6240.2a",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6240.2a.1"
+              },
+              {
+                "service_id": "RM6240.2a.2"
+              },
+              {
+                "service_id": "RM6240.2a.3"
+              },
+              {
+                "service_id": "RM6240.2a.4"
+              },
+              {
+                "service_id": "RM6240.2a.5"
+              },
+              {
+                "service_id": "RM6240.2a.6"
+              },
+              {
+                "service_id": "RM6240.2a.7"
+              },
+              {
+                "service_id": "RM6240.2a.8"
+              },
+              {
+                "service_id": "RM6240.2a.9"
+              },
+              {
+                "service_id": "RM6240.2a.10"
+              },
+              {
+                "service_id": "RM6240.2a.11"
+              },
+              {
+                "service_id": "RM6240.2a.12"
+              },
+              {
+                "service_id": "RM6240.2a.13"
+              },
+              {
+                "service_id": "RM6240.2a.14"
+              },
+              {
+                "service_id": "RM6240.2a.15"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": "1",
+                "rate": 21000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "2",
+                "rate": 18000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "3",
+                "rate": 15000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "4",
+                "rate": 12000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "5",
+                "rate": 9000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "6",
+                "rate": 6000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "7",
+                "rate": 19250,
+                "jurisdiction_id": "GB"
+              }
+            ],
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": [
+              {
+                "jurisdiction_id": "GB"
+              }
+            ]
+          }
+        ]
       }
     ]
   },
   {
-    "supplier_id": "54eebb94-a7a0-4fa0-8553-cbbaa447efaf",
+    "id": "54eebb94-a7a0-4fa0-8553-cbbaa447efaf",
     "name": "LEDNER, BAILEY AND WEISSNAT",
-    "email": "weissnat.ledner.bailey.and@ondricka-roberts.com",
-    "phone_number": "771-267-0539 x138",
+    "duns_number": "338992853",
     "sme": true,
-    "address": "Apt. 712 9531 Jacobson Village, Kaseyburgh, SC 02589",
-    "website": "http://krajcik.name/basil.mertz",
-    "duns": "338992853",
-    "lot_1_prospectus_link": null,
-    "lot_2_prospectus_link": null,
-    "lot_3_prospectus_link": null,
-    "service_offerings": [
+    "supplier_frameworks": [
       {
-        "service_code": "1.1",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.1",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.10",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.10",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.13",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.13",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.14",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.14",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.15",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.15",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.18",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.18",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.22",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.22",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.24",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.24",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.26",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.26",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.28",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.28",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.29",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.29",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.31",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.31",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.33",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.33",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.34",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.34",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.35",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.35",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.39",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.39",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.40",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.40",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.5",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.5",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.6",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.6",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.8",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.8",
-        "jurisdiction": "b"
-      }
-    ],
-    "rates": [
-      {
-        "lot_number": "1",
-        "jurisdiction": "a",
-        "position": "1",
-        "rate": 24500
-      },
-      {
-        "lot_number": "1",
-        "jurisdiction": "a",
-        "position": "2",
-        "rate": 21000
-      },
-      {
-        "lot_number": "1",
-        "jurisdiction": "a",
-        "position": "3",
-        "rate": 17500
-      },
-      {
-        "lot_number": "1",
-        "jurisdiction": "a",
-        "position": "4",
-        "rate": 14000
-      },
-      {
-        "lot_number": "1",
-        "jurisdiction": "a",
-        "position": "5",
-        "rate": 10500
-      },
-      {
-        "lot_number": "1",
-        "jurisdiction": "a",
-        "position": "6",
-        "rate": 7000
-      },
-      {
-        "lot_number": "1",
-        "jurisdiction": "b",
-        "position": "1",
-        "rate": 24500
-      },
-      {
-        "lot_number": "1",
-        "jurisdiction": "b",
-        "position": "2",
-        "rate": 21000
-      },
-      {
-        "lot_number": "1",
-        "jurisdiction": "b",
-        "position": "3",
-        "rate": 17500
-      },
-      {
-        "lot_number": "1",
-        "jurisdiction": "b",
-        "position": "4",
-        "rate": 14000
-      },
-      {
-        "lot_number": "1",
-        "jurisdiction": "b",
-        "position": "5",
-        "rate": 10500
-      },
-      {
-        "lot_number": "1",
-        "jurisdiction": "b",
-        "position": "6",
-        "rate": 7000
-      },
-      {
-        "lot_number": "1",
-        "jurisdiction": "a",
-        "position": "7",
-        "rate": 0
-      },
-      {
-        "lot_number": "1",
-        "jurisdiction": "b",
-        "position": "7",
-        "rate": 0
+        "framework_id": "RM6240",
+        "enabled": true,
+        "supplier_framework_contact_detail": {
+          "email": "weissnat.ledner.bailey.and@ondricka-roberts.com",
+          "telephone_number": "771-267-0539 x138",
+          "website": "http://krajcik.name/basil.mertz",
+          "additional_details": {
+            "address": "Apt. 712 9531 Jacobson Village, Kaseyburgh, SC 02589",
+            "lot_1_prospectus_link": null,
+            "lot_2_prospectus_link": null,
+            "lot_3_prospectus_link": null
+          }
+        },
+        "supplier_framework_lots": [
+          {
+            "lot_id": "RM6240.1a",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6240.1a.1"
+              },
+              {
+                "service_id": "RM6240.1a.10"
+              },
+              {
+                "service_id": "RM6240.1a.13"
+              },
+              {
+                "service_id": "RM6240.1a.14"
+              },
+              {
+                "service_id": "RM6240.1a.15"
+              },
+              {
+                "service_id": "RM6240.1a.18"
+              },
+              {
+                "service_id": "RM6240.1a.22"
+              },
+              {
+                "service_id": "RM6240.1a.24"
+              },
+              {
+                "service_id": "RM6240.1a.26"
+              },
+              {
+                "service_id": "RM6240.1a.28"
+              },
+              {
+                "service_id": "RM6240.1a.29"
+              },
+              {
+                "service_id": "RM6240.1a.31"
+              },
+              {
+                "service_id": "RM6240.1a.33"
+              },
+              {
+                "service_id": "RM6240.1a.34"
+              },
+              {
+                "service_id": "RM6240.1a.35"
+              },
+              {
+                "service_id": "RM6240.1a.39"
+              },
+              {
+                "service_id": "RM6240.1a.40"
+              },
+              {
+                "service_id": "RM6240.1a.5"
+              },
+              {
+                "service_id": "RM6240.1a.6"
+              },
+              {
+                "service_id": "RM6240.1a.8"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": "1",
+                "rate": 24500,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "2",
+                "rate": 21000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "3",
+                "rate": 17500,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "4",
+                "rate": 14000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "5",
+                "rate": 10500,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "6",
+                "rate": 7000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "7",
+                "rate": 0,
+                "jurisdiction_id": "GB"
+              }
+            ],
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": [
+              {
+                "jurisdiction_id": "GB"
+              }
+            ]
+          },
+          {
+            "lot_id": "RM6240.1b",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6240.1b.1"
+              },
+              {
+                "service_id": "RM6240.1b.10"
+              },
+              {
+                "service_id": "RM6240.1b.13"
+              },
+              {
+                "service_id": "RM6240.1b.14"
+              },
+              {
+                "service_id": "RM6240.1b.15"
+              },
+              {
+                "service_id": "RM6240.1b.18"
+              },
+              {
+                "service_id": "RM6240.1b.22"
+              },
+              {
+                "service_id": "RM6240.1b.24"
+              },
+              {
+                "service_id": "RM6240.1b.26"
+              },
+              {
+                "service_id": "RM6240.1b.28"
+              },
+              {
+                "service_id": "RM6240.1b.29"
+              },
+              {
+                "service_id": "RM6240.1b.31"
+              },
+              {
+                "service_id": "RM6240.1b.33"
+              },
+              {
+                "service_id": "RM6240.1b.34"
+              },
+              {
+                "service_id": "RM6240.1b.35"
+              },
+              {
+                "service_id": "RM6240.1b.39"
+              },
+              {
+                "service_id": "RM6240.1b.40"
+              },
+              {
+                "service_id": "RM6240.1b.5"
+              },
+              {
+                "service_id": "RM6240.1b.6"
+              },
+              {
+                "service_id": "RM6240.1b.8"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": "1",
+                "rate": 24500,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "2",
+                "rate": 21000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "3",
+                "rate": 17500,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "4",
+                "rate": 14000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "5",
+                "rate": 10500,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "6",
+                "rate": 7000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "7",
+                "rate": 0,
+                "jurisdiction_id": "GB"
+              }
+            ],
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": [
+              {
+                "jurisdiction_id": "GB"
+              }
+            ]
+          }
+        ]
       }
     ]
   },
   {
-    "supplier_id": "cace8bd1-fbfe-4f2c-b382-cde21a90a6be",
+    "id": "cace8bd1-fbfe-4f2c-b382-cde21a90a6be",
     "name": "MERTZ-HOMENICK",
-    "email": "homenick.mertz@feest-hamill.com",
-    "phone_number": "245.023.1441 x39360",
+    "duns_number": "784539181",
     "sme": false,
-    "address": "972 Malcolm Estates, Gottliebside, AZ 82310",
-    "website": "http://osinski.co/francisca.bartoletti",
-    "duns": "784539181",
-    "lot_1_prospectus_link": null,
-    "lot_2_prospectus_link": null,
-    "lot_3_prospectus_link": null,
-    "service_offerings": [
+    "supplier_frameworks": [
       {
-        "service_code": "1.10",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.10",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.14",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.14",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.15",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.15",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.16",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.16",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.17",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.17",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.18",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.18",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.2",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.2",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.20",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.20",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.21",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.21",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.23",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.23",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.26",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.26",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.3",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.3",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.34",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.34",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.36",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.36",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.38",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.38",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.4",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.4",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.7",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.7",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.8",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.8",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.9",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "1.9",
-        "jurisdiction": "c"
-      }
-    ],
-    "rates": [
-      {
-        "lot_number": "1",
-        "jurisdiction": "b",
-        "position": "1",
-        "rate": 17500
-      },
-      {
-        "lot_number": "1",
-        "jurisdiction": "b",
-        "position": "2",
-        "rate": 15000
-      },
-      {
-        "lot_number": "1",
-        "jurisdiction": "b",
-        "position": "3",
-        "rate": 12500
-      },
-      {
-        "lot_number": "1",
-        "jurisdiction": "b",
-        "position": "4",
-        "rate": 10000
-      },
-      {
-        "lot_number": "1",
-        "jurisdiction": "b",
-        "position": "5",
-        "rate": 7500
-      },
-      {
-        "lot_number": "1",
-        "jurisdiction": "b",
-        "position": "6",
-        "rate": 5000
-      },
-      {
-        "lot_number": "1",
-        "jurisdiction": "c",
-        "position": "1",
-        "rate": 24500
-      },
-      {
-        "lot_number": "1",
-        "jurisdiction": "c",
-        "position": "2",
-        "rate": 21000
-      },
-      {
-        "lot_number": "1",
-        "jurisdiction": "c",
-        "position": "3",
-        "rate": 17500
-      },
-      {
-        "lot_number": "1",
-        "jurisdiction": "c",
-        "position": "4",
-        "rate": 14000
-      },
-      {
-        "lot_number": "1",
-        "jurisdiction": "c",
-        "position": "5",
-        "rate": 10500
-      },
-      {
-        "lot_number": "1",
-        "jurisdiction": "c",
-        "position": "6",
-        "rate": 7000
-      },
-      {
-        "lot_number": "1",
-        "jurisdiction": "b",
-        "position": "7",
-        "rate": 13750
-      },
-      {
-        "lot_number": "1",
-        "jurisdiction": "c",
-        "position": "7",
-        "rate": 19250
+        "framework_id": "RM6240",
+        "enabled": true,
+        "supplier_framework_contact_detail": {
+          "email": "homenick.mertz@feest-hamill.com",
+          "telephone_number": "245.023.1441 x39360",
+          "website": "http://osinski.co/francisca.bartoletti",
+          "additional_details": {
+            "address": "972 Malcolm Estates, Gottliebside, AZ 82310",
+            "lot_1_prospectus_link": null,
+            "lot_2_prospectus_link": null,
+            "lot_3_prospectus_link": null
+          }
+        },
+        "supplier_framework_lots": [
+          {
+            "lot_id": "RM6240.1b",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6240.1b.10"
+              },
+              {
+                "service_id": "RM6240.1b.14"
+              },
+              {
+                "service_id": "RM6240.1b.15"
+              },
+              {
+                "service_id": "RM6240.1b.16"
+              },
+              {
+                "service_id": "RM6240.1b.17"
+              },
+              {
+                "service_id": "RM6240.1b.18"
+              },
+              {
+                "service_id": "RM6240.1b.2"
+              },
+              {
+                "service_id": "RM6240.1b.20"
+              },
+              {
+                "service_id": "RM6240.1b.21"
+              },
+              {
+                "service_id": "RM6240.1b.23"
+              },
+              {
+                "service_id": "RM6240.1b.26"
+              },
+              {
+                "service_id": "RM6240.1b.3"
+              },
+              {
+                "service_id": "RM6240.1b.34"
+              },
+              {
+                "service_id": "RM6240.1b.36"
+              },
+              {
+                "service_id": "RM6240.1b.38"
+              },
+              {
+                "service_id": "RM6240.1b.4"
+              },
+              {
+                "service_id": "RM6240.1b.7"
+              },
+              {
+                "service_id": "RM6240.1b.8"
+              },
+              {
+                "service_id": "RM6240.1b.9"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": "1",
+                "rate": 17500,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "2",
+                "rate": 15000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "3",
+                "rate": 12500,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "4",
+                "rate": 10000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "5",
+                "rate": 7500,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "6",
+                "rate": 5000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "7",
+                "rate": 13750,
+                "jurisdiction_id": "GB"
+              }
+            ],
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": [
+              {
+                "jurisdiction_id": "GB"
+              }
+            ]
+          },
+          {
+            "lot_id": "RM6240.1c",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6240.1c.10"
+              },
+              {
+                "service_id": "RM6240.1c.14"
+              },
+              {
+                "service_id": "RM6240.1c.15"
+              },
+              {
+                "service_id": "RM6240.1c.16"
+              },
+              {
+                "service_id": "RM6240.1c.17"
+              },
+              {
+                "service_id": "RM6240.1c.18"
+              },
+              {
+                "service_id": "RM6240.1c.2"
+              },
+              {
+                "service_id": "RM6240.1c.20"
+              },
+              {
+                "service_id": "RM6240.1c.21"
+              },
+              {
+                "service_id": "RM6240.1c.23"
+              },
+              {
+                "service_id": "RM6240.1c.26"
+              },
+              {
+                "service_id": "RM6240.1c.3"
+              },
+              {
+                "service_id": "RM6240.1c.34"
+              },
+              {
+                "service_id": "RM6240.1c.36"
+              },
+              {
+                "service_id": "RM6240.1c.38"
+              },
+              {
+                "service_id": "RM6240.1c.4"
+              },
+              {
+                "service_id": "RM6240.1c.7"
+              },
+              {
+                "service_id": "RM6240.1c.8"
+              },
+              {
+                "service_id": "RM6240.1c.9"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": "1",
+                "rate": 24500,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "2",
+                "rate": 21000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "3",
+                "rate": 17500,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "4",
+                "rate": 14000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "5",
+                "rate": 10500,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "6",
+                "rate": 7000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "7",
+                "rate": 19250,
+                "jurisdiction_id": "GB"
+              }
+            ],
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": [
+              {
+                "jurisdiction_id": "GB"
+              }
+            ]
+          }
+        ]
       }
     ]
   },
   {
-    "supplier_id": "d3e23f8e-f51d-4c8a-b855-83f2e8eeabcc",
+    "id": "d3e23f8e-f51d-4c8a-b855-83f2e8eeabcc",
     "name": "ZIEME GROUP",
-    "email": "group.zieme@gerlach.io",
-    "phone_number": "1-202-833-7874",
+    "duns_number": "782770566",
     "sme": true,
-    "address": "93083 Beahan Locks, DuBuqueton, NJ 66613-2026",
-    "website": "http://mills.co/korey",
-    "duns": "782770566",
-    "lot_1_prospectus_link": null,
-    "lot_2_prospectus_link": null,
-    "lot_3_prospectus_link": null,
-    "service_offerings": [
-      {
-        "service_code": "1.11",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.11",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.12",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.12",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.13",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.13",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.14",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.14",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.16",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.16",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.17",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.17",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.18",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.18",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.2",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.2",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.21",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.21",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.22",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.22",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.24",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.24",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.25",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.25",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.26",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.26",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.27",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.27",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.28",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.28",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.29",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.29",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.3",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.3",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.30",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.30",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.31",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.31",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.32",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.32",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.33",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.33",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.34",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.34",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.35",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.35",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.36",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.36",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.37",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.37",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.38",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.38",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.39",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.39",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.4",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.4",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.5",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.5",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.6",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.6",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.7",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.7",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.8",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.8",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "1.9",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "1.9",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "3.1"
-      }
-    ],
-    "rates": [
-      {
-        "lot_number": "1",
-        "jurisdiction": "c",
-        "position": "1",
-        "rate": 21000
-      },
-      {
-        "lot_number": "1",
-        "jurisdiction": "c",
-        "position": "2",
-        "rate": 18000
-      },
-      {
-        "lot_number": "1",
-        "jurisdiction": "c",
-        "position": "3",
-        "rate": 15000
-      },
-      {
-        "lot_number": "1",
-        "jurisdiction": "c",
-        "position": "4",
-        "rate": 12000
-      },
-      {
-        "lot_number": "1",
-        "jurisdiction": "c",
-        "position": "5",
-        "rate": 9000
-      },
-      {
-        "lot_number": "1",
-        "jurisdiction": "c",
-        "position": "6",
-        "rate": 6000
-      },
-      {
-        "lot_number": "1",
-        "jurisdiction": "a",
-        "position": "1",
-        "rate": 24500
-      },
-      {
-        "lot_number": "1",
-        "jurisdiction": "a",
-        "position": "2",
-        "rate": 21000
-      },
-      {
-        "lot_number": "1",
-        "jurisdiction": "a",
-        "position": "3",
-        "rate": 17500
-      },
-      {
-        "lot_number": "1",
-        "jurisdiction": "a",
-        "position": "4",
-        "rate": 14000
-      },
-      {
-        "lot_number": "1",
-        "jurisdiction": "a",
-        "position": "5",
-        "rate": 10500
-      },
-      {
-        "lot_number": "1",
-        "jurisdiction": "a",
-        "position": "6",
-        "rate": 7000
-      },
-      {
-        "lot_number": "3",
-        "position": "1",
-        "rate": 17500
-      },
-      {
-        "lot_number": "3",
-        "position": "2",
-        "rate": 15000
-      },
-      {
-        "lot_number": "3",
-        "position": "3",
-        "rate": 12500
-      },
-      {
-        "lot_number": "3",
-        "position": "4",
-        "rate": 10000
-      },
-      {
-        "lot_number": "3",
-        "position": "5",
-        "rate": 7500
-      },
-      {
-        "lot_number": "3",
-        "position": "6",
-        "rate": 5000
-      },
-      {
-        "lot_number": "1",
-        "jurisdiction": "c",
-        "position": "7",
-        "rate": 13750
-      },
-      {
-        "lot_number": "1",
-        "jurisdiction": "a",
-        "position": "7",
-        "rate": 19250
-      },
-      {
-        "lot_number": "3",
-        "position": "7",
-        "rate": 19250
+    "supplier_frameworks": [
+      {
+        "framework_id": "RM6240",
+        "enabled": true,
+        "supplier_framework_contact_detail": {
+          "email": "group.zieme@gerlach.io",
+          "telephone_number": "1-202-833-7874",
+          "website": "http://mills.co/korey",
+          "additional_details": {
+            "address": "93083 Beahan Locks, DuBuqueton, NJ 66613-2026",
+            "lot_1_prospectus_link": null,
+            "lot_2_prospectus_link": null,
+            "lot_3_prospectus_link": null
+          }
+        },
+        "supplier_framework_lots": [
+          {
+            "lot_id": "RM6240.1c",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6240.1c.11"
+              },
+              {
+                "service_id": "RM6240.1c.12"
+              },
+              {
+                "service_id": "RM6240.1c.13"
+              },
+              {
+                "service_id": "RM6240.1c.14"
+              },
+              {
+                "service_id": "RM6240.1c.16"
+              },
+              {
+                "service_id": "RM6240.1c.17"
+              },
+              {
+                "service_id": "RM6240.1c.18"
+              },
+              {
+                "service_id": "RM6240.1c.2"
+              },
+              {
+                "service_id": "RM6240.1c.21"
+              },
+              {
+                "service_id": "RM6240.1c.22"
+              },
+              {
+                "service_id": "RM6240.1c.24"
+              },
+              {
+                "service_id": "RM6240.1c.25"
+              },
+              {
+                "service_id": "RM6240.1c.26"
+              },
+              {
+                "service_id": "RM6240.1c.27"
+              },
+              {
+                "service_id": "RM6240.1c.28"
+              },
+              {
+                "service_id": "RM6240.1c.29"
+              },
+              {
+                "service_id": "RM6240.1c.3"
+              },
+              {
+                "service_id": "RM6240.1c.30"
+              },
+              {
+                "service_id": "RM6240.1c.31"
+              },
+              {
+                "service_id": "RM6240.1c.32"
+              },
+              {
+                "service_id": "RM6240.1c.33"
+              },
+              {
+                "service_id": "RM6240.1c.34"
+              },
+              {
+                "service_id": "RM6240.1c.35"
+              },
+              {
+                "service_id": "RM6240.1c.36"
+              },
+              {
+                "service_id": "RM6240.1c.37"
+              },
+              {
+                "service_id": "RM6240.1c.38"
+              },
+              {
+                "service_id": "RM6240.1c.39"
+              },
+              {
+                "service_id": "RM6240.1c.4"
+              },
+              {
+                "service_id": "RM6240.1c.5"
+              },
+              {
+                "service_id": "RM6240.1c.6"
+              },
+              {
+                "service_id": "RM6240.1c.7"
+              },
+              {
+                "service_id": "RM6240.1c.8"
+              },
+              {
+                "service_id": "RM6240.1c.9"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": "1",
+                "rate": 21000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "2",
+                "rate": 18000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "3",
+                "rate": 15000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "4",
+                "rate": 12000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "5",
+                "rate": 9000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "6",
+                "rate": 6000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "7",
+                "rate": 13750,
+                "jurisdiction_id": "GB"
+              }
+            ],
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": [
+              {
+                "jurisdiction_id": "GB"
+              }
+            ]
+          },
+          {
+            "lot_id": "RM6240.1a",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6240.1a.11"
+              },
+              {
+                "service_id": "RM6240.1a.12"
+              },
+              {
+                "service_id": "RM6240.1a.13"
+              },
+              {
+                "service_id": "RM6240.1a.14"
+              },
+              {
+                "service_id": "RM6240.1a.16"
+              },
+              {
+                "service_id": "RM6240.1a.17"
+              },
+              {
+                "service_id": "RM6240.1a.18"
+              },
+              {
+                "service_id": "RM6240.1a.2"
+              },
+              {
+                "service_id": "RM6240.1a.21"
+              },
+              {
+                "service_id": "RM6240.1a.22"
+              },
+              {
+                "service_id": "RM6240.1a.24"
+              },
+              {
+                "service_id": "RM6240.1a.25"
+              },
+              {
+                "service_id": "RM6240.1a.26"
+              },
+              {
+                "service_id": "RM6240.1a.27"
+              },
+              {
+                "service_id": "RM6240.1a.28"
+              },
+              {
+                "service_id": "RM6240.1a.29"
+              },
+              {
+                "service_id": "RM6240.1a.3"
+              },
+              {
+                "service_id": "RM6240.1a.30"
+              },
+              {
+                "service_id": "RM6240.1a.31"
+              },
+              {
+                "service_id": "RM6240.1a.32"
+              },
+              {
+                "service_id": "RM6240.1a.33"
+              },
+              {
+                "service_id": "RM6240.1a.34"
+              },
+              {
+                "service_id": "RM6240.1a.35"
+              },
+              {
+                "service_id": "RM6240.1a.36"
+              },
+              {
+                "service_id": "RM6240.1a.37"
+              },
+              {
+                "service_id": "RM6240.1a.38"
+              },
+              {
+                "service_id": "RM6240.1a.39"
+              },
+              {
+                "service_id": "RM6240.1a.4"
+              },
+              {
+                "service_id": "RM6240.1a.5"
+              },
+              {
+                "service_id": "RM6240.1a.6"
+              },
+              {
+                "service_id": "RM6240.1a.7"
+              },
+              {
+                "service_id": "RM6240.1a.8"
+              },
+              {
+                "service_id": "RM6240.1a.9"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": "1",
+                "rate": 24500,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "2",
+                "rate": 21000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "3",
+                "rate": 17500,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "4",
+                "rate": 14000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "5",
+                "rate": 10500,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "6",
+                "rate": 7000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "7",
+                "rate": 19250,
+                "jurisdiction_id": "GB"
+              }
+            ],
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": [
+              {
+                "jurisdiction_id": "GB"
+              }
+            ]
+          },
+          {
+            "lot_id": "RM6240.3",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6240.3.1"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": "1",
+                "rate": 17500,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "2",
+                "rate": 15000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "3",
+                "rate": 12500,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "4",
+                "rate": 10000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "5",
+                "rate": 7500,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "6",
+                "rate": 5000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "7",
+                "rate": 19250,
+                "jurisdiction_id": "GB"
+              }
+            ],
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": [
+              {
+                "jurisdiction_id": "GB"
+              }
+            ]
+          }
+        ]
       }
     ]
   },
   {
-    "supplier_id": "5f6d976b-2577-4ad6-83d6-0fb0e715c1d4",
+    "id": "5f6d976b-2577-4ad6-83d6-0fb0e715c1d4",
     "name": "JACOBSON-NIENOW",
-    "email": "nienow.jacobson@mosciski.com",
-    "phone_number": "1-748-527-1159 x93482",
+    "duns_number": "680876826",
     "sme": false,
-    "address": "835 Alberto View, Schultzport, TN 02232",
-    "website": "http://schmeler-denesik.org/ty.nikolaus",
-    "duns": "680876826",
-    "lot_1_prospectus_link": null,
-    "lot_2_prospectus_link": null,
-    "lot_3_prospectus_link": null,
-    "service_offerings": [
+    "supplier_frameworks": [
       {
-        "service_code": "3.1"
-      }
-    ],
-    "rates": [
-      {
-        "lot_number": "3",
-        "position": "1",
-        "rate": 17500
-      },
-      {
-        "lot_number": "3",
-        "position": "2",
-        "rate": 15000
-      },
-      {
-        "lot_number": "3",
-        "position": "3",
-        "rate": 12500
-      },
-      {
-        "lot_number": "3",
-        "position": "4",
-        "rate": 10000
-      },
-      {
-        "lot_number": "3",
-        "position": "5",
-        "rate": 7500
-      },
-      {
-        "lot_number": "3",
-        "position": "6",
-        "rate": 5000
-      },
-      {
-        "lot_number": "3",
-        "position": "7",
-        "rate": 16500
+        "framework_id": "RM6240",
+        "enabled": true,
+        "supplier_framework_contact_detail": {
+          "email": "nienow.jacobson@mosciski.com",
+          "telephone_number": "1-748-527-1159 x93482",
+          "website": "http://schmeler-denesik.org/ty.nikolaus",
+          "additional_details": {
+            "address": "835 Alberto View, Schultzport, TN 02232",
+            "lot_1_prospectus_link": null,
+            "lot_2_prospectus_link": null,
+            "lot_3_prospectus_link": null
+          }
+        },
+        "supplier_framework_lots": [
+          {
+            "lot_id": "RM6240.3",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6240.3.1"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": "1",
+                "rate": 17500,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "2",
+                "rate": 15000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "3",
+                "rate": 12500,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "4",
+                "rate": 10000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "5",
+                "rate": 7500,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "6",
+                "rate": 5000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "7",
+                "rate": 16500,
+                "jurisdiction_id": "GB"
+              }
+            ],
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": [
+              {
+                "jurisdiction_id": "GB"
+              }
+            ]
+          }
+        ]
       }
     ]
   },
   {
-    "supplier_id": "2e1476c1-73e7-4490-add3-c8b90ec4014c",
+    "id": "2e1476c1-73e7-4490-add3-c8b90ec4014c",
     "name": "GUSIKOWSKI, BOSCO AND CRIST",
-    "email": "gusikowski.bosco.crist.and@schoen.net",
-    "phone_number": "555.493.0253 x3505",
+    "duns_number": "163689566",
     "sme": true,
-    "address": "Suite 667 219 Oren Ranch, Lake Fletcher, RI 32632",
-    "website": "http://orn.co/jessie",
-    "duns": "163689566",
-    "lot_1_prospectus_link": null,
-    "lot_2_prospectus_link": null,
-    "lot_3_prospectus_link": null,
-    "service_offerings": [
+    "supplier_frameworks": [
       {
-        "service_code": "2.1",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "2.1",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "2.10",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "2.10",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "2.12",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "2.12",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "2.13",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "2.13",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "2.4",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "2.4",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "2.8",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "2.8",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "2.9",
-        "jurisdiction": "a"
-      },
-      {
-        "service_code": "2.9",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "3.1"
-      }
-    ],
-    "rates": [
-      {
-        "lot_number": "2",
-        "jurisdiction": "a",
-        "position": "1",
-        "rate": 17500
-      },
-      {
-        "lot_number": "2",
-        "jurisdiction": "a",
-        "position": "2",
-        "rate": 15000
-      },
-      {
-        "lot_number": "2",
-        "jurisdiction": "a",
-        "position": "3",
-        "rate": 12500
-      },
-      {
-        "lot_number": "2",
-        "jurisdiction": "a",
-        "position": "4",
-        "rate": 10000
-      },
-      {
-        "lot_number": "2",
-        "jurisdiction": "a",
-        "position": "5",
-        "rate": 7500
-      },
-      {
-        "lot_number": "2",
-        "jurisdiction": "a",
-        "position": "6",
-        "rate": 5000
-      },
-      {
-        "lot_number": "2",
-        "jurisdiction": "b",
-        "position": "1",
-        "rate": 17500
-      },
-      {
-        "lot_number": "2",
-        "jurisdiction": "b",
-        "position": "2",
-        "rate": 15000
-      },
-      {
-        "lot_number": "2",
-        "jurisdiction": "b",
-        "position": "3",
-        "rate": 12500
-      },
-      {
-        "lot_number": "2",
-        "jurisdiction": "b",
-        "position": "4",
-        "rate": 10000
-      },
-      {
-        "lot_number": "2",
-        "jurisdiction": "b",
-        "position": "5",
-        "rate": 7500
-      },
-      {
-        "lot_number": "2",
-        "jurisdiction": "b",
-        "position": "6",
-        "rate": 5000
-      },
-      {
-        "lot_number": "3",
-        "position": "1",
-        "rate": 17500
-      },
-      {
-        "lot_number": "3",
-        "position": "2",
-        "rate": 15000
-      },
-      {
-        "lot_number": "3",
-        "position": "3",
-        "rate": 12500
-      },
-      {
-        "lot_number": "3",
-        "position": "4",
-        "rate": 10000
-      },
-      {
-        "lot_number": "3",
-        "position": "5",
-        "rate": 7500
-      },
-      {
-        "lot_number": "3",
-        "position": "6",
-        "rate": 5000
-      },
-      {
-        "lot_number": "2",
-        "jurisdiction": "a",
-        "position": "7",
-        "rate": 16500
-      },
-      {
-        "lot_number": "2",
-        "jurisdiction": "b",
-        "position": "7",
-        "rate": 13750
-      },
-      {
-        "lot_number": "3",
-        "position": "7",
-        "rate": 13750
+        "framework_id": "RM6240",
+        "enabled": true,
+        "supplier_framework_contact_detail": {
+          "email": "gusikowski.bosco.crist.and@schoen.net",
+          "telephone_number": "555.493.0253 x3505",
+          "website": "http://orn.co/jessie",
+          "additional_details": {
+            "address": "Suite 667 219 Oren Ranch, Lake Fletcher, RI 32632",
+            "lot_1_prospectus_link": null,
+            "lot_2_prospectus_link": null,
+            "lot_3_prospectus_link": null
+          }
+        },
+        "supplier_framework_lots": [
+          {
+            "lot_id": "RM6240.2a",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6240.2a.1"
+              },
+              {
+                "service_id": "RM6240.2a.10"
+              },
+              {
+                "service_id": "RM6240.2a.12"
+              },
+              {
+                "service_id": "RM6240.2a.13"
+              },
+              {
+                "service_id": "RM6240.2a.4"
+              },
+              {
+                "service_id": "RM6240.2a.8"
+              },
+              {
+                "service_id": "RM6240.2a.9"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": "1",
+                "rate": 17500,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "2",
+                "rate": 15000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "3",
+                "rate": 12500,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "4",
+                "rate": 10000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "5",
+                "rate": 7500,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "6",
+                "rate": 5000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "7",
+                "rate": 16500,
+                "jurisdiction_id": "GB"
+              }
+            ],
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": [
+              {
+                "jurisdiction_id": "GB"
+              }
+            ]
+          },
+          {
+            "lot_id": "RM6240.2b",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6240.2b.1"
+              },
+              {
+                "service_id": "RM6240.2b.10"
+              },
+              {
+                "service_id": "RM6240.2b.12"
+              },
+              {
+                "service_id": "RM6240.2b.13"
+              },
+              {
+                "service_id": "RM6240.2b.4"
+              },
+              {
+                "service_id": "RM6240.2b.8"
+              },
+              {
+                "service_id": "RM6240.2b.9"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": "1",
+                "rate": 17500,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "2",
+                "rate": 15000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "3",
+                "rate": 12500,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "4",
+                "rate": 10000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "5",
+                "rate": 7500,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "6",
+                "rate": 5000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "7",
+                "rate": 13750,
+                "jurisdiction_id": "GB"
+              }
+            ],
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": [
+              {
+                "jurisdiction_id": "GB"
+              }
+            ]
+          },
+          {
+            "lot_id": "RM6240.3",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6240.3.1"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": "1",
+                "rate": 17500,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "2",
+                "rate": 15000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "3",
+                "rate": 12500,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "4",
+                "rate": 10000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "5",
+                "rate": 7500,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "6",
+                "rate": 5000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "7",
+                "rate": 13750,
+                "jurisdiction_id": "GB"
+              }
+            ],
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": [
+              {
+                "jurisdiction_id": "GB"
+              }
+            ]
+          }
+        ]
       }
     ]
   },
   {
-    "supplier_id": "37cdbffd-bb15-4852-b5e7-641734406645",
+    "id": "37cdbffd-bb15-4852-b5e7-641734406645",
     "name": "WEHNER, STEHR AND KULAS",
-    "email": "stehr.wehner.kulas.and@crona.net",
-    "phone_number": "1-118-604-7899 x39161",
+    "duns_number": "537229617",
     "sme": true,
-    "address": "59473 Carolina Shores, New Omar, NH 89661",
-    "website": "http://cruickshank-blick.info/artie",
-    "duns": "537229617",
-    "lot_1_prospectus_link": null,
-    "lot_2_prospectus_link": null,
-    "lot_3_prospectus_link": null,
-    "service_offerings": [
+    "supplier_frameworks": [
       {
-        "service_code": "2.12",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "2.12",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "2.13",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "2.13",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "2.14",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "2.14",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "2.15",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "2.15",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "2.2",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "2.2",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "2.7",
-        "jurisdiction": "b"
-      },
-      {
-        "service_code": "2.7",
-        "jurisdiction": "c"
-      },
-      {
-        "service_code": "3.1"
-      }
-    ],
-    "rates": [
-      {
-        "lot_number": "2",
-        "jurisdiction": "b",
-        "position": "1",
-        "rate": 17500
-      },
-      {
-        "lot_number": "2",
-        "jurisdiction": "b",
-        "position": "2",
-        "rate": 15000
-      },
-      {
-        "lot_number": "2",
-        "jurisdiction": "b",
-        "position": "3",
-        "rate": 12500
-      },
-      {
-        "lot_number": "2",
-        "jurisdiction": "b",
-        "position": "4",
-        "rate": 10000
-      },
-      {
-        "lot_number": "2",
-        "jurisdiction": "b",
-        "position": "5",
-        "rate": 7500
-      },
-      {
-        "lot_number": "2",
-        "jurisdiction": "b",
-        "position": "6",
-        "rate": 5000
-      },
-      {
-        "lot_number": "2",
-        "jurisdiction": "c",
-        "position": "1",
-        "rate": 21000
-      },
-      {
-        "lot_number": "2",
-        "jurisdiction": "c",
-        "position": "2",
-        "rate": 18000
-      },
-      {
-        "lot_number": "2",
-        "jurisdiction": "c",
-        "position": "3",
-        "rate": 15000
-      },
-      {
-        "lot_number": "2",
-        "jurisdiction": "c",
-        "position": "4",
-        "rate": 12000
-      },
-      {
-        "lot_number": "2",
-        "jurisdiction": "c",
-        "position": "5",
-        "rate": 9000
-      },
-      {
-        "lot_number": "2",
-        "jurisdiction": "c",
-        "position": "6",
-        "rate": 6000
-      },
-      {
-        "lot_number": "3",
-        "position": "1",
-        "rate": 24500
-      },
-      {
-        "lot_number": "3",
-        "position": "2",
-        "rate": 21000
-      },
-      {
-        "lot_number": "3",
-        "position": "3",
-        "rate": 17500
-      },
-      {
-        "lot_number": "3",
-        "position": "4",
-        "rate": 14000
-      },
-      {
-        "lot_number": "3",
-        "position": "5",
-        "rate": 10500
-      },
-      {
-        "lot_number": "3",
-        "position": "6",
-        "rate": 7000
-      },
-      {
-        "lot_number": "2",
-        "jurisdiction": "b",
-        "position": "7",
-        "rate": 16500
-      },
-      {
-        "lot_number": "2",
-        "jurisdiction": "c",
-        "position": "7",
-        "rate": 13750
-      },
-      {
-        "lot_number": "3",
-        "position": "7",
-        "rate": 19250
+        "framework_id": "RM6240",
+        "enabled": true,
+        "supplier_framework_contact_detail": {
+          "email": "stehr.wehner.kulas.and@crona.net",
+          "telephone_number": "1-118-604-7899 x39161",
+          "website": "http://cruickshank-blick.info/artie",
+          "additional_details": {
+            "address": "59473 Carolina Shores, New Omar, NH 89661",
+            "lot_1_prospectus_link": null,
+            "lot_2_prospectus_link": null,
+            "lot_3_prospectus_link": null
+          }
+        },
+        "supplier_framework_lots": [
+          {
+            "lot_id": "RM6240.2b",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6240.2b.12"
+              },
+              {
+                "service_id": "RM6240.2b.13"
+              },
+              {
+                "service_id": "RM6240.2b.14"
+              },
+              {
+                "service_id": "RM6240.2b.15"
+              },
+              {
+                "service_id": "RM6240.2b.2"
+              },
+              {
+                "service_id": "RM6240.2b.7"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": "1",
+                "rate": 17500,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "2",
+                "rate": 15000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "3",
+                "rate": 12500,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "4",
+                "rate": 10000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "5",
+                "rate": 7500,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "6",
+                "rate": 5000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "7",
+                "rate": 16500,
+                "jurisdiction_id": "GB"
+              }
+            ],
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": [
+              {
+                "jurisdiction_id": "GB"
+              }
+            ]
+          },
+          {
+            "lot_id": "RM6240.2c",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6240.2c.12"
+              },
+              {
+                "service_id": "RM6240.2c.13"
+              },
+              {
+                "service_id": "RM6240.2c.14"
+              },
+              {
+                "service_id": "RM6240.2c.15"
+              },
+              {
+                "service_id": "RM6240.2c.2"
+              },
+              {
+                "service_id": "RM6240.2c.7"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": "1",
+                "rate": 21000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "2",
+                "rate": 18000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "3",
+                "rate": 15000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "4",
+                "rate": 12000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "5",
+                "rate": 9000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "6",
+                "rate": 6000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "7",
+                "rate": 13750,
+                "jurisdiction_id": "GB"
+              }
+            ],
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": [
+              {
+                "jurisdiction_id": "GB"
+              }
+            ]
+          },
+          {
+            "lot_id": "RM6240.3",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6240.3.1"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": "1",
+                "rate": 24500,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "2",
+                "rate": 21000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "3",
+                "rate": 17500,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "4",
+                "rate": 14000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "5",
+                "rate": 10500,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "6",
+                "rate": 7000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "7",
+                "rate": 19250,
+                "jurisdiction_id": "GB"
+              }
+            ],
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": [
+              {
+                "jurisdiction_id": "GB"
+              }
+            ]
+          }
+        ]
       }
     ]
   },
   {
-    "supplier_id": "93a5fa03-ef7e-4f63-8ae2-dbdc9c392af7",
+    "id": "93a5fa03-ef7e-4f63-8ae2-dbdc9c392af7",
     "name": "WITTING-OLSON",
-    "email": "witting.olson@buckridge.name",
-    "phone_number": "1-249-089-2797 x3771",
+    "duns_number": "358251304",
     "sme": true,
-    "address": "815 Terrell Rest, New Hattiefurt, WV 89027-7230",
-    "website": "http://cremin.org/drema",
-    "duns": "358251304",
-    "lot_1_prospectus_link": null,
-    "lot_2_prospectus_link": null,
-    "lot_3_prospectus_link": null,
-    "service_offerings": [
+    "supplier_frameworks": [
       {
-        "service_code": "3.1"
-      }
-    ],
-    "rates": [
-      {
-        "lot_number": "3",
-        "position": "1",
-        "rate": 24500
-      },
-      {
-        "lot_number": "3",
-        "position": "2",
-        "rate": 21000
-      },
-      {
-        "lot_number": "3",
-        "position": "3",
-        "rate": 17500
-      },
-      {
-        "lot_number": "3",
-        "position": "4",
-        "rate": 14000
-      },
-      {
-        "lot_number": "3",
-        "position": "5",
-        "rate": 10500
-      },
-      {
-        "lot_number": "3",
-        "position": "6",
-        "rate": 7000
-      },
-      {
-        "lot_number": "3",
-        "position": "7",
-        "rate": 19250
+        "framework_id": "RM6240",
+        "enabled": true,
+        "supplier_framework_contact_detail": {
+          "email": "witting.olson@buckridge.name",
+          "telephone_number": "1-249-089-2797 x3771",
+          "website": "http://cremin.org/drema",
+          "additional_details": {
+            "address": "815 Terrell Rest, New Hattiefurt, WV 89027-7230",
+            "lot_1_prospectus_link": null,
+            "lot_2_prospectus_link": null,
+            "lot_3_prospectus_link": null
+          }
+        },
+        "supplier_framework_lots": [
+          {
+            "lot_id": "RM6240.3",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6240.3.1"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": "1",
+                "rate": 24500,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "2",
+                "rate": 21000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "3",
+                "rate": 17500,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "4",
+                "rate": 14000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "5",
+                "rate": 10500,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "6",
+                "rate": 7000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "7",
+                "rate": 19250,
+                "jurisdiction_id": "GB"
+              }
+            ],
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": [
+              {
+                "jurisdiction_id": "GB"
+              }
+            ]
+          }
+        ]
       }
     ]
   },
   {
-    "supplier_id": "d00f0b46-f1de-45f8-951d-370326ca2824",
+    "id": "d00f0b46-f1de-45f8-951d-370326ca2824",
     "name": "MCLAUGHLIN, RATKE AND KONOPELSKI",
-    "email": "ratke.mclaughlin.and.konopelski@yost-turcotte.io",
-    "phone_number": "180-606-7010 x63917",
+    "duns_number": "797525620",
     "sme": true,
-    "address": "72826 Bartoletti Point, South Christi, AK 95544-9278",
-    "website": "http://quigley-bashirian.net/rosendo_bashirian",
-    "duns": "797525620",
-    "lot_1_prospectus_link": null,
-    "lot_2_prospectus_link": null,
-    "lot_3_prospectus_link": null,
-    "service_offerings": [
+    "supplier_frameworks": [
       {
-        "service_code": "3.1"
-      }
-    ],
-    "rates": [
-      {
-        "lot_number": "3",
-        "position": "1",
-        "rate": 21000
-      },
-      {
-        "lot_number": "3",
-        "position": "2",
-        "rate": 18000
-      },
-      {
-        "lot_number": "3",
-        "position": "3",
-        "rate": 15000
-      },
-      {
-        "lot_number": "3",
-        "position": "4",
-        "rate": 12000
-      },
-      {
-        "lot_number": "3",
-        "position": "5",
-        "rate": 9000
-      },
-      {
-        "lot_number": "3",
-        "position": "6",
-        "rate": 6000
-      },
-      {
-        "lot_number": "3",
-        "position": "7",
-        "rate": 13750
+        "framework_id": "RM6240",
+        "enabled": true,
+        "supplier_framework_contact_detail": {
+          "email": "ratke.mclaughlin.and.konopelski@yost-turcotte.io",
+          "telephone_number": "180-606-7010 x63917",
+          "website": "http://quigley-bashirian.net/rosendo_bashirian",
+          "additional_details": {
+            "address": "72826 Bartoletti Point, South Christi, AK 95544-9278",
+            "lot_1_prospectus_link": null,
+            "lot_2_prospectus_link": null,
+            "lot_3_prospectus_link": null
+          }
+        },
+        "supplier_framework_lots": [
+          {
+            "lot_id": "RM6240.3",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6240.3.1"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": "1",
+                "rate": 21000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "2",
+                "rate": 18000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "3",
+                "rate": 15000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "4",
+                "rate": 12000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "5",
+                "rate": 9000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "6",
+                "rate": 6000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "7",
+                "rate": 13750,
+                "jurisdiction_id": "GB"
+              }
+            ],
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": [
+              {
+                "jurisdiction_id": "GB"
+              }
+            ]
+          }
+        ]
       }
     ]
   },
   {
-    "supplier_id": "a2a870c9-4ec3-448e-8f51-b9ae2eb2fafb",
+    "id": "a2a870c9-4ec3-448e-8f51-b9ae2eb2fafb",
     "name": "ZEMLAK INC",
-    "email": "zemlak.inc@abernathy-casper.biz",
-    "phone_number": "1-501-237-7406 x63645",
+    "duns_number": "706599728",
     "sme": true,
-    "address": "Apt. 416 316 Otto Village, West Herlinda, AK 59333",
-    "website": "http://christiansen-mann.name/ali",
-    "duns": "706599728",
-    "lot_1_prospectus_link": null,
-    "lot_2_prospectus_link": null,
-    "lot_3_prospectus_link": null,
-    "service_offerings": [
+    "supplier_frameworks": [
       {
-        "service_code": "3.1"
-      }
-    ],
-    "rates": [
-      {
-        "lot_number": "3",
-        "position": "1",
-        "rate": 24500
-      },
-      {
-        "lot_number": "3",
-        "position": "2",
-        "rate": 21000
-      },
-      {
-        "lot_number": "3",
-        "position": "3",
-        "rate": 17500
-      },
-      {
-        "lot_number": "3",
-        "position": "4",
-        "rate": 14000
-      },
-      {
-        "lot_number": "3",
-        "position": "5",
-        "rate": 10500
-      },
-      {
-        "lot_number": "3",
-        "position": "6",
-        "rate": 7000
-      },
-      {
-        "lot_number": "3",
-        "position": "7",
-        "rate": 0
+        "framework_id": "RM6240",
+        "enabled": true,
+        "supplier_framework_contact_detail": {
+          "email": "zemlak.inc@abernathy-casper.biz",
+          "telephone_number": "1-501-237-7406 x63645",
+          "website": "http://christiansen-mann.name/ali",
+          "additional_details": {
+            "address": "Apt. 416 316 Otto Village, West Herlinda, AK 59333",
+            "lot_1_prospectus_link": "http://christiansen-mann.name/ali/lot-1",
+            "lot_2_prospectus_link": "http://christiansen-mann.name/ali/lot-2",
+            "lot_3_prospectus_link": "http://christiansen-mann.name/ali/lot-3"
+          }
+        },
+        "supplier_framework_lots": [
+          {
+            "lot_id": "RM6240.3",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6240.3.1"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": "1",
+                "rate": 24500,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "2",
+                "rate": 21000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "3",
+                "rate": 17500,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "4",
+                "rate": 14000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "5",
+                "rate": 10500,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "6",
+                "rate": 7000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "7",
+                "rate": 0,
+                "jurisdiction_id": "GB"
+              }
+            ],
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": [
+              {
+                "jurisdiction_id": "GB"
+              }
+            ]
+          }
+        ]
       }
     ]
   },
   {
-    "supplier_id": "a28fec3d-8499-4afa-9771-d021d80a0656",
+    "id": "a28fec3d-8499-4afa-9771-d021d80a0656",
     "name": "LUETTGEN LLC",
-    "email": "luettgen_llc@reynolds.name",
-    "phone_number": "1-184-273-2396",
+    "duns_number": "029081784",
     "sme": true,
-    "address": "222 Kertzmann Hills, Kertzmannmouth, AL 34773-0095",
-    "website": "http://turcotte-smitham.co/trenton",
-    "duns": "029081784",
-    "lot_1_prospectus_link": null,
-    "lot_2_prospectus_link": null,
-    "lot_3_prospectus_link": null,
-    "service_offerings": [
+    "supplier_frameworks": [
       {
-        "service_code": "3.1"
-      }
-    ],
-    "rates": [
-      {
-        "lot_number": "3",
-        "position": "1",
-        "rate": 17500
-      },
-      {
-        "lot_number": "3",
-        "position": "2",
-        "rate": 15000
-      },
-      {
-        "lot_number": "3",
-        "position": "3",
-        "rate": 12500
-      },
-      {
-        "lot_number": "3",
-        "position": "4",
-        "rate": 10000
-      },
-      {
-        "lot_number": "3",
-        "position": "5",
-        "rate": 7500
-      },
-      {
-        "lot_number": "3",
-        "position": "6",
-        "rate": 5000
-      },
-      {
-        "lot_number": "3",
-        "position": "7",
-        "rate": 13750
+        "framework_id": "RM6240",
+        "enabled": true,
+        "supplier_framework_contact_detail": {
+          "email": "luettgen_llc@reynolds.name",
+          "telephone_number": "1-184-273-2396",
+          "website": "http://turcotte-smitham.co/trenton",
+          "additional_details": {
+            "address": "222 Kertzmann Hills, Kertzmannmouth, AL 34773-0095",
+            "lot_1_prospectus_link": null,
+            "lot_2_prospectus_link": null,
+            "lot_3_prospectus_link": null
+          }
+        },
+        "supplier_framework_lots": [
+          {
+            "lot_id": "RM6240.3",
+            "enabled": true,
+            "supplier_framework_lot_services": [
+              {
+                "service_id": "RM6240.3.1"
+              }
+            ],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": "1",
+                "rate": 17500,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "2",
+                "rate": 15000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "3",
+                "rate": 12500,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "4",
+                "rate": 10000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "5",
+                "rate": 7500,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "6",
+                "rate": 5000,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "7",
+                "rate": 13750,
+                "jurisdiction_id": "GB"
+              }
+            ],
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": [
+              {
+                "jurisdiction_id": "GB"
+              }
+            ]
+          }
+        ]
       }
     ]
   }

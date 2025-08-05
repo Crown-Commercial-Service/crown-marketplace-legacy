@@ -1,0 +1,64 @@
+Feature: Legal Panel for Government - Non central governemnt - Lot 2 - Suppliers comparison
+
+  Background: Navigate to start page and complete the journey
+    Given I sign in and navigate to the start page for the 'RM6360' framework in 'legal panel for government'
+    Then I am on the 'Do you work for central government?' page
+    And I select 'Yes'
+    And I click on 'Continue'
+    Then I am on the 'Select the lot you need' page
+    And I select 'Lot 2 - Major Projects and Complex Advice'
+    And I click on 'Continue'
+    Then I am on the 'Select the legal services you need' page
+    And the sub title is 'Lot 2 - Major Projects and Complex Advice'
+    When I check the following items:
+      | Competition Law |
+      | Contracts       |
+    And I click on 'Continue'
+    Then I am on the 'Supplier results' page
+    And I should see that '4' suppliers can provide legal services for government
+    And the selected legal service for government suppliers are:
+      | ADAMS, WOLFF AND STROMAN  | http://schoen.test/horacio              |
+      | BALISTRERI-MURAZIK        | http://dubuque.test/soo_lockman         |
+      | CORMIER INC               | http://mayer-willms.test/daphine        |
+      | MONAHAN-JOHNS             | http://runolfsson.example/darrel.heaney |
+    And I click on 'Compare the supplier rates'
+    Then I am on the 'Select suppliers for comparison' page
+    When I check the following items:
+      | ADAMS, WOLFF AND STROMAN  |
+      | BALISTRERI-MURAZIK        |
+      | CORMIER INC               |
+    And I click on 'Continue'
+    Then I am on the 'Compare supplier rates' page
+    And I should see that '3' suppliers have been selected for comparison
+
+  Scenario: The rates table is displayed for comparison
+    Then I should see the rates in the comparison table:
+      | Supplier                 | Partner  | Legal Director/Counsel or equivalent | Senior Solicitor, Senior Associate/Senior Legal Executive  | Solicitor, Associate/Legal Executive | NQ Solicitor/Associate, Junior Solicitor/Associate/Legal Executive | Trainee/Legal Apprentice | Paralegal, Legal Assistant |
+      | ADAMS, WOLFF AND STROMAN | £280.00  | £245.00                              | £210.00                                                    | £175.00                              | £140.00                                                            | £84.00                   | £70.00                     |
+      | BALISTRERI-MURAZIK       | £240.00  | £210.00                              | £180.00                                                    | £150.00                              | £120.00                                                            | £72.00                   | £60.00                     |
+      | CORMIER INC              | £200.00  | £175.00                              | £150.00                                                    | £125.00                              | £100.00                                                            | £60.00                   | £50.00                     |
+
+  Scenario: Changing selection changes the results
+    And I click on the 'Back' back link
+    Then I am on the 'Select suppliers for comparison' page
+    And I deselect all the items
+    When I check the following items:
+      | CORMIER INC   |
+      | MONAHAN-JOHNS |
+    And I click on 'Continue'
+    Then I am on the 'Compare supplier rates' page
+    And I should see that '2' suppliers have been selected for comparison
+    Then I should see the rates in the comparison table:
+      | Supplier       | Partner  | Legal Director/Counsel or equivalent | Senior Solicitor, Senior Associate/Senior Legal Executive  | Solicitor, Associate/Legal Executive | NQ Solicitor/Associate, Junior Solicitor/Associate/Legal Executive | Trainee/Legal Apprentice | Paralegal, Legal Assistant |
+      | CORMIER INC    | £200.00  | £175.00                              | £150.00                                                    | £125.00                              | £100.00                                                            | £60.00                   | £50.00                     |
+      | MONAHAN-JOHNS  | £280.00  | £245.00                              | £210.00                                                    | £175.00                              | £140.00                                                            | £84.00                   | £70.00                     |
+
+  Scenario: Back to results
+    When I click on 'Back to results'
+    Then I am on the 'Supplier results' page
+    And I should see that '4' suppliers can provide legal services for government
+    And the selected legal service for government suppliers are:
+      | ADAMS, WOLFF AND STROMAN  | http://schoen.test/horacio              |
+      | BALISTRERI-MURAZIK        | http://dubuque.test/soo_lockman         |
+      | CORMIER INC               | http://mayer-willms.test/daphine        |
+      | MONAHAN-JOHNS             | http://runolfsson.example/darrel.heaney |

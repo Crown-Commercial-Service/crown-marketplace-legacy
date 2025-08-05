@@ -11,6 +11,14 @@ Feature: Management Consultancy - Lot 9 - Environmental Sustainability and Socio
   Scenario: The correct options are available
     Then I should see the following options for the lot:
       | Air quality                                   |
+      | Carbon management (including reporting)       |
+      | Climate change adaptation and/or mitigation   |
+      | Coastal                                       |
+      | Contaminated land                             |
+      | Due diligence                                 |
+      | Ecology and biodiversity                      |
+      | Environmental planning and protection         |
+      | Equality analysis                             |
       | Feasibility studies and/or impact assessment  |
       | Monitoring environmental indicators           |
       | Natural capital                               |
@@ -21,14 +29,6 @@ Feature: Management Consultancy - Lot 9 - Environmental Sustainability and Socio
       | Risk management                               |
       | Social value                                  |
       | Sustainability                                |
-      | Carbon management (including reporting)       |
-      | Climate change adaptation and/or mitigation   |
-      | Coastal                                       |
-      | Contaminated land                             |
-      | Due diligence                                 |
-      | Ecology and biodiversity                      |
-      | Environmental planning and protection         |
-      | Equality analysis                             |
 
   Scenario: Service selection appears in basked
     Then the basket should say 'No services selected'
