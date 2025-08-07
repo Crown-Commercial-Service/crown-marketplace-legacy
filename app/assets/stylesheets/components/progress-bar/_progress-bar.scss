@@ -31,7 +31,14 @@
 .ccs-upload-progress-container {
   display: grid;
   text-align: center;
-  grid-template-columns: 20% 20% 20% 20% 20%;
+
+  &.ccs-upload-progress-container__grid-width-3 {
+    grid-template-columns: 33% 33% 33%;
+  }
+
+  &.ccs-upload-progress-container__grid-width-5 {
+    grid-template-columns: 20% 20% 20% 20% 20%;
+  }
 
   div:not([aria-current="true"]) {
     @media (max-width: 30em) {

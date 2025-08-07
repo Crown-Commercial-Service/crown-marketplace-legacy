@@ -27,10 +27,10 @@ Feature: Management Consultancy - Start pages - With an unrecognised framework
 
   Scenario: Go to an unrecognised famework in the admin section - logged in
     Given I sign in as an admin for the 'RM6187' framework in 'management consultancy'
-    Then I am on the 'Manage supplier data' page
+    Then I am on the 'Admin dashboard' page
     When I go to '/management-consultancy/RM9102/admin'
     Then I am on the 'The web address contained an unrecognised framework' page
     And the unrecognised framework is 'RM9102'
     And I click on 'RM6187'
-    Then I am on the 'Manage supplier data' page
+    Then I am on the 'Admin dashboard' page
     And the framework is 'RM6187'

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_07_22_154808) do
+ActiveRecord::Schema[8.0].define(version: 2025_08_05_113850) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
   enable_extension "pgcrypto"
@@ -235,6 +235,30 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_22_154808) do
     t.index ["position"], name: "index_positions_on_position"
   end
 
+  create_table "reports", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "user_id", null: false
+    t.text "framework_id", null: false
+    t.string "aasm_state", limit: 30
+    t.date "start_date"
+    t.date "end_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["framework_id"], name: "index_reports_on_framework_id"
+    t.index ["user_id"], name: "index_reports_on_user_id"
+  end
+
+  create_table "searches", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "user_id", null: false
+    t.text "framework_id", null: false
+    t.uuid "session_id"
+    t.text "search_criteria"
+    t.text "search_result"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["framework_id"], name: "index_searches_on_framework_id"
+    t.index ["user_id"], name: "index_searches_on_user_id"
+  end
+
   create_table "services", id: :text, force: :cascade do |t|
     t.text "lot_id", null: false
     t.text "number", null: false
@@ -454,6 +478,10 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_22_154808) do
   add_foreign_key "management_consultancy_rm6187_service_offerings", "management_consultancy_rm6187_suppliers"
   add_foreign_key "management_consultancy_rm6309_rate_cards", "management_consultancy_rm6309_suppliers"
   add_foreign_key "management_consultancy_rm6309_service_offerings", "management_consultancy_rm6309_suppliers"
+  add_foreign_key "reports", "frameworks"
+  add_foreign_key "reports", "users"
+  add_foreign_key "searches", "frameworks"
+  add_foreign_key "searches", "users"
   add_foreign_key "services", "lots"
   add_foreign_key "supplier_framework_addresses", "supplier_frameworks"
   add_foreign_key "supplier_framework_contact_details", "supplier_frameworks"
