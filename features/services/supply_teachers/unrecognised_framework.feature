@@ -40,12 +40,12 @@ Feature: Supply Teachers - Start pages - With an unrecognised framework
 
   Scenario Outline: Go to an unrecognised famework in the admin section - logged in
     Given I sign in as an admin for the '<framework>' framework in 'supply teachers'
-    Then I am on the 'Supply teachers and agency workers' page
+    Then I am on the 'Admin dashboard' page
     When I go to '/supply-teachers/RM0172/admin'
     Then I am on the 'The web address contained an unrecognised framework' page
     And the unrecognised framework is 'RM0172'
     And I click on '<framework>'
-    Then I am on the 'Supply teachers and agency workers' page
+    Then I am on the 'Admin dashboard' page
     And the framework is '<framework>'
 
     Examples:

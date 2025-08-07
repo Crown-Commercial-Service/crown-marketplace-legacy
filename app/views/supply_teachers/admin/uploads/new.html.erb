@@ -1,5 +1,10 @@
 <%= content_for :page_title, t('.heading') %>
 
+<% admin_breadcrumbs(
+  { text: t('supply_teachers.admin.uploads.index.heading'), href: index_path },
+  { text: t('.heading') }
+)%>
+
 <%= render partial: 'shared/error_summary', locals: { errors: @upload.errors } %>
 
 <div class="govuk-grid-row">

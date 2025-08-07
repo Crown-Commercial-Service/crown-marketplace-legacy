@@ -374,6 +374,7 @@ en:
             Non-Complex: Non-Complex
           rates_are_fixed: Rates are fixed for the life of the framework and any call-off. These rates, which exclude V.A.T. are for an 8 hour working day and include travel expenses to the base location as stipulated by the customer.
           rates_are_maximum: These are the maximum rates a supplier can charge and cannot be exceeded. Suppliers can reduce these rates to match or beat those on any other agreement.
+    service_name: Management Consultancy
     suppliers:
       index:
         download_suppliers_list: Download the supplier list

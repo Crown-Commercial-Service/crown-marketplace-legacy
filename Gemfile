@@ -105,6 +105,7 @@ gem 'capybara', '>= 3.38.0'
 
 # for date layout
 gem 'gov_uk_date_fields', '>= 4.2.0'
+gem 'date_validator', '>= 0.12.0'
 
 # Use CCS Frontend Helpers
 gem 'ccs-frontend_helpers', '~> 2.5.0'
