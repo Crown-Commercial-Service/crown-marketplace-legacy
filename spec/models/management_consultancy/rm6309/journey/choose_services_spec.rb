@@ -1,65 +1,110 @@
 require 'rails_helper'
 
 RSpec.describe ManagementConsultancy::RM6309::Journey::ChooseServices do
-  subject(:step) { described_class.new(services: %w[MFC4.2.1]) }
+  subject(:step) { described_class.new(service_ids:, lot_id:) }
 
-  let(:model_key) { 'activemodel.errors.models.management_consultancy/rm6309/journey/choose_services' }
+  let(:lot_id) { 'RM6309.1' }
+  let(:service_ids) { %w['RM6309.1.3] }
 
-  it { is_expected.to be_valid }
+  describe 'validations' do
+    context 'when no services are provided' do
+      let(:service_ids) { [] }
 
-  context 'when services does not contain at least 1 code' do
-    before do
-      step.services = []
+      it 'is not valid and has the correct error message' do
+        expect(step).not_to be_valid
+        expect(step.errors[:service_ids].first).to eq 'Select the service or services you need'
+      end
     end
 
-    it { is_expected.not_to be_valid }
-
-    it 'obtains the error message from an I18n translation' do
-      step.valid?
-      expect(step.errors[:services]).to include(
-        I18n.t("#{model_key}.attributes.services.too_short")
-      )
-    end
-  end
-
-  describe '#lot' do
-    it 'is expected to find the correct lot' do
-      lot_number = 'MCF4.2'
-      lot = ManagementConsultancy::RM6309::Lot.find_by(number: lot_number)
-
-      expect(step.lot(lot_number)).to eq lot
+    context 'when a service is provided' do
+      it 'is valid' do
+        expect(step).to be_valid
+      end
     end
   end
 
-  describe '#services_for_lot' do
-    it 'is expected to find the correct services for the lot' do
-      lot_number = 'MFC4.4'
-      services = ManagementConsultancy::RM6309::Service.where(lot_number:)
-
-      expect(step.services_for_lot(lot_number)).to eq services
+  describe '.next_step_class' do
+    it 'returns Journey::Supplier' do
+      expect(step.next_step_class).to be ManagementConsultancy::RM6309::Journey::Suppliers
     end
   end
 
-  describe '#service_groups_for_lot' do
-    it 'is expected to find the correct services for a normal lot' do
-      lot_number = 'MCF4.2'
-      services = ManagementConsultancy::RM6309::Service.where(lot_number:)
+  describe '.permit_list' do
+    it 'returns a list of the permitted attributes' do
+      expect(described_class.permit_list).to eq [:lot_id, { service_ids: [] }]
+    end
+  end
 
-      expect(step.service_groups_for_lot(lot_number)).to eq([[nil, services.sort_by(&:name)]])
+  describe '.permitted_keys' do
+    it 'returns a list of the permitted keys' do
+      expect(described_class.permitted_keys).to eq %i[lot_id service_ids]
+    end
+  end
+
+  describe '.slug' do
+    it 'returns choose-services' do
+      expect(step.slug).to eq 'choose-services'
+    end
+  end
+
+  describe '.template' do
+    it 'returns journey/choose_services' do
+      expect(step.template).to eq 'journey/choose_services'
+    end
+  end
+
+  describe '.final?' do
+    it 'returns false' do
+      expect(step.final?).to be false
+    end
+  end
+
+  describe '.lot' do
+    let(:result) { step.lot }
+
+    context 'when the lot exists' do
+      let(:lot_id) { 'RM6309.1' }
+
+      it 'returns the lot' do
+        expect(result.id).to eq 'RM6309.1'
+        expect(result.name).to eq 'Business'
+      end
     end
 
-    it 'is expected to find the correct services for lot 10' do
-      lot_number = 'MCF4.10'
-      services = ManagementConsultancy::RM6309::Service.where(lot_number:)
-      primary_services = services[0..6].sort_by(&:name)
-      additional_services = services[7..12].sort_by(&:name)
-      sector_services = services[13..].sort_by(&:name)
+    context 'when the lot does not exist' do
+      let(:lot_id) { 'RM6309.11' }
 
-      expect(step.service_groups_for_lot(lot_number)).to eq [
-        ['Primary capabilities', primary_services],
-        ['Additional capabilities', additional_services],
-        ['Sector specialisms', sector_services]
-      ]
+      it 'returns nil' do
+        expect { result }.to raise_error(ActiveRecord::RecordNotFound)
+      end
+    end
+  end
+
+  describe '.lot_services' do
+    let(:result) { step.lot_services }
+
+    context 'when the lot number is 1' do
+      it 'returns a list of 14 services' do
+        expect(result.length).to eq(14)
+      end
+
+      it 'sets the first service is Automation' do
+        expect(result.first.id).to eq('RM6309.1.1')
+        expect(result.first.name).to eq('Automation')
+      end
+    end
+
+    context 'when the lot number is 2' do
+      let(:lot_id) { 'RM6309.2' }
+
+      it 'returns a list of 12 services' do
+        expect(result.length).to eq(12)
+      end
+
+      it 'sets the first service is Business case development' do
+        expect(result.first.id).to eq('RM6309.2.1')
+        expect(result.first.name).to eq('Business case development')
+      end
     end
   end
 end

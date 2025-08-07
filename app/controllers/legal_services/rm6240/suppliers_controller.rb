@@ -3,16 +3,22 @@ module LegalServices
     class SuppliersController < LegalServices::SuppliersController
       private
 
-      def fetch_rate_card
-        @supplier.rate_card(params[:lot], params[:jurisdiction])
+      def fetch_rates
+        @supplier_framework.grouped_rates_for_lot(@lot.id)
       end
 
-      def fetch_suppliers
-        @suppliers = Supplier.offering_services_in_jurisdiction(
-          params[:lot],
-          params[:services],
-          params[:jurisdiction]
+      def fetch_supplier_frameworks
+        @supplier_frameworks = Supplier::Framework.with_services(
+          if @lot.id == 'RM6240.3'
+            ['RM6240.3.1']
+          else
+            params[:service_numbers].map { |service_number| "#{@lot.id}.#{service_number}" }
+          end
         ).shuffle
+      end
+
+      def fetch_lot
+        @lot = Lot.find("RM6240.#{params[:lot_number]}#{params[:jurisdiction]}")
       end
     end
   end

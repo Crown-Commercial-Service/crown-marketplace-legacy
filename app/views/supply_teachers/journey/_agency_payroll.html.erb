@@ -31,12 +31,12 @@
   ) %>
 
   <%= govuk_radios(
-    :job_type,
-    job_type_class.roles.map do |job_type|
+    :position_id,
+    positions.map do |position|
       {
-        value: job_type.code,
+        value: position.id.to_s,
         label: {
-          text: job_type.description
+          text: t("journey_step.supply_teachers.job_titles.#{position.position}")
         }
       }
     end,
@@ -50,12 +50,12 @@
   ) %>
 
   <%= govuk_radios(
-    :term,
-    term_type_class.all.map do |term|
+    :offset,
+    offsets.map do |offset, term_type|
       {
-        value: term.code,
+        value: offset.to_s,
         label: {
-          text: term.description
+          text: t("journey_step.supply_teachers.term_types.#{term_type}")
         }
       }
     end,

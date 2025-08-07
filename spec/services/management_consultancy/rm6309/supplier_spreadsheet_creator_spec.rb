@@ -3,20 +3,20 @@ require 'rails_helper'
 RSpec.describe ManagementConsultancy::RM6309::SupplierSpreadsheetCreator do
   let(:supplier_details) do
     [
-      { name: 'MONADO LTD', contact_name: 'Shulk', contact_email: 'shulk@monado.com', telephone_number: '0202 123 4567' },
-      { name: 'COLONY 9 LTD', contact_name: 'Fiora', contact_email: 'fiora@colony.nine.ltd.com', telephone_number: '0203 234 5678' },
-      { name: 'COLONY 9 CORP', contact_name: 'Reyn', contact_email: 'reyn@colony.nine.corp.com', telephone_number: '0204 345 6789' },
-      { name: 'BIONIS LTD', contact_name: 'Dunban', contact_email: 'dunban@bionis.com', telephone_number: '0204 567 8901' }
+      { supplier_name: 'MONADO LTD', name: 'Shulk', email: 'shulk@monado.com', telephone_number: '0202 123 4567' },
+      { supplier_name: 'COLONY 9 LTD', name: 'Fiora', email: 'fiora@colony.nine.ltd.com', telephone_number: '0203 234 5678' },
+      { supplier_name: 'COLONY 9 CORP', name: 'Reyn', email: 'reyn@colony.nine.corp.com', telephone_number: '0204 345 6789' },
+      { supplier_name: 'BIONIS LTD', name: 'Dunban', email: 'dunban@bionis.com', telephone_number: '0204 567 8901' }
     ]
   end
 
-  let(:suppliers) { ManagementConsultancy::RM6309::Supplier.order(:name) }
-  let(:lot_number) { 'MCF4.1' }
-  let(:lot) { ManagementConsultancy::RM6309::Lot.find_by(number: lot_number) }
-  let(:services) { ManagementConsultancy::RM6309::Service.all.sample(5).sort_by(&:code) }
-  let(:service_codes) { services.map(&:code) }
-  let(:params) { { 'services' => service_codes, 'lot' => lot_number } }
-  let(:spreadsheet_creator) { described_class.new(suppliers, params) }
+  let(:supplier_frameworks) { Supplier::Framework.joins(:supplier).order('supplier.name ASC') }
+  let(:lot_id) { 'RM6309.1' }
+  let(:services) { Service.where(lot_id:).sample(5).sort_by(&:id) }
+  let(:service_ids) { services.map(&:id) }
+  let(:central_government) { 'no' }
+  let(:params) { { 'service_ids' => service_ids, 'lot_id' => lot_id } }
+  let(:spreadsheet_creator) { described_class.new(supplier_frameworks, params) }
 
   let(:work_book) do
     File.write('/tmp/mc_supplier_spreadsheet.xlsx', spreadsheet_creator.build.to_stream.read, binmode: true)
@@ -24,8 +24,13 @@ RSpec.describe ManagementConsultancy::RM6309::SupplierSpreadsheetCreator do
   end
 
   before do
+    allow(Supplier::Framework).to receive(:with_services).with(service_ids).and_return(supplier_frameworks)
+
     supplier_details.each do |supplier_detail|
-      create(:management_consultancy_rm6309_supplier, **supplier_detail)
+      supplier = create(:supplier, name: supplier_detail[:supplier_name])
+      supplier_framework = create(:supplier_framework, supplier:)
+
+      create(:supplier_framework_contact_detail, supplier_framework:, **supplier_detail.except(:supplier_name))
     end
   end
 

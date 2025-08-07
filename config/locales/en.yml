@@ -83,6 +83,10 @@ en:
             live_at:
               blank: Enter a valid 'live at' date
               not_a_date: Enter a valid 'live at' date
+        supplier/framework/lot/branch:
+          attributes:
+            postcode:
+              invalid_postcode: Enter a valid postcode
   base:
     passwords:
       edit:
@@ -128,6 +132,9 @@ en:
         email_hint: Enter the email address you used to set up your account.
         forgotten_password: I’ve forgotten my password
         heading:
+          legal_panel_for_government:
+            admin: Sign in to your legal panel for government admin account
+            buyer: Sign in to your legal panel for government account
           legal_services:
             admin: Sign in to your legal services admin account
             buyer: Sign in to your legal services account
@@ -235,6 +242,19 @@ en:
       heading_how_we_tested: How we tested this website
       heading_non_accessible: Non accessible content
       heading_non_compliance: Non compliance with the accessibility regulations
+      legal_panel_for_government:
+        accessibility_statement:
+          compliance: No known accessibility non compliance issues.
+          date: 1 July 2020
+          heading: Legal Panel for Government (LPG) Accessibility statement
+          list_2_continue: one page has two continue buttons, this results in screen readers repeating "continue"
+          marketplace_link: https://marketplace.service.crowncommercial.gov.uk/legal-panel-for-government
+          non_accessible_content_1: We are aware of an issue with the "select the services you need" page when tabbed in conjunction with NVDA, JAWS and macOS VoiceOver screen reader assistive technologies. The duplicate 'Continue' buttons that are present result in the screen reader stuttering.
+          non_accessible_content_2: It would be expected that only one 'Continue' button would be present on a page to prevent continue being announced twice by screen readers. We will resolve this issue by October 2020.
+          service: Legal Services
+          the_complete_journey: The complete Legal Panel for Government journey was tested, this included every page a buyer would progress through to complete the procurement activity.
+          we_know: This website has one accessibility issue.
+          website_last_tested: This website was last tested on 3 April 2020. The test was carried out by Zoonou Ltd.
       legal_services:
         accessibility_statement:
           compliance: No known accessibility non compliance issues.
@@ -407,6 +427,7 @@ en:
     cookies:
       expires: Expires
       facilities_management: Facilities Management
+      legal_panel_for_government: Legal Panel for Government
       legal_services: Legal Services
       management_consultancy: Management Consultancy
       measure_website_use:
@@ -440,6 +461,7 @@ en:
       we_use_glassbox: We use Glassbox software to collect information about how you use Crown Marketplace. We do this to help make sure the site is meeting the needs of its users and to help us make improvements.
     index:
       admin: Crown Marketplace
+      legal_panel_for_government_link: Find legal service for government
       legal_services_link: Find legal service for the wider public sector
       management_consultancy_link: Find management consultancy services
       supply_teachers_link: Find supply teachers and agency workers
@@ -449,6 +471,16 @@ en:
       title: Sorry, you are not authorised to view this page
   journey_step:
     supply_teachers:
+      job_titles:
+        agency_management_daily: 'Agency Management Fee: Daily supply worker (per worker, per day)'
+        agency_management_six_weeks_plus: 'Agency Management Fee: Long term assignment (6 weeks+) (per worker, per day)'
+        fixed_term: Fixed Term
+        nominated: Nominated Worker
+        other: 'Other Roles: (Invigilators, Admin & Clerical, IT Staff, Finance Staff, Cleaners etc.)'
+        over_12_week: Over 12 Week Reduction
+        senior: 'Senior Roles: Headteacher and Senior Leadership positions'
+        support: 'Educational Support Staff: (incl. Cover Supervisor, Teaching Assistants)'
+        teacher: 'Teacher: (Incl. Qualified and Unqualified Teachers, Tutors)'
       looking_for:
         managed_service_provider: Managed service provider
         worker: Individual worker
@@ -458,6 +490,9 @@ en:
       payroll_provider:
         agency: Agency
         school: School
+      term_types:
+        daily: Daily Supply
+        six_weeks_plus: Long Term (6 weeks+)
       worker_type:
         agency_supplied: Supplied by agency
         nominated: Nominated

@@ -1,6 +1,6 @@
 module LegalServices::SuppliersHelper
-  def full_lot_description(lot_number, description)
-    "Lot #{lot_number} - #{description}"
+  def full_lot_name(lot)
+    "Lot #{lot.number[0]} - #{lot.name}"
   end
 
   def prospectus_link_present?
@@ -15,6 +15,6 @@ module LegalServices::SuppliersHelper
   end
 
   def prospectus_link
-    @prospectus_link ||= @supplier.send(:"lot_#{params[:lot]}_prospectus_link")
+    @prospectus_link ||= @supplier_framework.contact_detail.additional_details["lot_#{@lot.number[0]}_prospectus_link"]
   end
 end

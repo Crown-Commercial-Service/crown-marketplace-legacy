@@ -2,31 +2,18 @@ require 'rails_helper'
 
 RSpec.describe LegalServices::JourneyHelper do
   let(:lot_number) { rand(1..3).to_s }
-  let(:lot) { LegalServices::RM6240::Lot.find_by(number: lot_number) }
+  let(:jurisdiction) { lot_number == '3' ? nil : ('a'..'c').to_a.sample }
+  let(:lot) { Lot.find_by(framework_id: 'RM6240', number: "#{lot_number}#{jurisdiction}") }
 
   describe '#lot_full_description' do
     it 'returns the full title with lot and description' do
-      expect(helper.lot_full_description(lot)).to eq("Lot #{lot_number} - #{lot.description}")
+      expect(helper.lot_full_name(lot)).to eq("Lot #{lot_number} - #{lot.name}")
     end
   end
 
   describe '#lot_legal_services' do
     it 'returns text containing the correct lot number' do
       expect(helper.lot_legal_services(lot_number)).to eq("Lot #{lot_number} legal services")
-    end
-  end
-
-  describe '#region_name' do
-    context 'when region is in England' do
-      it 'returns the region name without England in brackets' do
-        expect(helper.region_name('South West (England)')).to eq('South West')
-      end
-    end
-
-    context 'when region is not in England' do
-      it 'returns the region name' do
-        expect(helper.region_name('Scotland')).to eq('Scotland')
-      end
     end
   end
 end

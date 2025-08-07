@@ -93,6 +93,10 @@ module Marketplace
     ENV.fetch('LS_SURVEY_LINK', nil)
   end
 
+  def self.lpg_survey_link
+    ENV.fetch('LS_SURVEY_LINK', nil)
+  end
+
   def self.mc_survey_link
     ENV.fetch('MC_SURVEY_LINK', nil)
   end

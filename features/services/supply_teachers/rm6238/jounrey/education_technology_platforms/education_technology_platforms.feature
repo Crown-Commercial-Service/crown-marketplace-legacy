@@ -7,10 +7,10 @@ Feature: Supply Teachers - Education technology platforms
     Then I am on the 'Education technology platform service providers' page
     And there are 4 managed service provider agencies
     And the managed service provider agencies are:
-      | LEFFLER AND SONS        |
-      | CHRISTIANSEN INC        |
       | BOYLE, KOEPP AND TURNER |
       | BRAUN INC               |
+      | CHRISTIANSEN INC        |
+      | LEFFLER AND SONS        |
     And the contact details for the managed service provider 'LEFFLER AND SONS' are:
       | Kaitlin Hahn                  |
       | 128.218.6912 x969             |

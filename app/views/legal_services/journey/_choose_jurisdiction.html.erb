@@ -7,7 +7,7 @@
 
     <%= form_with url: @form_path, method: :get, html: { specialvalidation: true, novalidate: true } do |f| %>
       <%= hidden_fields_for_previous_steps_and_responses(@journey) %>
-      <%= hidden_field_tag(:lot, @journey.params['lot']) %>
+      <%= hidden_field_tag(:lot_number, @journey.current_step.lot_number) %>
 
       <%= govuk_radios(
         :jurisdiction,
@@ -26,7 +26,7 @@
             classes: 'govuk-fieldset__legend--m',
             is_page_heading: true,
             caption: {
-              text: lot_full_description(@journey.current_step.selected_lot),
+              text: lot_full_name(@journey.current_step.lot),
               classes: 'govuk-caption-m'
             }
           }

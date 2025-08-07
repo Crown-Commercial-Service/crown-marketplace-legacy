@@ -1,0 +1,32 @@
+<%= govuk_table(
+  [
+    {
+      text: t('.position'),
+      classes: 'govuk-!-width-three-quarters'
+    },
+    {
+      text: t('.hourly'),
+      classes: 'govuk-!-width-one-quarter'
+    }
+  ],
+  positions.map do |position|
+    rate = display_rate(position.id, jurisdiction_id)
+
+    next if rate.nil?
+
+    [
+      {
+        text: position.position
+      },
+      {
+        text: rate
+      }
+    ]
+  end.compact,
+  caption: {
+    text: t('.rates'),
+    classes: 'govuk-visually-hidden'
+  },
+  first_cell_is_header: true,
+  classes: 'ccs-rates-table'
+) %>

@@ -11,9 +11,9 @@ Feature: Supply Teachers - Master vendors - Above threshold
     And the caption is 'Contract worth more than £2.5 million'
     And there are 3 managed service provider agencies
     And the managed service provider agencies are:
-      | O'HARA LLC                    |
       | BOGAN, REICHERT AND COLLIER   |
       | MCGLYNN, BAILEY AND NIKOLAUS  |
+      | O'HARA LLC                    |
     And the contact details for the managed service provider 'BOGAN, REICHERT AND COLLIER' are:
       | Ok Kuphal                             |
       | (670) 117-8868 x86891                 |

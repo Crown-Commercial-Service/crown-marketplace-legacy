@@ -1,8 +1,12 @@
 module LegalServices
   module RM6240
     class Journey::ChooseServices < LegalServices::Journey::ChooseServices
-      def services_for_lot(lot_number, _jurisdiction, _central_government)
-        LegalServices::RM6240::Service.where(lot_number:).sort_by(&:name)
+      def lot_services
+        Service.where(lot_id: "RM6240.#{lot_number}a").order(:name)
+      end
+
+      def lot
+        Lot.find("RM6240.#{lot_number}a")
       end
 
       def next_step_class

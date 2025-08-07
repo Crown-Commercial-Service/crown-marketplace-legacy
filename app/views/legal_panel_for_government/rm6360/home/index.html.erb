@@ -1,0 +1,51 @@
+<%= content_for :page_title, t('.heading') %>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">
+      <%= t('.heading') %>
+    </h1>
+
+    <p class="govuk-body">
+      <%= t('.use_this_service.para01') %>
+    </p>
+
+    <p class="govuk-body">
+      <%= t('.use_this_service.para02') %>
+    </p>
+
+    <p class="govuk-body">
+      <%= t('.use_this_service.para03_html') %>
+    </p>
+
+    <p class="govuk-body">
+      <%= t('.use_this_service.para04_html') %>
+    </p>
+
+    <h2 class="govuk-heading-m govuk-!-margin-top-6 govuk-!-margin-bottom-2">
+      <%= t('.use_this_service.before_heading') %>
+    </h2>
+
+    <p class="govuk-body">
+      <%= t('.use_this_service.para05_html') %>
+    </p>
+
+    <%= govuk_button(t('shared.gateway.start_now'), href: journey_start_path(journey: LegalPanelForGovernment::Journey.journey_name), is_start_button: true, classes: 'govuk-!-margin-top-6 govuk-!-margin-bottom-9', attributes: { aria: { label: t('shared.gateway.start_now') } } ) %>
+
+    <h3 class="govuk-heading-m govuk-!-margin-bottom-3">
+      <%= t('.use_this_service.guidance_heading') %>
+    </h3>
+
+    <ul class="govuk-list govuk-list--bullet govuk-!-margin-left-2 govuk-!-margin-bottom-7">
+      <li>
+        <a href="<%= t('.wps_url') %>"><%= t('.wps_link_text') %></a>
+      </li>
+      <li>
+        <a href="<%= t('.ojeu_url_html') %>"><%= t('.ojeu_link_text') %></a>
+      </li>
+    </ul>
+
+  </div>
+</div>
+

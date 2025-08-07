@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe LegalServices::RM6240::Journey::ChooseJurisdiction do
-  subject(:step) { described_class.new(jurisdiction: jurisdiction, lot: lot_number) }
+  subject(:step) { described_class.new(jurisdiction:, lot_number:) }
 
   let(:jurisdiction) { 'a' }
   let(:lot_number) { '1' }
@@ -40,13 +40,13 @@ RSpec.describe LegalServices::RM6240::Journey::ChooseJurisdiction do
 
   describe '.permit_list' do
     it 'returns a list of the permitted attributes' do
-      expect(described_class.permit_list).to eq [:lot, :jurisdiction, {}]
+      expect(described_class.permit_list).to eq [:lot_number, :jurisdiction, {}]
     end
   end
 
   describe '.permitted_keys' do
     it 'returns a list of the permitted keys' do
-      expect(described_class.permitted_keys).to eq %i[lot jurisdiction]
+      expect(described_class.permitted_keys).to eq %i[lot_number jurisdiction]
     end
   end
 
@@ -68,13 +68,13 @@ RSpec.describe LegalServices::RM6240::Journey::ChooseJurisdiction do
     end
   end
 
-  describe '.selected_lot' do
-    let(:result) { step.selected_lot }
+  describe '.lot' do
+    let(:result) { step.lot }
 
     context 'when the lot exists' do
       it 'returns the lot' do
-        expect(result.number).to eq '1'
-        expect(result.description).to eq 'Full service provision'
+        expect(result.id).to eq 'RM6240.1a'
+        expect(result.name).to eq 'Full service provision'
       end
     end
 
@@ -82,7 +82,7 @@ RSpec.describe LegalServices::RM6240::Journey::ChooseJurisdiction do
       let(:lot_number) { '4' }
 
       it 'returns nil' do
-        expect(result).to be_nil
+        expect { result }.to raise_error(ActiveRecord::RecordNotFound)
       end
     end
   end

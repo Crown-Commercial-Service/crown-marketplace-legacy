@@ -1,12 +1,16 @@
 require 'rails_helper'
 
 RSpec.describe SupplyTeachers::RM6238::BranchesController do
-  let(:default_params) { { service: 'supply_teachers', framework: framework } }
-  let(:framework) { 'RM6238' }
+  let(:default_params) { { service: 'supply_teachers', framework: framework_id } }
+  let(:framework_id) { 'RM6238' }
+  let(:framework) { Framework.find('RM6238') }
+  let(:lot) { Lot.find('RM6238.1') }
+  let(:supplier_framework) { create(:supplier_framework, framework:) }
+  let(:supplier_framework_lot) { create(:supplier_framework_lot, :with_rates, supplier_framework:, lot:) }
 
   describe 'GET index' do
-    let(:first_branch) { create(:supply_teachers_rm6238_branch, :with_rates) }
-    let(:second_branch) { create(:supply_teachers_rm6238_branch, :with_rates) }
+    let(:first_branch) { create(:supplier_framework_lot_branch, supplier_framework_lot:) }
+    let(:second_branch) { create(:supplier_framework_lot_branch, supplier_framework_lot:) }
     let(:branches) { [first_branch, second_branch] }
 
     context 'when not logged in' do
@@ -18,7 +22,7 @@ RSpec.describe SupplyTeachers::RM6238::BranchesController do
     context 'when the framework is not the current framework' do
       login_st_buyer
 
-      let(:framework) { 'RM3826' }
+      let(:framework_id) { 'RM3826' }
 
       it 'renders the unrecognised framework page with the right http status' do
         get :index
@@ -32,7 +36,7 @@ RSpec.describe SupplyTeachers::RM6238::BranchesController do
       let(:postcode) { 'SW1A 1AA' }
 
       before do
-        allow(SupplyTeachers::RM6238::Branch).to receive(:search).and_return(branches)
+        allow(Supplier::Framework::Lot::Branch).to receive(:search).and_return(branches)
 
         Geocoder::Lookup::Test.add_stub(
           postcode, [{ 'coordinates' => [51.5149666, -0.119098] }]
@@ -228,8 +232,8 @@ RSpec.describe SupplyTeachers::RM6238::BranchesController do
           looking_for: 'worker',
           worker_type: 'agency_supplied',
           payroll_provider: 'agency',
-          job_type: 'teacher',
-          term: 'daily',
+          position_id: 41,
+          offset: 0,
           postcode: postcode
         }
       end
@@ -265,7 +269,7 @@ RSpec.describe SupplyTeachers::RM6238::BranchesController do
   describe 'GET show' do
     login_st_buyer
 
-    let(:branch) { create(:supply_teachers_rm6238_branch, :with_rates) }
+    let(:branch) { create(:supplier_framework_lot_branch, supplier_framework_lot:) }
 
     before { get :show, params: { id: branch.slug } }
 

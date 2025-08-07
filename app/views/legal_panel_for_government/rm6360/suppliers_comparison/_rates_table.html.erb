@@ -1,0 +1,30 @@
+<div class="ccs-suppliers-comparison-container">
+  <%= govuk_table(
+    [
+      {
+        text: t('.supplier'),
+      },
+    ] + positions.map do |position|
+      {
+        text: position.position
+      }
+    end,
+    @supplier_frameworks.map do |supplier_framework, rates|
+      [
+        {
+          text: supplier_framework.supplier_name,
+        }
+      ] + positions.map  do |position|
+        {
+          text: display_rate(position.id, jurisdiction_id, rates)
+        }
+      end
+    end,
+    caption: {
+      text: t('.rates'),
+      classes: 'govuk-visually-hidden'
+    },
+    first_cell_is_header: true,
+    classes: 'ccs-suppliers-comparison-table'
+  ) %>
+</div>

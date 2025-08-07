@@ -13,13 +13,13 @@
         <%= govuk_button(t('.search'), form: f, classes: 'govuk-button--secondary') %>
       </div>
 
-      <p class="govuk-body govuk-!-margin-bottom-8"><%= t('.results_found_with_location_html', results: @suppliers_count) %></p>
+      <p class="govuk-body govuk-!-margin-bottom-8"><%= t('.results_found_with_location_html', results: @supplier_frameworks.total_count) %></p>
     <% end %>
   </div>
 </div>
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds" id="agency-table">
-    <%= render(partial: 'agencies_table', locals: { paginated_suppliers: @paginated_suppliers }) %>
+    <%= render(partial: 'agencies_table', locals: { supplier_frameworks: @supplier_frameworks }) %>
   </div>
 </div>

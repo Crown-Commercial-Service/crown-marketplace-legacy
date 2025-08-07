@@ -3,17 +3,12 @@ class LegalServices::RM6240::SupplierSpreadsheetCreator < LegalServices::Supplie
 
   def add_audit_trail(audit_sheet)
     audit_sheet.add_row ['Central Government user?', @params['central_government'] || 'no']
-    lot = LegalServices::RM6240::Lot.find_by(number: @params['lot'])
-    audit_sheet.add_row ['Lot', "#{lot.number} - #{lot.description}"]
+    lot = Lot.find("RM6240.#{@params['lot_number']}#{@params['jurisdiction']}")
+    audit_sheet.add_row ['Lot', "#{lot.number[0]} - #{lot.name}"]
 
-    return if @params['lot'] == '3'
+    return if lot.id == 'RM6240.3'
 
     add_services(audit_sheet)
     add_jurisdiction(audit_sheet)
-  end
-
-  def add_services(sheet)
-    services = @params['services'].map { |service_code| @service_model.find_by(lot_number: @params['lot'], service_number: service_code).name }
-    sheet.add_row ['Services', services.join(', ')]
   end
 end

@@ -4,6 +4,7 @@ interface CheckboxItemInterface {
 }
 
 interface CheckboxSectionInterface {
+  checkBoxes: CheckboxItem[]
   uncheckAll: () => void
 }
 
@@ -24,19 +25,23 @@ interface CheckboxItemDetails {
 }
 
 class CheckboxItem implements CheckboxItemInterface {
+  private readonly $checkBoxItem: JQuery<HTMLInputElement>
   private readonly $checkBox: JQuery<HTMLInputElement>
   private readonly basket: Basket
   private basketItem?: BasketItem
+  private checkBoxSanatizedValue: string
   checkboxItemDetails: CheckboxItemDetails
 
-  constructor (basket: Basket, $checkBox: JQuery<HTMLInputElement>) {
+  constructor (basket: Basket, $checkBoxItem: JQuery<HTMLInputElement>) {
     this.basket = basket
-    this.$checkBox = $checkBox
+    this.$checkBoxItem = $checkBoxItem
+    this.$checkBox = $checkBoxItem.find('input.govuk-checkboxes__input')
+    this.checkBoxSanatizedValue = ($checkBoxItem.find('label').text() || '').toLowerCase().replaceAll(' ', '')
 
     this.checkboxItemDetails = {
-      groupID: $checkBox.attr('sectionid') ?? '',
-      itemID: $checkBox.attr('id') ?? '',
-      text: $(`label[for="${$checkBox.attr('id') ?? ''}"]`).text() || ''
+      groupID: this.$checkBox.attr('sectionid') ?? '',
+      itemID: this.$checkBox.attr('id') ?? '',
+      text: $(`label[for="${this.$checkBox.attr('id') ?? ''}"]`).text() || ''
     }
 
     if (this.isChecked() && this.basketItem === undefined) this.basketItem = this.basket.addItemToBasket(this)
@@ -60,18 +65,46 @@ class CheckboxItem implements CheckboxItemInterface {
 
     this.$checkBox.prop('checked', isChecked)
   }
+
+  toggleVisivility = (isShown: boolean): void => {
+    this.$checkBoxItem.toggleClass('govuk-visually-hidden', !isShown)
+  }
+
+  showIfInSearch = (search: string): void => {
+    this.toggleVisivility(this.checkBoxSanatizedValue.indexOf(search) > -1)
+  }
 }
 
 class CheckboxSection implements CheckboxSectionInterface {
-  private readonly checkBoxes: CheckboxItem[] = []
+  checkBoxes: CheckboxItem[] = []
 
   constructor (basket: Basket, $section: JQuery<HTMLElement>) {
-    $section.find('div.govuk-checkboxes__item:not(.ccs-select-all) > input.govuk-checkboxes__input').each((_index: number, checkBox: HTMLElement) => {
-      this.checkBoxes.push(new CheckboxItem(basket, $(checkBox) as JQuery<HTMLInputElement>))
+    $section.find('div.govuk-checkboxes__item:not(.ccs-select-all)').each((_index: number, checkBoxItem: HTMLElement) => {
+      this.checkBoxes.push(new CheckboxItem(basket, $(checkBoxItem) as JQuery<HTMLInputElement>))
     })
   }
 
   uncheckAll = (): void => { this.checkBoxes.forEach((checkBox: CheckboxItem) => { checkBox.toggleChecked(false) }) }
+}
+
+class BasketSearch {
+  private basket: Basket
+  private $searchInput: JQuery<HTMLInputElement>
+
+  constructor (basket: Basket, $searchFormGroup: JQuery<HTMLElement>) {
+    this.basket = basket
+    this.$searchInput = $searchFormGroup.find('input')
+
+    this.setEventListeners()
+  }
+
+  private readonly setEventListeners = (): void => {
+    this.$searchInput.on('input', (event) => {
+      this.basket.searchItems(this.sanitizeSearch(event.target.value))
+    })
+  }
+
+  private sanitizeSearch = (search: string): string => search.toLowerCase().replaceAll(' ', '')
 }
 
 class BasketItem implements BasketItemInterface {
@@ -130,6 +163,10 @@ class Basket implements BasketInterface {
   constructor () {
     this.checkboxSection = new CheckboxSection(this, $('#selection-checkboxes'))
 
+    if ($('[data-module="search-items"').length) {
+      new BasketSearch(this, $('[data-module="search-items"'))
+    }
+
     this.updateNumberOfItems()
 
     this.setEventListeners()
@@ -187,6 +224,14 @@ class Basket implements BasketInterface {
   }
 
   removeBasketItem = (): void => { this.updateNumberOfItems() }
+
+  searchItems = (search: string): void => {
+    if (search === '') {
+      this.checkboxSection.checkBoxes.forEach((checkboxItem) => checkboxItem.toggleVisivility(true))
+    } else {
+      this.checkboxSection.checkBoxes.forEach((checkboxItem) => checkboxItem.showIfInSearch(search))
+    }
+  }
 }
 
 const initBasket = (): void => {

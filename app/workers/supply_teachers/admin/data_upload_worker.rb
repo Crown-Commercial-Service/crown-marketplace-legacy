@@ -2,6 +2,7 @@ module SupplyTeachers
   module Admin
     class DataUploadWorker
       include Sidekiq::Worker
+
       sidekiq_options queue: 'st'
 
       # rubocop:disable Metrics/AbcSize
@@ -17,7 +18,7 @@ module SupplyTeachers
           tmpfile.close
         end
 
-        upload_module.upload!(suppliers)
+        ::Upload.smart_upload!(framework_id, data_converter_module.convert_data(suppliers))
 
         upload.publish!
       rescue ActiveRecord::RecordInvalid => e
@@ -42,12 +43,16 @@ module SupplyTeachers
         self.class.module_parent::Upload
       end
 
-      def upload_module
-        self.class.module_parent.module_parent::Upload
-      end
-
       def current_data_module
         self.class.module_parent::CurrentData
+      end
+
+      def data_converter_module
+        self.class.module_parent::DataConverter
+      end
+
+      def framework_id
+        self.class.to_s.split('::')[1]
       end
     end
   end

@@ -8,6 +8,8 @@ module Base::SessionsHelper
     'management_consultancy/admin' => I18n.t('base.sessions.new.heading.management_consultancy.admin'),
     'legal_services' => I18n.t('base.sessions.new.heading.legal_services.buyer'),
     'legal_services/admin' => I18n.t('base.sessions.new.heading.legal_services.admin'),
+    'legal_panel_for_government' => I18n.t('base.sessions.new.heading.legal_panel_for_government.buyer'),
+    'legal_panel_for_government/admin' => I18n.t('base.sessions.new.heading.legal_panel_for_government.admin'),
     'supply_teachers' => I18n.t('base.sessions.new.heading.supply_teachers.buyer'),
     'supply_teachers/admin' => I18n.t('base.sessions.new.heading.supply_teachers.admin')
   }.freeze

@@ -1,0 +1,52 @@
+<%= add_optional_error_prefix_to_page_title(@journey.errors) %>
+<%= content_for :page_title, t('.question') %>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <%= render partial: 'shared/error_summary', locals: { errors: @journey.errors } %>
+
+    <%= form_with url: @form_path, method: :get, html: { specialvalidation: true, novalidate: true } do |f| %>
+      <%= hidden_fields_for_previous_steps_and_responses(@journey) %>
+      <%= hidden_field_tag(:lot_id, @journey.current_step.lot_id) %>
+
+      <%= govuk_radios(
+        :not_core_jurisdiction,
+        @journey.current_step.class::CORE_JURISDICTIONS_OPTIONS.map do |option|
+          {
+            value: option,
+            label: {
+              text: t(option)
+            }
+          }
+        end,
+        model: @journey.current_step,
+        fieldset: {
+          legend: {
+            text: t('.question'),
+            classes: 'govuk-fieldset__legend--m',
+            is_page_heading: true,
+            caption: {
+              text: lot_full_name(@journey.current_step.lot),
+              classes: 'govuk-caption-m'
+            }
+          }
+        },
+        hint: {
+          text: tag.ul(class: 'govuk-list govuk-list--bullet') do
+            concat(tag.li(t('.core_country.united_kingdom')))
+            concat(tag.li(t('.core_country.belgium')))
+            concat(tag.li(t('.core_country.switzerland')))
+            concat(tag.li(t('.core_country.germany')))
+            concat(tag.li(t('.core_country.france')))
+            concat(tag.li(t('.core_country.ireland')))
+            concat(tag.li(t('.core_country.usa')))
+            concat(tag.li(t('.core_country.canada')))
+          end
+        },
+        classes: 'govuk-radios--inline'
+      ) %>
+
+      <%= govuk_button(t('common.submit'), form: f, classes: 'govuk-!-padding-left-7 govuk-!-padding-right-7', attributes: { id: 'submit', name: t('common.submit') }) %>
+    <% end %>
+  </div>
+</div>

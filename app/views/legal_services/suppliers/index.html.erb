@@ -3,9 +3,9 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
     <span class="govuk-caption-xl">
-      <%= full_lot_description(@lot.number, @lot.description) %>
+      <%= full_lot_name(@lot) %>
     </span>
-    <% if @suppliers.count.zero? %>
+    <% if @supplier_frameworks.count.zero? %>
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
           <h1 class="govuk-heading-xl"><%= t('.no_suppliers_found.heading') %></h1>
@@ -38,9 +38,9 @@
           <p class="govuk-body">
             <span class='govuk-!-font-weight-bold'>
               <span class='govuk-!-font-size-27 govuk-!-font-weight-bold'>
-                <%= @suppliers.count %>
+                <%= @supplier_frameworks.count %>
               </span>
-              <%= t('.supplier').pluralize(@suppliers.count) %>
+              <%= t('.supplier').pluralize(@supplier_frameworks.count) %>
             </span>
             <%= t('.can_provide_legal_services') %>
           </p>
@@ -51,10 +51,12 @@
           <%= govuk_button(t('.download_suppliers_list'), href: download_legal_services_suppliers_path) %>
         </div>
       </div>
-      <div class="govuk-grid-column-two-thirds ccs-search-results govuk-!-padding-left-0 govuk-!-padding-right-0">
-        <ul class="ccs-results-list">
-          <%= render partial: 'supplier', collection: @suppliers %>
-        </ul>
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds ccs-search-results">
+          <ul class="ccs-results-list">
+            <%= render partial: 'supplier_framework', collection: @supplier_frameworks %>
+          </ul>
+        </div>
       </div>
     <% end %>
   </div>

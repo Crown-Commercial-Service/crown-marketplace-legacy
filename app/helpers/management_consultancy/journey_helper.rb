@@ -1,14 +1,9 @@
 module ManagementConsultancy::JourneyHelper
-  def lot_number_and_description(number, description)
-    lot_number = number.split('.')[1]
-
-    "Lot #{lot_number} - #{description}"
+  def lot_full_name(lot)
+    "Lot #{lot.number} - #{lot.name}"
   end
 
-  def framework_lot_and_description(number, description)
-    framework = number.split('.')[0].gsub('1', '')
-    lot_number = number.split('.')[1]
-
-    "#{framework} lot #{lot_number} - #{description}"
+  def framework_lot_and_description(framework_name, lot)
+    "#{framework_name} lot #{lot.number} - #{lot.name}"
   end
 end

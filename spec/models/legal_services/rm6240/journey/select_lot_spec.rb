@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe LegalServices::RM6240::Journey::SelectLot do
-  subject(:step) { described_class.new(lot: lot_number) }
+  subject(:step) { described_class.new(lot_number:) }
 
   let(:lot_number) { '1' }
 
@@ -11,7 +11,7 @@ RSpec.describe LegalServices::RM6240::Journey::SelectLot do
 
       it 'is not valid and has the correct error message' do
         expect(step).not_to be_valid
-        expect(step.errors[:lot].first).to eq 'Select the lot you need'
+        expect(step.errors[:lot_number].first).to eq 'Select the lot you need'
       end
     end
 
@@ -50,13 +50,13 @@ RSpec.describe LegalServices::RM6240::Journey::SelectLot do
 
   describe '.permit_list' do
     it 'returns a list of the permitted attributes' do
-      expect(described_class.permit_list).to eq [:lot, {}]
+      expect(described_class.permit_list).to eq [:lot_number, {}]
     end
   end
 
   describe '.permitted_keys' do
     it 'returns a list of the permitted keys' do
-      expect(described_class.permitted_keys).to eq %i[lot]
+      expect(described_class.permitted_keys).to eq %i[lot_number]
     end
   end
 
@@ -82,7 +82,7 @@ RSpec.describe LegalServices::RM6240::Journey::SelectLot do
     let(:result) { described_class.lots }
 
     it 'returns the 3 lots sorted' do
-      expect(result.map(&:number)).to eq %w[1 2 3]
+      expect(result.pluck(:number)).to eq %w[1a 2a 3]
     end
   end
 end

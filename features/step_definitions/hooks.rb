@@ -14,7 +14,7 @@ Before do
 end
 
 Before do |scenario|
-  %w[rm6238 rm6309 rm6187 rm6240].each do |framework|
+  %w[rm6238 rm6309 rm6187 rm6240 rm6360].each do |framework|
     if scenario.location.file.include? framework
       @framework = framework.upcase
       break
@@ -58,12 +58,22 @@ Before('@mobile') do
   resize_window_to_mobile
 end
 
+After('@mobile') do
+  resize_window_to_pc
+end
+
 After do
   DatabaseCleaner.clean
   if Framework.none?
     Rake::Task['db:static'].reenable
-    Rake::Task['db:legacy_frameworks'].reenable
-    Rake::Task['db:import_test_data'].reenable
-    Rake::Task['db:import_test_data'].invoke
+    Rake::Task['db:frameworks'].reenable
+
+    if @framework
+      Rake::Task['db:import_test_data_for_framework_service'].reenable
+      Rake::Task['db:import_test_data_for_framework_service'].invoke(@framework)
+    else
+      Rake::Task['db:import_test_data'].reenable
+      Rake::Task['db:import_test_data'].invoke
+    end
   end
 end
