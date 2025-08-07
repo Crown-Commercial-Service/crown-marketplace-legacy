@@ -1,8 +1,6 @@
 module SupplyTeachers
   module Admin
     class UploadsController < SupplyTeachers::Admin::FrameworkController
-      include SharedPagesConcern
-
       before_action :authenticate_user!, :authorize_user, only: %i[index show new create update destroy progress]
       before_action :set_upload, only: %i[show update destroy progress]
 

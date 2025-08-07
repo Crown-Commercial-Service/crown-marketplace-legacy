@@ -9,6 +9,11 @@ module LegalPanelForGovernment
       def index
         @journey = LegalPanelForGovernment::Journey.new(params[:framework], 'suppliers', params)
         @back_path = @journey.previous_step_path
+        begin
+          Search.log_new_search(@lot.framework, current_user, session.id, @journey.params.to_hash, @supplier_frameworks)
+        rescue StandardError => e
+          Rollbar.log('error', e)
+        end
       end
 
       def show
