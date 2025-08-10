@@ -141,7 +141,7 @@ GEM
       descendants_tracker (~> 0.0.4)
       ice_nine (~> 0.11.0)
       thread_safe (~> 0.3, >= 0.3.1)
-    base64 (0.2.0)
+    base64 (0.3.0)
     bcrypt (3.1.20)
     benchmark (0.4.1)
     bigdecimal (3.2.2)
@@ -246,7 +246,7 @@ GEM
       activemodel
     erb (5.0.2)
     erubi (1.13.1)
-    excon (1.2.7)
+    excon (1.2.8)
       logger
     factory_bot (6.5.4)
       activesupport (>= 6.1.0)
@@ -264,8 +264,8 @@ GEM
     faraday-net_http (3.3.0)
       net-http
     ffi (1.17.1)
-    fog-aws (3.32.0)
-      base64 (~> 0.2.0)
+    fog-aws (3.33.0)
+      base64 (>= 0.2, < 0.4)
       fog-core (~> 2.6)
       fog-json (~> 1.1)
       fog-xml (~> 0.1)
@@ -280,7 +280,8 @@ GEM
     fog-xml (0.1.5)
       fog-core
       nokogiri (>= 1.5.11, < 2.0.0)
-    formatador (1.1.0)
+    formatador (1.2.0)
+      reline
     friendly_id (5.5.1)
       activerecord (>= 4.0.0)
     geocoder (1.8.5)
@@ -365,12 +366,12 @@ GEM
     mime-types (3.7.0)
       logger
       mime-types-data (~> 3.2025, >= 3.2025.0507)
-    mime-types-data (3.2025.0527)
+    mime-types-data (3.2025.0805)
     mini_mime (1.1.5)
     mini_portile2 (2.8.9)
     minitest (5.25.5)
     msgpack (1.8.0)
-    multi_json (1.15.0)
+    multi_json (1.17.0)
     multi_test (1.1.0)
     multi_xml (0.6.0)
     mustermann (3.0.3)
