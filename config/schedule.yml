@@ -1,0 +1,4 @@
+update_bank_holidays:
+  cron: '0 3 1 * *'
+  class: 'BankHolidaysWorker'
+  queue: legacy_default
