@@ -17,7 +17,7 @@ module BankHolidaysDataLoader
       BankHoliday.transaction do
         ActiveRecord::Base.connection.truncate_tables(:bank_holidays)
 
-        rows_from_csv_and_api.each do |row|
+        rows_from_csv_data_and_api.each do |row|
           BankHoliday.create!(**row)
         end
       end
