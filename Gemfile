@@ -83,6 +83,7 @@ gem 'aasm', '~> 5.5'
 gem 'sidekiq', '~> 8.0.6'
 gem 'sinatra', '~> 4.1.1', require: false
 gem 'slim', '~> 5.2.1'
+gem 'sidekiq-cron'
 
 # for authorization
 gem 'cancancan', '~> 3.6.1'

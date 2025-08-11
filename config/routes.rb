@@ -1,5 +1,7 @@
 # rubocop:disable Metrics/BlockLength
 require 'sidekiq/web'
+require 'sidekiq/cron/web'
+
 Rails.application.routes.draw do
   get '/', to: 'home#index'
   get '/healthcheck', to: 'home#healthcheck', format: :json
