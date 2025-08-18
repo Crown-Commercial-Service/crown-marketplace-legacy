@@ -22,13 +22,14 @@ class Upload < ApplicationRecord
     raise error if error
   end
 
+  # rubocop:disable Metrics/PerceivedComplexity
   def self.smart_upload!(framework, suppliers)
     error = all_or_none(framework) do
       Supplier::Framework.where(framework:).destroy_all
 
       suppliers.each do |supplier_data|
         supplier = if supplier_data[:duns_number]
-                     Supplier.find_by(duns_number: supplier_data[:duns_number])
+                     Supplier.find_by(duns_number: supplier_data[:duns_number]) || Supplier.find_by(name: supplier_data[:name])
                    elsif supplier_data[:id]
                      Supplier.find_by(id: supplier_data[:id])
                    end
@@ -45,7 +46,7 @@ class Upload < ApplicationRecord
     raise error if error
   end
 
-  # rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Metrics/BlockLength
+  # rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/BlockLength
   def self.add_supplier_framework!(supplier, supplier_data)
     supplier_data[:supplier_frameworks].each do |supplier_framework_data|
       supplier_framework = supplier.supplier_frameworks.create!(supplier_framework_data.slice(:framework_id, :enabled))
