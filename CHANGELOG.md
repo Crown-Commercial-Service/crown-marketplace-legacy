@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Updated the admin sections for the legacy services to include the ability to generate reports of user activity ([PR 2034](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2034))
 
+### Fixed
+
+- Fixed an issue where supplier duns numbers were saved looking as a float (with a .0) and not as an int ([PR 2060](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2060))
+
 ## [6.0.0] - 2025-08-07
 
 ### Added

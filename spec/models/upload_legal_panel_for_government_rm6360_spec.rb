@@ -502,7 +502,7 @@ RSpec.describe Upload do
       end
     end
 
-    context 'and the supplier does exist' do
+    context 'and the supplier does exist with the same duns' do
       let(:new_supplier_name) { Faker::Name.unique.name }
 
       let(:new_suppliers) do
@@ -539,6 +539,70 @@ RSpec.describe Upload do
 
         supplier = Supplier.last
         expect(supplier.name).to eq(new_supplier_name)
+      end
+
+      it 'does not create an additional supplier framework' do
+        expect { result }.not_to change(Supplier::Framework, :count)
+      end
+
+      it 'does not create an additional supplier framework contact detail' do
+        expect { result }.not_to change(Supplier::Framework::ContactDetail, :count)
+      end
+
+      it 'removes the supplier framework lot associated with supplier' do
+        expect { result }.to change(Supplier::Framework::Lot, :count).by(-2)
+      end
+
+      it 'removes the supplier framework lot services associated with supplier' do
+        expect { result }.to change(Supplier::Framework::Lot::Service, :count).by(-3)
+      end
+
+      it 'removes supplier framework lot jurisdictions associated with supplier' do
+        expect { result }.to change(Supplier::Framework::Lot::Jurisdiction, :count).by(-3)
+      end
+
+      it 'removes the supplier framework lot rates associated with supplier' do
+        expect { result }.to change(Supplier::Framework::Lot::Rate, :count).by(-3)
+      end
+    end
+
+    context 'and the supplier does exist with a different duns' do
+      let(:new_supplier_duns) { Faker::Company.unique.duns_number.delete('-').to_s }
+
+      let(:new_suppliers) do
+        [
+          {
+            id: supplier_id,
+            name: supplier_name,
+            duns_number: new_supplier_duns,
+            supplier_frameworks: [
+              {
+                framework_id: 'RM6360',
+                enabled: true,
+                supplier_framework_contact_detail: {
+                  email:,
+                  telephone_number:,
+                },
+                supplier_framework_lots: []
+              },
+            ]
+          },
+        ]
+      end
+
+      it 'creates record of successful upload' do
+        expect { result }.to change(described_class, :count).by(1)
+      end
+
+      it 'does not create a supplier' do
+        expect { result }.not_to change(Supplier, :count)
+      end
+
+      it 'updates the supplier duns' do
+        result
+
+        supplier = Supplier.last
+        expect(supplier.duns_number).to eq(new_supplier_duns)
       end
 
       it 'does not create an additional supplier framework' do

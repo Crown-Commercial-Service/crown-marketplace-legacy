@@ -37,7 +37,7 @@ module FilesImporterHelper
   end
 
   def extract_duns(supplier_name)
-    supplier_name[/(?<=\[)(.*?)(?=\])/].to_i
+    supplier_name[/(?<=\[)(.*?)(?=\])/].to_i.to_s
   end
 
   def extract_region_code(region_name)
