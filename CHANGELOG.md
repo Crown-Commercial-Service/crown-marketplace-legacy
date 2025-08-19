@@ -7,6 +7,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [6.1.0] - 2025-08-21
+
+### Changed
+
+- Update how UK bank holiday dates are managed ([PR 2045](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2045))
+
+### Added
+
+- Updated the admin sections for the legacy services to include the ability to generate reports of user activity ([PR 2034](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2034))
+
+### Fixed
+
+- Fix issue of the date items not being copied and so making the HTML very large ([PR 2035](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2035))
+- Fixed an issue where supplier duns numbers were saved looking as a float (with a .0) and not as an int ([PR 2060](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2060))
+
+### Removed
+
+- Now that the update has happened to the the supplier data to make it generic, we can remove the old tables ([PR 2061](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2061))
+
 ## [6.0.0] - 2025-08-07
 
 ### Added

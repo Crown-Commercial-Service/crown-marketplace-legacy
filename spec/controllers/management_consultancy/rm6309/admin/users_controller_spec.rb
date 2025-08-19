@@ -119,8 +119,8 @@ RSpec.describe ManagementConsultancy::RM6309::Admin::UsersController do
           end
 
           context 'and there is no additional challange' do
-            it 'redirects to management_consultancy_rm6309_admin_uploads_path' do
-              expect(response).to redirect_to management_consultancy_rm6309_admin_uploads_path
+            it 'redirects to management_consultancy_rm6309_admin_path' do
+              expect(response).to redirect_to management_consultancy_rm6309_admin_path
             end
 
             it 'deletes the cookies' do
@@ -139,8 +139,8 @@ RSpec.describe ManagementConsultancy::RM6309::Admin::UsersController do
           cookies.update(response.cookies)
         end
 
-        it 'redirects to management_consultancy_rm6309_admin_uploads_path' do
-          expect(response).to redirect_to management_consultancy_rm6309_admin_uploads_path
+        it 'redirects to management_consultancy_rm6309_admin_path' do
+          expect(response).to redirect_to management_consultancy_rm6309_admin_path
         end
 
         it 'deletes the cookies' do
@@ -181,8 +181,8 @@ RSpec.describe ManagementConsultancy::RM6309::Admin::UsersController do
         end
 
         context 'and it is valid' do
-          it 'redirects to management_consultancy_rm6309_admin_uploads_path' do
-            expect(response).to redirect_to management_consultancy_rm6309_admin_uploads_path
+          it 'redirects to management_consultancy_rm6309_admin_path' do
+            expect(response).to redirect_to management_consultancy_rm6309_admin_path
           end
 
           it 'deletes the cookies' do
@@ -200,8 +200,8 @@ RSpec.describe ManagementConsultancy::RM6309::Admin::UsersController do
           cookies.update(response.cookies)
         end
 
-        it 'redirects to management_consultancy_rm6309_admin_uploads_path' do
-          expect(response).to redirect_to management_consultancy_rm6309_admin_uploads_path
+        it 'redirects to management_consultancy_rm6309_admin_path' do
+          expect(response).to redirect_to management_consultancy_rm6309_admin_path
         end
 
         it 'deletes the cookies' do

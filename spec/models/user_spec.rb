@@ -1,9 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe User do
-  subject(:user) { build(:user, confirmed_at:) }
+  describe 'associations' do
+    it { is_expected.to have_many(:searches) }
+    it { is_expected.to have_many(:reports) }
+  end
 
   describe '#confirmed?' do
+    subject(:user) { build(:user, confirmed_at:) }
+
     context 'when confirmed_at blank' do
       let(:confirmed_at) { nil }
 

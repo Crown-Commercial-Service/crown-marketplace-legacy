@@ -18,6 +18,7 @@ RSpec.describe LegalServices::RM6240::SuppliersController do
   before do
     allow(Supplier::Framework).to receive(:with_services).with(service_ids).and_return(supplier_frameworks)
     allow(Supplier::Framework).to receive(:with_services).with(['RM6240.3.1'], 'GB').and_return(supplier_frameworks)
+    allow(Search).to receive(:log_new_search).and_return(true)
   end
 
   describe 'GET index' do
@@ -62,6 +63,10 @@ RSpec.describe LegalServices::RM6240::SuppliersController do
 
       it 'calls with_services' do
         expect(Supplier::Framework).to have_received(:with_services).with(service_ids)
+      end
+
+      it 'logs the search' do
+        expect(Search).to have_received(:log_new_search).with(lot.framework, controller.current_user, controller.session.id, { central_government:, lot_number:, service_numbers:, jurisdiction: }.stringify_keys, supplier_frameworks)
       end
 
       context 'when the lot is RM6240.3' do

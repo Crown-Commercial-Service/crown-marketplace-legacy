@@ -33,5 +33,6 @@ class ActiveStorage::Blobs::RedirectController < ActiveStorage::BaseController
     mc_rm6309_upload_id: ManagementConsultancy::RM6309::Admin::Upload,
     ls_rm6240_upload_id: LegalServices::RM6240::Admin::Upload,
     lpg_rm6360_upload_id: LegalPanelForGovernment::RM6360::Admin::Upload,
+    report_id: Report,
   }.freeze
 end

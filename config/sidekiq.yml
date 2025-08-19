@@ -1,6 +1,6 @@
 :concurrency: 5
 :queues:
-  - default
+  - legacy_default
   - st
   - mc
   - ls

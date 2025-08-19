@@ -2,7 +2,6 @@ module ManagementConsultancy
   module RM6187
     module Admin
       class UploadsController < ManagementConsultancy::Admin::FrameworkController
-        include SharedPagesConcern
         include ::Admin::UploadsController
 
         private

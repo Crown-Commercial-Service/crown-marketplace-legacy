@@ -110,8 +110,8 @@ RSpec.describe ManagementConsultancy::RM6187::Admin::SessionsController do
       context 'and there is no challenge' do
         let(:challenge_name) { nil }
 
-        it 'redirects to management_consultancy_rm6187_admin_uploads_path' do
-          expect(response).to redirect_to management_consultancy_rm6187_admin_uploads_path
+        it 'redirects to management_consultancy_rm6187_admin_path' do
+          expect(response).to redirect_to management_consultancy_rm6187_admin_path
         end
       end
 
@@ -152,8 +152,8 @@ RSpec.describe ManagementConsultancy::RM6187::Admin::SessionsController do
         cookies.update(response.cookies)
       end
 
-      it 'redirects to management_consultancy_rm6187_admin_uploads_path' do
-        expect(response).to redirect_to management_consultancy_rm6187_admin_uploads_path
+      it 'redirects to management_consultancy_rm6187_admin_path' do
+        expect(response).to redirect_to management_consultancy_rm6187_admin_path
       end
     end
   end

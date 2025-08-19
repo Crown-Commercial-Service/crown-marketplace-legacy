@@ -17,8 +17,6 @@ RSpec.describe SupplyTeachers::RM6238::TempToPermCalculator::Calculator, type: :
 
   include_context 'with friendly dates RM6238'
 
-  stub_bank_holiday_json
-
   let(:contract_start_date) { start_of_1st_week }
   let(:daily_fee) { 10 }
   let(:hire_date) { start_of_1st_week }

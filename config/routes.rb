@@ -1,5 +1,7 @@
 # rubocop:disable Metrics/BlockLength
 require 'sidekiq/web'
+require 'sidekiq/cron/web'
+
 Rails.application.routes.draw do
   get '/', to: 'home#index'
   get '/healthcheck', to: 'home#healthcheck', format: :json
@@ -94,11 +96,11 @@ Rails.application.routes.draw do
   end
 
   concern :admin_shared_pages do
-    get '/not-permitted', to: 'uploads#not_permitted'
-    get '/accessibility-statement', to: 'uploads#accessibility_statement'
-    get '/cookie-policy', to: 'uploads#cookie_policy'
-    get '/cookie-settings', to: 'uploads#cookie_settings'
-    put '/cookie-settings', to: 'uploads#update_cookie_settings'
+    get '/not-permitted', to: 'dashboard#not_permitted'
+    get '/accessibility-statement', to: 'dashboard#accessibility_statement'
+    get '/cookie-policy', to: 'dashboard#cookie_policy'
+    get '/cookie-settings', to: 'dashboard#cookie_settings'
+    put '/cookie-settings', to: 'dashboard#update_cookie_settings'
   end
 
   concern :framework do
@@ -109,11 +111,20 @@ Rails.application.routes.draw do
     resources :frameworks, only: %i[index edit update]
   end
 
+  concern :admin_dashboard do
+    get '/', to: 'dashboard#index', action: :index
+  end
+
   concern :admin_uploads do
     resources :uploads, only: %i[index new create show] do
       get '/progress', action: :progress
     end
-    get '/', to: 'uploads#index'
+  end
+
+  concern :admin_reports do
+    resources :reports, only: %i[index new create show] do
+      get '/progress', action: :progress
+    end
   end
 
   concern :suppliers do
@@ -163,13 +174,12 @@ Rails.application.routes.draw do
 
     concern :admin do
       namespace :admin, defaults: { service: 'supply_teachers/admin' } do
-        get '/', to: 'uploads#index'
         resources :uploads, only: %i[index new create show destroy update] do
           member do
             get :progress, action: :progress
           end
         end
-        concerns :admin_shared_pages
+        concerns :admin_dashboard, :admin_shared_pages
       end
     end
 
@@ -207,7 +217,7 @@ Rails.application.routes.draw do
       concerns %i[buyer_shared_pages shared_pages suppliers]
 
       namespace :admin, defaults: { service: 'management_consultancy/admin' } do
-        concerns %i[admin_uploads admin_shared_pages]
+        concerns %i[admin_dashboard admin_uploads admin_reports admin_shared_pages]
       end
     end
 
@@ -215,7 +225,7 @@ Rails.application.routes.draw do
       concerns %i[buyer_shared_pages shared_pages suppliers]
 
       namespace :admin, defaults: { service: 'management_consultancy/admin' } do
-        concerns %i[admin_uploads admin_shared_pages]
+        concerns %i[admin_dashboard admin_uploads admin_reports admin_shared_pages]
       end
     end
 
@@ -239,7 +249,7 @@ Rails.application.routes.draw do
       concerns %i[buyer_shared_pages shared_pages suppliers]
 
       namespace :admin, defaults: { service: 'legal_services/admin' } do
-        concerns %i[admin_uploads admin_shared_pages]
+        concerns %i[admin_dashboard admin_uploads admin_reports admin_shared_pages]
       end
     end
 
@@ -263,7 +273,7 @@ Rails.application.routes.draw do
       get '/suppliers-comparison', to: 'suppliers_comparison#index'
 
       namespace :admin, defaults: { service: 'legal_panel_for_government/admin' } do
-        concerns %i[admin_uploads admin_shared_pages]
+        concerns %i[admin_dashboard admin_uploads admin_reports admin_shared_pages]
       end
     end
 

@@ -48,7 +48,7 @@ module Base::AuthenticationPathsConcern
   end
 
   def after_sign_in_path_for(resource)
-    stored_location_for(resource) || "#{service_path_base}/#{determine_start_path}"
+    stored_location_for(resource) || "#{service_path_base}#{determine_start_path}"
   end
 
   def resend_confirmation_email_path
@@ -56,6 +56,6 @@ module Base::AuthenticationPathsConcern
   end
 
   def determine_start_path
-    service_path_base.include?('admin') ? 'uploads' : 'start'
+    '/start' unless service_path_base.include?('admin')
   end
 end

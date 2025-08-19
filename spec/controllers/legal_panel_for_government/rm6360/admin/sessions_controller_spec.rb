@@ -109,8 +109,8 @@ RSpec.describe LegalPanelForGovernment::RM6360::Admin::SessionsController do
       context 'and there is no challenge' do
         let(:challenge_name) { nil }
 
-        it 'redirects to legal_panel_for_government_rm6360_admin_uploads_path' do
-          expect(response).to redirect_to legal_panel_for_government_rm6360_admin_uploads_path
+        it 'redirects to legal_panel_for_government_rm6360_admin_path' do
+          expect(response).to redirect_to legal_panel_for_government_rm6360_admin_path
         end
       end
 
@@ -151,8 +151,8 @@ RSpec.describe LegalPanelForGovernment::RM6360::Admin::SessionsController do
         cookies.update(response.cookies)
       end
 
-      it 'redirects to legal_panel_for_government_rm6360_admin_uploads_path' do
-        expect(response).to redirect_to legal_panel_for_government_rm6360_admin_uploads_path
+      it 'redirects to legal_panel_for_government_rm6360_admin_path' do
+        expect(response).to redirect_to legal_panel_for_government_rm6360_admin_path
       end
     end
   end

@@ -68,6 +68,63 @@ RSpec.describe ApplicationHelper do
     end
   end
 
+  describe '#breadcrumbs' do
+    context 'when there is nothing given' do
+      it 'returns nil' do
+        expect(helper.breadcrumbs).to be_nil
+      end
+    end
+
+    context 'when centent is provided' do
+      before { allow(helper).to receive(:content_for).with(:breadcrumbs).and_return('Something') }
+
+      it 'returns the content' do
+        expect(helper.breadcrumbs).to eq('Something')
+      end
+    end
+  end
+
+  describe '#admin_breadcrumbs' do
+    before { allow(helper).to receive(:service_path_base).and_return('/admin') }
+
+    context 'when nothing is provided' do
+      before { helper.admin_breadcrumbs }
+
+      it 'sets the html for breadcrumbs' do
+        expect(helper.breadcrumbs).to eq(
+          '<nav class="govuk-breadcrumbs" aria-label="Breadcrumb">
+            <ol class="govuk-breadcrumbs__list">
+              <li class="govuk-breadcrumbs__list-item">
+                <a class="govuk-breadcrumbs__link" href="/admin">Admin dashboard</a>
+              </li>
+            </ol>
+          </nav>'.gsub(/\s{2,}/, '').gsub("\n", '')
+        )
+      end
+    end
+
+    context 'when breadcrumbs are provided' do
+      before { helper.admin_breadcrumbs({ text: 'Elma', href: '/elma' }) }
+
+      # rubocop:disable RSpec/ExampleLength
+      it 'sets the html for breadcrumbs' do
+        expect(helper.breadcrumbs).to eq(
+          '<nav class="govuk-breadcrumbs" aria-label="Breadcrumb">
+            <ol class="govuk-breadcrumbs__list">
+              <li class="govuk-breadcrumbs__list-item">
+                <a class="govuk-breadcrumbs__link" href="/admin">Admin dashboard</a>
+              </li>
+              <li class="govuk-breadcrumbs__list-item">
+                <a class="govuk-breadcrumbs__link" href="/elma">Elma</a>
+              </li>
+            </ol>
+          </nav>'.gsub(/\s{2,}/, '').gsub("\n", '')
+        )
+      end
+      # rubocop:enable RSpec/ExampleLength
+    end
+  end
+
   describe '#hidden_fields_for_previous_steps_and_responses' do
     context 'when there are multiple previous questions and answers' do
       let(:questions_and_answers) do

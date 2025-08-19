@@ -1,6 +1,7 @@
 class ManagementConsultancy::RM6187::Admin::FilesProcessor < FilesProcessor
   private
 
+  # rubocop:disable Metrics/AbcSize
   def add_suppliers(suppliers_workbook)
     headers = {
       name: 'Supplier name',
@@ -25,7 +26,7 @@ class ManagementConsultancy::RM6187::Admin::FilesProcessor < FilesProcessor
       {
         id: SecureRandom.uuid,
         name: supplier['name'],
-        duns_number: supplier['duns'],
+        duns_number: supplier['duns'].to_i.to_s,
         sme: ['YES', 'Y'].include?(supplier['sme'].to_s.upcase),
         supplier_frameworks: [
           {
@@ -46,6 +47,7 @@ class ManagementConsultancy::RM6187::Admin::FilesProcessor < FilesProcessor
       }
     end
   end
+  # rubocop:enable Metrics/AbcSize
 
   def add_service_offerings_per_supplier(service_offerings_workbook)
     number_of_sheets(service_offerings_workbook).times do |sheet_number|

@@ -75,5 +75,8 @@ After do
       Rake::Task['db:import_test_data'].reenable
       Rake::Task['db:import_test_data'].invoke
     end
+
+    Rake::Task['db:bank_holidays'].reenable
+    Rake::Task['db:bank_holidays'].invoke
   end
 end

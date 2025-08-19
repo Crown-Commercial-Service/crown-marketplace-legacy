@@ -2,7 +2,6 @@ module LegalPanelForGovernment
   module RM6360
     module Admin
       class UploadsController < LegalPanelForGovernment::Admin::FrameworkController
-        include SharedPagesConcern
         include ::Admin::UploadsController
 
         private

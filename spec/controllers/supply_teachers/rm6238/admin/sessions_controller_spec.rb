@@ -109,8 +109,8 @@ RSpec.describe SupplyTeachers::RM6238::Admin::SessionsController do
       context 'and there is no challenge' do
         let(:challenge_name) { nil }
 
-        it 'redirects to supply_teachers_rm6238_admin_uploads_path' do
-          expect(response).to redirect_to supply_teachers_rm6238_admin_uploads_path
+        it 'redirects to supply_teachers_rm6238_admin_path' do
+          expect(response).to redirect_to supply_teachers_rm6238_admin_path
         end
       end
 
@@ -151,8 +151,8 @@ RSpec.describe SupplyTeachers::RM6238::Admin::SessionsController do
         cookies.update(response.cookies)
       end
 
-      it 'redirects to supply_teachers_rm6238_admin_uploads_path' do
-        expect(response).to redirect_to supply_teachers_rm6238_admin_uploads_path
+      it 'redirects to supply_teachers_rm6238_admin_path' do
+        expect(response).to redirect_to supply_teachers_rm6238_admin_path
       end
     end
   end

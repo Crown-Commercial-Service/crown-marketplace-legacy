@@ -6,6 +6,11 @@ module ManagementConsultancy
       @journey = ManagementConsultancy::Journey.new(params[:framework], params[:slug], params)
       @back_path = @journey.previous_step_path
       @lot = Lot.find(params[:lot_id])
+      begin
+        Search.log_new_search(@lot.framework, current_user, session.id, @journey.params.to_hash, @supplier_frameworks)
+      rescue StandardError => e
+        Rollbar.log('error', e)
+      end
       @supplier_frameworks = Kaminari.paginate_array(@supplier_frameworks).page(params[:page])
     end
 

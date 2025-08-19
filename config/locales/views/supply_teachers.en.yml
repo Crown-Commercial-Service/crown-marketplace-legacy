@@ -524,6 +524,7 @@ en:
             more_help_html: Contact %{supply_teachers_email} if you need more help running a further competition.
             select_an_agency_html: select an agency and sign the full version order form listed in the documents section of the %{ccs_website_link} as ‘RM6238 Order form template full version v1.docx’
             supply_teachers_email: supplyteachers@crowncommercial.gov.uk
+    service_name: Supply Teachers
     suppliers:
       agencies_table:
         agency: Agency

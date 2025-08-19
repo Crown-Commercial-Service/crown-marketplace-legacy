@@ -247,6 +247,7 @@ en:
           hourly: Hourly
           position: Position
           rates: Rates
+    service_name: Legal Services
     suppliers:
       download:
         back_to_start: Back to start

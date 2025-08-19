@@ -38,6 +38,10 @@ module ApplicationHelper
     title.compact_blank.map(&:strip).join(': ')
   end
 
+  def breadcrumbs
+    content_for(:breadcrumbs)
+  end
+
   def add_optional_error_prefix_to_page_title(errors)
     content_for(:page_title_prefix) { t('layouts.application.error_prefix') } unless errors.empty?
   end
@@ -239,34 +243,44 @@ module ApplicationHelper
     )
   end
 
-  GOVUK_DATE_ITEMS = [
-    {
-      name: 'dd',
-      input: {
-        classes: 'govuk-input--width-2'
+  def govuk_date_items
+    [
+      {
+        name: 'dd',
+        input: {
+          classes: 'govuk-input--width-2'
+        },
+        label: {
+          text: I18n.t('date.day')
+        }
       },
-      label: {
-        text: I18n.t('date.day')
-      }
-    },
-    {
-      name: 'mm',
-      input: {
-        classes: 'govuk-input--width-2'
+      {
+        name: 'mm',
+        input: {
+          classes: 'govuk-input--width-2'
+        },
+        label: {
+          text: I18n.t('date.month')
+        }
       },
-      label: {
-        text: I18n.t('date.month')
+      {
+        name: 'yyyy',
+        input: {
+          classes: 'govuk-input--width-4'
+        },
+        label: {
+          text: I18n.t('date.year')
+        }
       }
-    },
-    {
-      name: 'yyyy',
-      input: {
-        classes: 'govuk-input--width-4'
-      },
-      label: {
-        text: I18n.t('date.year')
-      }
-    }
-  ].freeze
+    ]
+  end
+
+  def admin_breadcrumbs(*breadcrumbs)
+    breadcrumbs.prepend({ text: t('shared.admin.dashboard.index.heading'), href: service_path_base })
+
+    content_for :breadcrumbs do
+      govuk_breadcrumbs(breadcrumbs)
+    end
+  end
 end
 # rubocop:enable Metrics/ModuleLength

@@ -1,10 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe SupplyTeachers::RM6238::CalculationsController do
-  extend APIRequestStubs
-
-  stub_bank_holiday_json
-
   let(:default_params) { { service: 'supply_teachers', framework: 'RM6238' } }
 
   login_st_buyer

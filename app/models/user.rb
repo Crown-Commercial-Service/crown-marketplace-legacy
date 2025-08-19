@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   include RoleModel
 
+  has_many :searches, inverse_of: :user, dependent: :destroy
+  has_many :reports, inverse_of: :user, dependent: :destroy
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :trackable and :omniauthable
   devise :registerable, :recoverable, :timeoutable

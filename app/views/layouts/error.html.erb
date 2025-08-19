@@ -36,6 +36,7 @@
       <%= govuk_skip_link(t('layouts.application.skip'), '#main-content') %>
       <%= render partial: '/layouts/cookie-banner' unless cookie_preferences_settings['settings_viewed'] || controller.action_name == 'cookie_settings' %>
       <%= render partial: '/layouts/header' %>
+      <%= breadcrumbs %>
 
       <main class="govuk-width-container govuk-!-margin-bottom-6" role="main">
         <% if @end_of_journey.present? %>

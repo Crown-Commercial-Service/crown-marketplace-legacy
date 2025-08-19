@@ -44,6 +44,8 @@
           <%= render partial: '/layouts/phase-banner'%>
         <% end %>
 
+        <%= breadcrumbs %>
+
         <div id="main-content" >
           <div class="back-button-wrapper govuk-!-margin-top-3 govuk-!-margin-bottom-7">
             <%= render(partial: '/layouts/back-link') if @back_path.present? %>

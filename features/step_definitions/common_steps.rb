@@ -39,30 +39,24 @@ When('I go to the {string} start page for {string}') do |service, framework|
 end
 
 Given('I sign in as an admin for the {string} framework in {string}') do |framework, service|
-  admin_dashboard_title = ''
-
   case service
   when 'legal services'
     create_admin_user('ls')
-    admin_dashboard_title = 'Manage supplier data'
     visit "/legal-services/#{framework}/admin/sign-in"
   when 'legal panel for government'
     create_admin_user('ls')
-    admin_dashboard_title = 'Manage supplier data'
     visit "/legal-panel-for-government/#{framework}/admin/sign-in"
   when 'management consultancy'
     create_admin_user('mc')
-    admin_dashboard_title = 'Manage supplier data'
     visit "/management-consultancy/#{framework}/admin/sign-in"
   when 'supply teachers'
     create_admin_user('st')
-    admin_dashboard_title = 'Supply teachers and agency workers'
     visit "/supply-teachers/#{framework}/admin/sign-in"
   end
 
   update_banner_cookie(true) if @javascript
   step 'I sign in'
-  step "I am on the '#{admin_dashboard_title}' page"
+  step "I am on the 'Admin dashboard' page"
 end
 
 When('I go to {string}') do |uri|

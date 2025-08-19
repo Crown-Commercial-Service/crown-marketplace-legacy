@@ -39,12 +39,12 @@ Feature: Legal Panel for Government - Start pages - With an unrecognised framewo
 
   Scenario Outline: Go to an unrecognised famework in the admin section - logged in
     Given I sign in as an admin for the '<framework>' framework in 'legal panel for government'
-    Then I am on the 'Manage supplier data' page
+    Then I am on the 'Admin dashboard' page
     When I go to '/legal-panel-for-government/RM0172/admin'
     Then I am on the 'The web address contained an unrecognised framework' page
     And the unrecognised framework is 'RM0172'
     And I click on '<framework>'
-    Then I am on the 'Manage supplier data' page
+    Then I am on the 'Admin dashboard' page
     And the framework is '<framework>'
 
     Examples:
