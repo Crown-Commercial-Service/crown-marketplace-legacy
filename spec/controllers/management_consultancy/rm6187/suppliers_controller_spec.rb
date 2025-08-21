@@ -12,6 +12,7 @@ RSpec.describe ManagementConsultancy::RM6187::SuppliersController do
 
   before do
     allow(Supplier::Framework).to receive(:with_services).with(service_ids).and_return(supplier_frameworks)
+    allow(Search).to receive(:log_new_search).and_return(true)
   end
 
   include_context 'and RM6187 is live'
@@ -46,6 +47,14 @@ RSpec.describe ManagementConsultancy::RM6187::SuppliersController do
           service_ids: service_ids
         )
         expect(assigns(:back_path)).to eq(expected_path)
+      end
+
+      it 'calls with_services_and_jurisdiction' do
+        expect(Supplier::Framework).to have_received(:with_services).with(service_ids)
+      end
+
+      it 'logs the search' do
+        expect(Search).to have_received(:log_new_search).with(lot.framework, controller.current_user, controller.session.id, { lot_id:, service_ids:, }.stringify_keys, supplier_frameworks)
       end
 
       context 'when the framework is not the current framework' do

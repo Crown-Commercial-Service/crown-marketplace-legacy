@@ -331,6 +331,17 @@ environments:
 
 - `LOG_LEVEL` can be used to manipulate the log level in production. Set to `'debug'` to see debug output; the default (if not set) is `:info`
 
+## Bank Holidays
+
+We load the Bank Holidays in the database through a combination of a CSV and the [GOV.UK Bank Holidays API][]. This is because the dates in API get moved as years go by so some dates get removed even though we still need them.
+
+The CSV can be updated by running the following command:
+```shell
+bin/rails db:update_bank_holidays
+```
+
+The data in the database is updated automatically by SideKiq so strictly speaking the CSV does not need to be updated but it would be good to do that once a year (last done on 11/08/2025)
+
 
 [geocoding-key]: https://console.developers.google.com/flows/enableapi?apiid=geocoding_backend&keyType=SERVER_SIDE
 [dotenv-rails]: https://github.com/bkeepers/dotenv
@@ -362,3 +373,4 @@ environments:
 [investigate the action]: https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/actions/workflows/setup_deployment.yml
 [GitHub Release]: https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/releases
 [release action]: https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/actions/workflows/release.yml
+[GOV.UK Bank Holidays API]: https://www.api.gov.uk/gds/bank-holidays/#bank-holidays

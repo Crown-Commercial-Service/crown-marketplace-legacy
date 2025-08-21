@@ -13,7 +13,10 @@ RSpec.describe LegalPanelForGovernment::RM6360::SuppliersController do
 
   login_ls_buyer
 
-  before { allow(Supplier::Framework).to receive(:with_services_and_jurisdiction).with(service_ids, jurisdiction_ids).and_return(supplier_frameworks) }
+  before do
+    allow(Supplier::Framework).to receive(:with_services_and_jurisdiction).with(service_ids, jurisdiction_ids).and_return(supplier_frameworks)
+    allow(Search).to receive(:log_new_search).and_return(true)
+  end
 
   describe 'GET index' do
     before { get :index, params: }
@@ -53,8 +56,12 @@ RSpec.describe LegalPanelForGovernment::RM6360::SuppliersController do
         expect(assigns(:back_path)).to eq(expected_path)
       end
 
-      it 'class with_services_and_jurisdiction' do
+      it 'calls with_services_and_jurisdiction' do
         expect(Supplier::Framework).to have_received(:with_services_and_jurisdiction).with(service_ids, ['GB'])
+      end
+
+      it 'logs the search' do
+        expect(Search).to have_received(:log_new_search).with(lot.framework, controller.current_user, controller.session.id, { central_government:, lot_id:, service_ids:, }.stringify_keys, supplier_frameworks)
       end
 
       context 'when the framework is not the current framework' do

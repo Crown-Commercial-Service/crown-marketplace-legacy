@@ -23,7 +23,7 @@ gem 'jsbundling-rails', '~> 1.3'
 gem 'requestjs-rails'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.13'
+gem 'jbuilder', '~> 2.14'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -60,7 +60,7 @@ gem 'json-jwt', '>= 1.11.0'
 gem 'devise', '~> 4.9.4'
 
 # for cognito
-gem 'aws-sdk-cognitoidentityprovider', '~> 1.125.0'
+gem 'aws-sdk-cognitoidentityprovider', '~> 1.127.0'
 
 # for pagination
 gem 'kaminari', '~> 1.2.2'
@@ -80,9 +80,10 @@ gem 'jsonpath', '~> 1.1.5'
 gem 'aasm', '~> 5.5'
 
 # for running background jobs
-gem 'sidekiq', '~> 8.0.6'
+gem 'sidekiq', '~> 8.0.7'
 gem 'sinatra', '~> 4.1.1', require: false
 gem 'slim', '~> 5.2.1'
+gem 'sidekiq-cron'
 
 # for authorization
 gem 'cancancan', '~> 3.6.1'
@@ -105,6 +106,7 @@ gem 'capybara', '>= 3.38.0'
 
 # for date layout
 gem 'gov_uk_date_fields', '>= 4.2.0'
+gem 'date_validator', '>= 0.12.0'
 
 # Use CCS Frontend Helpers
 gem 'ccs-frontend_helpers', '~> 2.5.0'

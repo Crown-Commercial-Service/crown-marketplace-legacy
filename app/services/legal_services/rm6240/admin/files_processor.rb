@@ -20,7 +20,7 @@ class LegalServices::RM6240::Admin::FilesProcessor < FilesProcessor
       {
         id: SecureRandom.uuid,
         name: supplier['name'],
-        duns_number: supplier['duns'],
+        duns_number: supplier['duns'].to_i.to_s,
         sme: ['YES', 'Y'].include?(supplier['sme'].to_s.upcase),
         supplier_frameworks: [
           {
@@ -65,7 +65,7 @@ class LegalServices::RM6240::Admin::FilesProcessor < FilesProcessor
   def add_service_offerings(sheet, service_codes, jurisdiction = nil)
     (3..sheet.last_column).each do |column_number|
       column = sheet.column(column_number)
-      supplier_duns = column[1].to_i
+      supplier_duns = column[1].to_i.to_s
       supplier = get_supplier(supplier_duns)
       next unless supplier
 
@@ -97,7 +97,7 @@ class LegalServices::RM6240::Admin::FilesProcessor < FilesProcessor
 
       (3..sheet.last_row).each do |row_number|
         row = sheet.row(row_number)
-        supplier_duns = row.second.to_i
+        supplier_duns = row.second.to_i.to_s
         supplier = get_supplier(supplier_duns)
         next unless supplier
 
