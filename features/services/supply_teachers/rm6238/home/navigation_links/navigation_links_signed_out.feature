@@ -6,14 +6,12 @@ Feature: Supply Teachers - Navigation links when signed out
   Scenario: Start page
     Then I should see the following navigation links:
       | Back to start |
-    And I should see the following authentication links:
       | Sign in |
 
   Scenario: Not permitted page
     And I go to the not permitted page for 'supply teachers'
     Then I should see the following navigation links:
       | Back to start |
-    And I should see the following authentication links:
       | Sign in |
 
   Scenario Outline: Sign in page 
@@ -21,7 +19,6 @@ Feature: Supply Teachers - Navigation links when signed out
     Then I am on the 'Sign in to find supply teachers and agency workers' page
     And I should see the following navigation links:
       | Back to start |
-    And I should see the following authentication links:
       | Sign in |
     And I click on the header link '<header_link>'
     Then I am on the '<page_title>' page
@@ -36,7 +33,6 @@ Feature: Supply Teachers - Navigation links when signed out
     Then I am on the 'Details about cookies on Crown Marketplace' page
     And I should see the following navigation links:
       | Back to start |
-    And I should see the following authentication links:
       | Sign in |
     And I click on the header link '<header_link>'
     Then I am on the '<page_title>' page
@@ -51,7 +47,6 @@ Feature: Supply Teachers - Navigation links when signed out
     Then I am on the 'Cookies on Crown Marketplace' page
     And I should see the following navigation links:
       | Back to start |
-    And I should see the following authentication links:
       | Sign in |
     And I click on the header link '<header_link>'
     Then I am on the '<page_title>' page
@@ -66,7 +61,6 @@ Feature: Supply Teachers - Navigation links when signed out
     Then I am on the 'Supply Teachers (ST) Accessibility statement' page
     And I should see the following navigation links:
       | Back to start |
-    And I should see the following authentication links:
       | Sign in |
     And I click on the header link '<header_link>'
     Then I am on the '<page_title>' page
