@@ -7,14 +7,12 @@ Feature: Legal Panel for Government - Navigation links when signed in
     When I go to the 'legal panel for government' start page for 'RM6360'
     And I should see the following navigation links:
       | Back to start |
-    And I should see the following authentication links:
       | Sign out      |
 
   Scenario Outline: Not permitted page
     And I go to the not permitted page for 'legal panel for government'
     And I should see the following navigation links:
       | Back to start |
-    And I should see the following authentication links:
       | Sign out      |
     And I click on the header link '<header_link>'
     Then I am on the 'Find legal services for government' page
@@ -29,7 +27,6 @@ Feature: Legal Panel for Government - Navigation links when signed in
     Then I am on the 'Details about cookies on Crown Marketplace' page
     And I should see the following navigation links:
       | Back to start |
-    And I should see the following authentication links:
       | Sign out      |
     And I click on the header link '<header_link>'
     Then I am on the 'Find legal services for government' page
@@ -44,7 +41,6 @@ Feature: Legal Panel for Government - Navigation links when signed in
     Then I am on the 'Cookies on Crown Marketplace' page
     And I should see the following navigation links:
       | Back to start |
-    And I should see the following authentication links:
       | Sign out      |
     And I click on the header link '<header_link>'
     Then I am on the 'Find legal services for government' page
@@ -59,7 +55,6 @@ Feature: Legal Panel for Government - Navigation links when signed in
     Then I am on the 'Legal Panel for Government (LPG) Accessibility statement' page
     And I should see the following navigation links:
       | Back to start |
-    And I should see the following authentication links:
       | Sign out      |
     And I click on the header link '<header_link>'
     Then I am on the 'Find legal services for government' page
@@ -72,7 +67,6 @@ Feature: Legal Panel for Government - Navigation links when signed in
   Scenario Outline: Home page
     And I should see the following navigation links:
       | Back to start |
-    And I should see the following authentication links:
       | Sign out      |
     And I click on the header link '<header_link>'
     Then I am on the 'Find legal services for government' page

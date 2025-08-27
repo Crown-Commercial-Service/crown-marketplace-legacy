@@ -41,23 +41,15 @@ Then('I choose to {string} {string} cookies') do |option, cookie|
 end
 
 Then('I click on the header link {string}') do |button_text|
-  home_page.find('header').click_on(button_text)
+  home_page.navigation.click_on(button_text)
 end
 
 Then('I should see the following navigation links:') do |navigation_links|
-  expect(home_page.navigation.links.length).to eq(navigation_links.raw.flatten.length)
+  navigation_elements = home_page.navigation.links.to_a + home_page.navigation.buttons.to_a
 
-  home_page.navigation.links.zip(navigation_links.raw.flatten).each do |actual, expected|
-    expect(actual).to have_content expected
-  end
-end
+  expect(navigation_elements.length).to eq(navigation_links.raw.flatten.length)
 
-Then('I should see the following authentication links:') do |authentication_links|
-  authentication_elements = home_page.authentication.links.to_a + home_page.authentication.buttons.to_a
-
-  expect(authentication_elements.length).to eq(authentication_links.raw.flatten.length)
-
-  authentication_elements.zip(authentication_links.raw.flatten).each do |actual, expected|
+  navigation_elements.zip(navigation_links.raw.flatten).each do |actual, expected|
     expect(actual).to have_content expected
   end
 end

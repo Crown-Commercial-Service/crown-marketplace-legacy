@@ -109,7 +109,7 @@ gem 'gov_uk_date_fields', '>= 4.2.0'
 gem 'date_validator', '>= 0.12.0'
 
 # Use CCS Frontend Helpers
-gem 'ccs-frontend_helpers', '~> 2.5.0'
+gem 'ccs-frontend_helpers', '~> 3.0.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
