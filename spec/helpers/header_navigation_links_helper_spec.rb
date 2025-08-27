@@ -11,8 +11,8 @@ RSpec.describe HeaderNavigationLinksHelper do
     context 'when the service is legal_services' do
       let(:service) { 'legal_services' }
 
-      it 'returns Find legal service for the wider public sector' do
-        expect(result).to eq('Find legal service for the wider public sector')
+      it 'returns Find legal services for the wider public sector' do
+        expect(result).to eq('Find legal services for the wider public sector')
       end
     end
 
@@ -27,8 +27,8 @@ RSpec.describe HeaderNavigationLinksHelper do
     context 'when the service is legal_panel_for_government' do
       let(:service) { 'legal_panel_for_government' }
 
-      it 'returns Find legal service for the wider public sector' do
-        expect(result).to eq('Find legal service for government')
+      it 'returns Find legal services for government' do
+        expect(result).to eq('Find legal services for government')
       end
     end
 
@@ -181,8 +181,11 @@ RSpec.describe HeaderNavigationLinksHelper do
       end
     end
 
+    # rubocop:disable RSpec/NestedGroups
     context 'when signed out' do
-      before { allow(helper).to receive(:user_signed_in?).and_return(false) }
+      before do
+        allow(helper).to receive_messages(user_signed_in?: false, current_page?: false)
+      end
 
       context 'when the service is legal_services' do
         let(:service) { 'legal_services' }
@@ -190,10 +193,36 @@ RSpec.describe HeaderNavigationLinksHelper do
         it 'returns the create account and sign in link' do
           expect(result).to eq(
             [
-              { text: 'Create an account', href: '/crown-marketplace-legacy/sign-up' },
-              { text: 'Sign in', href: '/crown-marketplace-legacy/sign-in' }
+              { text: 'Create an account', href: '/crown-marketplace-legacy/sign-up', active: false },
+              { text: 'Sign in', href: '/crown-marketplace-legacy/sign-in', active: false }
             ]
           )
+        end
+
+        context 'and the current page is create an account' do
+          before { allow(helper).to receive(:current_page?).with('/crown-marketplace-legacy/sign-up').and_return(true) }
+
+          it 'returns the create account active and sign in link' do
+            expect(result).to eq(
+              [
+                { text: 'Create an account', href: '/crown-marketplace-legacy/sign-up', active: true },
+                { text: 'Sign in', href: '/crown-marketplace-legacy/sign-in', active: false }
+              ]
+            )
+          end
+        end
+
+        context 'and the current page is sign in' do
+          before { allow(helper).to receive(:current_page?).with('/crown-marketplace-legacy/sign-in').and_return(true) }
+
+          it 'returns the create account and sign in link active' do
+            expect(result).to eq(
+              [
+                { text: 'Create an account', href: '/crown-marketplace-legacy/sign-up', active: false },
+                { text: 'Sign in', href: '/crown-marketplace-legacy/sign-in', active: true }
+              ]
+            )
+          end
         end
       end
 
@@ -203,9 +232,21 @@ RSpec.describe HeaderNavigationLinksHelper do
         it 'returns the sign in link' do
           expect(result).to eq(
             [
-              { text: 'Sign in', href: '/crown-marketplace-legacy/sign-in' }
+              { text: 'Sign in', href: '/crown-marketplace-legacy/sign-in', active: false }
             ]
           )
+        end
+
+        context 'and the current page is sign in' do
+          before { allow(helper).to receive(:current_page?).with('/crown-marketplace-legacy/sign-in').and_return(true) }
+
+          it 'returns the create account and sign in link active' do
+            expect(result).to eq(
+              [
+                { text: 'Sign in', href: '/crown-marketplace-legacy/sign-in', active: true }
+              ]
+            )
+          end
         end
       end
 
@@ -215,8 +256,8 @@ RSpec.describe HeaderNavigationLinksHelper do
         it 'returns the create account and sign in link' do
           expect(result).to eq(
             [
-              { text: 'Create an account', href: '/crown-marketplace-legacy/sign-up' },
-              { text: 'Sign in', href: '/crown-marketplace-legacy/sign-in' }
+              { text: 'Create an account', href: '/crown-marketplace-legacy/sign-up', active: false },
+              { text: 'Sign in', href: '/crown-marketplace-legacy/sign-in', active: false }
             ]
           )
         end
@@ -228,7 +269,7 @@ RSpec.describe HeaderNavigationLinksHelper do
         it 'returns the sign in link' do
           expect(result).to eq(
             [
-              { text: 'Sign in', href: '/crown-marketplace-legacy/sign-in' }
+              { text: 'Sign in', href: '/crown-marketplace-legacy/sign-in', active: false }
             ]
           )
         end
@@ -240,8 +281,8 @@ RSpec.describe HeaderNavigationLinksHelper do
         it 'returns the create account and sign in link' do
           expect(result).to eq(
             [
-              { text: 'Create an account', href: '/crown-marketplace-legacy/sign-up' },
-              { text: 'Sign in', href: '/crown-marketplace-legacy/sign-in' }
+              { text: 'Create an account', href: '/crown-marketplace-legacy/sign-up', active: false },
+              { text: 'Sign in', href: '/crown-marketplace-legacy/sign-in', active: false }
             ]
           )
         end
@@ -253,7 +294,7 @@ RSpec.describe HeaderNavigationLinksHelper do
         it 'returns the sign in link' do
           expect(result).to eq(
             [
-              { text: 'Sign in', href: '/crown-marketplace-legacy/sign-in' }
+              { text: 'Sign in', href: '/crown-marketplace-legacy/sign-in', active: false }
             ]
           )
         end
@@ -265,7 +306,7 @@ RSpec.describe HeaderNavigationLinksHelper do
         it 'returns the gateway link' do
           expect(result).to eq(
             [
-              { text: 'Sign in', href: '/crown-marketplace-legacy/gateway' }
+              { text: 'Sign in', href: '/crown-marketplace-legacy/gateway', active: false }
             ]
           )
         end
@@ -277,12 +318,13 @@ RSpec.describe HeaderNavigationLinksHelper do
         it 'returns the sign in link' do
           expect(result).to eq(
             [
-              { text: 'Sign in', href: '/crown-marketplace-legacy/sign-in' }
+              { text: 'Sign in', href: '/crown-marketplace-legacy/sign-in', active: false }
             ]
           )
         end
       end
     end
+    # rubocop:enable RSpec/NestedGroups
   end
 
   describe '#service_navigation_links' do
@@ -300,7 +342,8 @@ RSpec.describe HeaderNavigationLinksHelper do
       it 'returns the back to start link with the active false' do
         expect(result).to eq(
           [
-            { text: 'Back to start', href: '/crown-marketplace-legacy', active: false }
+            { text: 'Back to start', href: '/crown-marketplace-legacy', active: false },
+            { text: 'Sign out', href: '/crown-marketplace-legacy/sign-out', method: :delete }
           ]
         )
       end
@@ -312,7 +355,8 @@ RSpec.describe HeaderNavigationLinksHelper do
       it 'returns the back to start link with the active true' do
         expect(result).to eq(
           [
-            { text: 'Back to start', href: '/crown-marketplace-legacy', active: true }
+            { text: 'Back to start', href: '/crown-marketplace-legacy', active: true },
+            { text: 'Sign out', href: '/crown-marketplace-legacy/sign-out', method: :delete }
           ]
         )
       end
@@ -325,6 +369,7 @@ RSpec.describe HeaderNavigationLinksHelper do
         helper.params[:service] = 'management_consultancy'
         helper.params[:framework] = 'RM6309'
 
+        allow(helper).to receive(:current_page?).and_return(false)
         allow(helper).to receive(:current_page?).with('/management-consultancy/RM6309/choose-lot').and_return(is_current_page)
       end
 
@@ -336,7 +381,8 @@ RSpec.describe HeaderNavigationLinksHelper do
           it 'returns the back to start link with the active false' do
             expect(result).to eq(
               [
-                { text: 'Back to start', href: '/management-consultancy/RM6309/start', active: false }
+                { text: 'Back to start', href: '/management-consultancy/RM6309/start', active: false },
+                { text: 'Sign out', href: '/crown-marketplace-legacy/sign-out', method: :delete }
               ]
             )
           end
@@ -348,7 +394,8 @@ RSpec.describe HeaderNavigationLinksHelper do
           it 'returns the back to start link with the active true' do
             expect(result).to eq(
               [
-                { text: 'Back to start', href: '/management-consultancy/RM6309/start', active: true }
+                { text: 'Back to start', href: '/management-consultancy/RM6309/start', active: true },
+                { text: 'Sign out', href: '/crown-marketplace-legacy/sign-out', method: :delete }
               ]
             )
           end
@@ -363,7 +410,9 @@ RSpec.describe HeaderNavigationLinksHelper do
         it 'returns the back to start link with the active false' do
           expect(result).to eq(
             [
-              { text: 'Back to start', href: '/crown-marketplace-legacy', active: false }
+              { text: 'Back to start', href: '/crown-marketplace-legacy', active: false },
+              { text: 'Create an account', href: '/crown-marketplace-legacy/sign-up', active: false },
+              { text: 'Sign in', href: '/crown-marketplace-legacy/sign-in', active: false }
             ]
           )
         end
