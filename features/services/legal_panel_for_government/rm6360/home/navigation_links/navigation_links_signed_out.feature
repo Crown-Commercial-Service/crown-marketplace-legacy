@@ -6,7 +6,6 @@ Feature: Legal Panel for Government - Navigation links when signed out
   Scenario: Start page
     Then I should see the following navigation links:
       | Back to start |
-    And I should see the following authentication links:
       | Create an account |
       | Sign in           |
 
@@ -14,7 +13,6 @@ Feature: Legal Panel for Government - Navigation links when signed out
     And I go to the not permitted page for 'legal panel for government'
     Then I should see the following navigation links:
       | Back to start |
-    And I should see the following authentication links:
       | Create an account |
       | Sign in           |
 
@@ -23,7 +21,6 @@ Feature: Legal Panel for Government - Navigation links when signed out
     Then I am on the 'Sign in to your legal panel for government account' page
     And I should see the following navigation links:
       | Back to start |
-    And I should see the following authentication links:
       | Create an account |
       | Sign in           |
     And I click on the header link '<header_link>'
@@ -40,7 +37,6 @@ Feature: Legal Panel for Government - Navigation links when signed out
     Then I am on the 'Details about cookies on Crown Marketplace' page
     And I should see the following navigation links:
       | Back to start |
-    And I should see the following authentication links:
       | Create an account |
       | Sign in           |
     And I click on the header link '<header_link>'
@@ -57,7 +53,6 @@ Feature: Legal Panel for Government - Navigation links when signed out
     Then I am on the 'Cookies on Crown Marketplace' page
     And I should see the following navigation links:
       | Back to start |
-    And I should see the following authentication links:
       | Create an account |
       | Sign in           |
     And I click on the header link '<header_link>'
@@ -74,7 +69,6 @@ Feature: Legal Panel for Government - Navigation links when signed out
     Then I am on the 'Legal Panel for Government (LPG) Accessibility statement' page
     And I should see the following navigation links:
       | Back to start |
-    And I should see the following authentication links:
       | Create an account |
       | Sign in           |
     And I click on the header link '<header_link>'

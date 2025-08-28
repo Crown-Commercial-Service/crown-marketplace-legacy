@@ -26,7 +26,7 @@ module Pages
     end
 
     section :all_agencies, '#main-content' do
-      element :number_of_agencies, 'div:nth-child(2) > div > form > p'
+      element :number_of_agencies, 'div:nth-child(1) > div > form > p'
       elements :agencies, '.agency-row'
     end
 
@@ -39,7 +39,7 @@ module Pages
         element :'Phone number', 'td:nth-child(4)'
         element :Address, 'td:nth-child(5) > ul'
       end
-      section :branch_details, '> div:nth-child(2) > div > div' do
+      section :branch_details, '.ccs-branch__panel' do
         element :Branch, 'div:nth-child(1) > p:nth-child(1)'
         element :Region, 'div:nth-child(1) > p:nth-child(2)'
         element :'Contact name', 'div:nth-child(2) > p:nth-child(1)'

@@ -25,15 +25,21 @@ module HeaderNavigationLinksHelper
       }
     else
       if ['legal_services', 'legal_panel_for_government', 'management_consultancy'].include?(params[:service])
+        sign_up_path = "#{service_path_base}/sign-up"
+
         navigation_links << {
           text: t('header_navigation_links_helper.sign_up'),
-          href: "#{service_path_base}/sign-up"
+          href: sign_up_path,
+          active: current_page?(sign_up_path)
         }
       end
 
+      sign_in_path = "#{service_path_base}/#{params[:service] == 'supply_teachers' ? 'gateway' : 'sign-in'}"
+
       navigation_links << {
         text: t('header_navigation_links_helper.sign_in'),
-        href: "#{service_path_base}/#{params[:service] == 'supply_teachers' ? 'gateway' : 'sign-in'}"
+        href: sign_in_path,
+        active: current_page?(sign_in_path)
       }
     end
 
@@ -57,6 +63,6 @@ module HeaderNavigationLinksHelper
           active: current_page?(service_path_base)
         }
       ]
-    end
+    end + service_authentication_links
   end
 end
