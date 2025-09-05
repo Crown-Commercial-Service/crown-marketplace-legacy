@@ -22,37 +22,7 @@
       <p class="govuk-body"><%= t('.rates_are_maximum') %></p>
 
       <%= govuk_table(
-        [
-          {
-            text: t('.position'),
-            classes: 'govuk-!-width-one-half'
-          }
-        ] + rate_position_types[:names].map do |rate_position_type_name|
-          {
-            text: t('.max_day_rate', rate_type: t(".rate_type.#{rate_position_type_name}")),
-            classes: 'govuk-!-width-one-quarter'
-          }
-        end,
-        [
-          t('.job_titles.director'),
-          t('.job_titles.managing'),
-          t('.job_titles.principal'),
-          t('.job_titles.senior'),
-          t('.job_titles.standard'),
-          t('.job_titles.junior'),
-        ].map.with_index do |job_text, index|
-          [
-            {
-              text: job_text
-            },
-            {
-              text: number_to_currency(@rates[rate_position_types[:offset] - index].rate_in_pounds, precision: 0)
-            },
-            {
-              text: number_to_currency(@rates[rate_position_types[:offset] + 6 - index].rate_in_pounds, precision: 0)
-            }
-          ]
-        end,
+        *rates_table_headers_and_rows(@rates),
         caption: {
           text: t('.day_rates'),
           classes: 'govuk-visually-hidden'

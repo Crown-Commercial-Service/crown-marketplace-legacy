@@ -12,9 +12,14 @@
 <%= ccs_dashboard_section(
   [
     {
-      title: t('.supplier_data'),
-      href: upload_index_path,
-      description: t('.manage_supplier_data')
+      title: t('.manage_supplier_data.title'),
+      href: uploads_index_path,
+      description: t('.manage_supplier_data.description')
+    },
+    {
+      title: t('.view_supplier_data.title'),
+      href: suppliers_index_path,
+      description: t('.view_supplier_data.description')
     },
   ],
   t('.supplier_data')
@@ -23,9 +28,9 @@
 <%= ccs_dashboard_section(
   [
     {
-      title: t('.user_reports'),
+      title: t('.view_user_reports.title'),
       href: reports_index_path,
-      description: t('.view_user_reports')
+      description: t('.view_user_reports.description')
     },
   ],
   t('.user_reports')
