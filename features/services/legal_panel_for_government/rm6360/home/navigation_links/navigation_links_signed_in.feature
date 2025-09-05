@@ -1,7 +1,7 @@
 Feature: Legal Panel for Government - Navigation links when signed in
 
   Background: I navigate to the start page
-     Given I sign in and navigate to the start page for the 'RM6360' framework in 'legal panel for government'
+    Given I sign in and navigate to the start page for the 'RM6360' framework in 'legal panel for government'
 
   Scenario: Start page
     When I go to the 'legal panel for government' start page for 'RM6360'

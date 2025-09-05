@@ -4,7 +4,7 @@ Feature: Management Consultancy - Cookie pages accessibility
   Scenario: Start page with the banner
     Given I go to the 'management consultancy' start page for 'RM6309'
     And the cookie banner 'is' visible
-    Then the page should be axe clean excluding ".ccs-contact-us"
+    Then the page should pass the accessibility checks
 
   Scenario: Cookie policy
     Given I go to the 'management consultancy' start page for 'RM6309'
@@ -12,7 +12,7 @@ Feature: Management Consultancy - Cookie pages accessibility
     When I click on 'Accept analytics cookies'
     And I click on 'Cookie policy'
     Then I am on the 'Details about cookies on Crown Marketplace' page
-    Then the page should be axe clean excluding ".ccs-contact-us"
+    Then the page should pass the accessibility checks
 
   Scenario: Cookie settings
     Given I go to the 'management consultancy' start page for 'RM6309'
@@ -20,4 +20,4 @@ Feature: Management Consultancy - Cookie pages accessibility
     When I click on 'Accept analytics cookies'
     When I click on 'Cookie settings'
     Then I am on the 'Cookies on Crown Marketplace' page
-    Then the page should be axe clean excluding ".ccs-contact-us"
+    Then the page should pass the accessibility checks

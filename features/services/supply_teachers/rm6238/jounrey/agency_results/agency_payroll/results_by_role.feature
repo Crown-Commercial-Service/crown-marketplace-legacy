@@ -21,11 +21,11 @@ Feature: Supply Teachers - Agency results - Agency payroll - Results by role
     Then I am on the 'Agency results' page
     And there are 5 agencies
     And the listed agencies with rates and distances are:
-      | BARTOLETTI, KOEPP AND NIENOW  | London      | £27.59  | 6.0 |
-      | MCGLYNN GROUP                 | London      | £39.84  | 5.2 |
-      | STANTON, FADEL AND BOSCO      | Twickenham  | £41.45  | 9.0 |
-      | EMARD AND SONS                | Twickenham  | £58.35  | 9.0 |
-      | FEEST-MULLER                  | London      | £59.55  | 0.2 |
+      | BARTOLETTI, KOEPP AND NIENOW | London     | £27.59 | 6.0 |
+      | MCGLYNN GROUP                | London     | £39.84 | 5.2 |
+      | STANTON, FADEL AND BOSCO     | Twickenham | £41.45 | 9.0 |
+      | EMARD AND SONS               | Twickenham | £58.35 | 9.0 |
+      | FEEST-MULLER                 | London     | £59.55 | 0.2 |
     And the choices used to generate the list are:
       | Looking for: Individual worker                                        |
       | Worker type: Supplied by agency                                       |
@@ -41,18 +41,18 @@ Feature: Supply Teachers - Agency results - Agency payroll - Results by role
     Then I am on the 'Agency results' page
     And there are 4 agencies
     And the listed agencies for agency results are:
-      | BARTOLETTI, KOEPP AND NIENOW  | London      | £24.83  | 6.0 |
-      | MCGLYNN GROUP                 | London      | £35.85  | 5.2 |
-      | EMARD AND SONS                | Twickenham  | £52.51  | 9.0 |
-      | FEEST-MULLER                  | London      | £53.59  | 0.2 |
+      | BARTOLETTI, KOEPP AND NIENOW | London     | £24.83 | 6.0 |
+      | MCGLYNN GROUP                | London     | £35.85 | 5.2 |
+      | EMARD AND SONS               | Twickenham | £52.51 | 9.0 |
+      | FEEST-MULLER                 | London     | £53.59 | 0.2 |
     And the choices used to generate the list are:
-      | Looking for: Individual worker                                                      |
-      | Worker type: Supplied by agency                                                     |
-      | Payroll provider: Agency                                                            |
-      | Postcode: SW1A 1AA                                                                  |
-      | Search distance: 25 miles                                                           |
-      | Job type: Educational Support Staff: (incl. Cover Supervisor, Teaching Assistants)  |
-      | Term: Daily Supply                                                                  |
+      | Looking for: Individual worker                                                     |
+      | Worker type: Supplied by agency                                                    |
+      | Payroll provider: Agency                                                           |
+      | Postcode: SW1A 1AA                                                                 |
+      | Search distance: 25 miles                                                          |
+      | Job type: Educational Support Staff: (incl. Cover Supervisor, Teaching Assistants) |
+      | Term: Daily Supply                                                                 |
 
   Scenario: When the role is Senior Roles: Headteacher and Senior Leadership positions
     And I select 'Senior Roles: Headteacher and Senior Leadership positions'
@@ -60,12 +60,12 @@ Feature: Supply Teachers - Agency results - Agency payroll - Results by role
     Then I am on the 'Agency results' page
     And there are 6 agencies
     And the listed agencies for agency results are:
-      | BARTOLETTI, KOEPP AND NIENOW  | London      | £30.34  | 6.0 |
-      | MCGLYNN GROUP                 | London      | £43.82  | 5.2 |
-      | DIETRICH-BORER                | London      | £46.92  | 6.0 |
-      | ZIEMANN-HERMANN               | London      | £58.92  | 0.2 |
-      | EMARD AND SONS                | Twickenham  | £64.18  | 9.0 |
-      | FEEST-MULLER                  | London      | £65.50  | 0.2 |
+      | BARTOLETTI, KOEPP AND NIENOW | London     | £30.34 | 6.0 |
+      | MCGLYNN GROUP                | London     | £43.82 | 5.2 |
+      | DIETRICH-BORER               | London     | £46.92 | 6.0 |
+      | ZIEMANN-HERMANN              | London     | £58.92 | 0.2 |
+      | EMARD AND SONS               | Twickenham | £64.18 | 9.0 |
+      | FEEST-MULLER                 | London     | £65.50 | 0.2 |
     And the choices used to generate the list are:
       | Looking for: Individual worker                                      |
       | Worker type: Supplied by agency                                     |
@@ -81,12 +81,12 @@ Feature: Supply Teachers - Agency results - Agency payroll - Results by role
     Then I am on the 'Agency results' page
     And there are 6 agencies
     And the listed agencies for agency results are:
-      | BARTOLETTI, KOEPP AND NIENOW  | London      | £26.21  | 6.0 |
-      | MCGLYNN GROUP                 | London      | £37.84  | 5.2 |
-      | HAGENES-BECHTELAR             | London      | £47.48  | 5.2 |
-      | ZIEMANN-HERMANN               | London      | £50.89  | 0.2 |
-      | EMARD AND SONS                | Twickenham  | £55.43  | 9.0 |
-      | FEEST-MULLER                  | London      | £56.57  | 0.2 |
+      | BARTOLETTI, KOEPP AND NIENOW | London     | £26.21 | 6.0 |
+      | MCGLYNN GROUP                | London     | £37.84 | 5.2 |
+      | HAGENES-BECHTELAR            | London     | £47.48 | 5.2 |
+      | ZIEMANN-HERMANN              | London     | £50.89 | 0.2 |
+      | EMARD AND SONS               | Twickenham | £55.43 | 9.0 |
+      | FEEST-MULLER                 | London     | £56.57 | 0.2 |
     And the choices used to generate the list are:
       | Looking for: Individual worker                                                                  |
       | Worker type: Supplied by agency                                                                 |

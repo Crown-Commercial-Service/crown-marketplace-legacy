@@ -31,7 +31,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4bc- Service 
     Then the basket should say '1 service selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
-      | Domestic law of jurisdictions for trade                         |
+      | Domestic law of jurisdictions for trade |
     When I check the following items:
       | International arbitral awards                                   |
       | Investment dispute risk advice                                  |
@@ -62,7 +62,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4bc- Service 
       | Litigation and dispute resolution for trade investment disputes |
       | Treaty based investment disputes                                |
     When I deselect the following items:
-      | Treaty based investment disputes                                |
+      | Treaty based investment disputes |
     Then the basket should say '4 services selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
@@ -76,8 +76,8 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4bc- Service 
     Then the basket should say '2 services selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
-      | Domestic law of jurisdictions for trade                         |
-      | International arbitral awards                                   |
+      | Domestic law of jurisdictions for trade |
+      | International arbitral awards           |
     When I click on 'Remove all'
     Then the basket should say 'No services selected'
 

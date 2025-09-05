@@ -1,4 +1,6 @@
 module LegalPanelForGovernment::RM6360::SuppliersHelper
+  include LegalPanelForGovernment::RM6360::RatesHelper
+
   def full_lot_name(lot)
     "Lot #{lot.number} - #{lot.name}"
   end
@@ -29,23 +31,5 @@ module LegalPanelForGovernment::RM6360::SuppliersHelper
 
   def legal_panel_for_government_path(supplier)
     legal_panel_for_government_rm6360_supplier_path(supplier, lot_id: params[:lot_id], service_ids: params[:service_ids], not_core_jurisdiction: params[:not_core_jurisdiction], jurisdiction_ids: params[:jurisdiction_ids])
-  end
-
-  def legal_panel_for_government_ids
-    @legal_panel_for_government_ids ||= if @lot.number.starts_with?('4')
-                                          [56, 1, 51, 52, 53, 54, 55, 6, 57, 58, 59, 60]
-                                        else
-                                          [1, 51, 52, 53, 54, 55, 6]
-                                        end
-  end
-
-  def positions
-    @positions ||= Position.where(id: legal_panel_for_government_ids).sort_by { |position| legal_panel_for_government_ids.index(position.id) }
-  end
-
-  def display_rate(position_id, jurisdiction_id, rates = @rates)
-    return if rates[position_id].nil? || rates[position_id][jurisdiction_id].nil? || rates[position_id][jurisdiction_id].rate.zero?
-
-    number_to_currency(rates[position_id][jurisdiction_id].rate_in_pounds, precision: 2)
   end
 end

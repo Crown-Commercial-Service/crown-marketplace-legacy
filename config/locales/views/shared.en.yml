@@ -6,11 +6,18 @@ en:
         index:
           caption: "%{service_name} - %{framework}"
           heading: Admin dashboard
-          manage_supplier_data: Manage and upload the supplier data
+          manage_supplier_data:
+            description: Upload and update the supplier data
+            title: Manage supplier date
           page_title: "%{service_name} admin dashboard"
           supplier_data: Supplier data
           user_reports: User reports
-          view_user_reports: View and generate reports of user searches
+          view_supplier_data:
+            description: View the supplier's details and their lot data
+            title: View supplier data
+          view_user_reports:
+            description: View and generate reports of user searches
+            title: User reports
       frameworks:
         edit:
           expires_at_date: Framework 'expires at' date for %{framework}
@@ -41,6 +48,37 @@ en:
         processing_data: Processing data
         publishing_data: Publishing data
         upload_progress: Upload progress
+      lot_data:
+        index:
+          enabled:
+            active: Active
+            inactive: Inactive
+          heading: Supplier lot data
+          supplier_lot_data_summary_list:
+            link:
+              sections:
+                branches: branches
+                jurisdictions: jurisdictions
+                rates: rates
+                services: services
+              view_data_html: View %{section}<span class="govuk-visually-hidden"> for lot %{number} - %{name}</span>
+            lot_name: Lot %{number} - %{name}
+            sections:
+              branches: Branches
+              jurisdictions: Jurisdictions
+              lot_status: Lot status
+              rates: Rates
+              services: Services
+        show:
+          heading:
+            branches: Branches
+            heading: Lot %{lot_number} - %{lot_name} - %{section}
+            jurisdictions: Jurisdictions
+            rates: Rates
+            services: Services
+          services:
+            has_service: Has service?
+            service_name: Service name
       reports:
         index:
           caption: "%{service_name} - %{framework}"
@@ -77,6 +115,35 @@ en:
             date_range: Date range
             status: Status
           report_triggered: Triggered report creation
+      suppliers:
+        index:
+          caption: "%{service_name} - %{framework}"
+          heading: Supplier data
+          search_for_a_supplier:
+            hint: You can find a specific supplier by entering their name in the search bar
+            label: Search for a supplier
+            placeholder: Search for a supplier..
+          supplier_name: Supplier name
+          view_details: View details
+          view_lot_data: View lot data
+          view_supplier_data: You can view the full supplier details by clicking 'View details' or view the full supplier lot data by clicking 'View lot data'.
+        show:
+          additional_supplier_information:
+            address: Address
+            title: Additional information
+          basic_supplier_information:
+            duns: DUNS Number
+            is_sme: Is an SME?
+            name: Name
+            title: Supplier information
+          heading: Supplier details
+          no_data: N/A
+          supplier_contact_information:
+            contact_email: Contact email
+            contact_name: Contact name
+            telephone_number: Contact telephone number
+            title: Contact information
+            website: Website
     basket:
       remove_all: Remove all
     error_summary:

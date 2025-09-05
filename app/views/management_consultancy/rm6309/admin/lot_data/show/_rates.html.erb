@@ -1,0 +1,9 @@
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+    <%= govuk_table(
+      *rates_table_headers_and_rows(@supplier_framework_lot_rates),
+      first_cell_is_header: true,
+      classes: 'ccs-rates-table'
+    ) %>
+  </div>
+</div>

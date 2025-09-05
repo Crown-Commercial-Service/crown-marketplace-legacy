@@ -7,7 +7,7 @@ Feature: Supply Teachers - Start pages - With an unrecognised framework
     And I click on '<framework>'
     Then I am on the 'Find supply teachers and agency workers' page
     And the framework is '<framework>'
-  
+
     Examples:
       | framework |
       | RM6238    |
@@ -24,7 +24,6 @@ Feature: Supply Teachers - Start pages - With an unrecognised framework
     Examples:
       | framework |
       | RM6238    |
-
 
   Scenario Outline: Go to an unrecognised famework in the admin section - logged out
     When I go to '/supply-teachers/RM0172/admin'

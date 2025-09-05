@@ -6,13 +6,13 @@ Feature: Supply Teachers - Agency results - Accessibility
     Then I am on the 'What is your school looking for?' page
 
   Scenario: What is your school looking for? page
-    Then the page should be axe clean excluding ".ccs-contact-us"
+    Then the page should pass the accessibility checks
 
   Scenario: Do you want an agency to supply the worker? page
     And I select 'An agency who can provide my school with an individual worker'
     And I click on 'Continue'
     Then I am on the 'Do you want an agency to supply the worker?' page
-    Then the page should be axe clean excluding ".ccs-contact-us"
+    Then the page should pass the accessibility checks
 
   Scenario: Do you want the agency to manage the worker’s pay? page
     And I select 'An agency who can provide my school with an individual worker'
@@ -21,7 +21,7 @@ Feature: Supply Teachers - Agency results - Accessibility
     And I select 'Yes'
     And I click on 'Continue'
     Then I am on the 'Do you want the agency to manage the worker’s pay?' page
-    Then the page should be axe clean excluding ".ccs-contact-us"
+    Then the page should pass the accessibility checks
 
   Scenario: School postcode and worker requirements page
     And I select 'An agency who can provide my school with an individual worker'
@@ -33,7 +33,7 @@ Feature: Supply Teachers - Agency results - Accessibility
     And I select 'Yes'
     And I click on 'Continue'
     Then I am on the 'School postcode and worker requirements' page
-    Then the page should be axe clean excluding ".ccs-contact-us"
+    Then the page should pass the accessibility checks
 
   @geocode_london
   Scenario: Agency results - agency payroll page
@@ -51,7 +51,7 @@ Feature: Supply Teachers - Agency results - Accessibility
     And I select 'Daily Supply'
     And I click on 'Continue'
     Then I am on the 'Agency results' page
-    Then the page should be axe clean excluding ".ccs-contact-us"
+    Then the page should pass the accessibility checks
 
   Scenario: What date do you want the employee to start? page
     And I select 'An agency who can provide my school with an individual worker'
@@ -63,7 +63,7 @@ Feature: Supply Teachers - Agency results - Accessibility
     And I select 'No, I want to put the worker on our payroll'
     And I click on 'Continue'
     Then I am on the 'What date do you want the employee to start?' page
-    Then the page should be axe clean excluding ".ccs-contact-us"
+    Then the page should pass the accessibility checks
 
   Scenario: What date do you want the employee to stop working? page
     And I select 'An agency who can provide my school with an individual worker'
@@ -78,7 +78,7 @@ Feature: Supply Teachers - Agency results - Accessibility
     And I enter 'today' for the date
     And I click on 'Continue'
     Then I am on the 'What date do you want the employee to stop working?' page
-    Then the page should be axe clean excluding ".ccs-contact-us"
+    Then the page should pass the accessibility checks
 
   Scenario: What would the employee's annual salary be? page
     And I select 'An agency who can provide my school with an individual worker'
@@ -96,7 +96,7 @@ Feature: Supply Teachers - Agency results - Accessibility
     And I enter a date 0 years and 3 months into the future
     And I click on 'Continue'
     Then I am on the "What would the employee's annual salary be?" page
-    Then the page should be axe clean excluding ".ccs-contact-us"
+    Then the page should pass the accessibility checks
 
   Scenario: What is your school’s postcode? page
     And I select 'An agency who can provide my school with an individual worker'
@@ -117,7 +117,7 @@ Feature: Supply Teachers - Agency results - Accessibility
     And I enter '28000' for the 'salary'
     And I click on 'Continue'
     Then I am on the 'What is your school’s postcode?' page
-    Then the page should be axe clean excluding ".ccs-contact-us"
+    Then the page should pass the accessibility checks
 
   @geocode_london
   Scenario: Agency results - fixed term page
@@ -142,7 +142,7 @@ Feature: Supply Teachers - Agency results - Accessibility
     And I enter 'SW1A 1AA' for the 'postcode'
     And I click on 'Continue'
     Then I am on the 'Agency results' page
-    Then the page should be axe clean excluding ".ccs-contact-us"
+    Then the page should pass the accessibility checks
 
   Scenario: What is your school’s postcode? page
     And I select 'An agency who can provide my school with an individual worker'
@@ -151,7 +151,7 @@ Feature: Supply Teachers - Agency results - Accessibility
     And I select 'No, I have a worker I want the agency to manage (a ‘nominated worker’)'
     And I click on 'Continue'
     Then I am on the 'What is your school’s postcode?' page
-    Then the page should be axe clean excluding ".ccs-contact-us"
+    Then the page should pass the accessibility checks
 
   @geocode_london
   Scenario: Agency results - nominated worker page
@@ -164,7 +164,7 @@ Feature: Supply Teachers - Agency results - Accessibility
     And I enter 'SW1A 1AA' for the 'postcode'
     And I click on 'Continue'
     Then I am on the 'Agency results' page
-    Then the page should be axe clean excluding ".ccs-contact-us"
+    Then the page should pass the accessibility checks
 
   @geocode_birmingham
   Scenario: Agency results - no agencies page
@@ -177,4 +177,4 @@ Feature: Supply Teachers - Agency results - Accessibility
     And I enter 'B6 6HE' for the 'postcode'
     And I click on 'Continue'
     Then I am on the 'Agency results' page
-    Then the page should be axe clean excluding ".ccs-contact-us"
+    Then the page should pass the accessibility checks
