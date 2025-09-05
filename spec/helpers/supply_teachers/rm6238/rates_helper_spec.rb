@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe SupplyTeachers::RM6238::SharedHelper do
+RSpec.describe SupplyTeachers::RM6238::RatesHelper do
   let(:rate_over_12_week) { create(:supplier_framework_lot_rate, position_id: 38, rate: 3000) }
   let(:rate_nominated) { create(:supplier_framework_lot_rate, position_id: 39, rate: 3000) }
 

@@ -23,11 +23,11 @@ Feature: Supply Teachers - FTA to perm - results
     Then I am on the '<title>' page
 
     Examples:
-      | rate  | title                           |
-      | 100   | You could be charged £140.00    |
-      | 500   | You could be charged £700.00    |
-      | 678   | You could be charged £949.20    |
-      | 1316  | You could be charged £1,842.40  |
+      | rate | title                          |
+      | 100  | You could be charged £140.00   |
+      | 500  | You could be charged £700.00   |
+      | 678  | You could be charged £949.20   |
+      | 1316 | You could be charged £1,842.40 |
 
   Scenario Outline: Changing the length of the contract changes the results
     And I enter a date 0 years and <months> months into the past
@@ -46,8 +46,8 @@ Feature: Supply Teachers - FTA to perm - results
     Then I am on the '<title>' page
 
     Examples:
-      | months  | title                           |
-      | 2       | You could be charged £5,500.00  |
-      | 5       | You could be charged £1,000.00  |
-      | 8       | You could be charged £357.14    |
-      | 10      | You could be charged £166.67    |
+      | months | title                          |
+      | 2      | You could be charged £5,500.00 |
+      | 5      | You could be charged £1,000.00 |
+      | 8      | You could be charged £357.14   |
+      | 10     | You could be charged £166.67   |

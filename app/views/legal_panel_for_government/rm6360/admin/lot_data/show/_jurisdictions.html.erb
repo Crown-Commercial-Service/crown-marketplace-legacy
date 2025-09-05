@@ -1,0 +1,27 @@
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+    <%= govuk_table(
+      [
+        {
+          text: t('.jurisdiction'),
+          classes: 'govuk-!-width-three-quarters' 
+        },
+        {
+          text: t('.provides_service_in_jursidiction'),
+          classes: 'govuk-!-width-one-quarter' 
+        },
+      ],
+      @jurisdictions.map do |jurisdiction|
+        [
+          {
+            text: jurisdiction.name
+          },
+          {
+            text: @supplier_framework_lot_jurisdictions.include?(jurisdiction.id) ? tag.span(tag.span(t('yes'), class: 'govuk-visually-hidden'), class: 'supplier-lot-data__true') : tag.span(tag.span(t('no'), class: 'govuk-visually-hidden')),
+            classes: 'supplier-lot-data'
+          }
+        ]
+      end
+    ) %>
+  </div>
+</div>

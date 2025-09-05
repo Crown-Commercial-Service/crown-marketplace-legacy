@@ -7,28 +7,28 @@ Feature: Management Consultancy - Lot 9 - Environmental Sustainability and Socio
     And I click on 'Continue'
     Then I am on the 'Select the services you need' page
     And the sub title is 'MCF3 lot 9 - Environmental Sustainability and Socio-economic Development'
-  
+
   Scenario: The correct options are available
     Then I should see the following options for the lot:
-      | Air quality                                   |
-      | Carbon management (including reporting)       |
-      | Climate change adaptation and/or mitigation   |
-      | Coastal                                       |
-      | Contaminated land                             |
-      | Due diligence                                 |
-      | Ecology and biodiversity                      |
-      | Environmental planning and protection         |
-      | Equality analysis                             |
-      | Feasibility studies and/or impact assessment  |
-      | Monitoring environmental indicators           |
-      | Natural capital                               |
-      | Natural resource management                   |
-      | Policy development and/or implementation      |
-      | Pollution control (including noise)           |
-      | Regulatory compliance                         |
-      | Risk management                               |
-      | Social value                                  |
-      | Sustainability                                |
+      | Air quality                                  |
+      | Carbon management (including reporting)      |
+      | Climate change adaptation and/or mitigation  |
+      | Coastal                                      |
+      | Contaminated land                            |
+      | Due diligence                                |
+      | Ecology and biodiversity                     |
+      | Environmental planning and protection        |
+      | Equality analysis                            |
+      | Feasibility studies and/or impact assessment |
+      | Monitoring environmental indicators          |
+      | Natural capital                              |
+      | Natural resource management                  |
+      | Policy development and/or implementation     |
+      | Pollution control (including noise)          |
+      | Regulatory compliance                        |
+      | Risk management                              |
+      | Social value                                 |
+      | Sustainability                               |
 
   Scenario: Service selection appears in basked
     Then the basket should say 'No services selected'
@@ -39,77 +39,77 @@ Feature: Management Consultancy - Lot 9 - Environmental Sustainability and Socio
     And the following items should appear in the basket:
       | Air quality |
     When I check the following items:
-      | Carbon management (including reporting)       |
-      | Contaminated land                             |
-      | Ecology and biodiversity                      |
-      | Feasibility studies and/or impact assessment  |
-      | Monitoring environmental indicators           |
-      | Natural capital                               |
-      | Pollution control (including noise)           |
-      | Social value                                  |
-      | Sustainability                                |
+      | Carbon management (including reporting)      |
+      | Contaminated land                            |
+      | Ecology and biodiversity                     |
+      | Feasibility studies and/or impact assessment |
+      | Monitoring environmental indicators          |
+      | Natural capital                              |
+      | Pollution control (including noise)          |
+      | Social value                                 |
+      | Sustainability                               |
     Then the basket should say '10 services selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
-      | Air quality |
-      | Carbon management (including reporting)       |
-      | Contaminated land                             |
-      | Ecology and biodiversity                      |
-      | Feasibility studies and/or impact assessment  |
-      | Monitoring environmental indicators           |
-      | Natural capital                               |
-      | Pollution control (including noise)           |
-      | Social value                                  |
-      | Sustainability                                |
+      | Air quality                                  |
+      | Carbon management (including reporting)      |
+      | Contaminated land                            |
+      | Ecology and biodiversity                     |
+      | Feasibility studies and/or impact assessment |
+      | Monitoring environmental indicators          |
+      | Natural capital                              |
+      | Pollution control (including noise)          |
+      | Social value                                 |
+      | Sustainability                               |
 
   Scenario: Changing the selection will change the basket
     When I check the following items:
-      | Air quality                                   |
-      | Ecology and biodiversity                      |
-      | Equality analysis                             |
-      | Feasibility studies and/or impact assessment  |
-      | Monitoring environmental indicators           |
-      | Natural capital                               |
-      | Natural resource management                   |
-      | Risk management                               |
-      | Social value                                  |
+      | Air quality                                  |
+      | Ecology and biodiversity                     |
+      | Equality analysis                            |
+      | Feasibility studies and/or impact assessment |
+      | Monitoring environmental indicators          |
+      | Natural capital                              |
+      | Natural resource management                  |
+      | Risk management                              |
+      | Social value                                 |
     Then the basket should say '9 services selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
-      | Air quality                                   |
-      | Ecology and biodiversity                      |
-      | Equality analysis                             |
-      | Feasibility studies and/or impact assessment  |
-      | Monitoring environmental indicators           |
-      | Natural capital                               |
-      | Natural resource management                   |
-      | Risk management                               |
-      | Social value                                  |
+      | Air quality                                  |
+      | Ecology and biodiversity                     |
+      | Equality analysis                            |
+      | Feasibility studies and/or impact assessment |
+      | Monitoring environmental indicators          |
+      | Natural capital                              |
+      | Natural resource management                  |
+      | Risk management                              |
+      | Social value                                 |
     When I deselect the following items:
       | Air quality |
     Then the basket should say '8 services selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
-      | Ecology and biodiversity                      |
-      | Equality analysis                             |
-      | Feasibility studies and/or impact assessment  |
-      | Monitoring environmental indicators           |
-      | Natural capital                               |
-      | Natural resource management                   |
-      | Risk management                               |
-      | Social value                                  |
+      | Ecology and biodiversity                     |
+      | Equality analysis                            |
+      | Feasibility studies and/or impact assessment |
+      | Monitoring environmental indicators          |
+      | Natural capital                              |
+      | Natural resource management                  |
+      | Risk management                              |
+      | Social value                                 |
     When I remove the following items from the basket:
-      | Natural capital           |
-      | Ecology and biodiversity  |
+      | Natural capital          |
+      | Ecology and biodiversity |
     Then the basket should say '6 services selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
-      | Equality analysis                             |
-      | Feasibility studies and/or impact assessment  |
-      | Monitoring environmental indicators           |
-      | Natural resource management                   |
-      | Risk management                               |
-      | Social value                                  |
+      | Equality analysis                            |
+      | Feasibility studies and/or impact assessment |
+      | Monitoring environmental indicators          |
+      | Natural resource management                  |
+      | Risk management                              |
+      | Social value                                 |
     When I click on 'Remove all'
     Then the basket should say 'No services selected'
 

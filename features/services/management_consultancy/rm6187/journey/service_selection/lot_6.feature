@@ -7,7 +7,7 @@ Feature: Management Consultancy - Lot 6 - Procurement and Supply Chain - Service
     And I click on 'Continue'
     Then I am on the 'Select the services you need' page
     And the sub title is 'MCF3 lot 6 - Procurement and Supply Chain'
-  
+
   Scenario: The correct options are available
     Then I should see the following options for the lot:
       | Category management             |
@@ -42,7 +42,7 @@ Feature: Management Consultancy - Lot 6 - Procurement and Supply Chain - Service
     Then the basket should say '7 services selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
-      | Category management |
+      | Category management             |
       | Commercial review               |
       | Financial advice                |
       | Outsourcing and insourcing      |
@@ -52,40 +52,40 @@ Feature: Management Consultancy - Lot 6 - Procurement and Supply Chain - Service
 
   Scenario: Changing the selection will change the basket
     When I check the following items:
-      | Category management         |
-      | Cost reduction              |
-      | Outsourcing and insourcing  |
-      | P2P                         |
-      | Sourcing                    |
-      | Supplier management         |
+      | Category management        |
+      | Cost reduction             |
+      | Outsourcing and insourcing |
+      | P2P                        |
+      | Sourcing                   |
+      | Supplier management        |
     Then the basket should say '6 services selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
-      | Category management         |
-      | Cost reduction              |
-      | Outsourcing and insourcing  |
-      | P2P                         |
-      | Sourcing                    |
-      | Supplier management         |
+      | Category management        |
+      | Cost reduction             |
+      | Outsourcing and insourcing |
+      | P2P                        |
+      | Sourcing                   |
+      | Supplier management        |
     When I deselect the following items:
       | P2P |
     Then the basket should say '5 services selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
-      | Category management         |
-      | Cost reduction              |
-      | Outsourcing and insourcing  |
-      | Sourcing                    |
-      | Supplier management         |
+      | Category management        |
+      | Cost reduction             |
+      | Outsourcing and insourcing |
+      | Sourcing                   |
+      | Supplier management        |
     When I remove the following items from the basket:
       | Cost reduction      |
       | Supplier management |
     Then the basket should say '3 services selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
-      | Category management         |
-      | Outsourcing and insourcing  |
-      | Sourcing                    |
+      | Category management        |
+      | Outsourcing and insourcing |
+      | Sourcing                   |
     When I click on 'Remove all'
     Then the basket should say 'No services selected'
 
@@ -108,4 +108,3 @@ Feature: Management Consultancy - Lot 6 - Procurement and Supply Chain - Service
       | Digitalisation      |
       | Sourcing            |
       | P2P                 |
-

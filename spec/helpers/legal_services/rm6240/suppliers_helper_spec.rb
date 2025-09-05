@@ -115,18 +115,17 @@ RSpec.describe LegalServices::RM6240::SuppliersHelper do
   end
 
   describe '#display_rate' do
-    let(:result) { helper.display_rate(position) }
+    let(:result) { helper.display_rate(position, rates) }
     let(:hourly_partner) { Faker::Number.number(digits: 5) * 100 }
     let(:hourly_trainee) { Faker::Number.number(digits: 3) * 100 }
     let(:hourly_lmp) { 0 }
     let(:supplier_framework_lot) { create(:supplier_framework_lot) }
+    let(:rates) { supplier_framework_lot.rates.index_by(&:position_id) }
 
     before do
       create(:supplier_framework_lot_rate, supplier_framework_lot: supplier_framework_lot, rate: hourly_partner, position_id: 1)
       create(:supplier_framework_lot_rate, supplier_framework_lot: supplier_framework_lot, rate: hourly_trainee, position_id: 5)
       create(:supplier_framework_lot_rate, supplier_framework_lot: supplier_framework_lot, rate: hourly_lmp, position_id: 7)
-
-      @rates = supplier_framework_lot.rates.index_by(&:position_id)
     end
 
     context 'when the position is partner (1)' do

@@ -7,7 +7,7 @@ Feature: Management Consultancy - Lot 3 - Complex and Transformation - Service s
     And I click on 'Continue'
     Then I am on the 'Select the services you need' page
     And the sub title is 'MCF3 lot 3 - Complex and Transformation'
-  
+
   Scenario: The correct options are available
     Then I should see the following options for the lot:
       | Business                            |
@@ -24,14 +24,14 @@ Feature: Management Consultancy - Lot 3 - Complex and Transformation - Service s
       | Supplier side services and delivery |
       | Transformation management           |
 
- Scenario: Service selection appears in basked
+  Scenario: Service selection appears in basked
     Then the basket should say 'No services selected'
     And the remove all link should not be visible
     When I check 'Business'
     Then the basket should say '1 service selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
-      | Business                            |
+      | Business |
     When I check the following items:
       | Digital, technology and cyber       |
       | Finance                             |
@@ -68,7 +68,7 @@ Feature: Management Consultancy - Lot 3 - Complex and Transformation - Service s
       | Procurement and/or supply chain     |
       | Supplier side services and delivery |
     When I deselect the following items:
-      | Change management                   |
+      | Change management |
     Then the basket should say '5 services selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
@@ -78,8 +78,8 @@ Feature: Management Consultancy - Lot 3 - Complex and Transformation - Service s
       | Procurement and/or supply chain     |
       | Supplier side services and delivery |
     When I remove the following items from the basket:
-      | Finance                             |
-      | Digital, technology and cyber       |
+      | Finance                       |
+      | Digital, technology and cyber |
     Then the basket should say '3 services selected'
     And the remove all link should be visible
     And the following items should appear in the basket:

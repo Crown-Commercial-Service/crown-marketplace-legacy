@@ -1,7 +1,7 @@
 Feature: Management Consultancy - Navigation links when signed in
 
   Background: I navigate to the start page
-     Given I sign in and navigate to the start page for the 'RM6309' framework in 'management consultancy'
+    Given I sign in and navigate to the start page for the 'RM6309' framework in 'management consultancy'
 
   Scenario: Start page
     When I go to the 'management consultancy' start page for 'RM6309'

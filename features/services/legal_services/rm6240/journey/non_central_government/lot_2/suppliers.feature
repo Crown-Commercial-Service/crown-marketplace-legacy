@@ -54,10 +54,10 @@ Feature: Legal services - Non central governemnt - Lot 2 - Suppliers
     And the 'Paralegal, Legal Assistant' hourly rate is '£70.00'
     And the 'LMP (Legal project manager)' hourly rate is '£165.00'
     And the contact details for the supplier are:
-      | williamson_bergstrom@volkman-johnston.name  |
-      | (951) 158-9443                              |
-      | http://pollich.net/jerold_bauch             |
-      | 707 Melida Row, Greenfelderfurt, RI 25780   |
+      | williamson_bergstrom@volkman-johnston.name |
+      | (951) 158-9443                             |
+      | http://pollich.net/jerold_bauch            |
+      | 707 Melida Row, Greenfelderfurt, RI 25780  |
 
   Scenario: Download the supplier spreadsheet
     Given I click on 'Download the supplier list'

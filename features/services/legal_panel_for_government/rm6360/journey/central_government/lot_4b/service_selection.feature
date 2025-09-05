@@ -35,7 +35,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4b - Service 
     Then the basket should say '1 service selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
-      | Compliance with international law     |
+      | Compliance with international law |
     When I check the following items:
       | International trade disputes          |
       | Trade remedies                        |
@@ -72,7 +72,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4b - Service 
       | WTO practice                          |
       | Wider trading arrangements            |
     When I deselect the following items:
-      | Wider trading arrangements            |
+      | Wider trading arrangements |
     Then the basket should say '5 services selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
@@ -87,9 +87,9 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4b - Service 
     Then the basket should say '3 services selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
-      | Compliance with international law     |
-      | International trade disputes          |
-      | Prevention of disputes                |
+      | Compliance with international law |
+      | International trade disputes      |
+      | Prevention of disputes            |
     When I click on 'Remove all'
     Then the basket should say 'No services selected'
 

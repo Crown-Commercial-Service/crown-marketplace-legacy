@@ -11,10 +11,10 @@ Feature: Management Consultancy - Lot 10 - Restructuring and insolvency - Result
     Then I am on the 'Supplier results' page
     And I should see that '4' companies can provide consultants
     And the selected suppliers are:
-      | GREENFELDER-LEUSCHKE  |
-      | KOHLER-STOKES         |
-      | MOSCISKI-CROOKS       |
-      | TURCOTTE GROUP        |
+      | GREENFELDER-LEUSCHKE |
+      | KOHLER-STOKES        |
+      | MOSCISKI-CROOKS      |
+      | TURCOTTE GROUP       |
 
   Scenario: Service selection changes the results
     Given I click on the 'Back' back link
@@ -25,11 +25,11 @@ Feature: Management Consultancy - Lot 10 - Restructuring and insolvency - Result
     Then I am on the 'Supplier results' page
     And I should see that '5' companies can provide consultants
     And the selected suppliers are:
-      | GREENFELDER-LEUSCHKE  |
-      | GUTMANN-PFEFFER       |
-      | KOHLER-STOKES         |
-      | MOSCISKI-CROOKS       |
-      | TURCOTTE GROUP        |
+      | GREENFELDER-LEUSCHKE |
+      | GUTMANN-PFEFFER      |
+      | KOHLER-STOKES        |
+      | MOSCISKI-CROOKS      |
+      | TURCOTTE GROUP       |
 
   Scenario: Going back from a supplier
     And I click on 'KOHLER-STOKES'
@@ -39,10 +39,10 @@ Feature: Management Consultancy - Lot 10 - Restructuring and insolvency - Result
     Then I am on the 'Supplier results' page
     And I should see that '4' companies can provide consultants
     And the selected suppliers are:
-      | GREENFELDER-LEUSCHKE  |
-      | KOHLER-STOKES         |
-      | MOSCISKI-CROOKS       |
-      | TURCOTTE GROUP        |
+      | GREENFELDER-LEUSCHKE |
+      | KOHLER-STOKES        |
+      | MOSCISKI-CROOKS      |
+      | TURCOTTE GROUP       |
 
   Scenario: Going back from downloading documents
     And I click on 'Download the supplier list'
@@ -51,7 +51,7 @@ Feature: Management Consultancy - Lot 10 - Restructuring and insolvency - Result
     Then I am on the 'Supplier results' page
     And I should see that '4' companies can provide consultants
     And the selected suppliers are:
-      | GREENFELDER-LEUSCHKE  |
-      | KOHLER-STOKES         |
-      | MOSCISKI-CROOKS       |
-      | TURCOTTE GROUP        |
+      | GREENFELDER-LEUSCHKE |
+      | KOHLER-STOKES        |
+      | MOSCISKI-CROOKS      |
+      | TURCOTTE GROUP       |
