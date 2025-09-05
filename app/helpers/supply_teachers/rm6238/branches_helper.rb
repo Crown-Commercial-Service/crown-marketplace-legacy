@@ -1,5 +1,5 @@
 module SupplyTeachers::RM6238::BranchesHelper
-  include SupplyTeachers::RM6238::SharedHelper
+  include SupplyTeachers::RM6238::RatesHelper
 
   def link_to_calculator?
     false

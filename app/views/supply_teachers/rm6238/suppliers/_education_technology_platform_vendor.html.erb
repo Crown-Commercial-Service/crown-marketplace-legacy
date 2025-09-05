@@ -23,31 +23,8 @@
     </p>
   <% end %>
 
-  <% grouped_rates = education_technology_platform_vendor.grouped_rates_for_lot(@lot_id) %>
-
   <%= govuk_table(
-    [
-      {
-        text: t('.column1')
-      },
-      {
-        text: t('.column2'),
-        classes: 'govuk-table__header--numeric agency-record__markup-column'
-      }
-    ],
-    [
-      [t('journey_step.supply_teachers.job_titles.agency_management_daily'), 45],
-      [t('journey_step.supply_teachers.job_titles.agency_management_six_weeks_plus'), 50],
-      [t('journey_step.supply_teachers.job_titles.nominated'), 39],
-      [t('journey_step.supply_teachers.job_titles.fixed_term'), 40],
-    ].map do |job_type, position_id|
-      [
-        {
-          text: job_type
-        },
-        agency_rate_cell(grouped_rates[position_id]),
-      ]
-    end,
+    *rates_table_headers_and_rows_lot_4(education_technology_platform_vendor.grouped_rates_for_lot(@lot_id)),
     first_cell_is_header: true
   ) %>
 </div>
