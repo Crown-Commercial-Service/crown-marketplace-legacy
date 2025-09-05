@@ -1,7 +1,7 @@
 Feature: Legal Services - Navigation links when signed in
 
   Background: I navigate to the start page
-     Given I sign in and navigate to the start page for the 'RM6240' framework in 'legal services'
+    Given I sign in and navigate to the start page for the 'RM6240' framework in 'legal services'
 
   Scenario: Start page
     When I go to the 'legal services' start page for 'RM6240'

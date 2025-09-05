@@ -70,61 +70,61 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 1 - Service s
     Then the basket should say '1 service selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
-      | Children and Vulnerable Adults      |
+      | Children and Vulnerable Adults |
     When I check the following items:
-      | Charities                           |
-      | Education Law                       |
-      | Fintech Crypto Assets               |
-      | Employment Law                      |
-      | Health, Healthcare and Social Care  |
-      | Intellectual Property Law           |
+      | Charities                          |
+      | Education Law                      |
+      | Fintech Crypto Assets              |
+      | Employment Law                     |
+      | Health, Healthcare and Social Care |
+      | Intellectual Property Law          |
     Then the basket should say '7 services selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
-      | Children and Vulnerable Adults      |
-      | Charities                           |
-      | Education Law                       |
-      | Fintech Crypto Assets               |
-      | Employment Law                      |
-      | Health, Healthcare and Social Care  |
-      | Intellectual Property Law           |
+      | Children and Vulnerable Adults     |
+      | Charities                          |
+      | Education Law                      |
+      | Fintech Crypto Assets              |
+      | Employment Law                     |
+      | Health, Healthcare and Social Care |
+      | Intellectual Property Law          |
 
   Scenario: Changing the selection will change the basket
     When I check the following items:
-      | Children and Vulnerable Adults      |
-      | Education Law                       |
-      | Health, Healthcare and Social Care  |
-      | Tax Law                             |
-      | Planning Law                        |
-      | Pensions Law                        |
+      | Children and Vulnerable Adults     |
+      | Education Law                      |
+      | Health, Healthcare and Social Care |
+      | Tax Law                            |
+      | Planning Law                       |
+      | Pensions Law                       |
     Then the basket should say '6 services selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
-      | Children and Vulnerable Adults      |
-      | Education Law                       |
-      | Health, Healthcare and Social Care  |
-      | Tax Law                             |
-      | Pensions Law                        |
-      | Planning Law                        |
+      | Children and Vulnerable Adults     |
+      | Education Law                      |
+      | Health, Healthcare and Social Care |
+      | Tax Law                            |
+      | Pensions Law                       |
+      | Planning Law                       |
     When I deselect the following items:
-      | Tax Law                             |
+      | Tax Law |
     Then the basket should say '5 services selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
-      | Children and Vulnerable Adults      |
-      | Education Law                       |
-      | Health, Healthcare and Social Care  |
-      | Pensions Law                        |
-      | Planning Law                        |
+      | Children and Vulnerable Adults     |
+      | Education Law                      |
+      | Health, Healthcare and Social Care |
+      | Pensions Law                       |
+      | Planning Law                       |
     When I remove the following items from the basket:
-      | Education Law       |
-      | Planning Law        |
+      | Education Law |
+      | Planning Law  |
     Then the basket should say '3 services selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
-      | Children and Vulnerable Adults      |
-      | Health, Healthcare and Social Care  |
-      | Pensions Law                        |
+      | Children and Vulnerable Adults     |
+      | Health, Healthcare and Social Care |
+      | Pensions Law                       |
     When I click on 'Remove all'
     Then the basket should say 'No services selected'
 

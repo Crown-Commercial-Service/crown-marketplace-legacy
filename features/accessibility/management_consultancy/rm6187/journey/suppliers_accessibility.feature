@@ -16,16 +16,16 @@ Feature: Management Consultancy - Suppliers - Accessibility
       | VANDERVORT, KOVACEK AND MORAR |
       | VEUM-RODRIGUEZ                |
       | WILLIAMSON, DOYLE AND GLOVER  |
-  
+
   Scenario: Supplier results page
-    Then the page should be axe clean excluding ".ccs-contact-us"
+    Then the page should pass the accessibility checks
 
   Scenario: Supplier page
     Then I click on 'BATZ, BROWN AND BREITENBERG'
     And I am on the 'BATZ, BROWN AND BREITENBERG' page
-    Then the page should be axe clean excluding ".ccs-contact-us"
+    Then the page should pass the accessibility checks
 
   Scenario: Download supplier list page
     Given I click on 'Download the supplier list'
     Then I am on the 'Download the supplier shortlist' page
-    Then the page should be axe clean excluding ".ccs-contact-us"
+    Then the page should pass the accessibility checks

@@ -118,7 +118,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 3 - Service s
       | Merger & Acquisition Activity     |
       | Restructuring/Insolvency          |
     When I deselect the following items:
-      | Restructuring/Insolvency          |
+      | Restructuring/Insolvency |
     Then the basket should say '5 services selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
@@ -128,8 +128,8 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 3 - Service s
       | Life Sciences                     |
       | Merger & Acquisition Activity     |
     When I remove the following items from the basket:
-      | Life Sciences                     |
-      | Merger & Acquisition Activity     |
+      | Life Sciences                 |
+      | Merger & Acquisition Activity |
     Then the basket should say '3 services selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
@@ -141,14 +141,14 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 3 - Service s
 
   Scenario: Go back from suppliers and change selection
     When I check the following items:
-      | Competition Law   |
-      | Construction Law  |
-      | Contracts         |
+      | Competition Law  |
+      | Construction Law |
+      | Contracts        |
     And I click on 'Continue'
     Then I am on the 'Supplier results' page
     And I click on the 'Back' back link
     Then I am on the 'Select the legal services you need' page
     And the following items should appear in the basket:
-      | Competition Law   |
-      | Construction Law  |
-      | Contracts         |
+      | Competition Law  |
+      | Construction Law |
+      | Contracts        |

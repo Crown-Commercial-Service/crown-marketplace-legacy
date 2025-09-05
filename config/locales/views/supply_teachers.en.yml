@@ -502,11 +502,11 @@ en:
       shared:
         rates_table:
           column1: Job type
-          column2: Agency mark-up
+          column2: 'Agency mark-up '
       suppliers:
         education_technology_platform_vendor:
           column1: Job type
-          column2: Supplier fee
+          column2: 'Supplier fee '
         education_technology_platform_vendors:
           header: Education technology platform service providers
           page_title: Education technology platform service providers

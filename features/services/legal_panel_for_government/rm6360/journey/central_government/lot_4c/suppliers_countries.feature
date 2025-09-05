@@ -16,8 +16,8 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4c - Results
     Then I am on the 'Select the countries for your requirement' page
     And the sub title is 'Lot 4c - International Investment Disputes'
     When I check the following items:
-      | Malta   |
-      | Malawi  |
+      | Malta  |
+      | Malawi |
     And I click on 'Continue'
     Then I am on the 'Select the legal services you need' page
     And the sub title is 'Lot 4c - International Investment Disputes'
@@ -27,11 +27,11 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4c - Results
     Then I am on the 'Supplier results' page
     And I should see that '5' suppliers can provide legal services for government
     And the selected legal service for government suppliers are:
-      | JAKUBOWSKI-SATTERFIELD  | http://botsford.example/zack.willms     |
-      | JOHNSON-ROMAGUERA       | http://sanford.example/lilly_bosco      |
-      | SANFORD AND SONS        | http://kreiger.example/ezra_romaguera   |
-      | VEUM, TORPHY AND NOLAN  | http://gislason.example/madeline.miller |
-      | ZIEME-LEANNON           | http://terry.example/clementine.kozey   |
+      | JAKUBOWSKI-SATTERFIELD | http://botsford.example/zack.willms     |
+      | JOHNSON-ROMAGUERA      | http://sanford.example/lilly_bosco      |
+      | SANFORD AND SONS       | http://kreiger.example/ezra_romaguera   |
+      | VEUM, TORPHY AND NOLAN | http://gislason.example/madeline.miller |
+      | ZIEME-LEANNON          | http://terry.example/clementine.kozey   |
     Given I click on 'JOHNSON-ROMAGUERA'
     Then I am on the 'JOHNSON-ROMAGUERA' page
     And I click on 'Malta'

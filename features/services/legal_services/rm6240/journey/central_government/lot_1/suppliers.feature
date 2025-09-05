@@ -39,10 +39,10 @@ Feature: Legal services -  Central governemnt - Lot 1 - Suppliers
     And the 'Paralegal, Legal Assistant' hourly rate is '£60.00'
     And there is no LMP (Legal project manager) hourly rate
     And the contact details for the supplier are:
-      | fay.haley@walsh.name                              |
-      | 1-558-665-2572                                    |
-      | http://mcdermott.io/allyn                         |
-      | 544 Deckow Throughway, Port Dellashire, VA 82640  |
+      | fay.haley@walsh.name                             |
+      | 1-558-665-2572                                   |
+      | http://mcdermott.io/allyn                        |
+      | 544 Deckow Throughway, Port Dellashire, VA 82640 |
 
   Scenario: Check the supplier data - Non SME
     Given I click on 'MERTZ-HOMENICK'

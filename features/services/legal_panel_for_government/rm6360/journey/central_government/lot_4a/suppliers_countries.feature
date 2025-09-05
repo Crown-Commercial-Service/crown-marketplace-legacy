@@ -27,11 +27,11 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4a - Results
     Then I am on the 'Supplier results' page
     And I should see that '5' suppliers can provide legal services for government
     And the selected legal service for government suppliers are:
-      | ADAMS, WOLFF AND STROMAN  | http://maggio-gulgowski.test/caridad    |
-      | CROOKS AND SONS           | http://von.example/mireille             |
-      | DICKI, QUITZON AND KUB    | http://schultz-macgyver.example/edmund  |
-      | O'CONNER AND SONS         | http://hudson.example/curtis            |
-      | STANTON-GOYETTE           | http://lakin.example/lavinia            |
+      | ADAMS, WOLFF AND STROMAN | http://maggio-gulgowski.test/caridad   |
+      | CROOKS AND SONS          | http://von.example/mireille            |
+      | DICKI, QUITZON AND KUB   | http://schultz-macgyver.example/edmund |
+      | O'CONNER AND SONS        | http://hudson.example/curtis           |
+      | STANTON-GOYETTE          | http://lakin.example/lavinia           |
     Given I click on 'CROOKS AND SONS'
     Then I am on the 'CROOKS AND SONS' page
     And I click on 'Finland'

@@ -32,24 +32,24 @@ Feature: Management Consultancy - Lot 1 - Business - Service selection
     Then the basket should say '1 service selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
-      | Business case development                       |
+      | Business case development |
     When I check the following items:
-      | Operational planning and/or improvement         |
-      | Organisational review                           |
-      | Programme & project management                  |
-      | Risk, compliance and/or opportunity management  |
-      | Value for money reviews                         |
-      | Business consultancy                            |
+      | Operational planning and/or improvement        |
+      | Organisational review                          |
+      | Programme & project management                 |
+      | Risk, compliance and/or opportunity management |
+      | Value for money reviews                        |
+      | Business consultancy                           |
     Then the basket should say '7 services selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
-      | Business case development                       |
-      | Operational planning and/or improvement         |
-      | Organisational review                           |
-      | Programme & project management                  |
-      | Risk, compliance and/or opportunity management  |
-      | Value for money reviews                         |
-      | Business consultancy                            |
+      | Business case development                      |
+      | Operational planning and/or improvement        |
+      | Organisational review                          |
+      | Programme & project management                 |
+      | Risk, compliance and/or opportunity management |
+      | Value for money reviews                        |
+      | Business consultancy                           |
 
   Scenario: Changing the selection will change the basket
     When I check the following items:
@@ -73,20 +73,20 @@ Feature: Management Consultancy - Lot 1 - Business - Service selection
     Then the basket should say '5 services selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
-      | Business case development                             |
-      | Programme & project management                        |
-      | Value for money reviews                               |
-      | Business processes                                    |
-      | Digital, technology and cyber                         |
+      | Business case development      |
+      | Programme & project management |
+      | Value for money reviews        |
+      | Business processes             |
+      | Digital, technology and cyber  |
     When I remove the following items from the basket:
-      | Programme & project management                        |
-      | Business processes                                    |
+      | Programme & project management |
+      | Business processes             |
     Then the basket should say '3 services selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
-      | Business case development                             |
-      | Value for money reviews                               |
-      | Digital, technology and cyber                         |
+      | Business case development     |
+      | Value for money reviews       |
+      | Digital, technology and cyber |
     When I click on 'Remove all'
     Then the basket should say 'No services selected'
 

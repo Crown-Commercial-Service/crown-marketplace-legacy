@@ -21,9 +21,9 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4b - Results
     Then I am on the 'Supplier results' page
     And I should see that '3' suppliers can provide legal services for government
     And the selected legal service for government suppliers are:
-      | ADAMS, WOLFF AND STROMAN  | http://gleichner-lowe.example/freddie   |
-      | SANFORD INC               | http://murazik-bechtelar.test/neda      |
-      | VEUM, TORPHY AND NOLAN    | http://gislason-murazik.example/dorthy  |
+      | ADAMS, WOLFF AND STROMAN | http://gleichner-lowe.example/freddie  |
+      | SANFORD INC              | http://murazik-bechtelar.test/neda     |
+      | VEUM, TORPHY AND NOLAN   | http://gislason-murazik.example/dorthy |
 
   Scenario: Check the supplier data - SME
     Given I click on 'SANFORD INC'
@@ -42,10 +42,10 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4b - Results
     And the 'Senior Modeller, Senior Econometrician, Senior Analyst' hourly rate is '£180.00'
     And the 'Modeller, Econometrician, Analyst, Associate Analyst' hourly rate is '£150.00'
     And the contact details for the supplier are:
-      | sanford.inc@hartmann.test                             |
-      | 728-370-0504                                          |
-      | http://zemlak.example/evonne_treutel                  |
-      | Suite 830 5709 Simonis Valley, Lake Vernie, UT 13705  |
+      | sanford.inc@hartmann.test                            |
+      | 728-370-0504                                         |
+      | http://zemlak.example/evonne_treutel                 |
+      | Suite 830 5709 Simonis Valley, Lake Vernie, UT 13705 |
     And the prospectus link is 'http://murazik-bechtelar.test/neda'
 
   Scenario: Download the supplier spreadsheet

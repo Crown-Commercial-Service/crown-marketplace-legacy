@@ -30,18 +30,18 @@ Feature: Supply Teachers - Agency results - Fixed term - Validations
     And I enter the rate '<dayly_rate>' for the supplier 'CORKERY INC'
     Then I should see the error message 'Annual salary is invalid' for 'CORKERY INC'
     And the following agencies have no errors:
-      | BARTOLETTI, KOEPP AND NIENOW  |
-      | STANTON, FADEL AND BOSCO      |
-      | DIETRICH-BORER                |
-      | KERLUKE, TORP AND HEATHCOTE   |
-      | ZIEMANN-HERMANN               |
-      | EMARD AND SONS                |
-      | FEEST-MULLER                  |
+      | BARTOLETTI, KOEPP AND NIENOW |
+      | STANTON, FADEL AND BOSCO     |
+      | DIETRICH-BORER               |
+      | KERLUKE, TORP AND HEATHCOTE  |
+      | ZIEMANN-HERMANN              |
+      | EMARD AND SONS               |
+      | FEEST-MULLER                 |
 
     Examples:
-      | dayly_rate  |
-      | -1          |
-      | Taion       |
+      | dayly_rate |
+      | -1         |
+      | Taion      |
 
   Scenario: Annual salary validations - both errors at once
     And I enter the rate '-1' for the supplier 'CORKERY INC'
@@ -54,14 +54,14 @@ Feature: Supply Teachers - Agency results - Fixed term - Validations
     Then I should see the error message 'Annual salary is invalid' for 'CORKERY INC'
     And I enter the rate '20000' for the supplier 'CORKERY INC'
     And the following agencies have no errors:
-      | BARTOLETTI, KOEPP AND NIENOW  |
-      | CORKERY INC                   |
-      | STANTON, FADEL AND BOSCO      |
-      | DIETRICH-BORER                |
-      | KERLUKE, TORP AND HEATHCOTE   |
-      | ZIEMANN-HERMANN               |
-      | EMARD AND SONS                |
-      | FEEST-MULLER                  |
+      | BARTOLETTI, KOEPP AND NIENOW |
+      | CORKERY INC                  |
+      | STANTON, FADEL AND BOSCO     |
+      | DIETRICH-BORER               |
+      | KERLUKE, TORP AND HEATHCOTE  |
+      | ZIEMANN-HERMANN              |
+      | EMARD AND SONS               |
+      | FEEST-MULLER                 |
 
   Scenario: Rate validations - multiple agencies
     And I enter the rate '-1' for the supplier 'CORKERY INC'
@@ -71,8 +71,8 @@ Feature: Supply Teachers - Agency results - Fixed term - Validations
     Then I should see the error message 'Annual salary is invalid' for 'DIETRICH-BORER'
     Then I should see the error message 'Annual salary is invalid' for 'EMARD AND SONS'
     And the following agencies have no errors:
-      | BARTOLETTI, KOEPP AND NIENOW  |
-      | STANTON, FADEL AND BOSCO      |
-      | KERLUKE, TORP AND HEATHCOTE   |
-      | ZIEMANN-HERMANN               |
-      | FEEST-MULLER                  |
+      | BARTOLETTI, KOEPP AND NIENOW |
+      | STANTON, FADEL AND BOSCO     |
+      | KERLUKE, TORP AND HEATHCOTE  |
+      | ZIEMANN-HERMANN              |
+      | FEEST-MULLER                 |

@@ -39,7 +39,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 3 - Suppliers
     Then the basket should say '1 supplier selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
-      | CORMIER INC                   |
+      | CORMIER INC |
     When I check the following items:
       | O'CONNER AND SONS             |
       | TILLMAN, LUBOWITZ AND GOYETTE |
@@ -64,7 +64,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 3 - Suppliers
       | TILLMAN, LUBOWITZ AND GOYETTE |
       | VEUM, TORPHY AND NOLAN        |
     When I deselect the following items:
-      | CORMIER INC                   |
+      | CORMIER INC |
     Then the basket should say '3 suppliers selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
@@ -77,7 +77,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 3 - Suppliers
     Then the basket should say '1 supplier selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
-      | VEUM, TORPHY AND NOLAN        |
+      | VEUM, TORPHY AND NOLAN |
     When I click on 'Remove all'
     Then the basket should say 'No suppliers selected'
 

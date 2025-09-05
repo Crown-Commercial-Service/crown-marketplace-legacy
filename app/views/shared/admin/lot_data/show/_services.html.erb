@@ -1,0 +1,34 @@
+<% @services.each do |group, services| %>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+      <%= govuk_table(
+        [
+          {
+            text: t('.service_name'),
+            classes: 'govuk-!-width-three-quarters' 
+          },
+          {
+            text: t('.has_service'),
+            classes: 'govuk-!-width-one-quarter' 
+          },
+        ],
+        services.map do |service|
+          [
+            {
+              text: service.name
+            },
+            {
+              text: @supplier_framework_lot_services.include?(service.id) ? tag.span(tag.span(t('yes'), class: 'govuk-visually-hidden'), class: 'supplier-lot-data__true') : tag.span(tag.span(t('no'), class: 'govuk-visually-hidden')),
+              classes: 'supplier-lot-data'
+            }
+          ]
+        end,
+        **(group ? {
+          caption: {
+            text: group
+          }
+        }: {})
+      ) %>
+    </div>
+  </div>
+<% end %>

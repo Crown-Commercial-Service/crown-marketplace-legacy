@@ -21,9 +21,9 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4b - Results
     Then I am on the 'Supplier results' page
     And I should see that '3' suppliers can provide legal services for government
     And the selected legal service for government suppliers are:
-      | ADAMS, WOLFF AND STROMAN  | http://gleichner-lowe.example/freddie   |
-      | SANFORD INC               | http://murazik-bechtelar.test/neda      |
-      | VEUM, TORPHY AND NOLAN    | http://gislason-murazik.example/dorthy  |
+      | ADAMS, WOLFF AND STROMAN | http://gleichner-lowe.example/freddie  |
+      | SANFORD INC              | http://murazik-bechtelar.test/neda     |
+      | VEUM, TORPHY AND NOLAN   | http://gislason-murazik.example/dorthy |
 
   Scenario: Service selection changes the results
     Given I click on the 'Back' back link
@@ -34,11 +34,11 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4b - Results
     Then I am on the 'Supplier results' page
     And I should see that '5' suppliers can provide legal services for government
     And the selected legal service for government suppliers are:
-      | ADAMS, WOLFF AND STROMAN          | http://gleichner-lowe.example/freddie   |
-      | ERDMAN INC                        | http://mosciski.example/madelaine       |
-      | SANFORD INC                       | http://murazik-bechtelar.test/neda      |
-      | STEUBER, BERNIER AND SATTERFIELD  | http://brekke-roberts.test/tory         |
-      | VEUM, TORPHY AND NOLAN            | http://gislason-murazik.example/dorthy  |
+      | ADAMS, WOLFF AND STROMAN         | http://gleichner-lowe.example/freddie  |
+      | ERDMAN INC                       | http://mosciski.example/madelaine      |
+      | SANFORD INC                      | http://murazik-bechtelar.test/neda     |
+      | STEUBER, BERNIER AND SATTERFIELD | http://brekke-roberts.test/tory        |
+      | VEUM, TORPHY AND NOLAN           | http://gislason-murazik.example/dorthy |
 
   Scenario: Going back from a supplier
     And I click on 'SANFORD INC'
@@ -48,9 +48,9 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4b - Results
     Then I am on the 'Supplier results' page
     And I should see that '3' suppliers can provide legal services for government
     And the selected legal service for government suppliers are:
-      | ADAMS, WOLFF AND STROMAN  | http://gleichner-lowe.example/freddie   |
-      | SANFORD INC               | http://murazik-bechtelar.test/neda      |
-      | VEUM, TORPHY AND NOLAN    | http://gislason-murazik.example/dorthy  |
+      | ADAMS, WOLFF AND STROMAN | http://gleichner-lowe.example/freddie  |
+      | SANFORD INC              | http://murazik-bechtelar.test/neda     |
+      | VEUM, TORPHY AND NOLAN   | http://gislason-murazik.example/dorthy |
 
   Scenario: Going back from downloading documents
     And I click on 'Download the supplier list'
@@ -59,6 +59,6 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4b - Results
     Then I am on the 'Supplier results' page
     And I should see that '3' suppliers can provide legal services for government
     And the selected legal service for government suppliers are:
-      | ADAMS, WOLFF AND STROMAN  | http://gleichner-lowe.example/freddie   |
-      | SANFORD INC               | http://murazik-bechtelar.test/neda      |
-      | VEUM, TORPHY AND NOLAN    | http://gislason-murazik.example/dorthy  |
+      | ADAMS, WOLFF AND STROMAN | http://gleichner-lowe.example/freddie  |
+      | SANFORD INC              | http://murazik-bechtelar.test/neda     |
+      | VEUM, TORPHY AND NOLAN   | http://gislason-murazik.example/dorthy |

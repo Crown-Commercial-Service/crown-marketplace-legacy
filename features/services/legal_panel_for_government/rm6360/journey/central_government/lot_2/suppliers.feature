@@ -17,10 +17,10 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 2 - Suppliers
     Then I am on the 'Supplier results' page
     And I should see that '4' suppliers can provide legal services for government
     And the selected legal service for government suppliers are:
-      | ADAMS, WOLFF AND STROMAN  | http://schoen.test/horacio              |
-      | BALISTRERI-MURAZIK        | http://dubuque.test/soo_lockman         |
-      | CORMIER INC               | http://mayer-willms.test/daphine        |
-      | MONAHAN-JOHNS             | http://runolfsson.example/darrel.heaney |
+      | ADAMS, WOLFF AND STROMAN | http://schoen.test/horacio              |
+      | BALISTRERI-MURAZIK       | http://dubuque.test/soo_lockman         |
+      | CORMIER INC              | http://mayer-willms.test/daphine        |
+      | MONAHAN-JOHNS            | http://runolfsson.example/darrel.heaney |
 
   Scenario: Check the supplier data - SME
     Given I click on 'ADAMS, WOLFF AND STROMAN'
@@ -52,10 +52,10 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 2 - Suppliers
     And the 'Trainee/Legal Apprentice' hourly rate is '£72.00'
     And the 'Paralegal, Legal Assistant' hourly rate is '£60.00'
     And the contact details for the supplier are:
-      | balistreri.murazik@labadie.example        |
-      | 857-873-6226                              |
-      | http://moen.example/darryl.bogan          |
-      | 92992 Wolff Mount, North Drema, AR 96486  |
+      | balistreri.murazik@labadie.example       |
+      | 857-873-6226                             |
+      | http://moen.example/darryl.bogan         |
+      | 92992 Wolff Mount, North Drema, AR 96486 |
     And the prospectus link is 'http://dubuque.test/soo_lockman'
 
   Scenario: Download the supplier spreadsheet

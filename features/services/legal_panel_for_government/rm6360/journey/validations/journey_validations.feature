@@ -147,4 +147,3 @@ Feature: Legal Panel for Government - Jounrey validations
     When I click on 'Continue'
     Then I should see the following error messages:
       | You must select at least two suppliers for comparison |
-

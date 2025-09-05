@@ -21,9 +21,9 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4a - Results
     Then I am on the 'Supplier results' page
     And I should see that '3' suppliers can provide legal services for government
     And the selected legal service for government suppliers are:
-      | ADAMS, WOLFF AND STROMAN  | http://maggio-gulgowski.test/caridad  |
-      | CROOKS AND SONS           | http://von.example/mireille           |
-      | O'CONNER AND SONS         | http://hudson.example/curtis          |
+      | ADAMS, WOLFF AND STROMAN | http://maggio-gulgowski.test/caridad |
+      | CROOKS AND SONS          | http://von.example/mireille          |
+      | O'CONNER AND SONS        | http://hudson.example/curtis         |
 
   Scenario: Check the supplier data - SME
     Given I click on "O'CONNER AND SONS"

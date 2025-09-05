@@ -39,7 +39,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 1 - Suppliers
     Then the basket should say '1 supplier selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
-      | CORMIER INC                   |
+      | CORMIER INC |
     When I check the following items:
       | LOCKMAN, NITZSCHE AND BARTELL |
       | MONAHAN-JOHNS                 |
@@ -64,7 +64,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 1 - Suppliers
       | LOCKMAN, NITZSCHE AND BARTELL |
       | MONAHAN-JOHNS                 |
     When I deselect the following items:
-      | CORMIER INC                   |
+      | CORMIER INC |
     Then the basket should say '3 suppliers selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
@@ -77,7 +77,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 1 - Suppliers
     Then the basket should say '1 supplier selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
-      | MONAHAN-JOHNS                 |
+      | MONAHAN-JOHNS |
     When I click on 'Remove all'
     Then the basket should say 'No suppliers selected'
 
