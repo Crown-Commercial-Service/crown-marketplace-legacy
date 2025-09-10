@@ -36,7 +36,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4a - Service 
     Then the basket should say '1 service selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
-      | Assimilated Law                         |
+      | Assimilated Law |
     When I check the following items:
       | Domestic law of jurisdictions for trade |
       | Implementation of trade agreements      |
@@ -73,7 +73,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4a - Service 
       | Trade and investment negotiations       |
       | Wider trading arrangements              |
     When I deselect the following items:
-      | Wider trading arrangements              |
+      | Wider trading arrangements |
     Then the basket should say '5 services selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
@@ -83,8 +83,8 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4a - Service 
       | Investment treaties                     |
       | Trade and investment negotiations       |
     When I remove the following items from the basket:
-      | Investment treaties                     |
-      | Trade and investment negotiations       |
+      | Investment treaties               |
+      | Trade and investment negotiations |
     Then the basket should say '3 services selected'
     And the remove all link should be visible
     And the following items should appear in the basket:

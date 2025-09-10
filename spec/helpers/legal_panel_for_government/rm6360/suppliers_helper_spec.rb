@@ -152,11 +152,6 @@ RSpec.describe LegalPanelForGovernment::RM6360::SuppliersHelper do
     let(:hourly_2_3) { Faker::Number.number(digits: 3) * 1000 }
     let(:supplier_framework_lot_1) { create(:supplier_framework_lot) }
     let(:supplier_framework_lot_2) { create(:supplier_framework_lot) }
-    let(:rates) do
-      supplier_framework_lot_2.rates.each_with_object({}) do |rate, grouped_rates|
-        (grouped_rates[rate.position_id] ||= {})[rate.jurisdiction.jurisdiction_id] = rate
-      end
-    end
 
     before do
       [
@@ -172,14 +167,16 @@ RSpec.describe LegalPanelForGovernment::RM6360::SuppliersHelper do
         create(:supplier_framework_lot_rate, supplier_framework_lot: supplier_framework_lot, rate: hourly_3, position_id: 3, supplier_framework_lot_jurisdiction_id: ae_jurisdiction_id)
         create(:supplier_framework_lot_rate, supplier_framework_lot: supplier_framework_lot, rate: hourly_3 * 4, position_id: 3, supplier_framework_lot_jurisdiction_id: az_jurisdiction_id)
       end
-
-      @rates = supplier_framework_lot_1.rates.each_with_object({}) do |rate, grouped_rates|
-        (grouped_rates[rate.position_id] ||= {})[rate.jurisdiction.jurisdiction_id] = rate
-      end
     end
 
     context 'when getting rates from the instance variabled' do
-      let(:result) { helper.display_rate(position, jurisdiction_id) }
+      let(:rates) do
+        supplier_framework_lot_1.rates.each_with_object({}) do |rate, grouped_rates|
+          (grouped_rates[rate.position_id] ||= {})[rate.jurisdiction.jurisdiction_id] = rate
+        end
+      end
+
+      let(:result) { helper.display_rate(position, jurisdiction_id, rates) }
 
       context 'when the position is 1' do
         let(:position) { 1 }
@@ -276,6 +273,12 @@ RSpec.describe LegalPanelForGovernment::RM6360::SuppliersHelper do
     end
 
     context 'when getting rates from the parameter' do
+      let(:rates) do
+        supplier_framework_lot_2.rates.each_with_object({}) do |rate, grouped_rates|
+          (grouped_rates[rate.position_id] ||= {})[rate.jurisdiction.jurisdiction_id] = rate
+        end
+      end
+
       let(:result) { helper.display_rate(position, jurisdiction_id, rates) }
 
       context 'when the position is 1' do

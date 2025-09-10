@@ -26,14 +26,14 @@ Feature: Supply Teachers - Agency results - Fixed term - Results by length
     Then I am on the 'Agency results' page
     And there are 8 agencies
     And the listed agencies with distances, fees and lengths are:
-      | BARTOLETTI, KOEPP AND NIENOW  | Southport | 17.2  | <annual_salary> | 3 months  | <agency_1_rate> | 16.6% |
-      | CORKERY INC                   | Liverpool | 0.6   | <annual_salary> | 3 months  | <agency_2_rate> | 23.7% |
-      | STANTON, FADEL AND BOSCO      | Liverpool | 2.6   | <annual_salary> | 3 months  | <agency_3_rate> | 24.9% |
-      | DIETRICH-BORER                | Southport | 17.2  | <annual_salary> | 3 months  | <agency_4_rate> | 25.6% |
-      | KERLUKE, TORP AND HEATHCOTE   | Liverpool | 0.6   | <annual_salary> | 3 months  | <agency_5_rate> | 28.8% |
-      | ZIEMANN-HERMANN               | Liverpool | 7.3   | <annual_salary> | 3 months  | <agency_6_rate> | 32.1% |
-      | EMARD AND SONS                | Liverpool | 2.6   | <annual_salary> | 3 months  | <agency_7_rate> | 35.0% |
-      | FEEST-MULLER                  | Liverpool | 7.3   | <annual_salary> | 3 months  | <agency_8_rate> | 35.7% |
+      | BARTOLETTI, KOEPP AND NIENOW | Southport | 17.2 | <annual_salary> | 3 months | <agency_1_rate> | 16.6% |
+      | CORKERY INC                  | Liverpool | 0.6  | <annual_salary> | 3 months | <agency_2_rate> | 23.7% |
+      | STANTON, FADEL AND BOSCO     | Liverpool | 2.6  | <annual_salary> | 3 months | <agency_3_rate> | 24.9% |
+      | DIETRICH-BORER               | Southport | 17.2 | <annual_salary> | 3 months | <agency_4_rate> | 25.6% |
+      | KERLUKE, TORP AND HEATHCOTE  | Liverpool | 0.6  | <annual_salary> | 3 months | <agency_5_rate> | 28.8% |
+      | ZIEMANN-HERMANN              | Liverpool | 7.3  | <annual_salary> | 3 months | <agency_6_rate> | 32.1% |
+      | EMARD AND SONS               | Liverpool | 2.6  | <annual_salary> | 3 months | <agency_7_rate> | 35.0% |
+      | FEEST-MULLER                 | Liverpool | 7.3  | <annual_salary> | 3 months | <agency_8_rate> | 35.7% |
     And the choices used to generate the list are:
       | Looking for: Individual worker  |
       | Worker type: Supplied by agency |

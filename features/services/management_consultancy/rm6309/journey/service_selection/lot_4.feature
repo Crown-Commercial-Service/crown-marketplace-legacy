@@ -7,7 +7,7 @@ Feature: Management Consultancy - Lot 4 - Finance - Service selection
     And I click on 'Continue'
     Then I am on the 'Select the services you need' page
     And the sub title is 'MCF4 lot 4 - Finance'
-  
+
   Scenario: The correct options are available
     Then I should see the following options for the lot:
       | Asset finance                                             |
@@ -38,7 +38,7 @@ Feature: Management Consultancy - Lot 4 - Finance - Service selection
     Then the basket should say '1 service selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
-      | Asset finance                                             |
+      | Asset finance |
     When I check the following items:
       | Financial due diligence                                   |
       | Financing public projects and negotiations                |
@@ -71,96 +71,95 @@ Feature: Management Consultancy - Lot 4 - Finance - Service selection
 
   Scenario: Changing the selection will change the basket
     When I check the following items:
-      | Asset finance                                             |
-      | Financial performance review and viability studies        |
-      | Forecasting and budgeting                                 |
-      | Mergers, acquisitions and divestment                      |
-      | Pensions                                                  |
-      | Risk management                                           |
-      | Tax including value added tax (VAT)                       |
-      | Capital fundraising, derivatives and hedging              |
-      | Cost benefit reviews, studies, analysis and evaluation    |
-      | Developing and assessing project proposals                |
-      | Economic analysis                                         |
-      | Financial accounting and/or reporting                     |
+      | Asset finance                                          |
+      | Financial performance review and viability studies     |
+      | Forecasting and budgeting                              |
+      | Mergers, acquisitions and divestment                   |
+      | Pensions                                               |
+      | Risk management                                        |
+      | Tax including value added tax (VAT)                    |
+      | Capital fundraising, derivatives and hedging           |
+      | Cost benefit reviews, studies, analysis and evaluation |
+      | Developing and assessing project proposals             |
+      | Economic analysis                                      |
+      | Financial accounting and/or reporting                  |
     Then the basket should say '12 services selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
-      | Asset finance                                             |
-      | Financial performance review and viability studies        |
-      | Forecasting and budgeting                                 |
-      | Mergers, acquisitions and divestment                      |
-      | Pensions                                                  |
-      | Risk management                                           |
-      | Tax including value added tax (VAT)                       |
-      | Capital fundraising, derivatives and hedging              |
-      | Cost benefit reviews, studies, analysis and evaluation    |
-      | Developing and assessing project proposals                |
-      | Economic analysis                                         |
-      | Financial accounting and/or reporting                     |
+      | Asset finance                                          |
+      | Financial performance review and viability studies     |
+      | Forecasting and budgeting                              |
+      | Mergers, acquisitions and divestment                   |
+      | Pensions                                               |
+      | Risk management                                        |
+      | Tax including value added tax (VAT)                    |
+      | Capital fundraising, derivatives and hedging           |
+      | Cost benefit reviews, studies, analysis and evaluation |
+      | Developing and assessing project proposals             |
+      | Economic analysis                                      |
+      | Financial accounting and/or reporting                  |
     When I deselect the following items:
-      | Mergers, acquisitions and divestment                      |
+      | Mergers, acquisitions and divestment |
     Then the basket should say '11 services selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
-      | Asset finance                                             |
-      | Financial performance review and viability studies        |
-      | Forecasting and budgeting                                 |
-      | Pensions                                                  |
-      | Risk management                                           |
-      | Tax including value added tax (VAT)                       |
-      | Capital fundraising, derivatives and hedging              |
-      | Cost benefit reviews, studies, analysis and evaluation    |
-      | Developing and assessing project proposals                |
-      | Economic analysis                                         |
-      | Financial accounting and/or reporting                     |
+      | Asset finance                                          |
+      | Financial performance review and viability studies     |
+      | Forecasting and budgeting                              |
+      | Pensions                                               |
+      | Risk management                                        |
+      | Tax including value added tax (VAT)                    |
+      | Capital fundraising, derivatives and hedging           |
+      | Cost benefit reviews, studies, analysis and evaluation |
+      | Developing and assessing project proposals             |
+      | Economic analysis                                      |
+      | Financial accounting and/or reporting                  |
     When I remove the following items from the basket:
-      | Developing and assessing project proposals                |
-      | Financial accounting and/or reporting                     |
+      | Developing and assessing project proposals |
+      | Financial accounting and/or reporting      |
     Then the basket should say '9 services selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
-      | Asset finance                                             |
-      | Financial performance review and viability studies        |
-      | Forecasting and budgeting                                 |
-      | Pensions                                                  |
-      | Risk management                                           |
-      | Tax including value added tax (VAT)                       |
-      | Capital fundraising, derivatives and hedging              |
-      | Cost benefit reviews, studies, analysis and evaluation    |
-      | Economic analysis                                         |
+      | Asset finance                                          |
+      | Financial performance review and viability studies     |
+      | Forecasting and budgeting                              |
+      | Pensions                                               |
+      | Risk management                                        |
+      | Tax including value added tax (VAT)                    |
+      | Capital fundraising, derivatives and hedging           |
+      | Cost benefit reviews, studies, analysis and evaluation |
+      | Economic analysis                                      |
     When I click on 'Remove all'
     Then the basket should say 'No services selected'
 
   Scenario: Go back from supplier results and change selection
     When I check the following items:
-      | Asset finance                                             |
-      | Financial due diligence                                   |
-      | Financial performance review and viability studies        |
-      | Financing public projects and negotiations                |
-      | Investment, financial advice and market services          |
-      | Mergers, acquisitions and divestment                      |
-      | Pensions                                                  |
-      | Risk management                                           |
-      | Tax including value added tax (VAT)                       |
-      | Capital fundraising, derivatives and hedging              |
-      | Cost benefit reviews, studies, analysis and evaluation    |
-      | Economic analysis                                         |
-
+      | Asset finance                                          |
+      | Financial due diligence                                |
+      | Financial performance review and viability studies     |
+      | Financing public projects and negotiations             |
+      | Investment, financial advice and market services       |
+      | Mergers, acquisitions and divestment                   |
+      | Pensions                                               |
+      | Risk management                                        |
+      | Tax including value added tax (VAT)                    |
+      | Capital fundraising, derivatives and hedging           |
+      | Cost benefit reviews, studies, analysis and evaluation |
+      | Economic analysis                                      |
     And I click on 'Continue'
     Then I am on the 'Supplier results' page
     And I click on the 'Back' back link
     Then I am on the 'Select the services you need' page
     And the following items should appear in the basket:
-      | Asset finance                                             |
-      | Cost benefit reviews, studies, analysis and evaluation    |
-      | Financial performance review and viability studies        |
-      | Capital fundraising, derivatives and hedging              |
-      | Financing public projects and negotiations                |
-      | Investment, financial advice and market services          |
-      | Pensions                                                  |
-      | Risk management                                           |
-      | Financial due diligence                                   |
-      | Tax including value added tax (VAT)                       |
-      | Economic analysis                                         |
-      | Mergers, acquisitions and divestment                      |
+      | Asset finance                                          |
+      | Cost benefit reviews, studies, analysis and evaluation |
+      | Financial performance review and viability studies     |
+      | Capital fundraising, derivatives and hedging           |
+      | Financing public projects and negotiations             |
+      | Investment, financial advice and market services       |
+      | Pensions                                               |
+      | Risk management                                        |
+      | Financial due diligence                                |
+      | Tax including value added tax (VAT)                    |
+      | Economic analysis                                      |
+      | Mergers, acquisitions and divestment                   |

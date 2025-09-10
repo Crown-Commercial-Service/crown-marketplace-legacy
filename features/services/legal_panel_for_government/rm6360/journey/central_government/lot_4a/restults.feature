@@ -21,9 +21,9 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4a - Results
     Then I am on the 'Supplier results' page
     And I should see that '3' suppliers can provide legal services for government
     And the selected legal service for government suppliers are:
-      | ADAMS, WOLFF AND STROMAN  | http://maggio-gulgowski.test/caridad  |
-      | CROOKS AND SONS           | http://von.example/mireille           |
-      | O'CONNER AND SONS         | http://hudson.example/curtis          |
+      | ADAMS, WOLFF AND STROMAN | http://maggio-gulgowski.test/caridad |
+      | CROOKS AND SONS          | http://von.example/mireille          |
+      | O'CONNER AND SONS        | http://hudson.example/curtis         |
 
   Scenario: Service selection changes the results
     Given I click on the 'Back' back link
@@ -34,10 +34,10 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4a - Results
     Then I am on the 'Supplier results' page
     And I should see that '4' suppliers can provide legal services for government
     And the selected legal service for government suppliers are:
-      | ADAMS, WOLFF AND STROMAN  | http://maggio-gulgowski.test/caridad    |
-      | CROOKS AND SONS           | http://von.example/mireille             |
-      | DICKI, QUITZON AND KUB    | http://schultz-macgyver.example/edmund  |
-      | O'CONNER AND SONS         | http://hudson.example/curtis            |
+      | ADAMS, WOLFF AND STROMAN | http://maggio-gulgowski.test/caridad   |
+      | CROOKS AND SONS          | http://von.example/mireille            |
+      | DICKI, QUITZON AND KUB   | http://schultz-macgyver.example/edmund |
+      | O'CONNER AND SONS        | http://hudson.example/curtis           |
 
   Scenario: Going back from a supplier
     And I click on 'CROOKS AND SONS'
@@ -47,9 +47,9 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4a - Results
     Then I am on the 'Supplier results' page
     And I should see that '3' suppliers can provide legal services for government
     And the selected legal service for government suppliers are:
-      | ADAMS, WOLFF AND STROMAN  | http://maggio-gulgowski.test/caridad  |
-      | CROOKS AND SONS           | http://von.example/mireille           |
-      | O'CONNER AND SONS         | http://hudson.example/curtis          |
+      | ADAMS, WOLFF AND STROMAN | http://maggio-gulgowski.test/caridad |
+      | CROOKS AND SONS          | http://von.example/mireille          |
+      | O'CONNER AND SONS        | http://hudson.example/curtis         |
 
   Scenario: Going back from downloading documents
     And I click on 'Download the supplier list'
@@ -58,6 +58,6 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4a - Results
     Then I am on the 'Supplier results' page
     And I should see that '3' suppliers can provide legal services for government
     And the selected legal service for government suppliers are:
-      | ADAMS, WOLFF AND STROMAN  | http://maggio-gulgowski.test/caridad  |
-      | CROOKS AND SONS           | http://von.example/mireille           |
-      | O'CONNER AND SONS         | http://hudson.example/curtis          |
+      | ADAMS, WOLFF AND STROMAN | http://maggio-gulgowski.test/caridad |
+      | CROOKS AND SONS          | http://von.example/mireille          |
+      | O'CONNER AND SONS        | http://hudson.example/curtis         |

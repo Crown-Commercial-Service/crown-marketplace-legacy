@@ -1,0 +1,49 @@
+<%= render(
+  partial: "shared/admin/suppliers/show",
+  locals: {
+    supplier_contact_information: [
+      {
+        key: {
+          text: t('shared.admin.suppliers.show.supplier_contact_information.contact_name')
+        },
+        value: {
+          text: @supplier_framework.contact_detail.name
+        }
+      },
+      {
+        key: {
+          text: t('shared.admin.suppliers.show.supplier_contact_information.contact_email')
+        },
+        value: {
+          text: @supplier_framework.contact_detail.email
+        }
+      },
+      {
+        key: {
+          text: t('shared.admin.suppliers.show.supplier_contact_information.telephone_number')
+        },
+        value: {
+          text: @supplier_framework.contact_detail.telephone_number ? @supplier_framework.contact_detail.telephone_number : t('shared.admin.suppliers.show.no_data')
+        }
+      },
+      {
+        key: {
+          text: t('shared.admin.suppliers.show.supplier_contact_information.website')
+        },
+        value: {
+          text: @supplier_framework.contact_detail.website ? @supplier_framework.contact_detail.website : t('shared.admin.suppliers.show.no_data')
+        }
+      },
+    ],
+    additional_supplier_information: [
+      {
+        key: {
+          text: t('shared.admin.suppliers.show.additional_supplier_information.address')
+        },
+        value: {
+          text: @supplier_framework.contact_detail.additional_details["address"]
+        }
+      }
+    ]
+  }
+) %>
