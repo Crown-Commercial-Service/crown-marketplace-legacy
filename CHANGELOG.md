@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [6.2.0] - 2025-09-11
+
 ### Added
 
 - Add admin sections to view the supplier data ([PR 2077](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2077))
