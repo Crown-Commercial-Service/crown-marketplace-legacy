@@ -8,7 +8,7 @@ en:
           heading: Admin dashboard
           manage_supplier_data:
             description: Upload and update the supplier data
-            title: Manage supplier date
+            title: Manage supplier data
           page_title: "%{service_name} admin dashboard"
           supplier_data: Supplier data
           user_reports: User reports
