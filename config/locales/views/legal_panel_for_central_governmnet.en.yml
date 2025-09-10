@@ -94,7 +94,7 @@ en:
           show:
             jurisdictions:
               jurisdiction: Jurisdiction
-              provides_service_in_jursidiction: Provides services in jurisdiction
+              provides_service_in_jursidiction: Provides services in jurisdiction?
         suppliers:
           show:
             additional_supplier_information:
