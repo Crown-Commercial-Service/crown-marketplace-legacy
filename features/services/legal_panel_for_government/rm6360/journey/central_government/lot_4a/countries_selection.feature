@@ -1,4 +1,3 @@
-@javascript
 Feature: Legal Panel for Government - Non central governemnt - Lot 4a - Select countries
 
   Background: Navigate to start page and select the lot
@@ -259,6 +258,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4a - Select c
       | Zimbabwe                                     |
       | Åland Islands                                |
 
+  @javascript
   Scenario: Country selection appears in basked
     Then the basket should say 'No countries selected'
     And the remove all link should not be visible
@@ -285,6 +285,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4a - Select c
       | Vatican City |
       | Zimbabwe     |
 
+  @javascript
   Scenario: Changing the selection will change the basket
     When I check the following items:
       | Antarctica    |
@@ -324,6 +325,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4a - Select c
     When I click on 'Remove all'
     Then the basket should say 'No countries selected'
 
+  @javascript
   Scenario: Go back from services and change selection
     When I check the following items:
       | Madagascar |
@@ -338,6 +340,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4a - Select c
       | Tonga      |
       | Tunisia    |
 
+  @javascript
   Scenario: Search for a country
     When I type the following details into the form:
       | Start typing to find a country | as |
@@ -625,6 +628,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4a - Select c
       | Zimbabwe                                     |
       | Åland Islands                                |
 
+  @javascript
   Scenario: Go back from services and change selection
     When I check the following items:
       | Gibraltar |

@@ -1,4 +1,3 @@
-@javascript
 Feature: Legal Panel for Government - Non central governemnt - Lot 3 - Service selection
 
   Background: Navigate to start page and select the lot
@@ -38,6 +37,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 3 - Service s
       | Sustainable Finance/ Green Finance                          |
       | United State Securities & Regulatory                        |
 
+  @javascript
   Scenario: Service selection appears in basked
     Then the basket should say 'No services selected'
     And the remove all link should not be visible
@@ -64,6 +64,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 3 - Service s
       | Sovereign Debt Restructuring          |
       | United State Securities & Regulatory  |
 
+  @javascript
   Scenario: Changing the selection will change the basket
     When I check the following items:
       | Corporate Finance                     |
@@ -103,6 +104,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 3 - Service s
     When I click on 'Remove all'
     Then the basket should say 'No services selected'
 
+  @javascript
   Scenario: Go back from suppliers and change selection
     When I check the following items:
       | Financial Institutions Rescue, Restructuring and Insolvency |
