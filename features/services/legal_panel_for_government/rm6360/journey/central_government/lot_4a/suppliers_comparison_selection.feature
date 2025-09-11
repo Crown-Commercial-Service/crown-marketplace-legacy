@@ -1,4 +1,3 @@
-@javascript
 Feature: Legal Panel for Government - Non central governemnt - Lot 4a - Suppliers comparison selection
 
   Background: Navigate to start page and complete the journey
@@ -36,6 +35,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4a - Supplier
       | DICKI, QUITZON AND KUB   |
       | O'CONNER AND SONS        |
 
+  @javascript
   Scenario: Service selection appears in basked
     Then the basket should say 'No suppliers selected'
     And the remove all link should not be visible
@@ -54,6 +54,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4a - Supplier
       | CROOKS AND SONS          |
       | DICKI, QUITZON AND KUB   |
 
+  @javascript
   Scenario: Changing the selection will change the basket
     When I check the following items:
       | ADAMS, WOLFF AND STROMAN |
@@ -85,6 +86,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4a - Supplier
     When I click on 'Remove all'
     Then the basket should say 'No suppliers selected'
 
+  @javascript
   Scenario: Go back from suppliers and change selection
     When I check the following items:
       | ADAMS, WOLFF AND STROMAN |
