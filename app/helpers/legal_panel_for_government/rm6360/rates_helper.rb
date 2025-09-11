@@ -11,14 +11,14 @@ module LegalPanelForGovernment::RM6360::RatesHelper
           classes: 'govuk-!-width-one-quarter'
         }
       ],
-      positions.map do |position|
-        rate = display_rate(position.id, jurisdiction_id, rates)
+      positions.map do |position_id, position_name|
+        rate = display_rate(position_id, jurisdiction_id, rates)
 
         next if rate.nil?
 
         [
           {
-            text: position.position
+            text: t("legal_panel_for_government.rm6360.suppliers.rates_table.job_titles.#{position_name}"),
           },
           {
             text: rate
@@ -28,16 +28,8 @@ module LegalPanelForGovernment::RM6360::RatesHelper
     ]
   end
 
-  def legal_panel_for_government_ids
-    @legal_panel_for_government_ids ||= if @lot.number.starts_with?('4')
-                                          [56, 1, 51, 52, 53, 54, 55, 6, 57, 58, 59, 60]
-                                        else
-                                          [1, 51, 52, 53, 54, 55, 6]
-                                        end
-  end
-
   def positions
-    @positions ||= Position.where(id: legal_panel_for_government_ids).sort_by { |position| legal_panel_for_government_ids.index(position.id) }
+    @positions ||= @lot.positions.order(:number).pluck(:id, :name)
   end
 
   def display_rate(position_id, jurisdiction_id, rates)

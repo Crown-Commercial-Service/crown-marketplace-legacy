@@ -31,12 +31,12 @@
   ) %>
 
   <%= govuk_radios(
-    :position_id,
+    :position_number,
     positions.map do |position|
       {
-        value: position.id.to_s,
+        value: position.number.to_s,
         label: {
-          text: t("journey_step.supply_teachers.job_titles.#{position.position}")
+          text: t("journey_step.supply_teachers.job_titles.#{position.name}")
         }
       }
     end,

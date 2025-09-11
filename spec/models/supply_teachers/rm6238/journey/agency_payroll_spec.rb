@@ -1,10 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe SupplyTeachers::RM6238::Journey::AgencyPayroll do
-  subject(:step) { described_class.new(postcode:, position_id:, offset:) }
+  subject(:step) { described_class.new(postcode:, position_number:, offset:) }
 
   let(:postcode) { 'SW1A 1AA' }
-  let(:position_id) { 41 }
+  let(:position_number) { 1 }
   let(:offset) { 0 }
 
   describe 'validations' do
@@ -38,12 +38,12 @@ RSpec.describe SupplyTeachers::RM6238::Journey::AgencyPayroll do
       end
     end
 
-    context 'when no position_id is provided' do
-      let(:position_id) { nil }
+    context 'when no position_number is provided' do
+      let(:position_number) { nil }
 
       it 'is not valid and has the correct error message' do
         expect(step).not_to be_valid
-        expect(step.errors[:position_id].first).to eq 'Select the type of worker you need'
+        expect(step.errors[:position_number].first).to eq 'Select the type of worker you need'
       end
     end
 
@@ -71,13 +71,13 @@ RSpec.describe SupplyTeachers::RM6238::Journey::AgencyPayroll do
 
   describe '.permit_list' do
     it 'returns a list of the permitted attributes' do
-      expect(described_class.permit_list).to eq [:postcode, :radius, :offset, :position_id, {}]
+      expect(described_class.permit_list).to eq [:postcode, :radius, :offset, :position_number, {}]
     end
   end
 
   describe '.permitted_keys' do
     it 'returns a list of the permitted keys' do
-      expect(described_class.permitted_keys).to eq %i[postcode radius offset position_id]
+      expect(described_class.permitted_keys).to eq %i[postcode radius offset position_number]
     end
   end
 

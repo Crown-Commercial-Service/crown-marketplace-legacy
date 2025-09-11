@@ -1,14 +1,15 @@
 require 'rails_helper'
 
 RSpec.describe SupplyTeachers::RM6238::RatesHelper do
-  let(:rate_over_12_week) { create(:supplier_framework_lot_rate, position_id: 38, rate: 3000) }
-  let(:rate_nominated) { create(:supplier_framework_lot_rate, position_id: 39, rate: 3000) }
+  let(:position) { Position.find(position_id) }
+  let(:rate) { create(:supplier_framework_lot_rate, position_id: position.id, rate: 3000) }
+  let(:rates) { { position.id => rate } }
 
   describe '.agency_rate_cell' do
-    let(:result) { helper.agency_rate_cell(rate) }
+    let(:result) { helper.agency_rate_cell(rates, position) }
 
     context 'when the rate is a percentage' do
-      let(:rate) { rate_over_12_week }
+      let(:position_id) { 'RM6238.1.9' }
 
       it 'returns the rate as a percentage' do
         expect(result).to eq({
@@ -19,7 +20,7 @@ RSpec.describe SupplyTeachers::RM6238::RatesHelper do
     end
 
     context 'when the rate is a price' do
-      let(:rate) { rate_nominated }
+      let(:position_id) { 'RM6238.1.10' }
 
       it 'returns the rate as a price' do
         expect(result).to eq({

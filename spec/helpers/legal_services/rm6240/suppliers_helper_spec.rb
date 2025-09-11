@@ -123,13 +123,13 @@ RSpec.describe LegalServices::RM6240::SuppliersHelper do
     let(:rates) { supplier_framework_lot.rates.index_by(&:position_id) }
 
     before do
-      create(:supplier_framework_lot_rate, supplier_framework_lot: supplier_framework_lot, rate: hourly_partner, position_id: 1)
-      create(:supplier_framework_lot_rate, supplier_framework_lot: supplier_framework_lot, rate: hourly_trainee, position_id: 5)
-      create(:supplier_framework_lot_rate, supplier_framework_lot: supplier_framework_lot, rate: hourly_lmp, position_id: 7)
+      create(:supplier_framework_lot_rate, supplier_framework_lot: supplier_framework_lot, rate: hourly_partner, position_id: 'RM6240.1a.1')
+      create(:supplier_framework_lot_rate, supplier_framework_lot: supplier_framework_lot, rate: hourly_trainee, position_id: 'RM6240.1a.5')
+      create(:supplier_framework_lot_rate, supplier_framework_lot: supplier_framework_lot, rate: hourly_lmp, position_id: 'RM6240.1a.7')
     end
 
     context 'when the position is partner (1)' do
-      let(:position) { 1 }
+      let(:position) { 'RM6240.1a.1' }
 
       it 'returns the partner rate in punds and pence' do
         expect(result).to eq "£#{(hourly_partner / 100).to_fs(:delimited)}.00"
@@ -137,7 +137,7 @@ RSpec.describe LegalServices::RM6240::SuppliersHelper do
     end
 
     context 'when the position is Trainee (5)' do
-      let(:position) { 5 }
+      let(:position) { 'RM6240.1a.5' }
 
       it 'returns the partner rate in punds and pence' do
         expect(result).to eq "£#{(hourly_trainee / 100).to_fs(:delimited)}.00"
@@ -145,7 +145,7 @@ RSpec.describe LegalServices::RM6240::SuppliersHelper do
     end
 
     context 'when the position is LMP (Legal project manager) (7)' do
-      let(:position) { 7 }
+      let(:position) { 'RM6240.1a.7' }
 
       it 'returns nil' do
         expect(result).to be_nil
@@ -153,7 +153,7 @@ RSpec.describe LegalServices::RM6240::SuppliersHelper do
     end
 
     context 'when the position is out of range' do
-      let(:position) { 8 }
+      let(:position) { 'RM6240.1a.8' }
 
       it 'returns nil' do
         expect(result).to be_nil

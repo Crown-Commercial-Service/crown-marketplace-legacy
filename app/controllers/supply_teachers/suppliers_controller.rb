@@ -2,6 +2,7 @@ module SupplyTeachers
   class SuppliersController < SupplyTeachers::FrameworkController
     before_action :set_lot_for_all_suppliers, only: %i[all_suppliers search_all_suppliers show]
     before_action :set_suppliers, only: %i[all_suppliers search_all_suppliers]
+    before_action :set_lot, only: :show
 
     helper :telephone_number
 

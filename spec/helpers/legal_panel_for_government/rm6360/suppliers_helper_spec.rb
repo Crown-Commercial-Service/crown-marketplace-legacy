@@ -102,41 +102,113 @@ RSpec.describe LegalPanelForGovernment::RM6360::SuppliersHelper do
     end
   end
 
-  describe '#legal_panel_for_government_ids' do
-    [
-      ['1', [1, 51, 52, 53, 54, 55, 6]],
-      ['2', [1, 51, 52, 53, 54, 55, 6]],
-      ['3', [1, 51, 52, 53, 54, 55, 6]],
-      ['4a', [56, 1, 51, 52, 53, 54, 55, 6, 57, 58, 59, 60]],
-      ['4b', [56, 1, 51, 52, 53, 54, 55, 6, 57, 58, 59, 60]],
-      ['4c', [56, 1, 51, 52, 53, 54, 55, 6, 57, 58, 59, 60]],
-      ['5', [1, 51, 52, 53, 54, 55, 6]]
-    ].each do |lot_number, expected_result|
-      context "when the lot number is #{lot_number}" do
-        it 'returns the expected result' do
-          @lot = Lot.find("RM6360.#{lot_number}")
-
-          expect(helper.legal_panel_for_government_ids).to eq(expected_result)
-        end
-      end
-    end
-  end
-
   describe '#positions' do
     [
-      ['1', [1, 51, 52, 53, 54, 55, 6]],
-      ['2', [1, 51, 52, 53, 54, 55, 6]],
-      ['3', [1, 51, 52, 53, 54, 55, 6]],
-      ['4a', [56, 1, 51, 52, 53, 54, 55, 6, 57, 58, 59, 60]],
-      ['4b', [56, 1, 51, 52, 53, 54, 55, 6, 57, 58, 59, 60]],
-      ['4c', [56, 1, 51, 52, 53, 54, 55, 6, 57, 58, 59, 60]],
-      ['5', [1, 51, 52, 53, 54, 55, 6]]
+      [
+        '1',
+        [
+          ['RM6360.1.1', 'partner'],
+          ['RM6360.1.2', 'legal_director'],
+          ['RM6360.1.3', 'senior'],
+          ['RM6360.1.4', 'solicitor'],
+          ['RM6360.1.5', 'junior'],
+          ['RM6360.1.6', 'trainee'],
+          ['RM6360.1.7', 'paralegal'],
+        ]
+      ],
+      [
+        '2',
+        [
+          ['RM6360.2.1', 'partner'],
+          ['RM6360.2.2', 'legal_director'],
+          ['RM6360.2.3', 'senior'],
+          ['RM6360.2.4', 'solicitor'],
+          ['RM6360.2.5', 'junior'],
+          ['RM6360.2.6', 'trainee'],
+          ['RM6360.2.7', 'paralegal'],
+        ]
+      ],
+      [
+        '3',
+        [
+          ['RM6360.3.1', 'partner'],
+          ['RM6360.3.2', 'legal_director'],
+          ['RM6360.3.3', 'senior'],
+          ['RM6360.3.4', 'solicitor'],
+          ['RM6360.3.5', 'junior'],
+          ['RM6360.3.6', 'trainee'],
+          ['RM6360.3.7', 'paralegal'],
+        ]
+      ],
+      [
+        '4a',
+        [
+          ['RM6360.4a.1', 'senior_partner'],
+          ['RM6360.4a.2', 'partner'],
+          ['RM6360.4a.3', 'legal_director'],
+          ['RM6360.4a.4', 'senior'],
+          ['RM6360.4a.5', 'solicitor'],
+          ['RM6360.4a.6', 'junior'],
+          ['RM6360.4a.7', 'trainee'],
+          ['RM6360.4a.8', 'paralegal'],
+          ['RM6360.4a.9', 'senior_analyst'],
+          ['RM6360.4a.10', 'analyst'],
+          ['RM6360.4a.11', 'senior_modeller'],
+          ['RM6360.4a.12', 'modeller'],
+        ]
+      ],
+      [
+        '4b',
+        [
+          ['RM6360.4b.1', 'senior_partner'],
+          ['RM6360.4b.2', 'partner'],
+          ['RM6360.4b.3', 'legal_director'],
+          ['RM6360.4b.4', 'senior'],
+          ['RM6360.4b.5', 'solicitor'],
+          ['RM6360.4b.6', 'junior'],
+          ['RM6360.4b.7', 'trainee'],
+          ['RM6360.4b.8', 'paralegal'],
+          ['RM6360.4b.9', 'senior_analyst'],
+          ['RM6360.4b.10', 'analyst'],
+          ['RM6360.4b.11', 'senior_modeller'],
+          ['RM6360.4b.12', 'modeller'],
+        ]
+      ],
+      [
+        '4c',
+        [
+          ['RM6360.4c.1', 'senior_partner'],
+          ['RM6360.4c.2', 'partner'],
+          ['RM6360.4c.3', 'legal_director'],
+          ['RM6360.4c.4', 'senior'],
+          ['RM6360.4c.5', 'solicitor'],
+          ['RM6360.4c.6', 'junior'],
+          ['RM6360.4c.7', 'trainee'],
+          ['RM6360.4c.8', 'paralegal'],
+          ['RM6360.4c.9', 'senior_analyst'],
+          ['RM6360.4c.10', 'analyst'],
+          ['RM6360.4c.11', 'senior_modeller'],
+          ['RM6360.4c.12', 'modeller'],
+        ]
+      ],
+      [
+        '5',
+        [
+          ['RM6360.5.1', 'partner'],
+          ['RM6360.5.2', 'legal_director'],
+          ['RM6360.5.3', 'senior'],
+          ['RM6360.5.4', 'solicitor'],
+          ['RM6360.5.5', 'junior'],
+          ['RM6360.5.6', 'trainee'],
+          ['RM6360.5.7', 'paralegal'],
+        ]
+      ]
     ].each do |lot_number, expected_result|
       context "when the lot number is #{lot_number}" do
         it 'returns the expected result' do
           @lot = Lot.find("RM6360.#{lot_number}")
 
-          expect(helper.positions.pluck(:id)).to eq(expected_result)
+          expect(helper.positions).to eq(expected_result)
         end
       end
     end
@@ -161,11 +233,11 @@ RSpec.describe LegalPanelForGovernment::RM6360::SuppliersHelper do
         ae_jurisdiction_id = create(:supplier_framework_lot_jurisdiction, supplier_framework_lot: supplier_framework_lot, jurisdiction_id: 'AE').id
         az_jurisdiction_id = create(:supplier_framework_lot_jurisdiction, supplier_framework_lot: supplier_framework_lot, jurisdiction_id: 'AX').id
 
-        create(:supplier_framework_lot_rate, supplier_framework_lot: supplier_framework_lot, rate: hourly_1, position_id: 1, supplier_framework_lot_jurisdiction_id: ae_jurisdiction_id)
-        create(:supplier_framework_lot_rate, supplier_framework_lot: supplier_framework_lot, rate: hourly_1 * 2, position_id: 1, supplier_framework_lot_jurisdiction_id: az_jurisdiction_id)
-        create(:supplier_framework_lot_rate, supplier_framework_lot: supplier_framework_lot, rate: hourly_2, position_id: 2, supplier_framework_lot_jurisdiction_id: az_jurisdiction_id)
-        create(:supplier_framework_lot_rate, supplier_framework_lot: supplier_framework_lot, rate: hourly_3, position_id: 3, supplier_framework_lot_jurisdiction_id: ae_jurisdiction_id)
-        create(:supplier_framework_lot_rate, supplier_framework_lot: supplier_framework_lot, rate: hourly_3 * 4, position_id: 3, supplier_framework_lot_jurisdiction_id: az_jurisdiction_id)
+        create(:supplier_framework_lot_rate, supplier_framework_lot: supplier_framework_lot, rate: hourly_1, position_id: 'RM6360.1.1', supplier_framework_lot_jurisdiction_id: ae_jurisdiction_id)
+        create(:supplier_framework_lot_rate, supplier_framework_lot: supplier_framework_lot, rate: hourly_1 * 2, position_id: 'RM6360.1.1', supplier_framework_lot_jurisdiction_id: az_jurisdiction_id)
+        create(:supplier_framework_lot_rate, supplier_framework_lot: supplier_framework_lot, rate: hourly_2, position_id: 'RM6360.1.2', supplier_framework_lot_jurisdiction_id: az_jurisdiction_id)
+        create(:supplier_framework_lot_rate, supplier_framework_lot: supplier_framework_lot, rate: hourly_3, position_id: 'RM6360.1.3', supplier_framework_lot_jurisdiction_id: ae_jurisdiction_id)
+        create(:supplier_framework_lot_rate, supplier_framework_lot: supplier_framework_lot, rate: hourly_3 * 4, position_id: 'RM6360.1.3', supplier_framework_lot_jurisdiction_id: az_jurisdiction_id)
       end
     end
 
@@ -179,7 +251,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::SuppliersHelper do
       let(:result) { helper.display_rate(position, jurisdiction_id, rates) }
 
       context 'when the position is 1' do
-        let(:position) { 1 }
+        let(:position) { 'RM6360.1.1' }
 
         context 'and the jurisdiction is AE' do
           let(:jurisdiction_id) { 'AE' }
@@ -207,7 +279,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::SuppliersHelper do
       end
 
       context 'when the position is 2' do
-        let(:position) { 2 }
+        let(:position) { 'RM6360.1.2' }
 
         context 'and the jurisdiction is AE' do
           let(:jurisdiction_id) { 'AE' }
@@ -235,7 +307,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::SuppliersHelper do
       end
 
       context 'when the position is 3' do
-        let(:position) { 3 }
+        let(:position) { 'RM6360.1.3' }
 
         context 'and the jurisdiction is AE' do
           let(:jurisdiction_id) { 'AE' }
@@ -263,7 +335,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::SuppliersHelper do
       end
 
       context 'when the position is out of range' do
-        let(:position) { 8 }
+        let(:position) { 'RM6360.1.8' }
         let(:jurisdiction_id) { 'AE' }
 
         it 'returns nil' do
@@ -282,7 +354,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::SuppliersHelper do
       let(:result) { helper.display_rate(position, jurisdiction_id, rates) }
 
       context 'when the position is 1' do
-        let(:position) { 1 }
+        let(:position) { 'RM6360.1.1' }
 
         context 'and the jurisdiction is AE' do
           let(:jurisdiction_id) { 'AE' }
@@ -310,7 +382,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::SuppliersHelper do
       end
 
       context 'when the position is 2' do
-        let(:position) { 2 }
+        let(:position) { 'RM6360.1.2' }
 
         context 'and the jurisdiction is AE' do
           let(:jurisdiction_id) { 'AE' }
@@ -338,7 +410,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::SuppliersHelper do
       end
 
       context 'when the position is 3' do
-        let(:position) { 3 }
+        let(:position) { 'RM6360.1.3' }
 
         context 'and the jurisdiction is AE' do
           let(:jurisdiction_id) { 'AE' }
@@ -366,7 +438,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::SuppliersHelper do
       end
 
       context 'when the position is out of range' do
-        let(:position) { 8 }
+        let(:position) { 'RM6360.1.8' }
         let(:jurisdiction_id) { 'AE' }
 
         it 'returns nil' do
