@@ -68,11 +68,11 @@ module SupplyTeachers
           def add_pricing(supplier_framework_lots, supplier_data)
             supplier_data['pricing'].each do |pricing|
               lot_id = "RM6238.#{pricing['lot_number']}"
-              position_id = JOB_TYPE_TO_POSITION_ID[pricing['job_type']][pricing['term']]
+              position_number = (pricing['lot_number'] == '4' ? JOB_TYPE_TO_POSITION_NUMBER_LOT_4 : JOB_TYPE_TO_POSITION_NUMBER)[pricing['job_type']][pricing['term']]
 
               supplier_framework_lots[lot_id] ||= { services: [], jurisdictions: [{ jurisdiction_id: 'GB' }], rates: [], branches: [] }
               supplier_framework_lots[lot_id][:rates] << {
-                position_id: position_id,
+                position_id: "#{lot_id}.#{position_number}",
                 rate: pricing['fee'],
                 jurisdiction_id: 'GB'
               }
@@ -100,35 +100,45 @@ module SupplyTeachers
             end
           end
 
-          JOB_TYPE_TO_POSITION_ID = {
+          JOB_TYPE_TO_POSITION_NUMBER = {
             'over_12_week' => {
-              nil => 38
+              nil => 9
             },
             'nominated' => {
-              nil => 39
+              nil => 10
             },
             'fixed_term' => {
-              nil => 40
+              nil => 11
             },
             'teacher' => {
-              'daily' => 41,
-              'six_weeks_plus' => 46
+              'daily' => 1,
+              'six_weeks_plus' => 2
             },
             'support' => {
-              'daily' => 42,
-              'six_weeks_plus' => 47
+              'daily' => 3,
+              'six_weeks_plus' => 4
             },
             'senior' => {
-              'daily' => 43,
-              'six_weeks_plus' => 48
+              'daily' => 5,
+              'six_weeks_plus' => 6
             },
             'other' => {
-              'daily' => 44,
-              'six_weeks_plus' => 49
+              'daily' => 7,
+              'six_weeks_plus' => 8
+            },
+
+          }.freeze
+
+          JOB_TYPE_TO_POSITION_NUMBER_LOT_4 = {
+            'nominated' => {
+              nil => 3
+            },
+            'fixed_term' => {
+              nil => 4
             },
             'agency_management' => {
-              'daily' => 45,
-              'six_weeks_plus' => 50
+              'daily' => 1,
+              'six_weeks_plus' => 2
             }
           }.freeze
         end

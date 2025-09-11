@@ -4,8 +4,8 @@ RSpec.describe SupplyTeachers::RM6238::Journey::NominatedWorkerResults do
   subject(:step) { described_class.new(postcode: 'SW1A 1AA', radius: '5') }
 
   describe '.determine_position_id' do
-    it 'returns 39' do
-      expect(step.determine_position_id).to eq(39)
+    it 'returns RM6238.1.10' do
+      expect(step.determine_position_id).to eq('RM6238.1.10')
     end
   end
 

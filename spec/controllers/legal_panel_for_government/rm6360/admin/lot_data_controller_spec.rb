@@ -118,7 +118,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::Admin::LotDataController do
     let(:supplier_framework_lot_rate_non_gb) { create(:supplier_framework_lot_rate, supplier_framework_lot: supplier_framework_lot, jurisdiction: supplier_framework_lot_jurisdiction_non_gb, position_id: position_id) }
     let(:supplier_framework_lot_jurisdiction) { create(:supplier_framework_lot_jurisdiction, supplier_framework_lot: supplier_framework_lot, jurisdiction_id: 'GB') }
     let(:supplier_framework_lot_jurisdiction_non_gb) { create(:supplier_framework_lot_jurisdiction, supplier_framework_lot: supplier_framework_lot, jurisdiction_id: 'BM') }
-    let(:position_id) { 51 }
+    let(:position_id) { "RM6360.#{lot_number}.2" }
 
     context 'when the lot number is 1' do
       let(:lot_number) { '1' }

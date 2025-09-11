@@ -11,14 +11,14 @@ module LegalServices::RatesHelper
           classes: 'govuk-!-width-one-quarter'
         }
       ],
-      Position.where(id: legal_service_position_ids).order(:id).map do |position|
-        rate = display_rate(position.id, rates)
+      @lot.positions.order(:number).pluck(:id, :name).map do |position_id, position_name|
+        rate = display_rate(position_id, rates)
 
         next if rate.nil?
 
         [
           {
-            text: position.position
+            text: t("legal_services.rm6240.suppliers.rates_table.job_titles.#{position_name}"),
           },
           {
             text: rate
@@ -26,10 +26,6 @@ module LegalServices::RatesHelper
         ]
       end.compact,
     ]
-  end
-
-  def legal_service_position_ids
-    (1..7)
   end
 
   def display_rate(position_id, rates)

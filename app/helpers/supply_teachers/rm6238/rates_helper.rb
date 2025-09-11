@@ -23,25 +23,17 @@ module SupplyTeachers::RM6238::RatesHelper
           classes: 'govuk-table__header--numeric agency-record__markup-column'
         }
       ],
-      [
-        [t('journey_step.supply_teachers.job_titles.teacher'), 41, 46],
-        [t('journey_step.supply_teachers.job_titles.support'), 42, 47],
-        [t('journey_step.supply_teachers.job_titles.senior'), 43, 48],
-        [t('journey_step.supply_teachers.job_titles.other'), 44, 49],
-        [t('journey_step.supply_teachers.job_titles.over_12_week'), 38, 38],
-        [t('journey_step.supply_teachers.job_titles.nominated'), 39, 39],
-        [t('journey_step.supply_teachers.job_titles.fixed_term'), 40, 40],
-      ].map do |job_type, position_id_1, position_id_2|
-        next unless rates.key?(position_id_1)
+      @lot.positions_grouped_by_name.map do |position_name, positions|
+        next unless rates.key?(positions[0].id)
 
         [
           {
-            text: job_type
+            text: t("journey_step.supply_teachers.job_titles.#{position_name}")
           },
-          agency_rate_cell(rates[position_id_1]),
-          agency_rate_cell(rates[position_id_2]),
+          agency_rate_cell(rates, positions[0]),
+          agency_rate_cell(rates, positions[-1]),
         ]
-      end.compact
+      end.compact,
     ]
   end
   # rubocop:enable Metrics/AbcSize
@@ -57,34 +49,33 @@ module SupplyTeachers::RM6238::RatesHelper
           classes: 'govuk-table__header--numeric agency-record__markup-column'
         }
       ],
-      [
-        [t('journey_step.supply_teachers.job_titles.agency_management_daily'), 45],
-        [t('journey_step.supply_teachers.job_titles.agency_management_six_weeks_plus'), 50],
-        [t('journey_step.supply_teachers.job_titles.nominated'), 39],
-        [t('journey_step.supply_teachers.job_titles.fixed_term'), 40],
-      ].map do |job_type, position_id|
+      @lot.positions.order(:number).map do |position|
         [
           {
-            text: job_type
+            text: t("journey_step.supply_teachers.job_titles.#{position.name}.#{position.category}")
           },
-          agency_rate_cell(rates[position_id]),
+          agency_rate_cell(rates, position),
         ]
-      end
+      end,
     ]
   end
 
-  def agency_rate_cell(rate)
-    rate_value = if POSITION_ID_FOR_PERCENTAGE_RATES.include?(rate.position_id)
-                   number_to_percentage(rate.rate_as_percentage, precision: 1)
-                 else
-                   format_money(rate.rate_in_pounds)
-                 end
-
+  def agency_rate_cell(rates, position)
     {
-      text: rate_value,
+      text: if position_is_percentage?(position)
+              number_to_percentage(rates[position.id].rate_as_percentage, precision: 1)
+            else
+              format_money(rates[position.id].rate_in_pounds)
+            end,
       classes: 'govuk-table__cell govuk-table__cell--numeric agency-record__markup-column'
     }
   end
 
-  POSITION_ID_FOR_PERCENTAGE_RATES = [38, 40].freeze
+  def position_is_percentage?(position)
+    return true if position.id == 'RM6238.4.4'
+
+    POSITION_NUMBER_FOR_PERCENTAGE_RATES.include?(position.number)
+  end
+
+  POSITION_NUMBER_FOR_PERCENTAGE_RATES = [9, 11].freeze
 end

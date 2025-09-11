@@ -115,7 +115,7 @@ RSpec.describe LegalServices::RM6240::Admin::LotDataController do
     let(:supplier_framework_lot_service) { create(:supplier_framework_lot_service, supplier_framework_lot:) }
     let(:supplier_framework_lot_rate) { create(:supplier_framework_lot_rate, supplier_framework_lot: supplier_framework_lot, jurisdiction: supplier_framework_lot_jurisdiction, position_id: position_id) }
     let(:supplier_framework_lot_jurisdiction) { create(:supplier_framework_lot_jurisdiction, supplier_framework_lot: supplier_framework_lot, jurisdiction_id: 'GB') }
-    let(:position_id) { 51 }
+    let(:position_id) { "RM6240.#{lot_number}.3" }
 
     context 'when the lot number is 1a' do
       let(:lot_number) { '1a' }

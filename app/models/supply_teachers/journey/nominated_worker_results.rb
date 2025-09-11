@@ -3,7 +3,7 @@ module SupplyTeachers
     include Steppable
     include ActiveSupport::NumberHelper
 
-    POSITION_ID = 39
+    POSITION_ID = 'RM6238.1.10'.freeze
 
     def determine_position_id
       self.class::POSITION_ID

@@ -1,7 +1,7 @@
 module SupplyTeachers
   class Journey::FixedTermResults
     DATE_ATTIBUTES = %i[contract_start_date contract_end_date].freeze
-    POSITION_ID = 40
+    POSITION_ID = 'RM6238.1.11'.freeze
 
     include Steppable
     include Dateable
