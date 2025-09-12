@@ -55,7 +55,7 @@ RSpec.describe Supplier::Framework::Lot::Branch do
     let(:search_result) { described_class.search(point, lot_id:, position_id:, radius:) }
     let(:framework_id) { 'RM6238' }
     let(:lot_id) { 'RM6238.1' }
-    let(:position_id) { 41 }
+    let(:position_id) { "#{lot_id}.1" }
     let(:radius) { 25 }
     let(:supplier_framework) { create(:supplier_framework, framework_id:) }
     let(:supplier_framework_lot) { create(:supplier_framework_lot, supplier_framework:, lot_id:) }
@@ -115,7 +115,7 @@ RSpec.describe Supplier::Framework::Lot::Branch do
         )
       end
 
-      let(:position_id) { 39 }
+      let(:position_id) { "#{lot_id}.10" }
       let(:point) { Geocoding.point(latitude: 51.5, longitude: 0) }
 
       before { create(:supplier_framework_lot_rate, supplier_framework_lot:, position_id:) }
@@ -146,7 +146,7 @@ RSpec.describe Supplier::Framework::Lot::Branch do
         supplier_framework = create(:supplier_framework, framework_id:)
         supplier_framework_lot = create(:supplier_framework_lot, supplier_framework:, lot_id:)
 
-        create(:supplier_framework_lot_rate, supplier_framework_lot: supplier_framework_lot, position_id: 41)
+        create(:supplier_framework_lot_rate, supplier_framework_lot: supplier_framework_lot, position_id: "#{lot_id}.1")
 
         create(
           :supplier_framework_lot_branch,
@@ -167,7 +167,7 @@ RSpec.describe Supplier::Framework::Lot::Branch do
         )
       end
 
-      let(:position_id) { 39 }
+      let(:position_id) { "#{lot_id}.10" }
       let(:point) { Geocoding.point(latitude: 0, longitude: 0) }
 
       it 'includes suppliers that have nominated worker rates' do
@@ -200,7 +200,7 @@ RSpec.describe Supplier::Framework::Lot::Branch do
         supplier_framework = create(:supplier_framework, framework_id:)
         supplier_framework_lot = create(:supplier_framework_lot, supplier_framework:, lot_id:)
 
-        create(:supplier_framework_lot_rate, supplier_framework_lot: supplier_framework_lot, position_id: 41)
+        create(:supplier_framework_lot_rate, supplier_framework_lot: supplier_framework_lot, position_id: "#{lot_id}.1")
 
         create(
           :supplier_framework_lot_branch,
@@ -221,7 +221,7 @@ RSpec.describe Supplier::Framework::Lot::Branch do
         )
       end
 
-      let(:position_id) { 40 }
+      let(:position_id) { "#{lot_id}.11" }
       let(:point) { Geocoding.point(latitude: 0, longitude: 0) }
 
       it 'includes suppliers that have fixed term rates' do

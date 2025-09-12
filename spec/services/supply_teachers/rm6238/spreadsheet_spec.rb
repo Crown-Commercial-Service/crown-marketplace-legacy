@@ -15,7 +15,7 @@ RSpec.describe SupplyTeachers::RM6238::Spreadsheet do
   context 'without fixed term results' do
     subject(:spreadsheet) { described_class.new([branch1, branch2], slug: 'agency-payroll-results') }
 
-    let(:position_id) { 41 }
+    let(:position_id) { 'RM6238.1.1' }
 
     describe 'the generated worksheet' do
       let(:worksheet) { workbook.worksheets.first }
@@ -94,7 +94,7 @@ RSpec.describe SupplyTeachers::RM6238::Spreadsheet do
   context 'with fixed term results' do
     subject(:spreadsheet) { described_class.new([branch1, branch2], slug: 'fixed-term-results') }
 
-    let(:position_id) { 40 }
+    let(:position_id) { 'RM6238.1.11' }
 
     describe 'the generated worksheet' do
       let(:worksheet) { workbook.worksheets.first }

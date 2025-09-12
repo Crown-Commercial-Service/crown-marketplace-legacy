@@ -304,6 +304,19 @@ en:
           supplier: supplier
         rates_table:
           hourly: Hourly
+          job_titles:
+            analyst: Analyst, Associate Analyst, Research Associate, Research Officer
+            junior: NQ Solicitor/Associate, Junior Solicitor/Associate/Legal Executive
+            legal_director: Legal Director/Counsel or equivalent
+            modeller: Modeller, Econometrician, Analyst, Associate Analyst
+            paralegal: Paralegal, Legal Assistant
+            partner: Partner
+            senior: Senior Solicitor, Senior Associate/Senior Legal Executive
+            senior_analyst: Senior Analyst
+            senior_modeller: Senior Modeller, Senior Econometrician, Senior Analyst
+            senior_partner: Senior Counsel, Senior Partner (20 years +PQE)
+            solicitor: Solicitor, Associate/Legal Executive
+            trainee: Trainee/Legal Apprentice
           position: Position
           rates: Rates
         show:

@@ -11,17 +11,10 @@ module ManagementConsultancy::RM6187::RatesHelper
           classes: 'govuk-!-width-one-quarter'
         }
       ],
-      [
-        t('management_consultancy.rm6187.suppliers.show.job_titles.junior'),
-        t('management_consultancy.rm6187.suppliers.show.job_titles.standard'),
-        t('management_consultancy.rm6187.suppliers.show.job_titles.senior'),
-        t('management_consultancy.rm6187.suppliers.show.job_titles.principal'),
-        t('management_consultancy.rm6187.suppliers.show.job_titles.managing'),
-        t('management_consultancy.rm6187.suppliers.show.job_titles.director'),
-      ].map.with_index(8) do |job_text, position_id|
+      @lot.positions.order(:number).pluck(:id, :name).map do |position_id, position_name|
         [
           {
-            text: job_text
+            text: t("management_consultancy.rm6187.suppliers.show.job_titles.#{position_name}"),
           },
           {
             text: number_to_currency(rates[position_id].rate_in_pounds, precision: 0)

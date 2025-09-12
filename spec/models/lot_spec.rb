@@ -43,4 +43,26 @@ RSpec.describe Lot do
       end
     end
   end
+
+  describe '.positions_grouped_by_name' do
+    let(:lot) { described_class.find(lot_id) }
+    let(:positions) { Position.where(lot_id:) }
+    let(:lot_id) { 'RM6238.1' }
+
+    # rubocop:disable RSpec/ExampleLength
+    it 'is expected to find the correct categories' do
+      expect(lot.positions_grouped_by_name).to eq(
+        [
+          ['teacher', positions[0..1].sort_by(&:number)],
+          ['support', positions[2..3].sort_by(&:number)],
+          ['senior', positions[4..5].sort_by(&:number)],
+          ['other', positions[6..7].sort_by(&:number)],
+          ['over_12_week', positions[8..8].sort_by(&:number)],
+          ['nominated', positions[9..9].sort_by(&:number)],
+          ['fixed_term', positions[10..10].sort_by(&:number)],
+        ]
+      )
+    end
+    # rubocop:enable RSpec/ExampleLength
+  end
 end

@@ -128,7 +128,7 @@ RSpec.describe Upload do
               ],
               supplier_framework_lot_rates: [
                 {
-                  position_id: 41,
+                  position_id: 'RM6238.1.1',
                   rate: 10000,
                   jurisdiction_id: 'GB'
                 }
@@ -146,7 +146,7 @@ RSpec.describe Upload do
               ],
               supplier_framework_lot_rates: [
                 {
-                  position_id: 41,
+                  position_id: 'RM6238.2.1.1',
                   rate: 20000,
                   jurisdiction_id: 'GB'
                 }
@@ -174,7 +174,7 @@ RSpec.describe Upload do
         it 'assigns attributes to the rates' do
           result
 
-          expect(supplier_framework.lots.map { |lot| lot.rates.pluck(:position_id, :rate) }).to eq([[[41, 10000]], [[41, 20000]]])
+          expect(supplier_framework.lots.map { |lot| lot.rates.pluck(:position_id, :rate) }).to eq([[['RM6238.1.1', 10000]], [['RM6238.2.1.1', 20000]]])
         end
       end
 
@@ -366,7 +366,7 @@ RSpec.describe Upload do
             ],
             supplier_framework_lot_rates: [
               {
-                position_id: 441,
+                position_id: 'RM6238.1.441',
                 rate: 10000,
                 jurisdiction_id: 'GB'
               }
@@ -384,7 +384,7 @@ RSpec.describe Upload do
             ],
             supplier_framework_lot_rates: [
               {
-                position_id: 41,
+                position_id: 'RM6238.3.1',
                 rate: 20000,
                 jurisdiction_id: 'GB'
               }
@@ -422,7 +422,7 @@ RSpec.describe Upload do
           ],
           supplier_framework_lot_rates: [
             {
-              position_id: 41,
+              position_id: 'RM6238.1.1',
               rate: 10000,
               jurisdiction_id: 'GB'
             }
@@ -455,7 +455,7 @@ RSpec.describe Upload do
           ],
           supplier_framework_lot_rates: [
             {
-              position_id: 41,
+              position_id: 'RM6238.2.2.1',
               rate: 20000,
               jurisdiction_id: 'GB'
             }

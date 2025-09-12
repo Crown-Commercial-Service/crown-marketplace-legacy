@@ -232,7 +232,7 @@ RSpec.describe SupplyTeachers::RM6238::BranchesController do
           looking_for: 'worker',
           worker_type: 'agency_supplied',
           payroll_provider: 'agency',
-          position_id: 41,
+          position_number: '1',
           offset: 0,
           postcode: postcode
         }

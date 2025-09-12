@@ -9,7 +9,7 @@ en:
               invalid_location: Enter a valid postcode
             offset:
               blank: Select how long you need the worker for
-            position_id:
+            position_number:
               blank: Select the type of worker you need
         supply_teachers/rm6238/journey/fta_calculator_contract_end:
           attributes:
