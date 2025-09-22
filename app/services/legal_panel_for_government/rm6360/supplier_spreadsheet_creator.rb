@@ -39,13 +39,11 @@ class LegalPanelForGovernment::RM6360::SupplierSpreadsheetCreator < SupplierSpre
   end
 
   def add_countries(sheet)
-    countries = Jurisdiction.where(
-      id: if @params['not_core_jurisdiction'] == 'no'
-            LegalPanelForGovernment::RM6360::Journey::ChooseJurisdiction::CORE_JURISDICTIONS
-          else
-            @params['jurisdiction_ids']
-          end
-    ).order(:name).pluck(:name)
+    countries = if @params['not_core_jurisdiction'] == 'no'
+                  Jurisdiction.core
+                else
+                  Jurisdiction.where(id: @params['jurisdiction_ids'])
+                end.order(:name).pluck(:name)
 
     sheet.add_row ['Countries', countries.join('; ')]
   end
