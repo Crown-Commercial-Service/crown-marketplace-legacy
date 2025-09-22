@@ -9,36 +9,36 @@ Feature: Management Consultancy - Service selection - Accessibility
     And the sub title is 'MCF4 lot 1 - Business'
 
   Scenario: No services have been selected
-    Then the page should be axe clean excluding ".ccs-contact-us"
-  
+    Then the page should pass the accessibility checks
+
   Scenario: Some services selected
     When I check the following items:
-      | Operational planning and/or improvement, including Target Operating Models (TOM)  |
-      | Organisational design and review, Enterprise Resource Planning (ERP)              |
-      | Programme and project management                                                  |
-      | Risk, opportunity and compliance                                                  |
+      | Operational planning and/or improvement, including Target Operating Models (TOM) |
+      | Organisational design and review, Enterprise Resource Planning (ERP)             |
+      | Programme and project management                                                 |
+      | Risk, opportunity and compliance                                                 |
     Then the following items should appear in the basket:
-      | Operational planning and/or improvement, including Target Operating Models (TOM)  |
-      | Organisational design and review, Enterprise Resource Planning (ERP)              |
-      | Programme and project management                                                  |
-      | Risk, opportunity and compliance                                                  |
-    And the page should be axe clean excluding ".ccs-contact-us"
+      | Operational planning and/or improvement, including Target Operating Models (TOM) |
+      | Organisational design and review, Enterprise Resource Planning (ERP)             |
+      | Programme and project management                                                 |
+      | Risk, opportunity and compliance                                                 |
+    And the page should pass the accessibility checks
 
   Scenario: Everything is selected
     Given I select all the services
     Then the following items should appear in the basket:
-      | Automation                                                                        |
-      | Operational planning and/or improvement, including Target Operating Models (TOM)  |
-      | Organisational design and review, Enterprise Resource Planning (ERP)              |
-      | Programme and project management                                                  |
-      | Risk, opportunity and compliance                                                  |
-      | Value for money reviews                                                           |
-      | Business case development                                                         |
-      | Business consultancy                                                              |
-      | Business policy development and/or appraisal                                      |
-      | Business processes                                                                |
-      | Business strategy                                                                 |
-      | Change management                                                                 |
-      | Digital, technology and cyber                                                     |
-      | Innovation, growth and business models                                            |
-    And the page should be axe clean excluding ".ccs-contact-us"
+      | Automation                                                                       |
+      | Operational planning and/or improvement, including Target Operating Models (TOM) |
+      | Organisational design and review, Enterprise Resource Planning (ERP)             |
+      | Programme and project management                                                 |
+      | Risk, opportunity and compliance                                                 |
+      | Value for money reviews                                                          |
+      | Business case development                                                        |
+      | Business consultancy                                                             |
+      | Business policy development and/or appraisal                                     |
+      | Business processes                                                               |
+      | Business strategy                                                                |
+      | Change management                                                                |
+      | Digital, technology and cyber                                                    |
+      | Innovation, growth and business models                                           |
+    And the page should pass the accessibility checks

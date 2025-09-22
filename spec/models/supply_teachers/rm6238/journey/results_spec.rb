@@ -101,14 +101,14 @@ RSpec.describe SupplyTeachers::RM6238::Journey::Results do
 
       let(:params) do
         {
-          position_id:,
+          position_number:,
           offset:,
           postcode:
         }
       end
 
       context 'when both suppliers supply the job type for the term' do
-        let(:position_id) { 41 }
+        let(:position_number) { 1 }
         let(:offset) { 0 }
 
         it 'returns the two branches' do
@@ -127,7 +127,7 @@ RSpec.describe SupplyTeachers::RM6238::Journey::Results do
       end
 
       context 'when one suppliers does the job type for the term' do
-        let(:position_id) { 43 }
+        let(:position_number) { 5 }
         let(:offset) { 0 }
 
         before { allow(Supplier::Framework::Lot::Branch).to receive(:search).and_return([second_branch]) }

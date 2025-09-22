@@ -17,13 +17,13 @@ Feature: Supply Teachers - Temp to perm - No notice given - hiring between 9 and
     And my temp to perm fee is between '<min_fee>' and '£500'
 
     Examples:
-      | date        | min_fee |
-      | 05/06/2021  | £450.00 |
-      | 12/06/2021  | £325.00 |
-      | 19/06/2021  | £200.00 |
-      | 20/06/2021  | £200.00 |
-      | 21/06/2021  | £200.00 |
-      | 26/06/2021  | £75.00  |
+      | date       | min_fee |
+      | 05/06/2021 | £450.00 |
+      | 12/06/2021 | £325.00 |
+      | 19/06/2021 | £200.00 |
+      | 20/06/2021 | £200.00 |
+      | 21/06/2021 | £200.00 |
+      | 26/06/2021 | £75.00  |
 
   Scenario Outline: Changing the number of days per week changes the result
     And I enter '<days_per_week>' for the 'days per week'

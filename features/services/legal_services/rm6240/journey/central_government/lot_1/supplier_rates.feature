@@ -31,6 +31,6 @@ Feature: Legal services -  Central governemnt - Lot 1 - Supplier rates
     And the 'LMP (Legal project manager)' hourly rate is '<lmp_rate>'
 
     Examples:
-      | jurisdiction      | partner_rate  | senior_solicitor_rate | solicitor_rate  | nq_solicitor_rate | trainee_rate  | paralegal_rate  | lmp_rate  |
-      | England and Wales | £175.00       | £150.00               | £125.00         | £100.00           | £75.00        | £50.00          | £165.00   |
-      | Scotland          | £210.00       | £180.00               | £150.00         | £120.00           | £90.00        | £60.00          | £192.50   |
+      | jurisdiction      | partner_rate | senior_solicitor_rate | solicitor_rate | nq_solicitor_rate | trainee_rate | paralegal_rate | lmp_rate |
+      | England and Wales | £175.00      | £150.00               | £125.00        | £100.00           | £75.00       | £50.00         | £165.00  |
+      | Scotland          | £210.00      | £180.00               | £150.00        | £120.00           | £90.00       | £60.00         | £192.50  |

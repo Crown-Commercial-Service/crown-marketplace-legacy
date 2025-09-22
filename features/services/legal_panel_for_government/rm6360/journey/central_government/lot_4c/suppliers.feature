@@ -21,9 +21,9 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4c - Results
     Then I am on the 'Supplier results' page
     And I should see that '3' suppliers can provide legal services for government
     And the selected legal service for government suppliers are:
-      | JOHNSON-ROMAGUERA       | http://sanford.example/lilly_bosco      |
-      | VEUM, TORPHY AND NOLAN  | http://gislason.example/madeline.miller |
-      | ZIEME-LEANNON           | http://terry.example/clementine.kozey   |
+      | JOHNSON-ROMAGUERA      | http://sanford.example/lilly_bosco      |
+      | VEUM, TORPHY AND NOLAN | http://gislason.example/madeline.miller |
+      | ZIEME-LEANNON          | http://terry.example/clementine.kozey   |
 
   Scenario: Check the supplier data - SME
     Given I click on 'VEUM, TORPHY AND NOLAN'

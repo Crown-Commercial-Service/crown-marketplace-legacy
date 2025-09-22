@@ -1,4 +1,3 @@
-@javascript
 Feature: Legal Panel for Government - Non central governemnt - Lot 1 - Suppliers comparison selection
 
   Background: Navigate to start page and complete the journey
@@ -32,6 +31,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 1 - Suppliers
       | LOCKMAN, NITZSCHE AND BARTELL |
       | MONAHAN-JOHNS                 |
 
+  @javascript
   Scenario: Service selection appears in basked
     Then the basket should say 'No suppliers selected'
     And the remove all link should not be visible
@@ -39,7 +39,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 1 - Suppliers
     Then the basket should say '1 supplier selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
-      | CORMIER INC                   |
+      | CORMIER INC |
     When I check the following items:
       | LOCKMAN, NITZSCHE AND BARTELL |
       | MONAHAN-JOHNS                 |
@@ -50,6 +50,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 1 - Suppliers
       | LOCKMAN, NITZSCHE AND BARTELL |
       | MONAHAN-JOHNS                 |
 
+  @javascript
   Scenario: Changing the selection will change the basket
     When I check the following items:
       | CORMIER INC                   |
@@ -64,7 +65,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 1 - Suppliers
       | LOCKMAN, NITZSCHE AND BARTELL |
       | MONAHAN-JOHNS                 |
     When I deselect the following items:
-      | CORMIER INC                   |
+      | CORMIER INC |
     Then the basket should say '3 suppliers selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
@@ -77,10 +78,11 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 1 - Suppliers
     Then the basket should say '1 supplier selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
-      | MONAHAN-JOHNS                 |
+      | MONAHAN-JOHNS |
     When I click on 'Remove all'
     Then the basket should say 'No suppliers selected'
 
+  @javascript
   Scenario: Go back from suppliers and change selection
     When I check the following items:
       | CORMIER INC                   |

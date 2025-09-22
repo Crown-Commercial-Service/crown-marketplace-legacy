@@ -7,10 +7,10 @@ Feature: Supply Teachers - Temp to perm - Accessibility
     And I select 'To calculate the fee my school will be charged if I make an agency worker permanent'
     And I click on 'Continue'
     Then I am on the 'Find out how much you’ll be charged if you make an agency worker permanent' page
-  
-  Scenario:  Temp to perm start page
-    Then the page should be axe clean excluding ".ccs-contact-us"
-  
+
+  Scenario: Temp to perm start page
+    Then the page should pass the accessibility checks
+
   Scenario: No notice given - hiring after 12 weeks - results page
     Given I enter '3/4/2021' for the 'contract start' date
     And I enter '5' for the 'days per week'
@@ -19,7 +19,7 @@ Feature: Supply Teachers - Temp to perm - Accessibility
     And I click on 'Continue'
     Then I am on the 'Temp-to-perm fee' page
     And my temp to perm fee is between '£0' and '£500'
-    Then the page should be axe clean excluding ".ccs-contact-us"
+    Then the page should pass the accessibility checks
 
   Scenario: No notice given - hiring between 9 and 12 weeks - results page
     Given I enter '3/4/2021' for the 'contract start' date
@@ -29,7 +29,7 @@ Feature: Supply Teachers - Temp to perm - Accessibility
     And I click on 'Continue'
     Then I am on the 'Temp-to-perm fee' page
     And my temp to perm fee is between '£200.00' and '£500.00'
-    Then the page should be axe clean excluding ".ccs-contact-us"
+    Then the page should pass the accessibility checks
 
   Scenario: No notice given - hiring before 9 weeks - results page
     Given I enter '3/4/2021' for the 'contract start' date
@@ -39,7 +39,7 @@ Feature: Supply Teachers - Temp to perm - Accessibility
     And I click on 'Continue'
     Then I am on the 'Temp-to-perm fee' page
     And my temp to perm fee is '£550.00'
-    Then the page should be axe clean excluding ".ccs-contact-us"
+    Then the page should pass the accessibility checks
 
   Scenario: Notice given - results page
     Given I enter '3/4/2021' for the 'contract start' date
@@ -50,4 +50,4 @@ Feature: Supply Teachers - Temp to perm - Accessibility
     And I click on 'Continue'
     Then I am on the 'Temp-to-perm fee' page
     And my temp to perm fee is '£375.00'
-    Then the page should be axe clean excluding ".ccs-contact-us"
+    Then the page should pass the accessibility checks

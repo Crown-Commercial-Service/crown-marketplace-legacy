@@ -11,10 +11,10 @@ Feature: Management Consultancy - Suppliers - Lot 10
     Then I am on the 'Supplier results' page
     And I should see that '4' companies can provide consultants
     And the selected suppliers are:
-      | GREENFELDER-LEUSCHKE  |
-      | KOHLER-STOKES         |
-      | MOSCISKI-CROOKS       |
-      | TURCOTTE GROUP        |
+      | GREENFELDER-LEUSCHKE |
+      | KOHLER-STOKES        |
+      | MOSCISKI-CROOKS      |
+      | TURCOTTE GROUP       |
     Given I click on '<supplier>'
     Then I am on the '<supplier>' page
     Then the supplier '<sme>' an SME
@@ -26,14 +26,14 @@ Feature: Management Consultancy - Suppliers - Lot 10
     And the rates for the 'Consultant / Senior Analyst' are '<rate_5>'
     And the rates for the 'Analyst / Junior Consultant' are '<rate_6>'
     And the contact details for the supplier are:
-      | <contact_name>    |
-      | <contact_email>   |
-      | <contact_number>  |
-      | <website>         |
-      | <address>         |
+      | <contact_name>   |
+      | <contact_email>  |
+      | <contact_number> |
+      | <website>        |
+      | <address>        |
 
     Examples:
-      | supplier              | sme     | rate_1  | rate_2  | rate_3  | rate_4  | rate_5  | rate_6  | contact_name    | contact_email                               | contact_number  | website                               | address                                                 |
-      | GREENFELDER-LEUSCHKE  | is      | £14:£14 | £12:£12 | £10:£10 | £8:£8   | £6:£6   | £4:£4   | Darwin Block    | greenfelder_leuschke@nader.test             | 4427521029      | http://predovic.example/judith        | Apt. 885 290 Bahringer Highway, Port Martin, GA 58567   |
-      | MOSCISKI-CROOKS       | is      | £18:£15 | £16:£13 | £14:£11 | £12:£9  | £10:£7  | £8:£5   | Elton Leuschke  | crooks.mosciski@powlowski-daugherty.example | 870-477-4229    | http://schultz.example/lance.cormier  | 22223 Howell Corners, East Sanfordton, PA 74031-5337    |
-      | TURCOTTE GROUP        | is not  | £15:£12 | £13:£10 | £11:£8  | £9:£6   | £7:£4   | £5:£2   | Hong Rau        | group_turcotte@effertz.example              | 700-074-9637    | http://buckridge.test/christa_pollich | 58729 Johns Turnpike, New Margaritoland, HI 90422-9071  |
+      | supplier             | sme    | rate_1  | rate_2  | rate_3  | rate_4 | rate_5 | rate_6 | contact_name   | contact_email                               | contact_number | website                               | address                                                |
+      | GREENFELDER-LEUSCHKE | is     | £14:£14 | £12:£12 | £10:£10 | £8:£8  | £6:£6  | £4:£4  | Darwin Block   | greenfelder_leuschke@nader.test             | 4427521029     | http://predovic.example/judith        | Apt. 885 290 Bahringer Highway, Port Martin, GA 58567  |
+      | MOSCISKI-CROOKS      | is     | £18:£15 | £16:£13 | £14:£11 | £12:£9 | £10:£7 | £8:£5  | Elton Leuschke | crooks.mosciski@powlowski-daugherty.example | 870-477-4229   | http://schultz.example/lance.cormier  | 22223 Howell Corners, East Sanfordton, PA 74031-5337   |
+      | TURCOTTE GROUP       | is not | £15:£12 | £13:£10 | £11:£8  | £9:£6  | £7:£4  | £5:£2  | Hong Rau       | group_turcotte@effertz.example              | 700-074-9637   | http://buckridge.test/christa_pollich | 58729 Johns Turnpike, New Margaritoland, HI 90422-9071 |

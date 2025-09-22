@@ -7,7 +7,7 @@ Feature: Management Consultancy - Lot 7 - Health, Social Care and Community - Se
     And I click on 'Continue'
     Then I am on the 'Select the services you need' page
     And the sub title is 'MCF3 lot 7 - Health, Social Care and Community'
-  
+
   Scenario: The correct options are available
     Then I should see the following options for the lot:
       | Alternative delivery models                                 |
@@ -54,7 +54,7 @@ Feature: Management Consultancy - Lot 7 - Health, Social Care and Community - Se
     Then the basket should say '11 services selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
-      | Alternative delivery models |
+      | Alternative delivery models                                 |
       | Business case development                                   |
       | Capability development                                      |
       | Charity/third sector improvement review                     |
@@ -123,28 +123,28 @@ Feature: Management Consultancy - Lot 7 - Health, Social Care and Community - Se
 
   Scenario: Go back from supplier results and change selection
     When I check the following items:
-      | Business case development                       |
-      | Capability development                          |
-      | Clinical evaluations                            |
-      | Digital, technology and cyber                   |
-      | Healthcare services                             |
-      | Healthcare transformation, change and delivery  |
-      | Housing                                         |
-      | Policing and security                           |
-      | Public service improvement review               |
-      | Regeneration                                    |
+      | Business case development                      |
+      | Capability development                         |
+      | Clinical evaluations                           |
+      | Digital, technology and cyber                  |
+      | Healthcare services                            |
+      | Healthcare transformation, change and delivery |
+      | Housing                                        |
+      | Policing and security                          |
+      | Public service improvement review              |
+      | Regeneration                                   |
     And I click on 'Continue'
     Then I am on the 'Supplier results' page
     And I click on the 'Back' back link
     Then I am on the 'Select the services you need' page
     And the following items should appear in the basket:
-      | Business case development                       |
-      | Digital, technology and cyber                   |
-      | Policing and security                           |
-      | Public service improvement review               |
-      | Regeneration                                    |
-      | Housing                                         |
-      | Healthcare transformation, change and delivery  |
-      | Clinical evaluations                            |
-      | Capability development                          |
-      | Healthcare services                             |
+      | Business case development                      |
+      | Digital, technology and cyber                  |
+      | Policing and security                          |
+      | Public service improvement review              |
+      | Regeneration                                   |
+      | Housing                                        |
+      | Healthcare transformation, change and delivery |
+      | Clinical evaluations                           |
+      | Capability development                         |
+      | Healthcare services                            |

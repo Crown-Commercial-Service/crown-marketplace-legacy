@@ -15,8 +15,8 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4c - Results 
     Then I am on the 'Select the countries for your requirement' page
     And the sub title is 'Lot 4c - International Investment Disputes'
     When I check the following items:
-      | Malta   |
-      | Malawi  |
+      | Malta  |
+      | Malawi |
     And I click on 'Continue'
     Then I am on the 'Select the legal services you need' page
     And the sub title is 'Lot 4c - International Investment Disputes'
@@ -26,11 +26,11 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4c - Results 
     Then I am on the 'Supplier results' page
     And I should see that '5' suppliers can provide legal services for government
     And the selected legal service for government suppliers are:
-      | JAKUBOWSKI-SATTERFIELD  | http://botsford.example/zack.willms     |
-      | JOHNSON-ROMAGUERA       | http://sanford.example/lilly_bosco      |
-      | SANFORD AND SONS        | http://kreiger.example/ezra_romaguera   |
-      | VEUM, TORPHY AND NOLAN  | http://gislason.example/madeline.miller |
-      | ZIEME-LEANNON           | http://terry.example/clementine.kozey   |
+      | JAKUBOWSKI-SATTERFIELD | http://botsford.example/zack.willms     |
+      | JOHNSON-ROMAGUERA      | http://sanford.example/lilly_bosco      |
+      | SANFORD AND SONS       | http://kreiger.example/ezra_romaguera   |
+      | VEUM, TORPHY AND NOLAN | http://gislason.example/madeline.miller |
+      | ZIEME-LEANNON          | http://terry.example/clementine.kozey   |
 
   Scenario: Service selection changes the results
     Given I click on the 'Back' back link
@@ -41,18 +41,18 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4c - Results 
     Then I am on the 'Supplier results' page
     And I should see that '3' suppliers can provide legal services for government
     And the selected legal service for government suppliers are:
-      | JOHNSON-ROMAGUERA       | http://sanford.example/lilly_bosco      |
-      | VEUM, TORPHY AND NOLAN  | http://gislason.example/madeline.miller |
-      | ZIEME-LEANNON           | http://terry.example/clementine.kozey   |
+      | JOHNSON-ROMAGUERA      | http://sanford.example/lilly_bosco      |
+      | VEUM, TORPHY AND NOLAN | http://gislason.example/madeline.miller |
+      | ZIEME-LEANNON          | http://terry.example/clementine.kozey   |
 
   Scenario: Country selection changes the results
     Given I click on the 'Back' back link
     Then I am on the 'Select the legal services you need' page
     Given I click on the 'Back' back link
-     Then I am on the 'Select the countries for your requirement' page
+    Then I am on the 'Select the countries for your requirement' page
     And I deselect all the items
     When I check the following items:
-      | Taiwan  |
+      | Taiwan |
     And I click on 'Continue'
     Then I am on the 'Select the legal services you need' page
     And the sub title is 'Lot 4c - International Investment Disputes'
@@ -62,10 +62,10 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4c - Results 
     Then I am on the 'Supplier results' page
     And I should see that '4' suppliers can provide legal services for government
     And the selected legal service for government suppliers are:
-      | JAKUBOWSKI-SATTERFIELD  | http://botsford.example/zack.willms     |
-      | JOHNSON-ROMAGUERA       | http://sanford.example/lilly_bosco      |
-      | VEUM, TORPHY AND NOLAN  | http://gislason.example/madeline.miller |
-      | ZIEME-LEANNON           | http://terry.example/clementine.kozey   |
+      | JAKUBOWSKI-SATTERFIELD | http://botsford.example/zack.willms     |
+      | JOHNSON-ROMAGUERA      | http://sanford.example/lilly_bosco      |
+      | VEUM, TORPHY AND NOLAN | http://gislason.example/madeline.miller |
+      | ZIEME-LEANNON          | http://terry.example/clementine.kozey   |
 
   Scenario: Going back from a supplier
     And I click on 'JOHNSON-ROMAGUERA'
@@ -75,11 +75,11 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4c - Results 
     Then I am on the 'Supplier results' page
     And I should see that '5' suppliers can provide legal services for government
     And the selected legal service for government suppliers are:
-      | JAKUBOWSKI-SATTERFIELD  | http://botsford.example/zack.willms     |
-      | JOHNSON-ROMAGUERA       | http://sanford.example/lilly_bosco      |
-      | SANFORD AND SONS        | http://kreiger.example/ezra_romaguera   |
-      | VEUM, TORPHY AND NOLAN  | http://gislason.example/madeline.miller |
-      | ZIEME-LEANNON           | http://terry.example/clementine.kozey   |
+      | JAKUBOWSKI-SATTERFIELD | http://botsford.example/zack.willms     |
+      | JOHNSON-ROMAGUERA      | http://sanford.example/lilly_bosco      |
+      | SANFORD AND SONS       | http://kreiger.example/ezra_romaguera   |
+      | VEUM, TORPHY AND NOLAN | http://gislason.example/madeline.miller |
+      | ZIEME-LEANNON          | http://terry.example/clementine.kozey   |
 
   Scenario: Going back from downloading documents
     And I click on 'Download the supplier list'
@@ -88,8 +88,8 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4c - Results 
     Then I am on the 'Supplier results' page
     And I should see that '5' suppliers can provide legal services for government
     And the selected legal service for government suppliers are:
-      | JAKUBOWSKI-SATTERFIELD  | http://botsford.example/zack.willms     |
-      | JOHNSON-ROMAGUERA       | http://sanford.example/lilly_bosco      |
-      | SANFORD AND SONS        | http://kreiger.example/ezra_romaguera   |
-      | VEUM, TORPHY AND NOLAN  | http://gislason.example/madeline.miller |
-      | ZIEME-LEANNON           | http://terry.example/clementine.kozey   |
+      | JAKUBOWSKI-SATTERFIELD | http://botsford.example/zack.willms     |
+      | JOHNSON-ROMAGUERA      | http://sanford.example/lilly_bosco      |
+      | SANFORD AND SONS       | http://kreiger.example/ezra_romaguera   |
+      | VEUM, TORPHY AND NOLAN | http://gislason.example/madeline.miller |
+      | ZIEME-LEANNON          | http://terry.example/clementine.kozey   |

@@ -40,8 +40,8 @@ Feature: Legal services -  Central governemnt - Lot 2 - Results
     Then I am on the 'Supplier results' page
     And I should see that '2' suppliers can provide legal services
     And the selected legal service suppliers are:
-      | COLLINS, COLE AND PACOCHA   |
-      | WILLIAMSON-BERGSTROM        |
+      | COLLINS, COLE AND PACOCHA |
+      | WILLIAMSON-BERGSTROM      |
 
   Scenario: Jurisdiction selection changes the results
     Given I click on the 'Back' back link

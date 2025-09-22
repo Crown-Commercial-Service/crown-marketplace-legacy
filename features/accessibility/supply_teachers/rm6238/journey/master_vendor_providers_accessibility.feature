@@ -8,16 +8,16 @@ Feature: Supply Teachers - Managed service providers - Accessibility
     Then I am on the 'Is your contract likely to be worth more than £2.5 million?' page
 
   Scenario: Is your contract likely to be worth more than £2.5 million? page
-    Then the page should be axe clean excluding ".ccs-contact-us"
+    Then the page should pass the accessibility checks
 
   Scenario Outline: Master vendor managed service providers page
     And I select '<option>'
     And I click on 'Continue'
     Then I am on the 'Master vendor managed service providers' page
     And the caption is '<caption>'
-    Then the page should be axe clean excluding ".ccs-contact-us"
+    Then the page should pass the accessibility checks
 
     Examples:
-      | option  | caption                               |
-      | Yes     | Contract worth more than £2.5 million |
-      | No      | Contract worth less than £2.5 million |
+      | option | caption                               |
+      | Yes    | Contract worth more than £2.5 million |
+      | No     | Contract worth less than £2.5 million |

@@ -150,12 +150,12 @@ RSpec.describe Upload do
               ],
               supplier_framework_lot_rates: [
                 {
-                  position_id: 1,
+                  position_id: 'RM6360.4a.1',
                   rate: 10000,
                   jurisdiction_id: 'GB'
                 },
                 {
-                  position_id: 1,
+                  position_id: 'RM6360.4a.1',
                   rate: 20000,
                   jurisdiction_id: 'DE'
                 }
@@ -173,7 +173,7 @@ RSpec.describe Upload do
               ],
               supplier_framework_lot_rates: [
                 {
-                  position_id: 1,
+                  position_id: 'RM6360.4b.1',
                   rate: 20000,
                   jurisdiction_id: 'GB'
                 }
@@ -201,7 +201,7 @@ RSpec.describe Upload do
         it 'assigns attributes to the rates' do
           result
 
-          expect(supplier_framework.lots.map { |lot| lot.rates.pluck(:position_id, :rate) }).to eq([[[1, 10000], [1, 20000]], [[1, 20000]]])
+          expect(supplier_framework.lots.map { |lot| lot.rates.pluck(:position_id, :rate) }).to eq([[['RM6360.4a.1', 10000], ['RM6360.4a.1', 20000]], [['RM6360.4b.1', 20000]]])
         end
       end
     end
@@ -317,12 +317,12 @@ RSpec.describe Upload do
             ],
             supplier_framework_lot_rates: [
               {
-                position_id: 88,
+                position_id: 'RM6360.4a.88',
                 rate: 10000,
                 jurisdiction_id: 'GB'
               },
               {
-                position_id: 1,
+                position_id: 'RM6360.4a.1',
                 rate: 20000,
                 jurisdiction_id: 'DE'
               }
@@ -340,7 +340,7 @@ RSpec.describe Upload do
             ],
             supplier_framework_lot_rates: [
               {
-                position_id: 1,
+                position_id: 'RM6360.4b.1',
                 rate: 20000,
                 jurisdiction_id: 'GB'
               }
@@ -388,12 +388,12 @@ RSpec.describe Upload do
           ],
           supplier_framework_lot_rates: [
             {
-              position_id: 1,
+              position_id: 'RM6360.4a.1',
               rate: 10000,
               jurisdiction_id: 'GB'
             },
             {
-              position_id: 1,
+              position_id: 'RM6360.4a.1',
               rate: 20000,
               jurisdiction_id: 'DE'
             }
@@ -415,7 +415,7 @@ RSpec.describe Upload do
           ],
           supplier_framework_lot_rates: [
             {
-              position_id: 1,
+              position_id: 'RM6360.4b.1',
               rate: 20000,
               jurisdiction_id: 'GB'
             }

@@ -40,58 +40,58 @@ Feature: Legal services - Central governemnt - Lot 2 - Service selection
     Then the basket should say '1 service selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
-      | Education Law             |
+      | Education Law |
     When I check the following items:
-      | Employment                |
-      | Planning and Environment  |
+      | Employment               |
+      | Planning and Environment |
     Then the basket should say '3 services selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
-      | Education Law             |
-      | Employment                |
-      | Planning and Environment  |
+      | Education Law            |
+      | Employment               |
+      | Planning and Environment |
 
   Scenario: Changing the selection will change the basket
     When I check the following items:
-      | Education Law             |
-      | Employment                |
-      | Planning and Environment  |
-      | Social Housing            |
+      | Education Law            |
+      | Employment               |
+      | Planning and Environment |
+      | Social Housing           |
     Then the basket should say '4 services selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
-      | Education Law             |
-      | Employment                |
-      | Planning and Environment  |
-      | Social Housing            |
+      | Education Law            |
+      | Employment               |
+      | Planning and Environment |
+      | Social Housing           |
     When I deselect the following items:
-      | Employment                |
+      | Employment |
     Then the basket should say '3 services selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
-      | Education Law             |
-      | Planning and Environment  |
-      | Social Housing            |
+      | Education Law            |
+      | Planning and Environment |
+      | Social Housing           |
     When I remove the following items from the basket:
-      | Education Law             |
-      | Social Housing            |
+      | Education Law  |
+      | Social Housing |
     Then the basket should say '1 service selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
-      | Planning and Environment  |
+      | Planning and Environment |
     When I click on 'Remove all'
     Then the basket should say 'No services selected'
 
   Scenario: Go back from jurisdiction and change selection
     When I check the following items:
-      | Employment                |
-      | Planning and Environment  |
-      | Social Housing            |
+      | Employment               |
+      | Planning and Environment |
+      | Social Housing           |
     And I click on 'Continue'
     Then I am on the 'Select the jurisdiction you need' page
     And I click on the 'Back' back link
     Then I am on the 'Select the legal services you need' page
     And the following items should appear in the basket:
-      | Employment                |
-      | Planning and Environment  |
-      | Social Housing            |
+      | Employment               |
+      | Planning and Environment |
+      | Social Housing           |

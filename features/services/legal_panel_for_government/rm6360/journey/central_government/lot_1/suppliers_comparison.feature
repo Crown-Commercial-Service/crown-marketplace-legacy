@@ -33,10 +33,10 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 1 - Suppliers
 
   Scenario: The rates table is displayed for comparison
     Then I should see the rates in the comparison table:
-      | Supplier                      | Partner | Legal Director/Counsel or equivalent  | Senior Solicitor, Senior Associate/Senior Legal Executive | Solicitor, Associate/Legal Executive  | NQ Solicitor/Associate, Junior Solicitor/Associate/Legal Executive  | Trainee/Legal Apprentice  | Paralegal, Legal Assistant  |
-      | CORMIER INC                   | £240.00 | £210.00                               | £180.00                                                   | £150.00                               | £120.00                                                             | £72.00                    | £60.00                      |
-      | GOYETTE AND SONS              | £280.00 | £245.00                               | £210.00                                                   | £175.00                               | £140.00                                                             | £84.00                    | £70.00                      |
-      | LOCKMAN, NITZSCHE AND BARTELL | £280.00 | £245.00                               | £210.00                                                   | £175.00                               | £140.00                                                             | £84.00                    | £70.00                      |
+      | Supplier                      | Partner | Legal Director/Counsel or equivalent | Senior Solicitor, Senior Associate/Senior Legal Executive | Solicitor, Associate/Legal Executive | NQ Solicitor/Associate, Junior Solicitor/Associate/Legal Executive | Trainee/Legal Apprentice | Paralegal, Legal Assistant |
+      | CORMIER INC                   | £240.00 | £210.00                              | £180.00                                                   | £150.00                              | £120.00                                                            | £72.00                   | £60.00                     |
+      | GOYETTE AND SONS              | £280.00 | £245.00                              | £210.00                                                   | £175.00                              | £140.00                                                            | £84.00                   | £70.00                     |
+      | LOCKMAN, NITZSCHE AND BARTELL | £280.00 | £245.00                              | £210.00                                                   | £175.00                              | £140.00                                                            | £84.00                   | £70.00                     |
 
   Scenario: Changing selection changes the results
     And I click on the 'Back' back link
@@ -49,9 +49,9 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 1 - Suppliers
     Then I am on the 'Compare supplier rates' page
     And I should see that '2' suppliers have been selected for comparison
     Then I should see the rates in the comparison table:
-      | Supplier                      | Partner | Legal Director/Counsel or equivalent  | Senior Solicitor, Senior Associate/Senior Legal Executive | Solicitor, Associate/Legal Executive  | NQ Solicitor/Associate, Junior Solicitor/Associate/Legal Executive  | Trainee/Legal Apprentice  | Paralegal, Legal Assistant  |
-      | LOCKMAN, NITZSCHE AND BARTELL | £280.00 | £245.00                               | £210.00                                                   | £175.00                               | £140.00                                                             | £84.00                    | £70.00                      |
-      | MONAHAN-JOHNS                 | £200.00 | £175.00                               | £150.00                                                   | £125.00                               | £100.00                                                             | £60.00                    | £50.00                      |
+      | Supplier                      | Partner | Legal Director/Counsel or equivalent | Senior Solicitor, Senior Associate/Senior Legal Executive | Solicitor, Associate/Legal Executive | NQ Solicitor/Associate, Junior Solicitor/Associate/Legal Executive | Trainee/Legal Apprentice | Paralegal, Legal Assistant |
+      | LOCKMAN, NITZSCHE AND BARTELL | £280.00 | £245.00                              | £210.00                                                   | £175.00                              | £140.00                                                            | £84.00                   | £70.00                     |
+      | MONAHAN-JOHNS                 | £200.00 | £175.00                              | £150.00                                                   | £125.00                              | £100.00                                                            | £60.00                   | £50.00                     |
 
   Scenario: Back to results
     When I click on 'Back to results'

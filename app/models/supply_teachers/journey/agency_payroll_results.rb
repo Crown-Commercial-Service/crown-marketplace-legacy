@@ -3,11 +3,11 @@ module SupplyTeachers
     include Steppable
     include ActiveSupport::NumberHelper
 
-    attribute :position_id
+    attribute :position_number
     attribute :offset
 
     def determine_position_id
-      @determine_position_id ||= position_id.to_i + offset.to_i
+      @determine_position_id ||= "RM6238.1.#{position_number.to_i + offset.to_i}"
     end
 
     def position
@@ -21,8 +21,8 @@ module SupplyTeachers
         payroll_provider: translate_input('supply_teachers.payroll_provider.agency'),
         postcode: postcode,
         radius: number_to_human(radius, units: :miles),
-        job_type: translate_input("supply_teachers.job_titles.#{position.position}"),
-        term: translate_input("supply_teachers.term_types.#{position.position_type}"),
+        job_type: translate_input("supply_teachers.job_titles.#{position.name}"),
+        term: translate_input("supply_teachers.term_types.#{position.category}"),
       }
     end
   end

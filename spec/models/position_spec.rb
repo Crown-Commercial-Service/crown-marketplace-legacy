@@ -2,12 +2,13 @@ require 'rails_helper'
 
 RSpec.describe Position do
   describe 'associations' do
-    let(:position) { described_class.first }
+    let(:position) { create(:position) }
 
+    it { is_expected.to belong_to(:lot) }
     it { is_expected.to have_many(:supplier_framework_lot_rates) }
-  end
 
-  it 'has all the positions loaded' do
-    expect(described_class.count).to eq(60)
+    it 'has the lot relationship' do
+      expect(position.lot).to be_present
+    end
   end
 end

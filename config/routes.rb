@@ -115,6 +115,14 @@ Rails.application.routes.draw do
     get '/', to: 'dashboard#index', action: :index
   end
 
+  concern :admin_suppliers do
+    resources :suppliers, only: %i[index show] do
+      resources :lot_data, path: 'lot-data', only: %i[index] do
+        get '/:section', action: :show
+      end
+    end
+  end
+
   concern :admin_uploads do
     resources :uploads, only: %i[index new create show] do
       get '/progress', action: :progress
@@ -179,7 +187,7 @@ Rails.application.routes.draw do
             get :progress, action: :progress
           end
         end
-        concerns :admin_dashboard, :admin_shared_pages
+        concerns :admin_dashboard, :admin_suppliers, :admin_shared_pages
       end
     end
 
@@ -217,7 +225,7 @@ Rails.application.routes.draw do
       concerns %i[buyer_shared_pages shared_pages suppliers]
 
       namespace :admin, defaults: { service: 'management_consultancy/admin' } do
-        concerns %i[admin_dashboard admin_uploads admin_reports admin_shared_pages]
+        concerns %i[admin_dashboard admin_suppliers admin_uploads admin_reports admin_shared_pages]
       end
     end
 
@@ -225,7 +233,7 @@ Rails.application.routes.draw do
       concerns %i[buyer_shared_pages shared_pages suppliers]
 
       namespace :admin, defaults: { service: 'management_consultancy/admin' } do
-        concerns %i[admin_dashboard admin_uploads admin_reports admin_shared_pages]
+        concerns %i[admin_dashboard admin_suppliers admin_uploads admin_reports admin_shared_pages]
       end
     end
 
@@ -249,7 +257,7 @@ Rails.application.routes.draw do
       concerns %i[buyer_shared_pages shared_pages suppliers]
 
       namespace :admin, defaults: { service: 'legal_services/admin' } do
-        concerns %i[admin_dashboard admin_uploads admin_reports admin_shared_pages]
+        concerns %i[admin_dashboard admin_suppliers admin_uploads admin_reports admin_shared_pages]
       end
     end
 
@@ -273,7 +281,7 @@ Rails.application.routes.draw do
       get '/suppliers-comparison', to: 'suppliers_comparison#index'
 
       namespace :admin, defaults: { service: 'legal_panel_for_government/admin' } do
-        concerns %i[admin_dashboard admin_uploads admin_reports admin_shared_pages]
+        concerns %i[admin_dashboard admin_suppliers admin_uploads admin_reports admin_shared_pages]
       end
     end
 

@@ -7,7 +7,7 @@ Feature: Legal Panel for Government - Start pages - With an unrecognised framewo
     And I click on '<framework>'
     Then I am on the 'Find legal services for government' page
     And the framework is '<framework>'
-  
+
     Examples:
       | framework |
       | RM6360    |

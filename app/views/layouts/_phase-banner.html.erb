@@ -1,8 +1,6 @@
-<div class="govuk-width-container">
-  <%= govuk_phase_banner(
-    {
-      text: t('layouts.application.beta')
-    },
-    t('layouts.application.feedback_html', link: feedback_email_link)
-  ) %>
-</div>
+<%= govuk_phase_banner(
+  {
+    text: t('layouts.application.beta')
+  },
+  @end_of_journey.present? ? t('layouts.application.feedback_end_journey_html', link: Marketplace.st_survey_link) : t('layouts.application.feedback_html', link: feedback_email_link)
+) %>

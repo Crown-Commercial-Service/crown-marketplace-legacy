@@ -11,11 +11,11 @@ Feature: Management Consultancy - Lot 9 - Environment and Sustainability - Resul
     Then I am on the 'Supplier results' page
     And I should see that '5' companies can provide consultants
     And the selected suppliers are:
-      | GOTTLIEB, HEATHCOTE AND JACOBI  |
-      | GREENFELDER-LEUSCHKE            |
-      | MOSCISKI-CROOKS                 |
-      | STROMAN-ROMAGUERA               |
-      | TURCOTTE GROUP                  |
+      | GOTTLIEB, HEATHCOTE AND JACOBI |
+      | GREENFELDER-LEUSCHKE           |
+      | MOSCISKI-CROOKS                |
+      | STROMAN-ROMAGUERA              |
+      | TURCOTTE GROUP                 |
 
   Scenario: Service selection changes the results
     Given I click on the 'Back' back link
@@ -26,15 +26,15 @@ Feature: Management Consultancy - Lot 9 - Environment and Sustainability - Resul
     Then I am on the 'Supplier results' page
     And I should see that '9' companies can provide consultants
     And the selected suppliers are:
-      | GOTTLIEB, HEATHCOTE AND JACOBI  |
-      | GREENFELDER-LEUSCHKE            |
-      | GUTMANN-PFEFFER                 |
-      | KOHLER-STOKES                   |
-      | MOSCISKI-CROOKS                 |
-      | SCHINNER-LAKIN                  |
-      | SCHUMM, GRANT AND SPORER        |
-      | STROMAN-ROMAGUERA               |
-      | TURCOTTE GROUP                  |
+      | GOTTLIEB, HEATHCOTE AND JACOBI |
+      | GREENFELDER-LEUSCHKE           |
+      | GUTMANN-PFEFFER                |
+      | KOHLER-STOKES                  |
+      | MOSCISKI-CROOKS                |
+      | SCHINNER-LAKIN                 |
+      | SCHUMM, GRANT AND SPORER       |
+      | STROMAN-ROMAGUERA              |
+      | TURCOTTE GROUP                 |
 
   Scenario: Going back from a supplier
     And I click on 'GOTTLIEB, HEATHCOTE AND JACOBI'
@@ -44,11 +44,11 @@ Feature: Management Consultancy - Lot 9 - Environment and Sustainability - Resul
     Then I am on the 'Supplier results' page
     And I should see that '5' companies can provide consultants
     And the selected suppliers are:
-      | GOTTLIEB, HEATHCOTE AND JACOBI  |
-      | GREENFELDER-LEUSCHKE            |
-      | MOSCISKI-CROOKS                 |
-      | STROMAN-ROMAGUERA               |
-      | TURCOTTE GROUP                  |
+      | GOTTLIEB, HEATHCOTE AND JACOBI |
+      | GREENFELDER-LEUSCHKE           |
+      | MOSCISKI-CROOKS                |
+      | STROMAN-ROMAGUERA              |
+      | TURCOTTE GROUP                 |
 
   Scenario: Going back from downloading documents
     And I click on 'Download the supplier list'
@@ -57,8 +57,8 @@ Feature: Management Consultancy - Lot 9 - Environment and Sustainability - Resul
     Then I am on the 'Supplier results' page
     And I should see that '5' companies can provide consultants
     And the selected suppliers are:
-      | GOTTLIEB, HEATHCOTE AND JACOBI  |
-      | GREENFELDER-LEUSCHKE            |
-      | MOSCISKI-CROOKS                 |
-      | STROMAN-ROMAGUERA               |
-      | TURCOTTE GROUP                  |
+      | GOTTLIEB, HEATHCOTE AND JACOBI |
+      | GREENFELDER-LEUSCHKE           |
+      | MOSCISKI-CROOKS                |
+      | STROMAN-ROMAGUERA              |
+      | TURCOTTE GROUP                 |

@@ -17,10 +17,10 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 2 - Results
     Then I am on the 'Supplier results' page
     And I should see that '4' suppliers can provide legal services for government
     And the selected legal service for government suppliers are:
-      | ADAMS, WOLFF AND STROMAN  | http://schoen.test/horacio              |
-      | BALISTRERI-MURAZIK        | http://dubuque.test/soo_lockman         |
-      | CORMIER INC               | http://mayer-willms.test/daphine        |
-      | MONAHAN-JOHNS             | http://runolfsson.example/darrel.heaney |
+      | ADAMS, WOLFF AND STROMAN | http://schoen.test/horacio              |
+      | BALISTRERI-MURAZIK       | http://dubuque.test/soo_lockman         |
+      | CORMIER INC              | http://mayer-willms.test/daphine        |
+      | MONAHAN-JOHNS            | http://runolfsson.example/darrel.heaney |
 
   Scenario: Service selection changes the results
     Given I click on the 'Back' back link
@@ -31,12 +31,12 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 2 - Results
     Then I am on the 'Supplier results' page
     And I should see that '6' suppliers can provide legal services for government
     And the selected legal service for government suppliers are:
-      | ADAMS, WOLFF AND STROMAN  | http://schoen.test/horacio              |
-      | BALISTRERI-MURAZIK        | http://dubuque.test/soo_lockman         |
-      | CORMIER INC               | http://mayer-willms.test/daphine        |
-      | CROOKS AND SONS           | http://padberg.example/romona.mcclure   |
-      | MONAHAN-JOHNS             | http://runolfsson.example/darrel.heaney |
-      | O'CONNER AND SONS         | http://upton-kris.example/jen           |
+      | ADAMS, WOLFF AND STROMAN | http://schoen.test/horacio              |
+      | BALISTRERI-MURAZIK       | http://dubuque.test/soo_lockman         |
+      | CORMIER INC              | http://mayer-willms.test/daphine        |
+      | CROOKS AND SONS          | http://padberg.example/romona.mcclure   |
+      | MONAHAN-JOHNS            | http://runolfsson.example/darrel.heaney |
+      | O'CONNER AND SONS        | http://upton-kris.example/jen           |
 
   Scenario: Going back from a supplier
     And I click on 'BALISTRERI-MURAZIK'
@@ -46,10 +46,10 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 2 - Results
     Then I am on the 'Supplier results' page
     And I should see that '4' suppliers can provide legal services for government
     And the selected legal service for government suppliers are:
-      | ADAMS, WOLFF AND STROMAN  | http://schoen.test/horacio              |
-      | BALISTRERI-MURAZIK        | http://dubuque.test/soo_lockman         |
-      | CORMIER INC               | http://mayer-willms.test/daphine        |
-      | MONAHAN-JOHNS             | http://runolfsson.example/darrel.heaney |
+      | ADAMS, WOLFF AND STROMAN | http://schoen.test/horacio              |
+      | BALISTRERI-MURAZIK       | http://dubuque.test/soo_lockman         |
+      | CORMIER INC              | http://mayer-willms.test/daphine        |
+      | MONAHAN-JOHNS            | http://runolfsson.example/darrel.heaney |
 
   Scenario: Going back from downloading documents
     And I click on 'Download the supplier list'
@@ -58,7 +58,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 2 - Results
     Then I am on the 'Supplier results' page
     And I should see that '4' suppliers can provide legal services for government
     And the selected legal service for government suppliers are:
-      | ADAMS, WOLFF AND STROMAN  | http://schoen.test/horacio              |
-      | BALISTRERI-MURAZIK        | http://dubuque.test/soo_lockman         |
-      | CORMIER INC               | http://mayer-willms.test/daphine        |
-      | MONAHAN-JOHNS             | http://runolfsson.example/darrel.heaney |
+      | ADAMS, WOLFF AND STROMAN | http://schoen.test/horacio              |
+      | BALISTRERI-MURAZIK       | http://dubuque.test/soo_lockman         |
+      | CORMIER INC              | http://mayer-willms.test/daphine        |
+      | MONAHAN-JOHNS            | http://runolfsson.example/darrel.heaney |

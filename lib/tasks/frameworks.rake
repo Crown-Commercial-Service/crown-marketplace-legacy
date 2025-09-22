@@ -17,18 +17,15 @@ module Frameworks
     ]
   end
 
-  # rubocop:disable Metrics/AbcSize
   def self.framework_with_transformed_dates(framework)
     framework['live_at'] = Time.new(*framework['live_at'].split('-')).in_time_zone('London')
     framework['expires_at'] = Time.new(*framework['expires_at'].split('-')).in_time_zone('London')
 
     if Rails.env.test?
       case framework['id']
-      when 'RM6238', 'RM6240'
+      when 'RM6238', 'RM6240', 'RM6309'
         framework['expires_at'] = 1.year.from_now
-      when 'RM6187'
-        framework['expires_at'] = 1.year.ago
-      when 'RM6309', 'RM6360'
+      when 'RM6360'
         framework['live_at'] = 1.year.ago
         framework['expires_at'] = 1.year.from_now
       end
@@ -36,7 +33,6 @@ module Frameworks
 
     framework
   end
-  # rubocop:enable Metrics/AbcSize
 
   def self.truncate_frameworks
     ActiveRecord::Base.connection.truncate_tables(

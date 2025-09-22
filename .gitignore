@@ -101,3 +101,5 @@ yarn-debug.log*
 !/app/assets/builds/.keep
 rollup-config*
 rollup.config-*
+
+.python-version

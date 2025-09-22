@@ -11,15 +11,15 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 5 - Suppliers
     Then I am on the 'Select the legal services you need' page
     And the sub title is 'Lot 5 - Rail Legal Services'
     When I check the following items:
-      | Pensions law  |
-      | Planning law  |
+      | Pensions law |
+      | Planning law |
     And I click on 'Continue'
     Then I am on the 'Supplier results' page
     And I should see that '3' suppliers can provide legal services for government
     And the selected legal service for government suppliers are:
-      | DICKI, QUITZON AND KUB  | http://gibson-rogahn.example/delaine.hodkiewicz |
-      | JOHNSON-ROMAGUERA       | http://glover.test/otto                         |
-      | STANTON-GOYETTE         | http://bernier.example/armando.kemmer           |
+      | DICKI, QUITZON AND KUB | http://gibson-rogahn.example/delaine.hodkiewicz |
+      | JOHNSON-ROMAGUERA      | http://glover.test/otto                         |
+      | STANTON-GOYETTE        | http://bernier.example/armando.kemmer           |
 
   Scenario: Check the supplier data - SME
     Given I click on 'STANTON-GOYETTE'
@@ -33,10 +33,10 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 5 - Suppliers
     And the 'Trainee/Legal Apprentice' hourly rate is '£72.00'
     And the 'Paralegal, Legal Assistant' hourly rate is '£60.00'
     And the contact details for the supplier are:
-      | goyette.stanton@cronin-crist.example                    |
-      | 980 392 0928                                            |
-      | http://lakin.example/scottie.heathcote                  |
-      | Suite 274 46313 Rosamond Center, Michaeltown, CT 85109  |
+      | goyette.stanton@cronin-crist.example                   |
+      | 980 392 0928                                           |
+      | http://lakin.example/scottie.heathcote                 |
+      | Suite 274 46313 Rosamond Center, Michaeltown, CT 85109 |
     And the prospectus link is 'http://bernier.example/armando.kemmer'
 
   Scenario: Check the supplier data - Non SME

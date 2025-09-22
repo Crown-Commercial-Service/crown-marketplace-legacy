@@ -27,18 +27,18 @@ Feature: Management Consultancy - Suppliers
     And the rate for the 'Managing Consultant / Director' is '<rate_5>'
     And the rate for the 'Partner' is '<rate_6>'
     And the contact details for the supplier are:
-      | <contact_name>    |
-      | <contact_email>   |
-      | <contact_number>  |
-      | <website>         |
-      | <address>         |
+      | <contact_name>   |
+      | <contact_email>  |
+      | <contact_number> |
+      | <website>        |
+      | <address>        |
 
     Examples:
-      | supplier                      | sme     | rate_1  | rate_2  | rate_3  | rate_4  | rate_5  | rate_6  | contact_name        | contact_email                                   | contact_number      | website                               | address                                                       |
-      | BATZ, BROWN AND BREITENBERG   | is      | £9      | £11     | £13     | £15     | £17     | £19     | Ezra O'Keefe        | batz.brown.and.breitenberg@williamson-emard.io  | 402.108.0190 x08147 | http://considine.biz/evonne           | Suite 973 3708 Leonard Place, Mingview, SC 99734              |
-      | VANDERVORT, KOVACEK AND MORAR | is not  | £4      | £6      | £8      | £10     | £12     | £14     | Judson Sauer        | morar_kovacek_vandervort_and@farrell-grady.org  | 337.949.3012 x62512 | http://jerde.org/vallie_bergstrom     | 6632 Rodolfo Highway, Port Caryton, IA 90303-6001             |
-      | VEUM-RODRIGUEZ                | is not  | £7      | £9      | £11     | £13     | £15     | £17     | Rev. Holly Tillman  | rodriguez.veum@bartell.co                       | 645.157.0910        | http://grimes.name/dixie_fay          | Suite 747 62477 Tillman Plaza, Lake Carsonside, UT 21441-2938 |
-      | WILLIAMSON, DOYLE AND GLOVER  | is      | £5      | £7      | £9      | £11     | £13     | £15     | Nathanial Carter    | glover.williamson.and.doyle@lind.biz            | 563-160-3456 x526   | http://shanahan-labadie.info/jeremiah | Apt. 802 53662 Friesen Creek, Louishaven, MS 08488-5259       |
+      | supplier                      | sme    | rate_1 | rate_2 | rate_3 | rate_4 | rate_5 | rate_6 | contact_name       | contact_email                                  | contact_number      | website                               | address                                                       |
+      | BATZ, BROWN AND BREITENBERG   | is     | £9     | £11    | £13    | £15    | £17    | £19    | Ezra O'Keefe       | batz.brown.and.breitenberg@williamson-emard.io | 402.108.0190 x08147 | http://considine.biz/evonne           | Suite 973 3708 Leonard Place, Mingview, SC 99734              |
+      | VANDERVORT, KOVACEK AND MORAR | is not | £4     | £6     | £8     | £10    | £12    | £14    | Judson Sauer       | morar_kovacek_vandervort_and@farrell-grady.org | 337.949.3012 x62512 | http://jerde.org/vallie_bergstrom     | 6632 Rodolfo Highway, Port Caryton, IA 90303-6001             |
+      | VEUM-RODRIGUEZ                | is not | £7     | £9     | £11    | £13    | £15    | £17    | Rev. Holly Tillman | rodriguez.veum@bartell.co                      | 645.157.0910        | http://grimes.name/dixie_fay          | Suite 747 62477 Tillman Plaza, Lake Carsonside, UT 21441-2938 |
+      | WILLIAMSON, DOYLE AND GLOVER  | is     | £5     | £7     | £9     | £11    | £13    | £15    | Nathanial Carter   | glover.williamson.and.doyle@lind.biz           | 563-160-3456 x526   | http://shanahan-labadie.info/jeremiah | Apt. 802 53662 Friesen Creek, Louishaven, MS 08488-5259       |
 
   Scenario: Download the supplier spreadsheet
     Given I click on 'Download the supplier list'

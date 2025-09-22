@@ -27,7 +27,7 @@ Feature: Management Consultancy - Lot 2 - Strategy and Policy - Service selectio
     Then the basket should say '1 service selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
-      | Business case development     |
+      | Business case development |
     When I check the following items:
       | Change management             |
       | Policy                        |
@@ -64,18 +64,18 @@ Feature: Management Consultancy - Lot 2 - Strategy and Policy - Service selectio
     Then the basket should say '4 services selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
-      | Business case development     |
-      | Social value                  |
-      | Regulatory advice             |
-      | Strategic advice              |
+      | Business case development |
+      | Social value              |
+      | Regulatory advice         |
+      | Strategic advice          |
     When I remove the following items from the basket:
-      | Social value                  |
-      | Regulatory advice             |
+      | Social value      |
+      | Regulatory advice |
     Then the basket should say '2 services selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
-      | Business case development     |
-      | Strategic advice              |
+      | Business case development |
+      | Strategic advice          |
     When I click on 'Remove all'
     Then the basket should say 'No services selected'
 

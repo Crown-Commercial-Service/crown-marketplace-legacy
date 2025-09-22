@@ -2,10 +2,6 @@ module Pages
   class Home < SitePrism::Page
     section :navigation, '#navigation' do
       elements :links, 'a'
-    end
-
-    section :authentication, '.ccs-header__service-authentication' do
-      elements :links, 'a'
       elements :buttons, 'button'
     end
 

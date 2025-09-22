@@ -12,13 +12,13 @@ Feature: Supply Teachers - Education technology platforms
       | CHRISTIANSEN INC        |
       | LEFFLER AND SONS        |
     And the contact details for the managed service provider 'LEFFLER AND SONS' are:
-      | Kaitlin Hahn                  |
-      | 128.218.6912 x969             |
-      | sons.leffler.and@gislason.io  |
+      | Kaitlin Hahn                 |
+      | 128.218.6912 x969            |
+      | sons.leffler.and@gislason.io |
     And the education technology platform agency 'LEFFLER AND SONS' has the following rates:
-      | Agency Management Fee: Daily supply worker (per worker, per day)              | £14.07  |
-      | Agency Management Fee: Long term assignment (6 weeks+) (per worker, per day)  | £13.36  |
-      | Nominated Worker                                                              | £12.66  |
-      | Fixed Term                                                                    | 14.0%   |
+      | Agency Management Fee: Daily supply worker (per worker, per day)             | £14.07 |
+      | Agency Management Fee: Long term assignment (6 weeks+) (per worker, per day) | £13.36 |
+      | Nominated Worker                                                             | £12.66 |
+      | Fixed Term                                                                   | 14.0%  |
     And I click on 'Back'
     Then I am on the 'What is your school looking for?' page

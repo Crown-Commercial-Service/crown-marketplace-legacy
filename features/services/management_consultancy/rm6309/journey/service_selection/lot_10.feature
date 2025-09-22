@@ -7,38 +7,38 @@ Feature: Management Consultancy - Lot 10 - Restructuring and insolvency - Servic
     And I click on 'Continue'
     Then I am on the 'Select the services you need' page
     And the sub title is 'MCF4 lot 10 - Restructuring and insolvency'
-  
+
   Scenario: The correct options are available
     Then I should see the following options for the lot:
-      | Accelerated Mergers and Acquisitions                                                                                                                                                                                                                                          |
-      | Business review                                                                                                                                                                                                                                                               |
-      | Cash-flow review                                                                                                                                                                                                                                                              |
-      | Distressed debt restructuring                                                                                                                                                                                                                                                 |
-      | General restructuring advice                                                                                                                                                                                                                                                  |
-      | Insolvency contingency planning                                                                                                                                                                                                                                               |
-      | Options analysis                                                                                                                                                                                                                                                              |
-      | Capital markets advice                                                                                                                                                                                                                                                        |
-      | Economic consulting (Market Economy Operator Principle - “MEOP”)                                                                                                                                                                                                              |
-      | International insolvency advice                                                                                                                                                                                                                                               |
-      | Pensions advisory                                                                                                                                                                                                                                                             |
-      | Restructuring tax advice                                                                                                                                                                                                                                                      |
-      | Special administration regimes                                                                                                                                                                                                                                                |
-      | Advanced manufacturing, which includes aerospace manufacturing, automotive manufacturing, computers and electrical equipment manufacturing, machinery and equipment manufacturing, shipbuilding, chemicals manufacturing, and space                                           |
-      | Aviation                                                                                                                                                                                                                                                                      |
-      | Business services, which includes outsourcing, professional services, recruitment services and facilities management                                                                                                                                                          |
-      | Construction                                                                                                                                                                                                                                                                  |
-      | Consumer, which includes retail, consumer goods, tourism, hospitality and leisure                                                                                                                                                                                             |
-      | Defence                                                                                                                                                                                                                                                                       |
-      | Education                                                                                                                                                                                                                                                                     |
-      | Energy, which includes electricity, gas markets, civil nuclear, oil and gas and refined petroleum products manufacturing                                                                                                                                                      |
-      | Financial services                                                                                                                                                                                                                                                            |
-      | Health and social care                                                                                                                                                                                                                                                        |
-      | Heavy industry, which includes agri-tech, cement manufacturing, construction material, ceramics, plastics manufacturing, rail manufacturing, paper manufacturing, mining, steel manufacturing, fabricated metal products manufacturing and other energy intensive industries  |
-      | Local authorities                                                                                                                                                                                                                                                             |
-      | Sports and leisure                                                                                                                                                                                                                                                            |
-      | Technology, media and telecoms                                                                                                                                                                                                                                                |
-      | Transport (excluding aviation) which includes maritime and ports, road haulage and logistics, rail, warehousing and storage, and postal and courier services                                                                                                                  |
-      | Utilities                                                                                                                                                                                                                                                                     |
+      | Accelerated Mergers and Acquisitions                                                                                                                                                                                                                                         |
+      | Business review                                                                                                                                                                                                                                                              |
+      | Cash-flow review                                                                                                                                                                                                                                                             |
+      | Distressed debt restructuring                                                                                                                                                                                                                                                |
+      | General restructuring advice                                                                                                                                                                                                                                                 |
+      | Insolvency contingency planning                                                                                                                                                                                                                                              |
+      | Options analysis                                                                                                                                                                                                                                                             |
+      | Capital markets advice                                                                                                                                                                                                                                                       |
+      | Economic consulting (Market Economy Operator Principle - “MEOP”)                                                                                                                                                                                                             |
+      | International insolvency advice                                                                                                                                                                                                                                              |
+      | Pensions advisory                                                                                                                                                                                                                                                            |
+      | Restructuring tax advice                                                                                                                                                                                                                                                     |
+      | Special administration regimes                                                                                                                                                                                                                                               |
+      | Advanced manufacturing, which includes aerospace manufacturing, automotive manufacturing, computers and electrical equipment manufacturing, machinery and equipment manufacturing, shipbuilding, chemicals manufacturing, and space                                          |
+      | Aviation                                                                                                                                                                                                                                                                     |
+      | Business services, which includes outsourcing, professional services, recruitment services and facilities management                                                                                                                                                         |
+      | Construction                                                                                                                                                                                                                                                                 |
+      | Consumer, which includes retail, consumer goods, tourism, hospitality and leisure                                                                                                                                                                                            |
+      | Defence                                                                                                                                                                                                                                                                      |
+      | Education                                                                                                                                                                                                                                                                    |
+      | Energy, which includes electricity, gas markets, civil nuclear, oil and gas and refined petroleum products manufacturing                                                                                                                                                     |
+      | Financial services                                                                                                                                                                                                                                                           |
+      | Health and social care                                                                                                                                                                                                                                                       |
+      | Heavy industry, which includes agri-tech, cement manufacturing, construction material, ceramics, plastics manufacturing, rail manufacturing, paper manufacturing, mining, steel manufacturing, fabricated metal products manufacturing and other energy intensive industries |
+      | Local authorities                                                                                                                                                                                                                                                            |
+      | Sports and leisure                                                                                                                                                                                                                                                           |
+      | Technology, media and telecoms                                                                                                                                                                                                                                               |
+      | Transport (excluding aviation) which includes maritime and ports, road haulage and logistics, rail, warehousing and storage, and postal and courier services                                                                                                                 |
+      | Utilities                                                                                                                                                                                                                                                                    |
 
   Scenario: Service selection appears in basked
     Then the basket should say 'No services selected'
@@ -47,28 +47,28 @@ Feature: Management Consultancy - Lot 10 - Restructuring and insolvency - Servic
     Then the basket should say '1 service selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
-      | Accelerated Mergers and Acquisitions  |
+      | Accelerated Mergers and Acquisitions |
     When I check the following items:
-      | Business review                       |
-      | Cash-flow review                      |
-      | Pensions advisory                     |
-      | Restructuring tax advice              |
-      | Special administration regimes        |
-      | Local authorities                     |
-      | Sports and leisure                    |
-      | Technology, media and telecoms        |
+      | Business review                |
+      | Cash-flow review               |
+      | Pensions advisory              |
+      | Restructuring tax advice       |
+      | Special administration regimes |
+      | Local authorities              |
+      | Sports and leisure             |
+      | Technology, media and telecoms |
     Then the basket should say '9 services selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
-      | Accelerated Mergers and Acquisitions  |
-      | Business review                       |
-      | Cash-flow review                      |
-      | Pensions advisory                     |
-      | Restructuring tax advice              |
-      | Special administration regimes        |
-      | Local authorities                     |
-      | Sports and leisure                    |
-      | Technology, media and telecoms        |
+      | Accelerated Mergers and Acquisitions |
+      | Business review                      |
+      | Cash-flow review                     |
+      | Pensions advisory                    |
+      | Restructuring tax advice             |
+      | Special administration regimes       |
+      | Local authorities                    |
+      | Sports and leisure                   |
+      | Technology, media and telecoms       |
 
   Scenario: Changing the selection will change the basket
     When I check the following items:
@@ -96,8 +96,8 @@ Feature: Management Consultancy - Lot 10 - Restructuring and insolvency - Servic
       | Technology, media and telecoms  |
       | Utilities                       |
     When I deselect the following items:
-      | Aviation                        |
-      | Technology, media and telecoms  |
+      | Aviation                       |
+      | Technology, media and telecoms |
     Then the basket should say '8 services selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
@@ -110,9 +110,9 @@ Feature: Management Consultancy - Lot 10 - Restructuring and insolvency - Servic
       | Sports and leisure              |
       | Utilities                       |
     When I remove the following items from the basket:
-      | Cash-flow review                |
-      | Distressed debt restructuring   |
-      | General restructuring advice    |
+      | Cash-flow review              |
+      | Distressed debt restructuring |
+      | General restructuring advice  |
     Then the basket should say '5 services selected'
     And the remove all link should be visible
     And the following items should appear in the basket:

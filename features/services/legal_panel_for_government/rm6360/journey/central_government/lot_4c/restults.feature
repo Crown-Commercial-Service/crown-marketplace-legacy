@@ -21,9 +21,9 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4c - Results
     Then I am on the 'Supplier results' page
     And I should see that '3' suppliers can provide legal services for government
     And the selected legal service for government suppliers are:
-      | JOHNSON-ROMAGUERA       | http://sanford.example/lilly_bosco      |
-      | VEUM, TORPHY AND NOLAN  | http://gislason.example/madeline.miller |
-      | ZIEME-LEANNON           | http://terry.example/clementine.kozey   |
+      | JOHNSON-ROMAGUERA      | http://sanford.example/lilly_bosco      |
+      | VEUM, TORPHY AND NOLAN | http://gislason.example/madeline.miller |
+      | ZIEME-LEANNON          | http://terry.example/clementine.kozey   |
 
   Scenario: Service selection changes the results
     Given I click on the 'Back' back link
@@ -34,11 +34,11 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4c - Results
     Then I am on the 'Supplier results' page
     And I should see that '5' suppliers can provide legal services for government
     And the selected legal service for government suppliers are:
-      | JAKUBOWSKI-SATTERFIELD  | http://botsford.example/zack.willms     |
-      | JOHNSON-ROMAGUERA       | http://sanford.example/lilly_bosco      |
-      | SANFORD AND SONS        | http://kreiger.example/ezra_romaguera   |
-      | VEUM, TORPHY AND NOLAN  | http://gislason.example/madeline.miller |
-      | ZIEME-LEANNON           | http://terry.example/clementine.kozey   |
+      | JAKUBOWSKI-SATTERFIELD | http://botsford.example/zack.willms     |
+      | JOHNSON-ROMAGUERA      | http://sanford.example/lilly_bosco      |
+      | SANFORD AND SONS       | http://kreiger.example/ezra_romaguera   |
+      | VEUM, TORPHY AND NOLAN | http://gislason.example/madeline.miller |
+      | ZIEME-LEANNON          | http://terry.example/clementine.kozey   |
 
   Scenario: Going back from a supplier
     And I click on 'VEUM, TORPHY AND NOLAN'
@@ -48,9 +48,9 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4c - Results
     Then I am on the 'Supplier results' page
     And I should see that '3' suppliers can provide legal services for government
     And the selected legal service for government suppliers are:
-      | JOHNSON-ROMAGUERA       | http://sanford.example/lilly_bosco      |
-      | VEUM, TORPHY AND NOLAN  | http://gislason.example/madeline.miller |
-      | ZIEME-LEANNON           | http://terry.example/clementine.kozey   |
+      | JOHNSON-ROMAGUERA      | http://sanford.example/lilly_bosco      |
+      | VEUM, TORPHY AND NOLAN | http://gislason.example/madeline.miller |
+      | ZIEME-LEANNON          | http://terry.example/clementine.kozey   |
 
   Scenario: Going back from downloading documents
     And I click on 'Download the supplier list'
@@ -59,6 +59,6 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4c - Results
     Then I am on the 'Supplier results' page
     And I should see that '3' suppliers can provide legal services for government
     And the selected legal service for government suppliers are:
-      | JOHNSON-ROMAGUERA       | http://sanford.example/lilly_bosco      |
-      | VEUM, TORPHY AND NOLAN  | http://gislason.example/madeline.miller |
-      | ZIEME-LEANNON           | http://terry.example/clementine.kozey   |
+      | JOHNSON-ROMAGUERA      | http://sanford.example/lilly_bosco      |
+      | VEUM, TORPHY AND NOLAN | http://gislason.example/madeline.miller |
+      | ZIEME-LEANNON          | http://terry.example/clementine.kozey   |

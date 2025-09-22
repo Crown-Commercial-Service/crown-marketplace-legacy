@@ -17,7 +17,7 @@ Feature: Legal Panel for Government - Suppliers - Accessibility
     And I click on 'Continue'
     Then I am on the 'Supplier results' page
     And I should see that '<number_of_suppliers>' suppliers can provide legal services
-    Then the page should be axe clean excluding ".ccs-contact-us"
+    Then the page should pass the accessibility checks
 
     Examples:
       | lot                                       | service           | number_of_suppliers |
@@ -42,13 +42,13 @@ Feature: Legal Panel for Government - Suppliers - Accessibility
     And I click on 'Continue'
     Then I am on the 'Supplier results' page
     And I should see that '<number_of_suppliers>' suppliers can provide legal services
-    Then the page should be axe clean excluding ".ccs-contact-us"
+    Then the page should pass the accessibility checks
 
     Examples:
-      | lot                                         | service                                 | number_of_suppliers |
-      | Lot 4a - Trade and Investment Negotiations  | Assimilated Law                         | 5                   |
-      | Lot 4b - International Trade Disputes       | Compliance with international law       | 3                   |
-      | Lot 4c - International Investment Disputes  | Domestic law of jurisdictions for trade | 3                   |
+      | lot                                        | service                                 | number_of_suppliers |
+      | Lot 4a - Trade and Investment Negotiations | Assimilated Law                         | 5                   |
+      | Lot 4b - International Trade Disputes      | Compliance with international law       | 3                   |
+      | Lot 4c - International Investment Disputes | Domestic law of jurisdictions for trade | 3                   |
 
   Scenario Outline: Suppliers page - Lots 1, 2, 3 and 5
     And I select 'Yes'
@@ -64,7 +64,7 @@ Feature: Legal Panel for Government - Suppliers - Accessibility
     And I should see that '<number_of_suppliers>' suppliers can provide legal services
     And I click on '<supplier_name>'
     Then I am on the '<supplier_name>' page
-    Then the page should be axe clean excluding ".ccs-contact-us"
+    Then the page should pass the accessibility checks
 
     Examples:
       | lot                                       | service           | number_of_suppliers | supplier_name                 |
@@ -91,14 +91,13 @@ Feature: Legal Panel for Government - Suppliers - Accessibility
     And I should see that '<number_of_suppliers>' suppliers can provide legal services
     And I click on '<supplier_name>'
     Then I am on the '<supplier_name>' page
-    Then the page should be axe clean excluding ".ccs-contact-us"
+    Then the page should pass the accessibility checks
 
     Examples:
-      | lot                                         | service                                 | number_of_suppliers | supplier_name     |
-      | Lot 4a - Trade and Investment Negotiations  | Assimilated Law                         | 5                   | CROOKS AND SONS   |
-      | Lot 4b - International Trade Disputes       | Compliance with international law       | 3                   | SANFORD INC       |
-      | Lot 4c - International Investment Disputes  | Domestic law of jurisdictions for trade | 3                   | JOHNSON-ROMAGUERA |
-
+      | lot                                        | service                                 | number_of_suppliers | supplier_name     |
+      | Lot 4a - Trade and Investment Negotiations | Assimilated Law                         | 5                   | CROOKS AND SONS   |
+      | Lot 4b - International Trade Disputes      | Compliance with international law       | 3                   | SANFORD INC       |
+      | Lot 4c - International Investment Disputes | Domestic law of jurisdictions for trade | 3                   | JOHNSON-ROMAGUERA |
 
   Scenario Outline: Download supplier list page - Lots 1, 2, 3 and 5
     And I select 'Yes'
@@ -114,7 +113,7 @@ Feature: Legal Panel for Government - Suppliers - Accessibility
     And I should see that '<number_of_suppliers>' suppliers can provide legal services
     Given I click on 'Download the supplier list'
     Then I am on the 'Download the supplier shortlist' page
-    Then the page should be axe clean excluding ".ccs-contact-us"
+    Then the page should pass the accessibility checks
 
     Examples:
       | lot                                       | service           | number_of_suppliers |
@@ -141,10 +140,10 @@ Feature: Legal Panel for Government - Suppliers - Accessibility
     And I should see that '<number_of_suppliers>' suppliers can provide legal services
     Given I click on 'Download the supplier list'
     Then I am on the 'Download the supplier shortlist' page
-    Then the page should be axe clean excluding ".ccs-contact-us"
+    Then the page should pass the accessibility checks
 
     Examples:
-      | lot                                         | service                                 | number_of_suppliers |
-      | Lot 4a - Trade and Investment Negotiations  | Assimilated Law                         | 5                   |
-      | Lot 4b - International Trade Disputes       | Compliance with international law       | 3                   |
-      | Lot 4c - International Investment Disputes  | Domestic law of jurisdictions for trade | 3                   |
+      | lot                                        | service                                 | number_of_suppliers |
+      | Lot 4a - Trade and Investment Negotiations | Assimilated Law                         | 5                   |
+      | Lot 4b - International Trade Disputes      | Compliance with international law       | 3                   |
+      | Lot 4c - International Investment Disputes | Domestic law of jurisdictions for trade | 3                   |

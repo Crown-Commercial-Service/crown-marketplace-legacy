@@ -113,7 +113,7 @@ class LegalServices::RM6240::Admin::FilesProcessor < FilesProcessor
     row[2..].each.with_index(1) do |rate, position_id|
       supplier_framework_lots_data[lot_id] ||= { services: [], rates: [], jurisdictions: [{ jurisdiction_id: 'GB' }], branches: [] }
       supplier_framework_lots_data[lot_id][:rates] << {
-        position_id: position_id,
+        position_id: "#{lot_id}.#{position_id}",
         rate: convert_rate_to_pence(rate),
         jurisdiction_id: 'GB'
       }

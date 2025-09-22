@@ -72,6 +72,20 @@ en:
           make_sure_listed: The framework in the web address is '%{framework}'. Make sure the web address contains one of the listed frameworks.
           page_title: Unrecognised framework
           the_recognised_are: 'The Legal Services frameworks are:'
+      lot_data:
+        index:
+          jurisdictions:
+            a: England and Wales
+            b: Scotland
+            c: Northern Ireland
+          supplier_lot_data_summary_list:
+            lot_name: Lot %{number} - %{name} (%{jurisdiction})
+      suppliers:
+        show:
+          additional_supplier_information:
+            lot_1_prospectus_link: Lot 1 prospectus link
+            lot_2_prospectus_link: Lot 2 prospectus link
+            lot_3_prospectus_link: Lot 3 prospectus link
       uploads:
         failed:
           below_is_a_list: Below is a list of the issues that have occurred with the file upload and details on how they might be fixed.
@@ -245,6 +259,14 @@ en:
           fixed_until: Fixed until September 2024 and based on an 8 hour working day.
           further_competition: These are the maximum rates the supplier charges for a direct award. You may get a cheaper rate by running a further competition.
           hourly: Hourly
+          job_titles:
+            junior: NQ Solicitor/Associate, Junior Solicitor/Associate
+            legal_project_manager: LMP (Legal project manager)
+            paralegal: Paralegal, Legal Assistant
+            partner: Partner
+            senior: Senior Solicitor, Senior Associate
+            solicitor: Solicitor, Associate
+            trainee: Trainee
           position: Position
           rates: Rates
     service_name: Legal Services

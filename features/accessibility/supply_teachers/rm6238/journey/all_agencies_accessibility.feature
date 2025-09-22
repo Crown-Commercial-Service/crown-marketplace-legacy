@@ -7,18 +7,18 @@ Feature: Supply Teachers - All agencies - Accessibility
     And I select 'A list of all agencies'
     And I click on 'Continue'
     Then I am on the 'Find an agency' page
-  
+
   Scenario: All agencies page
-    Then the page should be axe clean excluding ".ccs-contact-us"
-  
+    Then the page should pass the accessibility checks
+
   Scenario: Agency details page - all roles
     Given I click on 'BARTOLETTI, KOEPP AND NIENOW'
     Then I am on the 'BARTOLETTI, KOEPP AND NIENOW' page
     And the sub title is Agency details
-    Then the page should be axe clean excluding ".ccs-contact-us"
+    Then the page should pass the accessibility checks
 
   Scenario: Agency details page - some roles
     Given I click on 'HAGENES-BECHTELAR'
     Then I am on the 'HAGENES-BECHTELAR' page
     And the sub title is Agency details
-    Then the page should be axe clean excluding ".ccs-contact-us"
+    Then the page should pass the accessibility checks

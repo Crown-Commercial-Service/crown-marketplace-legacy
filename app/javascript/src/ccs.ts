@@ -1,6 +1,7 @@
 import initAdminUpload from './shared/adminUpload'
 import initBasket from './shared/basket'
 import initCookieBanner from './shared/cookieBanner'
+import initFilterTable from './shared/filterTable'
 import initGoogleAnalyticsDataLayer from './shared/googleAnalyticsDataLayer'
 import initReportProgress from './shared/reportProgress'
 import initSearchAllSuppliers from './supplyTeachers/searchAllSuppliers'
@@ -11,6 +12,7 @@ const initAll = () => {
   initAdminUpload()
   initBasket()
   initCookieBanner()
+  initFilterTable()
   initGoogleAnalyticsDataLayer()
   initReportProgress()
 

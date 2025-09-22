@@ -1,0 +1,50 @@
+<%= render(
+  partial: "shared/admin/suppliers/show",
+  locals: {
+    supplier_contact_information: [
+      {
+        key: {
+          text: t('shared.admin.suppliers.show.supplier_contact_information.contact_email')
+        },
+        value: {
+          text: @supplier_framework.contact_detail.email
+        }
+      },
+      {
+        key: {
+          text: t('shared.admin.suppliers.show.supplier_contact_information.telephone_number')
+        },
+        value: {
+          text: @supplier_framework.contact_detail.telephone_number ? @supplier_framework.contact_detail.telephone_number : t('shared.admin.suppliers.show.no_data')
+        }
+      },
+      {
+        key: {
+          text: t('shared.admin.suppliers.show.supplier_contact_information.website')
+        },
+        value: {
+          text: @supplier_framework.contact_detail.website ? @supplier_framework.contact_detail.website : t('shared.admin.suppliers.show.no_data')
+        }
+      },
+    ],
+    additional_supplier_information: [
+      {
+        key: {
+          text: t('shared.admin.suppliers.show.additional_supplier_information.address')
+        },
+        value: {
+          text: @supplier_framework.contact_detail.additional_details["address"]
+        }
+      }
+    ] + %w[lot_1_prospectus_link lot_2_prospectus_link lot_3_prospectus_link lot_4a_prospectus_link lot_4b_prospectus_link lot_4c_prospectus_link lot_5_prospectus_link].map do |lot_prospectus_link_key|
+      {
+        key: {
+          text: t(".additional_supplier_information.#{lot_prospectus_link_key}")
+        },
+        value: {
+          text: @supplier_framework.contact_detail.additional_details[lot_prospectus_link_key] ? @supplier_framework.contact_detail.additional_details[lot_prospectus_link_key] : t('shared.admin.suppliers.show.no_data')
+        }
+      }
+    end
+  }
+) %>

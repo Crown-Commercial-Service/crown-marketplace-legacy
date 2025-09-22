@@ -12,19 +12,19 @@ Feature: Management Consultancy - Suppliers - Accessibility
     Then I am on the 'Supplier results' page
     And I should see that '3' companies can provide consultants
     And the selected suppliers are:
-      | GREENHOLT INC     |
-      | PURDY-KEMMER      |
-      | STROSIN-MEDHURST  |
-  
+      | GREENHOLT INC    |
+      | PURDY-KEMMER     |
+      | STROSIN-MEDHURST |
+
   Scenario: Supplier results page
-    Then the page should be axe clean excluding ".ccs-contact-us"
+    Then the page should pass the accessibility checks
 
   Scenario: Supplier page
     Then I click on 'GREENHOLT INC'
     And I am on the 'GREENHOLT INC' page
-    Then the page should be axe clean excluding ".ccs-contact-us"
+    Then the page should pass the accessibility checks
 
   Scenario: Download supplier list page
     Given I click on 'Download the supplier list'
     Then I am on the 'Download the supplier shortlist' page
-    Then the page should be axe clean excluding ".ccs-contact-us"
+    Then the page should pass the accessibility checks

@@ -2,7 +2,7 @@ Feature: Legal services - Jounrey validations
 
   Background: Navigate to start page
     Given I sign in and navigate to the start page for the 'RM6240' framework in 'legal services'
-  
+
   Scenario: Do you work for central government validation
     Given I am on the 'Do you work for central government?' page
     When I click on 'Continue'
@@ -38,7 +38,7 @@ Feature: Legal services - Jounrey validations
     When I click on 'Continue'
     Then I should see the following error messages:
       | Select the lot you need |
-  
+
   Scenario: Select the legal services you need - central government yes
     Given I am on the 'Do you work for central government?' page
     And I select 'Yes'

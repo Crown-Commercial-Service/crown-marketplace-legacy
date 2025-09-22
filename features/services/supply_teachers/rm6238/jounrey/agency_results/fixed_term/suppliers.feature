@@ -24,18 +24,18 @@ Feature: Supply Teachers - Agency results - Fixed term - Agencies
     And I enter 'SW1A 1AA' for the 'postcode'
     And I click on 'Continue'
     Then I am on the 'Agency results' page
-  
+
   Scenario: The agency details shown are correct
     And there are 8 agencies
     And the listed agencies with distances, fees and lengths are:
-      | BARTOLETTI, KOEPP AND NIENOW  | London      | 6.0 | 28000 | 3 months  | £1,158.50 | 16.6% |
-      | MCGLYNN GROUP                 | London      | 5.2 | 28000 | 3 months  | £1,673.00 | 23.9% |
-      | STANTON, FADEL AND BOSCO      | Twickenham  | 9.0 | 28000 | 3 months  | £1,740.90 | 24.9% |
-      | DIETRICH-BORER                | London      | 6.0 | 28000 | 3 months  | £1,791.30 | 25.6% |
-      | HAGENES-BECHTELAR             | London      | 5.2 | 28000 | 3 months  | £2,098.60 | 30.0% |
-      | ZIEMANN-HERMANN               | London      | 0.2 | 28000 | 3 months  | £2,249.80 | 32.1% |
-      | EMARD AND SONS                | Twickenham  | 9.0 | 28000 | 3 months  | £2,450.70 | 35.0% |
-      | FEEST-MULLER                  | London      | 0.2 | 28000 | 3 months  | £2,501.10 | 35.7% |
+      | BARTOLETTI, KOEPP AND NIENOW | London     | 6.0 | 28000 | 3 months | £1,158.50 | 16.6% |
+      | MCGLYNN GROUP                | London     | 5.2 | 28000 | 3 months | £1,673.00 | 23.9% |
+      | STANTON, FADEL AND BOSCO     | Twickenham | 9.0 | 28000 | 3 months | £1,740.90 | 24.9% |
+      | DIETRICH-BORER               | London     | 6.0 | 28000 | 3 months | £1,791.30 | 25.6% |
+      | HAGENES-BECHTELAR            | London     | 5.2 | 28000 | 3 months | £2,098.60 | 30.0% |
+      | ZIEMANN-HERMANN              | London     | 0.2 | 28000 | 3 months | £2,249.80 | 32.1% |
+      | EMARD AND SONS               | Twickenham | 9.0 | 28000 | 3 months | £2,450.70 | 35.0% |
+      | FEEST-MULLER                 | London     | 0.2 | 28000 | 3 months | £2,501.10 | 35.7% |
 
   Scenario Outline: I can naviagte to the agency details
     Given I click on '<agency_name>'
@@ -43,11 +43,11 @@ Feature: Supply Teachers - Agency results - Fixed term - Agencies
     And the sub title is Agency details
     And the 'Branch' is '<branch>'
 
-  Examples:
-    | agency_name                   | branch      |
-    | BARTOLETTI, KOEPP AND NIENOW  | London      |
-    | DIETRICH-BORER                | London      |
-    | EMARD AND SONS                | Twickenham  |
+    Examples:
+      | agency_name                  | branch     |
+      | BARTOLETTI, KOEPP AND NIENOW | London     |
+      | DIETRICH-BORER               | London     |
+      | EMARD AND SONS               | Twickenham |
 
   Scenario: I can download the shortlist document
     And I click on 'Download shortlist of agencies'
@@ -66,14 +66,14 @@ Feature: Supply Teachers - Agency results - Fixed term - Agencies
     Then I am on the 'Agency results' page
     And there are 8 agencies
     And the listed agencies for agency results are:
-      | BARTOLETTI, KOEPP AND NIENOW  | London      |
-      | MCGLYNN GROUP                 | London      |
-      | STANTON, FADEL AND BOSCO      | Twickenham  |
-      | DIETRICH-BORER                | London      |
-      | HAGENES-BECHTELAR             | London      |
-      | ZIEMANN-HERMANN               | London      |
-      | EMARD AND SONS                | Twickenham  |
-      | FEEST-MULLER                  | London      |
+      | BARTOLETTI, KOEPP AND NIENOW | London     |
+      | MCGLYNN GROUP                | London     |
+      | STANTON, FADEL AND BOSCO     | Twickenham |
+      | DIETRICH-BORER               | London     |
+      | HAGENES-BECHTELAR            | London     |
+      | ZIEMANN-HERMANN              | London     |
+      | EMARD AND SONS               | Twickenham |
+      | FEEST-MULLER                 | London     |
     Then I click on 'Back'
     And I am on the 'What is your school’s postcode?' page
     Then I click on 'Back'

@@ -26,10 +26,13 @@ RSpec.describe SupplyTeachers::RM6238::BranchesHelper do
   end
 
   describe '.agency_rate_cell' do
-    let(:result) { helper.agency_rate_cell(rate) }
+    let(:result) { helper.agency_rate_cell(rates, position) }
+    let(:position) { Position.find(position_id) }
+    let(:rate) { create(:supplier_framework_lot_rate, position_id: position.id, rate: 4321) }
+    let(:rates) { { position.id => rate } }
 
     context 'when the rate is a percentage' do
-      let(:rate) { create(:supplier_framework_lot_rate, position_id: 40, rate: 4321) }
+      let(:position_id) { 'RM6238.1.9' }
 
       it 'returns the rate as a percentage' do
         expect(result[:text]).to eq '43.2%'
@@ -37,7 +40,7 @@ RSpec.describe SupplyTeachers::RM6238::BranchesHelper do
     end
 
     context 'when the rate is not a percentage' do
-      let(:rate) { create(:supplier_framework_lot_rate, position_id: 41, rate: 4321) }
+      let(:position_id) { 'RM6238.1.10' }
 
       it 'returns the rate as a percentage' do
         expect(result[:text]).to eq '£43.21'

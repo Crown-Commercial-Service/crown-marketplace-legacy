@@ -11,9 +11,9 @@ Feature: Management Consultancy - Lot 3 - Complex and Transformation - Results
     Then I am on the 'Supplier results' page
     And I should see that '3' companies can provide consultants
     And the selected suppliers are:
-      | GREENFELDER-LEUSCHKE  |
-      | MOSCISKI-CROOKS       |
-      | TURCOTTE GROUP        |
+      | GREENFELDER-LEUSCHKE |
+      | MOSCISKI-CROOKS      |
+      | TURCOTTE GROUP       |
 
   Scenario: Service selection changes the results
     Given I click on the 'Back' back link
@@ -24,12 +24,12 @@ Feature: Management Consultancy - Lot 3 - Complex and Transformation - Results
     Then I am on the 'Supplier results' page
     And I should see that '6' companies can provide consultants
     And the selected suppliers are:
-      | GOTTLIEB, HEATHCOTE AND JACOBI  |
-      | GREENFELDER-LEUSCHKE            |
-      | KOHLER-STOKES                   |
-      | MOSCISKI-CROOKS                 |
-      | SCHINNER-LAKIN                  |
-      | TURCOTTE GROUP                  |
+      | GOTTLIEB, HEATHCOTE AND JACOBI |
+      | GREENFELDER-LEUSCHKE           |
+      | KOHLER-STOKES                  |
+      | MOSCISKI-CROOKS                |
+      | SCHINNER-LAKIN                 |
+      | TURCOTTE GROUP                 |
 
   Scenario: Going back from a supplier
     And I click on 'TURCOTTE GROUP'
@@ -39,9 +39,9 @@ Feature: Management Consultancy - Lot 3 - Complex and Transformation - Results
     Then I am on the 'Supplier results' page
     And I should see that '3' companies can provide consultants
     And the selected suppliers are:
-      | GREENFELDER-LEUSCHKE  |
-      | MOSCISKI-CROOKS       |
-      | TURCOTTE GROUP        |
+      | GREENFELDER-LEUSCHKE |
+      | MOSCISKI-CROOKS      |
+      | TURCOTTE GROUP       |
 
   Scenario: Going back from downloading documents
     And I click on 'Download the supplier list'
@@ -50,6 +50,6 @@ Feature: Management Consultancy - Lot 3 - Complex and Transformation - Results
     Then I am on the 'Supplier results' page
     And I should see that '3' companies can provide consultants
     And the selected suppliers are:
-      | GREENFELDER-LEUSCHKE  |
-      | MOSCISKI-CROOKS       |
-      | TURCOTTE GROUP        |
+      | GREENFELDER-LEUSCHKE |
+      | MOSCISKI-CROOKS      |
+      | TURCOTTE GROUP       |

@@ -12,18 +12,18 @@ Feature: Supply Teachers - Agency results - Nominated worker - Agencies
     And I enter 'SW1A 1AA' for the 'postcode'
     And I click on 'Continue'
     Then I am on the 'Agency results' page
-  
+
   Scenario: The agency details shown are correct
     And there are 8 agencies
     And the listed agencies with rates and distances are:
-      | BARTOLETTI, KOEPP AND NIENOW  | London      | £22.07  | 6.0 |
-      | MCGLYNN GROUP                 | London      | £31.87  | 5.2 |
-      | STANTON, FADEL AND BOSCO      | Twickenham  | £33.16  | 9.0 |
-      | DIETRICH-BORER                | London      | £34.12  | 6.0 |
-      | HAGENES-BECHTELAR             | London      | £39.98  | 5.2 |
-      | ZIEMANN-HERMANN               | London      | £42.85  | 0.2 |
-      | EMARD AND SONS                | Twickenham  | £46.68  | 9.0 |
-      | FEEST-MULLER                  | London      | £47.64  | 0.2 |
+      | BARTOLETTI, KOEPP AND NIENOW | London     | £22.07 | 6.0 |
+      | MCGLYNN GROUP                | London     | £31.87 | 5.2 |
+      | STANTON, FADEL AND BOSCO     | Twickenham | £33.16 | 9.0 |
+      | DIETRICH-BORER               | London     | £34.12 | 6.0 |
+      | HAGENES-BECHTELAR            | London     | £39.98 | 5.2 |
+      | ZIEMANN-HERMANN              | London     | £42.85 | 0.2 |
+      | EMARD AND SONS               | Twickenham | £46.68 | 9.0 |
+      | FEEST-MULLER                 | London     | £47.64 | 0.2 |
 
   Scenario Outline: I can naviagte to the agency details
     Given I click on '<agency_name>'
@@ -32,10 +32,10 @@ Feature: Supply Teachers - Agency results - Nominated worker - Agencies
     And the 'Branch' is '<branch>'
 
     Examples:
-      | agency_name       | branch  |
-      | MCGLYNN GROUP     | London  |
-      | HAGENES-BECHTELAR | London  |
-      | FEEST-MULLER      | London  |
+      | agency_name       | branch |
+      | MCGLYNN GROUP     | London |
+      | HAGENES-BECHTELAR | London |
+      | FEEST-MULLER      | London |
 
   Scenario: I can download the shortlist document
     And I click on 'Download shortlist of agencies'
@@ -54,14 +54,14 @@ Feature: Supply Teachers - Agency results - Nominated worker - Agencies
     Then I am on the 'Agency results' page
     And there are 8 agencies
     And the listed agencies for agency results are:
-      | BARTOLETTI, KOEPP AND NIENOW  | London      |
-      | MCGLYNN GROUP                 | London      |
-      | STANTON, FADEL AND BOSCO      | Twickenham  |
-      | DIETRICH-BORER                | London      |
-      | HAGENES-BECHTELAR             | London      |
-      | ZIEMANN-HERMANN               | London      |
-      | EMARD AND SONS                | Twickenham  |
-      | FEEST-MULLER                  | London      |
+      | BARTOLETTI, KOEPP AND NIENOW | London     |
+      | MCGLYNN GROUP                | London     |
+      | STANTON, FADEL AND BOSCO     | Twickenham |
+      | DIETRICH-BORER               | London     |
+      | HAGENES-BECHTELAR            | London     |
+      | ZIEMANN-HERMANN              | London     |
+      | EMARD AND SONS               | Twickenham |
+      | FEEST-MULLER                 | London     |
     Then I click on 'Back'
     And I am on the 'What is your school’s postcode?' page
     Then I click on 'Back'

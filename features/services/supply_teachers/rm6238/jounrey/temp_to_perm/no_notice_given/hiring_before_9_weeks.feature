@@ -17,13 +17,13 @@ Feature: Supply Teachers - Temp to perm - No notice given - hiring before 9 week
     And my temp to perm fee is '<fee>'
 
     Examples:
-      | date        | fee       |
-      | 04/04/2021  | £1,500.00 |
-      | 01/05/2021  | £1,025.00 |
-      | 02/05/2021  | £1,025.00 |
-      | 03/05/2021  | £1,025.00 |
-      | 18/05/2021  | £775.00   |
-      | 31/05/2021  | £550.00   |
+      | date       | fee       |
+      | 04/04/2021 | £1,500.00 |
+      | 01/05/2021 | £1,025.00 |
+      | 02/05/2021 | £1,025.00 |
+      | 03/05/2021 | £1,025.00 |
+      | 18/05/2021 | £775.00   |
+      | 31/05/2021 | £550.00   |
 
   Scenario Outline: Changing the number of days per week changes the result
     And I enter '<days_per_week>' for the 'days per week'
@@ -46,9 +46,9 @@ Feature: Supply Teachers - Temp to perm - No notice given - hiring before 9 week
     And my temp to perm fee is '<fee>'
 
     Examples:
-      | daily_fee | fee         |
-      | 25        | £550.00     |
-      | 30        | £660.00     |
-      | 35        | £770.00     |
-      | 35.50     | £781.00     |
-      | 261.99    | £5,763.78   |
+      | daily_fee | fee       |
+      | 25        | £550.00   |
+      | 30        | £660.00   |
+      | 35        | £770.00   |
+      | 35.50     | £781.00   |
+      | 261.99    | £5,763.78 |

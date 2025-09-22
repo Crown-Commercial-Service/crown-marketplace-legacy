@@ -40,17 +40,17 @@ RSpec.describe Supplier::Framework do
 
     let!(:lot_a_grouped_rates) do
       {
-        1 => create(:supplier_framework_lot_rate, supplier_framework_lot: supplier_framework_lot_a, position_id: 1),
-        2 => create(:supplier_framework_lot_rate, supplier_framework_lot: supplier_framework_lot_a, position_id: 2),
-        3 => create(:supplier_framework_lot_rate, supplier_framework_lot: supplier_framework_lot_a, position_id: 3),
-        4 => create(:supplier_framework_lot_rate, supplier_framework_lot: supplier_framework_lot_a, position_id: 4),
+        'RM6240.1a.1' => create(:supplier_framework_lot_rate, supplier_framework_lot: supplier_framework_lot_a, position_id: 'RM6240.1a.1'),
+        'RM6240.1a.2' => create(:supplier_framework_lot_rate, supplier_framework_lot: supplier_framework_lot_a, position_id: 'RM6240.1a.2'),
+        'RM6240.1a.3' => create(:supplier_framework_lot_rate, supplier_framework_lot: supplier_framework_lot_a, position_id: 'RM6240.1a.3'),
+        'RM6240.1a.4' => create(:supplier_framework_lot_rate, supplier_framework_lot: supplier_framework_lot_a, position_id: 'RM6240.1a.4'),
       }
     end
     let!(:lot_c_grouped_rates) do
       {
-        1 => create(:supplier_framework_lot_rate, supplier_framework_lot: supplier_framework_lot_c, position_id: 1),
-        2 => create(:supplier_framework_lot_rate, supplier_framework_lot: supplier_framework_lot_c, position_id: 2),
-        3 => create(:supplier_framework_lot_rate, supplier_framework_lot: supplier_framework_lot_c, position_id: 3),
+        'RM6240.3.1' => create(:supplier_framework_lot_rate, supplier_framework_lot: supplier_framework_lot_c, position_id: 'RM6240.3.1'),
+        'RM6240.3.2' => create(:supplier_framework_lot_rate, supplier_framework_lot: supplier_framework_lot_c, position_id: 'RM6240.3.2'),
+        'RM6240.3.3' => create(:supplier_framework_lot_rate, supplier_framework_lot: supplier_framework_lot_c, position_id: 'RM6240.3.3'),
       }
     end
 
@@ -90,11 +90,11 @@ RSpec.describe Supplier::Framework do
       ae_jurisdiction = create(:supplier_framework_lot_jurisdiction, supplier_framework_lot: supplier_framework_lot, jurisdiction_id: 'AE')
       az_jurisdiction = create(:supplier_framework_lot_jurisdiction, supplier_framework_lot: supplier_framework_lot, jurisdiction_id: 'AX')
 
-      lot_grouped_rates << create(:supplier_framework_lot_rate, supplier_framework_lot: supplier_framework_lot, position_id: 1, jurisdiction: ae_jurisdiction)
-      lot_grouped_rates << create(:supplier_framework_lot_rate, supplier_framework_lot: supplier_framework_lot, position_id: 1, jurisdiction: az_jurisdiction)
-      lot_grouped_rates << create(:supplier_framework_lot_rate, supplier_framework_lot: supplier_framework_lot, position_id: 2, jurisdiction: az_jurisdiction)
-      lot_grouped_rates << create(:supplier_framework_lot_rate, supplier_framework_lot: supplier_framework_lot, position_id: 3, jurisdiction: ae_jurisdiction)
-      lot_grouped_rates << create(:supplier_framework_lot_rate, supplier_framework_lot: supplier_framework_lot, position_id: 3, jurisdiction: az_jurisdiction)
+      lot_grouped_rates << create(:supplier_framework_lot_rate, supplier_framework_lot: supplier_framework_lot, position_id: 'RM6240.1a.1', jurisdiction: ae_jurisdiction)
+      lot_grouped_rates << create(:supplier_framework_lot_rate, supplier_framework_lot: supplier_framework_lot, position_id: 'RM6240.1a.1', jurisdiction: az_jurisdiction)
+      lot_grouped_rates << create(:supplier_framework_lot_rate, supplier_framework_lot: supplier_framework_lot, position_id: 'RM6240.1a.2', jurisdiction: az_jurisdiction)
+      lot_grouped_rates << create(:supplier_framework_lot_rate, supplier_framework_lot: supplier_framework_lot, position_id: 'RM6240.1a.3', jurisdiction: ae_jurisdiction)
+      lot_grouped_rates << create(:supplier_framework_lot_rate, supplier_framework_lot: supplier_framework_lot, position_id: 'RM6240.1a.3', jurisdiction: az_jurisdiction)
     end
 
     context 'when we pass a lot with no rates' do
@@ -109,9 +109,9 @@ RSpec.describe Supplier::Framework do
       it 'returns the 3 grouped rates' do
         expect(result).to eq(
           {
-            1 => { 'AE' => lot_grouped_rates[0], 'AX' => lot_grouped_rates[1] },
-            2 => { 'AX' => lot_grouped_rates[2] },
-            3 => { 'AE' => lot_grouped_rates[3], 'AX' => lot_grouped_rates[4] }
+            'RM6240.1a.1' => { 'AE' => lot_grouped_rates[0], 'AX' => lot_grouped_rates[1] },
+            'RM6240.1a.2' => { 'AX' => lot_grouped_rates[2] },
+            'RM6240.1a.3' => { 'AE' => lot_grouped_rates[3], 'AX' => lot_grouped_rates[4] }
           }
         )
       end
@@ -123,8 +123,8 @@ RSpec.describe Supplier::Framework do
       it 'returns the 3 grouped rates' do
         expect(result).to eq(
           {
-            1 => { 'AE' => lot_grouped_rates[0] },
-            3 => { 'AE' => lot_grouped_rates[3] }
+            'RM6240.1a.1' => { 'AE' => lot_grouped_rates[0] },
+            'RM6240.1a.3' => { 'AE' => lot_grouped_rates[3] }
           }
         )
       end

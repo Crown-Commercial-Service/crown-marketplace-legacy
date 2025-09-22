@@ -4,9 +4,9 @@
       {
         text: t('.supplier'),
       },
-    ] + positions.map do |position|
+    ] + positions.map do |_position_id, position_name|
       {
-        text: position.position
+        text: t("legal_panel_for_government.rm6360.suppliers.rates_table.job_titles.#{position_name}"),
       }
     end,
     @supplier_frameworks.map do |supplier_framework, rates|
@@ -14,9 +14,9 @@
         {
           text: supplier_framework.supplier_name,
         }
-      ] + positions.map  do |position|
+      ] + positions.map  do |position_id, _position_name|
         {
-          text: display_rate(position.id, jurisdiction_id, rates)
+          text: display_rate(position_id, jurisdiction_id, rates)
         }
       end
     end,

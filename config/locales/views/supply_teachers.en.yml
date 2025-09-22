@@ -9,7 +9,7 @@ en:
               invalid_location: Enter a valid postcode
             offset:
               blank: Select how long you need the worker for
-            position_id:
+            position_number:
               blank: Select the type of worker you need
         supply_teachers/rm6238/journey/fta_calculator_contract_end:
           attributes:
@@ -502,11 +502,11 @@ en:
       shared:
         rates_table:
           column1: Job type
-          column2: Agency mark-up
+          column2: 'Agency mark-up '
       suppliers:
         education_technology_platform_vendor:
           column1: Job type
-          column2: Supplier fee
+          column2: 'Supplier fee '
         education_technology_platform_vendors:
           header: Education technology platform service providers
           page_title: Education technology platform service providers

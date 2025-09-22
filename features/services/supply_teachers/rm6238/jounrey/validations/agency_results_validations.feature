@@ -5,7 +5,7 @@ Feature: Supply Teachers - Find individual worker - Validations
     And I select 'An agency who can provide my school with an individual worker'
     And I click on 'Continue'
     Then I am on the 'Do you want an agency to supply the worker?' page
-  
+
   Scenario: Do you want an agency to supply the worker? validations
     And I click on 'Continue'
     Then I should see the following error messages:
@@ -17,7 +17,7 @@ Feature: Supply Teachers - Find individual worker - Validations
     Then I am on the 'Do you want the agency to manage the worker’s pay?' page
     And I click on 'Continue'
     Then I should see the following error messages:
-      | Select yes if you want to put the worker on the school’s payroll  |
+      | Select yes if you want to put the worker on the school’s payroll |
 
   Scenario: School postcode and worker requirements validations
     And I select 'Yes'
@@ -44,7 +44,7 @@ Feature: Supply Teachers - Find individual worker - Validations
     And I enter 'Aionios' for the 'postcode'
     And I click on 'Continue'
     Then I should see the following error messages:
-      | Enter a valid postcode  |
+      | Enter a valid postcode |
 
   Scenario Outline: What date do you want the employee to start? validations
     And I select 'Yes'
@@ -59,11 +59,11 @@ Feature: Supply Teachers - Find individual worker - Validations
       | <error_message> |
 
     Examples:
-      | date        | error_message                                                     |
-      |  / / /      | Enter the contract start date, including the day, month and year  |
-      |  1/1/ /     | Enter the contract start date, including the day, month and year  |
-      | 89/45/0161  | Enter the contract start date, including the day, month and year  |
-      | a/b/c       | Enter the contract start date, including the day, month and year  |
+      | date       | error_message                                                    |
+      | / / /      | Enter the contract start date, including the day, month and year |
+      | 1/1/ /     | Enter the contract start date, including the day, month and year |
+      | 89/45/0161 | Enter the contract start date, including the day, month and year |
+      | a/b/c      | Enter the contract start date, including the day, month and year |
 
   Scenario Outline: What date do you want the employee to stop working? validations
     And I select 'Yes'
@@ -81,12 +81,12 @@ Feature: Supply Teachers - Find individual worker - Validations
       | <error_message> |
 
     Examples:
-      | date        | error_message                                                                             |
-      |  / / /      | Enter the contract end date, including the day, month and year                            |
-      |  1/1/ /     | Enter the contract end date, including the day, month and year                            |
-      | 89/45/0161  | Enter the contract end date, including the day, month and year                            |
-      | a/b/c       | Enter the contract end date, including the day, month and year                            |
-      | yesterday   | The date the contract ended must be after the date the worker’s current contract started  |
+      | date       | error_message                                                                            |
+      | / / /      | Enter the contract end date, including the day, month and year                           |
+      | 1/1/ /     | Enter the contract end date, including the day, month and year                           |
+      | 89/45/0161 | Enter the contract end date, including the day, month and year                           |
+      | a/b/c      | Enter the contract end date, including the day, month and year                           |
+      | yesterday  | The date the contract ended must be after the date the worker’s current contract started |
 
   Scenario Outline: What date do you want the employee to stop working? validations
     And I select 'Yes'
@@ -135,9 +135,9 @@ Feature: Supply Teachers - Find individual worker - Validations
       | <error_message> |
 
     Examples:
-      | value | error_message           |
-      |       | Enter a valid postcode  |
-      | Keves | Enter a valid postcode  |
+      | value | error_message          |
+      |       | Enter a valid postcode |
+      | Keves | Enter a valid postcode |
 
   Scenario Outline: What is your school’s postcode? (nominated worker) validations
     And I select 'No'
@@ -149,6 +149,6 @@ Feature: Supply Teachers - Find individual worker - Validations
       | <error_message> |
 
     Examples:
-      | value | error_message           |
-      |       | Enter a valid postcode  |
-      | Keves | Enter a valid postcode  |
+      | value | error_message          |
+      |       | Enter a valid postcode |
+      | Keves | Enter a valid postcode |

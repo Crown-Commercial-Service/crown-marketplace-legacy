@@ -88,11 +88,12 @@
 
 .supplier-record__calculator {
   margin: 0;
-  background: ccs-colour("light-grey");
+  border: 1px ccs-colour("light-green") solid;
+  border-top: govuk-spacing(1) ccs-colour("light-green") solid;
 }
 
 .supplier-record__calculator--muted p {
-  color: ccs-colour("mid-grey");
+  color: govuk-colour("mid-grey");
 }
 
 .supplier-record__worker-cost,

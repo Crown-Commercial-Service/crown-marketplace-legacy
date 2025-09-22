@@ -9,20 +9,20 @@ Feature: Management Consultancy - Service selection - Accessibility
     And the sub title is 'MCF3 lot 1 - Business'
 
   Scenario: No services have been selected
-    Then the page should be axe clean excluding ".ccs-contact-us"
-  
+    Then the page should pass the accessibility checks
+
   Scenario: Some services selected
     When I check the following items:
-      | Operational planning and/or improvement         |
-      | Organisational review                           |
-      | Programme & project management                  |
-      | Risk, compliance and/or opportunity management  |
+      | Operational planning and/or improvement        |
+      | Organisational review                          |
+      | Programme & project management                 |
+      | Risk, compliance and/or opportunity management |
     Then the following items should appear in the basket:
-      | Operational planning and/or improvement         |
-      | Organisational review                           |
-      | Programme & project management                  |
-      | Risk, compliance and/or opportunity management  |
-    And the page should be axe clean excluding ".ccs-contact-us"
+      | Operational planning and/or improvement        |
+      | Organisational review                          |
+      | Programme & project management                 |
+      | Risk, compliance and/or opportunity management |
+    And the page should pass the accessibility checks
 
   Scenario: Everything is selected
     Given I select all the services
@@ -41,4 +41,4 @@ Feature: Management Consultancy - Service selection - Accessibility
       | Development and/or review of policy                   |
       | Digital, technology and cyber                         |
       | Forecasting and/or planning                           |
-    And the page should be axe clean excluding ".ccs-contact-us"
+    And the page should pass the accessibility checks

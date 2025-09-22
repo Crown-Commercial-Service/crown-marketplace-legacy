@@ -41,9 +41,9 @@ Feature: Legal services -  Central governemnt - Lot 1 - Results
     Then I am on the 'Supplier results' page
     And I should see that '3' suppliers can provide legal services
     And the selected legal service suppliers are:
-      | DUBUQUE-PADBERG             |
-      | WILLIAMSON-BERGSTROM        |
-      | ZIEME GROUP                 |
+      | DUBUQUE-PADBERG      |
+      | WILLIAMSON-BERGSTROM |
+      | ZIEME GROUP          |
 
   Scenario: Jurisdiction selection changes the results
     Given I click on the 'Back' back link

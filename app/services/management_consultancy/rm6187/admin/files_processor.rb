@@ -104,10 +104,10 @@ class ManagementConsultancy::RM6187::Admin::FilesProcessor < FilesProcessor
   def add_rates(supplier, row, lot_id)
     supplier_framework_lots_data = supplier[:supplier_frameworks][0][:supplier_framework_lots_data]
 
-    row[1..6].each.with_index(8) do |rate, position_id|
+    row[1..6].each.with_index(1) do |rate, position_id|
       supplier_framework_lots_data[lot_id] ||= { services: [], rates: [], jurisdictions: [{ jurisdiction_id: 'GB' }], branches: [] }
       supplier_framework_lots_data[lot_id][:rates] << {
-        position_id: position_id,
+        position_id: "#{lot_id}.#{position_id}",
         rate: convert_price(rate),
         jurisdiction_id: 'GB'
       }

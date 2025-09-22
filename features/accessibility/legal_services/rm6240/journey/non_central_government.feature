@@ -9,7 +9,7 @@ Feature: Legal services - Non central government - Accessibility
     And I select 'No'
     And I click on 'Continue'
     Then I am on the 'Select the lot you need' page
-    Then the page should be axe clean excluding ".ccs-contact-us"
+    Then the page should pass the accessibility checks
 
   Scenario Outline: Select the legal services you need
     And I select 'No'
@@ -19,7 +19,7 @@ Feature: Legal services - Non central government - Accessibility
     And I click on 'Continue'
     And I am on the 'Select the legal services you need' page
     And the sub title is '<lot>'
-    Then the page should be axe clean excluding ".ccs-contact-us"
+    Then the page should pass the accessibility checks
 
     Examples:
       | lot                               |
@@ -38,9 +38,9 @@ Feature: Legal services - Non central government - Accessibility
     And I click on 'Continue'
     Then I am on the 'Select the jurisdiction you need' page
     And the sub title is '<lot>'
-    Then the page should be axe clean excluding ".ccs-contact-us"
+    Then the page should pass the accessibility checks
 
     Examples:
-      | lot                               | service                 |
-      | Lot 1 - Full service provision    | Information Technology  |
-      | Lot 2 - General service provision | Employment              |
+      | lot                               | service                |
+      | Lot 1 - Full service provision    | Information Technology |
+      | Lot 2 - General service provision | Employment             |

@@ -8,4 +8,4 @@ Feature: Sign up to legal services - RM6360 - Accessibility
     And I am on the 'Sign in to your legal panel for government account' page
     And I click on 'Create a CCS account'
     Then I am on the 'Create a CCS account' page
-    Then the page should be axe clean excluding ".ccs-contact-us"
+    Then the page should pass the accessibility checks

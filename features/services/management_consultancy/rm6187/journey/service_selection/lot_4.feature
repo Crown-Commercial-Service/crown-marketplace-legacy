@@ -7,7 +7,7 @@ Feature: Management Consultancy - Lot 4 - Finance - Service selection
     And I click on 'Continue'
     Then I am on the 'Select the services you need' page
     And the sub title is 'MCF3 lot 4 - Finance'
-  
+
   Scenario: The correct options are available
     Then I should see the following options for the lot:
       | Actuarial services                                        |
@@ -42,36 +42,36 @@ Feature: Management Consultancy - Lot 4 - Finance - Service selection
     Then the basket should say '1 service selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
-      | Actuarial services                                      |
+      | Actuarial services |
     When I check the following items:
-      | Business analysis                                       |
-      | Cash management                                         |
-      | Debt restructuring, management and insolvency           |
-      | Economic analysis                                       |
-      | Financial accounting and/or reporting                   |
-      | Financial due diligence                                 |
-      | Financial performance review and viability studies      |
-      | Foreign exchange                                        |
-      | Payment structure advice and risk                       |
-      | Regulation and statutory requirements and/or reporting  |
-      | Risk management                                         |
-      | Tax including value added tax (VAT)                     |
+      | Business analysis                                      |
+      | Cash management                                        |
+      | Debt restructuring, management and insolvency          |
+      | Economic analysis                                      |
+      | Financial accounting and/or reporting                  |
+      | Financial due diligence                                |
+      | Financial performance review and viability studies     |
+      | Foreign exchange                                       |
+      | Payment structure advice and risk                      |
+      | Regulation and statutory requirements and/or reporting |
+      | Risk management                                        |
+      | Tax including value added tax (VAT)                    |
     Then the basket should say '13 services selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
-      | Actuarial services                                      |
-      | Business analysis                                       |
-      | Cash management                                         |
-      | Debt restructuring, management and insolvency           |
-      | Economic analysis                                       |
-      | Financial accounting and/or reporting                   |
-      | Financial due diligence                                 |
-      | Financial performance review and viability studies      |
-      | Foreign exchange                                        |
-      | Payment structure advice and risk                       |
-      | Regulation and statutory requirements and/or reporting  |
-      | Risk management                                         |
-      | Tax including value added tax (VAT)                     |
+      | Actuarial services                                     |
+      | Business analysis                                      |
+      | Cash management                                        |
+      | Debt restructuring, management and insolvency          |
+      | Economic analysis                                      |
+      | Financial accounting and/or reporting                  |
+      | Financial due diligence                                |
+      | Financial performance review and viability studies     |
+      | Foreign exchange                                       |
+      | Payment structure advice and risk                      |
+      | Regulation and statutory requirements and/or reporting |
+      | Risk management                                        |
+      | Tax including value added tax (VAT)                    |
 
   Scenario: Changing the selection will change the basket
     When I check the following items:
@@ -103,7 +103,7 @@ Feature: Management Consultancy - Lot 4 - Finance - Service selection
       | Regulation and statutory requirements and/or reporting    |
       | Tax including value added tax (VAT)                       |
     When I deselect the following items:
-      | Regulation and statutory requirements and/or reporting    |
+      | Regulation and statutory requirements and/or reporting |
     Then the basket should say '11 services selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
@@ -119,8 +119,8 @@ Feature: Management Consultancy - Lot 4 - Finance - Service selection
       | Pensions services                                         |
       | Tax including value added tax (VAT)                       |
     When I remove the following items from the basket:
-      | Developing and assessing project proposals                |
-      | Financial accounting and/or reporting                     |
+      | Developing and assessing project proposals |
+      | Financial accounting and/or reporting      |
     Then the basket should say '9 services selected'
     And the remove all link should be visible
     And the following items should appear in the basket:

@@ -8,7 +8,7 @@ gem 'rails', '~> 8.0.2'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
-gem 'puma', '~> 6.6'
+gem 'puma', '~> 7.0'
 
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
 gem 'propshaft'
@@ -60,7 +60,7 @@ gem 'json-jwt', '>= 1.11.0'
 gem 'devise', '~> 4.9.4'
 
 # for cognito
-gem 'aws-sdk-cognitoidentityprovider', '~> 1.127.0'
+gem 'aws-sdk-cognitoidentityprovider', '~> 1.129.0'
 
 # for pagination
 gem 'kaminari', '~> 1.2.2'
@@ -109,7 +109,7 @@ gem 'gov_uk_date_fields', '>= 4.2.0'
 gem 'date_validator', '>= 0.12.0'
 
 # Use CCS Frontend Helpers
-gem 'ccs-frontend_helpers', '~> 2.5.0'
+gem 'ccs-frontend_helpers', '~> 3.0.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

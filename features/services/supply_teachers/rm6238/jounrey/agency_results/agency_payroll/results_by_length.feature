@@ -21,11 +21,11 @@ Feature: Supply Teachers - Agency results - Agency payroll - Results by length
     Then I am on the 'Agency results' page
     And there are 5 agencies
     And the listed agencies with rates and distances are:
-      | BARTOLETTI, KOEPP AND NIENOW  | Southport | £27.59  | 17.2  |
-      | STANTON, FADEL AND BOSCO      | Liverpool | £41.45  | 2.6   |
-      | KERLUKE, TORP AND HEATHCOTE   | Liverpool | £47.94  | 0.6   |
-      | EMARD AND SONS                | Liverpool | £58.35  | 2.6   |
-      | FEEST-MULLER                  | Liverpool | £59.55  | 7.3   |
+      | BARTOLETTI, KOEPP AND NIENOW | Southport | £27.59 | 17.2 |
+      | STANTON, FADEL AND BOSCO     | Liverpool | £41.45 | 2.6  |
+      | KERLUKE, TORP AND HEATHCOTE  | Liverpool | £47.94 | 0.6  |
+      | EMARD AND SONS               | Liverpool | £58.35 | 2.6  |
+      | FEEST-MULLER                 | Liverpool | £59.55 | 7.3  |
     And the choices used to generate the list are:
       | Looking for: Individual worker                                        |
       | Worker type: Supplied by agency                                       |
@@ -41,11 +41,11 @@ Feature: Supply Teachers - Agency results - Agency payroll - Results by length
     Then I am on the 'Agency results' page
     And there are 5 agencies
     And the listed agencies with rates and distances are:
-      | BARTOLETTI, KOEPP AND NIENOW  | Southport | £26.21  | 17.2  |
-      | STANTON, FADEL AND BOSCO      | Liverpool | £39.37  | 2.6   |
-      | KERLUKE, TORP AND HEATHCOTE   | Liverpool | £45.54  | 0.6   |
-      | EMARD AND SONS                | Liverpool | £55.43  | 2.6   |
-      | FEEST-MULLER                  | Liverpool | £56.57  | 7.3   |
+      | BARTOLETTI, KOEPP AND NIENOW | Southport | £26.21 | 17.2 |
+      | STANTON, FADEL AND BOSCO     | Liverpool | £39.37 | 2.6  |
+      | KERLUKE, TORP AND HEATHCOTE  | Liverpool | £45.54 | 0.6  |
+      | EMARD AND SONS               | Liverpool | £55.43 | 2.6  |
+      | FEEST-MULLER                 | Liverpool | £56.57 | 7.3  |
     And the choices used to generate the list are:
       | Looking for: Individual worker                                        |
       | Worker type: Supplied by agency                                       |

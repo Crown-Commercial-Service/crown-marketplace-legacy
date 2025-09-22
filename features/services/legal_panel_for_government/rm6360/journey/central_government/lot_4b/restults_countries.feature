@@ -15,21 +15,21 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4b - Results 
     Then I am on the 'Select the countries for your requirement' page
     And the sub title is 'Lot 4b - International Trade Disputes'
     When I check the following items:
-      | Algeria         |
-      | Cayman Islands  |
+      | Algeria        |
+      | Cayman Islands |
     And I click on 'Continue'
     Then I am on the 'Select the legal services you need' page
     And the sub title is 'Lot 4b - International Trade Disputes'
     When I check the following items:
-      | Wider trading arrangements  |
+      | Wider trading arrangements |
     And I click on 'Continue'
     Then I am on the 'Supplier results' page
     And I should see that '4' suppliers can provide legal services for government
     And the selected legal service for government suppliers are:
-      | ADAMS, WOLFF AND STROMAN    | http://gleichner-lowe.example/freddie           |
-      | KOELPIN, HILLL AND COLLINS  | http://goyette-reynolds.example/josefa.mosciski |
-      | SANFORD INC                 | http://murazik-bechtelar.test/neda              |
-      | VEUM, TORPHY AND NOLAN      | http://gislason-murazik.example/dorthy          |
+      | ADAMS, WOLFF AND STROMAN   | http://gleichner-lowe.example/freddie           |
+      | KOELPIN, HILLL AND COLLINS | http://goyette-reynolds.example/josefa.mosciski |
+      | SANFORD INC                | http://murazik-bechtelar.test/neda              |
+      | VEUM, TORPHY AND NOLAN     | http://gislason-murazik.example/dorthy          |
 
   Scenario: Service selection changes the results
     Given I click on the 'Back' back link
@@ -40,15 +40,15 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4b - Results 
     Then I am on the 'Supplier results' page
     And I should see that '3' suppliers can provide legal services for government
     And the selected legal service for government suppliers are:
-      | ADAMS, WOLFF AND STROMAN    | http://gleichner-lowe.example/freddie           |
-      | SANFORD INC                 | http://murazik-bechtelar.test/neda              |
-      | VEUM, TORPHY AND NOLAN      | http://gislason-murazik.example/dorthy          |
+      | ADAMS, WOLFF AND STROMAN | http://gleichner-lowe.example/freddie  |
+      | SANFORD INC              | http://murazik-bechtelar.test/neda     |
+      | VEUM, TORPHY AND NOLAN   | http://gislason-murazik.example/dorthy |
 
   Scenario: Country selection changes the results
     Given I click on the 'Back' back link
     Then I am on the 'Select the legal services you need' page
     Given I click on the 'Back' back link
-     Then I am on the 'Select the countries for your requirement' page
+    Then I am on the 'Select the countries for your requirement' page
     And I deselect all the items
     When I check the following items:
       | Afghanistan |
@@ -56,16 +56,16 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4b - Results 
     Then I am on the 'Select the legal services you need' page
     And the sub title is 'Lot 4b - International Trade Disputes'
     When I check the following items:
-      | Wider trading arrangements  |
+      | Wider trading arrangements |
     And I click on 'Continue'
     Then I am on the 'Supplier results' page
     And I should see that '5' suppliers can provide legal services for government
     And the selected legal service for government suppliers are:
-      | ADAMS, WOLFF AND STROMAN    | http://gleichner-lowe.example/freddie           |
-      | ERDMAN INC                  | http://mosciski.example/madelaine               |
-      | KOELPIN, HILLL AND COLLINS  | http://goyette-reynolds.example/josefa.mosciski |
-      | SANFORD INC                 | http://murazik-bechtelar.test/neda              |
-      | VEUM, TORPHY AND NOLAN      | http://gislason-murazik.example/dorthy          |
+      | ADAMS, WOLFF AND STROMAN   | http://gleichner-lowe.example/freddie           |
+      | ERDMAN INC                 | http://mosciski.example/madelaine               |
+      | KOELPIN, HILLL AND COLLINS | http://goyette-reynolds.example/josefa.mosciski |
+      | SANFORD INC                | http://murazik-bechtelar.test/neda              |
+      | VEUM, TORPHY AND NOLAN     | http://gislason-murazik.example/dorthy          |
 
   Scenario: Going back from a supplier
     And I click on 'SANFORD INC'
@@ -75,10 +75,10 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4b - Results 
     Then I am on the 'Supplier results' page
     And I should see that '4' suppliers can provide legal services for government
     And the selected legal service for government suppliers are:
-      | ADAMS, WOLFF AND STROMAN    | http://gleichner-lowe.example/freddie           |
-      | KOELPIN, HILLL AND COLLINS  | http://goyette-reynolds.example/josefa.mosciski |
-      | SANFORD INC                 | http://murazik-bechtelar.test/neda              |
-      | VEUM, TORPHY AND NOLAN      | http://gislason-murazik.example/dorthy          |
+      | ADAMS, WOLFF AND STROMAN   | http://gleichner-lowe.example/freddie           |
+      | KOELPIN, HILLL AND COLLINS | http://goyette-reynolds.example/josefa.mosciski |
+      | SANFORD INC                | http://murazik-bechtelar.test/neda              |
+      | VEUM, TORPHY AND NOLAN     | http://gislason-murazik.example/dorthy          |
 
   Scenario: Going back from downloading documents
     And I click on 'Download the supplier list'
@@ -87,7 +87,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4b - Results 
     Then I am on the 'Supplier results' page
     And I should see that '4' suppliers can provide legal services for government
     And the selected legal service for government suppliers are:
-      | ADAMS, WOLFF AND STROMAN    | http://gleichner-lowe.example/freddie           |
-      | KOELPIN, HILLL AND COLLINS  | http://goyette-reynolds.example/josefa.mosciski |
-      | SANFORD INC                 | http://murazik-bechtelar.test/neda              |
-      | VEUM, TORPHY AND NOLAN      | http://gislason-murazik.example/dorthy          |
+      | ADAMS, WOLFF AND STROMAN   | http://gleichner-lowe.example/freddie           |
+      | KOELPIN, HILLL AND COLLINS | http://goyette-reynolds.example/josefa.mosciski |
+      | SANFORD INC                | http://murazik-bechtelar.test/neda              |
+      | VEUM, TORPHY AND NOLAN     | http://gislason-murazik.example/dorthy          |

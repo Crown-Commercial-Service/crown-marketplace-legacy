@@ -7,7 +7,7 @@ Feature: Legal Services - Start pages - With an unrecognised framework
     And I click on '<framework>'
     Then I am on the 'Find legal services for the wider public sector' page
     And the framework is '<framework>'
-  
+
     Examples:
       | framework |
       | RM6240    |

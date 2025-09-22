@@ -7,4 +7,4 @@ Feature: Supply Teachers - Master Vendor validations
     Then I am on the 'Is your contract likely to be worth more than £2.5 million?' page
     And I click on 'Continue'
     Then I should see the following error messages:
-      | Select an option  |
+      | Select an option |

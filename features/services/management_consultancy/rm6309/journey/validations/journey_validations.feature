@@ -2,7 +2,7 @@ Feature: Management Consultancy - Jounrey validations
 
   Background: Navigate to start page
     Given I sign in and navigate to the start page for the 'RM6309' framework in 'management consultancy'
-  
+
   Scenario: Select the lot you need validation
     When I click on 'Continue'
     Then I should see the following error messages:

@@ -15,14 +15,14 @@ Feature: Legal services -  Central governemnt - Lot 3 - Suppliers
     And the sub title is 'Lot 3 - Transport rail legal services'
     And I should see that '8' suppliers can provide legal services
     And the selected legal service suppliers are:
-      | GUSIKOWSKI, BOSCO AND CRIST       |
-      | JACOBSON-NIENOW                   |
-      | LUETTGEN LLC                      |
-      | MCLAUGHLIN, RATKE AND KONOPELSKI  |
-      | WEHNER, STEHR AND KULAS           |
-      | WITTING-OLSON                     |
-      | ZEMLAK INC                        |
-      | ZIEME GROUP                       |
+      | GUSIKOWSKI, BOSCO AND CRIST      |
+      | JACOBSON-NIENOW                  |
+      | LUETTGEN LLC                     |
+      | MCLAUGHLIN, RATKE AND KONOPELSKI |
+      | WEHNER, STEHR AND KULAS          |
+      | WITTING-OLSON                    |
+      | ZEMLAK INC                       |
+      | ZIEME GROUP                      |
 
   Scenario: Check the supplier data - SME
     Given I click on 'WITTING-OLSON'
@@ -36,9 +36,9 @@ Feature: Legal services -  Central governemnt - Lot 3 - Suppliers
     And the 'Paralegal, Legal Assistant' hourly rate is '£70.00'
     And the 'LMP (Legal project manager)' hourly rate is '£192.50'
     And the contact details for the supplier are:
-      | witting.olson@buckridge.name  |
-      | 1-249-089-2797 x3771          |
-      | http://cremin.org/drema       |
+      | witting.olson@buckridge.name                    |
+      | 1-249-089-2797 x3771                            |
+      | http://cremin.org/drema                         |
       | 815 Terrell Rest, New Hattiefurt, WV 89027-7230 |
 
   Scenario: Check the supplier data - Non SME

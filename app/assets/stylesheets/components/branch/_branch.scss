@@ -1,3 +1,4 @@
 .ccs-branch__panel {
-  background-color: ccs-colour("light-grey"); 
+  border: 1px ccs-colour("light-green") solid;
+  border-top: govuk-spacing(1) ccs-colour("light-green") solid;
 }

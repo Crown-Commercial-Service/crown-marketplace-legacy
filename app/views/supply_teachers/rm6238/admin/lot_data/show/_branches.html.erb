@@ -1,0 +1,69 @@
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <%= govuk_table(
+      [
+        {
+          text: t('supply_teachers.suppliers.show.branch_name'),
+          attributes: {
+            width: '15%'
+          }
+        },
+        {
+          text: t('supply_teachers.suppliers.show.contact_name'),
+          attributes: {
+            width: '20%'
+          }
+        },
+        {
+          text: t('supply_teachers.suppliers.show.contact_email'),
+          attributes: {
+            width: '25%'
+          }
+        },
+        {
+          text: t('supply_teachers.suppliers.show.phone_number'),
+          attributes: {
+            width: '20%'
+          }
+        },
+        {
+          text: t('supply_teachers.suppliers.show.address'),
+          attributes: {
+            width: '20%'
+          }
+        }
+      ],
+      @supplier_framework_lot_branches.map do |branch|
+        [
+          {
+            text: capture do
+              concat("#{branch.name} - ")
+              concat(tag.br)
+              concat(branch.region)
+            end
+          },
+          {
+            text: branch.contact_name
+          },
+          {
+            text: mail_to(branch.contact_email, branch.contact_email, aria: { label: "Email #{branch.contact_name} from #{branch.name}" })
+          },
+          {
+            text: format_telephone_number(branch.telephone_number)
+          },
+          {
+            text: tag.ul(class: 'govuk-list') do
+                    branch.address_elements.each do |address_element|
+                      concat(tag.li(address_element))
+                    end
+                  end
+          }
+        ]
+      end,
+      first_cell_is_header: true,
+      attributes: {
+        id: 'agency-branches'
+      }
+    ) %>
+  </div>
+</div>

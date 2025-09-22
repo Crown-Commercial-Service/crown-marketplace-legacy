@@ -7,7 +7,7 @@ Feature: Management Consultancy - Lot 7 - Health, Social Care and Community - Se
     And I click on 'Continue'
     Then I am on the 'Select the services you need' page
     And the sub title is 'MCF4 lot 7 - Health, Social Care and Community'
-  
+
   Scenario: The correct options are available
     Then I should see the following options for the lot:
       | Alternative delivery models                                 |
@@ -53,7 +53,7 @@ Feature: Management Consultancy - Lot 7 - Health, Social Care and Community - Se
     Then the basket should say '11 services selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
-      | Alternative delivery models |
+      | Alternative delivery models                                 |
       | Business case development                                   |
       | Capability development                                      |
       | Not for profit                                              |
@@ -91,7 +91,7 @@ Feature: Management Consultancy - Lot 7 - Health, Social Care and Community - Se
       | Social care and safeguarding                                |
       | Social mobility and levelling up                            |
     When I deselect the following items:
-      | Social care and safeguarding                                |
+      | Social care and safeguarding |
     Then the basket should say '9 services selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
@@ -105,8 +105,8 @@ Feature: Management Consultancy - Lot 7 - Health, Social Care and Community - Se
       | Public service improvement review                           |
       | Social mobility and levelling up                            |
     When I remove the following items from the basket:
-      | Business case development         |
-      | Social mobility and levelling up  |
+      | Business case development        |
+      | Social mobility and levelling up |
     Then the basket should say '7 services selected'
     And the remove all link should be visible
     And the following items should appear in the basket:

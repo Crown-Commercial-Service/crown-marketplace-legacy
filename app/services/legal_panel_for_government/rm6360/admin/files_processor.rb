@@ -118,7 +118,7 @@ class LegalPanelForGovernment::RM6360::Admin::FilesProcessor < FilesProcessor
   end
 
   def add_lot_4_rate_cards_to_suppliers(rate_cards_workbook, lot_number)
-    LOT_4_POSITIONS.each.with_index do |position_id, sheet_number|
+    (1..12).each.with_index do |position_number, sheet_number|
       sheet = rate_cards_workbook.sheet(sheet_number)
 
       (3..sheet.last_row).each do |row_number|
@@ -127,7 +127,7 @@ class LegalPanelForGovernment::RM6360::Admin::FilesProcessor < FilesProcessor
         supplier = get_supplier(supplier_duns)
         next unless supplier
 
-        add_lot_4_rates(supplier, row, position_id, lot_number)
+        add_lot_4_rates(supplier, row, position_number, lot_number)
       end
     end
 
@@ -146,18 +146,19 @@ class LegalPanelForGovernment::RM6360::Admin::FilesProcessor < FilesProcessor
 
     supplier_framework_lots_data[lot_id] ||= { services: [], rates: [], jurisdictions: [{ jurisdiction_id: 'GB' }], branches: [] }
 
-    row[2..].each.with_index do |rate, index|
+    row[2..].each.with_index(1) do |rate, index|
       supplier_framework_lots_data[lot_id][:rates] << {
-        position_id: INDEX_TO_POSITION_ID[index],
+        position_id: "#{lot_id}.#{index}",
         rate: convert_rate_to_pence(rate),
         jurisdiction_id: 'GB'
       }
     end
   end
 
-  def add_lot_4_rates(supplier, row, position_id, lot_number)
+  def add_lot_4_rates(supplier, row, position_number, lot_number)
     supplier_framework_lots_data = supplier[:supplier_frameworks][0][:supplier_framework_lots_data]
     lot_id = "RM6360.#{lot_number}"
+    position_id = "#{lot_id}.#{position_number}"
 
     row[2..].each.with_index do |rate, index|
       rate = convert_rate_to_pence(rate)
@@ -185,8 +186,6 @@ class LegalPanelForGovernment::RM6360::Admin::FilesProcessor < FilesProcessor
 
   LOT_NUMBERS = ['1', '2', '3', '4a', '4b', '4c', '5'].freeze
   OTHER_LOT_NUMBERS = ['1', '2', '3', '5'].freeze
-  INDEX_TO_POSITION_ID = [1, 51, 52, 53, 54, 55, 6].freeze
-  LOT_4_POSITIONS = [56, 1, 51, 52, 53, 54, 55, 6, 57, 58, 59, 60].freeze
   JURISDICTION_IDS = ['GB', 'AF', 'AX', 'AL', 'DZ', 'AS', 'AD', 'AO', 'AI', 'AQ', 'AG', 'AR', 'AM', 'AW', 'AU', 'AT', 'AZ', 'BS', 'BH', 'BD', 'BB', 'BY', 'BZ', 'BJ', 'BM', 'BT', 'BO', 'BQ', 'BA', 'BW', 'BV', 'BR', 'IO', 'BN', 'BG', 'BF', 'BI', 'CV', 'KH', 'CM', 'KY', 'CF', 'TD', 'CL', 'CN', 'CX', 'CC', 'CO', 'KM', 'CG', 'CD', 'CK', 'CR', 'CI', 'HR', 'CU', 'CW', 'CY', 'CZ', 'DK', 'DJ', 'DM', 'DO', 'EC', 'EG', 'SV', 'GQ', 'ER', 'EE', 'SZ', 'ET', 'FK', 'FO', 'FJ', 'FI', 'GF', 'PF', 'TF', 'GA', 'GM', 'GE', 'GH', 'GI', 'GR', 'GL', 'GD', 'GP', 'GU', 'GT', 'GG', 'GN', 'GW', 'GY', 'HT', 'HM', 'VA', 'HN', 'HK', 'HU', 'IS', 'IN', 'ID', 'IR', 'IQ', 'IM', 'IL', 'IT', 'JM', 'JP', 'JE', 'JO', 'KZ', 'KE', 'KI', 'KP', 'KW', 'KG', 'LA', 'LV', 'LB', 'LS', 'LR', 'LY', 'LI', 'LT', 'LU', 'MO', 'MG', 'MW', 'MY', 'MV', 'ML', 'MT', 'MH', 'MQ', 'MR', 'MU', 'YT', 'MX', 'FM', 'MD', 'MC', 'MN', 'ME', 'MS', 'MA', 'MZ', 'MM', 'NA', 'NR', 'NP', 'NL', 'NC', 'NZ', 'NI', 'NE', 'NG', 'NU', 'NF', 'MK', 'MP', 'NO', 'OM', 'PK', 'PW', 'PS', 'PA', 'PG', 'PY', 'PE', 'PH', 'PN', 'PL', 'PT', 'PR', 'QA', 'RE', 'RO', 'RU', 'RW', 'BL', 'SH', 'KN', 'LC', 'MF', 'PM', 'VC', 'WS', 'SM', 'ST', 'SA', 'SN', 'RS', 'SC', 'SL', 'SX', 'SK', 'SI', 'SB', 'SO', 'ZA', 'GS', 'KR', 'SS', 'ES', 'LK', 'SD', 'SR', 'SJ', 'SE', 'SY', 'TW', 'TJ', 'TZ', 'TH', 'TL', 'TG', 'TK', 'TO', 'TT', 'TN', 'TR', 'TM', 'TC', 'TV', 'AE', 'UG', 'UA', 'UM', 'UY', 'UZ', 'VU', 'VE', 'VN', 'VG', 'VI', 'WF', 'EH', 'YE', 'ZM', 'ZW'].freeze
 
   PROCESS_FILES_AND_METHODS = {
