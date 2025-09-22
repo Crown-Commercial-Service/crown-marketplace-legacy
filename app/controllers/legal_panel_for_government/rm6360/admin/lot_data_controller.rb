@@ -12,12 +12,12 @@ module LegalPanelForGovernment
           case params[:section]
           when 'rates'
             @jurisdictions = if @lot.number.starts_with?('4')
-                               Jurisdiction.where.not(id: LegalPanelForGovernment::RM6360::Journey::ChooseJurisdiction::CORE_JURISDICTIONS - ['GB']).order(:name)
+                               Jurisdiction.non_core.or(Jurisdiction.where(id: 'GB')).order(:name)
                              else
                                Jurisdiction.where(id: 'GB').order(:name)
                              end
           when 'jurisdictions'
-            @jurisdictions = Jurisdiction.where.not(id: LegalPanelForGovernment::RM6360::Journey::ChooseJurisdiction::CORE_JURISDICTIONS).order(:name)
+            @jurisdictions = Jurisdiction.non_core.order(:name)
           else
             super
           end

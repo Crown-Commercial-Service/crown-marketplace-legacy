@@ -19,13 +19,11 @@ class LegalPanelForGovernment::RM6360::Admin::ReportExport < ReportExport
     def countries(search_criteria)
       return unless search_criteria['lot_id'].starts_with?('RM6360.4')
 
-      Jurisdiction.where(
-        id: if search_criteria['not_core_jurisdiction'] == 'no'
-              LegalPanelForGovernment::RM6360::Journey::ChooseJurisdiction::CORE_JURISDICTIONS
-            else
-              search_criteria['jurisdiction_ids']
-            end
-      ).order(:name).pluck(:name).join(";\n")
+      if search_criteria['not_core_jurisdiction'] == 'no'
+        Jurisdiction.core
+      else
+        Jurisdiction.where(id: search_criteria['jurisdiction_ids'])
+      end.order(:name).pluck(:name).join(";\n")
     end
   end
 end

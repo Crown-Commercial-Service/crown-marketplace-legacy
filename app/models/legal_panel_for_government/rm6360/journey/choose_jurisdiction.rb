@@ -3,15 +3,13 @@ module LegalPanelForGovernment
     class Journey::ChooseJurisdiction
       include Steppable
 
-      CORE_JURISDICTIONS = %w[GB BE CH DE FR IE US CA].freeze
-
       attribute :lot_id
       attribute :jurisdiction_ids, Array
 
       validates :jurisdiction_ids, length: { minimum: 1 }
 
       def non_core_jurisdictions
-        Jurisdiction.where.not(id: CORE_JURISDICTIONS).order(:name)
+        Jurisdiction.non_core.order(:name)
       end
 
       def lot
