@@ -37,7 +37,7 @@ Feature: Legal services - Non central governemnt - Lot 2 - Service selection
     Then the basket should say '1 service selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
-      | Child Law                           |
+      | Child Law |
     When I check the following items:
       | Court of Protection             |
       | Employment                      |
@@ -48,7 +48,7 @@ Feature: Legal services - Non central governemnt - Lot 2 - Service selection
     Then the basket should say '7 services selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
-      | Child Law                           |
+      | Child Law                       |
       | Court of Protection             |
       | Employment                      |
       | Litigation / Dispute Resolution |
@@ -58,53 +58,53 @@ Feature: Legal services - Non central governemnt - Lot 2 - Service selection
 
   Scenario: Changing the selection will change the basket
     When I check the following items:
-      | Debt Recovery                   |
-      | Education Law                   |
-      | Healthcare                      |
-      | Intellectual Property           |
-      | Licensing                       |
-      | Pensions                        |
+      | Debt Recovery         |
+      | Education Law         |
+      | Healthcare            |
+      | Intellectual Property |
+      | Licensing             |
+      | Pensions              |
     Then the basket should say '6 services selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
-      | Debt Recovery                   |
-      | Education Law                   |
-      | Healthcare                      |
-      | Intellectual Property           |
-      | Licensing                       |
-      | Pensions                        |
+      | Debt Recovery         |
+      | Education Law         |
+      | Healthcare            |
+      | Intellectual Property |
+      | Licensing             |
+      | Pensions              |
     When I deselect the following items:
-      | Education Law                   |
+      | Education Law |
     Then the basket should say '5 services selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
-      | Debt Recovery                   |
-      | Healthcare                      |
-      | Intellectual Property           |
-      | Licensing                       |
-      | Pensions                        |
+      | Debt Recovery         |
+      | Healthcare            |
+      | Intellectual Property |
+      | Licensing             |
+      | Pensions              |
     When I remove the following items from the basket:
-      | Intellectual Property           |
-      | Licensing                       |
+      | Intellectual Property |
+      | Licensing             |
     Then the basket should say '3 services selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
-      | Debt Recovery                   |
-      | Healthcare                      |
-      | Pensions                        |
+      | Debt Recovery |
+      | Healthcare    |
+      | Pensions      |
     When I click on 'Remove all'
     Then the basket should say 'No services selected'
 
   Scenario: Go back from jurisdiction and change selection
     When I check the following items:
-      | Child Law                       |
-      | Licensing                       |
-      | Social Housing                  |
+      | Child Law      |
+      | Licensing      |
+      | Social Housing |
     And I click on 'Continue'
     Then I am on the 'Select the jurisdiction you need' page
     And I click on the 'Back' back link
     Then I am on the 'Select the legal services you need' page
     And the following items should appear in the basket:
-      | Child Law                       |
-      | Licensing                       |
-      | Social Housing                  |
+      | Child Law      |
+      | Licensing      |
+      | Social Housing |

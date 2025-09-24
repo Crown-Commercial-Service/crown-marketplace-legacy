@@ -6,13 +6,13 @@ Feature: Legal Panel for Government - Central government - Accessibility
     Then I am on the 'Do you work for central government?' page
 
   Scenario: Do you work for central government?
-    Then the page should be axe clean excluding ".ccs-contact-us"
-    
+    Then the page should pass the accessibility checks
+
   Scenario: Select the lot you need
     And I select 'Yes'
     And I click on 'Continue'
     Then I am on the 'Select the lot you need' page
-    Then the page should be axe clean excluding ".ccs-contact-us"
+    Then the page should pass the accessibility checks
 
   Scenario Outline: Select the legal services you need
     And I select 'Yes'
@@ -22,7 +22,7 @@ Feature: Legal Panel for Government - Central government - Accessibility
     And I click on 'Continue'
     And I am on the 'Select the legal services you need' page
     And the sub title is '<lot>'
-    Then the page should be axe clean excluding ".ccs-contact-us"
+    Then the page should pass the accessibility checks
 
     Examples:
       | lot                                       |
@@ -45,7 +45,7 @@ Feature: Legal Panel for Government - Central government - Accessibility
     And I should see that '<number_of_suppliers>' suppliers can provide legal services
     And I click on "Compare the supplier rates"
     Then I am on the "Select suppliers for comparison" page
-    Then the page should be axe clean excluding ".ccs-contact-us"
+    Then the page should pass the accessibility checks
 
     Examples:
       | lot                                       | service           | number_of_suppliers |
@@ -62,13 +62,13 @@ Feature: Legal Panel for Government - Central government - Accessibility
     And I click on 'Continue'
     And I am on the 'Is your requirement for a location outside of the countries listed below?' page
     And the sub title is '<lot>'
-    Then the page should be axe clean excluding ".ccs-contact-us"
+    Then the page should pass the accessibility checks
 
     Examples:
-      | lot                                         |
-      | Lot 4a - Trade and Investment Negotiations  |
-      | Lot 4b - International Trade Disputes       |
-      | Lot 4c - International Investment Disputes  |
+      | lot                                        |
+      | Lot 4a - Trade and Investment Negotiations |
+      | Lot 4b - International Trade Disputes      |
+      | Lot 4c - International Investment Disputes |
 
   Scenario Outline: Select the countries for your requirement
     And I select 'Yes'
@@ -82,13 +82,13 @@ Feature: Legal Panel for Government - Central government - Accessibility
     And I click on 'Continue'
     And I am on the 'Select the countries for your requirement' page
     And the sub title is '<lot>'
-    Then the page should be axe clean excluding ".ccs-contact-us"
+    Then the page should pass the accessibility checks
 
     Examples:
-      | lot                                         |
-      | Lot 4a - Trade and Investment Negotiations  |
-      | Lot 4b - International Trade Disputes       |
-      | Lot 4c - International Investment Disputes  |
+      | lot                                        |
+      | Lot 4a - Trade and Investment Negotiations |
+      | Lot 4b - International Trade Disputes      |
+      | Lot 4c - International Investment Disputes |
 
   Scenario Outline: Select the legal services you need - Lot 4
     And I select 'Yes'
@@ -102,13 +102,13 @@ Feature: Legal Panel for Government - Central government - Accessibility
     And I click on 'Continue'
     And I am on the 'Select the legal services you need' page
     And the sub title is '<lot>'
-    Then the page should be axe clean excluding ".ccs-contact-us"
+    Then the page should pass the accessibility checks
 
     Examples:
-      | lot                                         |
-      | Lot 4a - Trade and Investment Negotiations  |
-      | Lot 4b - International Trade Disputes       |
-      | Lot 4c - International Investment Disputes  |
+      | lot                                        |
+      | Lot 4a - Trade and Investment Negotiations |
+      | Lot 4b - International Trade Disputes      |
+      | Lot 4c - International Investment Disputes |
 
   Scenario Outline: Select suppliers for comparison - Lot 4
     And I select 'Yes'
@@ -128,10 +128,10 @@ Feature: Legal Panel for Government - Central government - Accessibility
     And I should see that '<number_of_suppliers>' suppliers can provide legal services
     And I click on "Compare the supplier rates"
     Then I am on the "Select suppliers for comparison" page
-    Then the page should be axe clean excluding ".ccs-contact-us"
+    Then the page should pass the accessibility checks
 
     Examples:
-      | lot                                         | service                                 | number_of_suppliers |
-      | Lot 4a - Trade and Investment Negotiations  | Assimilated Law                         | 5                   |
-      | Lot 4b - International Trade Disputes       | Compliance with international law       | 3                   |
-      | Lot 4c - International Investment Disputes  | Domestic law of jurisdictions for trade | 3                   |
+      | lot                                        | service                                 | number_of_suppliers |
+      | Lot 4a - Trade and Investment Negotiations | Assimilated Law                         | 5                   |
+      | Lot 4b - International Trade Disputes      | Compliance with international law       | 3                   |
+      | Lot 4c - International Investment Disputes | Domestic law of jurisdictions for trade | 3                   |

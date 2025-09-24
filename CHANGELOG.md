@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [6.2.0] - 2025-09-22
+
+### Added
+
+- Add admin sections to view the supplier data ([PR 2077](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2077))
+
+### Changed
+
+- Update CCS Frontend with the new CCS branding ([PR 2071](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2071))
+- Update positions to belong to the lot to make them easier to work with ([PR 2090](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2090))
+
 ## [6.1.0] - 2025-08-21
 
 ### Changed

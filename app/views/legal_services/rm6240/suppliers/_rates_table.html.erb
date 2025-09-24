@@ -4,30 +4,7 @@
 </p>
 <p class="govuk-body"><%= t('.further_competition') %></p>
 <%= govuk_table(
-  [
-    {
-      text: t('.position'),
-      classes: 'govuk-!-width-three-quarters'
-    },
-    {
-      text: t('.hourly'),
-      classes: 'govuk-!-width-one-quarter'
-    }
-  ],
-  Position.where(id: legal_service_position_ids).order(:id).map do |position|
-    rate = display_rate(position.id)
-
-    next if rate.nil?
-
-    [
-      {
-        text: position.position
-      },
-      {
-        text: rate
-      }
-    ]
-  end.compact,
+  *rates_table_headers_and_rows(@rates),
   caption: {
     text: t('.rates'),
     classes: 'govuk-visually-hidden'

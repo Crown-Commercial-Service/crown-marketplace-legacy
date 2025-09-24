@@ -11,8 +11,8 @@ Feature: Legal services - Non central governemnt - Lot 1 - Supplier rates
     And I am on the 'Select the legal services you need' page
     And the sub title is 'Lot 1 - Full service provision'
     When I check the following items:
-      | Children and Vulnerable Adults  |
-      | Corporate Law                   |
+      | Children and Vulnerable Adults |
+      | Corporate Law                  |
     And I click on 'Continue'
     Then I am on the 'Select the jurisdiction you need' page
     And the sub title is 'Lot 1 - Full service provision'
@@ -29,6 +29,6 @@ Feature: Legal services - Non central governemnt - Lot 1 - Supplier rates
     And the 'Paralegal, Legal Assistant' hourly rate is '<paralegal_rate>'
 
     Examples:
-      | jurisdiction      | partner_rate  | senior_solicitor_rate | solicitor_rate  | nq_solicitor_rate | trainee_rate  | paralegal_rate  |
-      | England and Wales | £210.00       | £180.00               | £150.00         | £120.00           | £90.00        | £60.00          |
-      | Northern Ireland  | £245.00       | £210.00               | £175.00         | £140.00           | £105.00       | £70.00          |
+      | jurisdiction      | partner_rate | senior_solicitor_rate | solicitor_rate | nq_solicitor_rate | trainee_rate | paralegal_rate |
+      | England and Wales | £210.00      | £180.00               | £150.00        | £120.00           | £90.00       | £60.00         |
+      | Northern Ireland  | £245.00      | £210.00               | £175.00        | £140.00           | £105.00      | £70.00         |

@@ -7,7 +7,7 @@ Feature: Management Consultancy - Lot 5 - HR - Service selection
     And I click on 'Continue'
     Then I am on the 'Select the services you need' page
     And the sub title is 'MCF4 lot 5 - HR'
-  
+
   Scenario: The correct options are available
     Then I should see the following options for the lot:
       | Capability development                                |
@@ -27,7 +27,7 @@ Feature: Management Consultancy - Lot 5 - HR - Service selection
     Then the basket should say '1 service selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
-      | Capability development                          |
+      | Capability development |
     When I check the following items:
       | Cultural transformation                         |
       | Equality, diversity and inclusion               |
@@ -37,7 +37,7 @@ Feature: Management Consultancy - Lot 5 - HR - Service selection
     Then the basket should say '6 services selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
-      | Capability development |
+      | Capability development                          |
       | Cultural transformation                         |
       | Equality, diversity and inclusion               |
       | Organisational design and/or workforce planning |
@@ -60,7 +60,7 @@ Feature: Management Consultancy - Lot 5 - HR - Service selection
       | HR policy and strategy            |
       | Training and development          |
     When I deselect the following items:
-      | HR policy and strategy            |
+      | HR policy and strategy |
     Then the basket should say '4 services selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
@@ -74,8 +74,8 @@ Feature: Management Consultancy - Lot 5 - HR - Service selection
     Then the basket should say '2 services selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
-      | People and performance    |
-      | Training and development  |
+      | People and performance   |
+      | Training and development |
     When I click on 'Remove all'
     Then the basket should say 'No services selected'
 

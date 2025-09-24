@@ -17,11 +17,11 @@ Feature: Supply Teachers - Temp to perm - No notice given - hiring after 12 week
     And my temp to perm fee is between '£0' and '£500'
 
     Examples:
-      | date        |
-      | 03/07/2021  |
-      | 03/08/2021  |
-      | 03/09/2021  |
-      | 03/10/2021  |
+      | date       |
+      | 03/07/2021 |
+      | 03/08/2021 |
+      | 03/09/2021 |
+      | 03/10/2021 |
 
   Scenario Outline: Changing the number of days per week changes the result
     And I enter '<days_per_week>' for the 'days per week'

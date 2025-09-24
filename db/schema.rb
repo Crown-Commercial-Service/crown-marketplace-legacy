@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_08_18_125002) do
+ActiveRecord::Schema[8.0].define(version: 2025_09_11_103945) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
   enable_extension "pgcrypto"
@@ -105,13 +105,14 @@ ActiveRecord::Schema[8.0].define(version: 2025_08_18_125002) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "positions", id: :serial, force: :cascade do |t|
-    t.text "position", null: false
-    t.text "position_type"
+  create_table "positions", id: :text, force: :cascade do |t|
+    t.text "lot_id", null: false
+    t.integer "number", null: false
+    t.text "name", null: false
+    t.text "category"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["position", "position_type"], name: "index_positions_on_position_and_position_type", unique: true
-    t.index ["position"], name: "index_positions_on_position"
+    t.index ["lot_id"], name: "index_positions_on_lot_id"
   end
 
   create_table "reports", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -204,11 +205,11 @@ ActiveRecord::Schema[8.0].define(version: 2025_08_18_125002) do
 
   create_table "supplier_framework_lot_rates", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "supplier_framework_lot_id", null: false
-    t.integer "position_id", null: false
     t.integer "rate", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.uuid "supplier_framework_lot_jurisdiction_id", null: false
+    t.text "position_id", null: false
     t.index ["position_id"], name: "index_supplier_framework_lot_rates_on_position_id"
     t.index ["supplier_framework_lot_id", "position_id", "supplier_framework_lot_jurisdiction_id"], name: "idx_on_supplier_framework_lot_id_position_id_suppli_ed53e87c0a", unique: true
     t.index ["supplier_framework_lot_id"], name: "idx_on_supplier_framework_lot_id_03e2196cfb"
@@ -296,6 +297,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_08_18_125002) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "lots", "frameworks"
+  add_foreign_key "positions", "lots"
   add_foreign_key "reports", "frameworks"
   add_foreign_key "reports", "users"
   add_foreign_key "searches", "frameworks"

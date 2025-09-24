@@ -16,7 +16,7 @@ Feature: Management Consultancy - Sign up user
     When I click on 'Create account'
     Then I should see the following error messages:
       | <error_message> |
-    
+
     Examples:
       | email         | error_message                                                       |
       |               | Enter an email address in the correct format, like name@example.com |
@@ -38,11 +38,11 @@ Feature: Management Consultancy - Sign up user
       | <error_message> |
 
     Examples:
-      | password    | error_message                             |
-      | Pass!1      | Password must be 8 characters or more     |
-      | password1!  | Password must include a capital letter    |
-      | Password1   | Password must include a special character |
-      | Password!   | Password must include a number            |
+      | password   | error_message                             |
+      | Pass!1     | Password must be 8 characters or more     |
+      | password1! | Password must include a capital letter    |
+      | Password1  | Password must include a special character |
+      | Password!  | Password must include a number            |
 
   Scenario: Password blank
     Given I enter 'test@test.com' for my email
