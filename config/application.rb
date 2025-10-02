@@ -181,6 +181,21 @@ module Marketplace
     @rails_env_url ||= ENV.fetch('RAILS_ENV_URL', 'https://marketplace.service.crowncommercial.gov.uk')
   end
 
+  def self.environment_name
+    case rails_env_url
+    when 'http://localhost'
+      :local
+    when 'https://cmp.cmp-sandbox.crowncommercial.gov.uk'
+      :sandbox
+    when 'https://cmp.cmpdev.crowncommercial.gov.uk'
+      :cmpdev
+    when 'https://marketplace.preview.crowncommercial.gov.uk'
+      :preview
+    else
+      :production
+    end
+  end
+
   def self.cookie_settings_name
     :cookie_preferences_cmp
   end
