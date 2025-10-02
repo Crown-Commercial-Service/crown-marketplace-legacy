@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Moved some rake tasks into `DataLoader` module to allow them to be run using SideKiq ([PR 2114](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2114))
+
 ### Changed
 
 - Added the `category` attribute to the jurisdictions ([PR 2104](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2104))
