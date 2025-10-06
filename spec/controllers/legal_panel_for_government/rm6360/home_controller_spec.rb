@@ -3,13 +3,25 @@ require 'rails_helper'
 RSpec.describe LegalPanelForGovernment::RM6360::HomeController do
   let(:default_params) { { service: 'legal_panel_for_government', framework: 'RM6360' } }
 
-  login_ls_buyer
+  login_ls_buyer_with_details
 
   describe 'GET index' do
-    it 'renders the index template' do
-      get :index
+    context 'when the user is not logged in' do
+      sign_out_user
 
-      expect(response).to render_template(:index)
+      it 'renders the index template' do
+        get :index
+
+        expect(response).to render_template(:index)
+      end
+    end
+
+    context 'when the user is logged in' do
+      it 'redirects to the buyer details page' do
+        get :index
+
+        expect(response).to redirect_to('/legal-panel-for-government/RM6360/buyer-details')
+      end
     end
   end
 

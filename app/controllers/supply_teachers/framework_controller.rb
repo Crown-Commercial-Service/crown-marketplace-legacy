@@ -1,5 +1,5 @@
 module SupplyTeachers
-  class FrameworkController < ::ApplicationController
+  class FrameworkController < ApplicationController
     include FrameworkStatusConcern
 
     before_action :authenticate_user!

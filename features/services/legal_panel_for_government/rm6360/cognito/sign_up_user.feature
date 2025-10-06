@@ -13,4 +13,4 @@ Feature: Sign up to legal services - RM6360
     And I enter the following details into the form:
       | Confirmation code | 123456 |
     And I click on 'Continue'
-    Then I am on the 'Do you work for central government?' page
+    Then I am on the 'Your details' page

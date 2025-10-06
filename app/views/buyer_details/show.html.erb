@@ -1,0 +1,97 @@
+<% content_for :page_title, t('.heading') %>
+<% content_for :breadcrumbs, govuk_breadcrumbs([
+  { text: t('buyer_details.index.heading'), href: buyer_details_path(params[:service].dasherize, params[:framework]) },
+  { text: t('.heading') }
+]) %>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <span class="govuk-caption-l">
+      <%= current_user.email %>
+    </span>
+    <h1 class="govuk-heading-l">
+      <%= t('.heading') %>
+    </h1>
+    <%= govuk_warning_text(t('.you_must_complete_your_details')) if current_user.buyer_details_incomplete? %>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <%= govuk_summary_list([
+      {
+        key: {
+          text: t('.personal_details.name')
+        },
+        value: {
+          text: @buyer_detail.name
+        }
+      },
+      {
+        key: {
+          text: t('.personal_details.job_title')
+        },
+        value: {
+          text: @buyer_detail.job_title
+        }
+      },
+    ],
+    card: {
+      title: {
+        text: t('.personal_details.heading')
+      },
+      actions: {
+        items: [
+          {
+            text: [@buyer_detail.name, @buyer_detail.job_title].any?(&:nil?) ? t('.answer_questions') : t('.change'),
+            href: edit_buyer_detail_path(params[:service].dasherize, params[:framework], @buyer_detail, section: :personal_details),
+          }
+        ]
+      }
+    },
+    attributes: {
+      id: 'buyer-details-summery--personal-details'
+    }
+  ) %>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <%= govuk_summary_list([
+      {
+        key: {
+          text: t('.organisation_details.organisation_name')
+        },
+        value: {
+          text: @buyer_detail.organisation_name
+        }
+      },
+      {
+        key: {
+          text: t('.organisation_details.organisation_sector')
+        },
+        value: {
+          text: @buyer_detail.organisation_sector.nil? ? nil : t("facilities_management.buyer_details.sections.organisation_details.organisation_sector.options.#{@buyer_detail.organisation_sector}")
+        }
+      },
+    ],
+    card: {
+      title: {
+        text: t('.organisation_details.heading')
+      },
+      actions: {
+        items: [
+          {
+            text: [@buyer_detail.organisation_name, @buyer_detail.organisation_sector].any?(&:nil?) ? t('.answer_questions') : t('.change'),
+            href: edit_buyer_detail_path(params[:service].dasherize, params[:framework], @buyer_detail, section: :organisation_details),
+          }
+        ]
+      },
+    },
+    attributes: {
+      id: 'buyer-details-summery--organisation-details'
+    }
+  ) %>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+<%= govuk_input(
+  :organisation_name,
+  form: form,
+  label: {
+    text: t('.organisation_name'),
+    classes: 'govuk-label--m'
+  },
+  attributes: {
+    required: true,
+    maxlength: 255
+  }
+) %>
+
+<%= govuk_radios(
+  :organisation_sector,
+  BuyerDetail::SECTORS.map do |sector|
+    {
+      value: sector,
+      label: {
+        text: t(".organisation_sector.options.#{sector}")
+      }
+    }
+  end,
+  form: form,
+  fieldset: {
+    legend: {
+      text: t('.organisation_sector.legend'),
+      classes: 'govuk-fieldset__legend--m'
+    }
+  },
+) %>

@@ -15,6 +15,14 @@ end
 
 def create_buyer_user(service)
   role = :"#{service}_access"
+  @user = create(:user, :with_detail, confirmed_at: Time.zone.now, roles: [:buyer, role])
+  allow_any_instance_of(Cognito::UpdateUser).to receive(:call).and_return(true)
+  allow_any_instance_of(Cognito::UpdateUser).to receive(:call).with(anything).and_return(true)
+  stub_login
+end
+
+def create_buyer_user_without_details(service)
+  role = :"#{service}_access"
   @user = create(:user, confirmed_at: Time.zone.now, roles: [:buyer, role])
   allow_any_instance_of(Cognito::UpdateUser).to receive(:call).and_return(true)
   allow_any_instance_of(Cognito::UpdateUser).to receive(:call).with(anything).and_return(true)

@@ -8,7 +8,7 @@ Given('I sign in and navigate to the start page for the {string} framework in {s
     visit "/legal-services/#{framework}/sign-in"
   when 'legal panel for government'
     create_buyer_user('ls')
-    start_page_title = 'Do you work for central government?'
+    start_page_title = 'Your account'
     visit "/legal-panel-for-government/#{framework}/sign-in"
   when 'management consultancy'
     create_buyer_user('mc')
@@ -16,6 +16,33 @@ Given('I sign in and navigate to the start page for the {string} framework in {s
     visit "/management-consultancy/#{framework}/sign-in"
   when 'supply teachers'
     create_buyer_user('st')
+    start_page_title = 'What is your school looking for?'
+    visit "/supply-teachers/#{framework}/sign-in"
+  end
+
+  update_banner_cookie(true) if @javascript
+  step 'I sign in'
+  step "I am on the '#{start_page_title}' page"
+end
+
+Given('I sign in without details and navigate to the start page for the {string} framework in {string}') do |framework, service|
+  start_page_title = ''
+
+  case service
+  when 'legal services'
+    create_buyer_user_without_details('ls')
+    start_page_title = 'Do you work for central government?'
+    visit "/legal-services/#{framework}/sign-in"
+  when 'legal panel for government'
+    create_buyer_user_without_details('ls')
+    start_page_title = 'Your details'
+    visit "/legal-panel-for-government/#{framework}/sign-in"
+  when 'management consultancy'
+    create_buyer_user_without_details('mc')
+    start_page_title = 'Select the lot you need'
+    visit "/management-consultancy/#{framework}/sign-in"
+  when 'supply teachers'
+    create_buyer_user_without_details('st')
     start_page_title = 'What is your school looking for?'
     visit "/supply-teachers/#{framework}/sign-in"
   end

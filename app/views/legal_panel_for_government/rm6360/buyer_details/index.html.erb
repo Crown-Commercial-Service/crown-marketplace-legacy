@@ -1,0 +1,39 @@
+<% content_for :page_title, t('buyer_details.index.heading') %>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <span class="govuk-caption-xl">
+      <%= current_user.email %>
+    </span>
+    <h1 class="govuk-heading-xl">
+      <%= t('buyer_details.index.heading') %>
+    </h1>
+  </div>
+</div>
+
+<%= ccs_dashboard_section(
+  [
+    {
+      title: t('.search_for_suppliers.link'),
+      href: legal_panel_for_government_journey_start_path,
+      description: t('.search_for_suppliers.desc')
+    },
+    {
+      title: t('.manage_your_details.link'),
+      href: legal_panel_for_government_rm6360_buyer_detail_path(current_user.buyer_detail),
+      description: t('.manage_your_details.desc')
+    }
+  ]
+) %>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+    <p class="govuk-body">
+      <%= t('.view_furth_informtion_html', url: link_to(t('.view_furth_informtion_link.text'), t('.view_furth_informtion_link.href'), class: 'govuk-link govuk-link--no-visited-state', target: '_blank', rel: 'noopener noreferrer')) %>
+    </p>
+
+    <p class="govuk-body govuk-!-font-weight-bold">
+      <%= t('.return_to_this_page') %>
+    </p>
+  </div>
+</div>

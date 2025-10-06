@@ -1,6 +1,6 @@
 Feature: Legal Panel for Government - Start pages - With an unrecognised framework
 
-  Scenario Outline: Go to unrecognised famework in the buyer section - logged in
+  Scenario Outline: Go to unrecognised famework in the buyer section - logged out
     When I go to the 'legal panel for government' start page for 'RM007'
     Then I am on the 'The web address contained an unrecognised framework' page
     And the unrecognised framework is 'RM007'
@@ -12,13 +12,13 @@ Feature: Legal Panel for Government - Start pages - With an unrecognised framewo
       | framework |
       | RM6360    |
 
-  Scenario Outline: Go to unrecognised famework in the buyer section - logged out
+  Scenario Outline: Go to unrecognised famework in the buyer section - logged in
     Given I sign in and navigate to the start page for the '<framework>' framework in 'legal panel for government'
     And I go to the 'legal panel for government' start page for 'RM0172'
     Then I am on the 'The web address contained an unrecognised framework' page
     And the unrecognised framework is 'RM0172'
     And I click on '<framework>'
-    Then I am on the 'Find legal services for government' page
+    Then I am on the 'Your account' page
     And the framework is '<framework>'
 
     Examples:

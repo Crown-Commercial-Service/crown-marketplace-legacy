@@ -58,8 +58,8 @@ RSpec.describe LegalPanelForGovernment::RM6360::UsersController do
         end
 
         context 'when the information is valid' do
-          it 'redirects to legal_panel_for_government_journey_start_path' do
-            expect(response).to redirect_to legal_panel_for_government_journey_start_path
+          it 'redirects to legal_panel_for_government_rm6360_buyer_details_path' do
+            expect(response).to redirect_to legal_panel_for_government_rm6360_buyer_details_path
           end
 
           it 'deletes the crown_marketplace_confirmation_email cookie' do
@@ -242,8 +242,8 @@ RSpec.describe LegalPanelForGovernment::RM6360::UsersController do
           end
 
           context 'and there is no additional challange' do
-            it 'redirects to legal_panel_for_government_journey_start_path' do
-              expect(response).to redirect_to legal_panel_for_government_journey_start_path
+            it 'redirects to legal_panel_for_government_rm6360_buyer_details_path' do
+              expect(response).to redirect_to legal_panel_for_government_rm6360_buyer_details_path
             end
 
             it 'deletes the cookies' do
@@ -297,8 +297,8 @@ RSpec.describe LegalPanelForGovernment::RM6360::UsersController do
         end
 
         context 'and it is valid' do
-          it 'redirects to legal_panel_for_government_journey_start_path' do
-            expect(response).to redirect_to legal_panel_for_government_journey_start_path
+          it 'redirects to legal_panel_for_government_rm6360_buyer_details_path' do
+            expect(response).to redirect_to legal_panel_for_government_rm6360_buyer_details_path
           end
 
           it 'deletes the cookies' do

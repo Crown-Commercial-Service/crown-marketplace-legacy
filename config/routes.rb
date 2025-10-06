@@ -107,6 +107,10 @@ Rails.application.routes.draw do
     get '/', to: 'home#framework'
   end
 
+  concern :buyer_details do
+    resources :buyer_details, path: '/buyer-details', only: %i[index show edit update]
+  end
+
   concern :admin_frameworks do
     resources :frameworks, only: %i[index edit update]
   end
@@ -276,7 +280,7 @@ Rails.application.routes.draw do
     end
 
     namespace 'rm6360', path: 'RM6360', defaults: { framework: 'RM6360' } do
-      concerns %i[buyer_shared_pages shared_pages suppliers]
+      concerns %i[buyer_shared_pages shared_pages buyer_details suppliers]
 
       get '/suppliers-comparison', to: 'suppliers_comparison#index'
 
@@ -314,5 +318,7 @@ Rails.application.routes.draw do
   get '/:journey/:framework/start', to: 'journey#start', as: 'journey_start'
   get '/:journey/:framework/:slug', to: 'journey#question', as: 'journey_question'
   get '/:journey/:framework/:slug/answer', to: 'journey#answer', as: 'journey_answer'
+
+  resources :buyer_details, path: '/:service/:framework/buyer-details', only: %i[index show edit update]
 end
 # rubocop:enable Metrics/BlockLength

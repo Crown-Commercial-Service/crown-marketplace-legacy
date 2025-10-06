@@ -55,6 +55,14 @@ module HeaderNavigationLinksHelper
           active: current_page?(management_consultancy_journey_question_path(framework: params[:framework], slug: 'choose-lot'))
         }
       ]
+    elsif user_signed_in? && params[:service] == 'legal_panel_for_government'
+      [
+        {
+          text: t('header_navigation_links_helper.my_account'),
+          href: legal_panel_for_government_rm6360_buyer_details_path,
+          active: current_page?(legal_panel_for_government_rm6360_buyer_details_path)
+        }
+      ]
     else
       [
         {

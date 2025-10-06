@@ -53,7 +53,7 @@ AWS_ERRORS = {
 
 # Normal cognito paths
 def stub_existing_user(aws_client, user_params)
-  create(:user, email: user_params[:user_email], cognito_uuid: user_params[:user_cognito_uuid], confirmed_at: Time.zone.now, roles: user_params[:roles])
+  create(:user, user_params[:roles].include?('buyer') ? :with_detail : nil, email: user_params[:user_email], cognito_uuid: user_params[:user_cognito_uuid], confirmed_at: Time.zone.now, roles: user_params[:roles])
   allow(aws_client).to receive(:initiate_auth).and_return(COGNITO_RESPONSE_STRUCTS[:initiate_auth].new)
   stub_adding_to_groups(aws_client, user_params)
 end
@@ -92,6 +92,7 @@ end
 def stub_sms_mfa(aws_client, user_params)
   user_params[:session_uuid] = SecureRandom.uuid
 
+  create(:user, user_params[:roles].include?('buyer') ? :with_detail : nil, email: user_params[:user_email], cognito_uuid: user_params[:user_cognito_uuid], confirmed_at: Time.zone.now, roles: user_params[:roles])
   stub_login_with_challange(aws_client, user_params, 'SMS_MFA')
 
   allow(aws_client).to receive(:respond_to_auth_challenge).with(**respond_to_auth_challenge_sms_mfa(user_params)).and_return(COGNITO_RESPONSE_STRUCTS[:respond_to_auth_challenge].new)

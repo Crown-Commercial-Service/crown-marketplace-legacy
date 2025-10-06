@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Moved some rake tasks into `DataLoader` module to allow them to be run using SideKiq ([PR 2114](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2114))
+- Add the buyer details section for Legal Panel for Government ([PR 2121](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2121))
 
 ### Changed
 

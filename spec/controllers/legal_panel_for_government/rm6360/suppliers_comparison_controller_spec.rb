@@ -12,7 +12,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::SuppliersComparisonController do
   let(:supplier_framework_ids) { supplier_frameworks.pluck(:id) }
   let(:supplier_frameworks_relation) { instance_double(ActiveRecord::Relation) }
 
-  login_ls_buyer
+  login_ls_buyer_with_details
 
   before do
     allow(Supplier::Framework).to receive(:with_services_and_jurisdiction).with(service_ids, jurisdiction_ids).and_return(supplier_frameworks_relation)

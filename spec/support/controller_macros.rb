@@ -63,6 +63,14 @@ module ControllerMacros
     end
   end
 
+  def login_ls_buyer_with_details
+    before do
+      @request.env['devise.mapping'] = Devise.mappings[:user]
+      user = FactoryBot.create(:user, :with_detail, confirmed_at: Time.zone.now, roles: %i[buyer ls_access])
+      sign_in user
+    end
+  end
+
   def login_fm_supplier
     before do
       @request.env['devise.mapping'] = Devise.mappings[:user]
@@ -76,6 +84,12 @@ module ControllerMacros
       @request.env['devise.mapping'] = Devise.mappings[:user]
       user = FactoryBot.create(:user, confirmed_at: Time.zone.now, roles: %i[ccs_employee ccs_developer])
       sign_in user
+    end
+  end
+
+  def sign_out_user
+    before do
+      sign_out controller.current_user
     end
   end
 end
