@@ -218,6 +218,19 @@ en:
             name: File name
             return: Return to 'Manage supplier data'
             status: 'Status:'
+      buyer_details:
+        index:
+          manage_your_details:
+            desc: Update and edit your details
+            link: Manage your details
+          return_to_this_page: To return to this page at any time, just click on 'My account'.
+          search_for_suppliers:
+            desc: Find a shortlist of suppliers who can provide the legal specialisms you need
+            link: Search for suppliers
+          view_furth_informtion_html: View further information about the %{url}
+          view_furth_informtion_link:
+            href: https://www.crowncommercial.gov.uk/agreements/RM6360
+            text: Legal Panel for Government framework RM6360 (opens in a new tab)
       home:
         index:
           heading: Find legal services for government

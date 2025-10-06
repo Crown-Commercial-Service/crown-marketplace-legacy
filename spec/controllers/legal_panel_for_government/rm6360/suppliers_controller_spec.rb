@@ -11,7 +11,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::SuppliersController do
   let(:central_government) { 'yes' }
   let(:jurisdiction_ids) { ['GB'] }
 
-  login_ls_buyer
+  login_ls_buyer_with_details
 
   before do
     allow(Supplier::Framework).to receive(:with_services_and_jurisdiction).with(service_ids, jurisdiction_ids).and_return(supplier_frameworks)

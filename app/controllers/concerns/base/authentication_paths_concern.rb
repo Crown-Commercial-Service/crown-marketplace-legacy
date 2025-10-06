@@ -56,6 +56,12 @@ module Base::AuthenticationPathsConcern
   end
 
   def determine_start_path
-    '/start' unless service_path_base.include?('admin')
+    if service_path_base.include?('admin')
+      ''
+    elsif params[:service] == 'legal_panel_for_government'
+      '/buyer-details'
+    else
+      '/start'
+    end
   end
 end

@@ -74,6 +74,19 @@ en:
   activerecord:
     errors:
       models:
+        buyer_detail:
+          attributes:
+            job_title:
+              blank: Enter your job title
+              too_long: Your job title must be no more than 255 characters
+            name:
+              blank: Enter your full name
+              too_long: Your name must be no more than 255 characters
+            organisation_name:
+              blank: Enter your organisation name
+              too_long: Your organisation name must be no more than 255 characters
+            organisation_sector:
+              inclusion: Select the type of public sector organisation you’re buying for
         framework:
           attributes:
             expires_at:
@@ -178,6 +191,44 @@ en:
         heading: Enter your access code
         lead: 'We just sent a 6 digit access code by text to:'
         resend_the_confirmation_code_html: To receive a new access code, <a href="%{link}" class="govuk-link--no-visited-state"> sign in</a> again.
+  buyer_details:
+    edit:
+      heading:
+        contact_preferences: Manage your contact preferences
+        organisation_details: Manage your organisation details
+        personal_details: Manage your personal details
+      save_and_return: Save and return
+    index:
+      heading: Your account
+    sections:
+      organisation_details:
+        organisation_name: Organisation name
+        organisation_sector:
+          legend: Which type of public sector organisation are you buying for?
+          options:
+            culture_media_and_sport: Culture, Media and Sport
+            defence_and_security: Defence and Security
+            education: Education
+            government_policy: Government Policy
+            health: Health
+            infrastructure: Infrastructure
+            local_community_and_housing: Local Community and Housing
+      personal_details:
+        job_title: Job title
+        name: Name
+    show:
+      answer_questions: Answer questions
+      change: Change
+      heading: Your details
+      organisation_details:
+        heading: Organisation details
+        organisation_name: Organisation name
+        organisation_sector: Type of public sector organisation
+      personal_details:
+        heading: Personal details
+        job_title: Job title
+        name: Name
+      you_must_complete_your_details: You must complete your details before you can search for suppliers
   common:
     back_to_start: Back to start
     ccs_contact_url: https://www.crowncommercial.gov.uk/contact
@@ -234,6 +285,7 @@ en:
       explanation: Maybe you tried to change something you didn’t have access to.
   header_navigation_links_helper:
     back_to_start: Back to start
+    my_account: My account
     sign_in: Sign in
     sign_out: Sign out
     sign_up: Create an account
