@@ -1,0 +1,25 @@
+<%= govuk_input(
+  :name,
+  form: form,
+  label: {
+    text: t('.name'),
+    classes: 'govuk-label--m'
+  },
+  attributes: {
+    required: true,
+    maxlength: 255,
+    autocomplete: 'off',
+  }
+) %>
+
+<%= govuk_input(
+  :job_title,
+  form: form,
+  label: {
+    text: t('.job_title'),
+    classes: 'govuk-label--m'
+  },
+  attributes: {
+    maxlength: 255,
+  }
+) %>

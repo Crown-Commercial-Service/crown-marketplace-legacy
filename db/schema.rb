@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_09_22_150557) do
+ActiveRecord::Schema[8.0].define(version: 2025_10_06_131600) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
   enable_extension "pgcrypto"
@@ -51,6 +51,17 @@ ActiveRecord::Schema[8.0].define(version: 2025_09_22_150557) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["date"], name: "index_bank_holidays_on_date"
+  end
+
+  create_table "buyer_details", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "user_id", null: false
+    t.text "name"
+    t.text "job_title"
+    t.text "organisation_name"
+    t.text "organisation_sector"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_buyer_details_on_user_id"
   end
 
   create_table "frameworks", id: :text, force: :cascade do |t|
@@ -297,6 +308,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_09_22_150557) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "buyer_details", "users"
   add_foreign_key "lots", "frameworks"
   add_foreign_key "positions", "lots"
   add_foreign_key "reports", "frameworks"

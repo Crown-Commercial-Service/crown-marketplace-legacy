@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   include RoleModel
 
+  has_one :buyer_detail, inverse_of: :user, dependent: :destroy
   has_many :searches, inverse_of: :user, dependent: :destroy
   has_many :reports, inverse_of: :user, dependent: :destroy
 
@@ -26,5 +27,17 @@ class User < ApplicationRecord
 
   def confirmed?
     confirmed_at.present?
+  end
+
+  def buyer_details_incomplete?
+    # used to assist the site in determining if the user
+    # is a buyer and if they are required to complete information in
+    # the buyer-account details page
+
+    if has_role? :buyer
+      !(buyer_detail.present? && buyer_detail.details_complete?)
+    else
+      false
+    end
   end
 end

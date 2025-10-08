@@ -110,8 +110,8 @@ RSpec.describe LegalPanelForGovernment::RM6360::SessionsController do
       context 'and there is no challenge' do
         let(:challenge_name) { nil }
 
-        it 'redirects to legal_panel_for_government_journey_start_path' do
-          expect(response).to redirect_to legal_panel_for_government_journey_start_path
+        it 'redirects to legal_panel_for_government_rm6360_buyer_details_path' do
+          expect(response).to redirect_to legal_panel_for_government_rm6360_buyer_details_path
         end
       end
 

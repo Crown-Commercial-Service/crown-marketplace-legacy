@@ -2,6 +2,8 @@ Feature: Legal Panel for Government - Jounrey validations
 
   Background: Navigate to start page
     Given I sign in and navigate to the start page for the 'RM6360' framework in 'legal panel for government'
+    Then I am on the 'Your account' page
+    And I click on 'Search for suppliers'
 
   Scenario: Do you work for central government validation
     Given I am on the 'Do you work for central government?' page

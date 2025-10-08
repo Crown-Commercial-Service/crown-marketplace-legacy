@@ -16,4 +16,4 @@ Feature: Legal Panel for Government - Start pages
     When I click on 'Start now'
     Then I am on the 'Sign in to your legal panel for government account' page
     Then I should sign in as an 'ls' buyer
-    Then I am on the 'Do you work for central government?' page
+    Then I am on the 'Your account' page
