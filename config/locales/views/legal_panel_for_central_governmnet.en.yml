@@ -234,18 +234,18 @@ en:
       home:
         index:
           heading: Find legal services for government
+          lpfg_link_text: Legal Panel for Government Specification
+          lpfg_url: https://www.crowncommercial.gov.uk/agreements/RM6360
           ojeu_link_text: OJEU contract notice
-          ojeu_url_html: https://assets.crowncommercial.gov.uk/wp-content/uploads/RM6240%20Contract%20notice%20OJEU.pdf
+          ojeu_url_html: https://www.find-tender.service.gov.uk/Notice/005959-2025
           use_this_service:
             before_heading: Before you start
             guidance_heading: Guidance and other useful documents
-            para01: Use this service to download a shortlist of suppliers that provide the legal services you need.
+            para01: Use this service to download a shortlist of suppliers that provide the legal specialisms you need.
             para02: Using this service means you're following the public sector procurement procedures.
-            para03_html: The Wider Public Sector is able to use this framework in its entirety. Central Government departments are enabled to access this framework where they have secured approval through the Government Legal Department’s (GLD) Exception process.
-            para04_html: If you need legal services in a non-UK jurisdiction, contact <a href="mailto:info@crowncommercial.gov.uk">info@crowncommercial.gov.uk</a> for help.
+            para03_html: This tool is for the exclusive use of Central Government departments and Arms Length Bodies only. For wider public sector buyers please refer to our other agreement, <a href="https://www.crowncommercial.gov.uk/agreements/RM6240" class="govuk-link govuk-link--no-visited-state">Public Sector Legal Services</a> (RM6240).
+            para04_html: You can contact <a href="mailto:info@crowncommercial.gov.uk" class="govuk-link govuk-link--no-visited-state">info@crowncommercial.gov.uk</a> for help.
             para05_html: To use this service you need to be a recognised public sector body listed in the <a href="https://assets.crowncommercial.gov.uk/wp-content/uploads/RM6240-Authorised-Customer-List.docx.odt">authorised customer list</a>.
-          wps_link_text: WPS Legal Services panel specification
-          wps_url: https://www.crowncommercial.gov.uk/agreements/RM6240
       journey:
         choose_jurisdiction:
           countries_selected: countries selected

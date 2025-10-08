@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Added the `category` attribute to the jurisdictions ([PR 2104](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2104))
+- Updated the copy on the landing page for LPfG ([PR 2123](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2123))
 
 ## [6.2.0] - 2025-09-22
 
