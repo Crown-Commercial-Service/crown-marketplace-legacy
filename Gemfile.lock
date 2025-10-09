@@ -406,6 +406,8 @@ GEM
       racc (~> 1.4)
     nokogiri (1.18.10-x86_64-linux-gnu)
       racc (~> 1.4)
+    nokogiri (1.18.10-x86_64-linux-musl)
+      racc (~> 1.4)
     oauth2 (2.0.9)
       faraday (>= 0.17.3, < 3.0)
       jwt (>= 1.0, < 3.0)
@@ -440,6 +442,7 @@ GEM
       tzinfo
       validate_url
       webfinger (~> 2.0)
+    openssl (3.3.1)
     orm_adapter (0.5.0)
     ostruct (0.6.1)
     parallel (1.27.0)
@@ -735,12 +738,12 @@ GEM
 
 PLATFORMS
   arm64-darwin-24
-  x64-mingw32
-  x86_64-darwin-20
+  x64-mingw-ucrt
   x86_64-darwin-22
   x86_64-darwin-23
   x86_64-darwin-24
   x86_64-linux
+  x86_64-linux-musl
 
 DEPENDENCIES
   aasm (~> 5.5)
@@ -784,6 +787,7 @@ DEPENDENCIES
   omniauth-oauth2 (~> 1.8.0)
   omniauth-rails_csrf_protection (>= 1.0.1)
   omniauth_openid_connect (~> 0.8.0)
+  openssl (~> 3.3.1)
   pg (>= 0.18, < 2.0)
   phonejack
   poltergeist (>= 1.18.1)
@@ -826,7 +830,7 @@ DEPENDENCIES
   webmock (>= 3.12.2)
 
 RUBY VERSION
-   ruby 3.4.3p32
+   ruby 3.4.7p58
 
 BUNDLED WITH
-   2.4.8
+   2.7.2
