@@ -9,8 +9,34 @@ RSpec.describe LegalPanelForGovernment::RM6360::SuppliersComparisonController do
   let(:service_ids) { services.map(&:id) }
   let(:central_government) { 'yes' }
   let(:jurisdiction_ids) { ['GB'] }
+  let(:requirement_start_date_day) { '1' }
+  let(:requirement_start_date_month) { '10' }
+  let(:requirement_start_date_year) { '2025' }
+  let(:requirement_end_date_day) { '1' }
+  let(:requirement_end_date_month) { '10' }
+  let(:requirement_end_date_year) { '2026' }
+  let(:requirement_estimated_total_value) { '123456' }
+  let(:ccs_can_contact_you) { 'yes' }
   let(:supplier_framework_ids) { supplier_frameworks.pluck(:id) }
+
   let(:supplier_frameworks_relation) { instance_double(ActiveRecord::Relation) }
+
+  let(:default_journey_params) do
+    {
+      lot_id:,
+      service_ids:,
+      central_government:,
+      requirement_start_date_day:,
+      requirement_start_date_month:,
+      requirement_start_date_year:,
+      requirement_end_date_day:,
+      requirement_end_date_month:,
+      requirement_end_date_year:,
+      requirement_estimated_total_value:,
+      ccs_can_contact_you:,
+      supplier_framework_ids:,
+    }
+  end
 
   login_ls_buyer_with_details
 
@@ -30,10 +56,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::SuppliersComparisonController do
       let(:params) do
         {
           journey: 'legal_panel_for_government',
-          lot_id: lot_id,
-          service_ids: service_ids,
-          central_government: central_government,
-          supplier_framework_ids: supplier_framework_ids,
+          **default_journey_params
         }
       end
 
@@ -53,10 +76,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::SuppliersComparisonController do
         expected_path = journey_question_path(
           journey: 'legal-panel-for-government',
           slug: 'select-suppliers-for-comparison',
-          lot_id: lot_id,
-          service_ids: service_ids,
-          central_government: central_government,
-          supplier_framework_ids: supplier_framework_ids,
+          **default_journey_params
         )
         expect(assigns(:back_path)).to eq(expected_path)
       end
@@ -83,17 +103,15 @@ RSpec.describe LegalPanelForGovernment::RM6360::SuppliersComparisonController do
     context 'when the lot is RM6360.4a' do
       let(:lot_id) { 'RM6360.4a' }
 
+      let(:default_journey_params) { super().merge(not_core_jurisdiction:) }
+
       context 'and requirements are in a core jurisdiction' do
         let(:not_core_jurisdiction) { 'no' }
 
         let(:params) do
           {
             journey: 'legal_panel_for_government',
-            lot_id: lot_id,
-            service_ids: service_ids,
-            not_core_jurisdiction: not_core_jurisdiction,
-            central_government: central_government,
-            supplier_framework_ids: supplier_framework_ids,
+            **default_journey_params
           }
         end
 
@@ -113,11 +131,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::SuppliersComparisonController do
           expected_path = journey_question_path(
             journey: 'legal-panel-for-government',
             slug: 'select-suppliers-for-comparison',
-            lot_id: lot_id,
-            service_ids: service_ids,
-            not_core_jurisdiction: not_core_jurisdiction,
-            central_government: central_government,
-            supplier_framework_ids: supplier_framework_ids,
+            **default_journey_params
           )
           expect(assigns(:back_path)).to eq(expected_path)
         end
@@ -136,15 +150,12 @@ RSpec.describe LegalPanelForGovernment::RM6360::SuppliersComparisonController do
         let(:not_core_jurisdiction) { 'yes' }
         let(:jurisdiction_ids) { ['AE', 'AX'] }
 
+        let(:default_journey_params) { super().merge(jurisdiction_ids:) }
+
         let(:params) do
           {
             journey: 'legal_panel_for_government',
-            lot_id: lot_id,
-            service_ids: service_ids,
-            not_core_jurisdiction: not_core_jurisdiction,
-            jurisdiction_ids: jurisdiction_ids,
-            central_government: central_government,
-            supplier_framework_ids: supplier_framework_ids,
+            **default_journey_params
           }
         end
 
@@ -160,21 +171,14 @@ RSpec.describe LegalPanelForGovernment::RM6360::SuppliersComparisonController do
           expect(assigns(:lot)).to eq(lot)
         end
 
-        # rubocop:disable RSpec/ExampleLength
         it 'sets the back path to the select-suppliers-for-comparison question' do
           expected_path = journey_question_path(
             journey: 'legal-panel-for-government',
             slug: 'select-suppliers-for-comparison',
-            lot_id: lot_id,
-            service_ids: service_ids,
-            not_core_jurisdiction: not_core_jurisdiction,
-            jurisdiction_ids: jurisdiction_ids,
-            central_government: central_government,
-            supplier_framework_ids: supplier_framework_ids,
+            **default_journey_params
           )
           expect(assigns(:back_path)).to eq(expected_path)
         end
-        # rubocop:enable RSpec/ExampleLength
 
         # rubocop:disable RSpec/MultipleExpectations
         it 'makes the calls to supplier framework' do

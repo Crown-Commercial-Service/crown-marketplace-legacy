@@ -6,13 +6,89 @@ Feature: Legal Panel for Government - Jounrey validations
     And I click on 'Search for suppliers'
 
   Scenario: Do you work for central government validation
-    Given I am on the 'Do you work for central government?' page
+    Given I am on the 'Do you work for central government or an arms length body?' page
     When I click on 'Continue'
     Then I should see the following error messages:
-      | Select yes if you work for central government |
+      | Select yes if you work for central government or an arms length body |
+
+  Scenario: Information about your requirements blank validations
+    And I select 'Yes'
+    And I click on 'Continue'
+    Given I am on the 'Information about your requirements' page
+    When I click on 'Continue'
+    Then I should see the following error messages:
+      | Enter the intended start date, including the month and year     |
+      | Enter the intended end date, including the month and year       |
+      | The estimated total value must be a whole number greater than 0 |
+      | You must select an option                                       |
+
+  Scenario Outline: Information about your requirements start date validations
+    And I select 'Yes'
+    And I click on 'Continue'
+    Given I am on the 'Information about your requirements' page
+    And I enter '<date>' for the requirement 'start' date
+    And I enter '10/2025' for the requirement 'end' date
+    And I enter '123456' for the 'requirement estimated total value'
+    And I select 'Yes'
+    And I click on 'Continue'
+    Then I should see the following error messages:
+      | Enter the intended start date, including the month and year |
+
+    Examples:
+      | date    |
+      | / /     |
+      | 1/ /    |
+      | 34/5678 |
+      | b/c     |
+
+  Scenario Outline: Information about your requirements end date validations
+    And I select 'Yes'
+    And I click on 'Continue'
+    Given I am on the 'Information about your requirements' page
+    And I enter '10/2024' for the requirement 'start' date
+    And I enter '<date>' for the requirement 'end' date
+    And I enter '123456' for the 'requirement estimated total value'
+    And I select 'Yes'
+    And I click on 'Continue'
+    Then I should see the following error messages:
+      | <error_message> |
+
+    Examples:
+      | date    | error_message                                               |
+      | / /     | Enter the intended end date, including the month and year   |
+      | 1/ /    | Enter the intended end date, including the month and year   |
+      | 34/5678 | Enter the intended end date, including the month and year   |
+      | b/c     | Enter the intended end date, including the month and year   |
+      | 10/2023 | The intended end date must be after the intended start date |
+
+  Scenario Outline: Information about your requirements requirement estimated total value validations
+    And I select 'Yes'
+    And I click on 'Continue'
+    Given I am on the 'Information about your requirements' page
+    And I enter '10/2024' for the requirement 'start' date
+    And I enter '10/2025' for the requirement 'end' date
+    And I enter '<value>' for the 'requirement estimated total value'
+    And I select 'Yes'
+    And I click on 'Continue'
+    Then I should see the following error messages:
+      | <error_message> |
+
+    Examples:
+      | value         | error_message                                                              |
+      |               | The estimated total value must be a whole number greater than 0            |
+      | 0             | The estimated total value must be a whole number greater than 0            |
+      | 1000000000000 | The estimated total value must be less than 1,000,000,000,000 (1 trillion) |
+      | 67.4          | The estimated total value must be a whole number greater than 0            |
+      | Big int       | The estimated total value must be a whole number greater than 0            |
 
   Scenario: Select the lot you need validations - central government yes
-    Given I am on the 'Do you work for central government?' page
+    Given I am on the 'Do you work for central government or an arms length body?' page
+    And I select 'Yes'
+    And I click on 'Continue'
+    Given I am on the 'Information about your requirements' page
+    And I enter '10/2024' for the requirement 'start' date
+    And I enter '10/2025' for the requirement 'end' date
+    And I enter '123456' for the 'requirement estimated total value'
     And I select 'Yes'
     And I click on 'Continue'
     Then I am on the 'Select the lot you need' page
@@ -20,20 +96,32 @@ Feature: Legal Panel for Government - Jounrey validations
     Then I should see the following error messages:
       | Select the lot you need |
 
-  Scenario: Select the legal services you need - not Lot 4
-    Given I am on the 'Do you work for central government?' page
+  Scenario: Select the legal specialisms you need - not Lot 4
+    Given I am on the 'Do you work for central government or an arms length body?' page
+    And I select 'Yes'
+    And I click on 'Continue'
+    Given I am on the 'Information about your requirements' page
+    And I enter '10/2024' for the requirement 'start' date
+    And I enter '10/2025' for the requirement 'end' date
+    And I enter '123456' for the 'requirement estimated total value'
     And I select 'Yes'
     And I click on 'Continue'
     Then I am on the 'Select the lot you need' page
     And I select 'Lot 1 - Core Legal Services'
     And I click on 'Continue'
-    Then I am on the 'Select the legal services you need' page
+    Then I am on the 'Select the legal specialisms you need' page
     When I click on 'Continue'
     Then I should see the following error messages:
-      | Select at least one legal service |
+      | Select at least one legal specialism |
 
   Scenario: Is your requirement for a location outside of the countries listed below?
-    Given I am on the 'Do you work for central government?' page
+    Given I am on the 'Do you work for central government or an arms length body?' page
+    And I select 'Yes'
+    And I click on 'Continue'
+    Given I am on the 'Information about your requirements' page
+    And I enter '10/2024' for the requirement 'start' date
+    And I enter '10/2025' for the requirement 'end' date
+    And I enter '123456' for the 'requirement estimated total value'
     And I select 'Yes'
     And I click on 'Continue'
     Then I am on the 'Select the lot you need' page
@@ -45,7 +133,13 @@ Feature: Legal Panel for Government - Jounrey validations
       | Select if your requirement is for a country outside the listed locations |
 
   Scenario: Select the countries for your requirement
-    Given I am on the 'Do you work for central government?' page
+    Given I am on the 'Do you work for central government or an arms length body?' page
+    And I select 'Yes'
+    And I click on 'Continue'
+    Given I am on the 'Information about your requirements' page
+    And I enter '10/2024' for the requirement 'start' date
+    And I enter '10/2025' for the requirement 'end' date
+    And I enter '123456' for the 'requirement estimated total value'
     And I select 'Yes'
     And I click on 'Continue'
     Then I am on the 'Select the lot you need' page
@@ -59,8 +153,14 @@ Feature: Legal Panel for Government - Jounrey validations
     Then I should see the following error messages:
       | Select the countries for your requirement |
 
-  Scenario: Select the legal services you need - Lot 4
-    Given I am on the 'Do you work for central government?' page
+  Scenario: Select the legal specialisms you need - Lot 4
+    Given I am on the 'Do you work for central government or an arms length body?' page
+    And I select 'Yes'
+    And I click on 'Continue'
+    Given I am on the 'Information about your requirements' page
+    And I enter '10/2024' for the requirement 'start' date
+    And I enter '10/2025' for the requirement 'end' date
+    And I enter '123456' for the 'requirement estimated total value'
     And I select 'Yes'
     And I click on 'Continue'
     Then I am on the 'Select the lot you need' page
@@ -69,19 +169,25 @@ Feature: Legal Panel for Government - Jounrey validations
     Then I am on the 'Is your requirement for a location outside of the countries listed below?' page
     And I select 'No'
     When I click on 'Continue'
-    Then I am on the 'Select the legal services you need' page
+    Then I am on the 'Select the legal specialisms you need' page
     When I click on 'Continue'
     Then I should see the following error messages:
-      | Select at least one legal service |
+      | Select at least one legal specialism |
 
   Scenario: Select suppliers for comparison - not Lot 4
-    Given I am on the 'Do you work for central government?' page
+    Given I am on the 'Do you work for central government or an arms length body?' page
+    And I select 'Yes'
+    And I click on 'Continue'
+    Given I am on the 'Information about your requirements' page
+    And I enter '10/2024' for the requirement 'start' date
+    And I enter '10/2025' for the requirement 'end' date
+    And I enter '123456' for the 'requirement estimated total value'
     And I select 'Yes'
     And I click on 'Continue'
     Then I am on the 'Select the lot you need' page
     And I select 'Lot 1 - Core Legal Services'
     And I click on 'Continue'
-    Then I am on the 'Select the legal services you need' page
+    Then I am on the 'Select the legal specialisms you need' page
     And I check 'Children and Vulnerable Adults'
     When I click on 'Continue'
     Then I am on the 'Supplier results' page
@@ -92,13 +198,19 @@ Feature: Legal Panel for Government - Jounrey validations
       | You must select at least two suppliers for comparison |
 
   Scenario: Select suppliers for comparison - one supplier - not Lot 4
-    Given I am on the 'Do you work for central government?' page
+    Given I am on the 'Do you work for central government or an arms length body?' page
+    And I select 'Yes'
+    And I click on 'Continue'
+    Given I am on the 'Information about your requirements' page
+    And I enter '10/2024' for the requirement 'start' date
+    And I enter '10/2025' for the requirement 'end' date
+    And I enter '123456' for the 'requirement estimated total value'
     And I select 'Yes'
     And I click on 'Continue'
     Then I am on the 'Select the lot you need' page
     And I select 'Lot 1 - Core Legal Services'
     And I click on 'Continue'
-    Then I am on the 'Select the legal services you need' page
+    Then I am on the 'Select the legal specialisms you need' page
     And I check 'Children and Vulnerable Adults'
     When I click on 'Continue'
     Then I am on the 'Supplier results' page
@@ -110,7 +222,13 @@ Feature: Legal Panel for Government - Jounrey validations
       | You must select at least two suppliers for comparison |
 
   Scenario: Select suppliers for comparison - Lot 4
-    Given I am on the 'Do you work for central government?' page
+    Given I am on the 'Do you work for central government or an arms length body?' page
+    And I select 'Yes'
+    And I click on 'Continue'
+    Given I am on the 'Information about your requirements' page
+    And I enter '10/2024' for the requirement 'start' date
+    And I enter '10/2025' for the requirement 'end' date
+    And I enter '123456' for the 'requirement estimated total value'
     And I select 'Yes'
     And I click on 'Continue'
     Then I am on the 'Select the lot you need' page
@@ -119,7 +237,7 @@ Feature: Legal Panel for Government - Jounrey validations
     Then I am on the 'Is your requirement for a location outside of the countries listed below?' page
     And I select 'No'
     When I click on 'Continue'
-    Then I am on the 'Select the legal services you need' page
+    Then I am on the 'Select the legal specialisms you need' page
     And I check 'Assimilated Law'
     When I click on 'Continue'
     Then I am on the 'Supplier results' page
@@ -130,7 +248,13 @@ Feature: Legal Panel for Government - Jounrey validations
       | You must select at least two suppliers for comparison |
 
   Scenario: Select suppliers for comparison - one supplier - Lot 4
-    Given I am on the 'Do you work for central government?' page
+    Given I am on the 'Do you work for central government or an arms length body?' page
+    And I select 'Yes'
+    And I click on 'Continue'
+    Given I am on the 'Information about your requirements' page
+    And I enter '10/2024' for the requirement 'start' date
+    And I enter '10/2025' for the requirement 'end' date
+    And I enter '123456' for the 'requirement estimated total value'
     And I select 'Yes'
     And I click on 'Continue'
     Then I am on the 'Select the lot you need' page
@@ -139,7 +263,7 @@ Feature: Legal Panel for Government - Jounrey validations
     Then I am on the 'Is your requirement for a location outside of the countries listed below?' page
     And I select 'No'
     When I click on 'Continue'
-    Then I am on the 'Select the legal services you need' page
+    Then I am on the 'Select the legal specialisms you need' page
     And I check 'Assimilated Law'
     When I click on 'Continue'
     Then I am on the 'Supplier results' page

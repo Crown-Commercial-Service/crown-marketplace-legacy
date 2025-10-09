@@ -11,7 +11,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::Journey::ChooseOrganisationType 
 
       it 'is not valid and has the correct error message' do
         expect(step).not_to be_valid
-        expect(step.errors[:central_government].first).to eq 'Select yes if you work for central government'
+        expect(step.errors[:central_government].first).to eq 'Select yes if you work for central government or an arms length body'
       end
     end
 
@@ -20,7 +20,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::Journey::ChooseOrganisationType 
 
       it 'is not valid and has the correct error message' do
         expect(step).not_to be_valid
-        expect(step.errors[:central_government].first).to eq 'Select yes if you work for central government'
+        expect(step.errors[:central_government].first).to eq 'Select yes if you work for central government or an arms length body'
       end
     end
 
@@ -35,8 +35,8 @@ RSpec.describe LegalPanelForGovernment::RM6360::Journey::ChooseOrganisationType 
     context 'and the central government is yes' do
       let(:central_government) { 'yes' }
 
-      it 'returns Journey::SelectLot' do
-        expect(step.next_step_class).to be LegalPanelForGovernment::RM6360::Journey::SelectLot
+      it 'returns Journey::InformationAboutYourRequirement' do
+        expect(step.next_step_class).to be LegalPanelForGovernment::RM6360::Journey::InformationAboutYourRequirement
       end
     end
 

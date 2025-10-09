@@ -4,7 +4,7 @@ module SupplyTeachers
 
     include Steppable
     include Dateable
-    include DateValidator
+    include DateValidations
 
     attribute :contract_end_date_day
     attribute :contract_end_date_month

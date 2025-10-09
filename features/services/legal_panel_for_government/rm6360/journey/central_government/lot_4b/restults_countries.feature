@@ -4,7 +4,13 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4b - Results 
     Given I sign in and navigate to the start page for the 'RM6360' framework in 'legal panel for government'
     Then I am on the 'Your account' page
     And I click on 'Search for suppliers'
-    Then I am on the 'Do you work for central government?' page
+    Then I am on the 'Do you work for central government or an arms length body?' page
+    And I select 'Yes'
+    And I click on 'Continue'
+    Then I am on the 'Information about your requirements' page
+    And I enter '10/2024' for the requirement 'start' date
+    And I enter '10/2025' for the requirement 'end' date
+    And I enter '123456' for the 'requirement estimated total value'
     And I select 'Yes'
     And I click on 'Continue'
     Then I am on the 'Select the lot you need' page
@@ -20,7 +26,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4b - Results 
       | Algeria        |
       | Cayman Islands |
     And I click on 'Continue'
-    Then I am on the 'Select the legal services you need' page
+    Then I am on the 'Select the legal specialisms you need' page
     And the sub title is 'Lot 4b - International Trade Disputes'
     When I check the following items:
       | Wider trading arrangements |
@@ -35,7 +41,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4b - Results 
 
   Scenario: Service selection changes the results
     Given I click on the 'Back' back link
-    Then I am on the 'Select the legal services you need' page
+    Then I am on the 'Select the legal specialisms you need' page
     And I deselect all the items
     Given I check 'Compliance with international law'
     When I click on 'Continue'
@@ -48,14 +54,14 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4b - Results 
 
   Scenario: Country selection changes the results
     Given I click on the 'Back' back link
-    Then I am on the 'Select the legal services you need' page
+    Then I am on the 'Select the legal specialisms you need' page
     Given I click on the 'Back' back link
     Then I am on the 'Select the countries for your requirement' page
     And I deselect all the items
     When I check the following items:
       | Afghanistan |
     And I click on 'Continue'
-    Then I am on the 'Select the legal services you need' page
+    Then I am on the 'Select the legal specialisms you need' page
     And the sub title is 'Lot 4b - International Trade Disputes'
     When I check the following items:
       | Wider trading arrangements |

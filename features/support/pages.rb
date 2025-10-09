@@ -18,4 +18,8 @@ module Pages
   def supply_teachers_page
     @supply_teachers_page ||= SupplyTeachers.new
   end
+
+  def legal_panel_for_government_page
+    @legal_panel_for_government_page ||= LegalPanelForGovernment.new
+  end
 end

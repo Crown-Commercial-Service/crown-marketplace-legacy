@@ -5,7 +5,7 @@ module SupplyTeachers
 
     include Steppable
     include Dateable
-    include DateValidator
+    include DateValidations
     include ActiveSupport::NumberHelper
 
     attribute :contract_start_date_day

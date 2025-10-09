@@ -5,9 +5,9 @@ Feature: Legal Panel for Government - Central government - Accessibility
     Given I sign in and navigate to the start page for the 'RM6360' framework in 'legal panel for government'
     Then I am on the 'Your account' page
     And I click on 'Search for suppliers'
-    Then I am on the 'Do you work for central government?' page
+    Then I am on the 'Do you work for central government or an arms length body?' page
 
-  Scenario: Do you work for central government?
+  Scenario: Do you work for central government or an arms length body?
     Then the page should pass the accessibility checks
 
   Scenario: Select the lot you need
@@ -16,13 +16,13 @@ Feature: Legal Panel for Government - Central government - Accessibility
     Then I am on the 'Select the lot you need' page
     Then the page should pass the accessibility checks
 
-  Scenario Outline: Select the legal services you need
+  Scenario Outline: Select the legal specialisms you need
     And I select 'Yes'
     And I click on 'Continue'
     Then I am on the 'Select the lot you need' page
     And I select '<lot>'
     And I click on 'Continue'
-    And I am on the 'Select the legal services you need' page
+    And I am on the 'Select the legal specialisms you need' page
     And the sub title is '<lot>'
     Then the page should pass the accessibility checks
 
@@ -39,7 +39,7 @@ Feature: Legal Panel for Government - Central government - Accessibility
     Then I am on the 'Select the lot you need' page
     And I select '<lot>'
     And I click on 'Continue'
-    And I am on the 'Select the legal services you need' page
+    And I am on the 'Select the legal specialisms you need' page
     And the sub title is '<lot>'
     Given I check '<service>'
     And I click on 'Continue'
@@ -92,7 +92,7 @@ Feature: Legal Panel for Government - Central government - Accessibility
       | Lot 4b - International Trade Disputes      |
       | Lot 4c - International Investment Disputes |
 
-  Scenario Outline: Select the legal services you need - Lot 4
+  Scenario Outline: Select the legal specialisms you need - Lot 4
     And I select 'Yes'
     And I click on 'Continue'
     Then I am on the 'Select the lot you need' page
@@ -102,7 +102,7 @@ Feature: Legal Panel for Government - Central government - Accessibility
     And the sub title is '<lot>'
     And I select 'No'
     And I click on 'Continue'
-    And I am on the 'Select the legal services you need' page
+    And I am on the 'Select the legal specialisms you need' page
     And the sub title is '<lot>'
     Then the page should pass the accessibility checks
 
@@ -122,7 +122,7 @@ Feature: Legal Panel for Government - Central government - Accessibility
     And the sub title is '<lot>'
     And I select 'No'
     And I click on 'Continue'
-    And I am on the 'Select the legal services you need' page
+    And I am on the 'Select the legal specialisms you need' page
     And the sub title is '<lot>'
     Given I check '<service>'
     And I click on 'Continue'

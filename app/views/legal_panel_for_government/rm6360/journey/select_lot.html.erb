@@ -17,8 +17,8 @@
             },
             hint: {
               text: capture do
-                concat(t(".extended_description.lot_#{lot.number}")) if !lot.number.start_with?('4')
-                concat(govuk_details(lot_legal_services(lot.number), classes: 'govuk-!-margin-top-2 govuk-!-margin-bottom-5') do
+                concat(t(".extended_description.lot_#{lot.number}"))
+                concat(govuk_details(lot_legal_specialisms(lot), classes: 'govuk-!-margin-top-2 govuk-!-margin-bottom-5') do
                   tag.ul(class: 'govuk-list') do
                     lot.services.order(:name).each do |service|
                       concat(tag.li(service.name))

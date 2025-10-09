@@ -12,7 +12,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::Journey::ChooseServices do
 
       it 'is not valid and has the correct error message' do
         expect(step).not_to be_valid
-        expect(step.errors[:service_ids].first).to eq 'Select at least one legal service'
+        expect(step.errors[:service_ids].first).to eq 'Select at least one legal specialism'
       end
     end
 
