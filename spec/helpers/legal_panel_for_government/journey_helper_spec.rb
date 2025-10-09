@@ -10,9 +10,9 @@ RSpec.describe LegalPanelForGovernment::JourneyHelper do
     end
   end
 
-  describe '#lot_legal_services' do
+  describe '#lot_legal_specialisms' do
     it 'returns text containing the correct lot number' do
-      expect(helper.lot_legal_services(lot_number)).to eq("Lot #{lot_number} legal services")
+      expect(helper.lot_legal_specialisms(lot)).to eq("Lot #{lot_number} legal specialisms")
     end
   end
 end

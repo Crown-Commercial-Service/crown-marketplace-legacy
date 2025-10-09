@@ -3,6 +3,8 @@ import initBasket from './shared/basket'
 import initCookieBanner from './shared/cookieBanner'
 import initFilterTable from './shared/filterTable'
 import initGoogleAnalyticsDataLayer from './shared/googleAnalyticsDataLayer'
+import initLimitInputToInteger from './shared/integerInput'
+import initNumberWithCommas from './shared/numberWithCommas'
 import initReportProgress from './shared/reportProgress'
 import initSearchAllSuppliers from './supplyTeachers/searchAllSuppliers'
 import initSupplyTeachersAdminUpload from './supplyTeachers/adminUpload'
@@ -14,6 +16,8 @@ const initAll = () => {
   initCookieBanner()
   initFilterTable()
   initGoogleAnalyticsDataLayer()
+  initLimitInputToInteger()
+  initNumberWithCommas()
   initReportProgress()
 
   initSupplyTeachersAdminUpload()

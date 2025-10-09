@@ -1,0 +1,137 @@
+<%= add_optional_error_prefix_to_page_title(@journey.errors) %>
+<%= content_for :page_title, t('.heading') %>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <%= render partial: 'shared/error_summary', locals: { errors: @journey.errors } %>
+
+    <%= govuk_fieldset(
+      legend: {
+        text: t('.heading'),
+        classes: 'govuk-fieldset__legend--l',
+        is_page_heading: true,
+      },
+      attributes: {
+        aria: {
+          describedby: 'information-about-your-requirement-description'
+        }
+      }
+    ) do %>
+      <p class="govuk-body" id="information-about-your-requirement-description">
+        <%= t('.description') %>
+      </p>
+
+      <%= form_with url: @form_path, method: :get, html: { specialvalidation: true, novalidate: true } do |f| %>
+        <%= hidden_fields_for_previous_steps_and_responses(@journey) %>
+        <%= govuk_date_input(
+          :requirement_start_date,
+          model: @journey.current_step,
+          fieldset: {
+            legend: {
+              text: t('.requirement_start_date.question'),
+              classes: 'govuk-fieldset__legend--m',
+            },
+          },
+          hint: {
+            text: t('.requirement_start_date.hint')
+          },
+          date_items: [
+            {
+              name: 'month',
+              input: {
+                classes: 'govuk-input--width-2'
+              },
+              label: {
+                text: I18n.t('date.month')
+              }
+            },
+            {
+              name: 'year',
+              input: {
+                classes: 'govuk-input--width-4'
+              },
+              label: {
+                text: I18n.t('date.year')
+              }
+            }
+          ]
+        ) %>
+
+        <%= govuk_date_input(
+          :requirement_end_date,
+          model: @journey.current_step,
+          fieldset: {
+            legend: {
+              text: t('.requirement_end_date.question'),
+              classes: 'govuk-fieldset__legend--m',
+            },
+          },
+          hint: {
+            text: t('.requirement_end_date.hint')
+          },
+          date_items: [
+            {
+              name: 'month',
+              input: {
+                classes: 'govuk-input--width-2'
+              },
+              label: {
+                text: I18n.t('date.month')
+              }
+            },
+            {
+              name: 'year',
+              input: {
+                classes: 'govuk-input--width-4'
+              },
+              label: {
+                text: I18n.t('date.year')
+              }
+            }
+          ]
+        ) %>
+
+        <%= govuk_input(
+          :requirement_estimated_total_value,
+          model: @journey.current_step,
+          label: {
+            text: t('.requirement_estimated_total_value.question'),
+            classes: 'govuk-label--m'
+          },
+          prefix: {
+            text: '£'
+          },
+          classes: 'ccs-number-field ccs-integer-field govuk-input--width-10',
+          attributes: {
+            maxlength: 15
+          }
+        ) %>
+
+        <%= govuk_radios(
+          :ccs_can_contact_you,
+          @journey.current_step.class::CCS_CAN_CONTACT_YOU_OPTIONS.map do |option|
+            {
+              value: option,
+              label: {
+                text: t(option)
+              }
+            }
+          end,
+          model: @journey.current_step,
+          fieldset: {
+            legend: {
+              text: t('.ccs_can_contact_you.question'),
+              classes: 'govuk-fieldset__legend--m',
+            }
+          },
+          hint: {
+            text: t('.ccs_can_contact_you.hint')
+          },
+          classes: 'govuk-radios--inline'
+        ) %>
+
+        <%= govuk_button(t('common.submit'), form: f, classes: 'govuk-!-padding-left-7 govuk-!-padding-right-7', attributes: { id: 'submit', name: t('common.submit') }) %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

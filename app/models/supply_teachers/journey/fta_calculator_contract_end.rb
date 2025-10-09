@@ -3,7 +3,7 @@ module SupplyTeachers
     DATE_ATTIBUTES = %i[contract_start_date contract_end_date].freeze
 
     include Steppable
-    include DateValidator
+    include DateValidations
 
     attribute :contract_start_date_day
     attribute :contract_start_date_month

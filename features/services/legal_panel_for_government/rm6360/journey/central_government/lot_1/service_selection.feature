@@ -4,13 +4,19 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 1 - Service s
     Given I sign in and navigate to the start page for the 'RM6360' framework in 'legal panel for government'
     Then I am on the 'Your account' page
     And I click on 'Search for suppliers'
-    Then I am on the 'Do you work for central government?' page
+    Then I am on the 'Do you work for central government or an arms length body?' page
+    And I select 'Yes'
+    And I click on 'Continue'
+    Then I am on the 'Information about your requirements' page
+    And I enter '10/2024' for the requirement 'start' date
+    And I enter '10/2025' for the requirement 'end' date
+    And I enter '123456' for the 'requirement estimated total value'
     And I select 'Yes'
     And I click on 'Continue'
     Then I am on the 'Select the lot you need' page
     And I select 'Lot 1 - Core Legal Services'
     And I click on 'Continue'
-    Then I am on the 'Select the legal services you need' page
+    Then I am on the 'Select the legal specialisms you need' page
     And the sub title is 'Lot 1 - Core Legal Services'
 
   @javascript
@@ -67,10 +73,10 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 1 - Service s
 
   @javascript
   Scenario: Service selection appears in basked
-    Then the basket should say 'No services selected'
+    Then the basket should say 'No specialisms selected'
     And the remove all link should not be visible
     When I check 'Children and Vulnerable Adults'
-    Then the basket should say '1 service selected'
+    Then the basket should say '1 specialism selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
       | Children and Vulnerable Adults |
@@ -81,7 +87,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 1 - Service s
       | Employment Law                     |
       | Health, Healthcare and Social Care |
       | Intellectual Property Law          |
-    Then the basket should say '7 services selected'
+    Then the basket should say '7 specialisms selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
       | Children and Vulnerable Adults     |
@@ -101,7 +107,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 1 - Service s
       | Tax Law                            |
       | Planning Law                       |
       | Pensions Law                       |
-    Then the basket should say '6 services selected'
+    Then the basket should say '6 specialisms selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
       | Children and Vulnerable Adults     |
@@ -112,7 +118,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 1 - Service s
       | Planning Law                       |
     When I deselect the following items:
       | Tax Law |
-    Then the basket should say '5 services selected'
+    Then the basket should say '5 specialisms selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
       | Children and Vulnerable Adults     |
@@ -123,14 +129,14 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 1 - Service s
     When I remove the following items from the basket:
       | Education Law |
       | Planning Law  |
-    Then the basket should say '3 services selected'
+    Then the basket should say '3 specialisms selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
       | Children and Vulnerable Adults     |
       | Health, Healthcare and Social Care |
       | Pensions Law                       |
     When I click on 'Remove all'
-    Then the basket should say 'No services selected'
+    Then the basket should say 'No specialisms selected'
 
   @javascript
   Scenario: Go back from suppliers and change selection
@@ -141,7 +147,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 1 - Service s
     And I click on 'Continue'
     Then I am on the 'Supplier results' page
     And I click on the 'Back' back link
-    Then I am on the 'Select the legal services you need' page
+    Then I am on the 'Select the legal specialisms you need' page
     And the following items should appear in the basket:
       | Assimilated Law       |
       | Aviation and Airports |

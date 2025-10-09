@@ -5,7 +5,7 @@ Feature: Legal Panel for Government - Suppliers - Accessibility
     Given I sign in and navigate to the start page for the 'RM6360' framework in 'legal panel for government'
     Then I am on the 'Your account' page
     And I click on 'Search for suppliers'
-    Then I am on the 'Do you work for central government?' page
+    Then I am on the 'Do you work for central government or an arms length body?' page
 
   Scenario Outline: Results page - Lots 1, 2, 3 and 5
     And I select 'Yes'
@@ -13,7 +13,7 @@ Feature: Legal Panel for Government - Suppliers - Accessibility
     Then I am on the 'Select the lot you need' page
     And I select '<lot>'
     And I click on 'Continue'
-    And I am on the 'Select the legal services you need' page
+    And I am on the 'Select the legal specialisms you need' page
     And the sub title is '<lot>'
     Given I check '<service>'
     And I click on 'Continue'
@@ -38,7 +38,7 @@ Feature: Legal Panel for Government - Suppliers - Accessibility
     And the sub title is '<lot>'
     And I select 'No'
     And I click on 'Continue'
-    And I am on the 'Select the legal services you need' page
+    And I am on the 'Select the legal specialisms you need' page
     And the sub title is '<lot>'
     Given I check '<service>'
     And I click on 'Continue'
@@ -58,7 +58,7 @@ Feature: Legal Panel for Government - Suppliers - Accessibility
     Then I am on the 'Select the lot you need' page
     And I select '<lot>'
     And I click on 'Continue'
-    And I am on the 'Select the legal services you need' page
+    And I am on the 'Select the legal specialisms you need' page
     And the sub title is '<lot>'
     Given I check '<service>'
     And I click on 'Continue'
@@ -85,7 +85,7 @@ Feature: Legal Panel for Government - Suppliers - Accessibility
     And the sub title is '<lot>'
     And I select 'No'
     And I click on 'Continue'
-    And I am on the 'Select the legal services you need' page
+    And I am on the 'Select the legal specialisms you need' page
     And the sub title is '<lot>'
     Given I check '<service>'
     And I click on 'Continue'
@@ -107,7 +107,7 @@ Feature: Legal Panel for Government - Suppliers - Accessibility
     Then I am on the 'Select the lot you need' page
     And I select '<lot>'
     And I click on 'Continue'
-    And I am on the 'Select the legal services you need' page
+    And I am on the 'Select the legal specialisms you need' page
     And the sub title is '<lot>'
     Given I check '<service>'
     And I click on 'Continue'
@@ -134,7 +134,7 @@ Feature: Legal Panel for Government - Suppliers - Accessibility
     And the sub title is '<lot>'
     And I select 'No'
     And I click on 'Continue'
-    And I am on the 'Select the legal services you need' page
+    And I am on the 'Select the legal specialisms you need' page
     And the sub title is '<lot>'
     Given I check '<service>'
     And I click on 'Continue'

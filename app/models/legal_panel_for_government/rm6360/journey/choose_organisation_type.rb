@@ -11,7 +11,7 @@ module LegalPanelForGovernment
       def next_step_class
         case central_government
         when 'yes'
-          Journey::SelectLot
+          Journey::InformationAboutYourRequirement
         else
           Journey::Sorry
         end

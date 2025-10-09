@@ -10,15 +10,31 @@ en:
         legal_panel_for_government/rm6360/journey/choose_organisation_type:
           attributes:
             central_government:
-              inclusion: Select yes if you work for central government
+              inclusion: Select yes if you work for central government or an arms length body
         legal_panel_for_government/rm6360/journey/choose_services:
           attributes:
             service_ids:
-              blank: Select at least one legal service
+              blank: Select at least one legal specialism
         legal_panel_for_government/rm6360/journey/core_jurisdiction:
           attributes:
             not_core_jurisdiction:
               inclusion: Select if your requirement is for a country outside the listed locations
+        legal_panel_for_government/rm6360/journey/information_about_your_requirement:
+          attributes:
+            ccs_can_contact_you:
+              inclusion: You must select an option
+            requirement_end_date:
+              after_requirement_start_date: The intended end date must be after the intended start date
+              blank: Enter the intended end date, including the month and year
+              invalid: Enter a real date
+            requirement_estimated_total_value:
+              greater_than: The estimated total value must be a whole number greater than 0
+              less_than: The estimated total value must be less than 1,000,000,000,000 (1 trillion)
+              not_a_number: The estimated total value must be a whole number greater than 0
+              not_an_integer: The estimated total value must be a whole number greater than 0
+            requirement_start_date:
+              blank: Enter the intended start date, including the month and year
+              invalid: Enter a real date
         legal_panel_for_government/rm6360/journey/select_lot:
           attributes:
             lot_id:
@@ -88,6 +104,9 @@ en:
         make_sure_listed: The framework in the web address is '%{framework}'. Make sure the web address contains one of the listed frameworks.
         page_title: Unrecognised framework
         the_recognised_are: 'The Legal Panel for Government frameworks are:'
+    journey:
+      lot_full_name: Lot %{lot_number} - %{lot_name}
+      lot_legal_specialisms: Lot %{lot_number} legal specialisms
     rm6360:
       admin:
         lot_data:
@@ -254,14 +273,14 @@ en:
           question: Select the countries for your requirement
           search_jurisdictions: Start typing to find a country
         choose_organisation_type:
-          question: Do you work for central government?
+          question: Do you work for central government or an arms length body?
           search_central_government_html: Search %{central_government_search_link} if you're unsure.
           txt_link_text: central government departments, agencies and public bodies
         choose_services:
-          no_services_selected: No services selected
-          question: Select the legal services you need
-          service_selected: service selected
-          services_selected: services selected
+          no_services_selected: No specialisms selected
+          question: Select the legal specialisms you need
+          service_selected: specialism selected
+          services_selected: specialisms selected
         core_jurisdiction:
           core_country:
             belgium: Belgium
@@ -273,13 +292,29 @@ en:
             united_kingdom: United Kingdom
             usa: United States
           question: Is your requirement for a location outside of the countries listed below?
+        information_about_your_requirement:
+          ccs_can_contact_you:
+            hint: Any follow-up activity is intended to deliver ongoing support
+            question: Can CCS contact you about this search?
+          description: To help CCS understand your needs, please tell us how long this will take and what it’s worth. If you’re not sure at this stage, an estimate can be provided.
+          heading: Information about your requirements
+          requirement_end_date:
+            hint: For example, 3 2026
+            question: What is the intended end date for your requirement?
+          requirement_estimated_total_value:
+            question: What is the estimated total value of your requirement?
+          requirement_start_date:
+            hint: For example, 12 2025
+            question: What is the intended start date for your requirement?
         select_lot:
           extended_description:
-            lot_1: Offers buyers general legal advice required to deliver projects or advise on issues which are not covered by Lots 2, 3,4 or 5
-            lot_2: Major Projects and Complex Advice where Suppliers will deal with projects with increasing levels of risk and innovation
-            lot_3: Matters of the very highest risk and complexity, high levels of innovation, including 'first of a kind' projects and the most complex regulatory work
-            lot_4: Lot 4 - Lots 4 a), b) and c) are for Trade Legal Services and are intended to cover the majority of the technical international trade and investment work that government may need on the trading relationships between sovereign states
-            lot_5: Offers buyers legal services which require a deep understanding of the rail industry and its regulatory framework
+            lot_1: Offers comprehensive legal capability across essential specialisms to meet the government's core legal needs, supporting buyers with general legal advice for project delivery and related issues.
+            lot_2: Offers suppliers able to deliver high‑risk, innovative initiatives across mandatory legal specialisms (including Litigation), navigating evolving project lifecycles, proactively addressing risks and advising on policies where no established solutions exist.
+            lot_3: Offers the capability to handle the highest-risk, most complex legal matters across mandatory specialisms (including groundbreaking projects, major regulatory challenges, large-scale infrastructure and high-value litigation), plus intricate finance and capital markets work such as international capital markets, asset finance, restructuring and insolvency.
+            lot_4a: Offers advice on negotiating and implementing trade and investment agreements, ensuring international-law compliance (WTO, FTAs, treaties and EU law). Includes drafting UK treaty text, supporting negotiations, analysing UK obligations, and providing treaty-related guidance on trade and investment.
+            lot_4b: Offers legal advice and support for international trade disputes, representing the UK government in offensive and defensive proceedings, covering all stages of dispute resolution, WTO procedures, and litigation strategy, drawing on experience in WTO and FTA litigation, including guidance on trade remedies and related investigations.
+            lot_4c: Offers legal advice and support for treaty-based international investment disputes, representing the UK in investor-State and inter-State proceedings, covering all dispute stages (written and oral advocacy), policy-risk assessment, and managing disputes under UK investment treaties across diverse sectors and high-sensitivity or public-interest matters.
+            lot_5: Offers specialist legal services for the rail industry, with in-depth knowledge of its regulatory framework, recognising the unique nature of rail law and its pivotal role in supporting national transport objectives.
           heading: Select the lot you need
         select_suppliers_for_comparison:
           no_suppliers_selected: No suppliers selected
@@ -289,8 +324,8 @@ en:
         sorry:
           back_to_start: Back to start
           heading: Sorry, this panel isn't suitable for you
-          lead_1: This panel is the default route to market offering a range of legal services to Central Government Departments, their executive agencies and ALBS
-          lead_2_html: Wider public sector organisations and departments granted an exception from GLD should consider using %{link}
+          lead_1: This panel is the default route to market offering a range of legal services to Central Government Departments, their executive agencies and arms length bodies.
+          lead_2_html: Wider public sector organisations and departments granted an exception from GLD should consider using %{link}.
           lead_2_link_text: RM6240 Public sector legal services
           lead_2_link_url: https://www.crowncommercial.gov.uk/agreements/RM6240
       suppliers:

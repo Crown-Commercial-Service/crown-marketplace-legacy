@@ -11,12 +11,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Moved some rake tasks into `DataLoader` module to allow them to be run using SideKiq ([PR 2114](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2114))
 - Add the buyer details section for Legal Panel for Government ([PR 2121](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2121))
+- Add new Information about requirement step for LPfG journey ([PR 2125](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2125))
 
 ### Changed
 
 - Added the `category` attribute to the jurisdictions ([PR 2104](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2104))
 - Updated the copy on the landing page for LPfG ([PR 2123](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2123))
 - Upgrade ruby version to v3.4.7 ([PR 2124](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2124))
+- Updated copy for LPfG pages ([PR 2125](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2125))
 
 ## [6.2.0] - 2025-09-22
 

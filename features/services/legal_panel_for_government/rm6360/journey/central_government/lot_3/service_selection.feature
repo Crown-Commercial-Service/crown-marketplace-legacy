@@ -4,13 +4,19 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 3 - Service s
     Given I sign in and navigate to the start page for the 'RM6360' framework in 'legal panel for government'
     Then I am on the 'Your account' page
     And I click on 'Search for suppliers'
-    Then I am on the 'Do you work for central government?' page
+    Then I am on the 'Do you work for central government or an arms length body?' page
+    And I select 'Yes'
+    And I click on 'Continue'
+    Then I am on the 'Information about your requirements' page
+    And I enter '10/2024' for the requirement 'start' date
+    And I enter '10/2025' for the requirement 'end' date
+    And I enter '123456' for the 'requirement estimated total value'
     And I select 'Yes'
     And I click on 'Continue'
     Then I am on the 'Select the lot you need' page
     And I select 'Lot 3 - Finance and High Risk/Innovation'
     And I click on 'Continue'
-    Then I am on the 'Select the legal services you need' page
+    Then I am on the 'Select the legal specialisms you need' page
     And the sub title is 'Lot 3 - Finance and High Risk/Innovation'
 
   Scenario: The correct options are available
@@ -41,10 +47,10 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 3 - Service s
 
   @javascript
   Scenario: Service selection appears in basked
-    Then the basket should say 'No services selected'
+    Then the basket should say 'No specialisms selected'
     And the remove all link should not be visible
     When I check 'Credit Insurance and Related Products'
-    Then the basket should say '1 service selected'
+    Then the basket should say '1 specialism selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
       | Credit Insurance and Related Products |
@@ -55,7 +61,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 3 - Service s
       | Restructuring/Insolvency             |
       | Sovereign Debt Restructuring         |
       | United State Securities & Regulatory |
-    Then the basket should say '7 services selected'
+    Then the basket should say '7 specialisms selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
       | Credit Insurance and Related Products |
@@ -75,7 +81,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 3 - Service s
       | Equity Capital Markets                |
       | Merger and Acquisition Activity       |
       | Project and Asset Finance             |
-    Then the basket should say '6 services selected'
+    Then the basket should say '6 specialisms selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
       | Corporate Finance                     |
@@ -86,7 +92,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 3 - Service s
       | Project and Asset Finance             |
     When I deselect the following items:
       | Project and Asset Finance |
-    Then the basket should say '5 services selected'
+    Then the basket should say '5 specialisms selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
       | Corporate Finance                     |
@@ -97,14 +103,14 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 3 - Service s
     When I remove the following items from the basket:
       | Equity Capital Markets          |
       | Merger and Acquisition Activity |
-    Then the basket should say '3 services selected'
+    Then the basket should say '3 specialisms selected'
     And the remove all link should be visible
     And the following items should appear in the basket:
       | Corporate Finance                     |
       | Credit Insurance and Related Products |
       | Energy and Natural Resources          |
     When I click on 'Remove all'
-    Then the basket should say 'No services selected'
+    Then the basket should say 'No specialisms selected'
 
   @javascript
   Scenario: Go back from suppliers and change selection
@@ -115,7 +121,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 3 - Service s
     And I click on 'Continue'
     Then I am on the 'Supplier results' page
     And I click on the 'Back' back link
-    Then I am on the 'Select the legal services you need' page
+    Then I am on the 'Select the legal specialisms you need' page
     And the following items should appear in the basket:
       | Financial Institutions Rescue, Restructuring and Insolvency |
       | Financial Services, Market and Competition Regulation       |
