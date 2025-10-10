@@ -72,7 +72,7 @@
           text: t('.organisation_details.organisation_sector')
         },
         value: {
-          text: @buyer_detail.organisation_sector.nil? ? nil : t("facilities_management.buyer_details.sections.organisation_details.organisation_sector.options.#{@buyer_detail.organisation_sector}")
+          text: @buyer_detail.organisation_sector.nil? ? nil : @buyer_detail.organisation_sector_name
         }
       },
     ],

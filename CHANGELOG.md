@@ -20,6 +20,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Upgrade ruby version to v3.4.7 ([PR 2124](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2124))
 - Updated copy for LPfG pages ([PR 2125](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2125))
 
+### Fixed
+
+- Fix issue where organisation sector name was not being shown correctly ([PR 2126](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2126))
+
 ## [6.2.0] - 2025-09-22
 
 ### Added
