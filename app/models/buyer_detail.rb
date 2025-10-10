@@ -14,7 +14,7 @@ class BuyerDetail < ApplicationRecord
     validates :organisation_sector, inclusion: { in: SECTORS }
   end
 
-  def sector_name
+  def organisation_sector_name
     I18n.t("buyer_details.sections.organisation_details.organisation_sector.options.#{organisation_sector}")
   end
 

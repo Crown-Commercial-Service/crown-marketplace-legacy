@@ -122,8 +122,8 @@ RSpec.describe BuyerDetail do
     end
   end
 
-  describe '#sector_name' do
-    let(:result) { buyer_detail.sector_name }
+  describe '#organisation_sector_name' do
+    let(:result) { buyer_detail.organisation_sector_name }
 
     before { buyer_detail.organisation_sector = organisation_sector }
 
