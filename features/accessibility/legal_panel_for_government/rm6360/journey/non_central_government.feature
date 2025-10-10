@@ -5,7 +5,7 @@ Feature: Legal Panel for Government - Non central government - Accessibility
     Given I sign in and navigate to the start page for the 'RM6360' framework in 'legal panel for government'
     Then I am on the 'Your account' page
     And I click on 'Search for suppliers'
-    Then I am on the 'Do you work for central government?' page
+    Then I am on the 'Do you work for central government or an arms length body?' page
 
   Scenario: Sorry, this panel isn't suitable for you
     And I select 'No'

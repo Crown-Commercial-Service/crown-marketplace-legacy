@@ -1,4 +1,4 @@
-module SupplyTeachers::DateValidator
+module DateValidations
   extend ActiveSupport::Concern
 
   private
