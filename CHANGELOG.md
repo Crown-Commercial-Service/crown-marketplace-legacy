@@ -19,6 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Updated the copy on the landing page for LPfG ([PR 2123](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2123))
 - Upgrade ruby version to v3.4.7 ([PR 2124](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2124))
 - Updated copy for LPfG pages ([PR 2125](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2125))
+- Update GOV.UK Frontend and CCS Frontend ([PR 2133](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2133))
 
 ### Fixed
 
