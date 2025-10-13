@@ -81,7 +81,7 @@ gem 'aasm', '~> 5.5'
 
 # for running background jobs
 gem 'sidekiq', '~> 8.0.8'
-gem 'sinatra', '~> 4.1.1', require: false
+gem 'sinatra', '~> 4.2.1', require: false
 gem 'slim', '~> 5.2.1'
 gem 'sidekiq-cron'
 
