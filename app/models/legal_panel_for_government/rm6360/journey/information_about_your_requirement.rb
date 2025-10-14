@@ -17,11 +17,11 @@ module LegalPanelForGovernment
       attribute :requirement_estimated_total_value, Numeric
       attribute :ccs_can_contact_you
 
+      validate  -> { ensure_date_valid(:requirement_start_date, false) }, unless: -> { requirement_start_date_month.blank? || requirement_start_date_year.blank? }
       validates :requirement_start_date, presence: true
-      validate  -> { ensure_date_valid(:requirement_start_date, false) }
 
+      validate  -> { ensure_date_valid(:requirement_end_date, false) }, unless: -> { requirement_end_date_month.blank? || requirement_end_date_year.blank? }
       validates :requirement_end_date, presence: true
-      validate  -> { ensure_date_valid(:requirement_end_date, false) }
       validate -> { ensure_date_is_after(requirement_end_date, requirement_start_date, :requirement_end_date, :after_requirement_start_date) }
 
       validates :requirement_estimated_total_value, numericality: { only_integer: true, greater_than: 0, less_than: 1_000_000_000_000 }

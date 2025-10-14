@@ -32,14 +32,14 @@ Feature: Legal Panel for Government - Jounrey validations
     And I select 'Yes'
     And I click on 'Continue'
     Then I should see the following error messages:
-      | Enter the intended start date, including the month and year |
+      | <error_message> |
 
     Examples:
-      | date    |
-      | / /     |
-      | 1/ /    |
-      | 34/5678 |
-      | b/c     |
+      | date    | error_message                                               |
+      | / /     | Enter the intended start date, including the month and year |
+      | 1/ /    | Enter the intended start date, including the month and year |
+      | 34/5678 | Enter a real date for the intended start date               |
+      | b/c     | Enter a real date for the intended start date               |
 
   Scenario Outline: Information about your requirements end date validations
     And I select 'Yes'
@@ -57,8 +57,8 @@ Feature: Legal Panel for Government - Jounrey validations
       | date    | error_message                                               |
       | / /     | Enter the intended end date, including the month and year   |
       | 1/ /    | Enter the intended end date, including the month and year   |
-      | 34/5678 | Enter the intended end date, including the month and year   |
-      | b/c     | Enter the intended end date, including the month and year   |
+      | 34/5678 | Enter a real date for the intended end date                 |
+      | b/c     | Enter a real date for the intended end date                 |
       | 10/2023 | The intended end date must be after the intended start date |
 
   Scenario Outline: Information about your requirements requirement estimated total value validations
