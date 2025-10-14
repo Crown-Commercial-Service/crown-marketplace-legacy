@@ -26,7 +26,7 @@ en:
             requirement_end_date:
               after_requirement_start_date: The intended end date must be after the intended start date
               blank: Enter the intended end date, including the month and year
-              invalid: Enter a real date
+              invalid: Enter a real date for the intended end date
             requirement_estimated_total_value:
               greater_than: The estimated total value must be a whole number greater than 0
               less_than: The estimated total value must be less than 1,000,000,000,000 (1 trillion)
@@ -34,7 +34,7 @@ en:
               not_an_integer: The estimated total value must be a whole number greater than 0
             requirement_start_date:
               blank: Enter the intended start date, including the month and year
-              invalid: Enter a real date
+              invalid: Enter a real date for the intended start date
         legal_panel_for_government/rm6360/journey/select_lot:
           attributes:
             lot_id:
