@@ -34,7 +34,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::Journey::InformationAboutYourReq
 
       it 'is not valid and has the correct error message' do
         expect(step).not_to be_valid
-        expect(step.errors[:requirement_start_date].first).to eq 'Enter the intended start date, including the month and year'
+        expect(step.errors[:requirement_start_date].first).to eq 'Enter a real date for the intended start date'
       end
     end
 
@@ -61,7 +61,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::Journey::InformationAboutYourReq
 
       it 'is not valid and has the correct error message' do
         expect(step).not_to be_valid
-        expect(step.errors[:requirement_end_date].first).to eq 'Enter the intended end date, including the month and year'
+        expect(step.errors[:requirement_end_date].first).to eq 'Enter a real date for the intended end date'
       end
     end
 
