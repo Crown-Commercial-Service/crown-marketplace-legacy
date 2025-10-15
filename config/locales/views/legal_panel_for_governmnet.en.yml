@@ -19,6 +19,10 @@ en:
           attributes:
             not_core_jurisdiction:
               inclusion: Select if your requirement is for a country outside the listed locations
+        legal_panel_for_government/rm6360/journey/have_you_reviewed:
+          attributes:
+            have_you_reviewed:
+              inclusion: Select yes if you have shortlisted suppliers
         legal_panel_for_government/rm6360/journey/information_about_your_requirement:
           attributes:
             ccs_can_contact_you:
@@ -292,6 +296,10 @@ en:
             united_kingdom: United Kingdom
             usa: United States
           question: Is your requirement for a location outside of the countries listed below?
+        have_you_reviewed:
+          hint_part_1: If you have not yet shortlisted any suppliers, you will be directed to a comparison of all suppliers.
+          hint_part_2: If you have shortlisted suppliers, select ‘Yes’ to compare only those on your shortlist.
+          question: Have you reviewed the suppliers’ prospectus to inform your down-selection?
         information_about_your_requirement:
           ccs_can_contact_you:
             hint: Any follow-up activity is intended to deliver ongoing support
@@ -328,27 +336,26 @@ en:
           lead_2_html: Wider public sector organisations and departments granted an exception from GLD should consider using %{link}.
           lead_2_link_text: RM6240 Public sector legal services
           lead_2_link_url: https://www.crowncommercial.gov.uk/agreements/RM6240
-      suppliers:
-        download:
-          back_to_start: Back to start
-          download_statement: The spreadsheet includes the selections you made, for your records and audit trail
-          download_supplier_shortlist_link: Download supplier shortlist
-          heading: Download the supplier shortlist
-        index:
-          back_to_start: Back to start
-          can_provide_legal_services: can provide legal services that meet your requirements.
+        supplier_results:
+          can_provide_legal_specialisms: can provide the legal specialisms that meet your requirements.
           compare_supplier_rates: Compare the supplier rates
           download_suppliers_list: Download the supplier list
           heading: Supplier results
           no_suppliers_found:
-            contact_html: "%{contact_link} for help."
-            contact_link_text: Contact CCS Support
-            general_legal_advice_services_link_text: Public Sector Legal Services (RM6240)
-            general_legal_advice_services_link_url: https://www.crowncommercial.gov.uk/agreements/RM6240
+            back_to_start: Back to start
             heading: No suppliers were found
-            text: There are no suppliers on this panel that can provide the law services you need
-            text_central_government_users_html: The %{general_legal_advice_service_link} agreement provides legal services for the wider public sector.
+            text: There are no suppliers on this panel that can provide the legal specialisms you need
           page_title: Supplier results
+          supplier: supplier
+      suppliers:
+        comparison_rates_table:
+          rates: Rates
+          supplier: Supplier
+        index:
+          back_to_results: Back to results
+          have_been_selected_for_comparison: have been selected for comparison.
+          heading: Compare supplier rates
+          page_title: Compare supplier rates
           supplier: supplier
         rates_table:
           hourly: Hourly
@@ -375,19 +382,8 @@ en:
             phone_number: Phone number
             website: Website
           fee_advice: You are also able to use alternative fee arrangements such as fixed or capped fees, which may deliver greater value.
-          fixed_until: Fixed until September 2024 and based on an 8 hour working day.
           further_competition: These are the maximum rates the supplier charges for a direct award. You may get a cheaper rate by running a further competition.
           is_an_sme: This supplier is a small or medium-sized enterprise
           rates: Rates
           supplier_prospectus_headline: Supplier prospectus
-      suppliers_comparison:
-        index:
-          back_to_results: Back to results
-          have_been_selected_for_comparison: have been selected for comparison.
-          heading: Compare supplier rates
-          page_title: Compare supplier rates
-          supplier: supplier
-        rates_table:
-          rates: Rates
-          supplier: Supplier
     service_name: Legal Panel for Government

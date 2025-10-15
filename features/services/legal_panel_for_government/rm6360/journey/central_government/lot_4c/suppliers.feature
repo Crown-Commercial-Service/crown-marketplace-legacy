@@ -1,4 +1,4 @@
-Feature: Legal Panel for Government - Non central governemnt - Lot 4c - Results
+Feature: Legal Panel for Government - Non central governemnt - Lot 4c - Suppliers
 
   Background: Navigate to start page and complete the journey
     Given I sign in and navigate to the start page for the 'RM6360' framework in 'legal panel for government'
@@ -27,11 +27,16 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4c - Results
       | International arbitral awards           |
     And I click on 'Continue'
     Then I am on the 'Supplier results' page
-    And I should see that '3' suppliers can provide legal services for government
+    And I should see that '3' suppliers can provide legal specialisms for government
     And the selected legal service for government suppliers are:
       | JOHNSON-ROMAGUERA      | http://sanford.example/lilly_bosco      |
       | VEUM, TORPHY AND NOLAN | http://gislason.example/madeline.miller |
       | ZIEME-LEANNON          | http://terry.example/clementine.kozey   |
+    And I click on 'Compare the supplier rates'
+    Then I am on the 'Have you reviewed the suppliers’ prospectus to inform your down-selection?' page
+    And I select 'No'
+    And I click on 'Continue'
+    Then I am on the 'Compare supplier rates' page
 
   Scenario: Check the supplier data - SME
     Given I click on 'VEUM, TORPHY AND NOLAN'
@@ -78,9 +83,3 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4c - Results
       | http://dach-pfannerstill.test/carmelita               |
       | Suite 904 791 Cole Field, Port Sherril, CO 24348-8363 |
     And the prospectus link is 'http://sanford.example/lilly_bosco'
-
-  Scenario: Download the supplier spreadsheet
-    Given I click on 'Download the supplier list'
-    Then I am on the 'Download the supplier shortlist' page
-    And I click on 'Download supplier shortlist'
-    Then the spreadsheet 'Shortlist of Legal Panel for Government Suppliers.xlsx' is downloaded

@@ -23,13 +23,18 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 1 - Suppliers
       | Aviation and Airports |
     And I click on 'Continue'
     Then I am on the 'Supplier results' page
-    And I should see that '4' suppliers can provide legal services for government
+    And I should see that '4' suppliers can provide legal specialisms for government
     And the selected legal service for government suppliers are:
       | CORMIER INC                   | http://block.test/blossom.gulgowski |
       | GOYETTE AND SONS              | http://krajcik.example/tisa_kilback |
       | LOCKMAN, NITZSCHE AND BARTELL | http://shanahan.test/natalya_howell |
       | MONAHAN-JOHNS                 | http://kirlin.test/dione.rau        |
     And I click on 'Compare the supplier rates'
+    Then I am on the 'Have you reviewed the suppliers’ prospectus to inform your down-selection?' page
+
+  Scenario: Suppliers reviewed - The rates table is displayed for comparison
+    And I select 'Yes'
+    And I click on 'Continue'
     Then I am on the 'Select suppliers for comparison' page
     When I check the following items:
       | CORMIER INC                   |
@@ -38,15 +43,34 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 1 - Suppliers
     And I click on 'Continue'
     Then I am on the 'Compare supplier rates' page
     And I should see that '3' suppliers have been selected for comparison
-
-  Scenario: The rates table is displayed for comparison
     Then I should see the rates in the comparison table:
       | Supplier                      | Partner | Legal Director/Counsel or equivalent | Senior Solicitor, Senior Associate/Senior Legal Executive | Solicitor, Associate/Legal Executive | NQ Solicitor/Associate, Junior Solicitor/Associate/Legal Executive | Trainee/Legal Apprentice | Paralegal, Legal Assistant |
       | CORMIER INC                   | £240.00 | £210.00                              | £180.00                                                   | £150.00                              | £120.00                                                            | £72.00                   | £60.00                     |
       | GOYETTE AND SONS              | £280.00 | £245.00                              | £210.00                                                   | £175.00                              | £140.00                                                            | £84.00                   | £70.00                     |
       | LOCKMAN, NITZSCHE AND BARTELL | £280.00 | £245.00                              | £210.00                                                   | £175.00                              | £140.00                                                            | £84.00                   | £70.00                     |
 
-  Scenario: Changing selection changes the results
+  Scenario: Suppliers not reviewed - The rates table is displayed for comparison
+    And I select 'No'
+    And I click on 'Continue'
+    Then I am on the 'Compare supplier rates' page
+    Then I should see the rates in the comparison table:
+      | Supplier                      | Partner | Legal Director/Counsel or equivalent | Senior Solicitor, Senior Associate/Senior Legal Executive | Solicitor, Associate/Legal Executive | NQ Solicitor/Associate, Junior Solicitor/Associate/Legal Executive | Trainee/Legal Apprentice | Paralegal, Legal Assistant |
+      | CORMIER INC                   | £240.00 | £210.00                              | £180.00                                                   | £150.00                              | £120.00                                                            | £72.00                   | £60.00                     |
+      | GOYETTE AND SONS              | £280.00 | £245.00                              | £210.00                                                   | £175.00                              | £140.00                                                            | £84.00                   | £70.00                     |
+      | LOCKMAN, NITZSCHE AND BARTELL | £280.00 | £245.00                              | £210.00                                                   | £175.00                              | £140.00                                                            | £84.00                   | £70.00                     |
+      | MONAHAN-JOHNS                 | £200.00 | £175.00                              | £150.00                                                   | £125.00                              | £100.00                                                            | £60.00                   | £50.00                     |
+
+  Scenario: Suppliers reviewed - Changing selection changes the results
+    And I select 'Yes'
+    And I click on 'Continue'
+    Then I am on the 'Select suppliers for comparison' page
+    When I check the following items:
+      | CORMIER INC                   |
+      | GOYETTE AND SONS              |
+      | LOCKMAN, NITZSCHE AND BARTELL |
+    And I click on 'Continue'
+    Then I am on the 'Compare supplier rates' page
+    And I should see that '3' suppliers have been selected for comparison
     And I click on the 'Back' back link
     Then I am on the 'Select suppliers for comparison' page
     And I deselect all the items
@@ -61,12 +85,61 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 1 - Suppliers
       | LOCKMAN, NITZSCHE AND BARTELL | £280.00 | £245.00                              | £210.00                                                   | £175.00                              | £140.00                                                            | £84.00                   | £70.00                     |
       | MONAHAN-JOHNS                 | £200.00 | £175.00                              | £150.00                                                   | £125.00                              | £100.00                                                            | £60.00                   | £50.00                     |
 
-  Scenario: Back to results
+  Scenario: Suppliers reviewed - Back to results
+    And I select 'Yes'
+    And I click on 'Continue'
+    Then I am on the 'Select suppliers for comparison' page
+    When I check the following items:
+      | CORMIER INC                   |
+      | GOYETTE AND SONS              |
+      | LOCKMAN, NITZSCHE AND BARTELL |
+    And I click on 'Continue'
+    Then I am on the 'Compare supplier rates' page
+    And I should see that '3' suppliers have been selected for comparison
     When I click on 'Back to results'
     Then I am on the 'Supplier results' page
-    And I should see that '4' suppliers can provide legal services for government
+    And I should see that '4' suppliers can provide legal specialisms for government
     And the selected legal service for government suppliers are:
       | CORMIER INC                   | http://block.test/blossom.gulgowski |
       | GOYETTE AND SONS              | http://krajcik.example/tisa_kilback |
       | LOCKMAN, NITZSCHE AND BARTELL | http://shanahan.test/natalya_howell |
       | MONAHAN-JOHNS                 | http://kirlin.test/dione.rau        |
+
+  Scenario: Suppliers reviewed - Going back from a supplier
+    And I select 'Yes'
+    And I click on 'Continue'
+    Then I am on the 'Select suppliers for comparison' page
+    When I check the following items:
+      | CORMIER INC                   |
+      | GOYETTE AND SONS              |
+      | LOCKMAN, NITZSCHE AND BARTELL |
+    And I click on 'Continue'
+    Then I am on the 'Compare supplier rates' page
+    And I should see that '3' suppliers have been selected for comparison
+    And I click on 'CORMIER INC'
+    Then I am on the 'CORMIER INC' page
+    And the sub title is 'Lot 1 - Core Legal Services'
+    And I click on the 'Back' back link
+    Then I am on the 'Compare supplier rates' page
+    And I should see that '3' suppliers have been selected for comparison
+    Then I should see the rates in the comparison table:
+      | Supplier                      | Partner | Legal Director/Counsel or equivalent | Senior Solicitor, Senior Associate/Senior Legal Executive | Solicitor, Associate/Legal Executive | NQ Solicitor/Associate, Junior Solicitor/Associate/Legal Executive | Trainee/Legal Apprentice | Paralegal, Legal Assistant |
+      | CORMIER INC                   | £240.00 | £210.00                              | £180.00                                                   | £150.00                              | £120.00                                                            | £72.00                   | £60.00                     |
+      | GOYETTE AND SONS              | £280.00 | £245.00                              | £210.00                                                   | £175.00                              | £140.00                                                            | £84.00                   | £70.00                     |
+      | LOCKMAN, NITZSCHE AND BARTELL | £280.00 | £245.00                              | £210.00                                                   | £175.00                              | £140.00                                                            | £84.00                   | £70.00                     |
+
+  Scenario: Suppliers not reviewed - Going back from a supplier
+    And I select 'No'
+    And I click on 'Continue'
+    Then I am on the 'Compare supplier rates' page
+    And I click on 'CORMIER INC'
+    Then I am on the 'CORMIER INC' page
+    And the sub title is 'Lot 1 - Core Legal Services'
+    And I click on the 'Back' back link
+    Then I am on the 'Compare supplier rates' page
+    Then I should see the rates in the comparison table:
+      | Supplier                      | Partner | Legal Director/Counsel or equivalent | Senior Solicitor, Senior Associate/Senior Legal Executive | Solicitor, Associate/Legal Executive | NQ Solicitor/Associate, Junior Solicitor/Associate/Legal Executive | Trainee/Legal Apprentice | Paralegal, Legal Assistant |
+      | CORMIER INC                   | £240.00 | £210.00                              | £180.00                                                   | £150.00                              | £120.00                                                            | £72.00                   | £60.00                     |
+      | GOYETTE AND SONS              | £280.00 | £245.00                              | £210.00                                                   | £175.00                              | £140.00                                                            | £84.00                   | £70.00                     |
+      | LOCKMAN, NITZSCHE AND BARTELL | £280.00 | £245.00                              | £210.00                                                   | £175.00                              | £140.00                                                            | £84.00                   | £70.00                     |
+      | MONAHAN-JOHNS                 | £200.00 | £175.00                              | £150.00                                                   | £125.00                              | £100.00                                                            | £60.00                   | £50.00                     |

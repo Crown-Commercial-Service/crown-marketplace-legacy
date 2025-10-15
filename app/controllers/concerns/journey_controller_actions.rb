@@ -3,20 +3,19 @@ module JourneyControllerActions
 
   included do
     helper :journey
+
+    before_action :build_journey
   end
 
   def start
-    redirect_to build_journey.first_step_path
+    redirect_to @journey.first_step_path
   end
 
   def question
-    @journey = build_journey
     render_form
   end
 
   def answer
-    @journey = build_journey
-
     if @journey.valid?
       redirect_to @journey.next_step_path
     else
@@ -33,6 +32,6 @@ module JourneyControllerActions
   end
 
   def build_journey
-    journey_class.new(params[:framework], params[:slug], params)
+    @journey = journey_class.new(params[:framework], params[:slug], params)
   end
 end

@@ -23,11 +23,16 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 5 - Suppliers
       | Planning law |
     And I click on 'Continue'
     Then I am on the 'Supplier results' page
-    And I should see that '3' suppliers can provide legal services for government
+    And I should see that '3' suppliers can provide legal specialisms for government
     And the selected legal service for government suppliers are:
       | DICKI, QUITZON AND KUB | http://gibson-rogahn.example/delaine.hodkiewicz |
       | JOHNSON-ROMAGUERA      | http://glover.test/otto                         |
       | STANTON-GOYETTE        | http://bernier.example/armando.kemmer           |
+    And I click on 'Compare the supplier rates'
+    Then I am on the 'Have you reviewed the suppliers’ prospectus to inform your down-selection?' page
+    And I select 'No'
+    And I click on 'Continue'
+    Then I am on the 'Compare supplier rates' page
 
   Scenario: Check the supplier data - SME
     Given I click on 'STANTON-GOYETTE'
@@ -64,9 +69,3 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 5 - Suppliers
       | http://stanton-goodwin.test/horace_stark                      |
       | Apt. 161 87668 Runolfsdottir Vista, Konopelskiville, HI 05873 |
     And the prospectus link is 'http://gibson-rogahn.example/delaine.hodkiewicz'
-
-  Scenario: Download the supplier spreadsheet
-    Given I click on 'Download the supplier list'
-    Then I am on the 'Download the supplier shortlist' page
-    And I click on 'Download supplier shortlist'
-    Then the spreadsheet 'Shortlist of Legal Panel for Government Suppliers.xlsx' is downloaded

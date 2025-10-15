@@ -54,10 +54,6 @@ Then('I should see that {string} suppliers can provide legal services') do |numb
   expect(journey_page.number_of_suppliers).to have_content "#{number_of_suppliers} suppliers can provide legal services that meet your requirements."
 end
 
-Then('I should see that {string} suppliers have been selected for comparison') do |number_of_suppliers|
-  expect(journey_page.number_of_suppliers).to have_content "#{number_of_suppliers} suppliers have been selected for comparison."
-end
-
 Then('the selected suppliers are:') do |suppliers|
   supplier_elements = journey_page.suppliers
   supplier_names = suppliers.raw.flatten
@@ -77,22 +73,6 @@ Then('the selected legal service suppliers are:') do |suppliers|
 
   supplier_element_names.zip(supplier_names).each do |actual, expected|
     expect(actual).to have_content expected
-  end
-end
-
-Then('I should see that {string} suppliers can provide legal services for government') do |number_of_suppliers|
-  expect(journey_page.number_of_suppliers).to have_content "#{number_of_suppliers} suppliers can provide legal services that meet your requirements."
-end
-
-Then('the selected legal service for government suppliers are:') do |suppliers|
-  supplier_element_rows = journey_page.legal_panel_for_government_suppliers.sort_by { |row| row.name.text }
-  supplier_names_and_prospectus = suppliers.raw
-
-  expect(supplier_element_rows.length).to eq supplier_names_and_prospectus.length
-
-  supplier_element_rows.zip(supplier_names_and_prospectus).each do |row, (expected_name, expected_prospectus)|
-    expect(row.name).to have_content expected_name
-    expect(row.prospectus).to have_content expected_prospectus
   end
 end
 

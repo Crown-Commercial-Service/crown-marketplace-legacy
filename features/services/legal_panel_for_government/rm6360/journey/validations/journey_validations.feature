@@ -174,6 +174,29 @@ Feature: Legal Panel for Government - Jounrey validations
     Then I should see the following error messages:
       | Select at least one legal specialism |
 
+  Scenario: Have you reviewed - not Lot 4
+    Given I am on the 'Do you work for central government or an arms length body?' page
+    And I select 'Yes'
+    And I click on 'Continue'
+    Given I am on the 'Information about your requirements' page
+    And I enter '10/2024' for the requirement 'start' date
+    And I enter '10/2025' for the requirement 'end' date
+    And I enter '123456' for the 'requirement estimated total value'
+    And I select 'Yes'
+    And I click on 'Continue'
+    Then I am on the 'Select the lot you need' page
+    And I select 'Lot 1 - Core Legal Services'
+    And I click on 'Continue'
+    Then I am on the 'Select the legal specialisms you need' page
+    And I check 'Children and Vulnerable Adults'
+    When I click on 'Continue'
+    Then I am on the 'Supplier results' page
+    And I click on 'Compare the supplier rates'
+    Then I am on the 'Have you reviewed the suppliers’ prospectus to inform your down-selection?' page
+    When I click on 'Continue'
+    Then I should see the following error messages:
+      | Select yes if you have shortlisted suppliers |
+
   Scenario: Select suppliers for comparison - not Lot 4
     Given I am on the 'Do you work for central government or an arms length body?' page
     And I select 'Yes'
@@ -192,6 +215,9 @@ Feature: Legal Panel for Government - Jounrey validations
     When I click on 'Continue'
     Then I am on the 'Supplier results' page
     And I click on 'Compare the supplier rates'
+    Then I am on the 'Have you reviewed the suppliers’ prospectus to inform your down-selection?' page
+    And I select 'Yes'
+    And I click on 'Continue'
     Then I am on the 'Select suppliers for comparison' page
     When I click on 'Continue'
     Then I should see the following error messages:
@@ -215,11 +241,40 @@ Feature: Legal Panel for Government - Jounrey validations
     When I click on 'Continue'
     Then I am on the 'Supplier results' page
     And I click on 'Compare the supplier rates'
+    Then I am on the 'Have you reviewed the suppliers’ prospectus to inform your down-selection?' page
+    And I select 'Yes'
+    And I click on 'Continue'
     Then I am on the 'Select suppliers for comparison' page
     When I check 'CORMIER INC'
     When I click on 'Continue'
     Then I should see the following error messages:
       | You must select at least two suppliers for comparison |
+
+  Scenario: Have you reviewed - Lot 4
+    Given I am on the 'Do you work for central government or an arms length body?' page
+    And I select 'Yes'
+    And I click on 'Continue'
+    Given I am on the 'Information about your requirements' page
+    And I enter '10/2024' for the requirement 'start' date
+    And I enter '10/2025' for the requirement 'end' date
+    And I enter '123456' for the 'requirement estimated total value'
+    And I select 'Yes'
+    And I click on 'Continue'
+    Then I am on the 'Select the lot you need' page
+    And I select 'Lot 4a - Trade and Investment Negotiations'
+    And I click on 'Continue'
+    Then I am on the 'Is your requirement for a location outside of the countries listed below?' page
+    And I select 'No'
+    When I click on 'Continue'
+    Then I am on the 'Select the legal specialisms you need' page
+    And I check 'Assimilated Law'
+    When I click on 'Continue'
+    Then I am on the 'Supplier results' page
+    And I click on 'Compare the supplier rates'
+    Then I am on the 'Have you reviewed the suppliers’ prospectus to inform your down-selection?' page
+    When I click on 'Continue'
+    Then I should see the following error messages:
+      | Select yes if you have shortlisted suppliers |
 
   Scenario: Select suppliers for comparison - Lot 4
     Given I am on the 'Do you work for central government or an arms length body?' page
@@ -242,6 +297,9 @@ Feature: Legal Panel for Government - Jounrey validations
     When I click on 'Continue'
     Then I am on the 'Supplier results' page
     And I click on 'Compare the supplier rates'
+    Then I am on the 'Have you reviewed the suppliers’ prospectus to inform your down-selection?' page
+    And I select 'Yes'
+    And I click on 'Continue'
     Then I am on the 'Select suppliers for comparison' page
     When I click on 'Continue'
     Then I should see the following error messages:
@@ -268,6 +326,9 @@ Feature: Legal Panel for Government - Jounrey validations
     When I click on 'Continue'
     Then I am on the 'Supplier results' page
     And I click on 'Compare the supplier rates'
+    Then I am on the 'Have you reviewed the suppliers’ prospectus to inform your down-selection?' page
+    And I select 'Yes'
+    And I click on 'Continue'
     Then I am on the 'Select suppliers for comparison' page
     When I check 'CROOKS AND SONS'
     When I click on 'Continue'

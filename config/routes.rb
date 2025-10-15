@@ -282,7 +282,7 @@ Rails.application.routes.draw do
     namespace 'rm6360', path: 'RM6360', defaults: { framework: 'RM6360' } do
       concerns %i[buyer_shared_pages shared_pages buyer_details suppliers]
 
-      get '/suppliers-comparison', to: 'suppliers_comparison#index'
+      get '/supplier-results', to: 'journey#question', as: 'journey_question'
 
       namespace :admin, defaults: { service: 'legal_panel_for_government/admin' } do
         concerns %i[admin_dashboard admin_suppliers admin_uploads admin_reports admin_shared_pages]

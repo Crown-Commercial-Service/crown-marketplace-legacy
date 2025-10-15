@@ -23,7 +23,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 1 - Results
       | Aviation and Airports |
     And I click on 'Continue'
     Then I am on the 'Supplier results' page
-    And I should see that '4' suppliers can provide legal services for government
+    And I should see that '4' suppliers can provide legal specialisms for government
     And the selected legal service for government suppliers are:
       | CORMIER INC                   | http://block.test/blossom.gulgowski |
       | GOYETTE AND SONS              | http://krajcik.example/tisa_kilback |
@@ -37,33 +37,12 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 1 - Results
     Given I check 'Charities'
     When I click on 'Continue'
     Then I am on the 'Supplier results' page
-    And I should see that '3' suppliers can provide legal services for government
+    And I should see that '3' suppliers can provide legal specialisms for government
     And the selected legal service for government suppliers are:
       | GOYETTE AND SONS              | http://krajcik.example/tisa_kilback |
       | LOCKMAN, NITZSCHE AND BARTELL | http://shanahan.test/natalya_howell |
       | MONAHAN-JOHNS                 | http://kirlin.test/dione.rau        |
 
-  Scenario: Going back from a supplier
-    And I click on 'CORMIER INC'
-    Then I am on the 'CORMIER INC' page
-    And the sub title is 'Lot 1 - Core Legal Services'
-    And I click on the 'Back' back link
-    Then I am on the 'Supplier results' page
-    And I should see that '4' suppliers can provide legal services for government
-    And the selected legal service for government suppliers are:
-      | CORMIER INC                   | http://block.test/blossom.gulgowski |
-      | GOYETTE AND SONS              | http://krajcik.example/tisa_kilback |
-      | LOCKMAN, NITZSCHE AND BARTELL | http://shanahan.test/natalya_howell |
-      | MONAHAN-JOHNS                 | http://kirlin.test/dione.rau        |
-
-  Scenario: Going back from downloading documents
-    And I click on 'Download the supplier list'
-    Then I am on the 'Download the supplier shortlist' page
-    And I click on the 'Back' back link
-    Then I am on the 'Supplier results' page
-    And I should see that '4' suppliers can provide legal services for government
-    And the selected legal service for government suppliers are:
-      | CORMIER INC                   | http://block.test/blossom.gulgowski |
-      | GOYETTE AND SONS              | http://krajcik.example/tisa_kilback |
-      | LOCKMAN, NITZSCHE AND BARTELL | http://shanahan.test/natalya_howell |
-      | MONAHAN-JOHNS                 | http://kirlin.test/dione.rau        |
+  Scenario: Download the supplier spreadsheet
+    Given I click on 'Download the supplier list'
+    Then the spreadsheet 'Shortlist of Legal Panel for Government Suppliers.xlsx' is downloaded

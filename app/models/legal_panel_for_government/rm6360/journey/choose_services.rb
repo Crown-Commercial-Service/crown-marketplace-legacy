@@ -16,7 +16,7 @@ module LegalPanelForGovernment
       end
 
       def next_step_class
-        Journey::Suppliers
+        Journey::SupplierResults
       end
     end
   end

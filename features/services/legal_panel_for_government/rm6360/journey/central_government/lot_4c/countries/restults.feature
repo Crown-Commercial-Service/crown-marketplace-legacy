@@ -1,4 +1,4 @@
-Feature: Legal Panel for Government - Non central governemnt - Lot 4c - Results with country selection
+Feature: Legal Panel for Government - Non central governemnt - Lot 4c - Results with country selection - Countries
 
   Background: Navigate to start page and complete the journey
     Given I sign in and navigate to the start page for the 'RM6360' framework in 'legal panel for government'
@@ -32,7 +32,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4c - Results 
       | Litigation and dispute resolution for trade investment disputes |
     And I click on 'Continue'
     Then I am on the 'Supplier results' page
-    And I should see that '5' suppliers can provide legal services for government
+    And I should see that '5' suppliers can provide legal specialisms for government
     And the selected legal service for government suppliers are:
       | JAKUBOWSKI-SATTERFIELD | http://botsford.example/zack.willms     |
       | JOHNSON-ROMAGUERA      | http://sanford.example/lilly_bosco      |
@@ -47,7 +47,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4c - Results 
     Given I check 'Domestic law of jurisdictions for trade'
     When I click on 'Continue'
     Then I am on the 'Supplier results' page
-    And I should see that '3' suppliers can provide legal services for government
+    And I should see that '3' suppliers can provide legal specialisms for government
     And the selected legal service for government suppliers are:
       | JOHNSON-ROMAGUERA      | http://sanford.example/lilly_bosco      |
       | VEUM, TORPHY AND NOLAN | http://gislason.example/madeline.miller |
@@ -68,36 +68,9 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4c - Results 
       | Litigation and dispute resolution for trade investment disputes |
     And I click on 'Continue'
     Then I am on the 'Supplier results' page
-    And I should see that '4' suppliers can provide legal services for government
+    And I should see that '4' suppliers can provide legal specialisms for government
     And the selected legal service for government suppliers are:
       | JAKUBOWSKI-SATTERFIELD | http://botsford.example/zack.willms     |
       | JOHNSON-ROMAGUERA      | http://sanford.example/lilly_bosco      |
-      | VEUM, TORPHY AND NOLAN | http://gislason.example/madeline.miller |
-      | ZIEME-LEANNON          | http://terry.example/clementine.kozey   |
-
-  Scenario: Going back from a supplier
-    And I click on 'JOHNSON-ROMAGUERA'
-    Then I am on the 'JOHNSON-ROMAGUERA' page
-    And the sub title is 'Lot 4c - International Investment Disputes'
-    And I click on the 'Back' back link
-    Then I am on the 'Supplier results' page
-    And I should see that '5' suppliers can provide legal services for government
-    And the selected legal service for government suppliers are:
-      | JAKUBOWSKI-SATTERFIELD | http://botsford.example/zack.willms     |
-      | JOHNSON-ROMAGUERA      | http://sanford.example/lilly_bosco      |
-      | SANFORD AND SONS       | http://kreiger.example/ezra_romaguera   |
-      | VEUM, TORPHY AND NOLAN | http://gislason.example/madeline.miller |
-      | ZIEME-LEANNON          | http://terry.example/clementine.kozey   |
-
-  Scenario: Going back from downloading documents
-    And I click on 'Download the supplier list'
-    Then I am on the 'Download the supplier shortlist' page
-    And I click on the 'Back' back link
-    Then I am on the 'Supplier results' page
-    And I should see that '5' suppliers can provide legal services for government
-    And the selected legal service for government suppliers are:
-      | JAKUBOWSKI-SATTERFIELD | http://botsford.example/zack.willms     |
-      | JOHNSON-ROMAGUERA      | http://sanford.example/lilly_bosco      |
-      | SANFORD AND SONS       | http://kreiger.example/ezra_romaguera   |
       | VEUM, TORPHY AND NOLAN | http://gislason.example/madeline.miller |
       | ZIEME-LEANNON          | http://terry.example/clementine.kozey   |

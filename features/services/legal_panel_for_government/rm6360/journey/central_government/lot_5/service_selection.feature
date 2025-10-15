@@ -1,6 +1,6 @@
 Feature: Legal Panel for Government - Non central governemnt - Lot 5 - Service selection
 
-  Background: Navigate to start page and select the lot
+  Scenario: The correct options are available
     Given I sign in and navigate to the start page for the 'RM6360' framework in 'legal panel for government'
     Then I am on the 'Your account' page
     And I click on 'Search for suppliers'
@@ -18,8 +18,6 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 5 - Service s
     And I click on 'Continue'
     Then I am on the 'Select the legal specialisms you need' page
     And the sub title is 'Lot 5 - Rail Legal Services'
-
-  Scenario: The correct options are available
     Then I should see the following options for the lot:
       | Competition law                               |
       | Dispute Resolution and litigation law         |
@@ -41,85 +39,3 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 5 - Service s
       | Restructuring/ Insolvency law                 |
       | Subsidy Control Law                           |
       | Tax law                                       |
-
-  @javascript
-  Scenario: Service selection appears in basked
-    Then the basket should say 'No specialisms selected'
-    And the remove all link should not be visible
-    When I check 'EU law'
-    Then the basket should say '1 specialism selected'
-    And the remove all link should be visible
-    And the following items should appear in the basket:
-      | EU law |
-    When I check the following items:
-      | Employment law             |
-      | Information technology law |
-      | Insurance law              |
-      | International law          |
-      | Rail Commercial Law        |
-      | Real estate law            |
-    Then the basket should say '7 specialisms selected'
-    And the remove all link should be visible
-    And the following items should appear in the basket:
-      | EU law                     |
-      | Employment law             |
-      | Information technology law |
-      | Insurance law              |
-      | International law          |
-      | Rail Commercial Law        |
-      | Real estate law            |
-
-  @javascript
-  Scenario: Changing the selection will change the basket
-    When I check the following items:
-      | Information law including data protection law |
-      | Information technology law                    |
-      | International law                             |
-      | Planning law                                  |
-      | Public procurement law                        |
-      | Tax law                                       |
-    Then the basket should say '6 specialisms selected'
-    And the remove all link should be visible
-    And the following items should appear in the basket:
-      | Information law including data protection law |
-      | Information technology law                    |
-      | International law                             |
-      | Planning law                                  |
-      | Public procurement law                        |
-      | Tax law                                       |
-    When I deselect the following items:
-      | Tax law |
-    Then the basket should say '5 specialisms selected'
-    And the remove all link should be visible
-    And the following items should appear in the basket:
-      | Information law including data protection law |
-      | Information technology law                    |
-      | International law                             |
-      | Planning law                                  |
-      | Public procurement law                        |
-    When I remove the following items from the basket:
-      | Planning law           |
-      | Public procurement law |
-    Then the basket should say '3 specialisms selected'
-    And the remove all link should be visible
-    And the following items should appear in the basket:
-      | Information law including data protection law |
-      | Information technology law                    |
-      | International law                             |
-    When I click on 'Remove all'
-    Then the basket should say 'No specialisms selected'
-
-  @javascript
-  Scenario: Go back from suppliers and change selection
-    When I check the following items:
-      | Health and Safety law                         |
-      | Information law including data protection law |
-      | Information technology law                    |
-    And I click on 'Continue'
-    Then I am on the 'Supplier results' page
-    And I click on the 'Back' back link
-    Then I am on the 'Select the legal specialisms you need' page
-    And the following items should appear in the basket:
-      | Health and Safety law                         |
-      | Information law including data protection law |
-      | Information technology law                    |

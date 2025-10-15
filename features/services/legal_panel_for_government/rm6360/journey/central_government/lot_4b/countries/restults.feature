@@ -1,4 +1,4 @@
-Feature: Legal Panel for Government - Non central governemnt - Lot 4b - Results with country selection
+Feature: Legal Panel for Government - Non central governemnt - Lot 4b - Results with country selection - Countries
 
   Background: Navigate to start page and complete the journey
     Given I sign in and navigate to the start page for the 'RM6360' framework in 'legal panel for government'
@@ -32,7 +32,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4b - Results 
       | Wider trading arrangements |
     And I click on 'Continue'
     Then I am on the 'Supplier results' page
-    And I should see that '4' suppliers can provide legal services for government
+    And I should see that '4' suppliers can provide legal specialisms for government
     And the selected legal service for government suppliers are:
       | ADAMS, WOLFF AND STROMAN   | http://gleichner-lowe.example/freddie           |
       | KOELPIN, HILLL AND COLLINS | http://goyette-reynolds.example/josefa.mosciski |
@@ -46,7 +46,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4b - Results 
     Given I check 'Compliance with international law'
     When I click on 'Continue'
     Then I am on the 'Supplier results' page
-    And I should see that '3' suppliers can provide legal services for government
+    And I should see that '3' suppliers can provide legal specialisms for government
     And the selected legal service for government suppliers are:
       | ADAMS, WOLFF AND STROMAN | http://gleichner-lowe.example/freddie  |
       | SANFORD INC              | http://murazik-bechtelar.test/neda     |
@@ -67,35 +67,10 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4b - Results 
       | Wider trading arrangements |
     And I click on 'Continue'
     Then I am on the 'Supplier results' page
-    And I should see that '5' suppliers can provide legal services for government
+    And I should see that '5' suppliers can provide legal specialisms for government
     And the selected legal service for government suppliers are:
       | ADAMS, WOLFF AND STROMAN   | http://gleichner-lowe.example/freddie           |
       | ERDMAN INC                 | http://mosciski.example/madelaine               |
-      | KOELPIN, HILLL AND COLLINS | http://goyette-reynolds.example/josefa.mosciski |
-      | SANFORD INC                | http://murazik-bechtelar.test/neda              |
-      | VEUM, TORPHY AND NOLAN     | http://gislason-murazik.example/dorthy          |
-
-  Scenario: Going back from a supplier
-    And I click on 'SANFORD INC'
-    Then I am on the 'SANFORD INC' page
-    And the sub title is 'Lot 4b - International Trade Disputes'
-    And I click on the 'Back' back link
-    Then I am on the 'Supplier results' page
-    And I should see that '4' suppliers can provide legal services for government
-    And the selected legal service for government suppliers are:
-      | ADAMS, WOLFF AND STROMAN   | http://gleichner-lowe.example/freddie           |
-      | KOELPIN, HILLL AND COLLINS | http://goyette-reynolds.example/josefa.mosciski |
-      | SANFORD INC                | http://murazik-bechtelar.test/neda              |
-      | VEUM, TORPHY AND NOLAN     | http://gislason-murazik.example/dorthy          |
-
-  Scenario: Going back from downloading documents
-    And I click on 'Download the supplier list'
-    Then I am on the 'Download the supplier shortlist' page
-    And I click on the 'Back' back link
-    Then I am on the 'Supplier results' page
-    And I should see that '4' suppliers can provide legal services for government
-    And the selected legal service for government suppliers are:
-      | ADAMS, WOLFF AND STROMAN   | http://gleichner-lowe.example/freddie           |
       | KOELPIN, HILLL AND COLLINS | http://goyette-reynolds.example/josefa.mosciski |
       | SANFORD INC                | http://murazik-bechtelar.test/neda              |
       | VEUM, TORPHY AND NOLAN     | http://gislason-murazik.example/dorthy          |

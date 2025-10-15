@@ -23,12 +23,17 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 3 - Suppliers
       | Fintech Crypto Assets |
     And I click on 'Continue'
     Then I am on the 'Supplier results' page
-    And I should see that '4' suppliers can provide legal services for government
+    And I should see that '4' suppliers can provide legal specialisms for government
     And the selected legal service for government suppliers are:
       | CORMIER INC                   | http://mosciski.test/augustine        |
       | O'CONNER AND SONS             | http://boyer-moen.test/dalene.grant   |
       | TILLMAN, LUBOWITZ AND GOYETTE | http://powlowski-cummings.test/cleora |
       | VEUM, TORPHY AND NOLAN        | http://barrows.test/rodney.ziemann    |
+    And I click on 'Compare the supplier rates'
+    Then I am on the 'Have you reviewed the suppliers’ prospectus to inform your down-selection?' page
+    And I select 'No'
+    And I click on 'Continue'
+    Then I am on the 'Compare supplier rates' page
 
   Scenario: Check the supplier data - SME
     Given I click on 'VEUM, TORPHY AND NOLAN'
@@ -65,9 +70,3 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 3 - Suppliers
       | http://hane.example/russel.lesch          |
       | 546 Mallie Branch, West Marcus, MS 35905  |
     And the prospectus link is 'http://powlowski-cummings.test/cleora'
-
-  Scenario: Download the supplier spreadsheet
-    Given I click on 'Download the supplier list'
-    Then I am on the 'Download the supplier shortlist' page
-    And I click on 'Download supplier shortlist'
-    Then the spreadsheet 'Shortlist of Legal Panel for Government Suppliers.xlsx' is downloaded

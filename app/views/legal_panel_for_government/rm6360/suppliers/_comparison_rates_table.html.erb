@@ -12,7 +12,7 @@
     @supplier_frameworks.map do |supplier_framework, rates|
       [
         {
-          text: supplier_framework.supplier_name,
+          text: render(partial: 'legal_panel_for_government/rm6360/suppliers/supplier_table_head', locals: { supplier_framework:, lot: @lot, include_link: true })
         }
       ] + positions.map  do |position_id, _position_name|
         {

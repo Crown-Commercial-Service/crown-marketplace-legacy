@@ -1,6 +1,6 @@
 Feature: Legal Panel for Government - Non central governemnt - Lot 3 - Service selection
 
-  Background: Navigate to start page and select the lot
+  Scenario: The correct options are available
     Given I sign in and navigate to the start page for the 'RM6360' framework in 'legal panel for government'
     Then I am on the 'Your account' page
     And I click on 'Search for suppliers'
@@ -18,8 +18,6 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 3 - Service s
     And I click on 'Continue'
     Then I am on the 'Select the legal specialisms you need' page
     And the sub title is 'Lot 2 - Major Projects and Complex Advice'
-
-  Scenario: The correct options are available
     Then I should see the following options for the lot:
       | Assimilated Law                                             |
       | Aviation and Airports                                       |
@@ -80,85 +78,3 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 3 - Service s
       | Supporting Public Inquiries                                 |
       | Sustainable Finance / Green Finance                         |
       | Tax Law                                                     |
-
-  @javascript
-  Scenario: Service selection appears in basked
-    Then the basket should say 'No specialisms selected'
-    And the remove all link should not be visible
-    When I check 'Credit Insurance and Related Products'
-    Then the basket should say '1 specialism selected'
-    And the remove all link should be visible
-    And the following items should appear in the basket:
-      | Credit Insurance and Related Products |
-    When I check the following items:
-      | Food, Rural and Environmental Affairs |
-      | Health, Healthcare and Social Care    |
-      | Insurance and Reinsurance             |
-      | Outsourcing                           |
-      | Planning Law                          |
-      | Supporting Public Inquiries           |
-    Then the basket should say '7 specialisms selected'
-    And the remove all link should be visible
-    And the following items should appear in the basket:
-      | Credit Insurance and Related Products |
-      | Food, Rural and Environmental Affairs |
-      | Health, Healthcare and Social Care    |
-      | Insurance and Reinsurance             |
-      | Outsourcing                           |
-      | Planning Law                          |
-      | Supporting Public Inquiries           |
-
-  @javascript
-  Scenario: Changing the selection will change the basket
-    When I check the following items:
-      | Competition Law                   |
-      | Fintech Crypto Assets             |
-      | Investment and Commercial Banking |
-      | Life Sciences                     |
-      | Merger & Acquisition Activity     |
-      | Restructuring/Insolvency          |
-    Then the basket should say '6 specialisms selected'
-    And the remove all link should be visible
-    And the following items should appear in the basket:
-      | Competition Law                   |
-      | Fintech Crypto Assets             |
-      | Investment and Commercial Banking |
-      | Life Sciences                     |
-      | Merger & Acquisition Activity     |
-      | Restructuring/Insolvency          |
-    When I deselect the following items:
-      | Restructuring/Insolvency |
-    Then the basket should say '5 specialisms selected'
-    And the remove all link should be visible
-    And the following items should appear in the basket:
-      | Competition Law                   |
-      | Fintech Crypto Assets             |
-      | Investment and Commercial Banking |
-      | Life Sciences                     |
-      | Merger & Acquisition Activity     |
-    When I remove the following items from the basket:
-      | Life Sciences                 |
-      | Merger & Acquisition Activity |
-    Then the basket should say '3 specialisms selected'
-    And the remove all link should be visible
-    And the following items should appear in the basket:
-      | Competition Law                   |
-      | Fintech Crypto Assets             |
-      | Investment and Commercial Banking |
-    When I click on 'Remove all'
-    Then the basket should say 'No specialisms selected'
-
-  @javascript
-  Scenario: Go back from suppliers and change selection
-    When I check the following items:
-      | Competition Law  |
-      | Construction Law |
-      | Contracts        |
-    And I click on 'Continue'
-    Then I am on the 'Supplier results' page
-    And I click on the 'Back' back link
-    Then I am on the 'Select the legal specialisms you need' page
-    And the following items should appear in the basket:
-      | Competition Law  |
-      | Construction Law |
-      | Contracts        |

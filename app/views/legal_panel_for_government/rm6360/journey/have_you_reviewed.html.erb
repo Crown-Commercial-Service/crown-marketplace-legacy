@@ -1,0 +1,45 @@
+<%= add_optional_error_prefix_to_page_title(@journey.errors) %>
+<%= content_for :page_title, t('.question') %>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <%= render partial: 'shared/error_summary', locals: { errors: @journey.errors } %>
+
+    <%= form_with url: @form_path, method: :get, html: { specialvalidation: true, novalidate: true } do |f| %>
+      <%= hidden_fields_for_previous_steps_and_responses(@journey) %>
+      <%= hidden_field_tag(:lot_id, @journey.current_step.lot_id) %>
+      <%= govuk_radios(
+        :have_you_reviewed,
+        @journey.current_step.class::HAVE_YOU_REVIEWED_OPTIONS.map do |option|
+          {
+            value: option,
+            label: {
+              text: t(option)
+            }
+          }
+        end,
+        model: @journey.current_step,
+        fieldset: {
+          legend: {
+            text: t('.question'),
+            classes: 'govuk-fieldset__legend--m',
+            is_page_heading: true,
+            caption: {
+              text: lot_full_name(@journey.current_step.lot),
+              classes: 'govuk-caption-m'
+            },
+          }
+        },
+        hint: {
+          text: capture do
+            concat(tag.p(t('.hint_part_1')))
+            concat(tag.p(t('.hint_part_2')))
+          end
+        },
+        classes: 'govuk-radios--inline'
+      ) %>
+
+      <%= govuk_button(t('common.submit'), form: f, classes: 'govuk-!-padding-left-7 govuk-!-padding-right-7', attributes: { id: 'submit', name: t('common.submit') }) %>
+    <% end %>
+  </div>
+</div>

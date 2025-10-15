@@ -1,5 +1,5 @@
 @javascript
-Feature: Legal Panel for Government - Non central governemnt - Lot 4a - Results
+Feature: Legal Panel for Government - Non central governemnt - Lot 4a - Suppliers - Countries
 
   Scenario: Check the supplier data for different counties
     Given I sign in and navigate to the start page for the 'RM6360' framework in 'legal panel for government'
@@ -33,14 +33,19 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4a - Results
       | Assimilated Law |
     And I click on 'Continue'
     Then I am on the 'Supplier results' page
-    And I should see that '5' suppliers can provide legal services for government
+    And I should see that '5' suppliers can provide legal specialisms for government
     And the selected legal service for government suppliers are:
       | ADAMS, WOLFF AND STROMAN | http://maggio-gulgowski.test/caridad   |
       | CROOKS AND SONS          | http://von.example/mireille            |
       | DICKI, QUITZON AND KUB   | http://schultz-macgyver.example/edmund |
       | O'CONNER AND SONS        | http://hudson.example/curtis           |
       | STANTON-GOYETTE          | http://lakin.example/lavinia           |
-    Given I click on 'CROOKS AND SONS'
+    And I click on 'Compare the supplier rates'
+    Then I am on the 'Have you reviewed the suppliers’ prospectus to inform your down-selection?' page
+    And I select 'No'
+    And I click on 'Continue'
+    Then I am on the 'Compare supplier rates' page
+    Given I click on 'CROOKS AND SONS' legal panel for governemnt supplier
     Then I am on the 'CROOKS AND SONS' page
     And I click on 'Finland'
     And the 'Senior Counsel, Senior Partner (20 years +PQE)' hourly rate is '£315.00'
