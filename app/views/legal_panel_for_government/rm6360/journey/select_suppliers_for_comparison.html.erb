@@ -22,7 +22,7 @@
     <div class="govuk-grid-column-two-thirds" id="selection-checkboxes">
       <%= govuk_checkboxes(
         :supplier_framework_ids,
-        @journey.current_step.supplier_frameworks.map do |supplier_framework|
+        @journey.current_step.suppliers_selector.supplier_frameworks.map do |supplier_framework|
           {
             value: supplier_framework.id,
             label: {

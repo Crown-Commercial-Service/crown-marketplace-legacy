@@ -24,8 +24,8 @@ RSpec.describe LegalPanelForGovernment::RM6360::Journey::ChooseServices do
   end
 
   describe '.next_step_class' do
-    it 'returns Journey::Suppliers' do
-      expect(step.next_step_class).to be LegalPanelForGovernment::RM6360::Journey::Suppliers
+    it 'returns Journey::SupplierResults' do
+      expect(step.next_step_class).to be LegalPanelForGovernment::RM6360::Journey::SupplierResults
     end
   end
 

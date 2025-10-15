@@ -3,7 +3,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
     <span class="govuk-caption-xl">
-      <%= full_lot_name(@lot) if @lot %>
+      <%= lot_full_name(@lot) %>
     </span>
     <h1 class="govuk-heading-xl">
       <%= @supplier_framework.supplier_name %>
@@ -18,11 +18,10 @@
   <div class="govuk-grid-column-two-thirds govuk-!-padding-right-8">
     <% if @rates.present? %>
       <h2 class="govuk-heading-m govuk-!-margin-bottom-1"><%= t('.rates') %></h2>
-      <p class="govuk-body">
-        <%= t('.fixed_until') %>
-      </p>
       <p class="govuk-body"><%= t('.further_competition') %></p>
-      <% if @jurisdictions.count > 0 %>
+      <% if @jurisdictions.pluck(:id) == ['GB'] %>
+        <%= render(partial: 'rates_table', locals: { jurisdiction_id: 'GB' }) %>
+      <% else %>
         <%= govuk_tabs(
           @jurisdictions.map do |jurisdiction|
             {
@@ -36,18 +35,16 @@
             }
           end
         ) %>
-      <% else %>
-        <%= render(partial: 'rates_table', locals: { jurisdiction_id: 'GB' }) %>
       <% end %>
     <% end %>
     <p><%= t('.fee_advice') %></p>
-    <% if params[:lot_id] && prospectus_link_present?(@supplier_framework) %>
+    <% if params[:lot_id] && prospectus_link_present?(@supplier_framework, @lot) %>
       <h2 class="govuk-heading-m govuk-!-margin-bottom-1"><%= t('.supplier_prospectus_headline') %></h2>
       <div class="govuk-!-margin-bottom-3 ccs-supplier-prospectus">
-        <% if prospectus_link_a_url?(@supplier_framework) %>
-          <%= link_to prospectus_link(@supplier_framework), url_formatter(prospectus_link(@supplier_framework)), class: 'govuk-link govuk-!-font-size-19' %>
+        <% if prospectus_link_a_url?(@supplier_framework, @lot) %>
+          <%= link_to prospectus_link(@supplier_framework, @lot), url_formatter(prospectus_link(@supplier_framework, @lot)), class: 'govuk-link govuk-!-font-size-19' %>
         <% else %>
-          <p><%= prospectus_link(@supplier_framework) %></p>
+          <p><%= prospectus_link(@supplier_framework, @lot) %></p>
         <% end %>
       </div>
     <% end %>

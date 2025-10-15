@@ -1,5 +1,5 @@
 @javascript
-Feature: Legal Panel for Government - Non central governemnt - Lot 4b - Results
+Feature: Legal Panel for Government - Non central governemnt - Lot 4b - Suppliers - Countries
 
   Scenario: Check the supplier data for different counties
     Given I sign in and navigate to the start page for the 'RM6360' framework in 'legal panel for government'
@@ -33,13 +33,18 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4b - Results
       | Wider trading arrangements |
     And I click on 'Continue'
     Then I am on the 'Supplier results' page
-    And I should see that '4' suppliers can provide legal services for government
+    And I should see that '4' suppliers can provide legal specialisms for government
     And the selected legal service for government suppliers are:
       | ADAMS, WOLFF AND STROMAN   | http://gleichner-lowe.example/freddie           |
       | KOELPIN, HILLL AND COLLINS | http://goyette-reynolds.example/josefa.mosciski |
       | SANFORD INC                | http://murazik-bechtelar.test/neda              |
       | VEUM, TORPHY AND NOLAN     | http://gislason-murazik.example/dorthy          |
-    Given I click on 'SANFORD INC'
+    And I click on 'Compare the supplier rates'
+    Then I am on the 'Have you reviewed the suppliers’ prospectus to inform your down-selection?' page
+    And I select 'No'
+    And I click on 'Continue'
+    Then I am on the 'Compare supplier rates' page
+    Given I click on 'SANFORD INC' legal panel for governemnt supplier
     Then I am on the 'SANFORD INC' page
     And I click on 'Algeria'
     And the 'Senior Counsel, Senior Partner (20 years +PQE)' hourly rate is '£270.00'

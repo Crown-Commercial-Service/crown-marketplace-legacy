@@ -27,7 +27,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4a - Results
       | Domestic law of jurisdictions for trade |
     And I click on 'Continue'
     Then I am on the 'Supplier results' page
-    And I should see that '3' suppliers can provide legal services for government
+    And I should see that '3' suppliers can provide legal specialisms for government
     And the selected legal service for government suppliers are:
       | ADAMS, WOLFF AND STROMAN | http://maggio-gulgowski.test/caridad |
       | CROOKS AND SONS          | http://von.example/mireille          |
@@ -40,32 +40,13 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4a - Results
     Given I check 'International treaty law'
     When I click on 'Continue'
     Then I am on the 'Supplier results' page
-    And I should see that '4' suppliers can provide legal services for government
+    And I should see that '4' suppliers can provide legal specialisms for government
     And the selected legal service for government suppliers are:
       | ADAMS, WOLFF AND STROMAN | http://maggio-gulgowski.test/caridad   |
       | CROOKS AND SONS          | http://von.example/mireille            |
       | DICKI, QUITZON AND KUB   | http://schultz-macgyver.example/edmund |
       | O'CONNER AND SONS        | http://hudson.example/curtis           |
 
-  Scenario: Going back from a supplier
-    And I click on 'CROOKS AND SONS'
-    Then I am on the 'CROOKS AND SONS' page
-    And the sub title is 'Lot 4a - Trade and Investment Negotiations'
-    And I click on the 'Back' back link
-    Then I am on the 'Supplier results' page
-    And I should see that '3' suppliers can provide legal services for government
-    And the selected legal service for government suppliers are:
-      | ADAMS, WOLFF AND STROMAN | http://maggio-gulgowski.test/caridad |
-      | CROOKS AND SONS          | http://von.example/mireille          |
-      | O'CONNER AND SONS        | http://hudson.example/curtis         |
-
-  Scenario: Going back from downloading documents
-    And I click on 'Download the supplier list'
-    Then I am on the 'Download the supplier shortlist' page
-    And I click on the 'Back' back link
-    Then I am on the 'Supplier results' page
-    And I should see that '3' suppliers can provide legal services for government
-    And the selected legal service for government suppliers are:
-      | ADAMS, WOLFF AND STROMAN | http://maggio-gulgowski.test/caridad |
-      | CROOKS AND SONS          | http://von.example/mireille          |
-      | O'CONNER AND SONS        | http://hudson.example/curtis         |
+  Scenario: Download the supplier spreadsheet
+    Given I click on 'Download the supplier list'
+    Then the spreadsheet 'Shortlist of Legal Panel for Government Suppliers.xlsx' is downloaded

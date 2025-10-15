@@ -8,4 +8,8 @@
   thead > tr > th {
     vertical-align: bottom;
   }
+
+  .govuk-tag {
+    @include govuk-font-size($size: 16);
+  }
 }

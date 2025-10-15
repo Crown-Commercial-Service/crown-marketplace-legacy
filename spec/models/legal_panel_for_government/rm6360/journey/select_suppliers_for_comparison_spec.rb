@@ -36,8 +36,8 @@ RSpec.describe LegalPanelForGovernment::RM6360::Journey::SelectSuppliersForCompa
   end
 
   describe '.next_step_class' do
-    it 'returns Journey::SuppliersComparison' do
-      expect(step.next_step_class).to be LegalPanelForGovernment::RM6360::Journey::SuppliersComparison
+    it 'returns Journey::Suppliers' do
+      expect(step.next_step_class).to be LegalPanelForGovernment::RM6360::Journey::Suppliers
     end
   end
 
@@ -91,11 +91,12 @@ RSpec.describe LegalPanelForGovernment::RM6360::Journey::SelectSuppliersForCompa
   end
 
   describe '.supplier_frameworks' do
-    let(:result) { step.supplier_frameworks }
+    let(:result) { step.suppliers_selector.supplier_frameworks }
     let(:supplier_frameworks) { instance_double(ActiveRecord::Relation) }
 
     before do
       allow(Supplier::Framework).to receive(:with_services_and_jurisdiction).with(service_ids, expected_jurisdiction_ids).and_return(supplier_frameworks)
+      allow(supplier_frameworks).to receive(:includes).with(:supplier).and_return(supplier_frameworks)
       allow(supplier_frameworks).to receive(:order).with('supplier.name').and_return(supplier_frameworks)
     end
 
