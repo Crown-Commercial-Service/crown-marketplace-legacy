@@ -3,9 +3,9 @@ require 'rails_helper'
 RSpec.describe LegalPanelForGovernment::RM6360::SupplierSpreadsheetCreator do
   let(:supplier_details) do
     [
-      { name: 'COLONY 4 CORP', email: 'ethel@colony.four.ltd.com 4 CORP', telephone_number: '0203 234 5678' },
-      { name: 'MAKTHA AGENCY', email: 'juniper@flowers.com', telephone_number: '0204 345 6789' },
-      { name: 'KEVIS CASTLE SERVICE', email: 'melia@kevis.castle.com', telephone_number: '0204 567 8901' }
+      { name: 'COLONY 4 CORP', email: 'ethel@colony.four.ltd.com 4 CORP', telephone_number: '0203 234 5678', additional_details: { "lot_#{lot_number}_prospectus_link": 'colony.four@xenoblade3.com' } },
+      { name: 'MAKTHA AGENCY', email: 'juniper@flowers.com', telephone_number: '0204 345 6789', additional_details: { "lot_#{lot_number}_prospectus_link": 'maktha@xenoblade3.com' } },
+      { name: 'KEVIS CASTLE SERVICE', email: 'melia@kevis.castle.com', telephone_number: '0204 567 8901', additional_details: { "lot_#{lot_number}_prospectus_link": 'kevis.castle@xenoblade3.com' } },
     ]
   end
 
@@ -44,10 +44,10 @@ RSpec.describe LegalPanelForGovernment::RM6360::SupplierSpreadsheetCreator do
     let(:sheet) { work_book.sheet('Supplier shortlist') }
 
     it 'has the correct rows' do
-      expect(sheet.row(1)).to eq ['Supplier name', 'Phone number', 'Email']
-      expect(sheet.row(2)).to eq ['COLONY 4 CORP', '0203 234 5678', 'ethel@colony.four.ltd.com 4 CORP']
-      expect(sheet.row(3)).to eq ['KEVIS CASTLE SERVICE', '0204 567 8901', 'melia@kevis.castle.com']
-      expect(sheet.row(4)).to eq ['MAKTHA AGENCY', '0204 345 6789', 'juniper@flowers.com']
+      expect(sheet.row(1)).to eq ['Supplier name', 'Phone number', 'Email', 'Prospectus']
+      expect(sheet.row(2)).to eq ['COLONY 4 CORP', '0203 234 5678', 'ethel@colony.four.ltd.com 4 CORP', 'colony.four@xenoblade3.com']
+      expect(sheet.row(3)).to eq ['KEVIS CASTLE SERVICE', '0204 567 8901', 'melia@kevis.castle.com', 'kevis.castle@xenoblade3.com']
+      expect(sheet.row(4)).to eq ['MAKTHA AGENCY', '0204 345 6789', 'juniper@flowers.com', 'maktha@xenoblade3.com']
     end
   end
 
@@ -57,7 +57,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::SupplierSpreadsheetCreator do
     context 'and the lot number is 1' do
       it 'has the correct data' do
         expect(sheet.row(1)).to eq ['Lot', '1 - Core Legal Services']
-        expect(sheet.row(2)).to eq ['Services', services.map(&:name).join('; ')]
+        expect(sheet.row(2)).to eq ['Specialisms', services.map(&:name).join('; ')]
         expect(sheet.row(3)).to eq [nil, nil]
       end
     end
@@ -70,7 +70,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::SupplierSpreadsheetCreator do
 
         it 'has the correct data' do
           expect(sheet.row(1)).to eq ['Lot', '4a - Trade and Investment Negotiations']
-          expect(sheet.row(2)).to eq ['Services', services.map(&:name).join('; ')]
+          expect(sheet.row(2)).to eq ['Specialisms', services.map(&:name).join('; ')]
           expect(sheet.row(3)).to eq ['Countries', 'Belgium; Canada; France; Germany; Ireland; Switzerland; United Kingdom; United States']
         end
       end
@@ -80,7 +80,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::SupplierSpreadsheetCreator do
 
         it 'has the correct data' do
           expect(sheet.row(1)).to eq ['Lot', '4a - Trade and Investment Negotiations']
-          expect(sheet.row(2)).to eq ['Services', services.map(&:name).join('; ')]
+          expect(sheet.row(2)).to eq ['Specialisms', services.map(&:name).join('; ')]
           expect(sheet.row(3)).to eq ['Countries', 'United Arab Emirates; Åland Islands']
         end
       end

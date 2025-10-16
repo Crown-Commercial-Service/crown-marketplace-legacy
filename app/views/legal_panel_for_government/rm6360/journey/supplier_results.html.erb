@@ -1,0 +1,62 @@
+<%= content_for :page_title, t('.page_title')  %>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <span class="govuk-caption-m">
+      <%= lot_full_name(@journey.current_step.lot) %>
+      <h1 class="govuk-heading-m">
+        <%= @journey.current_step.suppliers_selector.supplier_frameworks.count.zero? ? t('.no_suppliers_found.heading') : t('.heading') %>
+      </h1>
+    </span>
+  </div>
+</div>
+
+<% if @journey.current_step.suppliers_selector.supplier_frameworks.count.zero? %>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <p class="govuk-body govuk-!-font-size-24">
+        <%=t('.no_suppliers_found.text') %>
+      </p>
+
+      <%= govuk_button(t('.no_suppliers_found.back_to_start'), href: legal_panel_for_government_journey_start_path, classes: 'govuk-!-margin-top-4 govuk-!-padding-left-4 govuk-!-padding-right-4') %>
+    </div>
+  </div>
+<% else %>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <p class="govuk-body">
+        <span class='govuk-!-font-weight-bold'>
+          <span class='govuk-!-font-size-27 govuk-!-font-weight-bold'>
+            <%= @journey.current_step.suppliers_selector.supplier_frameworks.count %>
+          </span>
+          <%= t('.supplier').pluralize(@journey.current_step.suppliers_selector.supplier_frameworks.count) %>
+        </span>
+        <%= t('.can_provide_legal_specialisms') %>
+      </p>
+      <%= form_tag @form_path, method: :get do |f| %>
+        <%= hidden_fields_for_previous_steps_and_responses(@journey) %>
+        <%= hidden_field_tag(:lot_id, @journey.current_step.lot_id) %>
+        <%= hidden_field_tag(:not_core_jurisdiction, @journey.current_step.not_core_jurisdiction) %>
+        <% @journey.current_step.service_ids.each do |service_id| %>
+          <%= hidden_field_tag(:'service_ids[]', service_id) %>
+        <% end %>
+        <% @journey.current_step.jurisdiction_ids.each do |jurisdiction_id| %>
+          <%= hidden_field_tag(:'jurisdiction_ids[]', jurisdiction_id) %>
+        <% end %>
+
+        <div class="govuk-button-group">
+          <%= govuk_button(t('.compare_supplier_rates'), form: f) %>
+          <%= govuk_button(t('.download_suppliers_list'), href: "#{download_legal_panel_for_government_suppliers_path}&format=xlsx", classes: 'govuk-button--secondary') %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds ccs-search-results">
+      <ul class="ccs-results-list">
+        <%= render partial: 'legal_panel_for_government/rm6360/journey/supplier_framework', collection: @journey.current_step.suppliers_selector.supplier_frameworks, locals: { lot: @journey.current_step.lot } %>
+      </ul>
+    </div>
+  </div>
+<% end %>

@@ -12,25 +12,15 @@ module LegalPanelForGovernment
       validates :supplier_framework_ids, length: { minimum: 2 }
 
       def lot
-        Lot.find(lot_id)
+        @lot ||= Lot.find(lot_id)
       end
 
-      def supplier_frameworks
-        Supplier::Framework.with_services_and_jurisdiction(service_ids, determine_jurisdiction_ids).order('supplier.name')
+      def suppliers_selector
+        @suppliers_selector ||= SuppliersSelector.new(lot_id:, service_ids:, not_core_jurisdiction:, jurisdiction_ids:)
       end
 
       def next_step_class
-        Journey::SuppliersComparison
-      end
-
-      private
-
-      def determine_jurisdiction_ids
-        if lot_id.starts_with?('RM6360.4') && not_core_jurisdiction == 'yes'
-          jurisdiction_ids
-        else
-          ['GB']
-        end
+        Journey::Suppliers
       end
     end
   end
