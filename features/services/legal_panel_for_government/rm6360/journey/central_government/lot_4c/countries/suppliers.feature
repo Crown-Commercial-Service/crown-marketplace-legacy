@@ -42,7 +42,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4c - Supplier
       | ZIEME-LEANNON          | http://terry.example/clementine.kozey   |
     And I click on 'Compare the supplier rates'
     Then I am on the 'Have you reviewed the suppliers’ prospectus to inform your down-selection?' page
-    And I select 'No'
+    And I 'have not' reviewed the suppliers’ prospectus
     And I click on 'Continue'
     Then I am on the 'Compare supplier rates' page
     Given I click on 'JOHNSON-ROMAGUERA' legal panel for governemnt supplier

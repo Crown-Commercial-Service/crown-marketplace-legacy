@@ -26,6 +26,15 @@ Then('I click on {string} legal panel for governemnt supplier') do |supplier_nam
   legal_panel_for_government_page.first('a', text: supplier_name).click
 end
 
+Given('I {string} reviewed the suppliers’ prospectus') do |option|
+  case option
+  when 'have'
+    legal_panel_for_government_page.have_you_reviewed.yes.choose
+  when 'have not'
+    legal_panel_for_government_page.have_you_reviewed.no.choose
+  end
+end
+
 def add_requirement_dates(section, month, year)
   legal_panel_for_government_page.send(section.to_sym).find('.govuk-date-input__item:nth-of-type(1) .govuk-date-input__input').set(month)
   legal_panel_for_government_page.send(section.to_sym).find('.govuk-date-input__item:nth-of-type(2) .govuk-date-input__input').set(year)

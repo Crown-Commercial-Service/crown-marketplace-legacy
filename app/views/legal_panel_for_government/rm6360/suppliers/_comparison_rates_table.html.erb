@@ -1,30 +1,35 @@
 <div class="ccs-suppliers-comparison-container">
-  <%= govuk_table(
-    [
-      {
-        text: t('.supplier'),
-      },
-    ] + positions.map do |_position_id, position_name|
-      {
-        text: t("legal_panel_for_government.rm6360.suppliers.rates_table.job_titles.#{position_name}"),
-      }
-    end,
-    @supplier_frameworks.map do |supplier_framework, rates|
+  <p class="govuk-body">
+    <%= t('.scroll_to_the_right') %>
+  </p>
+  <div class="ccs-suppliers-comparison-overflow-container">
+    <%= govuk_table(
       [
         {
-          text: render(partial: 'legal_panel_for_government/rm6360/suppliers/supplier_table_head', locals: { supplier_framework:, lot: @lot, include_link: true })
-        }
-      ] + positions.map  do |position_id, _position_name|
+          text: t('.supplier'),
+        },
+      ] + positions.map do |_position_id, position_name|
         {
-          text: display_rate(position_id, jurisdiction_id, rates)
+          text: t("legal_panel_for_government.rm6360.suppliers.rates_table.job_titles.#{position_name}"),
         }
-      end
-    end,
-    caption: {
-      text: t('.rates'),
-      classes: 'govuk-visually-hidden'
-    },
-    first_cell_is_header: true,
-    classes: 'ccs-suppliers-comparison-table'
-  ) %>
+      end,
+      @supplier_frameworks.map do |supplier_framework, rates|
+        [
+          {
+            text: render(partial: 'legal_panel_for_government/rm6360/suppliers/supplier_table_head', locals: { supplier_framework:, lot: @lot, include_link: true })
+          }
+        ] + positions.map  do |position_id, _position_name|
+          {
+            text: display_rate(position_id, jurisdiction_id, rates)
+          }
+        end
+      end,
+      caption: {
+        text: t('.rates'),
+        classes: 'govuk-visually-hidden'
+      },
+      first_cell_is_header: true,
+      classes: 'ccs-suppliers-comparison-table'
+    ) %>
+  </div>
 </div>

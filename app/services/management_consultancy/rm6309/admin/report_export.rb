@@ -4,7 +4,9 @@ class ManagementConsultancy::RM6309::Admin::ReportExport < ReportExport
       ['Lot', 'Services']
     end
 
-    def search_criteria_row(search_criteria)
+    def search_criteria_row(search)
+      search_criteria = search.search_criteria
+
       lot = Lot.find(search_criteria['lot_id'])
 
       [

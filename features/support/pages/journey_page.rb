@@ -35,7 +35,7 @@ module Pages
       end
     end
 
-    section :supplier_rates_comparison_table, 'div:not(.govuk-tabs__panel--hidden) > div > table' do
+    section :supplier_rates_comparison_table, 'div:not(.govuk-tabs__panel--hidden) > div > div > table' do
       elements :headers, 'thead > tr > th'
       sections :rows, 'tbody > tr' do
         element :supplier_name, 'th'
