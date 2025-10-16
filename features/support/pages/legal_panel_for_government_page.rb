@@ -9,5 +9,10 @@ module Pages
       element :name, '.ccs-results-list__supplier-name'
       element :prospectus, '.ccs-results-list__prospectus > a'
     end
+
+    section :have_you_reviewed, '.govuk-radios' do
+      element :yes, '#have_you_reviewed_yes'
+      element :no, '#have_you_reviewed_no'
+    end
   end
 end

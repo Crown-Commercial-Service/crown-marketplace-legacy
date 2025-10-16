@@ -44,7 +44,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4a - Supplier
 
   @javascript
   Scenario: Suppliers reviewed - The rates table is displayed for comparison
-    And I select 'Yes'
+    And I 'have' reviewed the suppliers’ prospectus
     And I click on 'Continue'
     Then I am on the 'Select suppliers for comparison' page
     When I check the following items:
@@ -69,7 +69,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4a - Supplier
 
   @javascript
   Scenario: Suppliers not reviewed - The rates table is displayed for comparison
-    And I select 'No'
+    And I 'have not' reviewed the suppliers’ prospectus
     And I click on 'Continue'
     Then I am on the 'Compare supplier rates' page
     And I click on 'Finland'
@@ -91,7 +91,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4a - Supplier
 
   @javascript
   Scenario: Suppliers reviewed - Changing selection changes the results
-    And I select 'Yes'
+    And I 'have' reviewed the suppliers’ prospectus
     And I click on 'Continue'
     Then I am on the 'Select suppliers for comparison' page
     When I check the following items:
@@ -122,7 +122,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4a - Supplier
       | STANTON-GOYETTE   | £315.00                                        | £280.00 | £245.00                              | £210.00                                                   | £175.00                              | £140.00                                                            | £84.00                   | £70.00                     |                |                                                                  |                                                        |                                                      |
 
   Scenario: Suppliers reviewed - Back to results
-    And I select 'Yes'
+    And I 'have' reviewed the suppliers’ prospectus
     And I click on 'Continue'
     Then I am on the 'Select suppliers for comparison' page
     When I check the following items:
@@ -144,7 +144,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4a - Supplier
 
   @javascript
   Scenario: Suppliers reviewed - Going back from a supplier
-    And I select 'Yes'
+    And I 'have' reviewed the suppliers’ prospectus
     And I click on 'Continue'
     Then I am on the 'Select suppliers for comparison' page
     When I check the following items:
@@ -175,7 +175,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4a - Supplier
 
   @javascript
   Scenario: Suppliers not reviewed - Going back from a supplier
-    And I select 'No'
+    And I 'have not' reviewed the suppliers’ prospectus
     And I click on 'Continue'
     Then I am on the 'Compare supplier rates' page
     And I click on 'STANTON-GOYETTE' legal panel for governemnt supplier

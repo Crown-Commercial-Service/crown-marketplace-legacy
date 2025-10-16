@@ -4,7 +4,9 @@ class LegalServices::RM6240::Admin::ReportExport < ReportExport
       ['Central government', 'Lot', 'Services', 'Jurisdiction']
     end
 
-    def search_criteria_row(search_criteria)
+    def search_criteria_row(search)
+      search_criteria = search.search_criteria
+
       lot = Lot.find("RM6240.#{search_criteria['lot_number']}#{search_criteria['jurisdiction']}")
 
       [

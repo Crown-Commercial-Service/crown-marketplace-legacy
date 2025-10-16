@@ -14,7 +14,7 @@ class ReportExport
     end
 
     def create_search_row(search)
-      [search.user.id, format_date_time(search.created_at)] + search_criteria_row(search.search_criteria) + [search.search_result.map(&:first).sort.join(";\n")]
+      [search.user.id, format_date_time(search.created_at)] + search_criteria_row(search) + [search.search_result.map(&:first).sort.join(";\n")]
     end
 
     def search_criteria_headers
