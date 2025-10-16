@@ -350,13 +350,16 @@ en:
       suppliers:
         comparison_rates_table:
           rates: Rates
+          scroll_to_the_right: Scroll the table to the right to view the rates for all positions
           supplier: Supplier
         index:
           back_to_results: Back to results
           have_been_selected_for_comparison: have been selected for comparison.
           heading: Compare supplier rates
+          if_you_have_any_questions_html: If you have any questions, please contact CCS at <a href="mailto:info@crowncommercial.gov.uk" class="govuk-link govuk-link--no-visited-state">info@crowncommercial.gov.uk</a>.
           page_title: Compare supplier rates
           supplier: supplier
+          the_rates_provided: The rates provided are commercially sensitive and should be used only to inform your requirement.
         rates_table:
           hourly: Hourly
           job_titles:

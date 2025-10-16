@@ -52,7 +52,13 @@
 <hr class="govuk-section-break govuk-section-break--m">
 
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-full">
+  <div class="govuk-grid-column-three-quarters">
+    <p class="govuk-body">
+      <%= t('.the_rates_provided') %>
+    </p>
+    <p class="govuk-body">
+      <%= t('.if_you_have_any_questions_html') %>
+    </p>
     <div class="govuk-button-group">
       <%= govuk_button(t('.back_to_results'), href: legal_panel_for_government_journey_question_path(slug: 'supplier-results', **@journey.params.except(:supplier_framework_ids, :have_you_reviewed))) %>
     </div>

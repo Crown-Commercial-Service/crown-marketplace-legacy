@@ -31,7 +31,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 3 - Suppliers
       | VEUM, TORPHY AND NOLAN        | http://barrows.test/rodney.ziemann    |
     And I click on 'Compare the supplier rates'
     Then I am on the 'Have you reviewed the suppliers’ prospectus to inform your down-selection?' page
-    And I select 'Yes'
+    And I 'have' reviewed the suppliers’ prospectus
     And I click on 'Continue'
     Then I am on the 'Select suppliers for comparison' page
     When I check the following items:
