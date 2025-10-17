@@ -347,6 +347,7 @@ en:
             text: There are no suppliers on this panel that can provide the legal specialisms you need
           page_title: Supplier results
           supplier: supplier
+          you_may_wish: You may wish to undertake an assessment using the suppliers prospectus’ at this stage to help your down selection process. You can do this by using the links provided here or in a downloadable list by clicking "Download the supplier list"
       suppliers:
         comparison_rates_table:
           rates: Rates

@@ -23,7 +23,7 @@
   </div>
 <% else %>
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full">
+    <div class="govuk-grid-column-two-thirds">
       <p class="govuk-body">
         <span class='govuk-!-font-weight-bold'>
           <span class='govuk-!-font-size-27 govuk-!-font-weight-bold'>
@@ -32,6 +32,9 @@
           <%= t('.supplier').pluralize(@journey.current_step.suppliers_selector.supplier_frameworks.count) %>
         </span>
         <%= t('.can_provide_legal_specialisms') %>
+      </p>
+      <p class="govuk-body">
+        <%= t('.you_may_wish') %>
       </p>
       <%= form_tag @form_path, method: :get do |f| %>
         <%= hidden_fields_for_previous_steps_and_responses(@journey) %>

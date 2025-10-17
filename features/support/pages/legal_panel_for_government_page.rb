@@ -3,7 +3,7 @@ module Pages
     element :start, '#requirement_start_date-form-group'
     element :end, '#requirement_end_date-form-group'
 
-    element :number_of_suppliers, '#main-content > div:nth-child(2) > div > p'
+    element :number_of_suppliers, '#main-content > div:nth-child(2) > div > p:nth-child(1)'
 
     sections :suppliers, '.ccs-results-list h2' do
       element :name, '.ccs-results-list__supplier-name'
