@@ -10,10 +10,10 @@ jobs:
     strategy:
       matrix:
         service:
-          - legal-services
           - legal-panel-for-government
-          - management-consultancy
-          - supply-teachers
+          - legal-panel-for-government
+          - legal-panel-for-government
+          - legal-panel-for-government
 
     services:
       postgres:
