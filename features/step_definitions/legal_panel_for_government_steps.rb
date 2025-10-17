@@ -29,9 +29,11 @@ end
 Given('I {string} reviewed the suppliers’ prospectus') do |option|
   case option
   when 'have'
-    legal_panel_for_government_page.have_you_reviewed.yes.choose
+    legal_panel_for_government_page.have_you_reviewed.yes.click
+    legal_panel_for_government_page.have_you_reviewed.yes.click unless legal_panel_for_government_page.have_you_reviewed.yes.checked?
   when 'have not'
-    legal_panel_for_government_page.have_you_reviewed.no.choose
+    legal_panel_for_government_page.have_you_reviewed.no.click
+    legal_panel_for_government_page.have_you_reviewed.no.click unless legal_panel_for_government_page.have_you_reviewed.yes.checked?
   end
 end
 

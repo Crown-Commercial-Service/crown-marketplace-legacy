@@ -80,3 +80,7 @@ After do
     Rake::Task['db:bank_holidays'].invoke
   end
 end
+
+After do |scenario|
+  puts page.html if scenario.failed?
+end
