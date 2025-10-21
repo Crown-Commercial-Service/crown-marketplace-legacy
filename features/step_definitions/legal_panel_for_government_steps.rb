@@ -26,7 +26,7 @@ Then('I click on {string} legal panel for governemnt supplier') do |supplier_nam
   legal_panel_for_government_page.first('a', text: supplier_name).click
 end
 
-Given('I {string} reviewed the suppliers’ prospectus') do |option|
+Given("I {string} reviewed the suppliers' prospectus") do |option|
   case option
   when 'have'
     legal_panel_for_government_page.have_you_reviewed.yes.choose
