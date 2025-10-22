@@ -148,7 +148,7 @@ en:
               supplier_details_file: Supplier details
               supplier_rate_cards_file: Supplier rate cards
               supplier_service_offerings_file: Supplier service offerings
-            heading: Manage supplier data
+            heading: Upload supplier data
             name: Name
             status: Status
             table_caption: Previous uploads
@@ -161,7 +161,7 @@ en:
               supplier_rate_cards_file: Supplier rate cards
               supplier_service_offerings_file: Supplier service offerings
             heading: New data upload
-            return: Return to 'Manage supplier data'
+            return: Return to 'Upload supplier data'
             template_file_name: Download spreadsheet templates
             template_file_path: management-consultancy/rm6187/Supplier spreadsheet templates.zip
             upload_caption: Supported file format is .xlsx and maximum file size is 10mb
@@ -179,7 +179,7 @@ en:
             files: Uploaded files
             heading: 'Upload session #%{number}'
             name: File name
-            return: Return to 'Manage supplier data'
+            return: Return to 'Upload supplier data'
             status: 'Status:'
       home:
         index:
@@ -288,7 +288,7 @@ en:
               supplier_details_file: Supplier details
               supplier_rate_cards_file: Supplier rate cards
               supplier_service_offerings_file: Supplier service offerings
-            heading: Manage supplier data
+            heading: Upload supplier data
             name: Name
             status: Status
             table_caption: Previous uploads
@@ -301,7 +301,7 @@ en:
               supplier_rate_cards_file: Supplier rate cards
               supplier_service_offerings_file: Supplier service offerings
             heading: New data upload
-            return: Return to 'Manage supplier data'
+            return: Return to 'Upload supplier data'
             template_file_name: Download spreadsheet templates
             template_file_path: management-consultancy/rm6309/Supplier spreadsheet templates.zip
             upload_caption: Supported file format is .xlsx and maximum file size is 10mb
@@ -319,7 +319,7 @@ en:
             files: Uploaded files
             heading: 'Upload session #%{number}'
             name: File name
-            return: Return to 'Manage supplier data'
+            return: Return to 'Upload supplier data'
             status: 'Status:'
       home:
         index:

@@ -118,16 +118,6 @@ en:
             jurisdictions:
               jurisdiction: Jurisdiction
               provides_service_in_jursidiction: Provides services in jurisdiction?
-        suppliers:
-          show:
-            additional_supplier_information:
-              lot_1_prospectus_link: Lot 1 prospectus link
-              lot_2_prospectus_link: Lot 2 prospectus link
-              lot_3_prospectus_link: Lot 3 prospectus link
-              lot_4a_prospectus_link: Lot 4a prospectus link
-              lot_4b_prospectus_link: Lot 4b prospectus link
-              lot_4c_prospectus_link: Lot 4c prospectus link
-              lot_5_prospectus_link: Lot 5 prospectus link
         uploads:
           failed:
             below_is_a_list: Below is a list of the issues that have occurred with the file upload and details on how they might be fixed.
@@ -201,7 +191,7 @@ en:
               supplier_lot_4c_rate_cards_file: Supplier lot 4c rate cards
               supplier_other_lots_rate_cards_file: Supplier rate cards (lots 1, 2, 3, 5)
               supplier_service_offerings_file: Supplier service offerings
-            heading: Manage supplier data
+            heading: Upload supplier data
             name: Name
             status: Status
             table_caption: Previous uploads
@@ -217,7 +207,7 @@ en:
               supplier_other_lots_rate_cards_file: Supplier rate cards (lots 1, 2, 3, 5)
               supplier_service_offerings_file: Supplier service offerings
             heading: New data upload
-            return: Return to 'Manage supplier data'
+            return: Return to 'Upload supplier data'
             template_file_name: Download spreadsheet templates
             template_file_path: legal-panel-for-government/%{framework}/Supplier spreadsheet templates.zip
             upload_caption: Supported file format is .xlsx and maximum file size is 10mb
@@ -239,7 +229,7 @@ en:
             files: Uploaded files
             heading: 'Upload session #%{number}'
             name: File name
-            return: Return to 'Manage supplier data'
+            return: Return to 'Upload supplier data'
             status: 'Status:'
       buyer_details:
         index:

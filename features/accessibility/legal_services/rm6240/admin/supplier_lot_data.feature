@@ -3,7 +3,7 @@ Feature: Legal services - Admin - Supplier lot data - Lot data - Accessibility
 
   Background: Navigate to supplier data
     Given I sign in as an admin for the 'RM6240' framework in 'legal services'
-    And I click on 'View supplier data'
+    And I click on 'Manage supplier data'
     Then I am on the 'Supplier data' page
 
   Scenario: Lot status

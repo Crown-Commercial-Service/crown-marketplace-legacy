@@ -1,10 +1,12 @@
 module Admin::DashboardController
   extend ActiveSupport::Concern
 
+  include Admin::SupplierPathsConcern
+
   included do
     before_action :authenticate_user!, :authorize_user, only: %i[index]
 
-    helper_method :uploads_index_path, :suppliers_index_path, :reports_index_path, :framework_has_analytics?
+    helper_method :uploads_index_path, :reports_index_path, :framework_has_analytics?
   end
 
   def index; end
@@ -21,10 +23,6 @@ module Admin::DashboardController
 
   def uploads_index_path
     "#{service_path_base}/uploads"
-  end
-
-  def suppliers_index_path
-    "#{service_path_base}/suppliers"
   end
 
   def reports_index_path

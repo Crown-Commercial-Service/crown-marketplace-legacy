@@ -1,7 +1,7 @@
 <%= content_for :page_title, t(".heading.heading", section: t(".heading.#{params[:section]}"), lot_number: @lot.number, lot_name: @lot.name) %>
 
 <% admin_breadcrumbs(
-  { text: t('shared.admin.suppliers.index.heading'), href: supplier_index_path },
+  { text: t('shared.admin.suppliers.index.heading'), href: suppliers_index_path },
   { text: t('shared.admin.lot_data.index.heading'), href: supplier_lot_data_index_path },
   { text: t(".heading.heading", section: t(".heading.#{params[:section]}"), lot_number: @lot.number, lot_name: @lot.name) }
 )%>

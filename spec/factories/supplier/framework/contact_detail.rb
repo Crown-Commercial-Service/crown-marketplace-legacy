@@ -2,7 +2,7 @@ FactoryBot.define do
   factory :supplier_framework_contact_detail, class: 'Supplier::Framework::ContactDetail' do
     name { Faker::Name.unique.name }
     email { Faker::Internet.unique.email }
-    telephone_number { Faker::PhoneNumber.unique.phone_number }
+    telephone_number { Faker::PhoneNumber.unique.cell_phone_in_e164[1..] }
     website { Faker::Internet.unique.url }
 
     after(:build) do |supplier_framework_contact_detail, evaluator|

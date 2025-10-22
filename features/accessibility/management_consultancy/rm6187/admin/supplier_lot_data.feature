@@ -3,7 +3,7 @@ Feature: Management Consultancy - Admin - Supplier lot data - Lot data - Accessi
 
   Background: Navigate to supplier data
     Given I sign in as an admin for the 'RM6187' framework in 'management consultancy'
-    And I click on 'View supplier data'
+    And I click on 'Manage supplier data'
     Then I am on the 'Supplier data' page
 
   Scenario: Lot status
