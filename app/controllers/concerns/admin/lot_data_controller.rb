@@ -1,13 +1,15 @@
 module Admin::LotDataController
   extend ActiveSupport::Concern
 
+  include Admin::SupplierPathsConcern
+
   included do
     before_action :authenticate_user!, :authorize_user
     before_action :set_framework
     before_action :set_supplier_framework_lots, only: :index
     before_action :set_lot, :set_section_data, :set_supplier_framework_data, only: :show
 
-    helper_method :service, :supplier_index_path, :supplier_lot_data_index_path, :supplier_lot_data_item_show_path
+    helper_method :service, :supplier_lot_data_index_path, :supplier_lot_data_item_show_path
   end
 
   def index
@@ -63,10 +65,6 @@ module Admin::LotDataController
     when 'branches'
       @supplier_framework_lot_branches = @supplier_framework_lot.branches.order(:name)
     end
-  end
-
-  def supplier_index_path
-    "#{service_path_base}/suppliers"
   end
 
   def supplier_lot_data_index_path

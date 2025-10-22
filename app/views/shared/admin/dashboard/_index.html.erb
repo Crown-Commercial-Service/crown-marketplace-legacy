@@ -12,14 +12,18 @@
 <%= ccs_dashboard_section(
   [
     {
-      title: t('.manage_supplier_data.title'),
+      title: t('.upload_supplier_data.title'),
       href: uploads_index_path,
-      description: t('.manage_supplier_data.description')
+      description: t('.upload_supplier_data.description')
     },
-    {
+    Marketplace.environment_name == :production ? {
       title: t('.view_supplier_data.title'),
       href: suppliers_index_path,
       description: t('.view_supplier_data.description')
+    } : {
+      title: t('.manage_supplier_data.title'),
+      href: suppliers_index_path,
+      description: t('.manage_supplier_data.description')
     },
   ],
   t('.supplier_data')

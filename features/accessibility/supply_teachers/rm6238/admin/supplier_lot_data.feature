@@ -3,7 +3,7 @@ Feature: Supply Teachers - Admin - Supplier lot data - Lot data - Accessibility
 
   Background: Navigate to supplier data
     Given I sign in as an admin for the 'RM6238' framework in 'supply teachers'
-    And I click on 'View supplier data'
+    And I click on 'Manage supplier data'
     Then I am on the 'Supplier data' page
 
   Scenario Outline: Lot status - Lot <lot_number>

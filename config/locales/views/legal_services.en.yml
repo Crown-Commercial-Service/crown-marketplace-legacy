@@ -80,12 +80,6 @@ en:
             c: Northern Ireland
           supplier_lot_data_summary_list:
             lot_name: Lot %{number} - %{name} (%{jurisdiction})
-      suppliers:
-        show:
-          additional_supplier_information:
-            lot_1_prospectus_link: Lot 1 prospectus link
-            lot_2_prospectus_link: Lot 2 prospectus link
-            lot_3_prospectus_link: Lot 3 prospectus link
       uploads:
         failed:
           below_is_a_list: Below is a list of the issues that have occurred with the file upload and details on how they might be fixed.
@@ -105,7 +99,7 @@ en:
             supplier_lot_3_service_offerings_file: Supplier lot 3 service offerings
             supplier_lot_4_service_offerings_file: Supplier lot 4 service offerings
             supplier_rate_cards_file: Supplier rate cards
-          heading: Manage supplier data
+          heading: Upload supplier data
           name: Name
           status: Status
           table_caption: Previous uploads
@@ -121,7 +115,7 @@ en:
             supplier_lot_4_service_offerings_file: Supplier lot 4 service offerings
             supplier_rate_cards_file: Supplier rate cards
           heading: New data upload
-          return: Return to 'Manage supplier data'
+          return: Return to 'Upload supplier data'
           template_file_name: Download spreadsheet templates
           template_file_path: legal-services/%{framework}/Supplier spreadsheet templates.zip
           upload_caption: Supported file format is .xlsx and maximum file size is 10mb
@@ -142,7 +136,7 @@ en:
           files: Uploaded files
           heading: 'Upload session #%{number}'
           name: File name
-          return: Return to 'Manage supplier data'
+          return: Return to 'Upload supplier data'
           status: 'Status:'
     home:
       unrecognised_framework:

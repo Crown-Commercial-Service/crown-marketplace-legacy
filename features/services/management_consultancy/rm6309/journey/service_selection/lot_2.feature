@@ -6,7 +6,6 @@ Feature: Management Consultancy - Lot 2 - Strategy and Policy - Service selectio
     And I click on 'Continue'
     Then I am on the 'Select the services you need' page
     And the sub title is 'MCF4 lot 2 - Strategy and Policy'
-
     Then I should see the following options for the lot:
       | Business case development       |
       | Business process re-engineering |

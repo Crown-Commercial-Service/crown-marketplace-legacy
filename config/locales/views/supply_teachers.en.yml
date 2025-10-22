@@ -164,7 +164,7 @@ en:
           the_recognised_are: 'The Supply Teachers frameworks are:'
       uploads:
         index:
-          caption: Manage supplier data
+          caption: Upload supplier data
           create_new: Set up upload session
           current_table_caption: Data currently used
           date: Date and time

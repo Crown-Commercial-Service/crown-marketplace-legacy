@@ -1,0 +1,187 @@
+<%= content_for :page_title, t('.heading') %>
+
+<% admin_breadcrumbs(
+  { text: t('shared.admin.suppliers.index.heading'), href: suppliers_index_path },
+  { text: t('.heading') }
+)%>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+    <h1 class="govuk-heading-xl">
+      <span class="govuk-caption-xl"><%= @supplier_framework.supplier_name %></span>
+      <%= t('.heading') %>
+    </h1>
+  </div>
+</div>
+
+<% basic_supplier_information_attributes = section_attributes(:basic_supplier_information) || [] %>
+<% basic_supplier_information_summary_rows = [
+  {
+    attribute: :name,
+    key: {
+      text: t('.basic_supplier_information.name')
+    },
+    value: {
+      text: @supplier_framework.supplier_name
+    }
+  },
+  {
+    attribute: :duns_number,
+    key: {
+      text: t('.basic_supplier_information.duns')
+    },
+    value: {
+      text: @supplier_framework.supplier.duns_number ? @supplier_framework.supplier.duns_number : t('.no_data')
+    }
+  },
+  {
+    attribute: :sme,
+    key: {
+      text: t('.basic_supplier_information.is_sme')
+    },
+    value: {
+      text: @supplier_framework.supplier.sme ? t('yes') : t('no')
+    },
+  }
+].select { |row| basic_supplier_information_attributes.include?(row[:attribute]) }%>
+
+<% if basic_supplier_information_summary_rows.any? %>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+      <%= govuk_summary_list(
+        basic_supplier_information_summary_rows,
+        card: {
+          title: {
+            text: t('.basic_supplier_information.title')
+          },
+          actions: {
+            items: Marketplace.environment_name == :production ? [] : [
+              {
+                text: t('.change'),
+                href: supplier_edit_path(@supplier_framework.id, :basic_supplier_information),
+              }
+            ]
+          }
+        },
+        attributes: {
+          id: 'supplier-details--supplier-information'
+        }
+      ) %>
+    </div>
+  </div>
+<% end %>
+
+<% supplier_contact_information_attributes = section_attributes(:supplier_contact_information) || [] %>
+<% supplier_contact_information_summary_rows = [
+  {
+    attribute: :name,
+    key: {
+      text: t('.supplier_contact_information.contact_name')
+    },
+    value: {
+      text: @supplier_framework.contact_detail.name
+    }
+  },
+  {
+    attribute: :email,
+    key: {
+      text: t('.supplier_contact_information.contact_email')
+    },
+    value: {
+      text: @supplier_framework.contact_detail.email
+    }
+  },
+  {
+    attribute: :telephone_number,
+    key: {
+      text: t('.supplier_contact_information.telephone_number')
+    },
+    value: {
+      text: @supplier_framework.contact_detail.telephone_number ? @supplier_framework.contact_detail.telephone_number : t('.no_data')
+    }
+  },
+  {
+    attribute: :website,
+    key: {
+      text: t('.supplier_contact_information.website')
+    },
+    value: {
+      text: @supplier_framework.contact_detail.website ? @supplier_framework.contact_detail.website : t('.no_data')
+    }
+  },
+].select { |row| supplier_contact_information_attributes.include?(row[:attribute]) }%>
+
+<% if supplier_contact_information_summary_rows.any? %>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+      <%= govuk_summary_list(
+        supplier_contact_information_summary_rows,
+        card: {
+          title: {
+            text: t('.supplier_contact_information.title')
+          },
+          actions: {
+            items: Marketplace.environment_name == :production ? [] : [
+              {
+                text: t('.change'),
+                href: supplier_edit_path(@supplier_framework.id, :supplier_contact_information),
+              }
+            ]
+          }
+        },
+        attributes: {
+          id: 'supplier-details--contact-information'
+        }
+      ) %>    
+    </div>
+  </div>
+<% end %>
+
+<% additional_supplier_information_attributes = section_attributes(:additional_supplier_information) || [] %>
+<% additional_supplier_information_summary_rows = ([
+  {
+    attribute: :address,
+    key: {
+      text: t('.additional_supplier_information.address')
+    },
+    value: {
+      text: @supplier_framework.contact_detail.additional_details["address"]
+    }
+  }
+] + %w[lot_1_prospectus_link lot_2_prospectus_link lot_3_prospectus_link lot_4a_prospectus_link lot_4b_prospectus_link lot_4c_prospectus_link lot_5_prospectus_link].map do |lot_prospectus_link_key|
+  {
+    attribute: lot_prospectus_link_key.to_sym,
+    key: {
+      text: t(".additional_supplier_information.#{lot_prospectus_link_key}")
+    },
+    value: {
+      text: @supplier_framework.contact_detail.additional_details[lot_prospectus_link_key] ? @supplier_framework.contact_detail.additional_details[lot_prospectus_link_key] : t('.no_data')
+    }
+  }
+end).select { |row| additional_supplier_information_attributes.include?(row[:attribute]) }%>
+
+<% if additional_supplier_information_summary_rows.any? %>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+      <%= govuk_summary_list(
+        additional_supplier_information_summary_rows,
+        card: {
+          title: {
+            text: t('.additional_supplier_information.title')
+          },
+          actions: {
+            items: Marketplace.environment_name == :production ? [] : [
+              {
+                text: t('.change'),
+                href: supplier_edit_path(@supplier_framework.id, :additional_supplier_information),
+              }
+            ]
+          }
+        },
+        attributes: {
+          id: 'supplier-details--additional-information'
+        }
+      ) %>    
+    </div>
+  </div>
+<% end %>

@@ -7,10 +7,13 @@ en:
           caption: "%{service_name} - %{framework}"
           heading: Admin dashboard
           manage_supplier_data:
-            description: Upload and update the supplier data
+            description: View and update the supplier's details and their lot data
             title: Manage supplier data
           page_title: "%{service_name} admin dashboard"
           supplier_data: Supplier data
+          upload_supplier_data:
+            description: Use spreadsheets to upload the supplier data
+            title: Upload supplier data
           user_reports: User reports
           view_supplier_data:
             description: View the supplier's details and their lot data
@@ -116,6 +119,12 @@ en:
             status: Status
           report_triggered: Triggered report creation
       suppliers:
+        edit:
+          heading:
+            additional_supplier_information: Manage additional information
+            basic_supplier_information: Manage supplier information
+            supplier_contact_information: Manage supplier contact information
+          save_and_return: Save and return
         index:
           caption: "%{service_name} - %{framework}"
           heading: Supplier data
@@ -127,15 +136,42 @@ en:
           view_details: View details
           view_lot_data: View lot data
           view_supplier_data: You can view the full supplier details by clicking 'View details' or view the full supplier lot data by clicking 'View lot data'.
+        sections:
+          additional_supplier_information:
+            address: Address
+            lot_1_prospectus_link: Lot 1 prospectus link
+            lot_2_prospectus_link: Lot 2 prospectus link
+            lot_3_prospectus_link: Lot 3 prospectus link
+            lot_4a_prospectus_link: Lot 4a prospectus link
+            lot_4b_prospectus_link: Lot 4b prospectus link
+            lot_4c_prospectus_link: Lot 4c prospectus link
+            lot_5_prospectus_link: Lot 5 prospectus link
+          basic_supplier_information:
+            duns: DUNS Number
+            is_sme: Is an SME?
+            supplier_name: Supplier name
+          supplier_contact_information:
+            contact_email: Contact email
+            contact_name: Contact name
+            telephone_number: Contact telephone number
+            website: Website
         show:
           additional_supplier_information:
             address: Address
+            lot_1_prospectus_link: Lot 1 prospectus link
+            lot_2_prospectus_link: Lot 2 prospectus link
+            lot_3_prospectus_link: Lot 3 prospectus link
+            lot_4a_prospectus_link: Lot 4a prospectus link
+            lot_4b_prospectus_link: Lot 4b prospectus link
+            lot_4c_prospectus_link: Lot 4c prospectus link
+            lot_5_prospectus_link: Lot 5 prospectus link
             title: Additional information
           basic_supplier_information:
             duns: DUNS Number
             is_sme: Is an SME?
             name: Name
             title: Supplier information
+          change: Change
           heading: Supplier details
           no_data: N/A
           supplier_contact_information:

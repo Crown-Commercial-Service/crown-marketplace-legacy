@@ -107,6 +107,56 @@ en:
               date_before_or_equal_to: The ‘From’ date must be today or in the past
               invalid: Enter a valid ‘From’ date
               not_a_date: Enter a valid ‘From’ date
+        supplier:
+          attributes:
+            duns_number:
+              blank: The DUNS number cannot be blank
+              invalid: The DUNS number must be 9 digits
+              taken: The DUNS number you entered is already in use by another supplier
+            name:
+              blank: The supplier name cannot be blank
+              taken: The supplier name you entered is already in use by another supplier
+              too_long: The supplier name must be no more than 255 characters
+            sme:
+              blank: Select if the supplier is an SME
+              inclusion: Select if the supplier is an SME
+        supplier/framework/contact_detail:
+          attributes:
+            address:
+              blank: Enter the address
+              too_long: The address should be no more than 255 characters
+            email:
+              blank: Enter the contact email in the correct format, like name@example.com
+              too_long: The contact email should be no more than 255 characters
+            lot_1_prospectus_link:
+              blank: Enter the lot 1 prospectus link in the correct format, like https://example.com
+              too_long: The lot 1 prospectus link must be no more than 255 characters
+            lot_2_prospectus_link:
+              blank: Enter the lot 2 prospectus link in the correct format, like https://example.com
+              too_long: The lot 2 prospectus link must be no more than 255 characters
+            lot_3_prospectus_link:
+              blank: Enter the lot 3 prospectus link in the correct format, like https://example.com
+              too_long: The lot 3 prospectus link must be no more than 255 characters
+            lot_4a_prospectus_link:
+              blank: Enter the lot 4a prospectus link in the correct format, like https://example.com
+              too_long: The lot 4a prospectus link must be no more than 255 characters
+            lot_4b_prospectus_link:
+              blank: Enter the lot 4b prospectus link in the correct format, like https://example.com
+              too_long: The lot 4b prospectus link must be no more than 255 characters
+            lot_4c_prospectus_link:
+              blank: Enter the lot 4c prospectus link in the correct format, like https://example.com
+              too_long: The lot 4c prospectus link must be no more than 255 characters
+            lot_5_prospectus_link:
+              blank: Enter the lot 5 prospectus link in the correct format, like https://example.com
+              too_long: The lot 5 prospectus link must be no more than 255 characters
+            name:
+              blank: Enter the contact name
+              too_long: The contact name should be no more than 255 characters
+            telephone_number:
+              blank: Enter the contact telephone number in the correct format, like 07700 900000
+            website:
+              blank: Enter the website in the correct format, like https://example.com
+              too_long: The contact website be no more than 255 characters
         supplier/framework/lot/branch:
           attributes:
             postcode:
