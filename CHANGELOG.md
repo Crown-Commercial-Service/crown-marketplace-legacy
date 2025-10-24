@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add the buyer details section for Legal Panel for Government ([PR 2121](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2121))
 - Add new Information about requirement step for LPfG journey ([PR 2125](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2125))
 - Add the ability to update the supplier details ([PR 2144](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2144))
+- Add ability to download the rates for comparison ([PR 2145](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2145))
 
 ### Changed
 
@@ -23,6 +24,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Update GOV.UK Frontend and CCS Frontend ([PR 2133](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2133))
 - Updated the LPfG search report to add new questions from journey ([PR 2136](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2136))
 - Freeze the left hand column when viewing the supplier rates for comparison ([PR 2136](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2136))
+- Changed 'position' to 'grade' ([PR 2145](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2145))
 
 ### Fixed
 

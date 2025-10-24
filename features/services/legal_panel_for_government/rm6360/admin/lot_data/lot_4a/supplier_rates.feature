@@ -102,7 +102,7 @@ Feature: Legal Panel for Government - Admin - Supplier lot data - Lot 4a - Rates
       | Western Sahara                            |
       | Zambia                                    |
     And the rates in the 'Benin' table are:
-      | Position                                                           | Hourly  |
+      | Grade                                                              | Hourly  |
       | Senior Counsel, Senior Partner (20 years +PQE)                     | £315.00 |
       | Partner                                                            | £280.00 |
       | Legal Director/Counsel or equivalent                               | £245.00 |
@@ -114,7 +114,7 @@ Feature: Legal Panel for Government - Admin - Supplier lot data - Lot 4a - Rates
       | Analyst, Associate Analyst, Research Associate, Research Officer   | £140.00 |
       | Modeller, Econometrician, Analyst, Associate Analyst               | £175.00 |
     And the rates in the 'Paraguay' table are:
-      | Position                                                           | Hourly  |
+      | Grade                                                              | Hourly  |
       | Senior Counsel, Senior Partner (20 years +PQE)                     | £270.00 |
       | Partner                                                            | £240.00 |
       | Legal Director/Counsel or equivalent                               | £210.00 |
@@ -126,7 +126,7 @@ Feature: Legal Panel for Government - Admin - Supplier lot data - Lot 4a - Rates
       | Analyst, Associate Analyst, Research Associate, Research Officer   | £120.00 |
       | Modeller, Econometrician, Analyst, Associate Analyst               | £150.00 |
     And the rates in the 'United Kingdom' table are:
-      | Position                                                           | Hourly  |
+      | Grade                                                              | Hourly  |
       | Senior Counsel, Senior Partner (20 years +PQE)                     | £270.00 |
       | Partner                                                            | £240.00 |
       | Legal Director/Counsel or equivalent                               | £210.00 |

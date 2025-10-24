@@ -61,6 +61,7 @@
     </p>
     <div class="govuk-button-group">
       <%= govuk_button(t('.back_to_results'), href: legal_panel_for_government_journey_question_path(slug: 'supplier-results', **@journey.params.except(:supplier_framework_ids, :have_you_reviewed))) %>
+      <%= govuk_button(t('.download_rates_for_comparison'), href: download_legal_panel_for_government_rm6360_suppliers_path(format: :xlsx, **@journey.params), classes: 'govuk-button--secondary') %>
     </div>
   </div>
 </div>

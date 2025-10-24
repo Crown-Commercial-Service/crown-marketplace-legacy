@@ -143,3 +143,24 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 1 - Suppliers
       | GOYETTE AND SONS              | £280.00 | £245.00                              | £210.00                                                   | £175.00                              | £140.00                                                            | £84.00                   | £70.00                     |
       | LOCKMAN, NITZSCHE AND BARTELL | £280.00 | £245.00                              | £210.00                                                   | £175.00                              | £140.00                                                            | £84.00                   | £70.00                     |
       | MONAHAN-JOHNS                 | £200.00 | £175.00                              | £150.00                                                   | £125.00                              | £100.00                                                            | £60.00                   | £50.00                     |
+
+  Scenario: Suppliers reviewed - Download the supplier spreadsheet
+    And I 'have' reviewed the suppliers’ prospectus
+    And I click on 'Continue'
+    Then I am on the 'Select suppliers for comparison' page
+    When I check the following items:
+      | CORMIER INC                   |
+      | GOYETTE AND SONS              |
+      | LOCKMAN, NITZSCHE AND BARTELL |
+    And I click on 'Continue'
+    Then I am on the 'Compare supplier rates' page
+    And I should see that '3' suppliers have been selected for comparison
+    Given I click on 'Download the rates for comparison'
+    Then the spreadsheet 'Rates of Legal Panel for Government Suppliers.xlsx' is downloaded
+
+  Scenario: Suppliers not reviewed - Download the supplier spreadsheet
+    And I 'have not' reviewed the suppliers’ prospectus
+    And I click on 'Continue'
+    Then I am on the 'Compare supplier rates' page
+    Given I click on 'Download the rates for comparison'
+    Then the spreadsheet 'Rates of Legal Panel for Government Suppliers.xlsx' is downloaded
