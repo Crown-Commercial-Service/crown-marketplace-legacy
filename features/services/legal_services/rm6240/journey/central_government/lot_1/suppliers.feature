@@ -57,7 +57,7 @@ Feature: Legal services -  Central governemnt - Lot 1 - Suppliers
     And the 'LMP (Legal project manager)' hourly rate is '£137.50'
     And the contact details for the supplier are:
       | homenick.mertz@feest-hamill.com             |
-      | 245.023.1441 x39360                         |
+      | 01702 321456                                |
       | http://osinski.co/francisca.bartoletti      |
       | 972 Malcolm Estates, Gottliebside, AZ 82310 |
 

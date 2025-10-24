@@ -120,7 +120,7 @@ Rails.application.routes.draw do
   end
 
   concern :admin_suppliers do
-    resources :suppliers, only: %i[index show] do
+    resources :suppliers, only: Marketplace.environment_name == :production ? %i[index show] : %i[index show edit update] do
       resources :lot_data, path: 'lot-data', only: %i[index] do
         get '/:section', action: :show
       end
@@ -320,5 +320,10 @@ Rails.application.routes.draw do
   get '/:journey/:framework/:slug/answer', to: 'journey#answer', as: 'journey_answer'
 
   resources :buyer_details, path: '/:service/:framework/buyer-details', only: %i[index show edit update]
+  resources :suppliers, path: '/:service/:framework/admin/suppliers', only: Marketplace.environment_name == :production ? %i[index show] : %i[index show edit update] do
+    resources :lot_data, path: 'lot-data', only: %i[index] do
+      get '/:section', action: :show
+    end
+  end
 end
 # rubocop:enable Metrics/BlockLength

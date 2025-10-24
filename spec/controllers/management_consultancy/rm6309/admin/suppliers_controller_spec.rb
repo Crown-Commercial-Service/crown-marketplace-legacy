@@ -3,7 +3,9 @@ require 'rails_helper'
 RSpec.describe ManagementConsultancy::RM6309::Admin::SuppliersController do
   let(:default_params) { { service: 'management_consultancy/admin', framework: 'RM6309' } }
 
-  let(:supplier_framework) { create(:supplier_framework, framework_id: 'RM6309') }
+  let(:supplier) { create(:management_consultancy_rm6309_admin_supplier) }
+  let(:supplier_framework) { create(:supplier_framework, framework_id: 'RM6309', supplier_id: supplier.id) }
+  let(:contact_detail) { create(:management_consultancy_rm6309_admin_supplier_contact_detail, supplier_framework_id: supplier_framework.id) }
   let(:supplier_frameworks) { Supplier::Framework.where(id: supplier_framework.id) }
 
   describe 'GET index' do
@@ -64,6 +66,178 @@ RSpec.describe ManagementConsultancy::RM6309::Admin::SuppliersController do
 
     it 'assigns supplier_frameworks' do
       expect(assigns(:supplier_framework)).to eq(supplier_framework)
+    end
+  end
+
+  describe 'GET edit' do
+    login_mc_admin
+
+    before do
+      supplier
+      supplier_framework
+      contact_detail
+
+      get :edit, params: { id: supplier_framework.id, section: section }
+    end
+
+    shared_examples 'when testing a section' do
+      it 'sets supplier_framework' do
+        expect(assigns(:supplier_framework)).to be_present
+      end
+
+      it 'sets the model' do
+        expect(assigns(:model).class).to be(model.class)
+      end
+
+      it 'sets section' do
+        expect(assigns(:section)).to eq(section)
+      end
+
+      it 'sets section_attributes' do
+        expect(assigns(:section_attributes)).to eq(section_attributes)
+      end
+
+      context 'when considering the templates' do
+        render_views
+
+        it 'renders section partial template' do
+          expect(response).to have_http_status(:ok)
+          expect(response).to render_template(partial: "shared/admin/suppliers/sections/_#{section}")
+        end
+      end
+    end
+
+    context 'when the section is basic_supplier_information' do
+      let(:section) { :basic_supplier_information }
+      let(:section_attributes) { %i[name duns_number sme] }
+      let(:model) { supplier }
+
+      include_context 'when testing a section'
+    end
+
+    context 'when the section is supplier_contact_information' do
+      let(:section) { :supplier_contact_information }
+      let(:section_attributes) { %i[name email telephone_number website] }
+      let(:model) { contact_detail }
+
+      include_context 'when testing a section'
+    end
+
+    context 'when the section is additional_supplier_information' do
+      let(:section) { :additional_supplier_information }
+      let(:section_attributes) { %i[address] }
+      let(:model) { contact_detail }
+
+      include_context 'when testing a section'
+    end
+
+    context 'when the section is unexpected' do
+      let(:section) { :something_else }
+
+      it 'redirects to the show page' do
+        expect(response).to redirect_to("/management-consultancy/RM6309/admin/suppliers/#{supplier_framework.id}")
+      end
+    end
+  end
+
+  describe 'PUT update' do
+    login_mc_admin
+
+    let(:model_param_keys) { model_params.keys }
+    let(:expected_updates) { model_params }
+
+    before do
+      supplier
+      supplier_framework
+      contact_detail
+
+      put :update, params: { id: supplier_framework.id, section: section, "#{model.model_name.param_key}": model_params }
+    end
+
+    shared_examples 'when testing a section' do
+      it 'sets supplier_framework' do
+        expect(assigns(:supplier_framework)).to be_present
+      end
+
+      it 'sets the model' do
+        expect(assigns(:model).class).to be(model.class)
+      end
+
+      it 'sets section' do
+        expect(assigns(:section)).to eq(section)
+      end
+
+      it 'sets section_attributes' do
+        expect(assigns(:section_attributes)).to eq(model_params.keys)
+      end
+
+      context 'when it is valid' do
+        it 'redirects to the show page' do
+          expect(response).to redirect_to("/management-consultancy/RM6309/admin/suppliers/#{supplier_framework.id}")
+        end
+
+        it 'updates the details' do
+          expect(model.reload.attributes.deep_symbolize_keys.slice(*model_param_keys)).to eq(expected_updates)
+        end
+      end
+
+      context 'when it is invalid' do
+        let(:model_params) { model_params_invalid }
+
+        render_views
+
+        it 'has errors on the model' do
+          expect(assigns(:model).errors).to be_present
+        end
+
+        it 'renders section partial template' do
+          expect(response).to have_http_status(:ok)
+          expect(response).to render_template(partial: "shared/admin/suppliers/sections/_#{section}")
+        end
+      end
+    end
+
+    context 'when the section is basic_supplier_information' do
+      let(:section) { :basic_supplier_information }
+
+      let(:model) { supplier }
+      let(:model_params) { { name: 'Zote the Mighty', duns_number: '123456789', sme: true } }
+      let(:model_params_invalid) { { name: '', duns_number: '', sme: '' } }
+
+      include_context 'when testing a section'
+    end
+
+    context 'when the section is supplier_contact_information' do
+      let(:section) { :supplier_contact_information }
+
+      let(:model) { contact_detail }
+      let(:model_params) { { name: 'Zote the Mighty', email: 'zote@the.mighty', telephone_number: '07123456789', website: 'https://example.com' } }
+      let(:model_params_invalid) { { name: '', email: '', telephone_number: '', website: '' } }
+
+      include_context 'when testing a section'
+    end
+
+    context 'when the section is additional_supplier_information' do
+      let(:section) { :additional_supplier_information }
+
+      let(:model) { contact_detail }
+      let(:model_params) { { address: 'Hollow nest' } }
+      let(:model_param_keys) { %i[additional_details] }
+      let(:expected_updates) { { additional_details: model_params } }
+      let(:model_params_invalid) { { address: '' } }
+
+      include_context 'when testing a section'
+    end
+
+    context 'when the section is unexpected' do
+      let(:section) { :something_else }
+
+      let(:model) { supplier }
+      let(:model_params) { { name: 'Zote the Mighty', duns_number: '123456789', sme: true } }
+
+      it 'redirects to the show page' do
+        expect(response).to redirect_to("/management-consultancy/RM6309/admin/suppliers/#{supplier_framework.id}")
+      end
     end
   end
 end
