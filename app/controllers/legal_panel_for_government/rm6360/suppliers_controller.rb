@@ -2,8 +2,7 @@ module LegalPanelForGovernment
   module RM6360
     class SuppliersController < LegalPanelForGovernment::FrameworkController
       before_action :fetch_lot, :set_supplier_selector
-      before_action :fetch_supplier_frameworks_with_rates, only: :index
-      before_action :fetch_supplier_frameworks, only: :download
+      before_action :fetch_supplier_frameworks_with_rates, only: %i[index download]
       before_action :fetch_supplier_framework, :fetch_rates, :fetch_jurisdictions, only: :show
       before_action :set_journey, :fetch_jurisdictions, only: %i[index show]
 
@@ -20,7 +19,7 @@ module LegalPanelForGovernment
           format.xlsx do
             spreadsheet_builder = SupplierSpreadsheetCreator.new(@supplier_frameworks, params)
             spreadsheet = spreadsheet_builder.build
-            send_data spreadsheet.to_stream.read, filename: 'Shortlist of Legal Panel for Government Suppliers.xlsx', type: :xlsx
+            send_data spreadsheet.to_stream.read, filename: params[:have_you_reviewed].nil? ? 'Shortlist of Legal Panel for Government Suppliers.xlsx' : 'Rates of Legal Panel for Government Suppliers.xlsx', type: :xlsx
           end
         end
       end
@@ -39,12 +38,8 @@ module LegalPanelForGovernment
         @suppliers_selector = SuppliersSelector.new(lot_id: params[:lot_id], service_ids: params[:service_ids], not_core_jurisdiction: params[:not_core_jurisdiction], jurisdiction_ids: params[:jurisdiction_ids])
       end
 
-      def fetch_supplier_frameworks
-        @supplier_frameworks = @suppliers_selector.supplier_frameworks
-      end
-
       def fetch_supplier_frameworks_with_rates
-        @supplier_frameworks = if params[:have_you_reviewed] == 'no'
+        @supplier_frameworks = if params[:have_you_reviewed] == 'no' || params[:have_you_reviewed].nil?
                                  @suppliers_selector.supplier_frameworks
                                else
                                  @suppliers_selector.supplier_frameworks.where(id: params[:supplier_framework_ids])

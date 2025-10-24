@@ -11,7 +11,7 @@ Feature: Legal Panel for Government - Admin - Supplier lot data - Lot 1 - Rates
     Then I am on the 'Lot 1 - Core Legal Services - Rates' page
     And the caption is 'BALISTRERI-MURAZIK'
     And the rates in the 'United Kingdom' table are:
-      | Position                                                           | Hourly  |
+      | Grade                                                              | Hourly  |
       | Partner                                                            | £200.00 |
       | Legal Director/Counsel or equivalent                               | £175.00 |
       | Senior Solicitor, Senior Associate/Senior Legal Executive          | £150.00 |

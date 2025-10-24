@@ -11,7 +11,7 @@ Feature: Legal Panel for Government - Admin - Supplier lot data - Lot 2 - Rates
     Then I am on the 'Lot 2 - Major Projects and Complex Advice - Rates' page
     And the caption is 'CORMIER INC'
     And the rates in the 'United Kingdom' table are:
-      | Position                                                           | Hourly  |
+      | Grade                                                              | Hourly  |
       | Partner                                                            | £200.00 |
       | Legal Director/Counsel or equivalent                               | £175.00 |
       | Senior Solicitor, Senior Associate/Senior Legal Executive          | £150.00 |

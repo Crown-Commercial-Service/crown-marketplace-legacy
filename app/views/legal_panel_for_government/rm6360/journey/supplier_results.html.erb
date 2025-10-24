@@ -49,7 +49,7 @@
 
         <div class="govuk-button-group">
           <%= govuk_button(t('.compare_supplier_rates'), form: f) %>
-          <%= govuk_button(t('.download_suppliers_list'), href: "#{download_legal_panel_for_government_suppliers_path}&format=xlsx", classes: 'govuk-button--secondary') %>
+          <%= govuk_button(t('.download_suppliers_list'), href: download_legal_panel_for_government_rm6360_suppliers_path(format: :xlsx, **@journey.params), classes: 'govuk-button--secondary') %>
         </div>
       <% end %>
     </div>

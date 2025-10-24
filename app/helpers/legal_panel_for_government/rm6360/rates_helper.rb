@@ -3,7 +3,7 @@ module LegalPanelForGovernment::RM6360::RatesHelper
     [
       [
         {
-          text: t('legal_panel_for_government.rm6360.suppliers.rates_table.position'),
+          text: t('legal_panel_for_government.rm6360.suppliers.rates_table.grade'),
           classes: 'govuk-!-width-three-quarters'
         },
         {

@@ -11,7 +11,7 @@ Feature: Legal Panel for Government - Admin - Supplier lot data - Lot 5 - Rates
     Then I am on the 'Lot 5 - Rail Legal Services - Rates' page
     And the caption is 'WALKER-LEUSCHKE'
     And the rates in the 'United Kingdom' table are:
-      | Position                                                           | Hourly  |
+      | Grade                                                              | Hourly  |
       | Partner                                                            | £280.00 |
       | Legal Director/Counsel or equivalent                               | £245.00 |
       | Senior Solicitor, Senior Associate/Senior Legal Executive          | £210.00 |

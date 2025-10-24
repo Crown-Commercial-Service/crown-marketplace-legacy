@@ -251,13 +251,6 @@ RSpec.describe LegalPanelForGovernment::RM6360::SuppliersController do
   describe 'GET download' do
     let(:lot_id) { 'RM6360.1' }
 
-    let(:params) do
-      {
-        journey: 'legal_panel_for_government',
-        **default_journey_params
-      }
-    end
-
     let(:spreadsheet_builder) { instance_double(LegalPanelForGovernment::RM6360::SupplierSpreadsheetCreator, { build: spreadsheet }) }
     let(:spreadsheet) { instance_double(Axlsx::Package, { to_stream: spreadsheet_stream }) }
     let(:spreadsheet_stream) { instance_double(StringIO, { read: 'spreadsheet-data' }) }
@@ -267,10 +260,34 @@ RSpec.describe LegalPanelForGovernment::RM6360::SuppliersController do
       get :download, params: params.merge(format: 'xlsx')
     end
 
-    it 'download a spreadsheet' do
-      expect(response.media_type).to eq 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+    context 'when it is the suppliers shortlist sheet' do
+      let(:params) do
+        {
+          journey: 'legal_panel_for_government',
+          **default_journey_params.except(:have_you_reviewed, :supplier_framework_ids)
+        }
+      end
 
-      expect(response.headers['Content-Disposition']).to include 'filename="Shortlist of Legal Panel for Government Suppliers.xlsx"'
+      it 'download a spreadsheet' do
+        expect(response.media_type).to eq 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+
+        expect(response.headers['Content-Disposition']).to include 'filename="Shortlist of Legal Panel for Government Suppliers.xlsx"'
+      end
+    end
+
+    context 'when it is the suppliers rates sheet' do
+      let(:params) do
+        {
+          journey: 'legal_panel_for_government',
+          **default_journey_params
+        }
+      end
+
+      it 'download a spreadsheet' do
+        expect(response.media_type).to eq 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+
+        expect(response.headers['Content-Disposition']).to include 'filename="Rates of Legal Panel for Government Suppliers.xlsx"'
+      end
     end
   end
 
