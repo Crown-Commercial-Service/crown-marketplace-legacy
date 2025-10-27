@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add new Information about requirement step for LPfG journey ([PR 2125](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2125))
 - Add the ability to update the supplier details ([PR 2144](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2144))
 - Add ability to download the rates for comparison ([PR 2145](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2145))
+- Added additional logs on user's searches for LPfG ([PR 2153](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2153))
 
 ### Changed
 

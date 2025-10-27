@@ -15,6 +15,7 @@ module LegalPanelForGovernment
       def log_new_search
         Search.log_new_search(@journey.current_step.lot.framework, current_user, session.id, @journey.params.to_hash, @journey.current_step.suppliers_selector.supplier_frameworks)
       rescue StandardError => e
+        Rails.logger.error e
         Rollbar.log('error', e)
       end
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_10_16_110610) do
+ActiveRecord::Schema[8.0].define(version: 2025_10_24_150039) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
   enable_extension "pgcrypto"
@@ -147,6 +147,9 @@ ActiveRecord::Schema[8.0].define(version: 2025_10_16_110610) do
     t.text "search_result"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "search_criteria_hash"
+    t.jsonb "additional_details"
+    t.index ["framework_id", "user_id", "session_id", "search_criteria_hash"], name: "idx_on_framework_id_user_id_session_id_search_crite_45ba1fb882"
     t.index ["framework_id"], name: "index_searches_on_framework_id"
     t.index ["user_id"], name: "index_searches_on_user_id"
   end
