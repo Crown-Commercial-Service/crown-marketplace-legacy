@@ -52,7 +52,11 @@ RSpec.describe LegalPanelForGovernment::RM6360::SuppliersController do
   end
 
   describe 'GET index' do
-    before { get :index, params: }
+    before do
+      allow(LegalPanelForGovernment::RM6360::Search).to receive(:log_supplier_rates_comparison).and_return(true)
+
+      get :index, params:
+    end
 
     context 'when the lot answer is lot 1' do
       let(:lot_id) { 'RM6360.1' }
@@ -93,6 +97,10 @@ RSpec.describe LegalPanelForGovernment::RM6360::SuppliersController do
         expect(supplier_frameworks_relation).to have_received(:map)
       end
       # rubocop:enable RSpec/MultipleExpectations
+
+      it 'logs the comparison' do
+        expect(LegalPanelForGovernment::RM6360::Search).to have_received(:log_supplier_rates_comparison).with(lot.framework, controller.current_user, controller.session.id, ActionController::Parameters.new(**params, service: 'legal_panel_for_government', framework: 'RM6360', controller: 'legal_panel_for_government/rm6360/suppliers', action: 'index'), supplier_frameworks)
+      end
 
       context 'when the framework is not the current framework' do
         let(:framework) { 'RM3788' }
@@ -148,6 +156,10 @@ RSpec.describe LegalPanelForGovernment::RM6360::SuppliersController do
           expect(supplier_frameworks_relation).to have_received(:map)
         end
         # rubocop:enable RSpec/MultipleExpectations
+
+        it 'logs the comparison' do
+          expect(LegalPanelForGovernment::RM6360::Search).to have_received(:log_supplier_rates_comparison).with(lot.framework, controller.current_user, controller.session.id, ActionController::Parameters.new(**params, service: 'legal_panel_for_government', framework: 'RM6360', controller: 'legal_panel_for_government/rm6360/suppliers', action: 'index'), supplier_frameworks)
+        end
       end
 
       context 'and requirements are in a non-core jurisdiction' do
@@ -192,6 +204,10 @@ RSpec.describe LegalPanelForGovernment::RM6360::SuppliersController do
           expect(supplier_frameworks_relation).to have_received(:map)
         end
         # rubocop:enable RSpec/MultipleExpectations
+
+        it 'logs the comparison' do
+          expect(LegalPanelForGovernment::RM6360::Search).to have_received(:log_supplier_rates_comparison).with(lot.framework, controller.current_user, controller.session.id, ActionController::Parameters.new(**params, service: 'legal_panel_for_government', framework: 'RM6360', controller: 'legal_panel_for_government/rm6360/suppliers', action: 'index'), supplier_frameworks)
+        end
       end
     end
 
@@ -237,6 +253,10 @@ RSpec.describe LegalPanelForGovernment::RM6360::SuppliersController do
       end
       # rubocop:enable RSpec/MultipleExpectations
 
+      it 'logs the comparison' do
+        expect(LegalPanelForGovernment::RM6360::Search).to have_received(:log_supplier_rates_comparison).with(lot.framework, controller.current_user, controller.session.id, ActionController::Parameters.new(**params, service: 'legal_panel_for_government', framework: 'RM6360', controller: 'legal_panel_for_government/rm6360/suppliers', action: 'index'), supplier_frameworks)
+      end
+
       context 'when the framework is not the current framework' do
         let(:framework) { 'RM3788' }
 
@@ -257,6 +277,8 @@ RSpec.describe LegalPanelForGovernment::RM6360::SuppliersController do
 
     before do
       allow(LegalPanelForGovernment::RM6360::SupplierSpreadsheetCreator).to receive(:new).and_return(spreadsheet_builder)
+      allow(LegalPanelForGovernment::RM6360::Search).to receive(:log_results_downloaded_to_search).and_return(true)
+
       get :download, params: params.merge(format: 'xlsx')
     end
 
@@ -273,6 +295,10 @@ RSpec.describe LegalPanelForGovernment::RM6360::SuppliersController do
 
         expect(response.headers['Content-Disposition']).to include 'filename="Shortlist of Legal Panel for Government Suppliers.xlsx"'
       end
+
+      it 'logs the download' do
+        expect(LegalPanelForGovernment::RM6360::Search).to have_received(:log_results_downloaded_to_search).with(lot.framework, controller.current_user, controller.session.id, ActionController::Parameters.new(**params, service: 'legal_panel_for_government', framework: 'RM6360', format: 'xlsx', controller: 'legal_panel_for_government/rm6360/suppliers', action: 'download'))
+      end
     end
 
     context 'when it is the suppliers rates sheet' do
@@ -287,6 +313,10 @@ RSpec.describe LegalPanelForGovernment::RM6360::SuppliersController do
         expect(response.media_type).to eq 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
 
         expect(response.headers['Content-Disposition']).to include 'filename="Rates of Legal Panel for Government Suppliers.xlsx"'
+      end
+
+      it 'does not log the download' do
+        expect(LegalPanelForGovernment::RM6360::Search).not_to have_received(:log_results_downloaded_to_search)
       end
     end
   end

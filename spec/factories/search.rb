@@ -8,6 +8,7 @@ FactoryBot.define do
 
     after(:build) do |search, evaluator|
       search.framework ||= evaluator.framework || create(:framework)
+      search.search_criteria_hash ||= Digest::SHA256.hexdigest(search.search_criteria.sort.to_h.to_s)
     end
   end
 end

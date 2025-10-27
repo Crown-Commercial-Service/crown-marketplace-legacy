@@ -10,19 +10,27 @@ class ReportExport
     private
 
     def create_headers_row
-      ['User ID', 'Search date'] + search_criteria_headers + ['Suppliers']
+      ['User ID', 'Search date'] + search_criteria_headers + ['Suppliers'] + additional_details_headers
     end
 
     def create_search_row(search)
-      [search.user.id, format_date_time(search.created_at)] + search_criteria_row(search) + [search.search_result.map(&:first).sort.join(";\n")]
+      [search.user.id, format_date_time(search.created_at)] + search_criteria_row(search) + [search.search_result.map(&:first).sort.join(";\n")] + additional_details_row(search)
     end
 
     def search_criteria_headers
       NotImplementedError
     end
 
-    def search_criteria_row(_search_criteria)
+    def search_criteria_row(_search)
       NotImplementedError
+    end
+
+    def additional_details_headers
+      []
+    end
+
+    def additional_details_row(_search)
+      []
     end
 
     def find_searches(report)

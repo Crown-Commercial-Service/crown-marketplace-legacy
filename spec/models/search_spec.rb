@@ -28,6 +28,7 @@ RSpec.describe Search do
     end
   end
 
+  # rubocop:disable RSpec/ExampleLength
   describe '.log_new_search' do
     let(:result) { described_class.log_new_search(framework, user, session_id, search_criteria, search_result) }
     let(:search) { described_class.first }
@@ -55,7 +56,9 @@ RSpec.describe Search do
           {
             'framework_id' => framework.id,
             'search_criteria' => { criteria_1: true, criteria_2: false, criteria_3: 'Elma' },
+            'search_criteria_hash' => 'cfd7ab232f7b32d537f3bd121946c39fd4965217b9a6968dd27d9c2ed8ae9cb5',
             'search_result' => [['Supplier A', suppliers[0].id], ['Supplier B', suppliers[1].id]],
+            'additional_details' => nil,
             'session_id' => session_id,
             'user_id' => user.id,
           }
@@ -71,6 +74,7 @@ RSpec.describe Search do
           user_id: user.id,
           session_id: session_id,
           search_criteria: search_criteria,
+          search_criteria_hash: 'cfd7ab232f7b32d537f3bd121946c39fd4965217b9a6968dd27d9c2ed8ae9cb5',
           search_result: search_result.map { |supplier_framework| [supplier_framework.supplier.name, supplier_framework.supplier.id] }
         )
       end
@@ -81,7 +85,7 @@ RSpec.describe Search do
         expect(result).to be_falsey
       end
 
-      it 'deso not change the count' do
+      it 'deos not change the count' do
         expect { result }.not_to change(described_class, :count)
       end
 
@@ -104,7 +108,9 @@ RSpec.describe Search do
             {
               'framework_id' => framework.id,
               'search_criteria' => { criteria_1: true, criteria_2: false, criteria_3: 'Elma' },
+              'search_criteria_hash' => 'cfd7ab232f7b32d537f3bd121946c39fd4965217b9a6968dd27d9c2ed8ae9cb5',
               'search_result' => [['Supplier A', suppliers[0].id], ['Supplier B', suppliers[1].id]],
+              'additional_details' => nil,
               'session_id' => session_id,
               'user_id' => new_user.id,
             }
@@ -131,7 +137,9 @@ RSpec.describe Search do
             {
               'framework_id' => new_framework.id,
               'search_criteria' => { criteria_1: true, criteria_2: false, criteria_3: 'Elma' },
+              'search_criteria_hash' => 'cfd7ab232f7b32d537f3bd121946c39fd4965217b9a6968dd27d9c2ed8ae9cb5',
               'search_result' => [['Supplier A', suppliers[0].id], ['Supplier B', suppliers[1].id]],
+              'additional_details' => nil,
               'session_id' => session_id,
               'user_id' => user.id,
             }
@@ -158,7 +166,9 @@ RSpec.describe Search do
             {
               'framework_id' => framework.id,
               'search_criteria' => { criteria_1: true, criteria_2: false, criteria_3: 'Elma' },
+              'search_criteria_hash' => 'cfd7ab232f7b32d537f3bd121946c39fd4965217b9a6968dd27d9c2ed8ae9cb5',
               'search_result' => [['Supplier A', suppliers[0].id], ['Supplier B', suppliers[1].id]],
+              'additional_details' => nil,
               'session_id' => new_session_id,
               'user_id' => user.id,
             }
@@ -185,7 +195,9 @@ RSpec.describe Search do
             {
               'framework_id' => framework.id,
               'search_criteria' => { criteria_1: false, criteria_2: false, criteria_3: 'Elma' },
+              'search_criteria_hash' => 'dba039658aff93ea5f54650f2135c3b6109d1132297169089d38d2ec488eaa93',
               'search_result' => [['Supplier A', suppliers[0].id], ['Supplier B', suppliers[1].id]],
+              'additional_details' => nil,
               'session_id' => session_id,
               'user_id' => user.id,
             }
@@ -201,10 +213,11 @@ RSpec.describe Search do
           expect(result).to be_falsey
         end
 
-        it 'deso not change the count' do
+        it 'deos not change the count' do
           expect { result }.not_to change(described_class, :count)
         end
       end
     end
   end
+  # rubocop:enable RSpec/ExampleLength
 end

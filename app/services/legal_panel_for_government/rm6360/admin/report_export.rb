@@ -27,6 +27,27 @@ class LegalPanelForGovernment::RM6360::Admin::ReportExport < ReportExport
       ]
     end
 
+    def additional_details_headers
+      ['Results downloaded', "Suppliers' prospectus reviewed", 'Suppliers selected for comparison']
+    end
+
+    def additional_details_row(search)
+      search_additional_details = search.additional_details || {}
+
+      [
+        search_additional_details['results_downloaded'] ? 'Yes' : 'No',
+        case search_additional_details['results_reviewed']
+        when true
+          'Yes'
+        when false
+          'No'
+        else
+          ''
+        end,
+        (search_additional_details['comparison_result'] || []).map(&:first).sort.join(";\n")
+      ]
+    end
+
     private
 
     def countries(search_criteria)
