@@ -8,6 +8,13 @@ module LegalPanelForGovernment
 
       def index
         @back_path = @journey.previous_step_path
+
+        begin
+          Search.log_supplier_rates_comparison(@lot.framework, current_user, session.id, params, @supplier_frameworks)
+        rescue StandardError => e
+          Rails.logger.error e
+          Rollbar.log('error', e)
+        end
       end
 
       def show
@@ -15,6 +22,13 @@ module LegalPanelForGovernment
       end
 
       def download
+        begin
+          Search.log_results_downloaded_to_search(@lot.framework, current_user, session.id, params) if params[:have_you_reviewed].nil?
+        rescue StandardError => e
+          Rails.logger.error e
+          Rollbar.log('error', e)
+        end
+
         respond_to do |format|
           format.xlsx do
             spreadsheet_builder = SupplierSpreadsheetCreator.new(@supplier_frameworks, params)
