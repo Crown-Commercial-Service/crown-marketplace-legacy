@@ -14,5 +14,7 @@ module Pages
       element :yes, '#have_you_reviewed_yes'
       element :no, '#have_you_reviewed_no'
     end
+
+    element :continue_button, 'input#submit'
   end
 end

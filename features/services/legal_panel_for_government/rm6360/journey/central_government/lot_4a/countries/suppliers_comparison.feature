@@ -45,7 +45,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4a - Supplier
   @javascript
   Scenario: Suppliers reviewed - The rates table is displayed for comparison
     And I 'have' reviewed the suppliers’ prospectus
-    And I click on 'Continue'
+    And I continue to the comparison page
     Then I am on the 'Select suppliers for comparison' page
     When I check the following items:
       | ADAMS, WOLFF AND STROMAN |
@@ -70,7 +70,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4a - Supplier
   @javascript
   Scenario: Suppliers not reviewed - The rates table is displayed for comparison
     And I 'have not' reviewed the suppliers’ prospectus
-    And I click on 'Continue'
+    And I continue to the comparison page
     Then I am on the 'Compare supplier rates' page
     And I click on 'Finland'
     Then I should see the rates in the comparison table:
@@ -92,7 +92,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4a - Supplier
   @javascript
   Scenario: Suppliers reviewed - Changing selection changes the results
     And I 'have' reviewed the suppliers’ prospectus
-    And I click on 'Continue'
+    And I continue to the comparison page
     Then I am on the 'Select suppliers for comparison' page
     When I check the following items:
       | ADAMS, WOLFF AND STROMAN |
@@ -145,7 +145,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4a - Supplier
   @javascript
   Scenario: Suppliers reviewed - Going back from a supplier
     And I 'have' reviewed the suppliers’ prospectus
-    And I click on 'Continue'
+    And I continue to the comparison page
     Then I am on the 'Select suppliers for comparison' page
     When I check the following items:
       | ADAMS, WOLFF AND STROMAN |
@@ -176,7 +176,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4a - Supplier
   @javascript
   Scenario: Suppliers not reviewed - Going back from a supplier
     And I 'have not' reviewed the suppliers’ prospectus
-    And I click on 'Continue'
+    And I continue to the comparison page
     Then I am on the 'Compare supplier rates' page
     And I click on 'STANTON-GOYETTE' legal panel for governemnt supplier
     Then I am on the 'STANTON-GOYETTE' page
