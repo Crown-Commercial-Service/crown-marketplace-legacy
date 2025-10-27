@@ -42,7 +42,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4a - Supplier
     And I click on 'Compare the supplier rates'
     Then I am on the 'Have you reviewed the suppliers’ prospectus to inform your down-selection?' page
     And I 'have' reviewed the suppliers’ prospectus
-    And I click on 'Continue'
+    And I continue to the comparison page
     Then I am on the 'Select suppliers for comparison' page
 
   Scenario: The correct options are available
