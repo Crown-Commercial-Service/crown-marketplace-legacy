@@ -32,6 +32,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fix issue where organisation sector name was not being shown correctly ([PR 2126](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2126))
 - Fix issue where the date validation for checking a real date was not triggering ([PR 2134](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2134))
 
+### Security
+
+- Fix issue where send was taking an unsafe parameter as an argument to find framework ([PR 2154](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2154))
+
 ## [6.2.0] - 2025-09-22
 
 ### Added
