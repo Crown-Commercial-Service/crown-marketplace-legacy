@@ -1,4 +1,4 @@
-Feature: Management Consultancy - Admin - Supplier lot data - Lot 9 - Rates
+Feature: Management Consultancy - Admin - Supplier lot data - Lot 9 - View rates
 
   Scenario: Rates
     Given I sign in as an admin for the 'RM6187' framework in 'management consultancy'
@@ -8,7 +8,7 @@ Feature: Management Consultancy - Admin - Supplier lot data - Lot 9 - Rates
     Then I am on the 'Supplier lot data' page
     And the caption is 'SCHUSTER, LEHNER AND KSHLERIN'
     And I click on 'View rates' for the lot 'Lot 9 - Environmental Sustainability and Socio-economic Development'
-    Then I am on the 'Lot 9 - Environmental Sustainability and Socio-economic Development - Rates' page
+    Then I am on the 'Lot 9 - Environmental Sustainability and Socio-economic Development View rates' page
     And the caption is 'SCHUSTER, LEHNER AND KSHLERIN'
     And the rates in the table are:
       | Position                                              | Max day rate |

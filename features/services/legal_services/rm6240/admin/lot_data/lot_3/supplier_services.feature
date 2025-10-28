@@ -1,4 +1,4 @@
-Feature: Legal services - Admin - Supplier lot data - Lot 3 - Services
+Feature: Legal services - Admin - Supplier lot data - Lot 3 - View services
 
   Scenario: Services
     Given I sign in as an admin for the 'RM6240' framework in 'legal services'
@@ -8,8 +8,7 @@ Feature: Legal services - Admin - Supplier lot data - Lot 3 - Services
     Then I am on the 'Supplier lot data' page
     And the caption is 'ZIEME GROUP'
     And I click on 'View services' for the lot 'Lot 3 - Transport rail legal services'
-    Then I am on the 'Lot 3 - Transport rail legal services - Services' page
+    Then I am on the 'Lot 3 - Transport rail legal services View services' page
     And the caption is 'ZIEME GROUP'
     And the supplier should be assigned to the 'services' as follows:
-      | Service name     | Has service? |
-      | Transport (Rail) | Yes          |
+      | Transport (Rail) |
