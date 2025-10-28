@@ -45,14 +45,14 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4a - Supplier
   @javascript
   Scenario: Suppliers reviewed - The rates table is displayed for comparison
     And I 'have' reviewed the suppliers’ prospectus
-    And I continue to the comparison page
+    And I click on 'Continue'
     Then I am on the 'Select suppliers for comparison' page
     When I check the following items:
       | ADAMS, WOLFF AND STROMAN |
       | CROOKS AND SONS          |
       | DICKI, QUITZON AND KUB   |
     And I click on 'Continue'
-    Then I am on the 'Compare supplier rates' page
+    Then I am on the Compare supplier rates page
     And I should see that '3' suppliers have been selected for comparison
     And I click on 'Finland'
     Then I should see the rates in the comparison table:
@@ -70,8 +70,8 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4a - Supplier
   @javascript
   Scenario: Suppliers not reviewed - The rates table is displayed for comparison
     And I 'have not' reviewed the suppliers’ prospectus
-    And I continue to the comparison page
-    Then I am on the 'Compare supplier rates' page
+    And I click on 'Continue'
+    Then I am on the Compare supplier rates page
     And I click on 'Finland'
     Then I should see the rates in the comparison table:
       | Supplier                 | Senior Counsel, Senior Partner (20 years +PQE) | Partner | Legal Director/Counsel or equivalent | Senior Solicitor, Senior Associate/Senior Legal Executive | Solicitor, Associate/Legal Executive | NQ Solicitor/Associate, Junior Solicitor/Associate/Legal Executive | Trainee/Legal Apprentice | Paralegal, Legal Assistant | Senior Analyst | Analyst, Associate Analyst, Research Associate, Research Officer | Senior Modeller, Senior Econometrician, Senior Analyst | Modeller, Econometrician, Analyst, Associate Analyst |
@@ -92,14 +92,14 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4a - Supplier
   @javascript
   Scenario: Suppliers reviewed - Changing selection changes the results
     And I 'have' reviewed the suppliers’ prospectus
-    And I continue to the comparison page
+    And I click on 'Continue'
     Then I am on the 'Select suppliers for comparison' page
     When I check the following items:
       | ADAMS, WOLFF AND STROMAN |
       | CROOKS AND SONS          |
       | DICKI, QUITZON AND KUB   |
     And I click on 'Continue'
-    Then I am on the 'Compare supplier rates' page
+    Then I am on the Compare supplier rates page
     And I should see that '3' suppliers have been selected for comparison
     And I click on the 'Back' back link
     Then I am on the 'Select suppliers for comparison' page
@@ -108,7 +108,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4a - Supplier
       | O'CONNER AND SONS |
       | STANTON-GOYETTE   |
     And I click on 'Continue'
-    Then I am on the 'Compare supplier rates' page
+    Then I am on the Compare supplier rates page
     And I should see that '2' suppliers have been selected for comparison
     And I click on 'Finland'
     Then I should see the rates in the comparison table:
@@ -130,7 +130,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4a - Supplier
       | CROOKS AND SONS          |
       | DICKI, QUITZON AND KUB   |
     And I click on 'Continue'
-    Then I am on the 'Compare supplier rates' page
+    Then I am on the Compare supplier rates page
     And I should see that '3' suppliers have been selected for comparison
     When I click on 'Back to results'
     Then I am on the 'Supplier results' page
@@ -145,20 +145,20 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4a - Supplier
   @javascript
   Scenario: Suppliers reviewed - Going back from a supplier
     And I 'have' reviewed the suppliers’ prospectus
-    And I continue to the comparison page
+    And I click on 'Continue'
     Then I am on the 'Select suppliers for comparison' page
     When I check the following items:
       | ADAMS, WOLFF AND STROMAN |
       | CROOKS AND SONS          |
       | DICKI, QUITZON AND KUB   |
     And I click on 'Continue'
-    Then I am on the 'Compare supplier rates' page
+    Then I am on the Compare supplier rates page
     And I should see that '3' suppliers have been selected for comparison
     And I click on 'CROOKS AND SON' legal panel for governemnt supplier
     Then I am on the 'CROOKS AND SON' page
     And the sub title is 'Lot 4a - Trade and Investment Negotiations'
     And I click on the 'Back' back link
-    Then I am on the 'Compare supplier rates' page
+    Then I am on the Compare supplier rates page
     And I should see that '3' suppliers have been selected for comparison
     And I click on 'Finland'
     Then I should see the rates in the comparison table:
@@ -176,13 +176,13 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4a - Supplier
   @javascript
   Scenario: Suppliers not reviewed - Going back from a supplier
     And I 'have not' reviewed the suppliers’ prospectus
-    And I continue to the comparison page
-    Then I am on the 'Compare supplier rates' page
+    And I click on 'Continue'
+    Then I am on the Compare supplier rates page
     And I click on 'STANTON-GOYETTE' legal panel for governemnt supplier
     Then I am on the 'STANTON-GOYETTE' page
     And the sub title is 'Lot 4a - Trade and Investment Negotiations'
     And I click on the 'Back' back link
-    Then I am on the 'Compare supplier rates' page
+    Then I am on the Compare supplier rates page
     And I click on 'Finland'
     Then I should see the rates in the comparison table:
       | Supplier                 | Senior Counsel, Senior Partner (20 years +PQE) | Partner | Legal Director/Counsel or equivalent | Senior Solicitor, Senior Associate/Senior Legal Executive | Solicitor, Associate/Legal Executive | NQ Solicitor/Associate, Junior Solicitor/Associate/Legal Executive | Trainee/Legal Apprentice | Paralegal, Legal Assistant | Senior Analyst | Analyst, Associate Analyst, Research Associate, Research Officer | Senior Modeller, Senior Econometrician, Senior Analyst | Modeller, Econometrician, Analyst, Associate Analyst |
@@ -209,7 +209,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4a - Supplier
       | CROOKS AND SONS          |
       | DICKI, QUITZON AND KUB   |
     And I click on 'Continue'
-    Then I am on the 'Compare supplier rates' page
+    Then I am on the Compare supplier rates page
     And I should see that '3' suppliers have been selected for comparison
     Given I click on 'Download the rates for comparison'
     Then the spreadsheet 'Rates of Legal Panel for Government Suppliers.xlsx' is downloaded
@@ -217,6 +217,6 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4a - Supplier
   Scenario: Suppliers not reviewed - Download the supplier spreadsheet
     And I 'have not' reviewed the suppliers’ prospectus
     And I click on 'Continue'
-    Then I am on the 'Compare supplier rates' page
+    Then I am on the Compare supplier rates page
     Given I click on 'Download the rates for comparison'
     Then the spreadsheet 'Rates of Legal Panel for Government Suppliers.xlsx' is downloaded

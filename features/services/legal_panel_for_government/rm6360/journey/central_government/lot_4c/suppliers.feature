@@ -36,7 +36,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4c - Supplier
     Then I am on the 'Have you reviewed the suppliers’ prospectus to inform your down-selection?' page
     And I 'have not' reviewed the suppliers’ prospectus
     And I click on 'Continue'
-    Then I am on the 'Compare supplier rates' page
+    Then I am on the Compare supplier rates page
 
   Scenario: Check the supplier data - SME
     Given I click on 'VEUM, TORPHY AND NOLAN'

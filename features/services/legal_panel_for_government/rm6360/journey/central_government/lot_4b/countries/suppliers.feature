@@ -42,8 +42,8 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4b - Supplier
     And I click on 'Compare the supplier rates'
     Then I am on the 'Have you reviewed the suppliers’ prospectus to inform your down-selection?' page
     And I 'have not' reviewed the suppliers’ prospectus
-    And I continue to the comparison page
-    Then I am on the 'Compare supplier rates' page
+    And I click on 'Continue'
+    Then I am on the Compare supplier rates page
     Given I click on 'SANFORD INC' legal panel for governemnt supplier
     Then I am on the 'SANFORD INC' page
     And I click on 'Algeria'

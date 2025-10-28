@@ -25,7 +25,7 @@ Feature: Legal Panel for Government - Suppliers comparison - Accessibility
       | <supplier_1> |
       | <supplier_2> |
     And I click on 'Continue'
-    Then I am on the 'Compare supplier rates' page
+    Then I am on the Compare supplier rates page
     And I should see that '2' suppliers have been selected for comparison
     Then the page should pass the accessibility checks
 
@@ -58,7 +58,7 @@ Feature: Legal Panel for Government - Suppliers comparison - Accessibility
       | <supplier_1> |
       | <supplier_2> |
     And I click on 'Continue'
-    Then I am on the 'Compare supplier rates' page
+    Then I am on the Compare supplier rates page
     And I should see that '2' suppliers have been selected for comparison
     Then the page should pass the accessibility checks
 

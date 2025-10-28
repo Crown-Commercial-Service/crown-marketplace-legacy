@@ -39,7 +39,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 3 - Suppliers
       | O'CONNER AND SONS             |
       | TILLMAN, LUBOWITZ AND GOYETTE |
     And I click on 'Continue'
-    Then I am on the 'Compare supplier rates' page
+    Then I am on the Compare supplier rates page
     And I should see that '3' suppliers have been selected for comparison
     Then I should see the rates in the comparison table:
       | Supplier                      | Partner | Legal Director/Counsel or equivalent | Senior Solicitor, Senior Associate/Senior Legal Executive | Solicitor, Associate/Legal Executive | NQ Solicitor/Associate, Junior Solicitor/Associate/Legal Executive | Trainee/Legal Apprentice | Paralegal, Legal Assistant |
