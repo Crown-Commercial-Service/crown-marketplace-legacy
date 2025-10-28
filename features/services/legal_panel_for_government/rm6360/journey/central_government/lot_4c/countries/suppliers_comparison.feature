@@ -43,14 +43,14 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4c - Supplier
     And I click on 'Compare the supplier rates'
     Then I am on the 'Have you reviewed the suppliers’ prospectus to inform your down-selection?' page
     And I 'have' reviewed the suppliers’ prospectus
-    And I continue to the comparison page
+    And I click on 'Continue'
     Then I am on the 'Select suppliers for comparison' page
     When I check the following items:
       | JAKUBOWSKI-SATTERFIELD |
       | JOHNSON-ROMAGUERA      |
       | SANFORD AND SONS       |
     And I click on 'Continue'
-    Then I am on the 'Compare supplier rates' page
+    Then I am on the Compare supplier rates page
     And I should see that '3' suppliers have been selected for comparison
     And I click on 'Malta'
     Then I should see the rates in the comparison table:

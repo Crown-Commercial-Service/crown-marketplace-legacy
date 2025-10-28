@@ -41,7 +41,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 1 - Suppliers
       | GOYETTE AND SONS              |
       | LOCKMAN, NITZSCHE AND BARTELL |
     And I click on 'Continue'
-    Then I am on the 'Compare supplier rates' page
+    Then I am on the Compare supplier rates page
     And I should see that '3' suppliers have been selected for comparison
     Then I should see the rates in the comparison table:
       | Supplier                      | Partner | Legal Director/Counsel or equivalent | Senior Solicitor, Senior Associate/Senior Legal Executive | Solicitor, Associate/Legal Executive | NQ Solicitor/Associate, Junior Solicitor/Associate/Legal Executive | Trainee/Legal Apprentice | Paralegal, Legal Assistant |
@@ -52,7 +52,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 1 - Suppliers
   Scenario: Suppliers not reviewed - The rates table is displayed for comparison
     And I 'have not' reviewed the suppliers’ prospectus
     And I click on 'Continue'
-    Then I am on the 'Compare supplier rates' page
+    Then I am on the Compare supplier rates page
     Then I should see the rates in the comparison table:
       | Supplier                      | Partner | Legal Director/Counsel or equivalent | Senior Solicitor, Senior Associate/Senior Legal Executive | Solicitor, Associate/Legal Executive | NQ Solicitor/Associate, Junior Solicitor/Associate/Legal Executive | Trainee/Legal Apprentice | Paralegal, Legal Assistant |
       | CORMIER INC                   | £240.00 | £210.00                              | £180.00                                                   | £150.00                              | £120.00                                                            | £72.00                   | £60.00                     |
@@ -69,7 +69,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 1 - Suppliers
       | GOYETTE AND SONS              |
       | LOCKMAN, NITZSCHE AND BARTELL |
     And I click on 'Continue'
-    Then I am on the 'Compare supplier rates' page
+    Then I am on the Compare supplier rates page
     And I should see that '3' suppliers have been selected for comparison
     And I click on the 'Back' back link
     Then I am on the 'Select suppliers for comparison' page
@@ -78,7 +78,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 1 - Suppliers
       | LOCKMAN, NITZSCHE AND BARTELL |
       | MONAHAN-JOHNS                 |
     And I click on 'Continue'
-    Then I am on the 'Compare supplier rates' page
+    Then I am on the Compare supplier rates page
     And I should see that '2' suppliers have been selected for comparison
     Then I should see the rates in the comparison table:
       | Supplier                      | Partner | Legal Director/Counsel or equivalent | Senior Solicitor, Senior Associate/Senior Legal Executive | Solicitor, Associate/Legal Executive | NQ Solicitor/Associate, Junior Solicitor/Associate/Legal Executive | Trainee/Legal Apprentice | Paralegal, Legal Assistant |
@@ -94,7 +94,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 1 - Suppliers
       | GOYETTE AND SONS              |
       | LOCKMAN, NITZSCHE AND BARTELL |
     And I click on 'Continue'
-    Then I am on the 'Compare supplier rates' page
+    Then I am on the Compare supplier rates page
     And I should see that '3' suppliers have been selected for comparison
     When I click on 'Back to results'
     Then I am on the 'Supplier results' page
@@ -114,13 +114,13 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 1 - Suppliers
       | GOYETTE AND SONS              |
       | LOCKMAN, NITZSCHE AND BARTELL |
     And I click on 'Continue'
-    Then I am on the 'Compare supplier rates' page
+    Then I am on the Compare supplier rates page
     And I should see that '3' suppliers have been selected for comparison
     And I click on 'CORMIER INC'
     Then I am on the 'CORMIER INC' page
     And the sub title is 'Lot 1 - Core Legal Services'
     And I click on the 'Back' back link
-    Then I am on the 'Compare supplier rates' page
+    Then I am on the Compare supplier rates page
     And I should see that '3' suppliers have been selected for comparison
     Then I should see the rates in the comparison table:
       | Supplier                      | Partner | Legal Director/Counsel or equivalent | Senior Solicitor, Senior Associate/Senior Legal Executive | Solicitor, Associate/Legal Executive | NQ Solicitor/Associate, Junior Solicitor/Associate/Legal Executive | Trainee/Legal Apprentice | Paralegal, Legal Assistant |
@@ -131,12 +131,12 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 1 - Suppliers
   Scenario: Suppliers not reviewed - Going back from a supplier
     And I 'have not' reviewed the suppliers’ prospectus
     And I click on 'Continue'
-    Then I am on the 'Compare supplier rates' page
+    Then I am on the Compare supplier rates page
     And I click on 'CORMIER INC'
     Then I am on the 'CORMIER INC' page
     And the sub title is 'Lot 1 - Core Legal Services'
     And I click on the 'Back' back link
-    Then I am on the 'Compare supplier rates' page
+    Then I am on the Compare supplier rates page
     Then I should see the rates in the comparison table:
       | Supplier                      | Partner | Legal Director/Counsel or equivalent | Senior Solicitor, Senior Associate/Senior Legal Executive | Solicitor, Associate/Legal Executive | NQ Solicitor/Associate, Junior Solicitor/Associate/Legal Executive | Trainee/Legal Apprentice | Paralegal, Legal Assistant |
       | CORMIER INC                   | £240.00 | £210.00                              | £180.00                                                   | £150.00                              | £120.00                                                            | £72.00                   | £60.00                     |
@@ -153,7 +153,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 1 - Suppliers
       | GOYETTE AND SONS              |
       | LOCKMAN, NITZSCHE AND BARTELL |
     And I click on 'Continue'
-    Then I am on the 'Compare supplier rates' page
+    Then I am on the Compare supplier rates page
     And I should see that '3' suppliers have been selected for comparison
     Given I click on 'Download the rates for comparison'
     Then the spreadsheet 'Rates of Legal Panel for Government Suppliers.xlsx' is downloaded
@@ -161,6 +161,6 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 1 - Suppliers
   Scenario: Suppliers not reviewed - Download the supplier spreadsheet
     And I 'have not' reviewed the suppliers’ prospectus
     And I click on 'Continue'
-    Then I am on the 'Compare supplier rates' page
+    Then I am on the Compare supplier rates page
     Given I click on 'Download the rates for comparison'
     Then the spreadsheet 'Rates of Legal Panel for Government Suppliers.xlsx' is downloaded

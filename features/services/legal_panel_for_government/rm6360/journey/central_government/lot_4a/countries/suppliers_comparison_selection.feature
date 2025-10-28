@@ -42,7 +42,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4a - Supplier
     And I click on 'Compare the supplier rates'
     Then I am on the 'Have you reviewed the suppliers’ prospectus to inform your down-selection?' page
     And I 'have' reviewed the suppliers’ prospectus
-    And I continue to the comparison page
+    And I click on 'Continue'
     Then I am on the 'Select suppliers for comparison' page
 
   Scenario: The correct options are available
@@ -111,7 +111,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4a - Supplier
       | CROOKS AND SONS          |
       | DICKI, QUITZON AND KUB   |
     And I click on 'Continue'
-    Then I am on the 'Compare supplier rates' page
+    Then I am on the Compare supplier rates page
     And I click on the 'Back' back link
     Then I am on the 'Select suppliers for comparison' page
     And the following items should appear in the basket:
