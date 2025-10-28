@@ -38,12 +38,11 @@ end
 Given('I continue to the comparison page') do
   legal_panel_for_government_page.continue_button.click
 
-  5.times do |iteration|
+  # For whatever reason this step is a bit flakey so we need to wait to make sure the page changes
+  5.times do
     sleep 0.5 if @javascript
 
     break if page.find('h1').has_content?('Compare supplier rates')
-
-    puts "Attempt #{iteration + 1} failed, trying again"
   end
 end
 
