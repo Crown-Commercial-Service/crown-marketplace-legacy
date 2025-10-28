@@ -1,4 +1,4 @@
-Feature: Legal Panel for Government - Admin - Supplier lot data - Lot 4a - Rates
+Feature: Legal Panel for Government - Admin - Supplier lot data - Lot 4a - View rates
 
   Scenario: Rates
     Given I sign in as an admin for the 'RM6360' framework in 'legal panel for government'
@@ -8,7 +8,7 @@ Feature: Legal Panel for Government - Admin - Supplier lot data - Lot 4a - Rates
     Then I am on the 'Supplier lot data' page
     And the caption is 'DICKI, QUITZON AND KUB'
     And I click on 'View rates' for the lot 'Lot 4a - Trade and Investment Negotiations'
-    Then I am on the 'Lot 4a - Trade and Investment Negotiations - Rates' page
+    Then I am on the 'Lot 4a - Trade and Investment Negotiations View rates' page
     And the caption is 'DICKI, QUITZON AND KUB'
     And I should see rate tables for the following jurisdictions:
       | Algeria                                   |

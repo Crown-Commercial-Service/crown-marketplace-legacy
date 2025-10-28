@@ -121,9 +121,7 @@ Rails.application.routes.draw do
 
   concern :admin_suppliers do
     resources :suppliers, only: Marketplace.environment_name == :production ? %i[index show] : %i[index show edit update] do
-      resources :lot_data, path: 'lot-data', only: %i[index] do
-        get '/:section', action: :show
-      end
+      resources :lot_data, path: 'lot-data', param: :lot_number, only: Marketplace.environment_name == :production ? %i[index show] : %i[index show edit update]
     end
   end
 
@@ -321,9 +319,7 @@ Rails.application.routes.draw do
 
   resources :buyer_details, path: '/:service/:framework/buyer-details', only: %i[index show edit update]
   resources :suppliers, path: '/:service/:framework/admin/suppliers', only: Marketplace.environment_name == :production ? %i[index show] : %i[index show edit update] do
-    resources :lot_data, path: 'lot-data', only: %i[index] do
-      get '/:section', action: :show
-    end
+    resources :lot_data, path: 'lot-data', param: :lot_number, only: Marketplace.environment_name == :production ? %i[index show] : %i[index show edit update]
   end
 end
 # rubocop:enable Metrics/BlockLength

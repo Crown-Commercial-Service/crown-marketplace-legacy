@@ -116,8 +116,9 @@ en:
         lot_data:
           show:
             jurisdictions:
-              jurisdiction: Jurisdiction
-              provides_service_in_jursidiction: Provides services in jurisdiction?
+              jurisdiction_supplier_offers: Supplier offers services in the following jurisdictions
+            rates:
+              supplier_rates_for: Supplier rates for %{country}
         uploads:
           failed:
             below_is_a_list: Below is a list of the issues that have occurred with the file upload and details on how they might be fixed.

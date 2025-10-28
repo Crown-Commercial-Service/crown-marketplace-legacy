@@ -17,7 +17,7 @@ Feature: Legal Panel for Government - Admin - Supplier lot data - Lot data - Acc
     Then I am on the 'Supplier lot data' page
     And the caption is '<supplier_name>'
     And I click on 'View services' for the lot '<lot_name>'
-    Then I am on the '<lot_name> - Services' page
+    Then I am on the '<lot_name> View services' page
     And the caption is '<supplier_name>'
     Then the page should pass the accessibility checks
 
@@ -36,7 +36,7 @@ Feature: Legal Panel for Government - Admin - Supplier lot data - Lot data - Acc
     Then I am on the 'Supplier lot data' page
     And the caption is '<supplier_name>'
     And I click on 'View rates' for the lot '<lot_name>'
-    Then I am on the '<lot_name> - Rates' page
+    Then I am on the '<lot_name> View rates' page
     And the caption is '<supplier_name>'
     Then the page should pass the accessibility checks
 
@@ -55,7 +55,7 @@ Feature: Legal Panel for Government - Admin - Supplier lot data - Lot data - Acc
     Then I am on the 'Supplier lot data' page
     And the caption is '<supplier_name>'
     And I click on 'View jurisdictions' for the lot '<lot_name>'
-    Then I am on the '<lot_name> - Jurisdictions' page
+    Then I am on the '<lot_name> View jurisdictions' page
     And the caption is '<supplier_name>'
     Then the page should pass the accessibility checks
 

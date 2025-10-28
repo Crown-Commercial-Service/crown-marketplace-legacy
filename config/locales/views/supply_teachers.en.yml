@@ -190,7 +190,7 @@ en:
             pricing_for_tool: Pricing for tool
             supplier_lookup: Supplier lookup
           heading: Set up a new upload session
-          return: Return to manage supplier data
+          return: Return to upload supplier data
           upload_button: Upload spreadsheets
           upload_caption: The maximum file size is 5mb.
           upload_title: Choose one or more spreadsheets to upload
@@ -214,7 +214,7 @@ en:
           neutral_vendor_contacts: Neutral vendor contacts
           pricing_for_tool: Pricing for tool
           reject: Cancel session
-          return: Return to manage supplier data
+          return: Return to upload supplier data
           spreadsheet: Spreadsheet
           status: 'Status:'
           supplier_lookup: Supplier lookup

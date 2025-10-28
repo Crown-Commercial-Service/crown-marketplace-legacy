@@ -1,4 +1,4 @@
-Feature: Legal Panel for Government - Admin - Supplier lot data - Lot 1 - Rates
+Feature: Legal Panel for Government - Admin - Supplier lot data - Lot 1 - View rates
 
   Scenario: Rates
     Given I sign in as an admin for the 'RM6360' framework in 'legal panel for government'
@@ -8,7 +8,7 @@ Feature: Legal Panel for Government - Admin - Supplier lot data - Lot 1 - Rates
     Then I am on the 'Supplier lot data' page
     And the caption is 'BALISTRERI-MURAZIK'
     And I click on 'View rates' for the lot 'Lot 1 - Core Legal Services'
-    Then I am on the 'Lot 1 - Core Legal Services - Rates' page
+    Then I am on the 'Lot 1 - Core Legal Services View rates' page
     And the caption is 'BALISTRERI-MURAZIK'
     And the rates in the 'United Kingdom' table are:
       | Grade                                                              | Hourly  |

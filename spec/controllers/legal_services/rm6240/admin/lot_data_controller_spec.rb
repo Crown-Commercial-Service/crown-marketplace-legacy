@@ -4,7 +4,7 @@ RSpec.describe LegalServices::RM6240::Admin::LotDataController do
   let(:default_params) { { service: 'legal_services/admin', framework: 'RM6240', supplier_id: supplier_framework.id } }
 
   let(:supplier_framework) { create(:supplier_framework, framework_id: 'RM6240') }
-  let(:supplier_framework_lot) { create(:supplier_framework_lot, supplier_framework:) }
+  let(:supplier_framework_lot) { create(:supplier_framework_lot, supplier_framework: supplier_framework, lot_id: 'RM6240.1a') }
 
   describe 'GET index' do
     context 'when not logged in' do
@@ -49,38 +49,38 @@ RSpec.describe LegalServices::RM6240::Admin::LotDataController do
         expect(assigns(:supplier_lot_data)).to eq(
           [
             {
-              lot: { number: '1a', name: 'Full service provision' },
-              enabled: false,
+              lot: { number: '1a', name: 'Full service provision', number_as_slug: '1a' },
+              enabled: true,
               sections: %i[services rates]
             },
             {
-              lot: { number: '1b', name: 'Full service provision' },
-              enabled: false,
+              lot: { number: '1b', name: 'Full service provision', number_as_slug: '1b' },
+              enabled: nil,
               sections: %i[services rates]
             },
             {
-              lot: { number: '1c', name: 'Full service provision' },
-              enabled: false,
+              lot: { number: '1c', name: 'Full service provision', number_as_slug: '1c' },
+              enabled: nil,
               sections: %i[services rates]
             },
             {
-              lot: { number: '2a', name: 'General service provision' },
-              enabled: false,
+              lot: { number: '2a', name: 'General service provision', number_as_slug: '2a' },
+              enabled: nil,
               sections: %i[services rates]
             },
             {
-              lot: { number: '2b', name: 'General service provision' },
-              enabled: false,
+              lot: { number: '2b', name: 'General service provision', number_as_slug: '2b' },
+              enabled: nil,
               sections: %i[services rates]
             },
             {
-              lot: { number: '2c', name: 'General service provision' },
-              enabled: false,
+              lot: { number: '2c', name: 'General service provision', number_as_slug: '2c' },
+              enabled: nil,
               sections: %i[services rates]
             },
             {
-              lot: { number: '3', name: 'Transport rail legal services' },
-              enabled: false,
+              lot: { number: '3', name: 'Transport rail legal services', number_as_slug: '3' },
+              enabled: nil,
               sections: %i[services rates]
             }
           ]
@@ -108,7 +108,7 @@ RSpec.describe LegalServices::RM6240::Admin::LotDataController do
       supplier_framework_lot_service
       supplier_framework_lot_rate
 
-      get :show, params: { lot_datum_id: lot_number, section: section }
+      get :show, params: { lot_number:, section: }
     end
 
     let(:supplier_framework_lot) { create(:supplier_framework_lot, supplier_framework: supplier_framework, lot_id: "RM6240.#{lot_number}") }
@@ -150,11 +150,11 @@ RSpec.describe LegalServices::RM6240::Admin::LotDataController do
           end
         end
 
-        it 'assigns supplier_framework_lot_services' do
-          assigned_supplier_framework_lot_services = assigns(:supplier_framework_lot_services)
+        it 'assigns supplier_framework_lot_service_ids' do
+          assigned_supplier_framework_lot_service_ids = assigns(:supplier_framework_lot_service_ids)
 
-          expect(assigned_supplier_framework_lot_services.count).to eq(1)
-          expect(assigned_supplier_framework_lot_services.first).to eq(supplier_framework_lot_service.service_id)
+          expect(assigned_supplier_framework_lot_service_ids.count).to eq(1)
+          expect(assigned_supplier_framework_lot_service_ids.first).to eq(supplier_framework_lot_service.service_id)
         end
       end
 
@@ -223,11 +223,11 @@ RSpec.describe LegalServices::RM6240::Admin::LotDataController do
           end
         end
 
-        it 'assigns supplier_framework_lot_services' do
-          assigned_supplier_framework_lot_services = assigns(:supplier_framework_lot_services)
+        it 'assigns supplier_framework_lot_service_ids' do
+          assigned_supplier_framework_lot_service_ids = assigns(:supplier_framework_lot_service_ids)
 
-          expect(assigned_supplier_framework_lot_services.count).to eq(1)
-          expect(assigned_supplier_framework_lot_services.first).to eq(supplier_framework_lot_service.service_id)
+          expect(assigned_supplier_framework_lot_service_ids.count).to eq(1)
+          expect(assigned_supplier_framework_lot_service_ids.first).to eq(supplier_framework_lot_service.service_id)
         end
       end
 

@@ -1,4 +1,4 @@
-Feature: Legal Panel for Government - Admin - Supplier lot data - Lot 4c - Rates
+Feature: Legal Panel for Government - Admin - Supplier lot data - Lot 4c - View rates
 
   Scenario: Rates
     Given I sign in as an admin for the 'RM6360' framework in 'legal panel for government'
@@ -8,7 +8,7 @@ Feature: Legal Panel for Government - Admin - Supplier lot data - Lot 4c - Rates
     Then I am on the 'Supplier lot data' page
     And the caption is 'VEUM, TORPHY AND NOLAN'
     And I click on 'View rates' for the lot 'Lot 4c - International Investment Disputes'
-    Then I am on the 'Lot 4c - International Investment Disputes - Rates' page
+    Then I am on the 'Lot 4c - International Investment Disputes View rates' page
     And the caption is 'VEUM, TORPHY AND NOLAN'
     And I should see rate tables for the following jurisdictions:
       | Afghanistan                                  |

@@ -1,4 +1,4 @@
-Feature: Supply Teachers - Admin - Supplier lot data - Lot 1 - Rates
+Feature: Supply Teachers - Admin - Supplier lot data - Lot 1 - View rates
 
   Scenario: Rates
     Given I sign in as an admin for the 'RM6238' framework in 'supply teachers'
@@ -8,7 +8,7 @@ Feature: Supply Teachers - Admin - Supplier lot data - Lot 1 - Rates
     Then I am on the 'Supplier lot data' page
     And the caption is 'BARTOLETTI, KOEPP AND NIENOW'
     And I click on 'View rates' for the lot 'Lot 1 - Direct provision'
-    Then I am on the 'Lot 1 - Direct provision - Rates' page
+    Then I am on the 'Lot 1 - Direct provision View rates' page
     And the caption is 'BARTOLETTI, KOEPP AND NIENOW'
     And the rates in the table are:
       | Job type                                                                              | Agency mark-up Daily Supply | Agency mark-up Long Term (6 weeks+) |

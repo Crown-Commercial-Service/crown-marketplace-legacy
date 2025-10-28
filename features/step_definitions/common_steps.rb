@@ -97,7 +97,7 @@ rescue NoMethodError
 end
 
 Then('the caption is {string}') do |caption|
-  expect(page.find('span[class*=govuk-caption]')).to have_content(caption)
+  expect(page.first('span[class*=govuk-caption]')).to have_content(caption)
 end
 
 When('I click on {string}') do |button_text|

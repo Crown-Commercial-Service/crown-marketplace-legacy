@@ -9,7 +9,7 @@ module Admin::SuppliersController
     before_action :set_supplier_framework, only: %i[show edit update]
     before_action :set_section, :set_model, :set_section_attributes, only: %i[edit update]
 
-    helper_method :service, :current_supplier_name, :section_attributes, :supplier_lot_data_index_path
+    helper_method :service, :current_supplier_name, :section_attributes
   end
 
   def index
@@ -35,10 +35,6 @@ module Admin::SuppliersController
   end
 
   private
-
-  def supplier_lot_data_index_path(supplier_framework_id)
-    "#{service_path_base}/suppliers/#{supplier_framework_id}/lot-data"
-  end
 
   def authorize_user
     authorize! :manage, service.module_parent::Admin
