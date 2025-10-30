@@ -168,4 +168,53 @@ RSpec.describe SupplyTeachers::RM6238::Admin::LotDataController do
       end
     end
   end
+
+  describe 'GET edit' do
+    login_st_admin
+
+    before do
+      supplier_framework_lot_rate
+      supplier_framework_lot_branch
+
+      get :edit, params: { lot_number:, section: }
+    end
+
+    let(:supplier_framework_lot) { create(:supplier_framework_lot, supplier_framework: supplier_framework, lot_id: "RM6238.#{lot_number}") }
+    let(:supplier_framework_lot_rate) { create(:supplier_framework_lot_rate, supplier_framework_lot: supplier_framework_lot, jurisdiction: supplier_framework_lot_jurisdiction, position_id: position_id) }
+    let(:supplier_framework_lot_jurisdiction) { create(:supplier_framework_lot_jurisdiction, supplier_framework_lot: supplier_framework_lot, jurisdiction_id: 'GB') }
+    let(:supplier_framework_lot_branch) { create(:supplier_framework_lot_branch, supplier_framework_lot:) }
+    let(:position_id) { "RM6238.#{lot_number}.1" }
+
+    context 'when the lot number is 1' do
+      let(:lot_number) { '1' }
+
+      context 'and the section is lot_status' do
+        let(:section) { 'lot_status' }
+
+        it 'renders the edit template' do
+          expect(response).to render_template(:edit)
+        end
+
+        it 'assigns framework' do
+          expect(assigns(:framework).id).to eq('RM6238')
+        end
+
+        it 'assigns supplier_framework' do
+          expect(assigns(:supplier_framework).id).to eq(supplier_framework.id)
+        end
+
+        it 'assigns lot' do
+          expect(assigns(:lot).id).to eq('RM6238.1')
+        end
+
+        it 'assigns supplier_framework_lot' do
+          expect(assigns(:supplier_framework_lot).id).to eq(supplier_framework_lot.id)
+        end
+
+        it 'assigns model' do
+          expect(assigns(:model).class).to be(Supplier::Framework::Lot)
+        end
+      end
+    end
+  end
 end

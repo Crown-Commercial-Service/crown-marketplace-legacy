@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Update how the show pages are displayed to help with editing ([PR 2159](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2159))
 
+### Added
+
+- Add the ability for admins to update a supplier's status on a lot ([PR 2160](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2160))
+
 ## [6.3.0] - 2025-10-28
 
 ### Added

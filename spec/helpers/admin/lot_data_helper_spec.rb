@@ -23,16 +23,16 @@ RSpec.describe Admin::LotDataHelper do
     context 'when the is_enabled is false' do
       let(:is_enabled) { false }
 
-      it 'returns Inactive and red' do
-        expect(status_tag).to eq ['Inactive', :red]
+      it 'returns Disabled and red' do
+        expect(status_tag).to eq ['Disabled', :red]
       end
     end
 
     context 'when the is_enabled is true' do
       let(:is_enabled) { true }
 
-      it 'returns Active and green' do
-        expect(status_tag).to eq ['Active', :green]
+      it 'returns Enabled and green' do
+        expect(status_tag).to eq ['Enabled', :green]
       end
     end
   end

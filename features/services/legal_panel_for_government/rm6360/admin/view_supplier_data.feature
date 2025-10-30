@@ -98,18 +98,18 @@ Feature: Legal Panel for Government - Admin - View supplier data pages
     And I should see the following details in the summary for the lot 'Lot 1 - Core Legal Services':
       | Lot status | Not on lot |
     And I should see the following details in the summary for the lot 'Lot 2 - Major Projects and Complex Advice':
-      | Lot status | Active        |
+      | Lot status | Enabled       |
       | Services   | View services |
       | Rates      | View rates    |
     And I should see the following details in the summary for the lot 'Lot 3 - Finance and High Risk/Innovation':
       | Lot status | Not on lot |
     And I should see the following details in the summary for the lot 'Lot 4a - Trade and Investment Negotiations':
-      | Lot status    | Active             |
+      | Lot status    | Enabled            |
       | Services      | View services      |
       | Jurisdictions | View jurisdictions |
       | Rates         | View rates         |
     And I should see the following details in the summary for the lot 'Lot 4b - International Trade Disputes':
-      | Lot status    | Active             |
+      | Lot status    | Enabled            |
       | Services      | View services      |
       | Jurisdictions | View jurisdictions |
       | Rates         | View rates         |

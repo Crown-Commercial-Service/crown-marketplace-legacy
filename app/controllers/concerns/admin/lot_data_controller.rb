@@ -1,3 +1,4 @@
+# rubocop:disable Metrics/ModuleLength
 module Admin::LotDataController
   extend ActiveSupport::Concern
 
@@ -7,7 +8,9 @@ module Admin::LotDataController
     before_action :authenticate_user!, :authorize_user
     before_action :set_framework, :set_supplier_framework
     before_action :set_supplier_framework_lots, :set_supplier_lot_data, only: :index
-    before_action :set_lot, :set_supplier_framework_lot, :set_section, :set_section_data, :set_supplier_framework_lot_data, only: :show
+    before_action :set_lot, :set_supplier_framework_lot, only: %i[show edit update]
+    before_action :set_section_for_show, :set_section_data, :set_supplier_framework_lot_data, only: :show
+    before_action :set_section_for_edit, :set_model, only: %i[edit update]
 
     helper_method :service
   end
@@ -26,7 +29,11 @@ module Admin::LotDataController
 
   def update
     if update_for_section
-      redirect_to action: :index
+      if @section == :lot_status
+        redirect_to action: :index
+      else
+        redirect_to action: :show, section: @section
+      end
     else
       render template: 'shared/admin/lot_data/edit'
     end
@@ -83,10 +90,16 @@ module Admin::LotDataController
     end
   end
 
-  def set_section
+  def set_section_for_show
     @section = params[:section].to_sym
 
     redirect_to action: :index unless self.class::SECTIONS_TO_SHOW.include?(@section)
+  end
+
+  def set_section_for_edit
+    @section = params[:section].to_sym
+
+    redirect_to action: :show, section: @section unless self.class::SECTIONS_TO_EDIT.include?(@section)
   end
 
   def set_section_data
@@ -94,6 +107,28 @@ module Admin::LotDataController
     when :services
       @services = @lot.services_grouped_by_category
     end
+  end
+
+  def set_model
+    @model = case @section
+             when :lot_status
+               @supplier_framework_lot
+             end
+  end
+
+  def update_for_section
+    case @section
+    when :lot_status
+      update_for_lot_status
+    end
+  end
+
+  def update_for_lot_status
+    new_attributes = params[@model.model_name.param_key].present? ? params.expect("#{@model.model_name.param_key}": %i[enabled]) : {}
+
+    @model.assign_attributes(new_attributes)
+
+    @model.save(context: @section)
   end
 
   def authorize_user
@@ -104,3 +139,4 @@ module Admin::LotDataController
     @service ||= self.class.module_parent.module_parent
   end
 end
+# rubocop:enable Metrics/ModuleLength
