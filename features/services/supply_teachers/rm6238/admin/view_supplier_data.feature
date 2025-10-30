@@ -70,7 +70,7 @@ Feature: Supply Teachers - Admin - View supplier data pages
     Then I am on the 'Supplier lot data' page
     And the caption is 'BARTOLETTI, KOEPP AND NIENOW'
     And I should see the following details in the summary for the lot 'Lot 1 - Direct provision':
-      | Lot status | Active        |
+      | Lot status | Enabled       |
       | Rates      | View rates    |
       | Branches   | View branches |
     And I should see the following details in the summary for the lot 'Lot 2.1 - Master vendor (less than 2.5 million)':
@@ -87,10 +87,10 @@ Feature: Supply Teachers - Admin - View supplier data pages
     And I should see the following details in the summary for the lot 'Lot 1 - Direct provision':
       | Lot status | Not on lot |
     And I should see the following details in the summary for the lot 'Lot 2.1 - Master vendor (less than 2.5 million)':
-      | Lot status | Active     |
+      | Lot status | Enabled    |
       | Rates      | View rates |
     And I should see the following details in the summary for the lot 'Lot 2.2 - Master vendor (more than 2.5 million)':
-      | Lot status | Active     |
+      | Lot status | Enabled    |
       | Rates      | View rates |
     And I should see the following details in the summary for the lot 'Lot 4 - Education technology platforms':
       | Lot status | Not on lot |
@@ -106,5 +106,5 @@ Feature: Supply Teachers - Admin - View supplier data pages
     And I should see the following details in the summary for the lot 'Lot 2.2 - Master vendor (more than 2.5 million)':
       | Lot status | Not on lot |
     And I should see the following details in the summary for the lot 'Lot 4 - Education technology platforms':
-      | Lot status | Active     |
+      | Lot status | Enabled    |
       | Rates      | View rates |

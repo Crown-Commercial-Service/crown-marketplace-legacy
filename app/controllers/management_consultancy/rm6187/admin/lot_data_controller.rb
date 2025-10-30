@@ -7,6 +7,7 @@ module ManagementConsultancy
         LOT_SORT_CRITERIA = 'lots.number::integer'.freeze
 
         SECTIONS_TO_SHOW = %i[services rates].freeze
+        SECTIONS_TO_EDIT = %i[lot_status].freeze
 
         private
 

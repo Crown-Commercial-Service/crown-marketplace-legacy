@@ -7,6 +7,7 @@ module LegalPanelForGovernment
         LOT_SORT_CRITERIA = 'lots.number'.freeze
 
         SECTIONS_TO_SHOW = %i[services jurisdictions rates].freeze
+        SECTIONS_TO_EDIT = %i[lot_status].freeze
 
         private
 

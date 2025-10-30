@@ -52,6 +52,17 @@ en:
         publishing_data: Publishing data
         upload_progress: Upload progress
       lot_data:
+        edit:
+          heading:
+            branches: branch
+            caption: Lot %{lot_number} - %{lot_name}
+            heading: Edit %{section}
+            lot_status: lot status
+            rates: rates
+            services: service selection
+          lot_status:
+            question: Set supplier status on Lot %{lot_number} - %{lot_name}
+          save_and_return: Save and return
         index:
           heading: Supplier lot data
           supplier_lot_data_summary_list:
@@ -86,8 +97,8 @@ en:
         summary:
           lot_status:
             enabled:
-              active: Active
-              inactive: Inactive
+              disabled: Disabled
+              enabled: Enabled
               not_on_lot: Not on lot
       reports:
         index:
