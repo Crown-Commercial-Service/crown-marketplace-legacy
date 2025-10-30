@@ -82,13 +82,13 @@ Feature: Legal services - Admin - View supplier data pages
     And I should see the following details in the summary for the lot 'Lot 1c - Full service provision (Northern Ireland)':
       | Lot status | Not on lot |
     And I should see the following details in the summary for the lot 'Lot 2a - General service provision (England and Wales)':
-      | Lot status | Active        |
+      | Lot status | Enabled       |
       | Services   | View services |
       | Rates      | View rates    |
     And I should see the following details in the summary for the lot 'Lot 2b - General service provision (Scotland)':
       | Lot status | Not on lot |
     And I should see the following details in the summary for the lot 'Lot 2c - General service provision (Northern Ireland)':
-      | Lot status | Active        |
+      | Lot status | Enabled       |
       | Services   | View services |
       | Rates      | View rates    |
     And I should see the following details in the summary for the lot 'Lot 3 - Transport rail legal services':
