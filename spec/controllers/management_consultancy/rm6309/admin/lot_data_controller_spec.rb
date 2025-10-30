@@ -4,7 +4,7 @@ RSpec.describe ManagementConsultancy::RM6309::Admin::LotDataController do
   let(:default_params) { { service: 'management_consultancy/admin', framework: 'RM6309', supplier_id: supplier_framework.id } }
 
   let(:supplier_framework) { create(:supplier_framework, framework_id: 'RM6309') }
-  let(:supplier_framework_lot) { create(:supplier_framework_lot, supplier_framework:) }
+  let(:supplier_framework_lot) { create(:supplier_framework_lot, supplier_framework: supplier_framework, lot_id: 'RM6309.1') }
 
   describe 'GET index' do
     context 'when not logged in' do
@@ -49,53 +49,53 @@ RSpec.describe ManagementConsultancy::RM6309::Admin::LotDataController do
         expect(assigns(:supplier_lot_data)).to eq(
           [
             {
-              lot: { number: '1', name: 'Business' },
-              enabled: false,
+              lot: { number: '1', name: 'Business', number_as_slug: '1' },
+              enabled: true,
               sections: %i[services rates]
             },
             {
-              lot: { number: '2', name: 'Strategy and Policy' },
-              enabled: false,
+              lot: { number: '2', name: 'Strategy and Policy', number_as_slug: '2' },
+              enabled: nil,
               sections: %i[services rates]
             },
             {
-              lot: { number: '3', name: 'Complex and Transformation' },
-              enabled: false,
+              lot: { number: '3', name: 'Complex and Transformation', number_as_slug: '3' },
+              enabled: nil,
               sections: %i[services rates]
             },
             {
-              lot: { number: '4', name: 'Finance' },
-              enabled: false,
+              lot: { number: '4', name: 'Finance', number_as_slug: '4' },
+              enabled: nil,
               sections: %i[services rates]
             },
             {
-              lot: { number: '5', name: 'HR' },
-              enabled: false,
+              lot: { number: '5', name: 'HR', number_as_slug: '5' },
+              enabled: nil,
               sections: %i[services rates]
             },
             {
-              lot: { number: '6', name: 'Procurement and Supply Chain' },
-              enabled: false,
+              lot: { number: '6', name: 'Procurement and Supply Chain', number_as_slug: '6' },
+              enabled: nil,
               sections: %i[services rates]
             },
             {
-              lot: { number: '7', name: 'Health, Social Care and Community' },
-              enabled: false,
+              lot: { number: '7', name: 'Health, Social Care and Community', number_as_slug: '7' },
+              enabled: nil,
               sections: %i[services rates]
             },
             {
-              lot: { number: '8', name: 'Infrastructure' },
-              enabled: false,
+              lot: { number: '8', name: 'Infrastructure', number_as_slug: '8' },
+              enabled: nil,
               sections: %i[services rates]
             },
             {
-              lot: { number: '9', name: 'Environment and Sustainability' },
-              enabled: false,
+              lot: { number: '9', name: 'Environment and Sustainability', number_as_slug: '9' },
+              enabled: nil,
               sections: %i[services rates]
             },
             {
-              lot: { number: '10', name: 'Restructuring and insolvency' },
-              enabled: false,
+              lot: { number: '10', name: 'Restructuring and insolvency', number_as_slug: '10' },
+              enabled: nil,
               sections: %i[services rates]
             },
           ]
@@ -123,7 +123,7 @@ RSpec.describe ManagementConsultancy::RM6309::Admin::LotDataController do
       supplier_framework_lot_service
       supplier_framework_lot_rate
 
-      get :show, params: { lot_datum_id: lot_number, section: section }
+      get :show, params: { lot_number:, section: }
     end
 
     let(:supplier_framework_lot) { create(:supplier_framework_lot, supplier_framework: supplier_framework, lot_id: "RM6309.#{lot_number}") }
@@ -165,11 +165,11 @@ RSpec.describe ManagementConsultancy::RM6309::Admin::LotDataController do
           end
         end
 
-        it 'assigns supplier_framework_lot_services' do
-          assigned_supplier_framework_lot_services = assigns(:supplier_framework_lot_services)
+        it 'assigns supplier_framework_lot_service_ids' do
+          assigned_supplier_framework_lot_service_ids = assigns(:supplier_framework_lot_service_ids)
 
-          expect(assigned_supplier_framework_lot_services.count).to eq(1)
-          expect(assigned_supplier_framework_lot_services.first).to eq(supplier_framework_lot_service.service_id)
+          expect(assigned_supplier_framework_lot_service_ids.count).to eq(1)
+          expect(assigned_supplier_framework_lot_service_ids.first).to eq(supplier_framework_lot_service.service_id)
         end
       end
 
@@ -244,11 +244,11 @@ RSpec.describe ManagementConsultancy::RM6309::Admin::LotDataController do
           end
         end
 
-        it 'assigns supplier_framework_lot_services' do
-          assigned_supplier_framework_lot_services = assigns(:supplier_framework_lot_services)
+        it 'assigns supplier_framework_lot_service_ids' do
+          assigned_supplier_framework_lot_service_ids = assigns(:supplier_framework_lot_service_ids)
 
-          expect(assigned_supplier_framework_lot_services.count).to eq(1)
-          expect(assigned_supplier_framework_lot_services.first).to eq(supplier_framework_lot_service.service_id)
+          expect(assigned_supplier_framework_lot_service_ids.count).to eq(1)
+          expect(assigned_supplier_framework_lot_service_ids.first).to eq(supplier_framework_lot_service.service_id)
         end
       end
 

@@ -1,4 +1,4 @@
-Feature: Supply Teachers - Admin - Supplier lot data - Lot 4 - Rates
+Feature: Supply Teachers - Admin - Supplier lot data - Lot 4 - View rates
 
   Scenario: Rates
     Given I sign in as an admin for the 'RM6238' framework in 'supply teachers'
@@ -8,7 +8,7 @@ Feature: Supply Teachers - Admin - Supplier lot data - Lot 4 - Rates
     Then I am on the 'Supplier lot data' page
     And the caption is 'CHRISTIANSEN INC'
     And I click on 'View rates' for the lot 'Lot 4 - Education technology platforms'
-    Then I am on the 'Lot 4 - Education technology platforms - Rates' page
+    Then I am on the 'Lot 4 - Education technology platforms View rates' page
     And the caption is 'CHRISTIANSEN INC'
     And the rates in the table are:
       | Job type                                                                     | Supplier fee |

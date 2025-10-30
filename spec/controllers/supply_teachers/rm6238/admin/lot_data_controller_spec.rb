@@ -4,7 +4,7 @@ RSpec.describe SupplyTeachers::RM6238::Admin::LotDataController do
   let(:default_params) { { service: 'supply_teachers/admin', framework: 'RM6238', supplier_id: supplier_framework.id } }
 
   let(:supplier_framework) { create(:supplier_framework, framework_id: 'RM6238') }
-  let(:supplier_framework_lot) { create(:supplier_framework_lot, supplier_framework:) }
+  let(:supplier_framework_lot) { create(:supplier_framework_lot, supplier_framework: supplier_framework, lot_id: 'RM6238.1') }
 
   describe 'GET index' do
     context 'when not logged in' do
@@ -49,24 +49,24 @@ RSpec.describe SupplyTeachers::RM6238::Admin::LotDataController do
         expect(assigns(:supplier_lot_data)).to eq(
           [
             {
-              lot: { number: '1', name: 'Direct provision' },
-              enabled: false,
+              lot: { number: '1', name: 'Direct provision', number_as_slug: '1' },
+              enabled: true,
               sections: %i[rates branches]
             },
             {
-              lot: { number: '2.1', name: 'Master vendor (less than 2.5 million)' },
-              enabled: false,
-              sections: [:rates]
+              lot: { number: '2.1', name: 'Master vendor (less than 2.5 million)', number_as_slug: '2-1' },
+              enabled: nil,
+              sections: %i[rates]
             },
             {
-              lot: { number: '2.2', name: 'Master vendor (more than 2.5 million)' },
-              enabled: false,
-              sections: [:rates]
+              lot: { number: '2.2', name: 'Master vendor (more than 2.5 million)', number_as_slug: '2-2' },
+              enabled: nil,
+              sections: %i[rates]
             },
             {
-              lot: { number: '4', name: 'Education technology platforms' },
-              enabled: false,
-              sections: [:rates]
+              lot: { number: '4', name: 'Education technology platforms', number_as_slug: '4' },
+              enabled: nil,
+              sections: %i[rates]
             },
           ]
         )
@@ -93,7 +93,7 @@ RSpec.describe SupplyTeachers::RM6238::Admin::LotDataController do
       supplier_framework_lot_rate
       supplier_framework_lot_branch
 
-      get :show, params: { lot_datum_id: lot_number, section: section }
+      get :show, params: { lot_number:, section: }
     end
 
     let(:supplier_framework_lot) { create(:supplier_framework_lot, supplier_framework: supplier_framework, lot_id: "RM6238.#{lot_number}") }

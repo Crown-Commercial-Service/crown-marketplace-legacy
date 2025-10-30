@@ -1,34 +1,34 @@
-<% @services.each do |group, services| %>
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-three-quarters">
-      <%= govuk_table(
-        [
-          {
-            text: t('.service_name'),
-            classes: 'govuk-!-width-three-quarters' 
-          },
-          {
-            text: t('.has_service'),
-            classes: 'govuk-!-width-one-quarter' 
-          },
-        ],
-        services.map do |service|
-          [
-            {
-              text: service.name
-            },
-            {
-              text: @supplier_framework_lot_services.include?(service.id) ? tag.span(tag.span(t('yes'), class: 'govuk-visually-hidden'), class: 'supplier-lot-data__true') : tag.span(tag.span(t('no'), class: 'govuk-visually-hidden')),
-              classes: 'supplier-lot-data'
-            }
-          ]
-        end,
-        **(group ? {
-          caption: {
-            text: group
-          }
-        }: {})
-      ) %>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+    <div class="govuk-summary-card">
+      <div class="govuk-summary-card__title-wrapper">
+        <h2 class="govuk-summary-card__title">
+          <%= t('.services_supplier_offers') %>
+        </h2>
+        <% if Marketplace.environment_name != :production%>
+          <ul class="govuk-summary-card__actions">
+            <li class="govuk-summary-card__action">
+              <%= link_to(@supplier_framework_lot_service_ids.any? ? t('shared.admin.lot_data.show.change') : t('shared.admin.lot_data.show.add'), supplier_lot_data_edit_path(@supplier_framework, @lot.number_as_slug, @section), class: 'govuk-link govuk-link--no-visited-state') %>
+            </li>
+          </ul>
+        <% end %>
+      </div>
+      <div class="govuk-summary-card__content">
+        <% @services.each do |group, services| %>
+          <div class="section-list-group">
+            <% unless group.nil?%>
+              <p class="govuk-body"><%= group %></p>
+            <% end %>
+            <ul class="govuk-list govuk-list--bullet">
+              <% services.each do |service| %>
+                <% if @supplier_framework_lot_service_ids.include?(service.id) %>
+                  <li><%= service.name %></li>
+                <% end %>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
-<% end %>
+</div>

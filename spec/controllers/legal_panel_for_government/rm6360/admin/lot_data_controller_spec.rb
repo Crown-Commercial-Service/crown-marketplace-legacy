@@ -4,7 +4,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::Admin::LotDataController do
   let(:default_params) { { service: 'legal_panel_for_government/admin', framework: 'RM6360', supplier_id: supplier_framework.id } }
 
   let(:supplier_framework) { create(:supplier_framework, framework_id: 'RM6360') }
-  let(:supplier_framework_lot) { create(:supplier_framework_lot, supplier_framework:) }
+  let(:supplier_framework_lot) { create(:supplier_framework_lot, supplier_framework: supplier_framework, lot_id: 'RM6360.1') }
 
   describe 'GET index' do
     context 'when not logged in' do
@@ -49,38 +49,38 @@ RSpec.describe LegalPanelForGovernment::RM6360::Admin::LotDataController do
         expect(assigns(:supplier_lot_data)).to eq(
           [
             {
-              enabled: false,
-              lot: { name: 'Core Legal Services', number: '1' },
+              enabled: true,
+              lot: { name: 'Core Legal Services', number: '1', number_as_slug: '1' },
               sections: %i[services rates]
             },
             {
-              enabled: false,
-              lot: { name: 'Major Projects and Complex Advice', number: '2' },
+              enabled: nil,
+              lot: { name: 'Major Projects and Complex Advice', number: '2', number_as_slug: '2' },
               sections: %i[services rates]
             },
             {
-              enabled: false,
-              lot: { name: 'Finance and High Risk/Innovation', number: '3' },
+              enabled: nil,
+              lot: { name: 'Finance and High Risk/Innovation', number: '3', number_as_slug: '3' },
               sections: %i[services rates]
             },
             {
-              enabled: false,
-              lot: { name: 'Trade and Investment Negotiations', number: '4a' },
-              sections: %i[services rates jurisdictions]
+              enabled: nil,
+              lot: { name: 'Trade and Investment Negotiations', number: '4a', number_as_slug: '4a' },
+              sections: %i[services jurisdictions rates]
             },
             {
-              enabled: false,
-              lot: { name: 'International Trade Disputes', number: '4b' },
-              sections: %i[services rates jurisdictions]
+              enabled: nil,
+              lot: { name: 'International Trade Disputes', number: '4b', number_as_slug: '4b' },
+              sections: %i[services jurisdictions rates]
             },
             {
-              enabled: false,
-              lot: { name: 'International Investment Disputes', number: '4c' },
-              sections: %i[services rates jurisdictions]
+              enabled: nil,
+              lot: { name: 'International Investment Disputes', number: '4c', number_as_slug: '4c' },
+              sections: %i[services jurisdictions rates]
             },
             {
-              enabled: false,
-              lot: { name: 'Rail Legal Services', number: '5' },
+              enabled: nil,
+              lot: { name: 'Rail Legal Services', number: '5', number_as_slug: '5' },
               sections: %i[services rates]
             }
           ]
@@ -109,7 +109,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::Admin::LotDataController do
       supplier_framework_lot_rate
       supplier_framework_lot_rate_non_gb
 
-      get :show, params: { lot_datum_id: lot_number, section: section }
+      get :show, params: { lot_number:, section: }
     end
 
     let(:supplier_framework_lot) { create(:supplier_framework_lot, supplier_framework: supplier_framework, lot_id: "RM6360.#{lot_number}") }
@@ -153,11 +153,11 @@ RSpec.describe LegalPanelForGovernment::RM6360::Admin::LotDataController do
           end
         end
 
-        it 'assigns supplier_framework_lot_services' do
-          assigned_supplier_framework_lot_services = assigns(:supplier_framework_lot_services)
+        it 'assigns supplier_framework_lot_service_ids' do
+          assigned_supplier_framework_lot_service_ids = assigns(:supplier_framework_lot_service_ids)
 
-          expect(assigned_supplier_framework_lot_services.count).to eq(1)
-          expect(assigned_supplier_framework_lot_services.first).to eq(supplier_framework_lot_service.service_id)
+          expect(assigned_supplier_framework_lot_service_ids.count).to eq(1)
+          expect(assigned_supplier_framework_lot_service_ids.first).to eq(supplier_framework_lot_service.service_id)
         end
       end
 
@@ -231,10 +231,10 @@ RSpec.describe LegalPanelForGovernment::RM6360::Admin::LotDataController do
         end
 
         it 'assigns supplier_framework_lot_services' do
-          assigned_supplier_framework_lot_services = assigns(:supplier_framework_lot_services)
+          assigned_supplier_framework_lot_service_ids = assigns(:supplier_framework_lot_service_ids)
 
-          expect(assigned_supplier_framework_lot_services.count).to eq(1)
-          expect(assigned_supplier_framework_lot_services.first).to eq(supplier_framework_lot_service.service_id)
+          expect(assigned_supplier_framework_lot_service_ids.count).to eq(1)
+          expect(assigned_supplier_framework_lot_service_ids.first).to eq(supplier_framework_lot_service.service_id)
         end
       end
 
@@ -301,8 +301,8 @@ RSpec.describe LegalPanelForGovernment::RM6360::Admin::LotDataController do
           expect(assigns(:jurisdictions).count).to eq(240)
         end
 
-        it 'assigns supplier_framework_lot_jurisdictions' do
-          expect(assigns(:supplier_framework_lot_jurisdictions)).to eq(['GB', 'BM'])
+        it 'assigns supplier_framework_lot_jurisdiction_ids' do
+          expect(assigns(:supplier_framework_lot_jurisdiction_ids).sort).to eq(['BM', 'GB'])
         end
       end
     end

@@ -1,4 +1,4 @@
-Feature: Legal Panel for Government - Admin - Supplier lot data - Lot 5 - Services
+Feature: Legal Panel for Government - Admin - Supplier lot data - Lot 5 - View services
 
   Scenario: Services
     Given I sign in as an admin for the 'RM6360' framework in 'legal panel for government'
@@ -8,27 +8,19 @@ Feature: Legal Panel for Government - Admin - Supplier lot data - Lot 5 - Servic
     Then I am on the 'Supplier lot data' page
     And the caption is 'WALKER-LEUSCHKE'
     And I click on 'View services' for the lot 'Lot 5 - Rail Legal Services'
-    Then I am on the 'Lot 5 - Rail Legal Services - Services' page
+    Then I am on the 'Lot 5 - Rail Legal Services View services' page
     And the caption is 'WALKER-LEUSCHKE'
     And the supplier should be assigned to the 'services' as follows:
-      | Service name                                  | Has service? |
-      | Competition law                               | No           |
-      | Dispute Resolution and litigation law         | Yes          |
-      | EU law                                        | Yes          |
-      | Employment law                                | Yes          |
-      | Environmental law                             | Yes          |
-      | Health and Safety law                         | No           |
-      | Information law including data protection law | Yes          |
-      | Information technology law                    | No           |
-      | Insurance law                                 | Yes          |
-      | Intellectual property law                     | Yes          |
-      | International law                             | Yes          |
-      | Pensions law                                  | No           |
-      | Planning law                                  | No           |
-      | Public procurement law                        | Yes          |
-      | Rail Commercial Law                           | Yes          |
-      | Real estate law                               | No           |
-      | Regulatory law                                | No           |
-      | Restructuring/ Insolvency law                 | Yes          |
-      | Subsidy Control Law                           | Yes          |
-      | Tax law                                       | Yes          |
+      | Dispute Resolution and litigation law         |
+      | EU law                                        |
+      | Employment law                                |
+      | Environmental law                             |
+      | Information law including data protection law |
+      | Insurance law                                 |
+      | Intellectual property law                     |
+      | International law                             |
+      | Public procurement law                        |
+      | Rail Commercial Law                           |
+      | Restructuring/ Insolvency law                 |
+      | Subsidy Control Law                           |
+      | Tax law                                       |

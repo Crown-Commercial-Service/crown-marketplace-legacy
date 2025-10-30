@@ -5,9 +5,11 @@ module Admin::LotDataHelper
 
   def enabled_status_tag(is_enabled)
     if is_enabled
-      [t('shared.admin.lot_data.index.enabled.active')]
+      [t('shared.admin.lot_data.summary.lot_status.enabled.active'), :green]
+    elsif is_enabled == false
+      [t('shared.admin.lot_data.summary.lot_status.enabled.inactive'), :red]
     else
-      [t('shared.admin.lot_data.index.enabled.inactive'), :red]
+      [t('shared.admin.lot_data.summary.lot_status.enabled.not_on_lot'), :yellow]
     end
   end
 end
