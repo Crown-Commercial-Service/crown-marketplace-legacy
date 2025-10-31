@@ -54,6 +54,10 @@ Then('the supplier should be assigned to the {string} in {string} as follows:') 
   )
 end
 
+Then('the supplier should not be assigned any {string} with the following message:') do |_section, empty_message|
+  expect(admin_page.supplier_section_summaries.first.empty_message).to have_content(empty_message.raw.flatten.first)
+end
+
 Then('the rates in the table are:') do |rates|
   admin_check_rates(
     admin_page.supplier_rates_tables.first,

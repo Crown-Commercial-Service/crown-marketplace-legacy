@@ -61,7 +61,7 @@
                      [
                        {
                          href: supplier_lot_data_edit_path(@supplier_framework, @lot.number_as_slug, @section, branch_id: branch.id),
-                         text: "Change"
+                         text: t('shared.admin.lot_data.show.change_html', section: "#{branch.name} - #{branch.region}")
                        }
                      ]
                    else
