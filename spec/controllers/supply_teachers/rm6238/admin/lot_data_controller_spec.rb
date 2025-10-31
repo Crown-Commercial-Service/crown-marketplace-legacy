@@ -4,7 +4,11 @@ RSpec.describe SupplyTeachers::RM6238::Admin::LotDataController do
   let(:default_params) { { service: 'supply_teachers/admin', framework: 'RM6238', supplier_id: supplier_framework.id } }
 
   let(:supplier_framework) { create(:supplier_framework, framework_id: 'RM6238') }
-  let(:supplier_framework_lot) { create(:supplier_framework_lot, supplier_framework: supplier_framework, lot_id: 'RM6238.1') }
+  let(:supplier_framework_lot) { create(:supplier_framework_lot, supplier_framework: supplier_framework, lot_id: "RM6238.#{lot_number}") }
+  let(:supplier_framework_lot_rates) { Position.where(lot_id: "RM6238.#{lot_number}").pluck(:id).map { |position_id| create(:supplier_framework_lot_rate, supplier_framework_lot: supplier_framework_lot, jurisdiction: supplier_framework_lot_jurisdiction, position_id: position_id) } }
+  let(:supplier_framework_lot_jurisdiction) { create(:supplier_framework_lot_jurisdiction, supplier_framework_lot: supplier_framework_lot, jurisdiction_id: 'GB') }
+  let(:supplier_framework_lot_branch) { create(:supplier_framework_lot_branch, supplier_framework_lot:) }
+  let(:lot_number) { '1' }
 
   describe 'GET index' do
     context 'when not logged in' do
@@ -90,17 +94,42 @@ RSpec.describe SupplyTeachers::RM6238::Admin::LotDataController do
     login_st_admin
 
     before do
-      supplier_framework_lot_rate
+      supplier_framework_lot_rates
       supplier_framework_lot_branch
 
       get :show, params: { lot_number:, section: }
     end
 
-    let(:supplier_framework_lot) { create(:supplier_framework_lot, supplier_framework: supplier_framework, lot_id: "RM6238.#{lot_number}") }
-    let(:supplier_framework_lot_rate) { create(:supplier_framework_lot_rate, supplier_framework_lot: supplier_framework_lot, jurisdiction: supplier_framework_lot_jurisdiction, position_id: position_id) }
-    let(:supplier_framework_lot_jurisdiction) { create(:supplier_framework_lot_jurisdiction, supplier_framework_lot: supplier_framework_lot, jurisdiction_id: 'GB') }
-    let(:supplier_framework_lot_branch) { create(:supplier_framework_lot_branch, supplier_framework_lot:) }
-    let(:position_id) { "RM6238.#{lot_number}.1" }
+    shared_examples 'when testing a section' do
+      it 'renders the show template' do
+        expect(response).to render_template(:show)
+      end
+
+      it 'assigns framework' do
+        expect(assigns(:framework).id).to eq('RM6238')
+      end
+
+      it 'assigns supplier_framework' do
+        expect(assigns(:supplier_framework).id).to eq(supplier_framework.id)
+      end
+
+      it 'assigns lot' do
+        expect(assigns(:lot).id).to eq("RM6238.#{lot_number}")
+      end
+
+      it 'assigns supplier_framework_lot' do
+        expect(assigns(:supplier_framework_lot).id).to eq(supplier_framework_lot.id)
+      end
+
+      context 'when considering the templates' do
+        render_views
+
+        it 'renders section partial template' do
+          expect(response).to have_http_status(:ok)
+          expect(response).to render_template(partial: "supply_teachers/rm6238/admin/lot_data/show/_#{section}")
+        end
+      end
+    end
 
     context 'when the lot number is 1' do
       let(:lot_number) { '1' }
@@ -108,62 +137,34 @@ RSpec.describe SupplyTeachers::RM6238::Admin::LotDataController do
       context 'and the section is rates' do
         let(:section) { 'rates' }
 
-        it 'renders the show template' do
-          expect(response).to render_template(:show)
-        end
-
-        it 'assigns framework' do
-          expect(assigns(:framework).id).to eq('RM6238')
-        end
-
-        it 'assigns supplier_framework' do
-          expect(assigns(:supplier_framework).id).to eq(supplier_framework.id)
-        end
-
-        it 'assigns lot' do
-          expect(assigns(:lot).id).to eq('RM6238.1')
-        end
-
-        it 'assigns supplier_framework_lot' do
-          expect(assigns(:supplier_framework_lot).id).to eq(supplier_framework_lot.id)
-        end
+        include_context 'when testing a section'
 
         it 'assigns supplier_framework_lot_rates' do
           assigned_supplier_framework_lot_rates = assigns(:supplier_framework_lot_rates)
 
-          expect(assigned_supplier_framework_lot_rates.length).to eq(1)
-          expect(assigned_supplier_framework_lot_rates[position_id].id).to eq(supplier_framework_lot_rate.id)
+          expect(assigned_supplier_framework_lot_rates.length).to eq(11)
+          expect(assigned_supplier_framework_lot_rates.map { |position_id, rate| [position_id, rate.id] }.sort).to eq(supplier_framework_lot_rates.map { |rate| [rate.position_id, rate.id] }.sort)
         end
       end
 
       context 'and the section is branches' do
         let(:section) { 'branches' }
 
-        it 'renders the show template' do
-          expect(response).to render_template(:show)
-        end
-
-        it 'assigns framework' do
-          expect(assigns(:framework).id).to eq('RM6238')
-        end
-
-        it 'assigns supplier_framework' do
-          expect(assigns(:supplier_framework).id).to eq(supplier_framework.id)
-        end
-
-        it 'assigns lot' do
-          expect(assigns(:lot).id).to eq('RM6238.1')
-        end
-
-        it 'assigns supplier_framework_lot' do
-          expect(assigns(:supplier_framework_lot).id).to eq(supplier_framework_lot.id)
-        end
+        include_context 'when testing a section'
 
         it 'assigns supplier_framework_lot_branches' do
           assigned_supplier_framework_lot_branches = assigns(:supplier_framework_lot_branches)
 
           expect(assigned_supplier_framework_lot_branches.count).to eq(1)
           expect(assigned_supplier_framework_lot_branches.first.id).to eq(supplier_framework_lot_branch.id)
+        end
+      end
+
+      context 'when the section is unexpected' do
+        let(:section) { :something_else }
+
+        it 'redirects to the index page' do
+          expect(response).to redirect_to(supply_teachers_rm6238_admin_supplier_lot_data_path)
         end
       end
     end
@@ -173,17 +174,46 @@ RSpec.describe SupplyTeachers::RM6238::Admin::LotDataController do
     login_st_admin
 
     before do
-      supplier_framework_lot_rate
+      supplier_framework_lot_rates
       supplier_framework_lot_branch
 
       get :edit, params: { lot_number:, section: }
     end
 
-    let(:supplier_framework_lot) { create(:supplier_framework_lot, supplier_framework: supplier_framework, lot_id: "RM6238.#{lot_number}") }
-    let(:supplier_framework_lot_rate) { create(:supplier_framework_lot_rate, supplier_framework_lot: supplier_framework_lot, jurisdiction: supplier_framework_lot_jurisdiction, position_id: position_id) }
-    let(:supplier_framework_lot_jurisdiction) { create(:supplier_framework_lot_jurisdiction, supplier_framework_lot: supplier_framework_lot, jurisdiction_id: 'GB') }
-    let(:supplier_framework_lot_branch) { create(:supplier_framework_lot_branch, supplier_framework_lot:) }
-    let(:position_id) { "RM6238.#{lot_number}.1" }
+    shared_examples 'when testing a section' do
+      it 'renders the edit template' do
+        expect(response).to render_template(:edit)
+      end
+
+      it 'assigns framework' do
+        expect(assigns(:framework).id).to eq('RM6238')
+      end
+
+      it 'assigns supplier_framework' do
+        expect(assigns(:supplier_framework).id).to eq(supplier_framework.id)
+      end
+
+      it 'assigns lot' do
+        expect(assigns(:lot).id).to eq('RM6238.1')
+      end
+
+      it 'assigns supplier_framework_lot' do
+        expect(assigns(:supplier_framework_lot).id).to eq(supplier_framework_lot.id)
+      end
+
+      it 'assigns model' do
+        expect(assigns(:model).class).to be(Supplier::Framework::Lot)
+      end
+
+      context 'when considering the templates' do
+        render_views
+
+        it 'renders section partial template' do
+          expect(response).to have_http_status(:ok)
+          expect(response).to render_template(partial: "shared/admin/lot_data/edit/_#{section}")
+        end
+      end
+    end
 
     context 'when the lot number is 1' do
       let(:lot_number) { '1' }
@@ -191,28 +221,94 @@ RSpec.describe SupplyTeachers::RM6238::Admin::LotDataController do
       context 'and the section is lot_status' do
         let(:section) { 'lot_status' }
 
-        it 'renders the edit template' do
-          expect(response).to render_template(:edit)
+        include_context 'when testing a section'
+      end
+
+      context 'when the section is unexpected' do
+        let(:section) { :something_else }
+
+        it 'redirects to the show page' do
+          expect(response).to redirect_to(supply_teachers_rm6238_admin_supplier_lot_datum_path(section:))
+        end
+      end
+    end
+  end
+
+  describe 'GET update' do
+    login_st_admin
+
+    before do
+      supplier_framework_lot_rates
+      supplier_framework_lot_branch
+
+      get :update, params: { lot_number: lot_number, section: section, supplier_framework_lot: model_params }
+    end
+
+    shared_examples 'when testing a section' do
+      it 'assigns framework' do
+        expect(assigns(:framework).id).to eq('RM6238')
+      end
+
+      it 'assigns supplier_framework' do
+        expect(assigns(:supplier_framework).id).to eq(supplier_framework.id)
+      end
+
+      it 'assigns lot' do
+        expect(assigns(:lot).id).to eq('RM6238.1')
+      end
+
+      it 'assigns supplier_framework_lot' do
+        expect(assigns(:supplier_framework_lot).id).to eq(supplier_framework_lot.id)
+      end
+
+      it 'assigns model' do
+        expect(assigns(:model).class).to be(Supplier::Framework::Lot)
+      end
+    end
+
+    context 'when the lot number is 1' do
+      let(:lot_number) { '1' }
+
+      context 'and the section is lot_status' do
+        let(:section) { 'lot_status' }
+        let(:model_params) { { enabled: 'false' } }
+
+        include_context 'when testing a section'
+
+        # rubocop:disable RSpec/NestedGroups
+        context 'when it is valid' do
+          it 'redirects to the index page' do
+            expect(response).to redirect_to(supply_teachers_rm6238_admin_supplier_lot_data_path)
+          end
+
+          it 'updates the details' do
+            expect(supplier_framework_lot.reload.enabled).to be(false)
+          end
         end
 
-        it 'assigns framework' do
-          expect(assigns(:framework).id).to eq('RM6238')
-        end
+        context 'when it is invalid' do
+          let(:model_params) { { enabled: nil } }
 
-        it 'assigns supplier_framework' do
-          expect(assigns(:supplier_framework).id).to eq(supplier_framework.id)
-        end
+          render_views
 
-        it 'assigns lot' do
-          expect(assigns(:lot).id).to eq('RM6238.1')
-        end
+          it 'has errors on the model' do
+            expect(assigns(:model).errors).to be_present
+          end
 
-        it 'assigns supplier_framework_lot' do
-          expect(assigns(:supplier_framework_lot).id).to eq(supplier_framework_lot.id)
+          it 'renders section partial template' do
+            expect(response).to have_http_status(:ok)
+            expect(response).to render_template(partial: "shared/admin/lot_data/edit/_#{section}")
+          end
         end
+        # rubocop:enable RSpec/NestedGroups
+      end
 
-        it 'assigns model' do
-          expect(assigns(:model).class).to be(Supplier::Framework::Lot)
+      context 'when the section is unexpected' do
+        let(:section) { :something_else }
+        let(:model_params) { { enabled: 'false' } }
+
+        it 'redirects to the show page' do
+          expect(response).to redirect_to(supply_teachers_rm6238_admin_supplier_lot_datum_path(section:))
         end
       end
     end

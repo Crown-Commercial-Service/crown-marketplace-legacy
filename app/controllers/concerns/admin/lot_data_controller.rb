@@ -9,8 +9,9 @@ module Admin::LotDataController
     before_action :set_framework, :set_supplier_framework
     before_action :set_supplier_framework_lots, :set_supplier_lot_data, only: :index
     before_action :set_lot, :set_supplier_framework_lot, only: %i[show edit update]
-    before_action :set_section_for_show, :set_section_data, :set_supplier_framework_lot_data, only: :show
+    before_action :set_section_for_show, only: :show
     before_action :set_section_for_edit, :set_model, only: %i[edit update]
+    before_action :set_section_data, :set_supplier_framework_lot_data, only: %i[show edit update]
 
     helper_method :service
   end
@@ -28,7 +29,7 @@ module Admin::LotDataController
   end
 
   def update
-    if update_for_section
+    if send(:"update_for_#{@section}")
       if @section == :lot_status
         redirect_to action: :index
       else
@@ -111,16 +112,9 @@ module Admin::LotDataController
 
   def set_model
     @model = case @section
-             when :lot_status
+             when :lot_status, :services
                @supplier_framework_lot
              end
-  end
-
-  def update_for_section
-    case @section
-    when :lot_status
-      update_for_lot_status
-    end
   end
 
   def update_for_lot_status
@@ -130,6 +124,26 @@ module Admin::LotDataController
 
     @model.save(context: @section)
   end
+
+  # rubocop:disable Metrics/AbcSize, Naming/PredicateMethod
+  def update_for_services
+    service_ids = (params[@model.model_name.param_key].present? ? params.expect("#{@model.model_name.param_key}": { service_ids: [] }) : {})[:service_ids] || []
+
+    service_ids_to_add = service_ids - @supplier_framework_lot_service_ids
+    service_ids_to_remove = @supplier_framework_lot_service_ids - service_ids
+
+    ActiveRecord::Base.transaction do
+      @model.services.where(service_id: service_ids_to_remove).find_each(&:destroy!)
+      @model.services.build(service_ids_to_add.map { |service_id| { service_id: } }).each(&:save!)
+    rescue ActiveRecord::RecordInvalid => e
+      Rails.logger.error e
+      Rollbar.log('error', e)
+      @model.errors.add(:base, :service_update_invalid)
+    end
+
+    @model.errors.none?
+  end
+  # rubocop:enable Metrics/AbcSize, Naming/PredicateMethod
 
   def authorize_user
     authorize! :manage, service.module_parent::Admin
