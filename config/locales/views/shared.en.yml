@@ -63,6 +63,9 @@ en:
           lot_status:
             question: Set supplier status on Lot %{lot_number} - %{lot_name}
           save_and_return: Save and return
+          services:
+            question: Select the services the supplier can offer
+            question_group: Select the services the supplier can offer (%{group})
         index:
           heading: Supplier lot data
           supplier_lot_data_summary_list:
@@ -81,8 +84,8 @@ en:
               rates: Rates
               services: Services
         show:
-          add: Add services
-          change: Change
+          add_html: Add<span class="govuk-visually-hidden"> (%{section})</span>
+          change_html: Change<span class="govuk-visually-hidden"> (%{section})</span>
           heading:
             branches: branches
             caption: Lot %{lot_number} - %{lot_name}
@@ -93,6 +96,7 @@ en:
           rates:
             supplier_rates: Rates for the supplier
           services:
+            no_services_offered: The supplier does not offer any services in this lot
             services_supplier_offers: Services the supplier can offer
         summary:
           lot_status:

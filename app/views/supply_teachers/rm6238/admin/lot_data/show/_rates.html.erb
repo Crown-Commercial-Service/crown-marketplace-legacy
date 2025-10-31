@@ -9,7 +9,7 @@
           <% if Marketplace.environment_name != :production %>
             <ul class="govuk-summary-card__actions">
               <li class="govuk-summary-card__action">
-                <%= link_to(@supplier_framework_lot_rates.any? ? t('shared.admin.lot_data.show.change') : t('shared.admin.lot_data.show.add'), supplier_lot_data_edit_path(@supplier_framework, @lot.number_as_slug, @section), class: 'govuk-link govuk-link--no-visited-state') %>
+                <%= link_to(t("shared.admin.lot_data.show.#{@supplier_framework_lot_rates.any? ? 'change_html' : 'add_html'}", section: t('shared.admin.lot_data.show.rates.supplier_rates')), supplier_lot_data_edit_path(@supplier_framework, @lot.number_as_slug, @section), class: 'govuk-link govuk-link--no-visited-state') %>
               </li>
             </ul>
           <% end %>

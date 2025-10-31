@@ -157,6 +157,12 @@ en:
             website:
               blank: Enter the website in the correct format, like https://example.com
               too_long: The contact website be no more than 255 characters
+        supplier/framework/lot:
+          attributes:
+            base:
+              service_update_invalid: Something went wrong when updating the service selection. If this problem persist contact a developer
+            enabled:
+              inclusion: Select if the supplier is on this lot
         supplier/framework/lot/branch:
           attributes:
             postcode:

@@ -34,6 +34,7 @@ module Pages
 
     sections :supplier_section_summaries, '.govuk-summary-card' do
       element :title, '.govuk-summary-card__title'
+      element :empty_message, 'p.govuk-body'
       sections :section_items, SummarySection, '.govuk-summary-card__content > .section-list-group'
     end
 
