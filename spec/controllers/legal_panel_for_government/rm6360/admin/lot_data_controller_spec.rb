@@ -186,7 +186,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::Admin::LotDataController do
         it 'assigns supplier_framework_lot_rates' do
           assigned_supplier_framework_lot_rates = assigns(:supplier_framework_lot_rates)
 
-          expect(assigned_supplier_framework_lot_rates.length).to eq(7)
+          expect(assigned_supplier_framework_lot_rates.length).to eq(8)
           expect(assigned_supplier_framework_lot_rates.map { |position_id, rates| [position_id, rates['GB'].id] }.sort).to eq(supplier_framework_lot_rates.map { |rate| [rate.position_id, rate.id] }.sort)
         end
 
@@ -257,7 +257,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::Admin::LotDataController do
         it 'assigns supplier_framework_lot_rates' do
           assigned_supplier_framework_lot_rates = assigns(:supplier_framework_lot_rates)
 
-          expect(assigned_supplier_framework_lot_rates.length).to eq(12)
+          expect(assigned_supplier_framework_lot_rates.length).to eq(13)
           expect(assigned_supplier_framework_lot_rates.map { |position_id, rates| [position_id, rates['GB'].id] }.sort).to eq(supplier_framework_lot_rates.map { |rate| [rate.position_id, rate.id] }.sort)
           expect(assigned_supplier_framework_lot_rates.map { |position_id, rates| [position_id, rates['BM'].id] }.sort).to eq(supplier_framework_lot_rates_non_gb.map { |rate| [rate.position_id, rate.id] }.sort)
         end
