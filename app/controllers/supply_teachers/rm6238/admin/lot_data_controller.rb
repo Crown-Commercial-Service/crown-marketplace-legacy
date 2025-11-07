@@ -7,7 +7,7 @@ module SupplyTeachers
         LOT_SORT_CRITERIA = 'lots.number'.freeze
 
         SECTIONS_TO_SHOW = %i[rates branches].freeze
-        SECTIONS_TO_EDIT = %i[lot_status].freeze
+        SECTIONS_TO_EDIT = %i[lot_status rates].freeze
 
         private
 

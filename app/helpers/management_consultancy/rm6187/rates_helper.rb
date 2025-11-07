@@ -17,7 +17,7 @@ module ManagementConsultancy::RM6187::RatesHelper
             text: t("management_consultancy.rm6187.suppliers.show.job_titles.#{position_name}"),
           },
           {
-            text: number_to_currency(rates[position_id].rate_in_pounds, precision: 0)
+            text: number_to_currency(rates[position_id].normalized_rate, precision: 0)
           }
         ]
       end,

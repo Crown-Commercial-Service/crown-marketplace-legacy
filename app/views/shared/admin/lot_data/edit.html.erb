@@ -1,4 +1,4 @@
-<%= content_for :page_title, t('.heading.heading', section: t(".heading.#{@section}")) %>
+<%= content_for :page_title, edit_page_heading %>
 
 <% admin_breadcrumbs(
   { text: t('shared.admin.suppliers.index.heading'), href: suppliers_index_path },
@@ -10,7 +10,7 @@
       { text: t('shared.admin.lot_data.show.heading.heading', section: t("shared.admin.lot_data.show.heading.#{@section}")), href: supplier_lot_data_show_path(@supplier_framework, @lot.number_as_slug, @section) },
     ]
   end + [
-    { text: t('.heading.heading', section: t(".heading.#{@section}")) }
+    { text: edit_page_heading }
   ]
 )%>
 
@@ -21,7 +21,7 @@
 
       <%= govuk_fieldset(
         legend: {
-          text: t('.heading.heading', section: t(".heading.#{@section}")),
+          text: edit_page_heading,
           classes: 'govuk-fieldset__legend--l',
           is_page_heading: true,
           caption: {

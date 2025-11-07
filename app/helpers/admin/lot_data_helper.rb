@@ -1,4 +1,8 @@
 module Admin::LotDataHelper
+  def edit_page_heading
+    @edit_page_heading ||= t('shared.admin.lot_data.edit.heading.heading', section: t(".heading.#{@section}"))
+  end
+
   def services_lot_title(supplier_lot_data_item)
     t('shared.admin.lot_data.index.supplier_lot_data_summary_list.lot_name', **supplier_lot_data_item[:lot])
   end

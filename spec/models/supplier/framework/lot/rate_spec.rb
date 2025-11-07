@@ -33,14 +33,14 @@ RSpec.describe Supplier::Framework::Lot::Rate do
     end
   end
 
-  describe '.rate_in_pounds' do
+  describe '.normalized_rate' do
     before { supplier_framework_lot_rate.rate = rate }
 
     context 'and the rate is 3550' do
       let(:rate) { 3550 }
 
       it 'returns 35' do
-        expect(supplier_framework_lot_rate.rate_in_pounds).to eq 35.5
+        expect(supplier_framework_lot_rate.normalized_rate).to eq 35.5
       end
     end
 
@@ -48,27 +48,7 @@ RSpec.describe Supplier::Framework::Lot::Rate do
       let(:rate) { 1200 }
 
       it 'returns 12.0' do
-        expect(supplier_framework_lot_rate.rate_in_pounds).to eq 12.0
-      end
-    end
-  end
-
-  describe '.rate_as_percentage' do
-    before { supplier_framework_lot_rate.rate = rate }
-
-    context 'and the rate is 3550' do
-      let(:rate) { 3550 }
-
-      it 'returns 35' do
-        expect(supplier_framework_lot_rate.rate_as_percentage).to eq 35.5
-      end
-    end
-
-    context 'and the rate is 1200' do
-      let(:rate) { 1200 }
-
-      it 'returns 12.0' do
-        expect(supplier_framework_lot_rate.rate_as_percentage).to eq 12.0
+        expect(supplier_framework_lot_rate.normalized_rate).to eq 12.0
       end
     end
   end

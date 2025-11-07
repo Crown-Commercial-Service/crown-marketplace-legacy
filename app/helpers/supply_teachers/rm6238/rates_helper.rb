@@ -62,20 +62,12 @@ module SupplyTeachers::RM6238::RatesHelper
 
   def agency_rate_cell(rates, position)
     {
-      text: if position_is_percentage?(position)
-              number_to_percentage(rates[position.id].rate_as_percentage, precision: 1)
+      text: if rates[position.id].rate_type == 'percentage'
+              number_to_percentage(rates[position.id].normalized_rate, precision: 1)
             else
-              format_money(rates[position.id].rate_in_pounds)
+              format_money(rates[position.id].normalized_rate)
             end,
       classes: 'govuk-table__cell govuk-table__cell--numeric agency-record__markup-column'
     }
   end
-
-  def position_is_percentage?(position)
-    return true if position.id == 'RM6238.4.4'
-
-    POSITION_NUMBER_FOR_PERCENTAGE_RATES.include?(position.number)
-  end
-
-  POSITION_NUMBER_FOR_PERCENTAGE_RATES = [9, 11].freeze
 end
