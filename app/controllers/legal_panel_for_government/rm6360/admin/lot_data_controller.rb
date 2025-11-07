@@ -7,7 +7,7 @@ module LegalPanelForGovernment
         LOT_SORT_CRITERIA = 'lots.number'.freeze
 
         SECTIONS_TO_SHOW = %i[services jurisdictions rates].freeze
-        SECTIONS_TO_EDIT = %i[lot_status services].freeze
+        SECTIONS_TO_EDIT = %i[lot_status services rates].freeze
 
         private
 
@@ -29,7 +29,11 @@ module LegalPanelForGovernment
         def set_supplier_framework_lot_data
           case @section
           when :rates
-            @supplier_framework_lot_rates = @supplier_framework.grouped_rates_for_lot_and_jurisdictions(@lot.id, @jurisdictions.pluck(:id))
+            if action_name.to_sym == :show
+              @supplier_framework_lot_rates = @supplier_framework.grouped_rates_for_lot_and_jurisdictions(@lot.id, @jurisdictions.pluck(:id))
+            else
+              super
+            end
           else
             super
           end

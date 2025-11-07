@@ -1,0 +1,20 @@
+<% @lot.positions.order(:number).pluck(:id, :name).each do |position_id, position_name| %>
+  <%= govuk_fieldset(
+    legend: {
+      text: t("management_consultancy.rm6187.suppliers.show.job_titles.#{position_name}"),
+      classes: 'govuk-fieldset__legend--m',
+    }
+  ) do %>
+    <%= govuk_input(
+      :"supplier_framework_lot[rate][#{position_id}]",
+      label: {
+        text:  t('management_consultancy.rm6187.suppliers.show.max_day_rate'),
+      },
+      value: @supplier_framework_lot_rates[position_id].normalized_rate,
+      prefix: {
+        text: '£'
+      },
+      classes: 'govuk-input--width-5'
+    ) %>
+  <% end %>
+<% end %>

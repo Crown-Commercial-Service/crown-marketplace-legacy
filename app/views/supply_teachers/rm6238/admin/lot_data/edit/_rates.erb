@@ -1,0 +1,73 @@
+<% if @lot.number == '4' %>
+  <% @lot.positions.order(:number).map do |position| %>
+    <%= govuk_fieldset(
+      legend: {
+        text: t("journey_step.supply_teachers.job_titles.#{position.name}.#{position.category}"),
+        classes: 'govuk-fieldset__legend--m',
+      }
+    ) do %>
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-half">
+          <%= govuk_input(
+            :"supplier_framework_lot[rate][#{position.id}]",
+            label: {
+              text: t('supply_teachers.rm6238.suppliers.education_technology_platform_vendor.column2')
+            },
+            value: @supplier_framework_lot_rates[position.id].normalized_rate,
+            classes: 'govuk-input--width-5',
+            **(
+              @supplier_framework_lot_rates[position.id].rate_type == 'percentage' ? {
+                suffix: {
+                  text: '%'
+                }
+              } : {
+                prefix: {
+                  text: '£'
+                }
+              }
+            ),
+          ) %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+<% else %>
+  <% @lot.positions_grouped_by_name.each do |position_name, positions| %>
+    <%= govuk_fieldset(
+      legend: {
+        text: t("journey_step.supply_teachers.job_titles.#{position_name}"),
+        classes: 'govuk-fieldset__legend--m',
+      }
+    ) do %>
+      <div class="govuk-grid-row">
+        <% positions.each.with_index do |position, index| %>
+          <div class="govuk-grid-column-one-half">
+            <%= govuk_input(
+              :"supplier_framework_lot[rate][#{position.id}]",
+              label: {
+                text: capture do
+                  concat(t('supply_teachers.rm6238.shared.rates_table.column2'))
+                  concat(tag.br)
+                  concat(index == 0 ? t('journey_step.supply_teachers.term_types.daily') : t('journey_step.supply_teachers.term_types.six_weeks_plus'))
+                end
+              },
+              value: @supplier_framework_lot_rates[position.id].normalized_rate,
+              classes: 'govuk-input--width-5',
+              **(
+                @supplier_framework_lot_rates[position.id].rate_type == 'percentage' ? {
+                  suffix: {
+                    text: '%'
+                  }
+                } : {
+                  prefix: {
+                    text: '£'
+                  }
+                }
+              ),
+            ) %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>

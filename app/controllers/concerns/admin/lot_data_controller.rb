@@ -10,7 +10,7 @@ module Admin::LotDataController
     before_action :set_supplier_framework_lots, :set_supplier_lot_data, only: :index
     before_action :set_lot, :set_supplier_framework_lot, only: %i[show edit update]
     before_action :set_section_for_show, only: :show
-    before_action :set_section_for_edit, :set_model, only: %i[edit update]
+    before_action :set_section_for_edit, :set_model, :set_supplier_framework_lot_jurisdiction, only: %i[edit update]
     before_action :set_section_data, :set_supplier_framework_lot_data, only: %i[show edit update]
 
     helper_method :service
@@ -85,7 +85,12 @@ module Admin::LotDataController
     when :jurisdictions
       @supplier_framework_lot_jurisdiction_ids = @supplier_framework_lot.jurisdictions.pluck(:jurisdiction_id)
     when :rates
-      @supplier_framework_lot_rates = @supplier_framework.grouped_rates_for_lot(@lot.id)
+      @supplier_framework_lot_rates = if action_name.to_sym == :show
+                                        @supplier_framework.grouped_rates_for_lot(@lot.id)
+                                      else
+                                        supplier_framework_lot_rates = @supplier_framework.grouped_rates_for_lot_and_jurisdictions(@lot.id, [@supplier_framework_lot_jurisdiction.jurisdiction_id])
+                                        @lot.positions.pluck(:id).index_with { |position_id| supplier_framework_lot_rates[position_id][@supplier_framework_lot_jurisdiction.jurisdiction_id] || @supplier_framework_lot.rates.build(position_id: position_id, supplier_framework_lot_jurisdiction_id: @supplier_framework_lot_jurisdiction.id) }
+                                      end
     when :branches
       @supplier_framework_lot_branches = @supplier_framework_lot.branches.order(:name)
     end
@@ -112,9 +117,13 @@ module Admin::LotDataController
 
   def set_model
     @model = case @section
-             when :lot_status, :services
+             when :lot_status, :services, :rates
                @supplier_framework_lot
              end
+  end
+
+  def set_supplier_framework_lot_jurisdiction
+    @supplier_framework_lot_jurisdiction = @supplier_framework_lot.jurisdictions.find_by(jurisdiction_id: params.fetch(:jurisdiction_id, 'GB')) if @section == :rates
   end
 
   def update_for_lot_status
@@ -144,6 +153,11 @@ module Admin::LotDataController
     @model.errors.none?
   end
   # rubocop:enable Metrics/AbcSize, Naming/PredicateMethod
+
+  def update_for_rates
+    # rates = (params[@model.model_name.param_key].present? ? params.expect("#{@model.model_name.param_key}": { rates: @lot.positions.pluck(:id).map(&:to_sym) }) : {})[:rates] || {}
+    # byebug
+  end
 
   def authorize_user
     authorize! :manage, service.module_parent::Admin

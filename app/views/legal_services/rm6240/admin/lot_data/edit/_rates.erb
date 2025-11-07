@@ -1,0 +1,20 @@
+<% @lot.positions.order(:number).pluck(:id, :name).each do |position_id, position_name| %>
+  <%= govuk_fieldset(
+    legend: {
+      text: "#{t("legal_services.rm6240.suppliers.rates_table.job_titles.#{position_name}")}#{@supplier_framework_lot_rates[position_id].mandetory ? '' : t('shared.admin.lot_data.edit.rates.optional')}",
+      classes: 'govuk-fieldset__legend--m',
+    }
+  ) do %>
+    <%= govuk_input(
+      :"supplier_framework_lot[rate][#{position_id}]",
+      label: {
+        text: t('legal_services.rm6240.suppliers.rates_table.hourly')
+      },
+      value: @supplier_framework_lot_rates[position_id].normalized_rate,
+      prefix: {
+        text: '£'
+      },
+      classes: 'govuk-input--width-5'
+  ) %>
+  <% end %>
+<% end %>

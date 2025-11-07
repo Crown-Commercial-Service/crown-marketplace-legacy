@@ -1,0 +1,39 @@
+<% @lot.positions_grouped_by_name.reverse.each do |position_name, positions| %>
+  <%= govuk_fieldset(
+    legend: {
+      text: t("management_consultancy.rm6309.suppliers.show.job_titles.#{position_name}"),
+      classes: 'govuk-fieldset__legend--m',
+    }
+  ) do %>
+    <% categories = @lot.positions.order(:number).pluck(:category).uniq %>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-half">
+        <%= govuk_input(
+          :"supplier_framework_lot[rate][#{positions[0].id}]",
+          label: {
+            text: t('management_consultancy.rm6309.suppliers.show.max_day_rate', rate_type: t("management_consultancy.rm6309.suppliers.show.rate_type.#{categories[0]}"))
+          },
+          value: @supplier_framework_lot_rates[positions[0].id].normalized_rate,
+          prefix: {
+            text: '£'
+          },
+          classes: 'govuk-input--width-5'
+        ) %>
+      </div>
+      <div class="govuk-grid-column-one-half">
+        <%= govuk_input(
+          :"supplier_framework_lot[rate][#{positions[1].id}]",
+          label: {
+            text: t('management_consultancy.rm6309.suppliers.show.max_day_rate', rate_type: t("management_consultancy.rm6309.suppliers.show.rate_type.#{categories[1]}"))
+          },
+          value: @supplier_framework_lot_rates[positions[1].id].normalized_rate,
+          prefix: {
+            text: '£'
+          },
+          classes: 'govuk-input--width-5'
+        ) %>
+      </div>
+    </div>      
+  <% end %>
+<% end %>
