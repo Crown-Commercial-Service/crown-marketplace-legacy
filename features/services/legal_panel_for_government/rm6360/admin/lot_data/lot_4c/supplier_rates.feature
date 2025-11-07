@@ -262,6 +262,7 @@ Feature: Legal Panel for Government - Admin - Supplier lot data - Lot 4c - View 
       | NQ Solicitor/Associate, Junior Solicitor/Associate/Legal Executive | £120.00 |
       | Trainee/Legal Apprentice                                           | £72.00  |
       | Paralegal, Legal Assistant                                         | £60.00  |
+      | Legal Project Managers                                             | £112.50 |
       | Senior Analyst                                                     | £150.00 |
       | Analyst, Associate Analyst, Research Associate, Research Officer   | £120.00 |
       | Senior Modeller, Senior Econometrician, Senior Analyst             | £180.00 |
@@ -276,6 +277,7 @@ Feature: Legal Panel for Government - Admin - Supplier lot data - Lot 4c - View 
       | NQ Solicitor/Associate, Junior Solicitor/Associate/Legal Executive | £140.00 |
       | Trainee/Legal Apprentice                                           | £84.00  |
       | Paralegal, Legal Assistant                                         | £70.00  |
+      | Legal Project Managers                                             | £131.25 |
       | Senior Analyst                                                     | £175.00 |
       | Analyst, Associate Analyst, Research Associate, Research Officer   | £140.00 |
       | Senior Modeller, Senior Econometrician, Senior Analyst             | £210.00 |
@@ -290,6 +292,7 @@ Feature: Legal Panel for Government - Admin - Supplier lot data - Lot 4c - View 
       | NQ Solicitor/Associate, Junior Solicitor/Associate/Legal Executive | £120.00 |
       | Trainee/Legal Apprentice                                           | £72.00  |
       | Paralegal, Legal Assistant                                         | £60.00  |
+      | Legal Project Managers                                             | £112.50 |
       | Senior Analyst                                                     | £150.00 |
       | Analyst, Associate Analyst, Research Associate, Research Officer   | £120.00 |
       | Senior Modeller, Senior Econometrician, Senior Analyst             | £180.00 |

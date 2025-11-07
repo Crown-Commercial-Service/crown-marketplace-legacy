@@ -19,3 +19,4 @@ Feature: Legal Panel for Government - Admin - Supplier lot data - Lot 5 - View r
       | NQ Solicitor/Associate, Junior Solicitor/Associate/Legal Executive | £140.00 |
       | Trainee/Legal Apprentice                                           | £84.00  |
       | Paralegal, Legal Assistant                                         | £70.00  |
+      | Legal Project Managers                                             | £122.50 |
