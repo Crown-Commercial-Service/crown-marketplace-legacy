@@ -57,6 +57,7 @@ en:
             branches: branch
             caption: Lot %{lot_number} - %{lot_name}
             heading: Edit %{section}
+            heading_with_country: Edit %{section} for %{country}
             lot_status: lot status
             rates: rates
             services: service selection
