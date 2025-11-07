@@ -35,6 +35,6 @@ module LegalPanelForGovernment::RM6360::RatesHelper
   def display_rate(position_id, jurisdiction_id, rates)
     return if rates[position_id].nil? || rates[position_id][jurisdiction_id].nil? || rates[position_id][jurisdiction_id].rate.zero?
 
-    number_to_currency(rates[position_id][jurisdiction_id].rate_in_pounds, precision: 2)
+    number_to_currency(rates[position_id][jurisdiction_id].normalized_rate, precision: 2)
   end
 end

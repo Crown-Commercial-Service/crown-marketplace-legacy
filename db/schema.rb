@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_10_24_150039) do
+ActiveRecord::Schema[8.0].define(version: 2025_10_31_153152) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
   enable_extension "pgcrypto"
@@ -124,6 +124,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_10_24_150039) do
     t.text "category"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "rate_type"
+    t.boolean "mandatory"
     t.index ["lot_id"], name: "index_positions_on_lot_id"
   end
 
