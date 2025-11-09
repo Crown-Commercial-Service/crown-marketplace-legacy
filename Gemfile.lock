@@ -568,7 +568,7 @@ GEM
       activerecord (>= 7.0)
       rgeo (>= 3.0)
     role_model (0.8.2)
-    rollbar (3.6.2)
+    rollbar (3.7.0)
     roo (3.0.0)
       base64 (~> 0.2)
       csv (~> 3)
@@ -801,7 +801,7 @@ DEPENDENCIES
   ratonvirus-clamby (>= 0.1.0)
   requestjs-rails
   role_model (~> 0.8.2)
-  rollbar (~> 3.6.2)
+  rollbar (~> 3.7.0)
   roo (~> 3.0.0)
   rspec-rails (>= 6.0.1)
   rubocop (>= 1.11.0)
