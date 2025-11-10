@@ -11,11 +11,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Update how the show pages are displayed to help with editing ([PR 2159](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2159))
 - Add `rate_type` and `mandatory` flag to the positions to improve data model ([PR 2170](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2170))
+- Updated LPfG spreadsheets for import ([PR 2171](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2171))
 
 ### Added
 
 - Add the ability for admins to update a supplier's status on a lot ([PR 2160](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2160))
 - Add the ability for admins to update a supplier's services on a lot ([PR 2161](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2161))
+- Added Legal Project Managers position ([PR 2171](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2171))
 
 ## [6.3.0] - 2025-10-28
 

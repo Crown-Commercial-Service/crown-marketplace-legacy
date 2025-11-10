@@ -53,9 +53,9 @@ module LegalPanelForGovernment::RM6360::Admin
         let(:supplier_details_file_options) { { sheets: ['All regions'] } }
         let(:supplier_service_offerings_file_options) { { sheets: ['Lot 1', 'Lot 2', 'Lot 3', 'Lot 4', 'Lot 5'] } }
         let(:supplier_other_lots_rate_cards_file_options) { { sheets: ['Lot 1', 'Lot 2', 'Lot 3', 'Lot 4a', 'Lot 4b', 'Lot 4c', 'Lot 5'] } }
-        let(:supplier_lot_4a_rate_cards_file_options) { { sheets: ['Senior Counsel', 'Partner', 'Legal Director', 'Senior Solicitor', 'Solicitor', 'Trainee', 'Paralegal', 'Senior Analyst', 'Analyst', 'Senior Modeller', 'Modeller'] } }
-        let(:supplier_lot_4b_rate_cards_file_options) { { sheets: ['Senior Counsel', 'Partner', 'Legal Director', 'Senior Solicitor', 'Solicitor', 'NQ Solicitor', 'Paralegal', 'Senior Analyst', 'Analyst', 'Senior Modeller', 'Modeller'] } }
-        let(:supplier_lot_4c_rate_cards_file_options) { { sheets: ['Senior Counsel', 'Partner', 'Legal Director', 'Senior Solicitor', 'Solicitor', 'NQ Solicitor', 'Trainee', 'Senior Analyst', 'Analyst', 'Senior Modeller', 'Modeller'] } }
+        let(:supplier_lot_4a_rate_cards_file_options) { { sheets: ['Lot 4b Mandatory Jurisdiction', 'Lot 4c Optional Jurisdiction'] } }
+        let(:supplier_lot_4b_rate_cards_file_options) { { sheets: ['Lot 4a Mandatory Jurisdiction', 'Lot 4c Optional Jurisdiction'] } }
+        let(:supplier_lot_4c_rate_cards_file_options) { { sheets: ['Lot 4d Mandatory Jurisdiction', 'Lot 4c Optional Jurisdiction'] } }
 
         it 'changes the state to failed and has the correct errors' do
           expect(upload).to have_state(:failed)
@@ -72,18 +72,18 @@ module LegalPanelForGovernment::RM6360::Admin
         let(:supplier_details_file_options) { { headers: SupplierDetailsFile.sheets_with_extra_headers(['All Suppliers']) } }
         let(:supplier_service_offerings_file_options) { { headers: SupplierServiceOfferingsFile.sheets_with_extra_headers(['Lot 1', 'Lot 3', 'Lot 4c']) } }
         let(:supplier_other_lots_rate_cards_file_options) { { headers: SupplierOtherLotsRateCardsFile.sheets_with_extra_headers(['Lot 2', 'Lot 5']) } }
-        let(:supplier_lot_4a_rate_cards_file_options) { { headers: SupplierLot4aRateCardsFile.sheets_with_extra_headers(['Senior Counsel', 'Partner']) } }
-        let(:supplier_lot_4b_rate_cards_file_options) { { headers: SupplierLot4bRateCardsFile.sheets_with_extra_headers(['Senior Solicitor', 'Solicitor']) } }
-        let(:supplier_lot_4c_rate_cards_file_options) { { headers: SupplierLot4cRateCardsFile.sheets_with_extra_headers(['Senior Analyst', 'Analyst']) } }
+        let(:supplier_lot_4a_rate_cards_file_options) { { headers: SupplierLot4aRateCardsFile.sheets_with_extra_headers(['Mandatory Jurisdiction']) } }
+        let(:supplier_lot_4b_rate_cards_file_options) { { headers: SupplierLot4bRateCardsFile.sheets_with_extra_headers(['Mandatory Jurisdiction', 'Optional Jurisdiction']) } }
+        let(:supplier_lot_4c_rate_cards_file_options) { { headers: SupplierLot4cRateCardsFile.sheets_with_extra_headers(['Optional Jurisdiction']) } }
 
         it 'changes the state to failed and has the correct errors' do
           expect(upload).to have_state(:failed)
           expect(upload.import_errors).to eq [{ error: 'supplier_details_has_incorrect_headers' },
                                               { error: 'supplier_service_offerings_has_incorrect_headers', details: ['Lot 1', 'Lot 3', 'Lot 4c'] },
                                               { error: 'supplier_other_lots_rate_cards_has_incorrect_headers', details: ['Lot 2', 'Lot 5'] },
-                                              { error: 'supplier_lot_4a_rate_cards_has_incorrect_headers', details: ['Senior Counsel', 'Partner'] },
-                                              { error: 'supplier_lot_4b_rate_cards_has_incorrect_headers', details: ['Senior Solicitor', 'Solicitor'] },
-                                              { error: 'supplier_lot_4c_rate_cards_has_incorrect_headers', details: ['Senior Analyst', 'Analyst'] }]
+                                              { error: 'supplier_lot_4a_rate_cards_has_incorrect_headers', details: ['Lot 4a Mandatory Jurisdiction'] },
+                                              { error: 'supplier_lot_4b_rate_cards_has_incorrect_headers', details: ['Lot 4b Mandatory Jurisdiction', 'Lot 4b Optional Jurisdiction'] },
+                                              { error: 'supplier_lot_4c_rate_cards_has_incorrect_headers', details: ['Lot 4c Optional Jurisdiction'] }]
         end
       end
 
@@ -100,9 +100,9 @@ module LegalPanelForGovernment::RM6360::Admin
           expect(upload.import_errors).to eq [{ error: 'supplier_details_has_empty_sheets' },
                                               { error: 'supplier_service_offerings_has_empty_sheets', details: ['Lot 1', 'Lot 2', 'Lot 3', 'Lot 4a', 'Lot 4b', 'Lot 4c', 'Lot 5',] },
                                               { error: 'supplier_other_lots_rate_cards_has_empty_sheets', details: ['Lot 1', 'Lot 2', 'Lot 3', 'Lot 5',] },
-                                              { error: 'supplier_lot_4a_rate_cards_has_empty_sheets', details: ['Senior Counsel', 'Partner', 'Legal Director', 'Senior Solicitor', 'Solicitor', 'NQ Solicitor', 'Trainee', 'Paralegal', 'Senior Analyst', 'Analyst', 'Senior Modeller', 'Modeller'] },
-                                              { error: 'supplier_lot_4b_rate_cards_has_empty_sheets', details: ['Senior Counsel', 'Partner', 'Legal Director', 'Senior Solicitor', 'Solicitor', 'NQ Solicitor', 'Trainee', 'Paralegal', 'Senior Analyst', 'Analyst', 'Senior Modeller', 'Modeller'] },
-                                              { error: 'supplier_lot_4c_rate_cards_has_empty_sheets', details: ['Senior Counsel', 'Partner', 'Legal Director', 'Senior Solicitor', 'Solicitor', 'NQ Solicitor', 'Trainee', 'Paralegal', 'Senior Analyst', 'Analyst', 'Senior Modeller', 'Modeller'] }]
+                                              { error: 'supplier_lot_4a_rate_cards_has_empty_sheets', details: ['Lot 4a Mandatory Jurisdiction', 'Lot 4a Optional Jurisdiction'] },
+                                              { error: 'supplier_lot_4b_rate_cards_has_empty_sheets', details: ['Lot 4b Mandatory Jurisdiction', 'Lot 4b Optional Jurisdiction'] },
+                                              { error: 'supplier_lot_4c_rate_cards_has_empty_sheets', details: ['Lot 4c Mandatory Jurisdiction', 'Lot 4c Optional Jurisdiction'] }]
         end
       end
     end
@@ -141,17 +141,17 @@ module LegalPanelForGovernment::RM6360::Admin
     describe 'import_data' do
       let(:expected_supplier_results) do
         {
-          'NOAH LTD': { lots: 1, services: 32, jurisdictions: 1, rates: 7 },
-          'MIO CORP': { lots: 1, services: 32, jurisdictions: 1, rates: 7 },
-          'REKU LTD': { lots: 2, services: 71, jurisdictions: 2, rates: 14 },
-          'GUERNICA EXEC CORP': { lots: 1, services: 40, jurisdictions: 1, rates: 7 },
-          'ETHEL LTD': { lots: 2, services: 54, jurisdictions: 2, rates: 14 },
-          'LANZ CORP': { lots: 1, services: 16, jurisdictions: 1, rates: 7 },
-          'EUNIE CORP': { lots: 4, services: 30, jurisdictions: 482, rates: 5767 },
-          'SENA LTD': { lots: 3, services: 17, jurisdictions: 481, rates: 5760 },
-          'TAION LTD': { lots: 4, services: 29, jurisdictions: 482, rates: 5767 },
-          'NIMUE CORP': { lots: 1, services: 14, jurisdictions: 1, rates: 7 },
-          'IZURD LTD': { lots: 1, services: 13, jurisdictions: 1, rates: 7 },
+          'NOAH LTD': { lots: 1, services: 32, jurisdictions: 1, rates: 8 },
+          'MIO CORP': { lots: 1, services: 32, jurisdictions: 1, rates: 8 },
+          'REKU LTD': { lots: 2, services: 71, jurisdictions: 2, rates: 16 },
+          'GUERNICA EXEC CORP': { lots: 1, services: 40, jurisdictions: 1, rates: 8 },
+          'ETHEL LTD': { lots: 2, services: 54, jurisdictions: 2, rates: 16 },
+          'LANZ CORP': { lots: 1, services: 16, jurisdictions: 1, rates: 8 },
+          'EUNIE CORP': { lots: 4, services: 30, jurisdictions: 483, rates: 6274 },
+          'SENA LTD': { lots: 3, services: 17, jurisdictions: 482, rates: 6266 },
+          'TAION LTD': { lots: 4, services: 29, jurisdictions: 483, rates: 6274 },
+          'NIMUE CORP': { lots: 1, services: 14, jurisdictions: 1, rates: 8 },
+          'IZURD LTD': { lots: 1, services: 13, jurisdictions: 1, rates: 8 },
         }
       end
 

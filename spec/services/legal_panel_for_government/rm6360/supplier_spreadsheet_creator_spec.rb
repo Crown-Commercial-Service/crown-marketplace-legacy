@@ -149,10 +149,10 @@ RSpec.describe LegalPanelForGovernment::RM6360::SupplierSpreadsheetCreator do
 
         context 'and the lot number is 1' do
           it 'has the correct rows' do
-            expect(sheet.row(1)).to eq ['Supplier name', 'Prospectus', 'Partner', 'Legal Director/Counsel or equivalent', 'Senior Solicitor, Senior Associate/Senior Legal Executive', 'Solicitor, Associate/Legal Executive', 'NQ Solicitor/Associate, Junior Solicitor/Associate/Legal Executive', 'Trainee/Legal Apprentice', 'Paralegal, Legal Assistant']
-            expect(sheet.row(2)).to eq ['COLONY 4 CORP', 'colony.four@xenoblade3.com', '£11.10', '£11.20', '£11.30', '£11.40', '£11.50', '£11.60', '£11.70']
-            expect(sheet.row(3)).to eq ['KEVIS CASTLE SERVICE', 'kevis.castle@xenoblade3.com', '£31.10', '£31.20', '£31.30', '£31.40', '£31.50', '£31.60', '£31.70']
-            expect(sheet.row(4)).to eq ['MAKTHA AGENCY', 'maktha@xenoblade3.com', '£21.10', '£21.20', '£21.30', '£21.40', '£21.50', '£21.60', '£21.70']
+            expect(sheet.row(1)).to eq ['Supplier name', 'Prospectus', 'Partner', 'Legal Director/Counsel or equivalent', 'Senior Solicitor, Senior Associate/Senior Legal Executive', 'Solicitor, Associate/Legal Executive', 'NQ Solicitor/Associate, Junior Solicitor/Associate/Legal Executive', 'Trainee/Legal Apprentice', 'Paralegal, Legal Assistant', 'Legal Project Managers']
+            expect(sheet.row(2)).to eq ['COLONY 4 CORP', 'colony.four@xenoblade3.com', '£11.10', '£11.20', '£11.30', '£11.40', '£11.50', '£11.60', '£11.70', '£11.80']
+            expect(sheet.row(3)).to eq ['KEVIS CASTLE SERVICE', 'kevis.castle@xenoblade3.com', '£31.10', '£31.20', '£31.30', '£31.40', '£31.50', '£31.60', '£31.70', '£31.80']
+            expect(sheet.row(4)).to eq ['MAKTHA AGENCY', 'maktha@xenoblade3.com', '£21.10', '£21.20', '£21.30', '£21.40', '£21.50', '£21.60', '£21.70', '£21.80']
           end
         end
 
@@ -163,11 +163,11 @@ RSpec.describe LegalPanelForGovernment::RM6360::SupplierSpreadsheetCreator do
             let(:params) { super().merge({ 'not_core_jurisdiction' => 'no' }) }
 
             it 'has the correct rows' do
-              expect(sheet.row(1)).to eq ['Countries:', 'Belgium; Canada; France; Germany; Ireland; Switzerland; United Kingdom; United States', nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil]
-              expect(sheet.row(2)).to eq ['Supplier name', 'Prospectus', 'Senior Counsel, Senior Partner (20 years +PQE)', 'Partner', 'Legal Director/Counsel or equivalent', 'Senior Solicitor, Senior Associate/Senior Legal Executive', 'Solicitor, Associate/Legal Executive', 'NQ Solicitor/Associate, Junior Solicitor/Associate/Legal Executive', 'Trainee/Legal Apprentice', 'Paralegal, Legal Assistant', 'Senior Analyst', 'Analyst, Associate Analyst, Research Associate, Research Officer', 'Senior Modeller, Senior Econometrician, Senior Analyst', 'Modeller, Econometrician, Analyst, Associate Analyst']
-              expect(sheet.row(3)).to eq ['COLONY 4 CORP', 'colony.four@xenoblade3.com', '£11.10', '£11.20', '£11.30', '£11.40', '£11.50', '£11.60', '£11.70', '£11.80', '£11.90', '£111.00', '£111.10', '£111.20']
-              expect(sheet.row(4)).to eq ['KEVIS CASTLE SERVICE', 'kevis.castle@xenoblade3.com', '£31.10', '£31.20', '£31.30', '£31.40', '£31.50', '£31.60', '£31.70', '£31.80', '£31.90', '£311.00', '£311.10', '£311.20']
-              expect(sheet.row(5)).to eq ['MAKTHA AGENCY', 'maktha@xenoblade3.com', '£21.10', '£21.20', '£21.30', '£21.40', '£21.50', '£21.60', '£21.70', '£21.80', '£21.90', '£211.00', '£211.10', '£211.20']
+              expect(sheet.row(1)).to eq ['Countries:', 'Belgium; Canada; France; Germany; Ireland; Switzerland; United Kingdom; United States', nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil]
+              expect(sheet.row(2)).to eq ['Supplier name', 'Prospectus', 'Senior Counsel, Senior Partner (20 years +PQE)', 'Partner', 'Legal Director/Counsel or equivalent', 'Senior Solicitor, Senior Associate/Senior Legal Executive', 'Solicitor, Associate/Legal Executive', 'NQ Solicitor/Associate, Junior Solicitor/Associate/Legal Executive', 'Trainee/Legal Apprentice', 'Paralegal, Legal Assistant', 'Legal Project Managers', 'Senior Analyst', 'Analyst, Associate Analyst, Research Associate, Research Officer', 'Senior Modeller, Senior Econometrician, Senior Analyst', 'Modeller, Econometrician, Analyst, Associate Analyst']
+              expect(sheet.row(3)).to eq ['COLONY 4 CORP', 'colony.four@xenoblade3.com', '£11.10', '£11.20', '£11.30', '£11.40', '£11.50', '£11.60', '£11.70', '£11.80', '£11.90', '£111.00', '£111.10', '£111.20', '£111.30']
+              expect(sheet.row(4)).to eq ['KEVIS CASTLE SERVICE', 'kevis.castle@xenoblade3.com', '£31.10', '£31.20', '£31.30', '£31.40', '£31.50', '£31.60', '£31.70', '£31.80', '£31.90', '£311.00', '£311.10', '£311.20', '£311.30']
+              expect(sheet.row(5)).to eq ['MAKTHA AGENCY', 'maktha@xenoblade3.com', '£21.10', '£21.20', '£21.30', '£21.40', '£21.50', '£21.60', '£21.70', '£21.80', '£21.90', '£211.00', '£211.10', '£211.20', '£211.30']
             end
           end
 
@@ -179,11 +179,11 @@ RSpec.describe LegalPanelForGovernment::RM6360::SupplierSpreadsheetCreator do
               let(:sheet) { work_book.sheet('Supplier rates (BW)') }
 
               it 'has the correct rows' do
-                expect(sheet.row(1)).to eq ['Country:', 'Botswana', nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil]
-                expect(sheet.row(2)).to eq ['Supplier name', 'Prospectus', 'Senior Counsel, Senior Partner (20 years +PQE)', 'Partner', 'Legal Director/Counsel or equivalent', 'Senior Solicitor, Senior Associate/Senior Legal Executive', 'Solicitor, Associate/Legal Executive', 'NQ Solicitor/Associate, Junior Solicitor/Associate/Legal Executive', 'Trainee/Legal Apprentice', 'Paralegal, Legal Assistant', 'Senior Analyst', 'Analyst, Associate Analyst, Research Associate, Research Officer', 'Senior Modeller, Senior Econometrician, Senior Analyst', 'Modeller, Econometrician, Analyst, Associate Analyst']
-                expect(sheet.row(3)).to eq ['COLONY 4 CORP', 'colony.four@xenoblade3.com', '£11.10', '£11.20', '£11.30', '£11.40', '£11.50', '£11.60', '£11.70', '£11.80', '£11.90', '£111.00', '£111.10', '£111.20']
-                expect(sheet.row(4)).to eq ['KEVIS CASTLE SERVICE', 'kevis.castle@xenoblade3.com', '£31.10', '£31.20', '£31.30', '£31.40', '£31.50', '£31.60', '£31.70', '£31.80', '£31.90', '£311.00', '£311.10', '£311.20']
-                expect(sheet.row(5)).to eq ['MAKTHA AGENCY', 'maktha@xenoblade3.com', '£21.10', '£21.20', '£21.30', '£21.40', '£21.50', '£21.60', '£21.70', '£21.80', '£21.90', '£211.00', '£211.10', '£211.20']
+                expect(sheet.row(1)).to eq ['Country:', 'Botswana', nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil]
+                expect(sheet.row(2)).to eq ['Supplier name', 'Prospectus', 'Senior Counsel, Senior Partner (20 years +PQE)', 'Partner', 'Legal Director/Counsel or equivalent', 'Senior Solicitor, Senior Associate/Senior Legal Executive', 'Solicitor, Associate/Legal Executive', 'NQ Solicitor/Associate, Junior Solicitor/Associate/Legal Executive', 'Trainee/Legal Apprentice', 'Paralegal, Legal Assistant', 'Legal Project Managers', 'Senior Analyst', 'Analyst, Associate Analyst, Research Associate, Research Officer', 'Senior Modeller, Senior Econometrician, Senior Analyst', 'Modeller, Econometrician, Analyst, Associate Analyst']
+                expect(sheet.row(3)).to eq ['COLONY 4 CORP', 'colony.four@xenoblade3.com', '£11.10', '£11.20', '£11.30', '£11.40', '£11.50', '£11.60', '£11.70', '£11.80', '£11.90', '£111.00', '£111.10', '£111.20', '£111.30']
+                expect(sheet.row(4)).to eq ['KEVIS CASTLE SERVICE', 'kevis.castle@xenoblade3.com', '£31.10', '£31.20', '£31.30', '£31.40', '£31.50', '£31.60', '£31.70', '£31.80', '£31.90', '£311.00', '£311.10', '£311.20', '£311.30']
+                expect(sheet.row(5)).to eq ['MAKTHA AGENCY', 'maktha@xenoblade3.com', '£21.10', '£21.20', '£21.30', '£21.40', '£21.50', '£21.60', '£21.70', '£21.80', '£21.90', '£211.00', '£211.10', '£211.20', '£211.30']
               end
             end
 
@@ -191,11 +191,11 @@ RSpec.describe LegalPanelForGovernment::RM6360::SupplierSpreadsheetCreator do
               let(:sheet) { work_book.sheet('Supplier rates (UG)') }
 
               it 'has the correct rows' do
-                expect(sheet.row(1)).to eq ['Country:', 'Uganda', nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil]
-                expect(sheet.row(2)).to eq ['Supplier name', 'Prospectus', 'Senior Counsel, Senior Partner (20 years +PQE)', 'Partner', 'Legal Director/Counsel or equivalent', 'Senior Solicitor, Senior Associate/Senior Legal Executive', 'Solicitor, Associate/Legal Executive', 'NQ Solicitor/Associate, Junior Solicitor/Associate/Legal Executive', 'Trainee/Legal Apprentice', 'Paralegal, Legal Assistant', 'Senior Analyst', 'Analyst, Associate Analyst, Research Associate, Research Officer', 'Senior Modeller, Senior Econometrician, Senior Analyst', 'Modeller, Econometrician, Analyst, Associate Analyst']
-                expect(sheet.row(3)).to eq ['COLONY 4 CORP', 'colony.four@xenoblade3.com', '£12.10', '£12.20', '£12.30', '£12.40', '£12.50', '£12.60', '£12.70', '£12.80', '£12.90', '£121.00', '£121.10', '£121.20']
-                expect(sheet.row(4)).to eq ['KEVIS CASTLE SERVICE', 'kevis.castle@xenoblade3.com', '£32.10', '£32.20', '£32.30', '£32.40', '£32.50', '£32.60', '£32.70', '£32.80', '£32.90', '£321.00', '£321.10', '£321.20']
-                expect(sheet.row(5)).to eq ['MAKTHA AGENCY', 'maktha@xenoblade3.com', '£22.10', '£22.20', '£22.30', '£22.40', '£22.50', '£22.60', '£22.70', '£22.80', '£22.90', '£221.00', '£221.10', '£221.20']
+                expect(sheet.row(1)).to eq ['Country:', 'Uganda', nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil]
+                expect(sheet.row(2)).to eq ['Supplier name', 'Prospectus', 'Senior Counsel, Senior Partner (20 years +PQE)', 'Partner', 'Legal Director/Counsel or equivalent', 'Senior Solicitor, Senior Associate/Senior Legal Executive', 'Solicitor, Associate/Legal Executive', 'NQ Solicitor/Associate, Junior Solicitor/Associate/Legal Executive', 'Trainee/Legal Apprentice', 'Paralegal, Legal Assistant', 'Legal Project Managers', 'Senior Analyst', 'Analyst, Associate Analyst, Research Associate, Research Officer', 'Senior Modeller, Senior Econometrician, Senior Analyst', 'Modeller, Econometrician, Analyst, Associate Analyst']
+                expect(sheet.row(3)).to eq ['COLONY 4 CORP', 'colony.four@xenoblade3.com', '£12.10', '£12.20', '£12.30', '£12.40', '£12.50', '£12.60', '£12.70', '£12.80', '£12.90', '£121.00', '£121.10', '£121.20', '£121.30']
+                expect(sheet.row(4)).to eq ['KEVIS CASTLE SERVICE', 'kevis.castle@xenoblade3.com', '£32.10', '£32.20', '£32.30', '£32.40', '£32.50', '£32.60', '£32.70', '£32.80', '£32.90', '£321.00', '£321.10', '£321.20', '£321.30']
+                expect(sheet.row(5)).to eq ['MAKTHA AGENCY', 'maktha@xenoblade3.com', '£22.10', '£22.20', '£22.30', '£22.40', '£22.50', '£22.60', '£22.70', '£22.80', '£22.90', '£221.00', '£221.10', '£221.20', '£221.30']
               end
             end
           end
@@ -250,9 +250,9 @@ RSpec.describe LegalPanelForGovernment::RM6360::SupplierSpreadsheetCreator do
 
         context 'and the lot number is 1' do
           it 'has the correct rows' do
-            expect(sheet.row(1)).to eq ['Supplier name', 'Prospectus', 'Partner', 'Legal Director/Counsel or equivalent', 'Senior Solicitor, Senior Associate/Senior Legal Executive', 'Solicitor, Associate/Legal Executive', 'NQ Solicitor/Associate, Junior Solicitor/Associate/Legal Executive', 'Trainee/Legal Apprentice', 'Paralegal, Legal Assistant']
-            expect(sheet.row(2)).to eq ['COLONY 4 CORP', 'colony.four@xenoblade3.com', '£11.10', '£11.20', '£11.30', '£11.40', '£11.50', '£11.60', '£11.70']
-            expect(sheet.row(4)).to eq ['MAKTHA AGENCY', 'maktha@xenoblade3.com', '£21.10', '£21.20', '£21.30', '£21.40', '£21.50', '£21.60', '£21.70']
+            expect(sheet.row(1)).to eq ['Supplier name', 'Prospectus', 'Partner', 'Legal Director/Counsel or equivalent', 'Senior Solicitor, Senior Associate/Senior Legal Executive', 'Solicitor, Associate/Legal Executive', 'NQ Solicitor/Associate, Junior Solicitor/Associate/Legal Executive', 'Trainee/Legal Apprentice', 'Paralegal, Legal Assistant', 'Legal Project Managers']
+            expect(sheet.row(2)).to eq ['COLONY 4 CORP', 'colony.four@xenoblade3.com', '£11.10', '£11.20', '£11.30', '£11.40', '£11.50', '£11.60', '£11.70', '£11.80']
+            expect(sheet.row(4)).to eq ['MAKTHA AGENCY', 'maktha@xenoblade3.com', '£21.10', '£21.20', '£21.30', '£21.40', '£21.50', '£21.60', '£21.70', '£21.80']
           end
         end
 
@@ -263,10 +263,10 @@ RSpec.describe LegalPanelForGovernment::RM6360::SupplierSpreadsheetCreator do
             let(:params) { super().merge({ 'not_core_jurisdiction' => 'no' }) }
 
             it 'has the correct rows' do
-              expect(sheet.row(1)).to eq ['Countries:', 'Belgium; Canada; France; Germany; Ireland; Switzerland; United Kingdom; United States', nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil]
-              expect(sheet.row(2)).to eq ['Supplier name', 'Prospectus', 'Senior Counsel, Senior Partner (20 years +PQE)', 'Partner', 'Legal Director/Counsel or equivalent', 'Senior Solicitor, Senior Associate/Senior Legal Executive', 'Solicitor, Associate/Legal Executive', 'NQ Solicitor/Associate, Junior Solicitor/Associate/Legal Executive', 'Trainee/Legal Apprentice', 'Paralegal, Legal Assistant', 'Senior Analyst', 'Analyst, Associate Analyst, Research Associate, Research Officer', 'Senior Modeller, Senior Econometrician, Senior Analyst', 'Modeller, Econometrician, Analyst, Associate Analyst']
-              expect(sheet.row(3)).to eq ['COLONY 4 CORP', 'colony.four@xenoblade3.com', '£11.10', '£11.20', '£11.30', '£11.40', '£11.50', '£11.60', '£11.70', '£11.80', '£11.90', '£111.00', '£111.10', '£111.20']
-              expect(sheet.row(5)).to eq ['MAKTHA AGENCY', 'maktha@xenoblade3.com', '£21.10', '£21.20', '£21.30', '£21.40', '£21.50', '£21.60', '£21.70', '£21.80', '£21.90', '£211.00', '£211.10', '£211.20']
+              expect(sheet.row(1)).to eq ['Countries:', 'Belgium; Canada; France; Germany; Ireland; Switzerland; United Kingdom; United States', nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil]
+              expect(sheet.row(2)).to eq ['Supplier name', 'Prospectus', 'Senior Counsel, Senior Partner (20 years +PQE)', 'Partner', 'Legal Director/Counsel or equivalent', 'Senior Solicitor, Senior Associate/Senior Legal Executive', 'Solicitor, Associate/Legal Executive', 'NQ Solicitor/Associate, Junior Solicitor/Associate/Legal Executive', 'Trainee/Legal Apprentice', 'Paralegal, Legal Assistant', 'Legal Project Managers', 'Senior Analyst', 'Analyst, Associate Analyst, Research Associate, Research Officer', 'Senior Modeller, Senior Econometrician, Senior Analyst', 'Modeller, Econometrician, Analyst, Associate Analyst']
+              expect(sheet.row(3)).to eq ['COLONY 4 CORP', 'colony.four@xenoblade3.com', '£11.10', '£11.20', '£11.30', '£11.40', '£11.50', '£11.60', '£11.70', '£11.80', '£11.90', '£111.00', '£111.10', '£111.20', '£111.30']
+              expect(sheet.row(5)).to eq ['MAKTHA AGENCY', 'maktha@xenoblade3.com', '£21.10', '£21.20', '£21.30', '£21.40', '£21.50', '£21.60', '£21.70', '£21.80', '£21.90', '£211.00', '£211.10', '£211.20', '£211.30']
             end
           end
 
@@ -278,10 +278,10 @@ RSpec.describe LegalPanelForGovernment::RM6360::SupplierSpreadsheetCreator do
               let(:sheet) { work_book.sheet('Supplier rates (BW)') }
 
               it 'has the correct rows' do
-                expect(sheet.row(1)).to eq ['Country:', 'Botswana', nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil]
-                expect(sheet.row(2)).to eq ['Supplier name', 'Prospectus', 'Senior Counsel, Senior Partner (20 years +PQE)', 'Partner', 'Legal Director/Counsel or equivalent', 'Senior Solicitor, Senior Associate/Senior Legal Executive', 'Solicitor, Associate/Legal Executive', 'NQ Solicitor/Associate, Junior Solicitor/Associate/Legal Executive', 'Trainee/Legal Apprentice', 'Paralegal, Legal Assistant', 'Senior Analyst', 'Analyst, Associate Analyst, Research Associate, Research Officer', 'Senior Modeller, Senior Econometrician, Senior Analyst', 'Modeller, Econometrician, Analyst, Associate Analyst']
-                expect(sheet.row(3)).to eq ['COLONY 4 CORP', 'colony.four@xenoblade3.com', '£11.10', '£11.20', '£11.30', '£11.40', '£11.50', '£11.60', '£11.70', '£11.80', '£11.90', '£111.00', '£111.10', '£111.20']
-                expect(sheet.row(5)).to eq ['MAKTHA AGENCY', 'maktha@xenoblade3.com', '£21.10', '£21.20', '£21.30', '£21.40', '£21.50', '£21.60', '£21.70', '£21.80', '£21.90', '£211.00', '£211.10', '£211.20']
+                expect(sheet.row(1)).to eq ['Country:', 'Botswana', nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil]
+                expect(sheet.row(2)).to eq ['Supplier name', 'Prospectus', 'Senior Counsel, Senior Partner (20 years +PQE)', 'Partner', 'Legal Director/Counsel or equivalent', 'Senior Solicitor, Senior Associate/Senior Legal Executive', 'Solicitor, Associate/Legal Executive', 'NQ Solicitor/Associate, Junior Solicitor/Associate/Legal Executive', 'Trainee/Legal Apprentice', 'Paralegal, Legal Assistant', 'Legal Project Managers', 'Senior Analyst', 'Analyst, Associate Analyst, Research Associate, Research Officer', 'Senior Modeller, Senior Econometrician, Senior Analyst', 'Modeller, Econometrician, Analyst, Associate Analyst']
+                expect(sheet.row(3)).to eq ['COLONY 4 CORP', 'colony.four@xenoblade3.com', '£11.10', '£11.20', '£11.30', '£11.40', '£11.50', '£11.60', '£11.70', '£11.80', '£11.90', '£111.00', '£111.10', '£111.20', '£111.30']
+                expect(sheet.row(5)).to eq ['MAKTHA AGENCY', 'maktha@xenoblade3.com', '£21.10', '£21.20', '£21.30', '£21.40', '£21.50', '£21.60', '£21.70', '£21.80', '£21.90', '£211.00', '£211.10', '£211.20', '£211.30']
               end
             end
 
@@ -289,10 +289,10 @@ RSpec.describe LegalPanelForGovernment::RM6360::SupplierSpreadsheetCreator do
               let(:sheet) { work_book.sheet('Supplier rates (UG)') }
 
               it 'has the correct rows' do
-                expect(sheet.row(1)).to eq ['Country:', 'Uganda', nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil]
-                expect(sheet.row(2)).to eq ['Supplier name', 'Prospectus', 'Senior Counsel, Senior Partner (20 years +PQE)', 'Partner', 'Legal Director/Counsel or equivalent', 'Senior Solicitor, Senior Associate/Senior Legal Executive', 'Solicitor, Associate/Legal Executive', 'NQ Solicitor/Associate, Junior Solicitor/Associate/Legal Executive', 'Trainee/Legal Apprentice', 'Paralegal, Legal Assistant', 'Senior Analyst', 'Analyst, Associate Analyst, Research Associate, Research Officer', 'Senior Modeller, Senior Econometrician, Senior Analyst', 'Modeller, Econometrician, Analyst, Associate Analyst']
-                expect(sheet.row(3)).to eq ['COLONY 4 CORP', 'colony.four@xenoblade3.com', '£12.10', '£12.20', '£12.30', '£12.40', '£12.50', '£12.60', '£12.70', '£12.80', '£12.90', '£121.00', '£121.10', '£121.20']
-                expect(sheet.row(5)).to eq ['MAKTHA AGENCY', 'maktha@xenoblade3.com', '£22.10', '£22.20', '£22.30', '£22.40', '£22.50', '£22.60', '£22.70', '£22.80', '£22.90', '£221.00', '£221.10', '£221.20']
+                expect(sheet.row(1)).to eq ['Country:', 'Uganda', nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil]
+                expect(sheet.row(2)).to eq ['Supplier name', 'Prospectus', 'Senior Counsel, Senior Partner (20 years +PQE)', 'Partner', 'Legal Director/Counsel or equivalent', 'Senior Solicitor, Senior Associate/Senior Legal Executive', 'Solicitor, Associate/Legal Executive', 'NQ Solicitor/Associate, Junior Solicitor/Associate/Legal Executive', 'Trainee/Legal Apprentice', 'Paralegal, Legal Assistant', 'Legal Project Managers', 'Senior Analyst', 'Analyst, Associate Analyst, Research Associate, Research Officer', 'Senior Modeller, Senior Econometrician, Senior Analyst', 'Modeller, Econometrician, Analyst, Associate Analyst']
+                expect(sheet.row(3)).to eq ['COLONY 4 CORP', 'colony.four@xenoblade3.com', '£12.10', '£12.20', '£12.30', '£12.40', '£12.50', '£12.60', '£12.70', '£12.80', '£12.90', '£121.00', '£121.10', '£121.20', '£121.30']
+                expect(sheet.row(5)).to eq ['MAKTHA AGENCY', 'maktha@xenoblade3.com', '£22.10', '£22.20', '£22.30', '£22.40', '£22.50', '£22.60', '£22.70', '£22.80', '£22.90', '£221.00', '£221.10', '£221.20', '£221.30']
               end
             end
           end

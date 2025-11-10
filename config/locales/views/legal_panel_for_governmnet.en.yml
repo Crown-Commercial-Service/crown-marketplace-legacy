@@ -134,18 +134,18 @@ en:
               supplier_details_has_incorrect_headers: 'Make sure the sheet for ''Supplier details'' has the following headers: ''Supplier Name'', ''Email address'', ''Phone number'', ''Website URL'', ''Postal address'', ''Is an SME'', ''DUNS Number'', ''Lot 1: Prospectus Link'', ''Lot 2: Prospectus Link'', ''Lot 3: Prospectus Link'', ''Lot 4a: Prospectus Link'', ''Lot 4b: Prospectus Link'', ''Lot 4c: Prospectus Link'', ''Lot 5: Prospectus Link'''
               supplier_details_missing_sheets: The 'Supplier details' file should have 1 sheet named 'All Suppliers'
               supplier_lot_4a_rate_cards_has_empty_sheets_html: 'The following sheets have no data: %{list} Make sure all sheets for ''Supplier lot 4a rate cards'' have been filled in'
-              supplier_lot_4a_rate_cards_has_incorrect_headers_html: 'The following sheets have incorrect headers: %{list} Make sure all sheets for ''Supplier lot 4a rate cards'' have the right jurisdictions for the rates'
-              supplier_lot_4a_rate_cards_missing_sheets: 'The ''Supplier lot 4a rate cards'' file should have 12 sheets with the following names: ''Senior Counsel'', ''Partner'', ''Legal Director'', ''Senior Solicitor'', ''Solicitor'', ''NQ Solicitor'', ''Trainee'', ''Paralegal'', ''Senior Analyst'', ''Analyst'', ''Senior Modeller'', ''Modeller'''
+              supplier_lot_4a_rate_cards_has_incorrect_headers_html: 'The following sheets have incorrect headers: %{list} Make sure all sheets for ''Supplier lot 4a rate cards'' have the right grades for the rates'
+              supplier_lot_4a_rate_cards_missing_sheets: 'The ''Supplier lot 4a rate cards'' file should have 2 sheets with the following names: ''Lot 4a Mandatory Jurisdiction'', ''Lot 4a Optional Jurisdiction'''
               supplier_lot_4b_rate_cards_has_empty_sheets_html: 'The following sheets have no data: %{list} Make sure all sheets for ''Supplier lot 4b rate cards'' have been filled in'
-              supplier_lot_4b_rate_cards_has_incorrect_headers_html: 'The following sheets have incorrect headers: %{list} Make sure all sheets for ''Supplier lot 4b rate cards'' have the right jurisdictions for the rates'
-              supplier_lot_4b_rate_cards_missing_sheets: 'The ''Supplier lot 4b rate cards'' file should have 12 sheets with the following names: ''Senior Counsel'', ''Partner'', ''Legal Director'', ''Senior Solicitor'', ''Solicitor'', ''NQ Solicitor'', ''Trainee'', ''Paralegal'', ''Senior Analyst'', ''Analyst'', ''Senior Modeller'', ''Modeller'''
+              supplier_lot_4b_rate_cards_has_incorrect_headers_html: 'The following sheets have incorrect headers: %{list} Make sure all sheets for ''Supplier lot 4b rate cards'' have the right grades for the rates'
+              supplier_lot_4b_rate_cards_missing_sheets: 'The ''Supplier lot 4b rate cards'' file should have 2 sheets with the following names: ''Lot 4b Mandatory Jurisdiction'', ''Lot 4b Optional Jurisdiction'''
               supplier_lot_4c_rate_cards_has_empty_sheets_html: 'The following sheets have no data: %{list} Make sure all sheets for ''Supplier lot 4c rate cards'' have been filled in'
-              supplier_lot_4c_rate_cards_has_incorrect_headers_html: 'The following sheets have incorrect headers: %{list} Make sure all sheets for ''Supplier lot 4c rate cards'' have the right jurisdictions for the rates'
-              supplier_lot_4c_rate_cards_missing_sheets: 'The ''Supplier lot 4c rate cards'' file should have 12 sheets with the following names: ''Senior Counsel'', ''Partner'', ''Legal Director'', ''Senior Solicitor'', ''Solicitor'', ''NQ Solicitor'', ''Trainee'', ''Paralegal'', ''Senior Analyst'', ''Analyst'', ''Senior Modeller'', ''Modeller'''
+              supplier_lot_4c_rate_cards_has_incorrect_headers_html: 'The following sheets have incorrect headers: %{list} Make sure all sheets for ''Supplier lot 4c rate cards'' have the right grades for the rates'
+              supplier_lot_4c_rate_cards_missing_sheets: 'The ''Supplier lot 4c rate cards'' file should have 2 sheets with the following names: ''Lot 4c Mandatory Jurisdiction'', ''Lot 4c Optional Jurisdiction'''
               supplier_missing_rates_html: 'The following suppliers do not have any rate cards: %{list} Make sure all the suppliers have the correct name and DUNS number'
               supplier_missing_services_html: 'The following suppliers do not offer any lots: %{list} Make sure all the suppliers have the correct name and DUNS number'
               supplier_other_lots_rate_cards_has_empty_sheets_html: 'The following sheets have no data: %{list} Make sure all sheets for ''Supplier rate cards (lots 1, 2, 3, 5)'' have been filled in'
-              supplier_other_lots_rate_cards_has_incorrect_headers_html: 'The following sheets have incorrect headers: %{list} Make sure all sheets for ''Supplier rate cards (lots 1, 2, 3, 5)'' have the right catagories for the rates'
+              supplier_other_lots_rate_cards_has_incorrect_headers_html: 'The following sheets have incorrect headers: %{list} Make sure all sheets for ''Supplier rate cards (lots 1, 2, 3, 5)'' have the right grades for the rates'
               supplier_other_lots_rate_cards_missing_sheets: 'The ''Supplier rate cards (lots 1, 2, 3, 5)'' file should have 4 sheets with the following names: ''Lot 1'', ''Lot 2'', ''Lot 3'', ''Lot 5'''
               supplier_service_offerings_has_empty_sheets_html: 'The following sheets have no data: %{list} Make sure all sheets for ''Supplier service offerings'' have been filled in'
               supplier_service_offerings_has_incorrect_headers_html: 'The following sheets have incorrect column headers: %{list} Make sure all sheets for ''Supplier service offerings'' have the expected services'
@@ -360,6 +360,7 @@ en:
             analyst: Analyst, Associate Analyst, Research Associate, Research Officer
             junior: NQ Solicitor/Associate, Junior Solicitor/Associate/Legal Executive
             legal_director: Legal Director/Counsel or equivalent
+            legal_project_manager: Legal Project Managers
             modeller: Modeller, Econometrician, Analyst, Associate Analyst
             paralegal: Paralegal, Legal Assistant
             partner: Partner

@@ -1,4 +1,9 @@
 class LegalPanelForGovernment::RM6360::Admin::FilesProcessor < FilesProcessor
+  def initialize(upload)
+    super
+    @jurisdiction_name_to_ids = Jurisdiction.non_core.pluck(:mapping_name, :id).to_h
+  end
+
   private
 
   def add_suppliers(suppliers_workbook)
@@ -92,16 +97,8 @@ class LegalPanelForGovernment::RM6360::Admin::FilesProcessor < FilesProcessor
 
   def add_other_lot_rate_cards_to_suppliers(rate_cards_workbook)
     OTHER_LOT_NUMBERS.each.with_index do |lot_number, sheet_number|
-      sheet = rate_cards_workbook.sheet(sheet_number)
-
-      (3..sheet.last_row).each do |row_number|
-        row = sheet.row(row_number)
-        supplier_duns = row.second.to_i.to_s
-        supplier = get_supplier(supplier_duns)
-        next unless supplier
-
-        add_other_rates(supplier, row, lot_number)
-      end
+      add_rates_from_sheet(rate_cards_workbook.sheet(sheet_number), lot_number)
+      remove_duplicate_jurisdictions(lot_number)
     end
   end
 
@@ -118,56 +115,47 @@ class LegalPanelForGovernment::RM6360::Admin::FilesProcessor < FilesProcessor
   end
 
   def add_lot_4_rate_cards_to_suppliers(rate_cards_workbook, lot_number)
-    (1..12).each.with_index do |position_number, sheet_number|
-      sheet = rate_cards_workbook.sheet(sheet_number)
+    add_rates_from_sheet(rate_cards_workbook.sheet(0), lot_number)
+    add_non_core_rates_from_sheet(rate_cards_workbook.sheet(1), lot_number)
+    remove_duplicate_jurisdictions(lot_number)
+  end
 
-      (3..sheet.last_row).each do |row_number|
-        row = sheet.row(row_number)
-        supplier_duns = row.second.to_i.to_s
-        supplier = get_supplier(supplier_duns)
-        next unless supplier
+  def add_rates_from_sheet(sheet, lot_number)
+    (3..sheet.last_row).each do |row_number|
+      row = sheet.row(row_number)
+      supplier_duns = row.second.to_i.to_s
+      supplier = get_supplier(supplier_duns)
+      next unless supplier
 
-        add_lot_4_rates(supplier, row, position_number, lot_number)
-      end
-    end
-
-    lot_id = "RM6360.#{lot_number}"
-
-    @supplier_data.each do |supplier|
-      supplier_framework_lots_data = supplier[:supplier_frameworks][0][:supplier_framework_lots_data]
-
-      supplier_framework_lots_data[lot_id][:jurisdictions].uniq! if supplier_framework_lots_data[lot_id]
+      add_rates(supplier, row, lot_number)
     end
   end
 
-  def add_other_rates(supplier, row, lot_number)
-    supplier_framework_lots_data = supplier[:supplier_frameworks][0][:supplier_framework_lots_data]
-    lot_id = "RM6360.#{lot_number}"
+  def add_non_core_rates_from_sheet(sheet, lot_number)
+    (3..sheet.last_row).each do |row_number|
+      row = sheet.row(row_number)
+      supplier_duns = row.second.to_i.to_s
+      supplier = get_supplier(supplier_duns)
+      next unless supplier
 
-    supplier_framework_lots_data[lot_id] ||= { services: [], rates: [], jurisdictions: [{ jurisdiction_id: 'GB' }], branches: [] }
+      jurisdiction_id = @jurisdiction_name_to_ids[row[2]]
 
-    row[2..].each.with_index(1) do |rate, index|
-      supplier_framework_lots_data[lot_id][:rates] << {
-        position_id: "#{lot_id}.#{index}",
-        rate: convert_rate_to_pence(rate),
-        jurisdiction_id: 'GB'
-      }
+      add_rates(supplier, row, lot_number, jurisdiction_id, 3)
     end
   end
 
-  def add_lot_4_rates(supplier, row, position_number, lot_number)
+  def add_rates(supplier, row, lot_number, jurisdiction_id = 'GB', starting_column = 2)
     supplier_framework_lots_data = supplier[:supplier_frameworks][0][:supplier_framework_lots_data]
     lot_id = "RM6360.#{lot_number}"
-    position_id = "#{lot_id}.#{position_number}"
 
-    row[2..].each.with_index do |rate, index|
+    supplier_framework_lots_data[lot_id] ||= { services: [], rates: [], jurisdictions: [], branches: [] }
+
+    row[starting_column..].each.with_index(1) do |rate, index|
       rate = convert_rate_to_pence(rate)
 
       next if rate.zero?
 
-      supplier_framework_lots_data[lot_id] ||= { services: [], rates: [], jurisdictions: [], branches: [] }
-
-      jurisdiction_id = JURISDICTION_IDS[index]
+      position_id = "#{lot_id}.#{index}"
 
       supplier_framework_lots_data[lot_id][:jurisdictions] << {
         jurisdiction_id:
@@ -180,13 +168,22 @@ class LegalPanelForGovernment::RM6360::Admin::FilesProcessor < FilesProcessor
     end
   end
 
+  def remove_duplicate_jurisdictions(lot_number)
+    lot_id = "RM6360.#{lot_number}"
+
+    @supplier_data.each do |supplier|
+      supplier_framework_lots_data = supplier[:supplier_frameworks][0][:supplier_framework_lots_data]
+
+      supplier_framework_lots_data[lot_id][:jurisdictions].uniq! if supplier_framework_lots_data[lot_id]
+    end
+  end
+
   def convert_rate_to_pence(rate)
     rate&.*(100).to_i
   end
 
   LOT_NUMBERS = ['1', '2', '3', '4a', '4b', '4c', '5'].freeze
   OTHER_LOT_NUMBERS = ['1', '2', '3', '5'].freeze
-  JURISDICTION_IDS = ['GB', 'AF', 'AX', 'AL', 'DZ', 'AS', 'AD', 'AO', 'AI', 'AQ', 'AG', 'AR', 'AM', 'AW', 'AU', 'AT', 'AZ', 'BS', 'BH', 'BD', 'BB', 'BY', 'BZ', 'BJ', 'BM', 'BT', 'BO', 'BQ', 'BA', 'BW', 'BV', 'BR', 'IO', 'BN', 'BG', 'BF', 'BI', 'CV', 'KH', 'CM', 'KY', 'CF', 'TD', 'CL', 'CN', 'CX', 'CC', 'CO', 'KM', 'CG', 'CD', 'CK', 'CR', 'CI', 'HR', 'CU', 'CW', 'CY', 'CZ', 'DK', 'DJ', 'DM', 'DO', 'EC', 'EG', 'SV', 'GQ', 'ER', 'EE', 'SZ', 'ET', 'FK', 'FO', 'FJ', 'FI', 'GF', 'PF', 'TF', 'GA', 'GM', 'GE', 'GH', 'GI', 'GR', 'GL', 'GD', 'GP', 'GU', 'GT', 'GG', 'GN', 'GW', 'GY', 'HT', 'HM', 'VA', 'HN', 'HK', 'HU', 'IS', 'IN', 'ID', 'IR', 'IQ', 'IM', 'IL', 'IT', 'JM', 'JP', 'JE', 'JO', 'KZ', 'KE', 'KI', 'KP', 'KW', 'KG', 'LA', 'LV', 'LB', 'LS', 'LR', 'LY', 'LI', 'LT', 'LU', 'MO', 'MG', 'MW', 'MY', 'MV', 'ML', 'MT', 'MH', 'MQ', 'MR', 'MU', 'YT', 'MX', 'FM', 'MD', 'MC', 'MN', 'ME', 'MS', 'MA', 'MZ', 'MM', 'NA', 'NR', 'NP', 'NL', 'NC', 'NZ', 'NI', 'NE', 'NG', 'NU', 'NF', 'MK', 'MP', 'NO', 'OM', 'PK', 'PW', 'PS', 'PA', 'PG', 'PY', 'PE', 'PH', 'PN', 'PL', 'PT', 'PR', 'QA', 'RE', 'RO', 'RU', 'RW', 'BL', 'SH', 'KN', 'LC', 'MF', 'PM', 'VC', 'WS', 'SM', 'ST', 'SA', 'SN', 'RS', 'SC', 'SL', 'SX', 'SK', 'SI', 'SB', 'SO', 'ZA', 'GS', 'KR', 'SS', 'ES', 'LK', 'SD', 'SR', 'SJ', 'SE', 'SY', 'TW', 'TJ', 'TZ', 'TH', 'TL', 'TG', 'TK', 'TO', 'TT', 'TN', 'TR', 'TM', 'TC', 'TV', 'AE', 'UG', 'UA', 'UM', 'UY', 'UZ', 'VU', 'VE', 'VN', 'VG', 'VI', 'WF', 'EH', 'YE', 'ZM', 'ZW'].freeze
 
   PROCESS_FILES_AND_METHODS = {
     supplier_details_file: :add_suppliers,

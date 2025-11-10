@@ -47,7 +47,7 @@ class LegalPanelForGovernment::RM6360::Admin::FilesChecker
     check_sheets(rate_cards_workbook, OTHER_LOTS_RATE_CARD_SHEETS, 'supplier_other_lots_rate_cards') do |sheets_with_errors, empty_sheets, index|
       current_sheet = OTHER_LOTS_RATE_CARD_SHEETS[index]
 
-      if rate_cards_workbook.sheet(index).last_column != 9
+      if rate_cards_workbook.sheet(index).last_column != 10
         sheets_with_errors << current_sheet
       elsif rate_cards_workbook.sheet(index).last_row == 2
         empty_sheets << current_sheet
@@ -68,10 +68,12 @@ class LegalPanelForGovernment::RM6360::Admin::FilesChecker
   end
 
   def check_suppliers_lot_4_rate_cards_file(rate_cards_workbook, lot_number)
-    check_sheets(rate_cards_workbook, LOT_4_RATE_CARD_SHEETS, "supplier_lot_#{lot_number}_rate_cards") do |sheets_with_errors, empty_sheets, index|
-      current_sheet = LOT_4_RATE_CARD_SHEETS[index]
+    rate_card_sheets = LOT_4_RATE_CARD_SHEETS.map { |sheet_name| "Lot #{lot_number} #{sheet_name}" }
 
-      if rate_cards_workbook.sheet(index).last_column != 243
+    check_sheets(rate_cards_workbook, rate_card_sheets, "supplier_lot_#{lot_number}_rate_cards") do |sheets_with_errors, empty_sheets, index|
+      current_sheet = rate_card_sheets[index]
+
+      if rate_cards_workbook.sheet(index).last_column != (index.zero? ? 15 : 16)
         sheets_with_errors << current_sheet
       elsif rate_cards_workbook.sheet(index).last_row == 2
         empty_sheets << current_sheet
@@ -80,7 +82,7 @@ class LegalPanelForGovernment::RM6360::Admin::FilesChecker
   end
 
   OTHER_LOTS_RATE_CARD_SHEETS = ['Lot 1', 'Lot 2', 'Lot 3', 'Lot 5'].freeze
-  LOT_4_RATE_CARD_SHEETS = ['Senior Counsel', 'Partner', 'Legal Director', 'Senior Solicitor', 'Solicitor', 'NQ Solicitor', 'Trainee', 'Paralegal', 'Senior Analyst', 'Analyst', 'Senior Modeller', 'Modeller'].freeze
+  LOT_4_RATE_CARD_SHEETS = ['Mandatory Jurisdiction', 'Optional Jurisdiction'].freeze
 
   SERVICE_OFFERING_SHEETS = {
     sheets: ['Lot 1', 'Lot 2', 'Lot 3', 'Lot 4a', 'Lot 4b', 'Lot 4c', 'Lot 5'],

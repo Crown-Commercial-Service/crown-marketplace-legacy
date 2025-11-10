@@ -46,6 +46,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 1 - Suppliers
     And the 'NQ Solicitor/Associate, Junior Solicitor/Associate/Legal Executive' hourly rate is '£100.00'
     And the 'Trainee/Legal Apprentice' hourly rate is '£60.00'
     And the 'Paralegal, Legal Assistant' hourly rate is '£50.00'
+    And the 'Legal Project Managers' hourly rate is '£87.50'
     And the contact details for the supplier are:
       | johns.monahan@macejkovic-will.example                   |
       | 349.577.3481                                            |
@@ -64,6 +65,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 1 - Suppliers
     And the 'NQ Solicitor/Associate, Junior Solicitor/Associate/Legal Executive' hourly rate is '£120.00'
     And the 'Trainee/Legal Apprentice' hourly rate is '£72.00'
     And the 'Paralegal, Legal Assistant' hourly rate is '£60.00'
+    And the 'Legal Project Managers' hourly rate is '£105.00'
     And the contact details for the supplier are:
       | cormier.inc@jerde.example                     |
       | 767-310-7249                                  |
