@@ -1,6 +1,14 @@
 module SupplyTeachers::RM6238::RatesHelper
-  # rubocop:disable Metrics/AbcSize
   def rates_table_headers_and_rows(rates)
+    if @lot.number == '4'
+      rates_table_headers_and_rows_lot_4(rates)
+    else
+      rates_table_headers_and_rows_not_lot_4(rates)
+    end
+  end
+
+  # rubocop:disable Metrics/AbcSize
+  def rates_table_headers_and_rows_not_lot_4(rates)
     [
       [
         {
