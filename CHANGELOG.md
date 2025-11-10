@@ -19,6 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add the ability for admins to update a supplier's status on a lot ([PR 2160](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2160))
 - Add the ability for admins to update a supplier's services on a lot ([PR 2161](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2161))
 - Added Legal Project Managers position ([PR 2171](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2171))
+- Add the ability for admins to update a supplier's rates on a lot ([PR 2180](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2180))
 
 ## [6.3.0] - 2025-10-28
 

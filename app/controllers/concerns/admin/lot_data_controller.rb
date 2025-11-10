@@ -79,16 +79,9 @@ module Admin::LotDataController
   end
 
   def set_supplier_framework_lot_data
-    case @section
-    when :services
-      @supplier_framework_lot_service_ids = @supplier_framework_lot.services.pluck(:service_id)
-    when :jurisdictions
-      @supplier_framework_lot_jurisdiction_ids = @supplier_framework_lot.jurisdictions.pluck(:jurisdiction_id)
-    when :rates
-      @supplier_framework_lot_rates = @supplier_framework.grouped_rates_for_lot(@lot.id)
-    when :branches
-      @supplier_framework_lot_branches = @supplier_framework_lot.branches.order(:name)
-    end
+    return if @section == :lot_status
+
+    send(:"set_supplier_framework_lot_data_for_#{@section}")
   end
 
   def set_section_for_show
@@ -112,9 +105,31 @@ module Admin::LotDataController
 
   def set_model
     @model = case @section
-             when :lot_status, :services
+             when :lot_status, :services, :rates
                @supplier_framework_lot
              end
+  end
+
+  def set_supplier_framework_lot_data_for_services
+    @supplier_framework_lot_service_ids = @supplier_framework_lot.services.pluck(:service_id)
+  end
+
+  def set_supplier_framework_lot_data_for_jurisdictions
+    @supplier_framework_lot_jurisdiction_ids = @supplier_framework_lot.jurisdictions.pluck(:jurisdiction_id)
+  end
+
+  def set_supplier_framework_lot_data_for_rates
+    @supplier_framework_lot_rates = if action_name.to_sym == :show
+                                      @supplier_framework.grouped_rates_for_lot(@lot.id)
+                                    else
+                                      @supplier_framework_lot_jurisdiction = @supplier_framework_lot.jurisdictions.find_by(jurisdiction_id: params.fetch(:jurisdiction_id, 'GB'))
+                                      supplier_framework_lot_rates = @supplier_framework.grouped_rates_for_lot_and_jurisdictions(@lot.id, [@supplier_framework_lot_jurisdiction.jurisdiction_id])
+                                      @lot.positions.pluck(:id).index_with { |position_id| (supplier_framework_lot_rates[position_id] && supplier_framework_lot_rates[position_id][@supplier_framework_lot_jurisdiction.jurisdiction_id]) || @supplier_framework_lot.rates.build(position_id: position_id, supplier_framework_lot_jurisdiction_id: @supplier_framework_lot_jurisdiction.id) }
+                                    end
+  end
+
+  def set_supplier_framework_lot_data_for_branches
+    @supplier_framework_lot_branches = @supplier_framework_lot.branches.order(:name)
   end
 
   def update_for_lot_status
@@ -144,6 +159,34 @@ module Admin::LotDataController
     @model.errors.none?
   end
   # rubocop:enable Metrics/AbcSize, Naming/PredicateMethod
+
+  # rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Naming/PredicateMethod
+  def update_for_rates
+    rates = (params[@model.model_name.param_key].present? ? params.expect("#{@model.model_name.param_key}": { rates: @lot.positions.pluck(:id).map(&:to_sym) }) : {})[:rates] || {}
+
+    valid_rates = @supplier_framework_lot_rates.map do |position_id, supplier_framework_lot_rate|
+      supplier_framework_lot_rate.assign_rate_and_validate?(rates[position_id])
+    end
+
+    if valid_rates.all?
+      ActiveRecord::Base.transaction do
+        @supplier_framework_lot_rates.each_value do |supplier_framework_lot_rate|
+          supplier_framework_lot_rate.rate.nil? ? supplier_framework_lot_rate.destroy! : supplier_framework_lot_rate.save!
+        end
+      rescue ActiveRecord::RecordInvalid => e
+        Rails.logger.error e
+        Rollbar.log('error', e)
+        @supplier_framework_lot_rates.each_value do |supplier_framework_lot_rate|
+          supplier_framework_lot_rate.errors.add(:rate, :update_invalid)
+        end
+      end
+
+      true
+    else
+      false
+    end
+  end
+  # rubocop:enable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Naming/PredicateMethod
 
   def authorize_user
     authorize! :manage, service.module_parent::Admin

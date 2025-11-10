@@ -6,7 +6,7 @@ RSpec.describe LegalServices::RM6240::Admin::LotDataController do
   let(:supplier_framework) { create(:supplier_framework, framework_id: 'RM6240') }
   let(:supplier_framework_lot) { create(:supplier_framework_lot, supplier_framework: supplier_framework, lot_id: "RM6240.#{lot_number}") }
   let(:supplier_framework_lot_services) { (lot_number == '3' ? [1] : (1..5)).map { |service_number| "RM6240.#{lot_number}.#{service_number}" }.map { |service_id| create(:supplier_framework_lot_service, supplier_framework_lot:, service_id:) } }
-  let(:supplier_framework_lot_rates) { Position.where(lot_id: "RM6240.#{lot_number}").pluck(:id).map { |position_id| create(:supplier_framework_lot_rate, supplier_framework_lot: supplier_framework_lot, jurisdiction: supplier_framework_lot_jurisdiction, position_id: position_id) } }
+  let(:supplier_framework_lot_rates) { Position.where(lot_id: "RM6240.#{lot_number}", mandatory: true).pluck(:id).map { |position_id| create(:supplier_framework_lot_rate, supplier_framework_lot: supplier_framework_lot, jurisdiction: supplier_framework_lot_jurisdiction, position_id: position_id) } }
   let(:supplier_framework_lot_jurisdiction) { create(:supplier_framework_lot_jurisdiction, supplier_framework_lot: supplier_framework_lot, jurisdiction_id: 'GB') }
   let(:lot_number) { '1a' }
 
@@ -177,7 +177,7 @@ RSpec.describe LegalServices::RM6240::Admin::LotDataController do
         it 'assigns supplier_framework_lot_rates' do
           assigned_supplier_framework_lot_rates = assigns(:supplier_framework_lot_rates)
 
-          expect(assigned_supplier_framework_lot_rates.length).to eq(7)
+          expect(assigned_supplier_framework_lot_rates.length).to eq(6)
           expect(assigned_supplier_framework_lot_rates.map { |position_id, rate| [position_id, rate.id] }.sort).to eq(supplier_framework_lot_rates.map { |rate| [rate.position_id, rate.id] }.sort)
         end
       end
@@ -222,7 +222,7 @@ RSpec.describe LegalServices::RM6240::Admin::LotDataController do
         it 'assigns supplier_framework_lot_rates' do
           assigned_supplier_framework_lot_rates = assigns(:supplier_framework_lot_rates)
 
-          expect(assigned_supplier_framework_lot_rates.length).to eq(7)
+          expect(assigned_supplier_framework_lot_rates.length).to eq(6)
           expect(assigned_supplier_framework_lot_rates.map { |position_id, rate| [position_id, rate.id] }.sort).to eq(supplier_framework_lot_rates.map { |rate| [rate.position_id, rate.id] }.sort)
         end
       end
@@ -293,6 +293,20 @@ RSpec.describe LegalServices::RM6240::Admin::LotDataController do
         end
       end
 
+      context 'and the section is rates' do
+        let(:section) { 'rates' }
+
+        include_context 'when testing a section'
+
+        it 'assigns supplier_framework_lot_rates' do
+          expect(assigns(:supplier_framework_lot_rates).map { |position_id, supplier_framework_lot_rate| [position_id, supplier_framework_lot_rate.id] }).to eq(supplier_framework_lot_rates.map { |supplier_framework_lot_rate| [supplier_framework_lot_rate.position_id, supplier_framework_lot_rate.id] } + Position.where(lot_id: "RM6240.#{lot_number}", mandatory: false).pluck(:id).map { |position_id| [position_id, nil] })
+        end
+
+        it 'assigns supplier_framework_lot_jurisdiction' do
+          expect(assigns(:supplier_framework_lot_jurisdiction)).to eq(supplier_framework_lot_jurisdiction)
+        end
+      end
+
       context 'when the section is unexpected' do
         let(:section) { :something_else }
 
@@ -318,6 +332,20 @@ RSpec.describe LegalServices::RM6240::Admin::LotDataController do
 
         it 'assigns supplier_framework_lot_service_ids' do
           expect(assigns(:supplier_framework_lot_service_ids)).to eq(supplier_framework_lot_services.map(&:service_id))
+        end
+      end
+
+      context 'and the section is rates' do
+        let(:section) { 'rates' }
+
+        include_context 'when testing a section'
+
+        it 'assigns supplier_framework_lot_rates' do
+          expect(assigns(:supplier_framework_lot_rates).map { |position_id, supplier_framework_lot_rate| [position_id, supplier_framework_lot_rate.id] }).to eq(supplier_framework_lot_rates.map { |supplier_framework_lot_rate| [supplier_framework_lot_rate.position_id, supplier_framework_lot_rate.id] } + Position.where(lot_id: "RM6240.#{lot_number}", mandatory: false).pluck(:id).map { |position_id| [position_id, nil] })
+        end
+
+        it 'assigns supplier_framework_lot_jurisdiction' do
+          expect(assigns(:supplier_framework_lot_jurisdiction)).to eq(supplier_framework_lot_jurisdiction)
         end
       end
     end
@@ -431,6 +459,61 @@ RSpec.describe LegalServices::RM6240::Admin::LotDataController do
         # rubocop:enable RSpec/NestedGroups
       end
 
+      context 'and the section is rates' do
+        let(:section) { 'rates' }
+        let(:rates) { Position.where(lot_id: "RM6240.#{lot_number}").pluck(:id).index_with { '2345.67' } }
+        let(:model_params) { { rates: } }
+
+        include_context 'when testing a section'
+
+        it 'assigns supplier_framework_lot_rates' do
+          expect(assigns(:supplier_framework_lot_rates).map { |position_id, supplier_framework_lot_rate| [position_id, supplier_framework_lot_rate.id.nil?] }).to eq(supplier_framework_lot_rates.map { |supplier_framework_lot_rate| [supplier_framework_lot_rate.position_id, false] } + [["RM6240.#{lot_number}.7", false]])
+        end
+
+        it 'assigns supplier_framework_lot_jurisdiction' do
+          expect(assigns(:supplier_framework_lot_jurisdiction)).to eq(supplier_framework_lot_jurisdiction)
+        end
+
+        # rubocop:disable RSpec/NestedGroups
+        context 'when it is valid' do
+          it 'redirects to the show page' do
+            expect(response).to redirect_to(legal_services_rm6240_admin_supplier_lot_datum_path(section:))
+          end
+
+          it 'updates the details' do
+            updated_supplier_framework_lot_rates = supplier_framework_lot.rates.where(position_id: Position.where(lot_id: "RM6240.#{lot_number}").select(:id), supplier_framework_lot_jurisdiction_id: supplier_framework_lot_jurisdiction.id)
+
+            expect(updated_supplier_framework_lot_rates.length).to eq(7)
+
+            updated_supplier_framework_lot_rates.each do |rate|
+              expect(rate.rate).to eq(234567)
+            end
+          end
+        end
+
+        context 'when it is invalid' do
+          let(:rates) { Position.where(lot_id: "RM6240.#{lot_number}").pluck(:id).index_with { '' } }
+
+          render_views
+
+          it 'has errors on the model' do
+            assigns(:supplier_framework_lot_rates).each_value do |supplier_framework_lot_rate|
+              if supplier_framework_lot_rate.position_id == "RM6240.#{lot_number}.7"
+                expect(supplier_framework_lot_rate.errors).to be_none
+              else
+                expect(supplier_framework_lot_rate.errors).to be_present
+              end
+            end
+          end
+
+          it 'renders section partial template' do
+            expect(response).to have_http_status(:ok)
+            expect(response).to render_template(partial: "shared/admin/lot_data/edit/_#{section}")
+          end
+        end
+        # rubocop:enable RSpec/NestedGroups
+      end
+
       context 'when the section is unexpected' do
         let(:section) { :something_else }
         let(:model_params) { { enabled: false } }
@@ -507,6 +590,61 @@ RSpec.describe LegalServices::RM6240::Admin::LotDataController do
 
           it 'has errors on the model' do
             expect(assigns(:model).errors).to be_present
+          end
+
+          it 'renders section partial template' do
+            expect(response).to have_http_status(:ok)
+            expect(response).to render_template(partial: "shared/admin/lot_data/edit/_#{section}")
+          end
+        end
+        # rubocop:enable RSpec/NestedGroups
+      end
+
+      context 'and the section is rates' do
+        let(:section) { 'rates' }
+        let(:rates) { Position.where(lot_id: "RM6240.#{lot_number}", mandatory: true).pluck(:id).index_with { '2345.67' } }
+        let(:model_params) { { rates: } }
+
+        include_context 'when testing a section'
+
+        it 'assigns supplier_framework_lot_rates' do
+          expect(assigns(:supplier_framework_lot_rates).map { |position_id, supplier_framework_lot_rate| [position_id, supplier_framework_lot_rate.id.nil?] }).to eq(supplier_framework_lot_rates.map { |supplier_framework_lot_rate| [supplier_framework_lot_rate.position_id, false] } + [["RM6240.#{lot_number}.7", true]])
+        end
+
+        it 'assigns supplier_framework_lot_jurisdiction' do
+          expect(assigns(:supplier_framework_lot_jurisdiction)).to eq(supplier_framework_lot_jurisdiction)
+        end
+
+        # rubocop:disable RSpec/NestedGroups
+        context 'when it is valid' do
+          it 'redirects to the show page' do
+            expect(response).to redirect_to(legal_services_rm6240_admin_supplier_lot_datum_path(section:))
+          end
+
+          it 'updates the details' do
+            updated_supplier_framework_lot_rates = supplier_framework_lot.rates.where(position_id: Position.where(lot_id: "RM6240.#{lot_number}").select(:id), supplier_framework_lot_jurisdiction_id: supplier_framework_lot_jurisdiction.id)
+
+            expect(updated_supplier_framework_lot_rates.length).to eq(6)
+
+            updated_supplier_framework_lot_rates.each do |rate|
+              expect(rate.rate).to eq(234567)
+            end
+          end
+        end
+
+        context 'when it is invalid' do
+          let(:rates) { Position.where(lot_id: "RM6240.#{lot_number}", mandatory: true).pluck(:id).index_with { '' } }
+
+          render_views
+
+          it 'has errors on the model' do
+            assigns(:supplier_framework_lot_rates).each_value do |supplier_framework_lot_rate|
+              if supplier_framework_lot_rate.position_id == "RM6240.#{lot_number}.7"
+                expect(supplier_framework_lot_rate.errors).to be_none
+              else
+                expect(supplier_framework_lot_rate.errors).to be_present
+              end
+            end
           end
 
           it 'renders section partial template' do

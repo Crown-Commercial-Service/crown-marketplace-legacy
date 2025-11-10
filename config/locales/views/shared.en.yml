@@ -63,6 +63,9 @@ en:
             services: service selection
           lot_status:
             question: Set supplier status on Lot %{lot_number} - %{lot_name}
+          rates:
+            hint: If the supplier does not supply the position, make the field blank
+            optional: "%{label} (optional)"
           save_and_return: Save and return
           services:
             question: Select the services the supplier can offer

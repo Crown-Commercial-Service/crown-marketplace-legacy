@@ -72,6 +72,13 @@ Then('the rates in the {string} table are:') do |country_name, rates|
   )
 end
 
+Then('I enter the following rates into the form:') do |rates|
+  admin_set_rates(
+    admin_page.supplier_rates_tables.first,
+    rates
+  )
+end
+
 Then('the branches in the table are:') do |branches|
   admin_check_branches(
     admin_page.supplier_branches_summaries,
@@ -127,6 +134,19 @@ end
 def admin_check_rates(table, rates)
   admin_check_table_headings(table, rates)
   admin_check_table_rows(table, rates)
+end
+
+def admin_set_rates(table, items)
+  table_rows = table.rows
+
+  items.raw.each do |item|
+    position = item[0]
+    rates = item[1..]
+
+    table_rows.find { |row| row.row_head.first('label').text == position }.row_items.zip(rates).each do |cell, rate|
+      cell.find('input').set(rate)
+    end
+  end
 end
 
 # rubocop:disable Metrics/AbcSize
