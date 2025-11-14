@@ -9,4 +9,31 @@ module LegalPanelForGovernment::RM6360::Admin::LotDataHelper
                              super
                            end
   end
+
+  def rates_form_table_headers_and_rows(rates)
+    [
+      [
+        {
+          text: t('legal_panel_for_government.rm6360.suppliers.rates_table.grade'),
+          classes: 'govuk-!-width-three-quarters'
+        },
+        {
+          text: tag.span(t('legal_panel_for_government.rm6360.suppliers.rates_table.hourly'), id: aria_describedby_id),
+          classes: 'govuk-!-width-one-quarter'
+        }
+      ],
+      @lot.positions.order(:number).map do |position|
+        input = create_rate_input(position, rates, ->(position) { I18n.t("legal_panel_for_government.rm6360.suppliers.rates_table.job_titles.#{position.name}") })
+
+        [
+          {
+            text: label_for_table_header(input),
+          },
+          {
+            text: input_for_table_cell(input)
+          }
+        ]
+      end,
+    ]
+  end
 end

@@ -314,6 +314,20 @@ RSpec.describe ManagementConsultancy::RM6309::Admin::LotDataController do
         end
       end
 
+      context 'and the section is rates' do
+        let(:section) { 'rates' }
+
+        include_context 'when testing a section'
+
+        it 'assigns supplier_framework_lot_rates' do
+          expect(assigns(:supplier_framework_lot_rates).map { |position_id, supplier_framework_lot_rate| [position_id, supplier_framework_lot_rate.id] }).to eq(supplier_framework_lot_rates.map { |supplier_framework_lot_rate| [supplier_framework_lot_rate.position_id, supplier_framework_lot_rate.id] })
+        end
+
+        it 'assigns supplier_framework_lot_jurisdiction' do
+          expect(assigns(:supplier_framework_lot_jurisdiction)).to eq(supplier_framework_lot_jurisdiction)
+        end
+      end
+
       context 'when the section is unexpected' do
         let(:section) { :something_else }
 
@@ -339,6 +353,20 @@ RSpec.describe ManagementConsultancy::RM6309::Admin::LotDataController do
 
         it 'assigns supplier_framework_lot_service_ids' do
           expect(assigns(:supplier_framework_lot_service_ids)).to eq(supplier_framework_lot_services.map(&:service_id))
+        end
+      end
+
+      context 'and the section is rates' do
+        let(:section) { 'rates' }
+
+        include_context 'when testing a section'
+
+        it 'assigns supplier_framework_lot_rates' do
+          expect(assigns(:supplier_framework_lot_rates).map { |position_id, supplier_framework_lot_rate| [position_id, supplier_framework_lot_rate.id] }).to eq(supplier_framework_lot_rates.map { |supplier_framework_lot_rate| [supplier_framework_lot_rate.position_id, supplier_framework_lot_rate.id] })
+        end
+
+        it 'assigns supplier_framework_lot_jurisdiction' do
+          expect(assigns(:supplier_framework_lot_jurisdiction)).to eq(supplier_framework_lot_jurisdiction)
         end
       end
     end
@@ -452,6 +480,57 @@ RSpec.describe ManagementConsultancy::RM6309::Admin::LotDataController do
         # rubocop:enable RSpec/NestedGroups
       end
 
+      context 'and the section is rates' do
+        let(:section) { 'rates' }
+        let(:rates) { Position.where(lot_id: "RM6309.#{lot_number}").pluck(:id).index_with { '2345.67' } }
+        let(:model_params) { { rates: } }
+
+        include_context 'when testing a section'
+
+        it 'assigns supplier_framework_lot_rates' do
+          expect(assigns(:supplier_framework_lot_rates).map { |position_id, supplier_framework_lot_rate| [position_id, supplier_framework_lot_rate.id] }).to eq(supplier_framework_lot_rates.map { |supplier_framework_lot_rate| [supplier_framework_lot_rate.position_id, supplier_framework_lot_rate.id] })
+        end
+
+        it 'assigns supplier_framework_lot_jurisdiction' do
+          expect(assigns(:supplier_framework_lot_jurisdiction)).to eq(supplier_framework_lot_jurisdiction)
+        end
+
+        # rubocop:disable RSpec/NestedGroups
+        context 'when it is valid' do
+          it 'redirects to the show page' do
+            expect(response).to redirect_to(management_consultancy_rm6309_admin_supplier_lot_datum_path(section:))
+          end
+
+          it 'updates the details' do
+            updated_supplier_framework_lot_rates = supplier_framework_lot.rates.where(position_id: Position.where(lot_id: "RM6309.#{lot_number}").select(:id), supplier_framework_lot_jurisdiction_id: supplier_framework_lot_jurisdiction.id)
+
+            expect(updated_supplier_framework_lot_rates.length).to eq(12)
+
+            updated_supplier_framework_lot_rates.each do |rate|
+              expect(rate.rate).to eq(234567)
+            end
+          end
+        end
+
+        context 'when it is invalid' do
+          let(:rates) { Position.where(lot_id: "RM6309.#{lot_number}").pluck(:id).index_with { '' } }
+
+          render_views
+
+          it 'has errors on the model' do
+            assigns(:supplier_framework_lot_rates).each_value do |supplier_framework_lot_rate|
+              expect(supplier_framework_lot_rate.errors).to be_present
+            end
+          end
+
+          it 'renders section partial template' do
+            expect(response).to have_http_status(:ok)
+            expect(response).to render_template(partial: "shared/admin/lot_data/edit/_#{section}")
+          end
+        end
+        # rubocop:enable RSpec/NestedGroups
+      end
+
       context 'when the section is unexpected' do
         let(:section) { :something_else }
         let(:model_params) { { enabled: 'false' } }
@@ -528,6 +607,57 @@ RSpec.describe ManagementConsultancy::RM6309::Admin::LotDataController do
 
           it 'has errors on the model' do
             expect(assigns(:model).errors).to be_present
+          end
+
+          it 'renders section partial template' do
+            expect(response).to have_http_status(:ok)
+            expect(response).to render_template(partial: "shared/admin/lot_data/edit/_#{section}")
+          end
+        end
+        # rubocop:enable RSpec/NestedGroups
+      end
+
+      context 'and the section is rates' do
+        let(:section) { 'rates' }
+        let(:rates) { Position.where(lot_id: "RM6309.#{lot_number}").pluck(:id).index_with { '2345.67' } }
+        let(:model_params) { { rates: } }
+
+        include_context 'when testing a section'
+
+        it 'assigns supplier_framework_lot_rates' do
+          expect(assigns(:supplier_framework_lot_rates).map { |position_id, supplier_framework_lot_rate| [position_id, supplier_framework_lot_rate.id] }).to eq(supplier_framework_lot_rates.map { |supplier_framework_lot_rate| [supplier_framework_lot_rate.position_id, supplier_framework_lot_rate.id] })
+        end
+
+        it 'assigns supplier_framework_lot_jurisdiction' do
+          expect(assigns(:supplier_framework_lot_jurisdiction)).to eq(supplier_framework_lot_jurisdiction)
+        end
+
+        # rubocop:disable RSpec/NestedGroups
+        context 'when it is valid' do
+          it 'redirects to the show page' do
+            expect(response).to redirect_to(management_consultancy_rm6309_admin_supplier_lot_datum_path(section:))
+          end
+
+          it 'updates the details' do
+            updated_supplier_framework_lot_rates = supplier_framework_lot.rates.where(position_id: Position.where(lot_id: "RM6309.#{lot_number}").select(:id), supplier_framework_lot_jurisdiction_id: supplier_framework_lot_jurisdiction.id)
+
+            expect(updated_supplier_framework_lot_rates.length).to eq(12)
+
+            updated_supplier_framework_lot_rates.each do |rate|
+              expect(rate.rate).to eq(234567)
+            end
+          end
+        end
+
+        context 'when it is invalid' do
+          let(:rates) { Position.where(lot_id: "RM6309.#{lot_number}").pluck(:id).index_with { '' } }
+
+          render_views
+
+          it 'has errors on the model' do
+            assigns(:supplier_framework_lot_rates).each_value do |supplier_framework_lot_rate|
+              expect(supplier_framework_lot_rate.errors).to be_present
+            end
           end
 
           it 'renders section partial template' do

@@ -1,6 +1,6 @@
 Feature: Legal Panel for Government - Admin - Supplier lot data - Lot 4a - View rates
 
-  Scenario: Rates
+  Background: Go to rates
     Given I sign in as an admin for the 'RM6360' framework in 'legal panel for government'
     And I click on 'Manage supplier data'
     Then I am on the 'Supplier data' page
@@ -140,3 +140,61 @@ Feature: Legal Panel for Government - Admin - Supplier lot data - Lot 4a - View 
       | Legal Project Managers                                             | £112.50 |
       | Analyst, Associate Analyst, Research Associate, Research Officer   | £120.00 |
       | Modeller, Econometrician, Analyst, Associate Analyst               | £150.00 |
+
+  Scenario Outline: Rates validation
+    Given I click on 'Change (Supplier rates for Paraguay)'
+    Then I am on the 'Edit rates for Paraguay' page
+    And the caption is 'DICKI, QUITZON AND KUB'
+    Then I enter the following rates into the form:
+      | Legal Director/Counsel or equivalent | <rate> |
+    And I click on 'Save and return'
+    Then I am on the 'Edit rates for Paraguay' page
+    And I should see the following error messages:
+      | <error_message> |
+
+    Examples:
+      | rate        | error_message                                            |
+      |             | You must enter a value for this rate                     |
+      | Not a rate  | The rate must be formatted as money, for example £350.50 |
+      | 55.5        | The rate must be formatted as money, for example £350.50 |
+      | 10000000.00 | The rate must be less than £1,000,000                    |
+
+  Scenario Outline: Set rates
+    Given I click on 'Change (Supplier rates for <country>)'
+    Then I am on the 'Edit rates for <country>' page
+    And the caption is 'DICKI, QUITZON AND KUB'
+    Then I enter the following rates into the form:
+      | Senior Counsel, Senior Partner (20 years +PQE)                              | 1        |
+      | Partner                                                                     | 10000.00 |
+      | Legal Director/Counsel or equivalent                                        | 1000.00  |
+      | Senior Solicitor, Senior Associate/Senior Legal Executive                   | 1000.00  |
+      | Solicitor, Associate/Legal Executive                                        | 100.90   |
+      | NQ Solicitor/Associate, Junior Solicitor/Associate/Legal Executive          | 123      |
+      | Trainee/Legal Apprentice                                                    | 456.78   |
+      | Paralegal, Legal Assistant                                                  | 106      |
+      | Legal Project Managers                                                      | 405.44   |
+      | Senior Analyst (optional)                                                   |          |
+      | Analyst, Associate Analyst, Research Associate, Research Officer (optional) |          |
+      | Senior Modeller, Senior Econometrician, Senior Analyst (optional)           | 879.56   |
+      | Modeller, Econometrician, Analyst, Associate Analyst (optional)             | 125.45   |
+    And I click on 'Save and return'
+    Then I am on the 'Lot 4a - Trade and Investment Negotiations View rates' page
+    And the caption is 'DICKI, QUITZON AND KUB'
+    And the rates in the '<country>' table are:
+      | Grade                                                              | Hourly     |
+      | Senior Counsel, Senior Partner (20 years +PQE)                     | £1.00      |
+      | Partner                                                            | £10,000.00 |
+      | Legal Director/Counsel or equivalent                               | £1,000.00  |
+      | Senior Solicitor, Senior Associate/Senior Legal Executive          | £1,000.00  |
+      | Solicitor, Associate/Legal Executive                               | £100.90    |
+      | NQ Solicitor/Associate, Junior Solicitor/Associate/Legal Executive | £123.00    |
+      | Trainee/Legal Apprentice                                           | £456.78    |
+      | Paralegal, Legal Assistant                                         | £106.00    |
+      | Legal Project Managers                                             | £405.44    |
+      | Senior Modeller, Senior Econometrician, Senior Analyst             | £879.56    |
+      | Modeller, Econometrician, Analyst, Associate Analyst               | £125.45    |
+
+    Examples:
+      | country        |
+      | Paraguay       |
+      | United Kingdom |

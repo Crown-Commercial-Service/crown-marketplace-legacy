@@ -167,6 +167,15 @@ en:
           attributes:
             postcode:
               invalid_postcode: Enter a valid postcode
+        supplier/framework/lot/rate:
+          attributes:
+            rate:
+              invalid_format_money: The rate must be formatted as money, for example £350.50
+              invalid_format_percentage: The rate must be formatted as a percentage, for example 50.5%
+              less_than_100: The rate must be less than 100%
+              less_than_1000000: The rate must be less than £1,000,000
+              not_a_number: You must enter a value for this rate
+              update_invalid: Something went wrong when updating the rate. If this problem persist contact a developer
   base:
     passwords:
       edit:
