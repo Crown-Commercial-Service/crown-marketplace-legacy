@@ -4,10 +4,12 @@
     <%= govuk_tag(t('sme'), 'grey', classes: 'ccs-tag') %>
   <% end %>
 </div>
-<div class="ccs-results-list__prospectus">
-  <% if prospectus_link_a_url?(supplier_framework, lot) %>
-    <%= link_to prospectus_link(supplier_framework, lot), url_formatter(prospectus_link(supplier_framework, lot)), class: 'govuk-link' %>
-  <% else %>
-    <p><%= prospectus_link(supplier_framework, lot) %></p>
-  <% end %>
-</div>
+<% if prospectus_link_present?(supplier_framework, lot) %>
+  <div class="ccs-results-list__prospectus">
+    <% if prospectus_link_a_url?(supplier_framework, lot) %>
+      <%= link_to prospectus_link(supplier_framework, lot), url_formatter(prospectus_link(supplier_framework, lot)), class: 'govuk-link' %>
+    <% else %>
+      <p><%= prospectus_link(supplier_framework, lot) %></p>
+    <% end %>
+  </div>
+<% end %>

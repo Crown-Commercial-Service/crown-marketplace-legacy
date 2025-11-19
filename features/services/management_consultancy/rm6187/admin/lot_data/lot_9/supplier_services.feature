@@ -1,4 +1,4 @@
-Feature: Management Consultancy - Admin - Supplier lot data - Lot 9 - Services
+Feature: Management Consultancy - Admin - Supplier lot data - Lot 9 - View services
 
   Scenario: Services
     Given I sign in as an admin for the 'RM6187' framework in 'management consultancy'
@@ -8,26 +8,25 @@ Feature: Management Consultancy - Admin - Supplier lot data - Lot 9 - Services
     Then I am on the 'Supplier lot data' page
     And the caption is 'SCHUSTER, LEHNER AND KSHLERIN'
     And I click on 'View services' for the lot 'Lot 9 - Environmental Sustainability and Socio-economic Development'
-    Then I am on the 'Lot 9 - Environmental Sustainability and Socio-economic Development - Services' page
+    Then I am on the 'Lot 9 - Environmental Sustainability and Socio-economic Development View services' page
     And the caption is 'SCHUSTER, LEHNER AND KSHLERIN'
     And the supplier should be assigned to the 'services' as follows:
-      | Service name                                 | Has service? |
-      | Air quality                                  | Yes          |
-      | Carbon management (including reporting)      | Yes          |
-      | Climate change adaptation and/or mitigation  | Yes          |
-      | Coastal                                      | Yes          |
-      | Contaminated land                            | Yes          |
-      | Due diligence                                | Yes          |
-      | Ecology and biodiversity                     | Yes          |
-      | Environmental planning and protection        | Yes          |
-      | Equality analysis                            | Yes          |
-      | Feasibility studies and/or impact assessment | Yes          |
-      | Monitoring environmental indicators          | Yes          |
-      | Natural capital                              | Yes          |
-      | Natural resource management                  | Yes          |
-      | Policy development and/or implementation     | Yes          |
-      | Pollution control (including noise)          | Yes          |
-      | Regulatory compliance                        | Yes          |
-      | Risk management                              | Yes          |
-      | Social value                                 | Yes          |
-      | Sustainability                               | Yes          |
+      | Air quality                                  |
+      | Carbon management (including reporting)      |
+      | Climate change adaptation and/or mitigation  |
+      | Coastal                                      |
+      | Contaminated land                            |
+      | Due diligence                                |
+      | Ecology and biodiversity                     |
+      | Environmental planning and protection        |
+      | Equality analysis                            |
+      | Feasibility studies and/or impact assessment |
+      | Monitoring environmental indicators          |
+      | Natural capital                              |
+      | Natural resource management                  |
+      | Policy development and/or implementation     |
+      | Pollution control (including noise)          |
+      | Regulatory compliance                        |
+      | Risk management                              |
+      | Social value                                 |
+      | Sustainability                               |

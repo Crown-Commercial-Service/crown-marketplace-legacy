@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.4.7'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 8.0.3'
+gem 'rails', '~> 8.0.4'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
@@ -47,7 +47,7 @@ gem 'phonejack'
 gem 'holidays'
 gem 'virtus'
 
-gem 'rollbar', '~> 3.6.2'
+gem 'rollbar', '~> 3.7.0'
 
 # for dfe sign in
 gem 'omniauth', '~> 2.1.4'
@@ -60,7 +60,7 @@ gem 'json-jwt', '>= 1.11.0'
 gem 'devise', '~> 4.9.4'
 
 # for cognito
-gem 'aws-sdk-cognitoidentityprovider', '~> 1.130.0'
+gem 'aws-sdk-cognitoidentityprovider', '~> 1.131.0'
 
 # for pagination
 gem 'kaminari', '~> 1.2.2'
@@ -80,7 +80,7 @@ gem 'jsonpath', '~> 1.1.5'
 gem 'aasm', '~> 5.5'
 
 # for running background jobs
-gem 'sidekiq', '~> 8.0.8'
+gem 'sidekiq', '~> 8.0.9'
 gem 'sinatra', '~> 4.2.1', require: false
 gem 'slim', '~> 5.2.1'
 gem 'sidekiq-cron'
@@ -135,7 +135,7 @@ group :development, :test do
   gem 'wdm', '>= 0.1.0', platforms: %i[windows]
   gem 'tzinfo-data', platforms: %i[windows]
   gem 'faker', '~> 3.5.2'
-  gem 'brakeman', '~> 7.1.0'
+  gem 'brakeman', '~> 7.1.1'
 end
 
 group :development do

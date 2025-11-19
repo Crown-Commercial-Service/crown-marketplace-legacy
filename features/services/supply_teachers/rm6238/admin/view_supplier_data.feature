@@ -70,41 +70,41 @@ Feature: Supply Teachers - Admin - View supplier data pages
     Then I am on the 'Supplier lot data' page
     And the caption is 'BARTOLETTI, KOEPP AND NIENOW'
     And I should see the following details in the summary for the lot 'Lot 1 - Direct provision':
-      | Lot status | Active        |
+      | Lot status | Enabled       |
       | Rates      | View rates    |
       | Branches   | View branches |
     And I should see the following details in the summary for the lot 'Lot 2.1 - Master vendor (less than 2.5 million)':
-      | Lot status | Inactive |
+      | Lot status | Not on lot |
     And I should see the following details in the summary for the lot 'Lot 2.2 - Master vendor (more than 2.5 million)':
-      | Lot status | Inactive |
+      | Lot status | Not on lot |
     And I should see the following details in the summary for the lot 'Lot 4 - Education technology platforms':
-      | Lot status | Inactive |
+      | Lot status | Not on lot |
 
   Scenario: Lot status - Lot 2
     And I click on 'View lot data' for "O'HARA LLC"
     Then I am on the 'Supplier lot data' page
     And the caption is "O'HARA LLC"
     And I should see the following details in the summary for the lot 'Lot 1 - Direct provision':
-      | Lot status | Inactive |
+      | Lot status | Not on lot |
     And I should see the following details in the summary for the lot 'Lot 2.1 - Master vendor (less than 2.5 million)':
-      | Lot status | Active     |
+      | Lot status | Enabled    |
       | Rates      | View rates |
     And I should see the following details in the summary for the lot 'Lot 2.2 - Master vendor (more than 2.5 million)':
-      | Lot status | Active     |
+      | Lot status | Enabled    |
       | Rates      | View rates |
     And I should see the following details in the summary for the lot 'Lot 4 - Education technology platforms':
-      | Lot status | Inactive |
+      | Lot status | Not on lot |
 
   Scenario: Lot status - Lot 4
     And I click on 'View lot data' for 'BOYLE, KOEPP AND TURNER'
     Then I am on the 'Supplier lot data' page
     And the caption is 'BOYLE, KOEPP AND TURNER'
     And I should see the following details in the summary for the lot 'Lot 1 - Direct provision':
-      | Lot status | Inactive |
+      | Lot status | Not on lot |
     And I should see the following details in the summary for the lot 'Lot 2.1 - Master vendor (less than 2.5 million)':
-      | Lot status | Inactive |
+      | Lot status | Not on lot |
     And I should see the following details in the summary for the lot 'Lot 2.2 - Master vendor (more than 2.5 million)':
-      | Lot status | Inactive |
+      | Lot status | Not on lot |
     And I should see the following details in the summary for the lot 'Lot 4 - Education technology platforms':
-      | Lot status | Active     |
+      | Lot status | Enabled    |
       | Rates      | View rates |

@@ -9,6 +9,11 @@ module Pages
     elements :row_items, 'td'
   end
 
+  class SummarySection < SitePrism::Section
+    element :heading, 'p'
+    elements :items, 'ul > li'
+  end
+
   class Admin < SitePrism::Page
     element :supplier_search_input, '#table_filter'
 
@@ -27,21 +32,21 @@ module Pages
       sections :lot_info, SummaryList, '.govuk-summary-list > .govuk-summary-list__row'
     end
 
-    sections :supplier_section_tables, '.govuk-table' do
-      element :caption, '.govuk-table__caption'
+    sections :supplier_section_summaries, '.govuk-summary-card' do
+      element :title, '.govuk-summary-card__title'
+      element :empty_message, 'p.govuk-body'
+      sections :section_items, SummarySection, '.govuk-summary-card__content > .section-list-group'
+    end
+
+    sections :supplier_rates_tables, '.govuk-summary-card' do
+      element :title, '.govuk-summary-card__title'
       elements :headings, '.govuk-table__head > .govuk-table__row > th'
       sections :rows, TableRow, '.govuk-table__body > .govuk-table__row'
     end
 
-    sections :supplier_rates_tables, '.ccs-rates-table' do
-      element :caption, '.govuk-table__caption'
-      elements :headings, '.govuk-table__head > .govuk-table__row > th'
-      sections :rows, TableRow, '.govuk-table__body > .govuk-table__row'
-    end
-
-    sections :supplier_branches_tables, '#agency-branches' do
-      elements :headings, '.govuk-table__head > .govuk-table__row > th'
-      sections :rows, TableRow, '.govuk-table__body > .govuk-table__row'
+    sections :supplier_branches_summaries, '.govuk-summary-card' do
+      element :title, '.govuk-summary-card__title'
+      sections :rows, SummaryList, '.govuk-summary-list__row'
     end
   end
 end

@@ -62,28 +62,28 @@ Feature: Management Consultancy - Admin - View supplier data pages
     Then I am on the 'Supplier lot data' page
     And the caption is 'BATZ, BROWN AND BREITENBERG'
     And I should see the following details in the summary for the lot 'Lot 1 - Business':
-      | Lot status | Active        |
+      | Lot status | Enabled       |
       | Services   | View services |
       | Rates      | View rates    |
     And I should see the following details in the summary for the lot 'Lot 2 - Strategy and Policy':
-      | Lot status | Inactive |
+      | Lot status | Not on lot |
     And I should see the following details in the summary for the lot 'Lot 3 - Complex and Transformation':
-      | Lot status | Inactive |
+      | Lot status | Not on lot |
     And I should see the following details in the summary for the lot 'Lot 4 - Finance':
-      | Lot status | Inactive |
+      | Lot status | Not on lot |
     And I should see the following details in the summary for the lot 'Lot 5 - HR':
-      | Lot status | Inactive |
+      | Lot status | Not on lot |
     And I should see the following details in the summary for the lot 'Lot 6 - Procurement and Supply Chain':
-      | Lot status | Active        |
+      | Lot status | Enabled       |
       | Services   | View services |
       | Rates      | View rates    |
     And I should see the following details in the summary for the lot 'Lot 7 - Health, Social Care and Community':
-      | Lot status | Active        |
+      | Lot status | Enabled       |
       | Services   | View services |
       | Rates      | View rates    |
     And I should see the following details in the summary for the lot 'Lot 8 - Infrastructure including Transport':
-      | Lot status | Inactive |
+      | Lot status | Not on lot |
     And I should see the following details in the summary for the lot 'Lot 9 - Environmental Sustainability and Socio-economic Development':
-      | Lot status | Active        |
+      | Lot status | Enabled       |
       | Services   | View services |
       | Rates      | View rates    |

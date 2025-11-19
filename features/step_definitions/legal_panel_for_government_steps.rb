@@ -35,15 +35,15 @@ Given('I {string} reviewed the suppliers’ prospectus') do |option|
   end
 end
 
-Given('I continue to the comparison page') do
-  legal_panel_for_government_page.continue_button.click
-
-  # For whatever reason this step is a bit flakey so we need to wait to make sure the page changes
+# For whatever reason this step is a bit flakey so we need to wait to make sure the page changes
+Given('I am on the Compare supplier rates page') do
   5.times do
-    sleep 0.5 if @javascript
-
     break if page.find('h1').has_content?('Compare supplier rates')
+
+    sleep 0.5 if @javascript
   end
+
+  step "I am on the 'Compare supplier rates' page"
 end
 
 def add_requirement_dates(section, month, year)

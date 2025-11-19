@@ -42,16 +42,20 @@ end
 
 Then('the supplier should be assigned to the {string} as follows:') do |_section, section_items|
   admin_check_section_items(
-    admin_page.supplier_section_tables.first,
+    admin_page.supplier_section_summaries.first.section_items.first,
     section_items
   )
 end
 
 Then('the supplier should be assigned to the {string} in {string} as follows:') do |_section, category, section_items|
   admin_check_section_items(
-    admin_page.supplier_section_tables.find { |element| element.caption.text == category },
+    admin_page.supplier_section_summaries.first.section_items.find { |section| section.heading.text == category },
     section_items
   )
+end
+
+Then('the supplier should not be assigned any {string} with the following message:') do |_section, empty_message|
+  expect(admin_page.supplier_section_summaries.first.empty_message).to have_content(empty_message.raw.flatten.first)
 end
 
 Then('the rates in the table are:') do |rates|
@@ -63,14 +67,21 @@ end
 
 Then('the rates in the {string} table are:') do |country_name, rates|
   admin_check_rates(
-    admin_page.supplier_rates_tables.find { |element| element.caption.text == country_name },
+    admin_page.supplier_rates_tables.find { |element| element.title.text == "Supplier rates for #{country_name}" },
+    rates
+  )
+end
+
+Then('I enter the following rates into the form:') do |rates|
+  admin_set_rates(
+    admin_page.supplier_rates_tables.first,
     rates
   )
 end
 
 Then('the branches in the table are:') do |branches|
   admin_check_branches(
-    admin_page.supplier_branches_tables.first,
+    admin_page.supplier_branches_summaries,
     branches
   )
 end
@@ -79,7 +90,7 @@ Then('I should see rate tables for the following jurisdictions:') do |jurisdicti
   expect(admin_page.supplier_rates_tables.length).to eq(jurisdictions.raw.flatten.length)
 
   admin_page.supplier_rates_tables.zip(jurisdictions.raw.flatten).each do |table, jurisdiction|
-    expect(table.caption).to have_content(jurisdiction)
+    expect(table.title).to have_content(jurisdiction)
   end
 end
 
@@ -109,17 +120,14 @@ def admin_check_table_rows(table, items)
   end
 end
 
-def admin_check_section_items(table, section_items)
-  admin_check_table_headings(table, section_items)
-  table_rows = table.rows
-  rows = section_items.raw[1..]
+def admin_check_section_items(summary, section_items)
+  items = summary.items
+  expected_items = section_items.raw.flatten
 
-  expect(table_rows.length).to eq(rows.length)
+  expect(items.length).to eq(expected_items.length)
 
-  table_rows.zip(rows).each do |row, expected_items|
-    row.row_items.zip(expected_items) do |row_item, expected_value|
-      expect(row_item).to have_content(expected_value)
-    end
+  items.zip(expected_items).each do |item, expected_value|
+    expect(item).to have_content(expected_value)
   end
 end
 
@@ -128,6 +136,33 @@ def admin_check_rates(table, rates)
   admin_check_table_rows(table, rates)
 end
 
-def admin_check_branches(...)
-  admin_check_rates(...)
+def admin_set_rates(table, items)
+  table_rows = table.rows
+
+  items.raw.each do |item|
+    position = item[0]
+    rates = item[1..]
+
+    table_rows.find { |row| row.row_head.first('label').text == position }.row_items.zip(rates).each do |cell, rate|
+      cell.find('input').set(rate)
+    end
+  end
 end
+
+# rubocop:disable Metrics/AbcSize
+def admin_check_branches(summaries, branch_items)
+  branches = branch_items.raw[1..].map { |branch_row| branch_items.raw[0].zip(branch_row).to_h }
+
+  expect(summaries.length).to eq(branches.length)
+
+  summaries.zip(branches).each do |summary, branch|
+    expect(summary.title).to have_content(branch['Branch'])
+    expect(summary.rows.length).to eq(branch.length)
+
+    summary.rows.zip(branch).each do |summary_row, (expected_key, expected_value)|
+      expect(summary_row.key).to have_content(expected_key)
+      expect(summary_row.value).to have_content(expected_value)
+    end
+  end
+end
+# rubocop:enable Metrics/AbcSize

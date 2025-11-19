@@ -8,7 +8,7 @@ Feature: Supply Teachers - Admin - Supplier lot data - Lot 1 - Branches
     Then I am on the 'Supplier lot data' page
     And the caption is 'BARTOLETTI, KOEPP AND NIENOW'
     And I click on 'View branches' for the lot 'Lot 1 - Direct provision'
-    Then I am on the 'Lot 1 - Direct provision - Branches' page
+    Then I am on the 'Lot 1 - Direct provision View branches' page
     And the caption is 'BARTOLETTI, KOEPP AND NIENOW'
     And the branches in the table are:
       | Branch                       | Contact name    | Contact email                | Phone number          | Address                                                   |

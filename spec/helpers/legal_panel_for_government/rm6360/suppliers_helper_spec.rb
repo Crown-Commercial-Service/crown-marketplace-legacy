@@ -21,6 +21,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::SuppliersHelper do
           ['RM6360.1.5', 'junior'],
           ['RM6360.1.6', 'trainee'],
           ['RM6360.1.7', 'paralegal'],
+          ['RM6360.1.8', 'legal_project_manager'],
         ]
       ],
       [
@@ -33,6 +34,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::SuppliersHelper do
           ['RM6360.2.5', 'junior'],
           ['RM6360.2.6', 'trainee'],
           ['RM6360.2.7', 'paralegal'],
+          ['RM6360.2.8', 'legal_project_manager'],
         ]
       ],
       [
@@ -45,6 +47,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::SuppliersHelper do
           ['RM6360.3.5', 'junior'],
           ['RM6360.3.6', 'trainee'],
           ['RM6360.3.7', 'paralegal'],
+          ['RM6360.3.8', 'legal_project_manager'],
         ]
       ],
       [
@@ -58,10 +61,11 @@ RSpec.describe LegalPanelForGovernment::RM6360::SuppliersHelper do
           ['RM6360.4a.6', 'junior'],
           ['RM6360.4a.7', 'trainee'],
           ['RM6360.4a.8', 'paralegal'],
-          ['RM6360.4a.9', 'senior_analyst'],
-          ['RM6360.4a.10', 'analyst'],
-          ['RM6360.4a.11', 'senior_modeller'],
-          ['RM6360.4a.12', 'modeller'],
+          ['RM6360.4a.9', 'legal_project_manager'],
+          ['RM6360.4a.10', 'senior_analyst'],
+          ['RM6360.4a.11', 'analyst'],
+          ['RM6360.4a.12', 'senior_modeller'],
+          ['RM6360.4a.13', 'modeller'],
         ]
       ],
       [
@@ -75,10 +79,11 @@ RSpec.describe LegalPanelForGovernment::RM6360::SuppliersHelper do
           ['RM6360.4b.6', 'junior'],
           ['RM6360.4b.7', 'trainee'],
           ['RM6360.4b.8', 'paralegal'],
-          ['RM6360.4b.9', 'senior_analyst'],
-          ['RM6360.4b.10', 'analyst'],
-          ['RM6360.4b.11', 'senior_modeller'],
-          ['RM6360.4b.12', 'modeller'],
+          ['RM6360.4b.9', 'legal_project_manager'],
+          ['RM6360.4b.10', 'senior_analyst'],
+          ['RM6360.4b.11', 'analyst'],
+          ['RM6360.4b.12', 'senior_modeller'],
+          ['RM6360.4b.13', 'modeller'],
         ]
       ],
       [
@@ -92,10 +97,11 @@ RSpec.describe LegalPanelForGovernment::RM6360::SuppliersHelper do
           ['RM6360.4c.6', 'junior'],
           ['RM6360.4c.7', 'trainee'],
           ['RM6360.4c.8', 'paralegal'],
-          ['RM6360.4c.9', 'senior_analyst'],
-          ['RM6360.4c.10', 'analyst'],
-          ['RM6360.4c.11', 'senior_modeller'],
-          ['RM6360.4c.12', 'modeller'],
+          ['RM6360.4c.9', 'legal_project_manager'],
+          ['RM6360.4c.10', 'senior_analyst'],
+          ['RM6360.4c.11', 'analyst'],
+          ['RM6360.4c.12', 'senior_modeller'],
+          ['RM6360.4c.13', 'modeller'],
         ]
       ],
       [
@@ -108,6 +114,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::SuppliersHelper do
           ['RM6360.5.5', 'junior'],
           ['RM6360.5.6', 'trainee'],
           ['RM6360.5.7', 'paralegal'],
+          ['RM6360.5.8', 'legal_project_manager'],
         ]
       ]
     ].each do |lot_number, expected_result|

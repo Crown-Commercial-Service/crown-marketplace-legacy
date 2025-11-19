@@ -213,9 +213,9 @@ module LegalPanelForGovernment
         OUTPUT_PATH = './tmp/test_supplier_other_lots_rate_cards_file.xlsx'.freeze
 
         SHEETS = ['Lot 1', 'Lot 2', 'Lot 3', 'Lot 5',].freeze
-        HEADERS_1 = [nil, 'Position:', 'Partner', 'Legal Director/Counsel or equivalent', 'Senior Solicitor, Senior Associate/Senior Legal Executive', 'Solicitor, Associate/Legal Executive', 'NQ Solicitor/Associate, Junior Solicitor/Associate/Legal Executive', 'Trainee/Legal Apprentice', 'Paralegal,Legal Assistant'].freeze
-        HEADERS_2 = ['Supplier name', 'DUNS', 'Hourly rate', 'Hourly rate', 'Hourly rate', 'Hourly rate', 'Hourly rate', 'Hourly rate', 'Hourly rate'].freeze
-        PRICES = [1458, 1247, 1036, 825, 614, 403].freeze
+        HEADERS_1 = [nil, 'Position:', 'Partner', 'Legal Director/Counsel or equivalent', 'Senior Solicitor, Senior Associate/Senior Legal Executive', 'Solicitor, Associate/Legal Executive', 'NQ Solicitor/Associate, Junior Solicitor/Associate/Legal Executive', 'Trainee/Legal Apprentice', 'Paralegal,Legal Assistant', 'Legal Project Manager'].freeze
+        HEADERS_2 = ['Supplier name', 'DUNS', 'Hourly rate', 'Hourly rate', 'Hourly rate', 'Hourly rate', 'Hourly rate', 'Hourly rate', 'Hourly rate', 'Hourly rate'].freeze
+        PRICES = [1789, 1458, 1247, 1036, 825, 614, 403, 212].freeze
 
         def self.sheets_with_extra_headers(sheets_with_extra_headers)
           self::SHEETS.map do |sheet|
@@ -249,8 +249,10 @@ module LegalPanelForGovernment
 
       class SupplierLot4RateCardsFile < FileImporterHelper
         def initialize(**options)
-          options[:sheets] ||= self.class::SHEETS
-          options[:headers] ||= [[self.class::HEADERS_1, self.class::HEADERS_2]] * options[:sheets].count
+          options[:sheets] ||= self.class::SHEETS.map { |sheet_name| "Lot #{self.class::LOT_NUMBER} #{sheet_name}" }
+          options[:headers] ||= options[:sheets].map { |sheet_name| HEADERS[sheet_name[7..]] || [HEADERS_1_1, HEADERS_1_2] }
+
+          @jurisdiction_names = Jurisdiction.non_core.pluck(:mapping_name)
 
           super
         end
@@ -261,17 +263,29 @@ module LegalPanelForGovernment
           end
         end
 
-        SHEETS = ['Senior Counsel', 'Partner', 'Legal Director', 'Senior Solicitor', 'Solicitor', 'NQ Solicitor', 'Trainee', 'Paralegal', 'Senior Analyst', 'Analyst', 'Senior Modeller', 'Modeller'].freeze
-        HEADERS_1 = ['Role', 'Jurisdiction:', 'Core', 'Afghanistan', 'Åland Islands', 'Albania', 'Algeria', 'American Samoa', 'Andorra', 'Angola', 'Anguilla', 'Antarctica', 'Antigua and Barbuda', 'Argentina', 'Armenia', 'Aruba', 'Australia', 'Austria', 'Azerbaijan', 'Bahamas', 'Bahrain', 'Bangladesh', 'Barbados', 'Belarus', 'Belize', 'Benin', 'Bermuda', 'Bhutan', 'Bolivia (Plurinational State of)', 'Bonaire, Sint Eustatius and Saba', 'Bosnia and Herzegovina', 'Botswana', 'Bouvet Island', 'Brazil', 'British Indian Ocean Territory', 'Brunei', 'Bulgaria', 'Burkina Faso', 'Burundi', 'Cabo Verde', 'Cambodia', 'Cameroon', 'Cayman Islands', 'Central African Republic', 'Chad', 'Chile', 'China', 'Christmas Island', 'Cocos (Keeling) Islands', 'Colombia', 'Comoros', 'Congo', 'Congo, Democratic Republic of the', 'Cook Islands', 'Costa Rica', "Côte d'Ivoire", 'Croatia', 'Cuba', 'Curaçao', 'Cyprus', 'Czechia', 'Denmark', 'Djibouti', 'Dominica', 'Dominican Republic', 'Ecuador', 'Egypt', 'El Salvador', 'Equatorial Guinea', 'Eritrea', 'Estonia', 'Eswatini', 'Ethiopia', 'Falkland Islands (Malvinas)', 'Faroe Islands', 'Fiji', 'Finland', 'French Guiana', 'French Polynesia', 'French Southern Territories', 'Gabon', 'Gambia', 'Georgia', 'Ghana', 'Gibraltar', 'Greece', 'Greenland', 'Grenada', 'Guadeloupe', 'Guam', 'Guatemala', 'Guernsey', 'Guinea', 'Guinea-Bissau', 'Guyana', 'Haiti', 'Heard Island and McDonald Islands', 'Holy See', 'Honduras', 'Hong Kong', 'Hungary', 'Iceland', 'India', 'Indonesia', 'Iran (Islamic Republic of)', 'Iraq', 'Isle of Man', 'Israel', 'Italy', 'Jamaica', 'Japan', 'Jersey', 'Jordan', 'Kazakhstan', 'Kenya', 'Kiribati', "Korea (Democratic People's Republic of)", 'Kuwait', 'Kyrgyzstan', "Lao People's Democratic Republic", 'Latvia', 'Lebanon', 'Lesotho', 'Liberia', 'Libya', 'Liechtenstein', 'Lithuania', 'Luxembourg', 'Macao', 'Madagascar', 'Malawi', 'Malaysia', 'Maldives', 'Mali', 'Malta', 'Marshall Islands', 'Martinique', 'Mauritania', 'Mauritius', 'Mayotte', 'Mexico', 'Micronesia (Federated States of)', 'Moldova, Republic of', 'Monaco', 'Mongolia', 'Montenegro', 'Montserrat', 'Morocco', 'Mozambique', 'Myanmar', 'Namibia', 'Nauru', 'Nepal', 'Netherlands', 'New Caledonia', 'New Zealand', 'Nicaragua', 'Niger', 'Nigeria', 'Niue', 'Norfolk Island', 'North Macedonia', 'Northern Mariana Islands', 'Norway', 'Oman', 'Pakistan', 'Palau', 'Palestine, State of', 'Panama', 'Papua New Guinea', 'Paraguay', 'Peru', 'Philippines', 'Pitcairn', 'Poland', 'Portugal', 'Puerto Rico', 'Qatar', 'Réunion', 'Romania', 'Russian Federation', 'Rwanda', 'Saint Barthélemy', 'Saint Helena, Ascension and Tristan da Cunha', 'Saint Kitts and Nevis', 'Saint Lucia', 'Saint Martin (French part)', 'Saint Pierre and Miquelon', 'Saint Vincent and the Grenadines', 'Samoa', 'San Marino', 'Sao Tome and Principe', 'Saudi Arabia', 'Senegal', 'Serbia', 'Seychelles', 'Sierra Leone', 'Sint Maarten (Dutch part)', 'Slovakia', 'Slovenia', 'Solomon Islands', 'Somalia', 'South Africa', 'South Georgia and the South Sandwich Islands', 'South Korea', 'South Sudan', 'Spain', 'Sri Lanka', 'Sudan', 'Suriname', 'Svalbard and Jan Mayen', 'Sweden', 'Syrian Arab Republic', 'Taiwan', 'Tajikistan', 'Tanzania, United Republic of', 'Thailand', 'Timor-Leste', 'Togo', 'Tokelau', 'Tonga', 'Trinidad and Tobago', 'Tunisia', 'Turkey', 'Turkmenistan', 'Turks and Caicos Islands', 'Tuvalu', 'UAE', 'Uganda', 'Ukraine', 'United States Minor Outlying Islands', 'Uruguay', 'Uzbekistan', 'Vanuatu', 'Venezuela (Bolivarian Republic of)', 'Viet Nam', 'Virgin Islands (British)', 'Virgin Islands (U.S.)', 'Wallis and Futuna', 'Western Sahara', 'Yemen', 'Zambia', 'Zimbabwe'].freeze
-        HEADERS_2 = (['Supplier name:', 'DUNS:'] + (['Hourly rate'] * 241)).freeze
-        PRICES = [1330, 1295, 1225, 1120, 700, 450].freeze
+        SHEETS = ['Mandatory Jurisdiction', 'Optional Jurisdiction'].freeze
+        HEADERS_1_1 = [nil, 'Senior Counsel', 'Position:', 'Partner', 'Legal Director/Counsel or equivalent', 'Senior Solicitor, Senior Associate/Senior Legal Executive', 'Solicitor, Associate/Legal Executive', 'NQ Solicitor/Associate, Junior Solicitor/Associate/Legal Executive', 'Trainee/Legal Apprentice', 'Paralegal,Legal Assistant', 'Legal Project Manager', 'Senior Analyst', 'Analyst', 'Senior Modeller', 'Modeller'].freeze
+        HEADERS_1_2 = ['Supplier name', 'DUNS', 'Hourly rate', 'Hourly rate', 'Hourly rate', 'Hourly rate', 'Hourly rate', 'Hourly rate', 'Hourly rate', 'Hourly rate', 'Hourly rate', 'Hourly rate', 'Hourly rate', 'Hourly rate', 'Hourly rate'].freeze
+        HEADERS_2_1 = [nil, nil, 'Position:', 'Senior Counsel', 'Partner', 'Legal Director/Counsel or equivalent', 'Senior Solicitor, Senior Associate/Senior Legal Executive', 'Solicitor, Associate/Legal Executive', 'NQ Solicitor/Associate, Junior Solicitor/Associate/Legal Executive', 'Trainee/Legal Apprentice', 'Paralegal,Legal Assistant', 'Legal Project Manager', 'Senior Analyst', 'Analyst', 'Senior Modeller', 'Modeller'].freeze
+        HEADERS_2_2 = ['Supplier name', 'DUNS', 'Country', 'Hourly rate', 'Hourly rate', 'Hourly rate', 'Hourly rate', 'Hourly rate', 'Hourly rate', 'Hourly rate', 'Hourly rate', 'Hourly rate', 'Hourly rate', 'Hourly rate', 'Hourly rate', 'Hourly rate'].freeze
+        HEADERS = {
+          'Mandatory Jurisdiction' => [
+            HEADERS_1_1,
+            HEADERS_1_2
+          ],
+          'Optional Jurisdiction' => [
+            HEADERS_2_1,
+            HEADERS_2_2
+          ]
+        }.freeze
+        PRICES = [1450, 1330, 1295, 1225, 1120, 700, 450, 375, 750, 1330, 725, 1900, 860].freeze
 
         def self.sheets_with_extra_headers(sheets_with_extra_headers)
           self::SHEETS.map do |sheet|
             if sheets_with_extra_headers.include? sheet
-              [HEADERS_1 + ['Extra'], HEADERS_2 + ['Extra']]
+              [HEADERS[sheet][0] + ['Extra'], HEADERS[sheet][1] + ['Extra']]
             else
-              [HEADERS_1, HEADERS_2]
+              [HEADERS[sheet][0], HEADERS[sheet][1]]
             end
           end
         end
@@ -284,49 +298,63 @@ module LegalPanelForGovernment
           prices = self.class::PRICES.dup
 
           @package.workbook.add_worksheet(name: sheet_name) do |sheet|
-            sheet.add_row header_row[0]
-            sheet.add_row header_row[1]
-            next if @empty
-
-            price = prices.rotate![0]
-
-            supplier_details.each_with_index do |supplier_detail, _index|
-              supplier_name = supplier_detail[0]
-              supplier_duns = @supplier_duns[supplier_name.to_sym] || supplier_detail[6]
-
-              sheet.add_row [supplier_name, supplier_duns] + selection.rotate!.map { |has_rate| has_rate ? price.to_s : '' }
+            if sheet_name.ends_with?('Mandatory Jurisdiction')
+              add_core_rate_card_sheet(sheet, header_row, supplier_details, prices)
+            else
+              add_non_core_rate_card_sheet(sheet, header_row, supplier_details, selection, prices)
             end
           end
         end
 
-        def supplier_names(supplier_details)
-          supplier_name_headings = { names: [], duns: [] }
+        def add_core_rate_card_sheet(sheet, header_row, supplier_details, prices)
+          sheet.add_row header_row[0]
+          sheet.add_row header_row[1]
 
-          supplier_details.each do |supplier_detail|
+          return if @empty
+
+          supplier_details.each_with_index do |supplier_detail, _index|
             supplier_name = supplier_detail[0]
             supplier_duns = @supplier_duns[supplier_name.to_sym] || supplier_detail[6]
 
-            supplier_name_headings[:names] << supplier_name
-            supplier_name_headings[:duns] << supplier_duns
+            sheet.add_row [supplier_name, supplier_duns] + prices.rotate!.map(&:to_s)
           end
+        end
 
-          supplier_name_headings
+        def add_non_core_rate_card_sheet(sheet, header_row, supplier_details, selection, prices)
+          sheet.add_row header_row[0]
+          sheet.add_row header_row[1]
+
+          return if @empty
+
+          supplier_details.each_with_index do |supplier_detail, _index|
+            supplier_name = supplier_detail[0]
+            supplier_duns = @supplier_duns[supplier_name.to_sym] || supplier_detail[6]
+
+            @jurisdiction_names.zip(selection.rotate!).each do |jurisdiction_name, has_jurisdiction|
+              next unless has_jurisdiction
+
+              sheet.add_row [supplier_name, supplier_duns, jurisdiction_name] + prices.rotate!.map(&:to_s)
+            end
+          end
         end
       end
 
       class SupplierLot4aRateCardsFile < SupplierLot4RateCardsFile
         OUTPUT_PATH = './tmp/test_supplier_lot_4a_rate_cards_file.xlsx'.freeze
-        BASE_SELECTION = [false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false].freeze
+        LOT_NUMBER = '4a'.freeze
+        BASE_SELECTION = [false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true].freeze
       end
 
       class SupplierLot4bRateCardsFile < SupplierLot4RateCardsFile
         OUTPUT_PATH = './tmp/test_supplier_lot_4b_rate_cards_file.xlsx'.freeze
-        BASE_SELECTION = [true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, false].freeze
+        LOT_NUMBER = '4b'.freeze
+        BASE_SELECTION = [true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false].freeze
       end
 
       class SupplierLot4cRateCardsFile < SupplierLot4RateCardsFile
         OUTPUT_PATH = './tmp/test_supplier_lot_4c_rate_cards_file.xlsx'.freeze
-        BASE_SELECTION = [true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, false, true].freeze
+        LOT_NUMBER = '4c'.freeze
+        BASE_SELECTION = [true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, true, true, false, false].freeze
       end
     end
   end
