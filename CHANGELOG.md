@@ -7,12 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [6.4.0] - 2025-11-19
+
 ### Changed
 
 - Update how the show pages are displayed to help with editing ([PR 2159](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2159))
 - Add `rate_type` and `mandatory` flag to the positions to improve data model ([PR 2170](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2170))
 - Updated LPfG spreadsheets for import ([PR 2171](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2171))
 - Updated LPfG live date ([PR 2179](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2179))
+- Allow some LPfG attributes to be blank ([PR 2186](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2186))
 
 ### Added
 

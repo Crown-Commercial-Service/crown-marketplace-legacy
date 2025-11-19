@@ -68,6 +68,7 @@
               text: mail_to(@supplier_framework.contact_detail.email, @supplier_framework.contact_detail.email, class: 'govuk-link')
             }
           },
+        ] + (@supplier_framework.contact_detail.telephone_number ? [
           {
             key: {
               text: t('.contact_details.phone_number')
@@ -75,8 +76,8 @@
             value: {
               text: @supplier_framework.contact_detail.telephone_number
             }
-          },
-        ] + (@supplier_framework.contact_detail.website ? [
+          }
+        ] : []) + (@supplier_framework.contact_detail.website ? [
           {
             key: {
               text: t('.contact_details.website')
