@@ -1,4 +1,4 @@
-Feature: Management Consultancy - Admin - Supplier lot data - Lot 8 - Services
+Feature: Management Consultancy - Admin - Supplier lot data - Lot 8 - View services
 
   Scenario: Services
     Given I sign in as an admin for the 'RM6309' framework in 'management consultancy'
@@ -8,20 +8,16 @@ Feature: Management Consultancy - Admin - Supplier lot data - Lot 8 - Services
     Then I am on the 'Supplier lot data' page
     And the caption is 'GOTTLIEB, HEATHCOTE AND JACOBI'
     And I click on 'View services' for the lot 'Lot 8 - Infrastructure'
-    Then I am on the 'Lot 8 - Infrastructure - Services' page
+    Then I am on the 'Lot 8 - Infrastructure View services' page
     And the caption is 'GOTTLIEB, HEATHCOTE AND JACOBI'
     And the supplier should be assigned to the 'services' as follows:
-      | Service name                                 | Has service? |
-      | Aerospace                                    | No           |
-      | Automotive                                   | No           |
-      | Aviation                                     | Yes          |
-      | Communications and technology infrastructure | Yes          |
-      | Defence                                      | No           |
-      | Highways                                     | Yes          |
-      | Nuclear                                      | Yes          |
-      | Ports and shipping                           | Yes          |
-      | Public transport                             | Yes          |
-      | Rail                                         | Yes          |
-      | Smart infrastructure                         | Yes          |
-      | Towns, cities and rural areas                | Yes          |
-      | Travel, transportation and logistics         | Yes          |
+      | Aviation                                     |
+      | Communications and technology infrastructure |
+      | Highways                                     |
+      | Nuclear                                      |
+      | Ports and shipping                           |
+      | Public transport                             |
+      | Rail                                         |
+      | Smart infrastructure                         |
+      | Towns, cities and rural areas                |
+      | Travel, transportation and logistics         |

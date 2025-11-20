@@ -52,10 +52,25 @@ en:
         publishing_data: Publishing data
         upload_progress: Upload progress
       lot_data:
+        edit:
+          heading:
+            branches: branch
+            caption: Lot %{lot_number} - %{lot_name}
+            heading: Edit %{section}
+            heading_with_country: Edit %{section} for %{country}
+            lot_status: lot status
+            rates: rates
+            services: service selection
+          lot_status:
+            question: Set supplier status on Lot %{lot_number} - %{lot_name}
+          rates:
+            hint: If the supplier does not supply the position, make the field blank
+            optional: "%{label} (optional)"
+          save_and_return: Save and return
+          services:
+            question: Select the services the supplier can offer
+            question_group: Select the services the supplier can offer (%{group})
         index:
-          enabled:
-            active: Active
-            inactive: Inactive
           heading: Supplier lot data
           supplier_lot_data_summary_list:
             link:
@@ -73,15 +88,26 @@ en:
               rates: Rates
               services: Services
         show:
+          add_html: Add<span class="govuk-visually-hidden"> (%{section})</span>
+          change_html: Change<span class="govuk-visually-hidden"> (%{section})</span>
           heading:
-            branches: Branches
-            heading: Lot %{lot_number} - %{lot_name} - %{section}
-            jurisdictions: Jurisdictions
-            rates: Rates
-            services: Services
+            branches: branches
+            caption: Lot %{lot_number} - %{lot_name}
+            heading: View %{section}
+            jurisdictions: jurisdictions
+            rates: rates
+            services: services
+          rates:
+            supplier_rates: Rates for the supplier
           services:
-            has_service: Has service?
-            service_name: Service name
+            no_services_offered: The supplier does not offer any services in this lot
+            services_supplier_offers: Services the supplier can offer
+        summary:
+          lot_status:
+            enabled:
+              disabled: Disabled
+              enabled: Enabled
+              not_on_lot: Not on lot
       reports:
         index:
           caption: "%{service_name} - %{framework}"

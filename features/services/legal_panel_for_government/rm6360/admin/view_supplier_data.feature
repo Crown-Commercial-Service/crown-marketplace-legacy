@@ -96,24 +96,24 @@ Feature: Legal Panel for Government - Admin - View supplier data pages
     Then I am on the 'Supplier lot data' page
     And the caption is 'ADAMS, WOLFF AND STROMAN'
     And I should see the following details in the summary for the lot 'Lot 1 - Core Legal Services':
-      | Lot status | Inactive |
+      | Lot status | Not on lot |
     And I should see the following details in the summary for the lot 'Lot 2 - Major Projects and Complex Advice':
-      | Lot status | Active        |
+      | Lot status | Enabled       |
       | Services   | View services |
       | Rates      | View rates    |
     And I should see the following details in the summary for the lot 'Lot 3 - Finance and High Risk/Innovation':
-      | Lot status | Inactive |
+      | Lot status | Not on lot |
     And I should see the following details in the summary for the lot 'Lot 4a - Trade and Investment Negotiations':
-      | Lot status    | Active             |
+      | Lot status    | Enabled            |
       | Services      | View services      |
-      | Rates         | View rates         |
       | Jurisdictions | View jurisdictions |
+      | Rates         | View rates         |
     And I should see the following details in the summary for the lot 'Lot 4b - International Trade Disputes':
-      | Lot status    | Active             |
+      | Lot status    | Enabled            |
       | Services      | View services      |
-      | Rates         | View rates         |
       | Jurisdictions | View jurisdictions |
+      | Rates         | View rates         |
     And I should see the following details in the summary for the lot 'Lot 4c - International Investment Disputes':
-      | Lot status | Inactive |
+      | Lot status | Not on lot |
     And I should see the following details in the summary for the lot 'Lot 5 - Rail Legal Services':
-      | Lot status | Inactive |
+      | Lot status | Not on lot |

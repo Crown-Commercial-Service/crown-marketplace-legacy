@@ -1,4 +1,4 @@
-Feature: Legal Panel for Government - Admin - Supplier lot data - Lot 2 - Rates
+Feature: Legal Panel for Government - Admin - Supplier lot data - Lot 2 - View rates
 
   Scenario: Rates
     Given I sign in as an admin for the 'RM6360' framework in 'legal panel for government'
@@ -8,7 +8,7 @@ Feature: Legal Panel for Government - Admin - Supplier lot data - Lot 2 - Rates
     Then I am on the 'Supplier lot data' page
     And the caption is 'CORMIER INC'
     And I click on 'View rates' for the lot 'Lot 2 - Major Projects and Complex Advice'
-    Then I am on the 'Lot 2 - Major Projects and Complex Advice - Rates' page
+    Then I am on the 'Lot 2 - Major Projects and Complex Advice View rates' page
     And the caption is 'CORMIER INC'
     And the rates in the 'United Kingdom' table are:
       | Grade                                                              | Hourly  |
@@ -19,3 +19,4 @@ Feature: Legal Panel for Government - Admin - Supplier lot data - Lot 2 - Rates
       | NQ Solicitor/Associate, Junior Solicitor/Associate/Legal Executive | £100.00 |
       | Trainee/Legal Apprentice                                           | £60.00  |
       | Paralegal, Legal Assistant                                         | £50.00  |
+      | Legal Project Managers                                             | £87.50  |

@@ -36,7 +36,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4a - Supplier
     Then I am on the 'Have you reviewed the suppliers’ prospectus to inform your down-selection?' page
     And I 'have not' reviewed the suppliers’ prospectus
     And I click on 'Continue'
-    Then I am on the 'Compare supplier rates' page
+    Then I am on the Compare supplier rates page
 
   Scenario: Check the supplier data - SME
     Given I click on "O'CONNER AND SONS"
@@ -50,6 +50,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4a - Supplier
     And the 'NQ Solicitor/Associate, Junior Solicitor/Associate/Legal Executive' hourly rate is '£140.00'
     And the 'Trainee/Legal Apprentice' hourly rate is '£84.00'
     And the 'Paralegal, Legal Assistant' hourly rate is '£70.00'
+    And the 'Legal Project Managers' hourly rate is '£131.25'
     And the 'Senior Analyst' hourly rate is '£175.00'
     And the 'Analyst, Associate Analyst, Research Associate, Research Officer' hourly rate is '£140.00'
     And the 'Senior Modeller, Senior Econometrician, Senior Analyst' hourly rate is '£210.00'
@@ -73,6 +74,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4a - Supplier
     And the 'NQ Solicitor/Associate, Junior Solicitor/Associate/Legal Executive' hourly rate is '£120.00'
     And the 'Trainee/Legal Apprentice' hourly rate is '£72.00'
     And the 'Paralegal, Legal Assistant' hourly rate is '£60.00'
+    And the 'Legal Project Managers' hourly rate is '£112.50'
     And the 'Senior Analyst' hourly rate is '£150.00'
     And the 'Analyst, Associate Analyst, Research Associate, Research Officer' hourly rate is '£120.00'
     And the 'Senior Modeller, Senior Econometrician, Senior Analyst' hourly rate is '£180.00'

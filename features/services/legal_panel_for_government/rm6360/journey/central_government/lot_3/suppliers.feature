@@ -33,7 +33,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 3 - Suppliers
     Then I am on the 'Have you reviewed the suppliers’ prospectus to inform your down-selection?' page
     And I 'have not' reviewed the suppliers’ prospectus
     And I click on 'Continue'
-    Then I am on the 'Compare supplier rates' page
+    Then I am on the Compare supplier rates page
 
   Scenario: Check the supplier data - SME
     Given I click on 'VEUM, TORPHY AND NOLAN'
@@ -46,6 +46,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 3 - Suppliers
     And the 'NQ Solicitor/Associate, Junior Solicitor/Associate/Legal Executive' hourly rate is '£120.00'
     And the 'Trainee/Legal Apprentice' hourly rate is '£72.00'
     And the 'Paralegal, Legal Assistant' hourly rate is '£60.00'
+    And the 'Legal Project Managers' hourly rate is '£105.00'
     And the contact details for the supplier are:
       | and_torphy_veum_nolan@brakus-treutel.test |
       | 567-179-1230                              |
@@ -64,6 +65,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 3 - Suppliers
     And the 'NQ Solicitor/Associate, Junior Solicitor/Associate/Legal Executive' hourly rate is '£140.00'
     And the 'Trainee/Legal Apprentice' hourly rate is '£84.00'
     And the 'Paralegal, Legal Assistant' hourly rate is '£70.00'
+    And the 'Legal Project Managers' hourly rate is '122.50'
     And the contact details for the supplier are:
       | lubowitz.and.tillman.goyette@stanton.test |
       | 659-663-3692                              |

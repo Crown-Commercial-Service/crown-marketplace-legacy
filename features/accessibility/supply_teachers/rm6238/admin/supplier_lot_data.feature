@@ -23,7 +23,7 @@ Feature: Supply Teachers - Admin - Supplier lot data - Lot data - Accessibility
     Then I am on the 'Supplier lot data' page
     And the caption is '<supplier_name>'
     And I click on 'View rates' for the lot '<lot_name>'
-    Then I am on the '<lot_name> - Rates' page
+    Then I am on the '<lot_name> View rates' page
     And the caption is '<supplier_name>'
     Then the page should pass the accessibility checks
 

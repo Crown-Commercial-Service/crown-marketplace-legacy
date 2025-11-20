@@ -1,4 +1,4 @@
-Feature: Legal services - Admin - Supplier lot data - Lot 2b - Rates
+Feature: Legal services - Admin - Supplier lot data - Lot 2b - View rates
 
   Scenario: Rates
     Given I sign in as an admin for the 'RM6240' framework in 'legal services'
@@ -8,7 +8,7 @@ Feature: Legal services - Admin - Supplier lot data - Lot 2b - Rates
     Then I am on the 'Supplier lot data' page
     And the caption is 'WEHNER, STEHR AND KULAS'
     And I click on 'View rates' for the lot 'Lot 2b - General service provision (Scotland)'
-    Then I am on the 'Lot 2b - General service provision - Rates' page
+    Then I am on the 'Lot 2b - General service provision View rates' page
     And the caption is 'WEHNER, STEHR AND KULAS'
     And the rates in the table are:
       | Position                                           | Hourly  |
