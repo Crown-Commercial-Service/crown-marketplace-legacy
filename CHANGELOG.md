@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Update CCS Frontend with the new linear CCS logo ([PR 2198](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2198))
+- Update CCS Frontend with the crown on the footer ([PR 2199](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2199))
 
 ## [6.4.0] - 2025-11-19
 
