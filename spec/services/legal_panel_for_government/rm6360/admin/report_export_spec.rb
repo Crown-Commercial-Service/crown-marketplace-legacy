@@ -133,9 +133,9 @@ RSpec.describe LegalPanelForGovernment::RM6360::Admin::ReportExport do
           [
             user_1.id,
             search.created_at.in_time_zone('London').strftime('%e %B %Y, %l:%M%P'),
-            '',
+            'Izuku Midoriya',
             'One for all',
-            '',
+            'izuku.midoriya@uahigh.ac.uk',
             'Deku',
             'Culture, Media and Sport',
             '9/2025',
@@ -162,9 +162,9 @@ RSpec.describe LegalPanelForGovernment::RM6360::Admin::ReportExport do
           [
             user_3.id,
             search.created_at.in_time_zone('London').strftime('%e %B %Y, %l:%M%P'),
-            '',
+            'Shoto Todoroki',
             'Half-Cold Half-Hot',
-            '',
+            'shoto.todoroki@uahigh.ac.uk',
             'Shoto',
             'Local Community and Housing',
             '11/2025',
