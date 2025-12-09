@@ -2,7 +2,7 @@ class Location
   attr_reader :postcode, :point
 
   def initialize(postcode)
-    @postcode = UKPostcode.parse(postcode)
+    @postcode = UKPostcode.parse(postcode.to_s)
     @point = Geocoding.new.point(postcode: @postcode.to_s) if @postcode.valid?
   end
 
