@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.4.7'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 8.0.4'
+gem 'rails', '~> 8.1.1'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
@@ -37,7 +37,7 @@ gem 'jbuilder', '~> 2.14'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'geocoder', '>= 1.6.1'
-gem 'activerecord-postgis-adapter', '~> 11.0.0'
+gem 'activerecord-postgis-adapter', '~> 11.1.1'
 gem 'activerecord-import', '~> 2.2.0', require: false
 gem 'uk_postcode'
 gem 'rubyzip', '>= 1.2.1'
@@ -60,13 +60,13 @@ gem 'json-jwt', '>= 1.11.0'
 gem 'devise', '~> 4.9.4'
 
 # for cognito
-gem 'aws-sdk-cognitoidentityprovider', '~> 1.131.0'
+gem 'aws-sdk-cognitoidentityprovider', '~> 1.132.0'
 
 # for pagination
 gem 'kaminari', '~> 1.2.2'
 
 # for pretty urls
-gem 'friendly_id', '~> 5.5.1'
+gem 'friendly_id', '~> 5.6.0'
 
 # aws s3 bucket access for postcode data
 gem 'aws-sdk-s3', '~> 1'
@@ -80,7 +80,7 @@ gem 'jsonpath', '~> 1.1.5'
 gem 'aasm', '~> 5.5'
 
 # for running background jobs
-gem 'sidekiq', '~> 8.0.9'
+gem 'sidekiq', '~> 8.0.10'
 gem 'sinatra', '~> 4.2.1', require: false
 gem 'slim', '~> 5.2.1'
 gem 'sidekiq-cron'
@@ -109,15 +109,15 @@ gem 'gov_uk_date_fields', '>= 4.2.0'
 gem 'date_validator', '>= 0.12.0'
 
 # Use CCS Frontend Helpers
-gem 'ccs-frontend_helpers', '~> 3.1.0'
+gem 'ccs-frontend_helpers', '~> 3.3.0'
 
 # Need to add Open SSL to fix bug in v3.3.0
-gem 'openssl', '~> 3.3.1'
+gem 'openssl', '~> 3.3.2'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri windows]
-  gem 'dotenv-rails', '~> 3.1.8'
+  gem 'dotenv-rails', '~> 3.2.0'
   gem 'factory_bot_rails', '>= 6.2.0'
   gem 'pry-rails'
   gem 'rails-controller-testing', '>= 1.0.5'
