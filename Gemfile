@@ -112,7 +112,7 @@ gem 'date_validator', '>= 0.12.0'
 gem 'ccs-frontend_helpers', '~> 3.3.0'
 
 # Need to add Open SSL to fix bug in v3.3.0
-gem 'openssl', '~> 3.3.2'
+gem 'openssl', '~> 4.0.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
