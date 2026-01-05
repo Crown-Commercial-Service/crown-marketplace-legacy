@@ -456,7 +456,11 @@ GEM
     parser (3.3.10.0)
       ast (~> 2.4.1)
       racc
-    pg (1.6.2)
+    pg (1.6.3-arm64-darwin)
+    pg (1.6.3-x64-mingw-ucrt)
+    pg (1.6.3-x86_64-darwin)
+    pg (1.6.3-x86_64-linux)
+    pg (1.6.3-x86_64-linux-musl)
     phonejack (1.2.0)
     poltergeist (1.18.1)
       capybara (>= 2.1, < 4)
