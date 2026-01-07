@@ -152,7 +152,7 @@ GEM
       debug_inspector (>= 0.0.1)
     bootsnap (1.20.1)
       msgpack (~> 1.2)
-    brakeman (7.1.1)
+    brakeman (7.1.2)
       racc
     builder (3.3.0)
     byebug (12.0.0)
@@ -766,7 +766,7 @@ DEPENDENCIES
   axe-core-capybara (>= 4.2.1)
   axe-core-cucumber (>= 4.2.1)
   bootsnap (>= 1.1.0)
-  brakeman (~> 7.1.1)
+  brakeman (~> 7.1.2)
   byebug
   cancancan (~> 3.6.1)
   capybara (>= 3.38.0)
