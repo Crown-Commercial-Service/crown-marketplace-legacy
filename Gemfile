@@ -109,7 +109,7 @@ gem 'gov_uk_date_fields', '>= 4.2.0'
 gem 'date_validator', '>= 0.12.0'
 
 # Use CCS Frontend Helpers
-gem 'ccs-frontend_helpers', '~> 3.3.0'
+gem 'ccs-frontend_helpers', '~> 3.4.0'
 
 # Need to add Open SSL to fix bug in v3.3.0
 gem 'openssl', '~> 4.0.0'
