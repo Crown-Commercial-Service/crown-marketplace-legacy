@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Update GOV.UK Frontend and CCS Frontend ([PR 2251](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2251))
+
 ## [6.5.0] - 2025-12-09
 
 ### Changed
