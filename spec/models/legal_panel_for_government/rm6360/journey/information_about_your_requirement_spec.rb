@@ -1,13 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe LegalPanelForGovernment::RM6360::Journey::InformationAboutYourRequirement do
-  subject(:step) { described_class.new(requirement_start_date_month:, requirement_start_date_year:, requirement_end_date_month:, requirement_end_date_year:, requirement_estimated_total_value:, ccs_can_contact_you:) }
+  subject(:step) { described_class.new(requirement_start_date_month:, requirement_start_date_year:, requirement_end_date_month:, requirement_end_date_year:, requirement_estimated_total_value:, replaces_existing_contract:, ccs_can_contact_you:) }
 
   let(:requirement_start_date_month) { '10' }
   let(:requirement_start_date_year) { '2025' }
   let(:requirement_end_date_month) { '10' }
   let(:requirement_end_date_year) { '2026' }
   let(:requirement_estimated_total_value) { 123_456 }
+  let(:replaces_existing_contract) { 'yes' }
   let(:ccs_can_contact_you) { 'yes' }
 
   describe 'validations' do
@@ -116,6 +117,15 @@ RSpec.describe LegalPanelForGovernment::RM6360::Journey::InformationAboutYourReq
       it 'is not valid and has the correct error message' do
         expect(step.valid?).to be false
         expect(step.errors[:requirement_estimated_total_value].first).to eq 'The estimated total value must be less than 1,000,000,000,000 (1 trillion)'
+      end
+    end
+
+    context 'when no replaces_existing_contract is provided' do
+      let(:replaces_existing_contract) { '' }
+
+      it 'is not valid and has the correct error message' do
+        expect(step).not_to be_valid
+        expect(step.errors[:replaces_existing_contract].first).to eq 'You must select an option'
       end
     end
 
