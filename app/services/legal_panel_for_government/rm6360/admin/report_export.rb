@@ -1,9 +1,10 @@
 class LegalPanelForGovernment::RM6360::Admin::ReportExport < ReportExport
   class << self
     def search_criteria_headers
-      ['Name', 'Job title', 'Email address', 'Organisation name', 'Organisation sector', 'Requirements start date', 'Requirements end date', 'Requirements estimated total value', 'Opted in to be contacted', 'Lot', 'Services', 'Countries']
+      ['Name', 'Job title', 'Email address', 'Organisation name', 'Organisation sector', 'Requirements start date', 'Requirements end date', 'Requirements estimated total value', 'Replaces existing contract', 'Opted in to be contacted', 'Lot', 'Services', 'Countries']
     end
 
+    # rubocop:disable Metrics/AbcSize
     def search_criteria_row(search)
       search_criteria = search.search_criteria
       buyer_detail = search.user.buyer_detail
@@ -19,12 +20,19 @@ class LegalPanelForGovernment::RM6360::Admin::ReportExport < ReportExport
         "#{search_criteria['requirement_start_date_month']}/#{search_criteria['requirement_start_date_year']}",
         "#{search_criteria['requirement_end_date_month']}/#{search_criteria['requirement_end_date_year']}",
         "£#{search_criteria['requirement_estimated_total_value']}",
+        if search_criteria['replaces_existing_contract'] == 'yes'
+          'Yes'
+        elsif search_criteria['replaces_existing_contract'] == 'no'
+          'No'
+        end,
         search_criteria['ccs_can_contact_you'] == 'yes' ? 'Yes' : 'No',
         "Lot #{lot.number} - #{lot.name}",
         Service.where(id: search_criteria['service_ids']).order(:name).pluck(:name).join(";\n"),
         countries(search_criteria)
       ]
     end
+
+    # rubocop:enable Metrics/AbcSize
 
     def additional_details_headers
       ['Results downloaded', "Suppliers' prospectus reviewed", 'Suppliers selected for comparison']

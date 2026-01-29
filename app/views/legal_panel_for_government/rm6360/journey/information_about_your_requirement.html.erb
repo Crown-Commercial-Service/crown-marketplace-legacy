@@ -107,6 +107,27 @@
           }
         ) %>
 
+  
+        <%= govuk_radios(
+          :replaces_existing_contract,
+          @journey.current_step.class::REPLACES_EXISTING_CONTRACT_OPTIONS.map do |option|
+            {
+              value: option,
+              label: {
+                text: t(option)
+              }
+            }
+          end,
+          model: @journey.current_step,
+          fieldset: {
+            legend: {
+              text: t('.replaces_existing_contract.question'),
+              classes: 'govuk-fieldset__legend--m',
+            }
+          },
+          classes: 'govuk-radios--inline'
+        ) %>
+         
         <%= govuk_radios(
           :ccs_can_contact_you,
           @journey.current_step.class::CCS_CAN_CONTACT_YOU_OPTIONS.map do |option|
