@@ -12,7 +12,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::Search do
 
   describe '.log_results_downloaded_to_search' do
     let(:result) { described_class.log_results_downloaded_to_search(framework, user, session_id, params) }
-    let(:search_criteria) { { ccs_can_contact_you: 'yes', central_government: 'yes', lot_id: 'RM6360.1', requirement_end_date_month: '10', requirement_end_date_year: '2025', requirement_estimated_total_value: '25000', requirement_start_date_month: '5', requirement_start_date_year: '2025', service_ids: ['RM6360.1.1', 'RM6360.1.3'] } }
+    let(:search_criteria) { { ccs_can_contact_you: 'yes', replaces_existing_contract: 'yes', central_government: 'yes', lot_id: 'RM6360.1', requirement_end_date_month: '10', requirement_end_date_year: '2025', requirement_estimated_total_value: '25000', requirement_start_date_month: '5', requirement_start_date_year: '2025', service_ids: ['RM6360.1.1', 'RM6360.1.3'] } }
 
     context 'when the search does not exist' do
       it 'has a falsey result' do
@@ -91,7 +91,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::Search do
 
   describe '.log_supplier_rates_comparison' do
     let(:result) { described_class.log_supplier_rates_comparison(framework, user, session_id, params, comparison_result) }
-    let(:search_criteria) { { ccs_can_contact_you: 'yes', central_government: 'yes', lot_id: 'RM6360.1', requirement_end_date_month: '10', requirement_end_date_year: '2025', requirement_estimated_total_value: '25000', requirement_start_date_month: '5', requirement_start_date_year: '2025', service_ids: ['RM6360.1.1', 'RM6360.1.3'], have_you_reviewed: 'No' } }
+    let(:search_criteria) { { ccs_can_contact_you: 'yes', replaces_existing_contract: 'yes', central_government: 'yes', lot_id: 'RM6360.1', requirement_end_date_month: '10', requirement_end_date_year: '2025', requirement_estimated_total_value: '25000', requirement_start_date_month: '5', requirement_start_date_year: '2025', service_ids: ['RM6360.1.1', 'RM6360.1.3'], have_you_reviewed: 'No' } }
 
     context 'when the search does not exist' do
       it 'has a falsey result' do

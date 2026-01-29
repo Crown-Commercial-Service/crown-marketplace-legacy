@@ -19,6 +19,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::JourneyController do
   let(:requirement_end_date_month) { '10' }
   let(:requirement_end_date_year) { '2026' }
   let(:requirement_estimated_total_value) { '123456' }
+  let(:replaces_existing_contract) { 'yes' }
   let(:ccs_can_contact_you) { 'yes' }
 
   let(:params) do
@@ -33,6 +34,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::JourneyController do
       requirement_end_date_month:,
       requirement_end_date_year:,
       requirement_estimated_total_value:,
+      replaces_existing_contract:,
       ccs_can_contact_you:,
     }
   end
@@ -52,7 +54,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::JourneyController do
     end
 
     it 'logs the search' do
-      expect(Search).to have_received(:log_new_search).with(lot.framework, controller.current_user, controller.session.id, { central_government:, lot_id:, service_ids:, requirement_start_date_day:, requirement_start_date_month:, requirement_start_date_year:, requirement_end_date_day:, requirement_end_date_month:, requirement_end_date_year:, requirement_estimated_total_value:, ccs_can_contact_you: }.stringify_keys, supplier_frameworks)
+      expect(Search).to have_received(:log_new_search).with(lot.framework, controller.current_user, controller.session.id, { central_government:, lot_id:, service_ids:, requirement_start_date_day:, requirement_start_date_month:, requirement_start_date_year:, requirement_end_date_day:, requirement_end_date_month:, requirement_end_date_year:, requirement_estimated_total_value:,replaces_existing_contract:, ccs_can_contact_you: }.stringify_keys, supplier_frameworks)
     end
   end
 end
