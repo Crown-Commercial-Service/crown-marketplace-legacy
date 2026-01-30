@@ -39,8 +39,6 @@ RSpec.describe LegalPanelForGovernment::RM6360::Search do
       before { existing_search }
 
       it 'has a truthy result' do
-        pp 'result-----'
-        pp result
         expect(result).to be_truthy
       end
 
