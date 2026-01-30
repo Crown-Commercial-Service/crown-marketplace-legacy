@@ -25,7 +25,7 @@ Feature: Management Consultancy - Admin - Supplier lot data - Lot data - Accessi
       | lot_name                                  | supplier_name                  |
       | Lot 1 - Business                          | NIENOW-KERTZMANN               |
       | Lot 2 - Strategy and Policy               | MOSCISKI-CROOKS                |
-      | Lot 3 - Complex and Transformation        | CP                             |
+      | Lot 3 - Complex and Transformation        | GREENFELDER-LEUSCHKE           |
       | Lot 4 - Finance                           | KOHLER-STOKES                  |
       | Lot 5 - HR                                | SCHINNER-LAKIN                 |
       | Lot 6 - Procurement and Supply Chain      | SCHUMM, GRANT AND SPORER       |
@@ -47,7 +47,7 @@ Feature: Management Consultancy - Admin - Supplier lot data - Lot data - Accessi
       | lot_name                                  | supplier_name                  |
       | Lot 1 - Business                          | NIENOW-KERTZMANN               |
       | Lot 2 - Strategy and Policy               | MOSCISKI-CROOKS                |
-      | Lot 3 - Complex and Transformation        | CP                             |
+      | Lot 3 - Complex and Transformation        | GREENFELDER-LEUSCHKE           |
       | Lot 4 - Finance                           | KOHLER-STOKES                  |
       | Lot 5 - HR                                | SCHINNER-LAKIN                 |
       | Lot 6 - Procurement and Supply Chain      | SCHUMM, GRANT AND SPORER       |

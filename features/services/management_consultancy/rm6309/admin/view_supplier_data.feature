@@ -9,7 +9,7 @@ Feature: Management Consultancy - Admin - View supplier data pages
   Scenario: Supplier data page
     Then I should see the following suppliers on the page:
       | GOTTLIEB, HEATHCOTE AND JACOBI |
-      | CP                             |
+      | GREENFELDER-LEUSCHKE           |
       | GUTMANN-PFEFFER                |
       | KOHLER-STOKES                  |
       | MOSCISKI-CROOKS                |
@@ -20,12 +20,12 @@ Feature: Management Consultancy - Admin - View supplier data pages
       | TURCOTTE GROUP                 |
     And I enter "en" for the supplier search
     Then I should see the following suppliers on the page:
-      | CP                   |
+      | GREENFELDER-LEUSCHKE |
       | NIENOW-KERTZMANN     |
     And I enter "" for the supplier search
     Then I should see the following suppliers on the page:
       | GOTTLIEB, HEATHCOTE AND JACOBI |
-      | CP                             |
+      | GREENFELDER-LEUSCHKE           |
       | GUTMANN-PFEFFER                |
       | KOHLER-STOKES                  |
       | MOSCISKI-CROOKS                |
@@ -53,7 +53,7 @@ Feature: Management Consultancy - Admin - View supplier data pages
 
     Examples:
       | supplier_name        | duns_number | sme | contact_name   | email                                       | telephone_number | website                               | address                                                |
-      | CP                   | 013370637   | Yes | Darwin Block   | greenfelder_leuschke@nader.test             | 4427521029       | http://predovic.example/judith        | Apt. 885 290 Bahringer Highway, Port Martin, GA 58567  |
+      | GREENFELDER-LEUSCHKE | 013370637   | Yes | Darwin Block   | greenfelder_leuschke@nader.test             | 4427521029       | http://predovic.example/judith        | Apt. 885 290 Bahringer Highway, Port Martin, GA 58567  |
       | MOSCISKI-CROOKS      | 051874371   | Yes | Elton Leuschke | crooks.mosciski@powlowski-daugherty.example | 08704774229      | http://schultz.example/lance.cormier  | 22223 Howell Corners, East Sanfordton, PA 74031-5337   |
       | TURCOTTE GROUP       | 542049362   | No  | Hong Rau       | group_turcotte@effertz.example              | 700-074-9637     | http://buckridge.test/christa_pollich | 58729 Johns Turnpike, New Margaritoland, HI 90422-9071 |
 

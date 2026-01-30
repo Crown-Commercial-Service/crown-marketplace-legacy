@@ -31,7 +31,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::Search do
           user_id: user.id,
           session_id: session_id,
           search_criteria: search_criteria,
-          search_criteria_hash: 'f297ef6948a7d6e698379c433bd8a58fb0da6739df192589d3c2bef5acf2353b',
+          search_criteria_hash: '7df13d9de8daf044c4c93aa2d9841acd3e1155329e79454f9fceec6df88880db',
           search_result: search_result.map { |supplier_framework| [supplier_framework.supplier.name, supplier_framework.supplier.id] },
         }
       end
@@ -39,6 +39,8 @@ RSpec.describe LegalPanelForGovernment::RM6360::Search do
       before { existing_search }
 
       it 'has a truthy result' do
+        pp 'result-----'
+        pp result
         expect(result).to be_truthy
       end
 
