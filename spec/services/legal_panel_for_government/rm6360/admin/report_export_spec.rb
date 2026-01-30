@@ -88,7 +88,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::Admin::ReportExport do
     let(:result) { described_class.send(:create_headers_row) }
 
     it 'returns the expected headers' do
-      expect(result).to eq(['User ID', 'Search date', 'Name', 'Job title', 'Email address', 'Organisation name', 'Organisation sector', 'Requirements start date', 'Requirements end date', 'Requirements estimated total value','Replaces existing contract', 'Opted in to be contacted', 'Lot', 'Services', 'Countries', 'Suppliers', 'Results downloaded', "Suppliers' prospectus reviewed", 'Suppliers selected for comparison'])
+      expect(result).to eq(['User ID', 'Search date', 'Name', 'Job title', 'Email address', 'Organisation name', 'Organisation sector', 'Requirements start date', 'Requirements end date', 'Requirements estimated total value', 'Replaces existing contract', 'Opted in to be contacted', 'Lot', 'Services', 'Countries', 'Suppliers', 'Results downloaded', "Suppliers' prospectus reviewed", 'Suppliers selected for comparison'])
     end
   end
 
