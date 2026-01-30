@@ -80,7 +80,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::Search do
 
       context 'and it is a different search_criteria' do
         let(:result) { described_class.log_results_downloaded_to_search(framework, user, session_id, ActionController::Parameters.new(new_search_criteria)) }
-        let(:new_search_criteria) { { criteria_1: false, criteria_2: false, criteria_3: 'Elma' } }
+        let(:new_search_criteria) { { criteria_1: false, criteria_2: false, criteria_3: 'Elma', replaces_existing_contract: 'yes' } }
 
         it 'has a falsey result' do
           expect(result).to be_falsey
@@ -176,7 +176,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::Search do
 
       context 'and it is a different search_criteria' do
         let(:result) { described_class.log_supplier_rates_comparison(framework, user, session_id, ActionController::Parameters.new(new_search_criteria), comparison_result) }
-        let(:new_search_criteria) { { criteria_1: false, criteria_2: false, criteria_3: 'Elma' } }
+        let(:new_search_criteria) { { criteria_1: false, criteria_2: false, criteria_3: 'Elma', replaces_existing_contract: 'yes' } }
 
         it 'has a falsey result' do
           expect(result).to be_falsey

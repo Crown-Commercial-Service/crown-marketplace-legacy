@@ -25,9 +25,9 @@ en:
               inclusion: Select yes if you have shortlisted suppliers
         legal_panel_for_government/rm6360/journey/information_about_your_requirement:
           attributes:
-            replaces_existing_contract:
-              inclusion: You must select an option
             ccs_can_contact_you:
+              inclusion: You must select an option
+            replaces_existing_contract:
               inclusion: You must select an option
             requirement_end_date:
               after_requirement_start_date: The intended end date must be after the intended start date
@@ -294,13 +294,13 @@ en:
           hint_part_2: If you have shortlisted suppliers, select ‘Yes’ to compare only those on your shortlist.
           question: Have you reviewed the suppliers’ prospectus to inform your down-selection?
         information_about_your_requirement:
-          replaces_existing_contract:
-            question: "Will this requirement replace an existing contract that was previously awarded under a CCS legal services framework?"
           ccs_can_contact_you:
             hint: Any follow-up activity is intended to deliver ongoing support
             question: Can CCS contact you about this search?
           description: To help CCS understand your needs, please tell us how long this will take and what it’s worth. If you’re not sure at this stage, an estimate can be provided.
           heading: Information about your requirements
+          replaces_existing_contract:
+            question: Will this requirement replace an existing contract that was previously awarded under a CCS legal services framework?
           requirement_end_date:
             hint: For example, 3 2026
             question: What is the intended end date for your requirement?
