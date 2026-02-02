@@ -1,5 +1,6 @@
 module Login
-  UnknownProvider = Class.new(StandardError)
+  class UnknownProvider < StandardError
+  end
 
   EMAIL_REGEX = /([\w+\-.]+)@([a-z\d-]+(\.[a-z\d-]+)*\.[a-z]+)/i
 
