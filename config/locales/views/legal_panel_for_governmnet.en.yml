@@ -27,6 +27,8 @@ en:
           attributes:
             ccs_can_contact_you:
               inclusion: You must select an option
+            replaces_existing_contract:
+              inclusion: You must select an option
             requirement_end_date:
               after_requirement_start_date: The intended end date must be after the intended start date
               blank: Enter the intended end date, including the month and year
@@ -297,6 +299,8 @@ en:
             question: Can CCS contact you about this search?
           description: To help CCS understand your needs, please tell us how long this will take and what it’s worth. If you’re not sure at this stage, an estimate can be provided.
           heading: Information about your requirements
+          replaces_existing_contract:
+            question: Will this requirement replace an existing contract that was previously awarded under a CCS legal services framework?
           requirement_end_date:
             hint: For example, 3 2026
             question: What is the intended end date for your requirement?

@@ -6,14 +6,14 @@ RSpec.describe LegalPanelForGovernment::RM6360::Admin::ReportExport do
   let(:user_1) { create(:user, :with_detail, email: 'izuku.midoriya@uahigh.ac.uk') }
   let(:user_2) { create(:user, :with_detail, email: 'katsuki.bakugo@uahigh.ac.uk') }
   let(:user_3) { create(:user, :with_detail, email: 'shoto.todoroki@uahigh.ac.uk') }
-  let(:search_1) { create(:search, user: user_1, framework: framework, created_at: 6.days.ago, search_criteria: { 'requirement_start_date_day' => '1', 'requirement_start_date_month' => '12', 'requirement_start_date_year' => '2025', 'requirement_end_date_day' => '1', 'requirement_end_date_month' => '12', 'requirement_end_date_year' => '2026', 'requirement_estimated_total_value' => 123456, 'ccs_can_contact_you' => 'yes', 'lot_id' => 'RM6360.1', 'service_ids' => ['RM6360.1.1', 'RM6360.1.2'] }, additional_details: { 'results_downloaded' => true, 'results_reviewed' => true, 'comparison_result' => [['CHARLES', '2'], ['OLIVER', '3']] }) }
-  let(:search_2) { create(:search, user: user_2, framework: framework, created_at: 5.days.ago, search_criteria: { 'requirement_start_date_day' => '1', 'requirement_start_date_month' => '7', 'requirement_start_date_year' => '2025', 'requirement_end_date_day' => '1', 'requirement_end_date_month' => '7', 'requirement_end_date_year' => '2026', 'requirement_estimated_total_value' => 234567, 'ccs_can_contact_you' => 'no', 'lot_id' => 'RM6360.2', 'service_ids' => ['RM6360.2.1', 'RM6360.2.2'] }) }
-  let(:search_3) { create(:search, user: user_3, framework: framework, created_at: 4.days.ago, search_criteria: { 'requirement_start_date_day' => '1', 'requirement_start_date_month' => '2', 'requirement_start_date_year' => '2025', 'requirement_end_date_day' => '1', 'requirement_end_date_month' => '2', 'requirement_end_date_year' => '2026', 'requirement_estimated_total_value' => 345678, 'ccs_can_contact_you' => 'yes', 'lot_id' => 'RM6360.3', 'service_ids' => ['RM6360.3.1', 'RM6360.3.2'] }) }
+  let(:search_1) { create(:search, user: user_1, framework: framework, created_at: 6.days.ago, search_criteria: { 'requirement_start_date_day' => '1', 'requirement_start_date_month' => '12', 'requirement_start_date_year' => '2025', 'requirement_end_date_day' => '1', 'requirement_end_date_month' => '12', 'requirement_end_date_year' => '2026', 'requirement_estimated_total_value' => 123456, 'replaces_existing_contract' => 'no', 'ccs_can_contact_you' => 'yes', 'lot_id' => 'RM6360.1', 'service_ids' => ['RM6360.1.1', 'RM6360.1.2'] }, additional_details: { 'results_downloaded' => true, 'results_reviewed' => true, 'comparison_result' => [['CHARLES', '2'], ['OLIVER', '3']] }) }
+  let(:search_2) { create(:search, user: user_2, framework: framework, created_at: 5.days.ago, search_criteria: { 'requirement_start_date_day' => '1', 'requirement_start_date_month' => '7', 'requirement_start_date_year' => '2025', 'requirement_end_date_day' => '1', 'requirement_end_date_month' => '7', 'requirement_end_date_year' => '2026', 'requirement_estimated_total_value' => 234567, 'replaces_existing_contract' => 'yes', 'ccs_can_contact_you' => 'no', 'lot_id' => 'RM6360.2', 'service_ids' => ['RM6360.2.1', 'RM6360.2.2'] }) }
+  let(:search_3) { create(:search, user: user_3, framework: framework, created_at: 4.days.ago, search_criteria: { 'requirement_start_date_day' => '1', 'requirement_start_date_month' => '2', 'requirement_start_date_year' => '2025', 'requirement_end_date_day' => '1', 'requirement_end_date_month' => '2', 'requirement_end_date_year' => '2026', 'requirement_estimated_total_value' => 345678, 'replaces_existing_contract' => 'no', 'ccs_can_contact_you' => 'yes', 'lot_id' => 'RM6360.3', 'service_ids' => ['RM6360.3.1', 'RM6360.3.2'] }) }
   let(:search_4) { create(:search, user: user_1, framework: framework, created_at: 3.days.ago, search_criteria: { 'requirement_start_date_day' => '1', 'requirement_start_date_month' => '9', 'requirement_start_date_year' => '2025', 'requirement_end_date_day' => '1', 'requirement_end_date_month' => '9', 'requirement_end_date_year' => '2026', 'requirement_estimated_total_value' => 456789, 'ccs_can_contact_you' => 'no', 'lot_id' => 'RM6360.4a', 'not_core_jurisdiction' => 'no', 'service_ids' => ['RM6360.4a.1', 'RM6360.4a.2'] }, additional_details: { 'results_downloaded' => false, 'results_reviewed' => false, 'comparison_result' => [['MABEL', '1'], ['CHARLES', '2'], ['OLIVER', '3']] }) }
-  let(:search_5) { create(:search, user: user_2, framework: framework, created_at: 2.days.ago, search_criteria: { 'requirement_start_date_day' => '1', 'requirement_start_date_month' => '4', 'requirement_start_date_year' => '2025', 'requirement_end_date_day' => '1', 'requirement_end_date_month' => '4', 'requirement_end_date_year' => '2026', 'requirement_estimated_total_value' => 567890, 'ccs_can_contact_you' => 'yes', 'lot_id' => 'RM6360.4b', 'not_core_jurisdiction' => 'no', 'service_ids' => ['RM6360.4b.1', 'RM6360.4b.2'] }) }
-  let(:search_6) { create(:search, user: user_3, framework: framework, created_at: 1.day.ago, search_criteria: { 'requirement_start_date_day' => '1', 'requirement_start_date_month' => '11', 'requirement_start_date_year' => '2025', 'requirement_end_date_day' => '1', 'requirement_end_date_month' => '11', 'requirement_end_date_year' => '2026', 'requirement_estimated_total_value' => 678901, 'ccs_can_contact_you' => 'no', 'lot_id' => 'RM6360.4c', 'not_core_jurisdiction' => 'yes', 'jurisdiction_ids' => ['CY', 'CZ'], 'service_ids' => ['RM6360.4c.1', 'RM6360.4c.2'] }) }
-  let(:search_7) { create(:search, user: user_1, framework: framework, created_at: Time.now.in_time_zone('London'), search_criteria: { 'requirement_start_date_day' => '1', 'requirement_start_date_month' => '6', 'requirement_start_date_year' => '2025', 'requirement_end_date_day' => '1', 'requirement_end_date_month' => '6', 'requirement_end_date_year' => '2026', 'requirement_estimated_total_value' => 789012, 'ccs_can_contact_you' => 'yes', 'lot_id' => 'RM6360.5', 'service_ids' => ['RM6360.3.1', 'RM6360.3.2'] }) }
-  let(:search_8) { create(:search, user: user_1, framework: other_framework, created_at: 3.days.ago, search_criteria: { 'requirement_start_date_day' => '1', 'requirement_start_date_month' => '1', 'requirement_start_date_year' => '2025', 'requirement_end_date_day' => '1', 'requirement_end_date_month' => '1', 'requirement_end_date_year' => '2026', 'requirement_estimated_total_value' => 890123, 'ccs_can_contact_you' => 'no', 'lot_id' => 'RM6360.4a', 'not_core_jurisdiction' => 'no', 'service_ids' => ['RM6360.4a.1', 'RM6360.4a.2'] }) }
+  let(:search_5) { create(:search, user: user_2, framework: framework, created_at: 2.days.ago, search_criteria: { 'requirement_start_date_day' => '1', 'requirement_start_date_month' => '4', 'requirement_start_date_year' => '2025', 'requirement_end_date_day' => '1', 'requirement_end_date_month' => '4', 'requirement_end_date_year' => '2026', 'requirement_estimated_total_value' => 567890, 'replaces_existing_contract' => 'yes', 'ccs_can_contact_you' => 'yes', 'lot_id' => 'RM6360.4b', 'not_core_jurisdiction' => 'no', 'service_ids' => ['RM6360.4b.1', 'RM6360.4b.2'] }) }
+  let(:search_6) { create(:search, user: user_3, framework: framework, created_at: 1.day.ago, search_criteria: { 'requirement_start_date_day' => '1', 'requirement_start_date_month' => '11', 'requirement_start_date_year' => '2025', 'requirement_end_date_day' => '1', 'requirement_end_date_month' => '11', 'requirement_end_date_year' => '2026', 'requirement_estimated_total_value' => 678901, 'replaces_existing_contract' => 'yes', 'ccs_can_contact_you' => 'no', 'lot_id' => 'RM6360.4c', 'not_core_jurisdiction' => 'yes', 'jurisdiction_ids' => ['CY', 'CZ'], 'service_ids' => ['RM6360.4c.1', 'RM6360.4c.2'] }) }
+  let(:search_7) { create(:search, user: user_1, framework: framework, created_at: Time.now.in_time_zone('London'), search_criteria: { 'requirement_start_date_day' => '1', 'requirement_start_date_month' => '6', 'requirement_start_date_year' => '2025', 'requirement_end_date_day' => '1', 'requirement_end_date_month' => '6', 'requirement_end_date_year' => '2026', 'requirement_estimated_total_value' => 789012, 'replaces_existing_contract' => 'no', 'ccs_can_contact_you' => 'yes', 'lot_id' => 'RM6360.5', 'service_ids' => ['RM6360.3.1', 'RM6360.3.2'] }) }
+  let(:search_8) { create(:search, user: user_1, framework: other_framework, created_at: 3.days.ago, search_criteria: { 'requirement_start_date_day' => '1', 'requirement_start_date_month' => '1', 'requirement_start_date_year' => '2025', 'requirement_end_date_day' => '1', 'requirement_end_date_month' => '1', 'requirement_end_date_year' => '2026', 'requirement_estimated_total_value' => 890123, 'replaces_existing_contract' => 'yes', 'ccs_can_contact_you' => 'no', 'lot_id' => 'RM6360.4a', 'not_core_jurisdiction' => 'no', 'service_ids' => ['RM6360.4a.1', 'RM6360.4a.2'] }) }
 
   before do
     allow(ReportWorker).to receive(:perform_async)
@@ -88,7 +88,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::Admin::ReportExport do
     let(:result) { described_class.send(:create_headers_row) }
 
     it 'returns the expected headers' do
-      expect(result).to eq(['User ID', 'Search date', 'Name', 'Job title', 'Email address', 'Organisation name', 'Organisation sector', 'Requirements start date', 'Requirements end date', 'Requirements estimated total value', 'Opted in to be contacted', 'Lot', 'Services', 'Countries', 'Suppliers', 'Results downloaded', "Suppliers' prospectus reviewed", 'Suppliers selected for comparison'])
+      expect(result).to eq(['User ID', 'Search date', 'Name', 'Job title', 'Email address', 'Organisation name', 'Organisation sector', 'Requirements start date', 'Requirements end date', 'Requirements estimated total value', 'Replaces existing contract', 'Opted in to be contacted', 'Lot', 'Services', 'Countries', 'Suppliers', 'Results downloaded', "Suppliers' prospectus reviewed", 'Suppliers selected for comparison'])
     end
   end
 
@@ -112,6 +112,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::Admin::ReportExport do
             '12/2025',
             '12/2026',
             '£123456',
+            'No',
             'Yes',
             'Lot 1 - Core Legal Services',
             "Assimilated Law;\nAviation and Airports",
@@ -141,6 +142,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::Admin::ReportExport do
             '9/2025',
             '9/2026',
             '£456789',
+            nil,
             'No',
             'Lot 4a - Trade and Investment Negotiations',
             "Assimilated Law;\nDomestic law of jurisdictions for trade",
@@ -170,6 +172,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::Admin::ReportExport do
             '11/2025',
             '11/2026',
             '£678901',
+            'Yes',
             'No',
             'Lot 4c - International Investment Disputes',
             "Domestic law of jurisdictions for trade;\nInternational arbitral awards",

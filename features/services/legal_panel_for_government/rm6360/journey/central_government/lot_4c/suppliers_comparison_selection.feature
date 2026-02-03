@@ -11,7 +11,8 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4c - Supplier
     And I enter '10/2024' for the requirement 'start' date
     And I enter '10/2025' for the requirement 'end' date
     And I enter '123456' for the 'requirement estimated total value'
-    And I select 'Yes'
+    And I select 'Yes' for 'requirement replace an existing contract'
+    And I select 'Yes' for 'CCS contact you'
     And I click on 'Continue'
     Then I am on the 'Select the lot you need' page
     And I select 'Lot 4c - International Investment Disputes'
