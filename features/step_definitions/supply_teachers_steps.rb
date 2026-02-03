@@ -1,7 +1,3 @@
-Then('I enter {string} for the {string}') do |value, field|
-  fill_in field.gsub(' ', '_'),	with: value
-end
-
 Then('I enter {string} for the date') do |date|
   add_dates(:date_field, *date_options(date))
 end
