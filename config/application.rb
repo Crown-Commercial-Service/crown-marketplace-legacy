@@ -18,6 +18,7 @@ require 'action_view/railtie'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+# rubocop:disable Metrics/ModuleLength
 module Marketplace
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
@@ -196,6 +197,14 @@ module Marketplace
     end
   end
 
+  def self.use_gca_branding?
+    if ENV['GCA_BRANDING_LIVE_AT']
+      Time.zone.now.utc >= Time.zone.parse(ENV['GCA_BRANDING_LIVE_AT']).utc
+    else
+      false
+    end
+  end
+
   def self.cookie_settings_name
     :cookie_preferences_cmp
   end
@@ -208,3 +217,4 @@ module Marketplace
     }.stringify_keys
   end
 end
+# rubocop:enable Metrics/ModuleLength
