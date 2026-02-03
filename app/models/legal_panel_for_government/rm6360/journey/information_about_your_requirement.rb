@@ -6,8 +6,8 @@ module LegalPanelForGovernment
       include Steppable
       include DateValidations
 
-      CCS_CAN_CONTACT_YOU_OPTIONS = %w[yes no].freeze
       REPLACES_EXISTING_CONTRACT_OPTIONS = %w[yes no].freeze
+      CCS_CAN_CONTACT_YOU_OPTIONS = %w[yes no].freeze
 
       attribute :requirement_start_date_day
       attribute :requirement_start_date_month
@@ -16,8 +16,8 @@ module LegalPanelForGovernment
       attribute :requirement_end_date_month
       attribute :requirement_end_date_year
       attribute :requirement_estimated_total_value, Numeric
-      attribute :ccs_can_contact_you
       attribute :replaces_existing_contract
+      attribute :ccs_can_contact_you
 
       validate  -> { ensure_date_valid(:requirement_start_date, false) }, unless: -> { requirement_start_date_month.blank? || requirement_start_date_year.blank? }
       validates :requirement_start_date, presence: true

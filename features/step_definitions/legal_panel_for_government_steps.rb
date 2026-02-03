@@ -2,6 +2,10 @@ Given('I enter {string} for the requirement {string} date') do |date, field|
   add_requirement_dates(field, *date_options(date))
 end
 
+Then('I select {string} for {string}') do |option, field|
+  legal_panel_for_government_page.questions.send(field.to_sym).choose option
+end
+
 Then('I should see that {string} suppliers can provide legal specialisms for government') do |number_of_suppliers|
   expect(legal_panel_for_government_page.number_of_suppliers).to have_content "#{number_of_suppliers} suppliers can provide the legal specialisms that meet your requirements."
 end

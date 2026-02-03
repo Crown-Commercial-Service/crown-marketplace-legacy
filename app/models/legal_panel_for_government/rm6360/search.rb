@@ -6,7 +6,6 @@ module LegalPanelForGovernment
       def self.log_results_downloaded_to_search(framework, user, session_id, params)
         search = find_search(framework, user, session_id, params)
 
-        Rails.logger.debug search
         return unless search && search.results_downloaded.nil?
 
         search.update!(results_downloaded: true)
@@ -22,8 +21,6 @@ module LegalPanelForGovernment
 
       def self.find_search(framework, user, session_id, params)
         search_criteria_hash = Digest::SHA256.hexdigest(sanatize_search_criteria(LegalPanelForGovernment::Journey.new(framework.id, 'supplier-results', params).params.to_hash).to_s)
-
-        Rails.logger.debug search_criteria_hash
 
         find_by(framework_id: framework.id, user_id: user.id, session_id: session_id, search_criteria_hash: search_criteria_hash)
       end
