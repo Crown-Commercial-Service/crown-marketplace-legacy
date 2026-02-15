@@ -57,7 +57,7 @@ gem 'omniauth_openid_connect', '~> 0.8.0'
 gem 'json-jwt', '>= 1.11.0'
 
 # for authentication
-gem 'devise', '~> 5.0.0'
+gem 'devise', '~> 5.0.1'
 
 # for cognito
 gem 'aws-sdk-cognitoidentityprovider', '~> 1.136.0'
