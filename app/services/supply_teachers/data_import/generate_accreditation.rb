@@ -24,9 +24,9 @@ module SupplyTeachers
       sheet.parse(header_search: [header])
            .map            { |row| remap_headers(row, HEADER_MAP) }
            .map.with_index { |row, index| row.merge(line_no: index + 1) }
-           .reject         { |row| row[:supplier_name].nil? || row[:supplier_name] == '' }
-           .map            { |row| strip_fields(row) }
-           .map            { |row| add_accreditation(row) }
+               .reject { |row| row[:supplier_name].nil? || row[:supplier_name] == '' }
+               .map { |row| strip_fields(row) }
+               .map { |row| add_accreditation(row) }
     end
 
     def add_accreditation(row)
