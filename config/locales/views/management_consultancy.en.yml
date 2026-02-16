@@ -202,7 +202,7 @@ en:
         download:
           download_supplier_shortlist: Download supplier shortlist
           expression_of_interest_template: Expression of interest template
-          expression_of_interest_template_link: https://assets.crowncommercial.gov.uk/wp-content/uploads/T1-Expression-of-Interest-2.odt?format=odt
+          expression_of_interest_template_link: https://assets.%{org_domain}.gov.uk/wp-content/uploads/T1-Expression-of-Interest-2.odt?format=odt
           heading: Download the supplier shortlist
           lead_text: The spreadsheet includes the selections you made, for your records and audit trail
           other_documents: Other documents
@@ -381,7 +381,7 @@ en:
         heading: Supplier results
         no_suppliers_found:
           contact_html: "%{contact_link} for help."
-          contact_link_text: Contact CCS Support
+          contact_link_text: Contact %{org_name_abbr} Support
           heading: No suppliers were found
           text: No companies can provide consultants that can meet your requirements.
         suppliers_found_html: "<span class='govuk-!-font-size-27 govuk-!-font-weight-bold'>%{number}</span> <span class='govuk-!-font-weight-bold'>%{suppliers}</span> can provide consultants that meet your requirements"

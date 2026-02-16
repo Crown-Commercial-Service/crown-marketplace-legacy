@@ -223,17 +223,17 @@ en:
         index:
           heading: Find legal services for the wider public sector
           ojeu_link_text: OJEU contract notice
-          ojeu_url_html: https://assets.crowncommercial.gov.uk/wp-content/uploads/RM6240%20Contract%20notice%20OJEU.pdf
+          ojeu_url_html: https://assets.%{org_domain}.gov.uk/wp-content/uploads/RM6240%20Contract%20notice%20OJEU.pdf
           use_this_service:
             before_heading: Before you start
             guidance_heading: Guidance and other useful documents
             para01: Use this service to download a shortlist of suppliers that provide the legal services you need.
             para02: Using this service means you're following the public sector procurement procedures.
             para03_html: The Wider Public Sector is able to use this framework in its entirety. Central Government departments are enabled to access this framework where they have secured approval through the Government Legal Department’s (GLD) Exception process.
-            para04_html: If you need legal services in a non-UK jurisdiction, contact <a href="mailto:info@crowncommercial.gov.uk">info@crowncommercial.gov.uk</a> for help.
-            para05_html: To use this service you need to be a recognised public sector body listed in the <a href="https://assets.crowncommercial.gov.uk/wp-content/uploads/RM6240-Authorised-Customer-List.docx.odt">authorised customer list</a>.
+            para04_html: If you need legal services in a non-UK jurisdiction, contact <a href="mailto:info@%{org_domain}.gov.uk">info@%{org_domain}.gov.uk</a> for help.
+            para05_html: To use this service you need to be a recognised public sector body listed in the <a href="https://assets.%{org_domain}.gov.uk/wp-content/uploads/RM6240-Authorised-Customer-List.docx.odt">authorised customer list</a>.
           wps_link_text: WPS Legal Services panel specification
-          wps_url: https://www.crowncommercial.gov.uk/agreements/RM6240
+          wps_url: https://www.%{org_domain}.gov.uk/agreements/RM6240
       journey:
         check_suitability:
           question: Do you hold an approval secured from the Government Legal Department (GLD) to use this framework?
@@ -244,10 +244,10 @@ en:
           more_information_html: Central Government Departments must use %{rm6179_link} as their default route to market for legal services, or %{rm6204_link} for rail related legal support.
           rm6179_link:
             text: RM6179 Legal Services Panel
-            url: https://www.crowncommercial.gov.uk/agreements/RM6179
+            url: https://www.%{org_domain}.gov.uk/agreements/RM6179
           rm6204_link:
             text: RM6204 Rail Legal Services
-            url: https://www.crowncommercial.gov.uk/agreements/RM6204
+            url: https://www.%{org_domain}.gov.uk/agreements/RM6204
       suppliers:
         rates_table:
           fixed_until: Fixed until September 2024 and based on an 8 hour working day.
@@ -277,9 +277,9 @@ en:
         heading: Supplier results
         no_suppliers_found:
           contact_html: "%{contact_link} for help."
-          contact_link_text: Contact CCS Support
+          contact_link_text: Contact %{org_name_abbr} Support
           general_legal_advice_services_link_text: General Legal Advice Services (RM3786)
-          general_legal_advice_services_link_url: https://www.crowncommercial.gov.uk/agreements/RM3786
+          general_legal_advice_services_link_url: https://www.%{org_domain}.gov.uk/agreements/RM3786
           heading: No suppliers were found
           text: There are no suppliers on this panel that can provide the law services you need
           text_central_government_users_html: The %{general_legal_advice_service_link} agreement provides legal services for central government and arms-length bodies.

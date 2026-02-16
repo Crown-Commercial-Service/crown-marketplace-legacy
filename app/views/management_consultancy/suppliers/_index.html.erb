@@ -11,7 +11,7 @@
       </p>
       <br>
       <p class="govuk-body">
-        <%= t('.no_suppliers_found.contact_html', contact_link: link_to(t('.no_suppliers_found.contact_link_text'), 'https://www.crowncommercial.gov.uk/contact')) %>
+        <%= t('.no_suppliers_found.contact_html', contact_link: link_to(t('.no_suppliers_found.contact_link_text'), "https://www.#{current_organisation_domain}.gov.uk/contact")) %>
       </p>
     <% else %>
       <%= content_for :page_title, t('.heading') %>
