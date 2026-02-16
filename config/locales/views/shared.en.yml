@@ -211,6 +211,6 @@ en:
     error_summary:
       there_is_a_problem: There is a problem
     gateway:
-      sign_in_with_cognito: Sign in with CCS
+      sign_in_with_cognito: Sign in with %{org_name_abbr}
       sign_in_with_dfe: Sign in with DfE Sign-in
       start_now: Start now
