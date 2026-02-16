@@ -4,7 +4,7 @@
       <%= t('.do_next.further_competition') %>
     </li>
     <li>
-      <%= t('.do_next.select_an_agency_html', ccs_website_link: link_to(t('.do_next.ccs_framework'), 'https://www.crowncommercial.gov.uk/agreements/rm6238', class: 'govuk-link govuk-link--no-visited-state')) %>
+      <%= t('.do_next.select_an_agency_html', ccs_website_link: link_to(t('.do_next.ccs_framework'), "https://www.#{current_organisation_domain}.gov.uk/agreements/rm6238", class: 'govuk-link govuk-link--no-visited-state')) %>
     </li>
   </ul>
   <p class="govuk-body">

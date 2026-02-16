@@ -245,13 +245,13 @@ en:
             link: Search for suppliers
           view_furth_informtion_html: View further information about the %{url}
           view_furth_informtion_link:
-            href: https://www.crowncommercial.gov.uk/agreements/RM6360
+            href: https://www.%{org_domain}.gov.uk/agreements/RM6360
             text: Legal Panel for Government framework RM6360 (opens in a new tab)
       home:
         index:
           heading: Find legal services for government
           lpfg_link_text: Legal Panel for Government Specification
-          lpfg_url: https://www.crowncommercial.gov.uk/agreements/RM6360
+          lpfg_url: https://www.%{org_domain}.gov.uk/agreements/RM6360
           ojeu_link_text: OJEU contract notice
           ojeu_url_html: https://www.find-tender.service.gov.uk/Notice/005959-2025
           use_this_service:
@@ -259,9 +259,9 @@ en:
             guidance_heading: Guidance and other useful documents
             para01: Use this service to download a shortlist of suppliers that provide the legal specialisms you need.
             para02: Using this service means you're following the public sector procurement procedures.
-            para03_html: This tool is for the exclusive use of Central Government departments and Arms Length Bodies only. For wider public sector buyers please refer to our other agreement, <a href="https://www.crowncommercial.gov.uk/agreements/RM6240" class="govuk-link govuk-link--no-visited-state">Public Sector Legal Services</a> (RM6240).
-            para04_html: You can contact <a href="mailto:info@crowncommercial.gov.uk" class="govuk-link govuk-link--no-visited-state">info@crowncommercial.gov.uk</a> for help.
-            para05_html: To use this service you need to be a recognised public sector body listed in the <a href="https://assets.crowncommercial.gov.uk/wp-content/uploads/RM6240-Authorised-Customer-List.docx.odt">authorised customer list</a>.
+            para03_html: This tool is for the exclusive use of Central Government departments and Arms Length Bodies only. For wider public sector buyers please refer to our other agreement, <a href="https://www.%{org_domain}.gov.uk/agreements/RM6240" class="govuk-link govuk-link--no-visited-state">Public Sector Legal Services</a> (RM6240).
+            para04_html: You can contact <a href="mailto:info@%{org_domain}.gov.uk" class="govuk-link govuk-link--no-visited-state">info@%{org_domain}.gov.uk</a> for help.
+            para05_html: To use this service you need to be a recognised public sector body listed in the <a href="https://assets.%{org_domain}.gov.uk/wp-content/uploads/RM6240-Authorised-Customer-List.docx.odt">authorised customer list</a>.
       journey:
         choose_jurisdiction:
           countries_selected: countries selected
@@ -296,11 +296,11 @@ en:
         information_about_your_requirement:
           ccs_can_contact_you:
             hint: Any follow-up activity is intended to deliver ongoing support
-            question: Can CCS contact you about this search?
-          description: To help CCS understand your needs, please tell us how long this will take and what it’s worth. If you’re not sure at this stage, an estimate can be provided.
+            question: Can %{org_name_abbr} contact you about this search?
+          description: To help %{org_name_abbr} understand your needs, please tell us how long this will take and what it’s worth. If you’re not sure at this stage, an estimate can be provided.
           heading: Information about your requirements
           replaces_existing_contract:
-            question: Will this requirement replace an existing contract that was previously awarded under a CCS legal services framework?
+            question: Will this requirement replace an existing contract that was previously awarded under a %{org_name_abbr} legal services framework?
           requirement_end_date:
             hint: For example, 3 2026
             question: What is the intended end date for your requirement?
@@ -330,7 +330,7 @@ en:
           lead_1: This panel is the default route to market offering a range of legal services to Central Government Departments, their executive agencies and arms length bodies.
           lead_2_html: Wider public sector organisations and departments granted an exception from GLD should consider using %{link}.
           lead_2_link_text: RM6240 Public sector legal services
-          lead_2_link_url: https://www.crowncommercial.gov.uk/agreements/RM6240
+          lead_2_link_url: https://www.%{org_domain}.gov.uk/agreements/RM6240
         supplier_results:
           can_provide_legal_specialisms: can provide the legal specialisms that meet your requirements.
           compare_supplier_rates: Compare the supplier rates
@@ -353,7 +353,7 @@ en:
           download_rates_for_comparison: Download the rates for comparison
           have_been_selected_for_comparison: have been selected for comparison.
           heading: Compare supplier rates
-          if_you_have_any_questions_html: If you have any questions, please contact CCS at <a href="mailto:info@crowncommercial.gov.uk" class="govuk-link govuk-link--no-visited-state">info@crowncommercial.gov.uk</a>.
+          if_you_have_any_questions_html: If you have any questions, please contact %{org_name_abbr} at <a href="mailto:info@%{org_domain}.gov.uk" class="govuk-link govuk-link--no-visited-state">info@%{org_domain}.gov.uk</a>.
           page_title: Compare supplier rates
           supplier: supplier
           the_rates_provided: The rates provided are commercially sensitive and should be used only to inform your requirement.
