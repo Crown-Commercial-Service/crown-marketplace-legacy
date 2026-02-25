@@ -1,5 +1,5 @@
 module SupplyTeachers
-  class Journey::FTACalculatorContractEnd < GenericJourney
+  class Journey::FTACalculatorContractEnd
     DATE_ATTIBUTES = %i[contract_start_date contract_end_date].freeze
 
     include Steppable

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe SupplyTeachers::RM6238::Journey::MasterVendors do
-  subject(:step) { described_class.new(managed_service_provider: 'master_vendor', threshold_position: 'above_threshold') }
+  subject(:step) { described_class.new }
 
   it { is_expected.to be_valid }
 

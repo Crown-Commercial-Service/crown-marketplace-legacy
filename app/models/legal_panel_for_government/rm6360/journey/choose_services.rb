@@ -4,7 +4,7 @@ module LegalPanelForGovernment
       include Steppable
 
       attribute :lot_id
-      attribute :service_ids, Array
+      attribute :service_ids, :array, default: -> { [] }
       validates :service_ids, presence: true
 
       def lot_services

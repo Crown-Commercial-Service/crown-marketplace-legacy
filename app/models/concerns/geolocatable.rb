@@ -7,7 +7,7 @@ module Geolocatable
     attribute :postcode
     validates :location, location: true
 
-    attribute :radius, Integer, default: DEFAULT_SEARCH_RANGE_IN_MILES
+    attribute :radius, :integer, default: DEFAULT_SEARCH_RANGE_IN_MILES
   end
 
   def location

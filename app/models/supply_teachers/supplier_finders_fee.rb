@@ -1,10 +1,21 @@
 module SupplyTeachers
   class SupplierFindersFee
-    include Virtus.model
+    include ActiveModel::Model
+    include ActiveModel::Attributes
 
-    attribute :fixed_term_length, Float
-    attribute :salary, Integer
-    attribute :fixed_term_rate, Float
+    attribute :fixed_term_length, :float
+    attribute :salary, :numeric
+    attribute :fixed_term_rate, :float
+
+    def salary=(value)
+      if value.present?
+        super(Float(value).round)
+      else
+        super
+      end
+    rescue ArgumentError
+      super
+    end
 
     def finders_fee
       if fixed_term_length > 12
