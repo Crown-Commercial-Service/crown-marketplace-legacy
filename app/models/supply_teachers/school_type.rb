@@ -1,11 +1,12 @@
 module SupplyTeachers
   class SchoolType
-    include Virtus.model
+    include ActiveModel::Model
+    include ActiveModel::Attributes
     include StaticRecord
 
-    attribute :id, String
-    attribute :name, String
-    attribute :non_profit, Axiom::Types::Boolean
+    attribute :id, :string
+    attribute :name, :string
+    attribute :non_profit, :boolean
 
     def non_profit?
       non_profit

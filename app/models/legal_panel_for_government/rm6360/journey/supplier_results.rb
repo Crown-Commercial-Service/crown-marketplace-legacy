@@ -4,9 +4,9 @@ module LegalPanelForGovernment
       include Steppable
 
       attribute :lot_id
-      attribute :service_ids, Array
+      attribute :service_ids, :array, default: -> { [] }
       attribute :not_core_jurisdiction
-      attribute :jurisdiction_ids, Array
+      attribute :jurisdiction_ids, :array, default: -> { [] }
 
       def lot
         @lot ||= Lot.find(lot_id)

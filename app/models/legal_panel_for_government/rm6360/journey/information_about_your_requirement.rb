@@ -9,13 +9,13 @@ module LegalPanelForGovernment
       REPLACES_EXISTING_CONTRACT_OPTIONS = %w[yes no].freeze
       CCS_CAN_CONTACT_YOU_OPTIONS = %w[yes no].freeze
 
-      attribute :requirement_start_date_day
+      attribute :requirement_start_date_day, default: '1'
       attribute :requirement_start_date_month
       attribute :requirement_start_date_year
-      attribute :requirement_end_date_day
+      attribute :requirement_end_date_day, default: '1'
       attribute :requirement_end_date_month
       attribute :requirement_end_date_year
-      attribute :requirement_estimated_total_value, Numeric
+      attribute :requirement_estimated_total_value, :numeric
       attribute :replaces_existing_contract
       attribute :ccs_can_contact_you
 
@@ -31,13 +31,6 @@ module LegalPanelForGovernment
       validates :replaces_existing_contract, inclusion: REPLACES_EXISTING_CONTRACT_OPTIONS
 
       validates :ccs_can_contact_you, inclusion: CCS_CAN_CONTACT_YOU_OPTIONS
-
-      def initialize(...)
-        super
-
-        @requirement_start_date_day = '1'
-        @requirement_end_date_day = '1'
-      end
 
       def next_step_class
         Journey::SelectLot
