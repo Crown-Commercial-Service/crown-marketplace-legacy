@@ -17,6 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Update GOV.UK Frontend and CCS Frontend ([PR 2251](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2251))
 - Add description attribute to services ([PR 2257](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2257))
 - Updated content that references CCS to now reference GCA ([PR 2288](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2288))
+- Replace virtus with native Rails models ([PR 2295](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2295))
 
 ## [6.5.0] - 2025-12-09
 

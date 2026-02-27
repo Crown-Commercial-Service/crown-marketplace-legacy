@@ -844,7 +844,6 @@ DEPENDENCIES
   slim (~> 5.2.1)
   tzinfo-data
   uk_postcode
-  virtus
   wdm (>= 0.1.0)
   webmock (>= 3.12.2)
 

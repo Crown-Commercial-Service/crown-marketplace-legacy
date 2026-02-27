@@ -1,5 +1,5 @@
 module SupplyTeachers
-  class Journey::FTAToPermContractEnd < GenericJourney
+  class Journey::FTAToPermContractEnd
     DATE_ATTIBUTES = %i[contract_start_date contract_end_date].freeze
 
     include Steppable
@@ -21,7 +21,7 @@ module SupplyTeachers
       if contract_end_date && contract_end_within_6_months && contract_length_within_12_months
         service_name::Journey::FTAToPermHireDate
       else
-        @no_fee_reason = contract_end_within_6_months ? 'length_not_within_12_months' : 'end_not_within_6_months'
+        self.no_fee_reason = contract_end_within_6_months ? 'length_not_within_12_months' : 'end_not_within_6_months'
         service_name::Journey::FTAToPermFee
       end
     end

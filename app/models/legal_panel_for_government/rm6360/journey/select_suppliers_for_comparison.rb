@@ -5,9 +5,9 @@ module LegalPanelForGovernment
 
       attribute :lot_id
       attribute :not_core_jurisdiction
-      attribute :jurisdiction_ids, Array
-      attribute :service_ids, Array
-      attribute :supplier_framework_ids, Array
+      attribute :jurisdiction_ids, :array, default: -> { [] }
+      attribute :service_ids, :array, default: -> { [] }
+      attribute :supplier_framework_ids, :array, default: -> { [] }
 
       validates :supplier_framework_ids, length: { minimum: 2 }
 

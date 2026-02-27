@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe SupplyTeachers::RM6238::Journey::EducationTechnologyPlatformVendors do
-  subject(:step) { described_class.new(managed_service_provider: 'education_technology_platform') }
+  subject(:step) { described_class.new }
 
   it { is_expected.to be_valid }
 

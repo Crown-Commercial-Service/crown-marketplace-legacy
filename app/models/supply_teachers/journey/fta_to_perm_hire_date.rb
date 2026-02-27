@@ -21,7 +21,7 @@ module SupplyTeachers
       if hire_date && hire_date_within_6_months_of_contract_end
         service_name::Journey::FTAToPermHireDateNotice
       else
-        @no_fee_reason = 'hire_not_within_6_months'
+        self.no_fee_reason = 'hire_not_within_6_months'
         service_name::Journey::FTAToPermFee
       end
     end

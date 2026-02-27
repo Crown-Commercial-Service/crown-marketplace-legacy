@@ -45,7 +45,6 @@ gem 'caxlsx', '>= 3.2.0'
 gem 'caxlsx_rails', '>= 0.6.3'
 gem 'phonejack'
 gem 'holidays'
-gem 'virtus'
 
 gem 'rollbar', '~> 3.7.0'
 
