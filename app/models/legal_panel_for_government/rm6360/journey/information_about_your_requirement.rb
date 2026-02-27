@@ -8,7 +8,6 @@ module LegalPanelForGovernment
 
       REPLACES_EXISTING_CONTRACT_OPTIONS = %w[yes no].freeze
       CCS_CAN_CONTACT_YOU_OPTIONS = %w[yes no].freeze
-      REPLACES_EXISTING_CONTRACT_OPTIONS = %w[yes no].freeze
       REQUIREMENT_BEING_AWARDED = ['Unlikely', 'Possibly', 'Likely', 'Highly likely'].freeze
 
       attribute :requirement_start_date_day, default: '1'

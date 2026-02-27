@@ -4,8 +4,10 @@ end
 
 Then('I select {string} for {string}') do |option, field|
   legal_panel_for_government_page.questions.send(field.to_sym).choose option
+end
+
 Given('I select {string} for the {string}') do |item, field|
- page.find("input[name='#{field.gsub(' ', '_')}']", visible: false).choose item
+  page.find("input[name='#{field.gsub(' ', '_')}']", visible: false).choose item
 end
 
 Then('I should see that {string} suppliers can provide legal specialisms for government') do |number_of_suppliers|
