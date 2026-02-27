@@ -19,7 +19,6 @@ module LegalPanelForGovernment
       attribute :requirement_estimated_total_value, :numeric
       attribute :replaces_existing_contract
       attribute :ccs_can_contact_you
-      attribute :replaces_existing_contract
       attribute :requirement_being_awarded
 
       validate  -> { ensure_date_valid(:requirement_start_date, false) }, unless: -> { requirement_start_date_month.blank? || requirement_start_date_year.blank? }
