@@ -25,6 +25,8 @@ en:
               inclusion: Select yes if you have shortlisted suppliers
         legal_panel_for_government/rm6360/journey/information_about_your_requirement:
           attributes:
+            requirement_being_awarded:
+              inclusion: You must select an option for the probability of awarding through a CCS framework
             ccs_can_contact_you:
               inclusion: You must select an option
             replaces_existing_contract:
