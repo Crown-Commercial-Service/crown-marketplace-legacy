@@ -129,6 +129,26 @@
         ) %>
          
         <%= govuk_radios(
+          :requirement_being_awarded,
+          @journey.current_step.class::REQUIREMENT_BEING_AWARDED.map do |option|
+            {
+              value: option,
+              label: {
+                text: t(option)
+              }
+            }
+          end,
+          model: @journey.current_step,
+          fieldset: {
+            legend: {
+              text: t('.requirement_being_awarded.question'),
+              classes: 'govuk-fieldset__legend--m',
+            }
+          },
+          classes: 'govuk-radios--inline'
+        ) %>
+         
+        <%= govuk_radios(
           :ccs_can_contact_you,
           @journey.current_step.class::CCS_CAN_CONTACT_YOU_OPTIONS.map do |option|
             {
