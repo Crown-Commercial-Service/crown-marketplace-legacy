@@ -34,7 +34,7 @@ module LegalPanelForGovernment
 
       validates :replaces_existing_contract, inclusion: REPLACES_EXISTING_CONTRACT_OPTIONS
 
-      validates :requirement_being_awarded, inclusion: REQUIREMENT_BEING_AWARDED
+      validates :requirement_being_awarded, inclusion: REQUIREMENT_BEING_AWARDED_
 
       validates :ccs_can_contact_you, inclusion: CCS_CAN_CONTACT_YOU_OPTIONS
 
