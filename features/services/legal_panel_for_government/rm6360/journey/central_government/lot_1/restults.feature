@@ -14,6 +14,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 1 - Results
     And I select 'Yes' for 'requirement replace an existing contract'
     And I select 'Yes' for 'CCS contact you'
     And I select 'Yes' for the 'replaces existing contract'
+    And I select 'Likely' for the 'requirement being awarded'
     And I select 'Yes' for the 'ccs can contact you'
     And I click on 'Continue'
     Then I am on the 'Select the lot you need' page
