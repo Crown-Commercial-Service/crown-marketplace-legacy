@@ -21,9 +21,7 @@ class Search < ApplicationRecord
     )
   end
 
-  # rubocop:disable Style/HashTransformValues
   def self.sanatize_search_criteria(search_criteria)
     search_criteria.sort.reject { |_key, value| value != false && value.blank? }.to_h { |key, value| [key, value.is_a?(Array) ? value.sort : value] }
   end
-  # rubocop:enable Style/HashTransformValues
 end

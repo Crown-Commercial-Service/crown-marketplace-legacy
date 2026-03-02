@@ -4,11 +4,21 @@ module LegalServices::RM6240::Admin
   RSpec.describe FilesImporter do
     let(:upload) do
       create(:legal_services_rm6240_admin_upload, aasm_state: 'in_progress') do |admin_upload|
-        admin_upload.supplier_details_file.attach(io: File.open(supplier_details_file_path), filename: 'test_supplier_details_file.xlsx')
-        admin_upload.supplier_rate_cards_file.attach(io: File.open(supplier_rate_cards_file_path), filename: 'test_supplier_rate_cards_file.xlsx')
-        admin_upload.supplier_lot_1_service_offerings_file.attach(io: File.open(supplier_lot_1_service_offerings_file_path), filename: 'test_supplier_lot_1_service_offerings_file.xlsx')
-        admin_upload.supplier_lot_2_service_offerings_file.attach(io: File.open(supplier_lot_2_service_offerings_file_path), filename: 'test_supplier_lot_2_service_offerings_file.xlsx')
-        admin_upload.supplier_lot_3_service_offerings_file.attach(io: File.open(supplier_lot_3_service_offerings_file_path), filename: 'test_supplier_lot_3_service_offerings_file.xlsx')
+        File.open(supplier_details_file_path, 'rb') do |file_stream|
+          admin_upload.supplier_details_file.attach(io: file_stream, filename: 'test_supplier_details_file.xlsx')
+        end
+        File.open(supplier_rate_cards_file_path, 'rb') do |file_stream|
+          admin_upload.supplier_rate_cards_file.attach(io: file_stream, filename: 'test_supplier_rate_cards_file.xlsx')
+        end
+        File.open(supplier_lot_1_service_offerings_file_path, 'rb') do |file_stream|
+          admin_upload.supplier_lot_1_service_offerings_file.attach(io: file_stream, filename: 'test_supplier_lot_1_service_offerings_file.xlsx')
+        end
+        File.open(supplier_lot_2_service_offerings_file_path, 'rb') do |file_stream|
+          admin_upload.supplier_lot_2_service_offerings_file.attach(io: file_stream, filename: 'test_supplier_lot_2_service_offerings_file.xlsx')
+        end
+        File.open(supplier_lot_3_service_offerings_file_path, 'rb') do |file_stream|
+          admin_upload.supplier_lot_3_service_offerings_file.attach(io: file_stream, filename: 'test_supplier_lot_3_service_offerings_file.xlsx')
+        end
       end
     end
 
