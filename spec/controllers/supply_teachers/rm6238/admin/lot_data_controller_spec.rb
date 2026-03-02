@@ -319,9 +319,7 @@ RSpec.describe SupplyTeachers::RM6238::Admin::LotDataController do
 
       context 'and the section is rates' do
         let(:section) { 'rates' }
-        # rubocop:disable Style/HashTransformValues
         let(:rates) { Position.where(lot_id: "RM6238.#{lot_number}").pluck(:id, :rate_type).to_h { |position_id, rate_type| [position_id, rate_type == 'percentage' ? '44.5' : '2345.67'] } }
-        # rubocop:enable Style/HashTransformValues
         let(:model_params) { { rates: } }
 
         include_context 'when testing a section'
