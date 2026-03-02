@@ -25,12 +25,12 @@ en:
               inclusion: Select yes if you have shortlisted suppliers
         legal_panel_for_government/rm6360/journey/information_about_your_requirement:
           attributes:
-            requirement_being_awarded:
-              inclusion: You must select an option for the probability of awarding through a CCS framework
             ccs_can_contact_you:
               inclusion: You must select an option
             replaces_existing_contract:
               inclusion: You must select an option
+            requirement_being_awarded:
+              inclusion: You must select an option for the probability of awarding through a CCS framework
             requirement_end_date:
               after_requirement_start_date: The intended end date must be after the intended start date
               blank: Enter the intended end date, including the month and year
@@ -302,7 +302,6 @@ en:
           description: To help %{org_name_abbr} understand your needs, please tell us how long this will take and what it’s worth. If you’re not sure at this stage, an estimate can be provided.
           heading: Information about your requirements
           replaces_existing_contract:
-            question: Will this requirement replace an existing contract that was previously awarded under a %{org_name_abbr} legal services framework?
             question: Will this requirement replace an existing contract that was previously awarded under a CCS legal services framework?
           requirement_being_awarded:
             question: What is the probability of this requirement being awarded through a CCS framework?
