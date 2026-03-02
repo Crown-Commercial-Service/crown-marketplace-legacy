@@ -178,7 +178,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::Journey::InformationAboutYourReq
 
   describe '.permitted_keys' do
     it 'returns a list of the permitted keys' do
-      expect(described_class.permitted_keys).to eq %i[requirement_start_date_day requirement_start_date_month requirement_start_date_year requirement_end_date_day requirement_end_date_month requirement_end_date_year requirement_estimated_total_value replaces_existing_contract ccs_can_contact_you requirement_being_awarded ]
+      expect(described_class.permitted_keys).to eq %i[requirement_start_date_day requirement_start_date_month requirement_start_date_year requirement_end_date_day requirement_end_date_month requirement_end_date_year requirement_estimated_total_value replaces_existing_contract ccs_can_contact_you requirement_being_awarded]
     end
   end
 
