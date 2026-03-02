@@ -18,7 +18,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::SuppliersController do
   let(:requirement_end_date_year) { '2026' }
   let(:requirement_estimated_total_value) { '123456' }
   let(:replaces_existing_contract) { 'yes' }
-  let(:requirement_being_awarded) {'Likely'}
+  let(:requirement_being_awarded) { 'Likely' }
   let(:ccs_can_contact_you) { 'yes' }
   let(:have_you_reviewed) { 'yes' }
   let(:supplier_framework_ids) { supplier_frameworks.pluck(:id) }
