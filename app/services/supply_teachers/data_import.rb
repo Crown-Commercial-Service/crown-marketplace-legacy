@@ -74,7 +74,9 @@ module SupplyTeachers
         File.open(temp_file, 'w') do |f|
           f.puts JSON.pretty_generate(hash)
         end
-        @st_upload.data.attach(io: File.open(temp_file.path), filename: 'data.json')
+        File.open(temp_file.path, 'rb') do |file_stream|
+          @st_upload.data.attach(io: file_stream, filename: 'data.json')
+        end
       ensure
         temp_file.close
         temp_file.unlink
