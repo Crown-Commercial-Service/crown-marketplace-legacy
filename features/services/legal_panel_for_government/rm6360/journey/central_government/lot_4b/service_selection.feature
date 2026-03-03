@@ -31,6 +31,6 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4b - Service 
       | Prevention of disputes                  |
       | Trade remedies                          |
       | Trade remedies investigations           |
-      | Wider trading arrangements              |
       | WTO litigation and dispute resolution   |
       | WTO practice                            |
+      | Wider trading arrangements              |
