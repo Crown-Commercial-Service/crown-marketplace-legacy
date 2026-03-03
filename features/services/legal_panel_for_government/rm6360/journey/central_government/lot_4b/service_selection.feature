@@ -25,7 +25,6 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4b - Service 
     Then I am on the 'Select the legal specialisms you need' page
     And the sub title is 'Lot 4b - International Trade Disputes'
     Then I should see the following options for the lot:
-Then I should see the following options for the lot:
       | Compliance with international law       |
       | Domestic law of jurisdictions for trade |
       | International trade disputes            |
