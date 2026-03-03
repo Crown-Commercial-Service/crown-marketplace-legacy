@@ -7,11 +7,7 @@ Then('I select {string} for {string}') do |option, field|
 end
 
 Given('I select {string} for the {string}') do |item, field|
-  page.find("input[name='#{field.gsub(' ', '_')}']", visible: false).choose item
-end
-
-Given('I select {string} for the {string}') do |item, field|
-  choose(item, name: field.gsub(' ', '_'), visible: false)
+  choose(item, name: field.gsub(' ', '_'), visible: false, match: :first)
 end
 
 Then('I should see that {string} suppliers can provide legal specialisms for government') do |number_of_suppliers|

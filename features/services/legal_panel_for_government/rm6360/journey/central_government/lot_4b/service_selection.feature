@@ -12,6 +12,7 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4b - Service 
     And I enter '10/2025' for the requirement 'end' date
     And I enter '123456' for the 'requirement estimated total value'
     And I select 'Yes' for 'requirement replace an existing contract'
+    And I select 'Likely' for the 'requirement being awarded'
     And I select 'Yes' for 'CCS contact you'
     And I click on 'Continue'
     Then I am on the 'Select the lot you need' page
@@ -24,12 +25,13 @@ Feature: Legal Panel for Government - Non central governemnt - Lot 4b - Service 
     Then I am on the 'Select the legal specialisms you need' page
     And the sub title is 'Lot 4b - International Trade Disputes'
     Then I should see the following options for the lot:
+Then I should see the following options for the lot:
       | Compliance with international law       |
       | Domestic law of jurisdictions for trade |
       | International trade disputes            |
       | Prevention of disputes                  |
       | Trade remedies                          |
       | Trade remedies investigations           |
+      | Wider trading arrangements              |
       | WTO litigation and dispute resolution   |
       | WTO practice                            |
-      | Wider trading arrangements              |
