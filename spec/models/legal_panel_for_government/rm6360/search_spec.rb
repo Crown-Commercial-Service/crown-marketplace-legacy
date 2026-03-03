@@ -12,7 +12,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::Search do
 
   describe '.log_results_downloaded_to_search' do
     let(:result) { described_class.log_results_downloaded_to_search(framework, user, session_id, params) }
-    let(:search_criteria) { { ccs_can_contact_you: 'yes', central_government: 'yes', lot_id: 'RM6360.1', replaces_existing_contract: 'yes', requirement_end_date_month: '10', requirement_end_date_year: '2025', requirement_estimated_total_value: '25000', requirement_start_date_month: '5', requirement_start_date_year: '2025', service_ids: ['RM6360.1.1', 'RM6360.1.3'] } }
+    let(:search_criteria) { { ccs_can_contact_you: 'yes', central_government: 'yes', lot_id: 'RM6360.1', replaces_existing_contract: 'yes', requirement_being_awarded: 'likely', requirement_end_date_month: '10', requirement_end_date_year: '2025', requirement_estimated_total_value: '25000', requirement_start_date_month: '5', requirement_start_date_year: '2025', service_ids: ['RM6360.1.1', 'RM6360.1.3'] } }
 
     context 'when the search does not exist' do
       it 'has a falsey result' do
@@ -31,7 +31,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::Search do
           user_id: user.id,
           session_id: session_id,
           search_criteria: search_criteria,
-          search_criteria_hash: '7df13d9de8daf044c4c93aa2d9841acd3e1155329e79454f9fceec6df88880db',
+          search_criteria_hash: '80c8eb97c62995db325fb79d655bf9396ab9b3c79135e94eaabb48708a9816e1',
           search_result: search_result.map { |supplier_framework| [supplier_framework.supplier.name, supplier_framework.supplier.id] },
         }
       end
@@ -80,7 +80,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::Search do
 
       context 'and it is a different search_criteria' do
         let(:result) { described_class.log_results_downloaded_to_search(framework, user, session_id, ActionController::Parameters.new(new_search_criteria)) }
-        let(:new_search_criteria) { { criteria_1: false, criteria_2: false, criteria_3: 'Elma', replaces_existing_contract: 'yes' } }
+        let(:new_search_criteria) { { criteria_1: false, criteria_2: false, criteria_3: 'Elma', replaces_existing_contract: 'yes', requirement_being_awarded: 'likely' } }
 
         it 'has a falsey result' do
           expect(result).to be_falsey
@@ -91,7 +91,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::Search do
 
   describe '.log_supplier_rates_comparison' do
     let(:result) { described_class.log_supplier_rates_comparison(framework, user, session_id, params, comparison_result) }
-    let(:search_criteria) { { ccs_can_contact_you: 'yes', central_government: 'yes', lot_id: 'RM6360.1', replaces_existing_contract: 'yes', requirement_end_date_month: '10', requirement_end_date_year: '2025', requirement_estimated_total_value: '25000', requirement_start_date_month: '5', requirement_start_date_year: '2025', service_ids: ['RM6360.1.1', 'RM6360.1.3'], have_you_reviewed: 'No' } }
+    let(:search_criteria) { { ccs_can_contact_you: 'yes', central_government: 'yes', lot_id: 'RM6360.1', replaces_existing_contract: 'yes', requirement_being_awarded: 'likely', requirement_end_date_month: '10', requirement_end_date_year: '2025', requirement_estimated_total_value: '25000', requirement_start_date_month: '5', requirement_start_date_year: '2025', service_ids: ['RM6360.1.1', 'RM6360.1.3'], have_you_reviewed: 'No' } }
 
     context 'when the search does not exist' do
       it 'has a falsey result' do
@@ -110,7 +110,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::Search do
           user_id: user.id,
           session_id: session_id,
           search_criteria: search_criteria,
-          search_criteria_hash: '7df13d9de8daf044c4c93aa2d9841acd3e1155329e79454f9fceec6df88880db',
+          search_criteria_hash: '80c8eb97c62995db325fb79d655bf9396ab9b3c79135e94eaabb48708a9816e1',
           search_result: search_result.map { |supplier_framework| [supplier_framework.supplier.name, supplier_framework.supplier.id] },
         }
       end
@@ -176,7 +176,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::Search do
 
       context 'and it is a different search_criteria' do
         let(:result) { described_class.log_supplier_rates_comparison(framework, user, session_id, ActionController::Parameters.new(new_search_criteria), comparison_result) }
-        let(:new_search_criteria) { { criteria_1: false, criteria_2: false, criteria_3: 'Elma', replaces_existing_contract: 'yes' } }
+        let(:new_search_criteria) { { criteria_1: false, criteria_2: false, criteria_3: 'Elma', replaces_existing_contract: 'yes', requirement_being_awarded: 'likely' } }
 
         it 'has a falsey result' do
           expect(result).to be_falsey
