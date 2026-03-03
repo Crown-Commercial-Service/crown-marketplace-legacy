@@ -302,7 +302,7 @@ en:
           description: To help %{org_name_abbr} understand your needs, please tell us how long this will take and what it’s worth. If you’re not sure at this stage, an estimate can be provided.
           heading: Information about your requirements
           replaces_existing_contract:
-            question: Will this requirement replace an existing contract that was previously awarded under a CCS legal services framework?
+            question: Will this requirement replace an existing contract that was previously awarded under a %{org_name_abbr} legal services framework?
           requirement_being_awarded:
             question: What is the probability of this requirement being awarded through a CCS framework?
           requirement_end_date:
