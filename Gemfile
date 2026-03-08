@@ -133,7 +133,7 @@ group :development, :test do
   gem 'poltergeist', '>= 1.18.1'
   gem 'wdm', '>= 0.1.0', platforms: %i[windows]
   gem 'tzinfo-data', platforms: %i[windows]
-  gem 'faker', '~> 3.6.0'
+  gem 'faker', '~> 3.6.1'
   gem 'brakeman', '~> 8.0.4'
 end
 
