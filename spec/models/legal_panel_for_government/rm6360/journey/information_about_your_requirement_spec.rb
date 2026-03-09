@@ -135,7 +135,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::Journey::InformationAboutYourReq
 
       it 'is not valid and has the correct error message' do
         expect(step).not_to be_valid
-        expect(step.errors[:requirement_being_awarded].first).to eq 'You must select an option for the probability of awarding through a %{org_name_abbr} framework'
+        expect(step.errors[:requirement_being_awarded].first).to eq 'You must select an option for the probability of awarding through a %<org_name_abbr>s framework'
       end
     end
 
