@@ -9,7 +9,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::Journey::InformationAboutYourReq
   let(:requirement_end_date_year) { '2026' }
   let(:requirement_estimated_total_value) { 123_456 }
   let(:replaces_existing_contract) { 'yes' }
-  let(:requirement_being_awarded) { 'Likely' }
+  let(:requirement_being_awarded) { 'likely' }
   let(:ccs_can_contact_you) { 'yes' }
 
   describe 'validations' do
@@ -172,13 +172,13 @@ RSpec.describe LegalPanelForGovernment::RM6360::Journey::InformationAboutYourReq
 
   describe '.permit_list' do
     it 'returns a list of the permitted attributes' do
-      expect(described_class.permit_list).to eq [:requirement_start_date_day, :requirement_start_date_month, :requirement_start_date_year, :requirement_end_date_day, :requirement_end_date_month, :requirement_end_date_year, :requirement_estimated_total_value, :replaces_existing_contract, :ccs_can_contact_you, :requirement_being_awarded, {}]
+      expect(described_class.permit_list).to eq [:requirement_start_date_day, :requirement_start_date_month, :requirement_start_date_year, :requirement_end_date_day, :requirement_end_date_month, :requirement_end_date_year, :requirement_estimated_total_value, :replaces_existing_contract, :requirement_being_awarded, :ccs_can_contact_you, {}]
     end
   end
 
   describe '.permitted_keys' do
     it 'returns a list of the permitted keys' do
-      expect(described_class.permitted_keys).to eq %i[requirement_start_date_day requirement_start_date_month requirement_start_date_year requirement_end_date_day requirement_end_date_month requirement_end_date_year requirement_estimated_total_value replaces_existing_contract ccs_can_contact_you requirement_being_awarded]
+      expect(described_class.permitted_keys).to eq %i[requirement_start_date_day requirement_start_date_month requirement_start_date_year requirement_end_date_day requirement_end_date_month requirement_end_date_year requirement_estimated_total_value replaces_existing_contract requirement_being_awarded ccs_can_contact_you]
     end
   end
 

@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Add flag to show GCA branding ([PR 2273](https://github.com/Crown-Commercial-Service/crown-marketplace/pull/2273))
 - Added a new question for LPfG ([PR 2266](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2266))
+- Added another new question for LPfG ([PR 2316](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2316))
 
 ### Changed
 
