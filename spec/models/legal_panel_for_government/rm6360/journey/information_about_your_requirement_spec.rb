@@ -133,11 +133,14 @@ RSpec.describe LegalPanelForGovernment::RM6360::Journey::InformationAboutYourReq
     context 'when no requirement_being_awarded is provided' do
       let(:requirement_being_awarded) { '' }
 
+      # rubocop:disable Style/FormatStringToken
       it 'is not valid and has the correct error message' do
         expect(step).not_to be_valid
-        expect(step.errors[:requirement_being_awarded].first).to eq 'You must select an option for the probability of awarding through a %%<org_name_abbr>s framework'
+        expect(step.errors[:requirement_being_awarded].first).to eq 'You must select an option for the probability of awarding through a %{org_name_abbr} framework'
       end
+      # rubocop:enable Style/FormatStringToken
     end
+
 
     context 'when no ccs_can_contact_you is provided' do
       let(:ccs_can_contact_you) { '' }

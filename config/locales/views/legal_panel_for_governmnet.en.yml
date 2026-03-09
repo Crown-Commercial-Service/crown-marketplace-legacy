@@ -30,7 +30,7 @@ en:
             replaces_existing_contract:
               inclusion: You must select an option
             requirement_being_awarded:
-              inclusion: You must select an option for the probability of awarding through a %%<org_name_abbr>s framework
+              inclusion: You must select an option for the probability of awarding through a %{org_name_abbr} framework
             requirement_end_date:
               after_requirement_start_date: The intended end date must be after the intended start date
               blank: Enter the intended end date, including the month and year
