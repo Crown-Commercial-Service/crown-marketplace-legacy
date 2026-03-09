@@ -141,7 +141,6 @@ RSpec.describe LegalPanelForGovernment::RM6360::Journey::InformationAboutYourReq
       # rubocop:enable Style/FormatStringToken
     end
 
-
     context 'when no ccs_can_contact_you is provided' do
       let(:ccs_can_contact_you) { '' }
 
