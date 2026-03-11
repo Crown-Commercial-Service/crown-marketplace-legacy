@@ -210,7 +210,7 @@ en:
         create_password: Create a password you'll remember
         email: Email address
         email_hint: We will send a confirmation code to this address.
-        heading: Create a %{org_name_abbr} account
+        heading: Create a %{} account
         heading_html: Create a <abbr title="%{org_name}">%{org_name_abbr}</abbr> account
         lead: You must be employed by, or represent, a public sector organisation.
         your_password_must_have: 'Your password must have:'
