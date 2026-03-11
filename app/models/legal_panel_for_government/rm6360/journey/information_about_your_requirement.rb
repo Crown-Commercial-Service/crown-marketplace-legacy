@@ -8,7 +8,7 @@ module LegalPanelForGovernment
 
       REPLACES_EXISTING_CONTRACT_OPTIONS = %w[yes no].freeze
       CCS_CAN_CONTACT_YOU_OPTIONS = %w[yes no].freeze
-      REQUIREMENT_BEING_AWARDED = ['Unlikely', 'Possibly', 'Likely', 'Highly likely'].freeze
+      REQUIREMENT_BEING_AWARDED = %w[unlikely possibly likely highly_likely].freeze
 
       attribute :requirement_start_date_day, default: '1'
       attribute :requirement_start_date_month
@@ -18,8 +18,8 @@ module LegalPanelForGovernment
       attribute :requirement_end_date_year
       attribute :requirement_estimated_total_value, :numeric
       attribute :replaces_existing_contract
-      attribute :ccs_can_contact_you
       attribute :requirement_being_awarded
+      attribute :ccs_can_contact_you
 
       validate  -> { ensure_date_valid(:requirement_start_date, false) }, unless: -> { requirement_start_date_month.blank? || requirement_start_date_year.blank? }
       validates :requirement_start_date, presence: true

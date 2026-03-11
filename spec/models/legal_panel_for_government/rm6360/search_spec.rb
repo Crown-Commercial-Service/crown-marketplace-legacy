@@ -31,7 +31,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::Search do
           user_id: user.id,
           session_id: session_id,
           search_criteria: search_criteria,
-          search_criteria_hash: '80c8eb97c62995db325fb79d655bf9396ab9b3c79135e94eaabb48708a9816e1',
+          search_criteria_hash: '5f819b6dd83468eb9e7f75214e1f0ca06befb2328ec15440ad21bf37c7ce3b0d',
           search_result: search_result.map { |supplier_framework| [supplier_framework.supplier.name, supplier_framework.supplier.id] },
         }
       end
@@ -80,7 +80,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::Search do
 
       context 'and it is a different search_criteria' do
         let(:result) { described_class.log_results_downloaded_to_search(framework, user, session_id, ActionController::Parameters.new(new_search_criteria)) }
-        let(:new_search_criteria) { { criteria_1: false, criteria_2: false, criteria_3: 'Elma', replaces_existing_contract: 'yes', requirement_being_awarded: 'likely' } }
+        let(:new_search_criteria) { { criteria_1: false, criteria_2: false, criteria_3: 'Elma' } }
 
         it 'has a falsey result' do
           expect(result).to be_falsey
@@ -110,7 +110,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::Search do
           user_id: user.id,
           session_id: session_id,
           search_criteria: search_criteria,
-          search_criteria_hash: '80c8eb97c62995db325fb79d655bf9396ab9b3c79135e94eaabb48708a9816e1',
+          search_criteria_hash: '5f819b6dd83468eb9e7f75214e1f0ca06befb2328ec15440ad21bf37c7ce3b0d',
           search_result: search_result.map { |supplier_framework| [supplier_framework.supplier.name, supplier_framework.supplier.id] },
         }
       end
@@ -176,7 +176,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::Search do
 
       context 'and it is a different search_criteria' do
         let(:result) { described_class.log_supplier_rates_comparison(framework, user, session_id, ActionController::Parameters.new(new_search_criteria), comparison_result) }
-        let(:new_search_criteria) { { criteria_1: false, criteria_2: false, criteria_3: 'Elma', replaces_existing_contract: 'yes', requirement_being_awarded: 'likely' } }
+        let(:new_search_criteria) { { criteria_1: false, criteria_2: false, criteria_3: 'Elma' } }
 
         it 'has a falsey result' do
           expect(result).to be_falsey
