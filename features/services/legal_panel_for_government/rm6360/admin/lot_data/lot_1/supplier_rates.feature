@@ -48,7 +48,7 @@ Feature: Legal Panel for Government - Admin - Supplier lot data - Lot 1 - View r
       | NQ Solicitor/Associate, Junior Solicitor/Associate/Legal Executive | 123      |
       | Trainee/Legal Apprentice                                           | 456.78   |
       | Paralegal, Legal Assistant                                         | 106      |
-      | Legal Project Managers                                             | 405.44   |
+      | Legal Project Managers (optional)                                  | 405.44   |
     And I click on 'Save and return'
     Then I am on the 'Lot 1 - Core Legal Services View rates' page
     And the caption is 'BALISTRERI-MURAZIK'
