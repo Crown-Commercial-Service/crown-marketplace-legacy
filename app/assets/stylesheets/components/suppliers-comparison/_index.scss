@@ -1,7 +1,7 @@
 :not(.govuk-tabs__panel) > .ccs-suppliers-comparison-container {
   @include govuk-responsive-margin(0, 'bottom');
   padding: govuk-spacing(4);
-  border: 1px solid $govuk-border-colour;
+  border: 1px solid govuk-functional-colour(border);
   margin-bottom: 0;
 }
 
@@ -19,12 +19,12 @@
   }
 
   thead > tr > th:nth-child(1), tbody > tr > th:nth-child(1) {
-    border-right: 1px solid $govuk-border-colour;
+    border-right: 1px solid govuk-functional-colour(border);
 
     @media #{govuk-from-breakpoint(tablet)} {
       position: sticky;
       left: 0;
-      background-color: $govuk-body-background-colour;
+      background-color: govuk-functional-colour(body-background);
     }
   }
 
