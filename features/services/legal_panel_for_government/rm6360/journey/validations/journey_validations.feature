@@ -17,10 +17,12 @@ Feature: Legal Panel for Government - Jounrey validations
     Given I am on the 'Information about your requirements' page
     When I click on 'Continue'
     Then I should see the following error messages:
-      | Enter the intended start date, including the month and year     |
-      | Enter the intended end date, including the month and year       |
-      | The estimated total value must be a whole number greater than 0 |
-      | You must select an option                                       |
+      | Enter the intended start date, including the month and year                        |
+      | Enter the intended end date, including the month and year                          |
+      | The estimated total value must be a whole number greater than 0                    |
+      | You must select an option                                                          |
+      | You must select an option for the probability of awarding through a CCS framework  |
+      | You must select an option                                                          |
 
   Scenario Outline: Information about your requirements start date validations
     And I select 'Yes'
@@ -29,7 +31,9 @@ Feature: Legal Panel for Government - Jounrey validations
     And I enter '<date>' for the requirement 'start' date
     And I enter '10/2025' for the requirement 'end' date
     And I enter '123456' for the 'requirement estimated total value'
-    And I select 'Yes'
+    And I select 'Yes' for 'requirement replace an existing contract'
+    And I select 'Likely' for 'requirement being awarded'
+    And I select 'Yes' for 'CCS contact you'
     And I click on 'Continue'
     Then I should see the following error messages:
       | <error_message> |
@@ -48,7 +52,9 @@ Feature: Legal Panel for Government - Jounrey validations
     And I enter '10/2024' for the requirement 'start' date
     And I enter '<date>' for the requirement 'end' date
     And I enter '123456' for the 'requirement estimated total value'
-    And I select 'Yes'
+    And I select 'Yes' for 'requirement replace an existing contract'
+    And I select 'Likely' for 'requirement being awarded'
+    And I select 'Yes' for 'CCS contact you'
     And I click on 'Continue'
     Then I should see the following error messages:
       | <error_message> |
@@ -68,7 +74,9 @@ Feature: Legal Panel for Government - Jounrey validations
     And I enter '10/2024' for the requirement 'start' date
     And I enter '10/2025' for the requirement 'end' date
     And I enter '<value>' for the 'requirement estimated total value'
-    And I select 'Yes'
+    And I select 'Yes' for 'requirement replace an existing contract'
+    And I select 'Likely' for 'requirement being awarded'
+    And I select 'Yes' for 'CCS contact you'
     And I click on 'Continue'
     Then I should see the following error messages:
       | <error_message> |
@@ -89,7 +97,9 @@ Feature: Legal Panel for Government - Jounrey validations
     And I enter '10/2024' for the requirement 'start' date
     And I enter '10/2025' for the requirement 'end' date
     And I enter '123456' for the 'requirement estimated total value'
-    And I select 'Yes'
+    And I select 'Yes' for 'requirement replace an existing contract'
+    And I select 'Likely' for 'requirement being awarded'
+    And I select 'Yes' for 'CCS contact you'
     And I click on 'Continue'
     Then I am on the 'Select the lot you need' page
     When I click on 'Continue'
@@ -104,7 +114,9 @@ Feature: Legal Panel for Government - Jounrey validations
     And I enter '10/2024' for the requirement 'start' date
     And I enter '10/2025' for the requirement 'end' date
     And I enter '123456' for the 'requirement estimated total value'
-    And I select 'Yes'
+    And I select 'Yes' for 'requirement replace an existing contract'
+    And I select 'Likely' for 'requirement being awarded'
+    And I select 'Yes' for 'CCS contact you'
     And I click on 'Continue'
     Then I am on the 'Select the lot you need' page
     And I select 'Lot 1 - Core Legal Services'
@@ -122,7 +134,9 @@ Feature: Legal Panel for Government - Jounrey validations
     And I enter '10/2024' for the requirement 'start' date
     And I enter '10/2025' for the requirement 'end' date
     And I enter '123456' for the 'requirement estimated total value'
-    And I select 'Yes'
+    And I select 'Yes' for 'requirement replace an existing contract'
+    And I select 'Likely' for 'requirement being awarded'
+    And I select 'Yes' for 'CCS contact you'
     And I click on 'Continue'
     Then I am on the 'Select the lot you need' page
     And I select 'Lot 4a - Trade and Investment Negotiations'
@@ -140,7 +154,9 @@ Feature: Legal Panel for Government - Jounrey validations
     And I enter '10/2024' for the requirement 'start' date
     And I enter '10/2025' for the requirement 'end' date
     And I enter '123456' for the 'requirement estimated total value'
-    And I select 'Yes'
+    And I select 'Yes' for 'requirement replace an existing contract'
+    And I select 'Likely' for 'requirement being awarded'
+    And I select 'Yes' for 'CCS contact you'
     And I click on 'Continue'
     Then I am on the 'Select the lot you need' page
     And I select 'Lot 4a - Trade and Investment Negotiations'
@@ -161,7 +177,9 @@ Feature: Legal Panel for Government - Jounrey validations
     And I enter '10/2024' for the requirement 'start' date
     And I enter '10/2025' for the requirement 'end' date
     And I enter '123456' for the 'requirement estimated total value'
-    And I select 'Yes'
+    And I select 'Yes' for 'requirement replace an existing contract'
+    And I select 'Likely' for 'requirement being awarded'
+    And I select 'Yes' for 'CCS contact you'
     And I click on 'Continue'
     Then I am on the 'Select the lot you need' page
     And I select 'Lot 4a - Trade and Investment Negotiations'
@@ -182,7 +200,9 @@ Feature: Legal Panel for Government - Jounrey validations
     And I enter '10/2024' for the requirement 'start' date
     And I enter '10/2025' for the requirement 'end' date
     And I enter '123456' for the 'requirement estimated total value'
-    And I select 'Yes'
+    And I select 'Yes' for 'requirement replace an existing contract'
+    And I select 'Likely' for 'requirement being awarded'
+    And I select 'Yes' for 'CCS contact you'
     And I click on 'Continue'
     Then I am on the 'Select the lot you need' page
     And I select 'Lot 1 - Core Legal Services'
@@ -205,7 +225,9 @@ Feature: Legal Panel for Government - Jounrey validations
     And I enter '10/2024' for the requirement 'start' date
     And I enter '10/2025' for the requirement 'end' date
     And I enter '123456' for the 'requirement estimated total value'
-    And I select 'Yes'
+    And I select 'Yes' for 'requirement replace an existing contract'
+    And I select 'Likely' for 'requirement being awarded'
+    And I select 'Yes' for 'CCS contact you'
     And I click on 'Continue'
     Then I am on the 'Select the lot you need' page
     And I select 'Lot 1 - Core Legal Services'
@@ -231,7 +253,9 @@ Feature: Legal Panel for Government - Jounrey validations
     And I enter '10/2024' for the requirement 'start' date
     And I enter '10/2025' for the requirement 'end' date
     And I enter '123456' for the 'requirement estimated total value'
-    And I select 'Yes'
+    And I select 'Yes' for 'requirement replace an existing contract'
+    And I select 'Likely' for 'requirement being awarded'
+    And I select 'Yes' for 'CCS contact you'
     And I click on 'Continue'
     Then I am on the 'Select the lot you need' page
     And I select 'Lot 1 - Core Legal Services'
@@ -258,7 +282,9 @@ Feature: Legal Panel for Government - Jounrey validations
     And I enter '10/2024' for the requirement 'start' date
     And I enter '10/2025' for the requirement 'end' date
     And I enter '123456' for the 'requirement estimated total value'
-    And I select 'Yes'
+    And I select 'Yes' for 'requirement replace an existing contract'
+    And I select 'Likely' for 'requirement being awarded'
+    And I select 'Yes' for 'CCS contact you'
     And I click on 'Continue'
     Then I am on the 'Select the lot you need' page
     And I select 'Lot 4a - Trade and Investment Negotiations'
@@ -284,7 +310,9 @@ Feature: Legal Panel for Government - Jounrey validations
     And I enter '10/2024' for the requirement 'start' date
     And I enter '10/2025' for the requirement 'end' date
     And I enter '123456' for the 'requirement estimated total value'
-    And I select 'Yes'
+    And I select 'Yes' for 'requirement replace an existing contract'
+    And I select 'Likely' for 'requirement being awarded'
+    And I select 'Yes' for 'CCS contact you'
     And I click on 'Continue'
     Then I am on the 'Select the lot you need' page
     And I select 'Lot 4a - Trade and Investment Negotiations'
@@ -313,7 +341,9 @@ Feature: Legal Panel for Government - Jounrey validations
     And I enter '10/2024' for the requirement 'start' date
     And I enter '10/2025' for the requirement 'end' date
     And I enter '123456' for the 'requirement estimated total value'
-    And I select 'Yes'
+    And I select 'Yes' for 'requirement replace an existing contract'
+    And I select 'Likely' for 'requirement being awarded'
+    And I select 'Yes' for 'CCS contact you'
     And I click on 'Continue'
     Then I am on the 'Select the lot you need' page
     And I select 'Lot 4a - Trade and Investment Negotiations'

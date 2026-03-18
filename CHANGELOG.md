@@ -7,6 +7,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [6.6.0] - 2026-03-18
+
+### Added
+
+- Add flag to show GCA branding ([PR 2273](https://github.com/Crown-Commercial-Service/crown-marketplace/pull/2273))
+- Added a new question for LPfG ([PR 2266](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2266))
+- Added another new question for LPfG ([PR 2316](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2316))
+
+### Changed
+
+- Update GOV.UK Frontend and CCS Frontend ([PR 2251](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2251))
+- Add description attribute to services ([PR 2257](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2257))
+- Updated content that references CCS to now reference GCA ([PR 2288](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2288))
+- Replace virtus with native Rails models ([PR 2295](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2295))
+- Update GOV.UK Frontend to v6 and CCS Frontend v3 ([PR 2328](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2328))
+
 ## [6.5.0] - 2025-12-09
 
 ### Changed

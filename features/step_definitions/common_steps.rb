@@ -148,6 +148,10 @@ Given('I check {string}') do |item|
   check item
 end
 
+Then('I enter {string} for the {string}') do |value, field|
+  fill_in field.gsub(' ', '_'),	with: value
+end
+
 When('I deselect the following items:') do |items|
   items.raw.flatten.each do |item|
     page.uncheck(item)

@@ -14,5 +14,11 @@ module Pages
       element :yes, '#have_you_reviewed_yes'
       element :no, '#have_you_reviewed_no'
     end
+
+    section :questions, '#main-content' do
+      element :'requirement replace an existing contract', '#replaces_existing_contract-form-group'
+      element :'requirement being awarded', '#requirement_being_awarded-form-group'
+      element :'CCS contact you', '#ccs_can_contact_you-form-group'
+    end
   end
 end
