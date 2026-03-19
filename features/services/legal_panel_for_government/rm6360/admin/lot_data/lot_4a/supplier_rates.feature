@@ -172,7 +172,7 @@ Feature: Legal Panel for Government - Admin - Supplier lot data - Lot 4a - View 
       | NQ Solicitor/Associate, Junior Solicitor/Associate/Legal Executive          | 123      |
       | Trainee/Legal Apprentice                                                    | 456.78   |
       | Paralegal, Legal Assistant                                                  | 106      |
-      | Legal Project Managers                                                      | 405.44   |
+      | Legal Project Managers (optional)                                           | 405.44   |
       | Senior Analyst (optional)                                                   |          |
       | Analyst, Associate Analyst, Research Associate, Research Officer (optional) |          |
       | Senior Modeller, Senior Econometrician, Senior Analyst (optional)           | 879.56   |
