@@ -27,6 +27,14 @@ RSpec.describe SupplyTeachers::SupplierFindersFee do
   end
 
   describe 'valid?' do
+    context 'when the salary is not a number' do
+      let(:salary) { 'NOT A NUMBER' }
+
+      it 'is not valid' do
+        expect(supplier_finders_fee.valid?).to be false
+      end
+    end
+
     context 'when the salary does not resolve to an integer' do
       let(:salary) { '123f45' }
 

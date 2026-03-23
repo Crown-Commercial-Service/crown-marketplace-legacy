@@ -23,11 +23,11 @@ module SupplyTeachers
           pricing_sheet = price_workbook.sheet("Lot #{lot_number}")
 
           pricing_sheet.map.with_index(1) { |row, index| add_headings(row).merge(line_no: index) }
-                       .reject         { |row| subhead?(row) }
-                       .map            { |row| symbolize_job_types(strip_fields(row), 'pricing_for_tool') }
-                       .flat_map       { |row| normalize_pricing(row) }
-                       .reject         { |row| invalid_fee?(row) }
-                       .map { |row| nest(clean_up_pricing_data(row, lot_number), :pricing) }
+                           .reject { |row| subhead?(row) }
+                           .map { |row| symbolize_job_types(strip_fields(row), 'pricing_for_tool') }
+                           .flat_map { |row| normalize_pricing(row) }
+                           .reject { |row| invalid_fee?(row) }
+                           .map { |row| nest(clean_up_pricing_data(row, lot_number), :pricing) }
         end
 
         def add_headings(row)

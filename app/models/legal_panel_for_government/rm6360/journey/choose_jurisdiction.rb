@@ -4,7 +4,7 @@ module LegalPanelForGovernment
       include Steppable
 
       attribute :lot_id
-      attribute :jurisdiction_ids, Array
+      attribute :jurisdiction_ids, :array, default: -> { [] }
 
       validates :jurisdiction_ids, length: { minimum: 1 }
 

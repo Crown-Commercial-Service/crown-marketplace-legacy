@@ -64,7 +64,7 @@
                 <li>
                   <%=
                     t(".do_next.#{params[:framework].downcase}.sign_form_html",
-                      form_url: link_to(t('.do_next.short_order_form'), "https://assets.crowncommercial.gov.uk/wp-content/uploads/#{params[:framework]}-Order-form-template-short-form-V1.docx", class: 'govuk-link'),
+                      form_url: link_to(t('.do_next.short_order_form'), "https://assets.#{current_organisation_domain}.gov.uk/wp-content/uploads/#{params[:framework]}-Order-form-template-short-form-V1.docx", class: 'govuk-link'),
                       framework_url: link_to(t('.do_next.ccs_framework'), "https://ccs-agreements.cabinetoffice.gov.uk/contracts/#{params[:framework].downcase}", class: 'govuk-link')
                     )
                   %>

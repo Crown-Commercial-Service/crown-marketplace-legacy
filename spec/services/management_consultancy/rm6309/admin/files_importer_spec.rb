@@ -3,9 +3,15 @@ require 'rails_helper'
 RSpec.describe ManagementConsultancy::RM6309::Admin::FilesImporter do
   let(:upload) do
     create(:management_consultancy_rm6309_admin_upload, aasm_state: 'in_progress') do |admin_upload|
-      admin_upload.supplier_details_file.attach(io: File.open(supplier_details_file_path), filename: 'test_supplier_details_file.xlsx')
-      admin_upload.supplier_rate_cards_file.attach(io: File.open(supplier_rate_cards_file_path), filename: 'test_supplier_rate_cards_file.xlsx')
-      admin_upload.supplier_service_offerings_file.attach(io: File.open(supplier_service_offerings_file_path), filename: 'test_supplier_service_offerings_file.xlsx')
+      File.open(supplier_details_file_path, 'rb') do |file_stream|
+        admin_upload.supplier_details_file.attach(io: file_stream, filename: 'test_supplier_details_file.xlsx')
+      end
+      File.open(supplier_rate_cards_file_path, 'rb') do |file_stream|
+        admin_upload.supplier_rate_cards_file.attach(io: file_stream, filename: 'test_supplier_rate_cards_file.xlsx')
+      end
+      File.open(supplier_service_offerings_file_path, 'rb') do |file_stream|
+        admin_upload.supplier_service_offerings_file.attach(io: file_stream, filename: 'test_supplier_service_offerings_file.xlsx')
+      end
     end
   end
 

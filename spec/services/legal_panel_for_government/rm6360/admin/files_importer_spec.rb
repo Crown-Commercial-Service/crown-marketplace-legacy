@@ -4,12 +4,24 @@ module LegalPanelForGovernment::RM6360::Admin
   RSpec.describe FilesImporter do
     let(:upload) do
       create(:legal_panel_for_government_rm6360_admin_upload, aasm_state: 'in_progress') do |admin_upload|
-        admin_upload.supplier_details_file.attach(io: File.open(supplier_details_file_path), filename: 'test_supplier_details_file.xlsx')
-        admin_upload.supplier_service_offerings_file.attach(io: File.open(supplier_service_offerings_file_path), filename: 'test_supplier_service_offerings_file.xlsx')
-        admin_upload.supplier_other_lots_rate_cards_file.attach(io: File.open(supplier_other_lots_rate_cards_file_path), filename: 'test_supplier_other_lots_rate_cards_file.xlsx')
-        admin_upload.supplier_lot_4a_rate_cards_file.attach(io: File.open(supplier_lot_4a_rate_cards_file_path), filename: 'test_supplier_lot_4a_rate_cards_file.xlsx')
-        admin_upload.supplier_lot_4b_rate_cards_file.attach(io: File.open(supplier_lot_4b_rate_cards_file_path), filename: 'test_supplier_lot_4b_rate_cards_file.xlsx')
-        admin_upload.supplier_lot_4c_rate_cards_file.attach(io: File.open(supplier_lot_4c_rate_cards_file_path), filename: 'test_supplier_lot_4c_rate_cards_file.xlsx')
+        File.open(supplier_details_file_path, 'rb') do |file_stream|
+          admin_upload.supplier_details_file.attach(io: file_stream, filename: 'test_supplier_details_file.xlsx')
+        end
+        File.open(supplier_service_offerings_file_path, 'rb') do |file_stream|
+          admin_upload.supplier_service_offerings_file.attach(io: file_stream, filename: 'test_supplier_service_offerings_file.xlsx')
+        end
+        File.open(supplier_other_lots_rate_cards_file_path, 'rb') do |file_stream|
+          admin_upload.supplier_other_lots_rate_cards_file.attach(io: file_stream, filename: 'test_supplier_other_lots_rate_cards_file.xlsx')
+        end
+        File.open(supplier_lot_4a_rate_cards_file_path, 'rb') do |file_stream|
+          admin_upload.supplier_lot_4a_rate_cards_file.attach(io: file_stream, filename: 'test_supplier_lot_4a_rate_cards_file.xlsx')
+        end
+        File.open(supplier_lot_4b_rate_cards_file_path, 'rb') do |file_stream|
+          admin_upload.supplier_lot_4b_rate_cards_file.attach(io: file_stream, filename: 'test_supplier_lot_4b_rate_cards_file.xlsx')
+        end
+        File.open(supplier_lot_4c_rate_cards_file_path, 'rb') do |file_stream|
+          admin_upload.supplier_lot_4c_rate_cards_file.attach(io: file_stream, filename: 'test_supplier_lot_4c_rate_cards_file.xlsx')
+        end
       end
     end
 
