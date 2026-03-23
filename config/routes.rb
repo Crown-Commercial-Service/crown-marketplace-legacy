@@ -43,6 +43,13 @@ Rails.application.routes.draw do
           concerns :authenticatable
         end
       end
+
+      namespace 'rm6376', path: 'RM6376', defaults: { framework: 'RM6376' } do
+        concerns :authenticatable
+        namespace :admin, defaults: { service: 'supply_teachers/admin' } do
+          concerns :authenticatable
+        end
+      end
     end
 
     namespace 'management_consultancy', path: 'management-consultancy', defaults: { service: 'management_consultancy' } do
@@ -207,6 +214,10 @@ Rails.application.routes.draw do
           get '/education-technology-platform-vendors', action: :education_technology_platform_vendors
         end
       end
+    end
+
+    namespace 'rm6376', path: 'RM6376', defaults: { framework: 'RM6376' } do
+      concerns %i[buyer_shared_pages shared_pages gateway branches admin calculations supply_teachers_suppliers]
     end
 
     get '/:framework', to: 'home#index', as: 'index'

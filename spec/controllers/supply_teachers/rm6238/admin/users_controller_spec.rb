@@ -13,6 +13,8 @@ RSpec.describe SupplyTeachers::RM6238::Admin::UsersController do
     before { cookies[:crown_marketplace_challenge_username] = user.cognito_uuid }
 
     context 'when the framework is live' do
+      include_context 'and RM6238 is live'
+
       before { get :challenge_new, params: { challenge_name: } }
 
       render_views
@@ -35,8 +37,6 @@ RSpec.describe SupplyTeachers::RM6238::Admin::UsersController do
     end
 
     context 'when the framework is not live' do
-      include_context 'and RM6238 has expired'
-
       before { get :challenge_new, params: { challenge_name: } }
 
       render_views
@@ -86,6 +86,8 @@ RSpec.describe SupplyTeachers::RM6238::Admin::UsersController do
       end
 
       context 'when the framework is live' do
+        include_context 'and RM6238 is live'
+
         before do
           post :challenge, params: { challenge_name: challenge_name, cognito_respond_to_challenge: { username: username, session: session, new_password: password, new_password_confirmation: password } }
           cookies.update(response.cookies)
@@ -132,8 +134,6 @@ RSpec.describe SupplyTeachers::RM6238::Admin::UsersController do
       end
 
       context 'when the framework is not live' do
-        include_context 'and RM6238 has expired'
-
         before do
           post :challenge, params: { challenge_name: challenge_name, cognito_respond_to_challenge: { username: username, session: session, new_password: password, new_password_confirmation: password } }
           cookies.update(response.cookies)
@@ -162,6 +162,8 @@ RSpec.describe SupplyTeachers::RM6238::Admin::UsersController do
       end
 
       context 'when the framework is live' do
+        include_context 'and RM6238 is live'
+
         before do
           post :challenge, params: { challenge_name: challenge_name, cognito_respond_to_challenge: { username:, session:, access_code: } }
           cookies.update(response.cookies)
@@ -193,8 +195,6 @@ RSpec.describe SupplyTeachers::RM6238::Admin::UsersController do
       end
 
       context 'when the framework is not live' do
-        include_context 'and RM6238 has expired'
-
         before do
           post :challenge, params: { challenge_name: challenge_name, cognito_respond_to_challenge: { username:, session:, access_code: } }
           cookies.update(response.cookies)

@@ -6,6 +6,8 @@ RSpec.describe SupplyTeachers::RM6238::SuppliersController do
 
   login_st_buyer
 
+  include_context 'and RM6238 is live'
+
   describe 'GET master_vendors' do
     let(:supplier_framework) { build(:supplier_framework) }
     let(:supplier_frameworks) { [supplier_framework] }

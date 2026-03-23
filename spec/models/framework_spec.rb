@@ -16,8 +16,8 @@ RSpec.describe Framework do
     context 'when the supply_teachers is provided' do
       let(:service_name) { 'supply_teachers' }
 
-      it 'returns RM6238' do
-        expect(result).to eq %w[RM6238]
+      it 'returns RM6238 and RM6376' do
+        expect(result).to eq %w[RM6238 RM6376]
       end
     end
 
@@ -56,14 +56,14 @@ RSpec.describe Framework do
 
   describe '.frameworks' do
     context 'when no scope is provided' do
-      it 'returns RM6238, RM6187, RM6240, RM6309 and RM6360' do
-        expect(described_class.frameworks).to eq %w[RM6238 RM6187 RM6240 RM6309 RM6360]
+      it 'returns RM6238, RM6187, RM6240, RM6309, RM6360 and RM6376' do
+        expect(described_class.frameworks).to eq %w[RM6238 RM6187 RM6240 RM6309 RM6360 RM6376]
       end
     end
 
     context 'when the supply_teachers scope is provided' do
-      it 'returns RM6238' do
-        expect(described_class.supply_teachers.frameworks).to eq %w[RM6238]
+      it 'returns RM6238 and RM6376' do
+        expect(described_class.supply_teachers.frameworks).to eq %w[RM6238 RM6376]
       end
     end
 
@@ -87,8 +87,8 @@ RSpec.describe Framework do
   end
 
   describe '.live_frameworks' do
-    context 'when RM6238 goes live tomorrow' do
-      include_context 'and RM6238 is live in the future'
+    context 'when RM6376 goes live tomorrow' do
+      include_context 'and RM6376 is live in the future'
 
       it 'returns RM6240, RM6309 and RM6360' do
         expect(described_class.live_frameworks).to eq %w[RM6240 RM6309 RM6360]
@@ -104,8 +104,8 @@ RSpec.describe Framework do
     context 'when RM6240 goes live tomorrow' do
       include_context 'and RM6240 is live in the future'
 
-      it 'returns RM6238, RM6309 and RM6360' do
-        expect(described_class.live_frameworks).to eq %w[RM6238 RM6309 RM6360]
+      it 'returns RM6309, RM6360 and RM6376' do
+        expect(described_class.live_frameworks).to eq %w[RM6309 RM6360 RM6376]
       end
 
       context 'and the legal_services scope is provided' do
@@ -118,8 +118,8 @@ RSpec.describe Framework do
     context 'when RM6360 goes live tomorrow' do
       include_context 'and RM6360 is live in the future'
 
-      it 'returns RM6238, RM6240 and RM6309' do
-        expect(described_class.live_frameworks).to eq %w[RM6238 RM6240 RM6309]
+      it 'returns RM6240, RM6309 and RM6376' do
+        expect(described_class.live_frameworks).to eq %w[RM6240 RM6309 RM6376]
       end
 
       context 'and the legal_panel_for_government scope is provided' do
@@ -129,16 +129,16 @@ RSpec.describe Framework do
       end
     end
 
-    context 'when RM6238 is live today' do
-      include_context 'and RM6238 is live today'
+    context 'when RM6376 is live today' do
+      include_context 'and RM6376 is live today'
 
-      it 'returns RM6238, RM6309, RM6240 and RM6360' do
-        expect(described_class.live_frameworks).to eq %w[RM6240 RM6309 RM6360 RM6238]
+      it 'returns RM6309, RM6240 RM6360 and RM6376' do
+        expect(described_class.live_frameworks).to eq %w[RM6240 RM6309 RM6360 RM6376]
       end
 
       context 'and the supply_teachers scope is provided' do
-        it 'returns RM6238' do
-          expect(described_class.supply_teachers.live_frameworks).to eq %w[RM6238]
+        it 'returns RM6376' do
+          expect(described_class.supply_teachers.live_frameworks).to eq %w[RM6376]
         end
       end
     end
@@ -146,8 +146,8 @@ RSpec.describe Framework do
     context 'when RM6240 is live today' do
       include_context 'and RM6240 is live today'
 
-      it 'returns RM6238, RM6309, RM6240 and RM6360' do
-        expect(described_class.live_frameworks).to eq %w[RM6238 RM6309 RM6360 RM6240]
+      it 'returns RM6309, RM6240, RM6360 and RM6376' do
+        expect(described_class.live_frameworks).to eq %w[RM6309 RM6360 RM6376 RM6240]
       end
 
       context 'and the legal_services scope is provided' do
@@ -160,8 +160,8 @@ RSpec.describe Framework do
     context 'when RM6360 is live today' do
       include_context 'and RM6360 is live today'
 
-      it 'returns RM6238, RM6309 and RM6240' do
-        expect(described_class.live_frameworks).to eq %w[RM6238 RM6240 RM6309 RM6360]
+      it 'returns RM6309, RM6240, RM6360 and RM6376' do
+        expect(described_class.live_frameworks).to eq %w[RM6240 RM6309 RM6376 RM6360]
       end
 
       context 'and the legal_panel_for_government scope is provided' do
@@ -171,21 +171,21 @@ RSpec.describe Framework do
       end
     end
 
-    context 'when RM6238 went live yesterday' do
-      it 'returns RM6238, RM6240, RM6309 and RM6360' do
-        expect(described_class.live_frameworks).to eq %w[RM6238 RM6240 RM6309 RM6360]
+    context 'when RM6376 went live yesterday' do
+      it 'returns RM6240, RM6309, RM6360 and RM6376' do
+        expect(described_class.live_frameworks).to eq %w[RM6240 RM6309 RM6360 RM6376]
       end
 
       context 'and the supply_teachers scope is provided' do
-        it 'returns RM6238' do
-          expect(described_class.supply_teachers.live_frameworks).to eq %w[RM6238]
+        it 'returns RM6376' do
+          expect(described_class.supply_teachers.live_frameworks).to eq %w[RM6376]
         end
       end
     end
 
     context 'when RM6240 went live yesterday' do
-      it 'returns RM6240, RM6240, RM6309 and RM6360' do
-        expect(described_class.live_frameworks).to eq %w[RM6238 RM6240 RM6309 RM6360]
+      it 'returns RM6240, RM6309, RM6360 and RM6376' do
+        expect(described_class.live_frameworks).to eq %w[RM6240 RM6309 RM6360 RM6376]
       end
 
       context 'and the legal_services scope is provided' do
@@ -196,8 +196,8 @@ RSpec.describe Framework do
     end
 
     context 'when RM6360 went live yesterday' do
-      it 'returns RM6240, RM6240, RM6309 and RM6360' do
-        expect(described_class.live_frameworks).to eq %w[RM6238 RM6240 RM6309 RM6360]
+      it 'returns RM6240, RM6309, RM6360 and RM6376' do
+        expect(described_class.live_frameworks).to eq %w[RM6240 RM6309 RM6360 RM6376]
       end
 
       context 'and the legal_panel_for_government scope is provided' do
@@ -210,25 +210,25 @@ RSpec.describe Framework do
 
   describe '.current_framework' do
     context 'when the supply_teachers scope is provided' do
-      context 'when RM6238 goes live tomorrow' do
-        include_context 'and RM6238 is live in the future'
+      context 'when RM6376 goes live tomorrow' do
+        include_context 'and RM6376 is live in the future'
 
         it 'returns nil' do
           expect(described_class.supply_teachers.current_framework).to be_nil
         end
       end
 
-      context 'when RM6238 is live today' do
-        include_context 'and RM6238 is live today'
+      context 'when RM6376 is live today' do
+        include_context 'and RM6376 is live today'
 
-        it 'returns RM6238' do
-          expect(described_class.supply_teachers.current_framework).to eq 'RM6238'
+        it 'returns RM6376' do
+          expect(described_class.supply_teachers.current_framework).to eq 'RM6376'
         end
       end
 
-      context 'when RM6238 went live yesterday' do
-        it 'returns RM6238' do
-          expect(described_class.supply_teachers.current_framework).to eq 'RM6238'
+      context 'when RM6376 went live yesterday' do
+        it 'returns RM6376' do
+          expect(described_class.supply_teachers.current_framework).to eq 'RM6376'
         end
       end
     end
@@ -310,26 +310,26 @@ RSpec.describe Framework do
     context 'when the supply_teachers scope is provided' do
       let(:result) { described_class.supply_teachers.live_framework?(framework) }
 
-      context 'when the framework passed is RM6238' do
-        let(:framework) { 'RM6238' }
+      context 'when the framework passed is RM6376' do
+        let(:framework) { 'RM6376' }
 
-        context 'and RM6238 goes live tomorrow' do
-          include_context 'and RM6238 is live in the future'
+        context 'and RM6376 goes live tomorrow' do
+          include_context 'and RM6376 is live in the future'
 
           it 'returns false' do
             expect(result).to be false
           end
         end
 
-        context 'when RM6238 is live today' do
-          include_context 'and RM6238 is live today'
+        context 'when RM6376 is live today' do
+          include_context 'and RM6376 is live today'
 
           it 'returns true' do
             expect(result).to be true
           end
         end
 
-        context 'and RM6238 went live yesterday' do
+        context 'and RM6376 went live yesterday' do
           it 'returns true' do
             expect(result).to be true
           end
@@ -434,11 +434,11 @@ RSpec.describe Framework do
     let(:result) { described_class.find(framework).status }
 
     context 'when considering supply_teacher frameworks' do
-      context 'and RM6238 goes live tomorrow' do
-        include_context 'and RM6238 is live in the future'
+      context 'and RM6376 goes live tomorrow' do
+        include_context 'and RM6376 is live in the future'
 
-        context 'and the frameworks is RM6238' do
-          let(:framework) { 'RM6238' }
+        context 'and the frameworks is RM6376' do
+          let(:framework) { 'RM6376' }
 
           it 'returns coming' do
             expect(result).to eq :coming
@@ -446,11 +446,11 @@ RSpec.describe Framework do
         end
       end
 
-      context 'when RM6238 is live today' do
-        include_context 'and RM6238 is live today'
+      context 'when RM6376 is live today' do
+        include_context 'and RM6376 is live today'
 
-        context 'and the frameworks is RM6238' do
-          let(:framework) { 'RM6238' }
+        context 'and the frameworks is RM6376' do
+          let(:framework) { 'RM6376' }
 
           it 'returns live' do
             expect(result).to eq :live
@@ -458,9 +458,9 @@ RSpec.describe Framework do
         end
       end
 
-      context 'and RM6238 went live yesterday' do
-        context 'and the frameworks is RM6238' do
-          let(:framework) { 'RM6238' }
+      context 'and RM6376 went live yesterday' do
+        context 'and the frameworks is RM6376' do
+          let(:framework) { 'RM6376' }
 
           it 'returns live' do
             expect(result).to eq :live

@@ -8,6 +8,8 @@ RSpec.describe SupplyTeachers::RM6238::BranchesController do
   let(:supplier_framework) { create(:supplier_framework, framework:) }
   let(:supplier_framework_lot) { create(:supplier_framework_lot, :with_rates, supplier_framework:, lot:) }
 
+  include_context 'and RM6238 is live'
+
   describe 'GET index' do
     let(:first_branch) { create(:supplier_framework_lot_branch, supplier_framework_lot:) }
     let(:second_branch) { create(:supplier_framework_lot_branch, supplier_framework_lot:) }

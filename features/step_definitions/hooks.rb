@@ -62,6 +62,14 @@ After('@mobile') do
   resize_window_to_pc
 end
 
+Before do
+  case @framework
+  when 'RM6238'
+    Rake::Task['db:make_framework_live'].reenable
+    Rake::Task['db:make_framework_live'].invoke(@framework)
+  end
+end
+
 After do
   DatabaseCleaner.clean
   if Framework.none?

@@ -5,6 +5,8 @@ RSpec.describe SupplyTeachers::RM6238::HomeController do
 
   login_st_buyer
 
+  include_context 'and RM6238 is live'
+
   describe 'GET index' do
     it 'renders the index template' do
       get :index

@@ -10,7 +10,7 @@ Feature: Supply Teachers - Start pages - With an unrecognised framework
 
     Examples:
       | framework |
-      | RM6238    |
+      | RM6376    |
 
   Scenario Outline: Go to unrecognised famework in the buyer section - logged out
     Given I sign in and navigate to the start page for the '<framework>' framework in 'supply teachers'
@@ -23,7 +23,7 @@ Feature: Supply Teachers - Start pages - With an unrecognised framework
 
     Examples:
       | framework |
-      | RM6238    |
+      | RM6376    |
 
   Scenario Outline: Go to an unrecognised famework in the admin section - logged out
     When I go to '/supply-teachers/RM0172/admin'
@@ -35,7 +35,7 @@ Feature: Supply Teachers - Start pages - With an unrecognised framework
 
     Examples:
       | framework |
-      | RM6238    |
+      | RM6376    |
 
   Scenario Outline: Go to an unrecognised famework in the admin section - logged in
     Given I sign in as an admin for the '<framework>' framework in 'supply teachers'
@@ -49,4 +49,4 @@ Feature: Supply Teachers - Start pages - With an unrecognised framework
 
     Examples:
       | framework |
-      | RM6238    |
+      | RM6376    |
