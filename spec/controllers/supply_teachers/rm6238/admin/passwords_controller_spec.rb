@@ -9,6 +9,8 @@ RSpec.describe SupplyTeachers::RM6238::Admin::PasswordsController do
 
   describe 'GET new' do
     context 'when the framework is live' do
+      include_context 'and RM6238 is live'
+
       it 'renders the new page' do
         get :new
 
@@ -17,8 +19,6 @@ RSpec.describe SupplyTeachers::RM6238::Admin::PasswordsController do
     end
 
     context 'when the framework is not live' do
-      include_context 'and RM6238 has expired'
-
       it 'renders the new page' do
         get :new
 
@@ -36,6 +36,8 @@ RSpec.describe SupplyTeachers::RM6238::Admin::PasswordsController do
     end
 
     context 'when the framework is live' do
+      include_context 'and RM6238 is live'
+
       context 'when no exception is raised' do
         before do
           post :create, params: { cognito_forgot_password: { email: } }
@@ -102,8 +104,6 @@ RSpec.describe SupplyTeachers::RM6238::Admin::PasswordsController do
     end
 
     context 'when the framework is not live' do
-      include_context 'and RM6238 has expired'
-
       before do
         post :create, params: { cognito_forgot_password: { email: 'test@test.com' } }
         cookies.update(response.cookies)
@@ -122,6 +122,8 @@ RSpec.describe SupplyTeachers::RM6238::Admin::PasswordsController do
 
   describe 'GET edit' do
     context 'when the framework is live' do
+      include_context 'and RM6238 is live'
+
       before do
         cookies[:crown_marketplace_reset_email] = 'test@email.com'
         get :edit
@@ -137,8 +139,6 @@ RSpec.describe SupplyTeachers::RM6238::Admin::PasswordsController do
     end
 
     context 'when the framework is not live' do
-      include_context 'and RM6238 has expired'
-
       before do
         cookies[:crown_marketplace_reset_email] = 'test@email.com'
         get :edit
@@ -164,6 +164,8 @@ RSpec.describe SupplyTeachers::RM6238::Admin::PasswordsController do
     end
 
     context 'when the framework is live' do
+      include_context 'and RM6238 is live'
+
       before do
         put :update, params: { cognito_confirm_password_reset: { email: 'test@test.com', password: password, password_confirmation: password, confirmation_code: '123456' } }
         cookies.update(response.cookies)
@@ -195,8 +197,6 @@ RSpec.describe SupplyTeachers::RM6238::Admin::PasswordsController do
     end
 
     context 'when the framework is not live' do
-      include_context 'and RM6238 has expired'
-
       before do
         put :update, params: { cognito_confirm_password_reset: { email: 'test@test.com', password: 'Password12345!', password_confirmation: 'Password12345!', confirmation_code: '123456' } }
         cookies.update(response.cookies)
@@ -214,6 +214,8 @@ RSpec.describe SupplyTeachers::RM6238::Admin::PasswordsController do
 
   describe 'GET password_reset_success' do
     context 'when the framework is live' do
+      include_context 'and RM6238 is live'
+
       it 'renders the password_reset_success page' do
         get :password_reset_success
 
@@ -222,8 +224,6 @@ RSpec.describe SupplyTeachers::RM6238::Admin::PasswordsController do
     end
 
     context 'when the framework is not live' do
-      include_context 'and RM6238 has expired'
-
       it 'renders the password_reset_success page' do
         get :password_reset_success
 

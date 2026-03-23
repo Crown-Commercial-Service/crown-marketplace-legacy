@@ -13,8 +13,8 @@ RSpec.describe ApplicationController do
 
     context 'when the service is nil' do
       context 'when the framework is nil' do
-        it 'returns /supply-teachers/RM6238' do
-          expect(result).to eq '/supply-teachers/RM6238'
+        it 'returns /supply-teachers/RM6376' do
+          expect(result).to eq '/supply-teachers/RM6376'
         end
       end
 
@@ -31,8 +31,8 @@ RSpec.describe ApplicationController do
       let(:service) { 'supply_teachers' }
 
       context 'when the framework is nil' do
-        it 'returns /supply-teachers/RM6238' do
-          expect(result).to eq '/supply-teachers/RM6238'
+        it 'returns /supply-teachers/RM6376' do
+          expect(result).to eq '/supply-teachers/RM6376'
         end
       end
 
@@ -49,8 +49,8 @@ RSpec.describe ApplicationController do
       let(:service) { 'supply_teachers/admin' }
 
       context 'when the framework is nil' do
-        it 'returns /supply-teachers/RM6238/admin' do
-          expect(result).to eq '/supply-teachers/RM6238/admin'
+        it 'returns /supply-teachers/RM6376/admin' do
+          expect(result).to eq '/supply-teachers/RM6376/admin'
         end
       end
 

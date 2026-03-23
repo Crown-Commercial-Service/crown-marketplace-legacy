@@ -524,6 +524,44 @@ en:
             more_help_html: Contact %{supply_teachers_email} if you need more help running a further competition.
             select_an_agency_html: select an agency and sign the full version order form listed in the documents section of the %{ccs_website_link} as ‘RM6238 Order form template full version v1.docx’
             supply_teachers_email: supplyteachers@%{org_domain}.gov.uk
+    rm6376:
+      home:
+        index:
+          accreditation_of_agencies: Accreditation of agencies
+          all_suppliers_have_undergone: All agencies have undergone background screening and safeguarding to DfE’s Keeping Children Safe in Education standards. They are audited and accredited against best practice standards in education recruitment.
+          before_you_start: Before you start
+          buyers_obligations: Buyers’ obligations for agency data
+          by_using_the_service: By using the service, you acknowledge and accept responsibility for keeping this information confidential plus the following requirements, and not sharing it wider than your school.
+          details_of_how_long_you_want_the_worker: details of how long you will want the worker
+          in_consideration_of_being_given_use: 'In consideration of being given use of the confidential information included in the service, you and your employees will need to:'
+          keep_the_information_confidential: keep the information confidential and not share it in any way unless you have permission from %{org_name} (%{org_name_abbr}) in writing
+          make_sure_the_confidential_information: make sure the confidential information is stored securely and that only people using the service to buy under the framework have access to it
+          only_use_the_information: only use the information for buying services under the %{org_name_abbr} framework agreement for supply teachers and temporary staff
+          supported_by: 'Supported by:'
+          tell_ccs_if_suspect: tell %{org_name_abbr} if you suspect unauthorised access, copying, use or disclosure of the confidential information
+          this_service_contains_pricing_information_html: This service contains pricing information for agencies on the <a href="%{url}" aria-label="Deal for schools hiring supply teachers and agency workers">supply teachers deal</a>. This is confidential and can be considered commercially sensitive.
+          title: Find supply teachers and agency workers
+          to_find_permanent_teaching_staff_html: To find permanent teaching staff, use the <a aria-label="Visit the Teaching Vacancies service website" href="%{url}">Teaching Vacancies</a> service.
+          use_this_service_to:
+            calculate_the_maximum: calculate the maximum you could be charged to make your agency worker permanent
+            create_a_shortlist: create a shortlist of agencies based on your needs and download it
+            find_a_managed_service_provider: find a managed service provider, who can take on all your temporary staff needs
+            find_and_hire_a_worker: find and hire a worker using an agency
+            find_education_tech_platforms: find a supplier that will provide a digital platform to create a pool of workers
+            hire_a_specific_person: hire a specific person using an agency (a ‘nominated worker’)
+            title: 'Use this service to:'
+            view_all_suppliers: view a list of all the agencies
+            view_the_rates: view the rates agencies charge
+          you_cant_use_the_service_if: You can’t use this service if you’re an independent school, unless you have charitable status.
+          you_must_tell_your_employees: You must tell your employees of the confidential nature of the information and must also agree to the requirements. No agents, sub-contractors, third parties nor other non-employees can have access to the confidential information.
+          you_will_need_to_have: 'You will need to have:'
+          you_will_need_your_dfe_sign_in_html: your DfE Sign-in email address and password. If you don’t have an account, you can <a href="%{get_dfe_url}">get a DfE Sign-in account</a> if your school is on the <a href="%{get_schools_info_url}">Get Information About Schools (GIAS) register</a>
+          your_schools_postcode: your school’s postcode
+      journey:
+        looking_for:
+          page_title: What is your school looking for?
+          question: What is your school looking for?
+      page_section: Find supply teachers and agency staff
     service_name: Supply Teachers
     suppliers:
       agencies_table:

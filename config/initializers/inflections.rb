@@ -12,7 +12,7 @@
 
 # These inflection rules are supported but not enabled by default:
 ActiveSupport::Inflector.inflections(:en) do |inflect|
-  %w[6187 6238 6240 6309 6360].each do |framework_number|
+  %w[6187 6238 6240 6309 6360 6376].each do |framework_number|
     inflect.acronym "RM#{framework_number}"
   end
 end

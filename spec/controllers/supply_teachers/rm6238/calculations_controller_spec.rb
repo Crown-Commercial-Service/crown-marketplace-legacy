@@ -5,6 +5,8 @@ RSpec.describe SupplyTeachers::RM6238::CalculationsController do
 
   login_st_buyer
 
+  include_context 'and RM6238 is live'
+
   describe 'GET temp_to_perm_fee' do
     def request
       get :temp_to_perm_fee, params: {

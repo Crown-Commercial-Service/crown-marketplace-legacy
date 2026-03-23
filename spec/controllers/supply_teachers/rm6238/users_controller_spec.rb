@@ -13,6 +13,8 @@ RSpec.describe SupplyTeachers::RM6238::UsersController do
     before { cookies[:crown_marketplace_challenge_username] = user.cognito_uuid }
 
     context 'when the framework is live' do
+      include_context 'and RM6238 is live'
+
       before { get :challenge_new, params: { challenge_name: } }
 
       render_views
@@ -35,8 +37,6 @@ RSpec.describe SupplyTeachers::RM6238::UsersController do
     end
 
     context 'when the framework is not live' do
-      include_context 'and RM6238 has expired'
-
       it 'renders the unrecognised framework page with the right http status' do
         get :challenge_new, params: { challenge_name: 'NEW_PASSWORD_REQUIRED' }
 
@@ -73,6 +73,8 @@ RSpec.describe SupplyTeachers::RM6238::UsersController do
       end
 
       context 'when the framework is live' do
+        include_context 'and RM6238 is live'
+
         before do
           post :challenge, params: { challenge_name: challenge_name, cognito_respond_to_challenge: { username: username, session: session, new_password: password, new_password_confirmation: password } }
           cookies.update(response.cookies)
@@ -119,8 +121,6 @@ RSpec.describe SupplyTeachers::RM6238::UsersController do
       end
 
       context 'when the framework is not live' do
-        include_context 'and RM6238 has expired'
-
         it 'renders the unrecognised framework page with the right http status' do
           post :challenge, params: { challenge_name: challenge_name, cognito_respond_to_challenge: { username:, session: } }
 
@@ -142,6 +142,8 @@ RSpec.describe SupplyTeachers::RM6238::UsersController do
       end
 
       context 'when the framework is live' do
+        include_context 'and RM6238 is live'
+
         before do
           post :challenge, params: { challenge_name: challenge_name, cognito_respond_to_challenge: { username:, session:, access_code: } }
           cookies.update(response.cookies)
@@ -173,8 +175,6 @@ RSpec.describe SupplyTeachers::RM6238::UsersController do
       end
 
       context 'when the framework is not live' do
-        include_context 'and RM6238 has expired'
-
         it 'renders the unrecognised framework page with the right http status' do
           post :challenge, params: { challenge_name: challenge_name, cognito_respond_to_challenge: { username:, session: } }
 

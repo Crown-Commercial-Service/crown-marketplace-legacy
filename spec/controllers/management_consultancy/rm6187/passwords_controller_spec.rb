@@ -7,9 +7,10 @@ require 'rails_helper'
 RSpec.describe ManagementConsultancy::RM6187::PasswordsController do
   let(:default_params) { { service: 'management_consultancy', framework: 'RM6187' } }
 
-  include_context 'and RM6187 is live'
   describe 'GET new' do
     context 'when the framework is live' do
+      include_context 'and RM6187 is live'
+
       it 'renders the new page' do
         get :new
 
@@ -18,8 +19,6 @@ RSpec.describe ManagementConsultancy::RM6187::PasswordsController do
     end
 
     context 'when the framework is not live' do
-      include_context 'and RM6187 has expired'
-
       it 'renders the unrecognised framework page with the right http status' do
         get :new
 
@@ -38,6 +37,8 @@ RSpec.describe ManagementConsultancy::RM6187::PasswordsController do
     end
 
     context 'when the framework is live' do
+      include_context 'and RM6187 is live'
+
       context 'when no exception is raised' do
         before do
           post :create, params: { cognito_forgot_password: { email: } }
@@ -104,8 +105,6 @@ RSpec.describe ManagementConsultancy::RM6187::PasswordsController do
     end
 
     context 'when the framework is not live' do
-      include_context 'and RM6187 has expired'
-
       it 'renders the unrecognised framework page with the right http status' do
         post :create, params: { cognito_forgot_password: { email: 'test@test.com' } }
 
@@ -118,6 +117,8 @@ RSpec.describe ManagementConsultancy::RM6187::PasswordsController do
 
   describe 'GET edit' do
     context 'when the framework is live' do
+      include_context 'and RM6187 is live'
+
       before do
         cookies[:crown_marketplace_reset_email] = 'test@email.com'
         get :edit
@@ -133,8 +134,6 @@ RSpec.describe ManagementConsultancy::RM6187::PasswordsController do
     end
 
     context 'when the framework is not live' do
-      include_context 'and RM6187 has expired'
-
       it 'renders the unrecognised framework page with the right http status' do
         get :edit
 
@@ -154,6 +153,8 @@ RSpec.describe ManagementConsultancy::RM6187::PasswordsController do
     end
 
     context 'when the framework is live' do
+      include_context 'and RM6187 is live'
+
       before do
         put :update, params: { cognito_confirm_password_reset: { email: 'test@test.com', password: password, password_confirmation: password, confirmation_code: '123456' } }
         cookies.update(response.cookies)
@@ -185,8 +186,6 @@ RSpec.describe ManagementConsultancy::RM6187::PasswordsController do
     end
 
     context 'when the framework is not live' do
-      include_context 'and RM6187 has expired'
-
       it 'renders the unrecognised framework page with the right http status' do
         put :update, params: { cognito_confirm_password_reset: { email: 'test@test.com', password: 'Password12345!', password_confirmation: 'Password12345', confirmation_code: '123456' } }
 
@@ -198,6 +197,8 @@ RSpec.describe ManagementConsultancy::RM6187::PasswordsController do
 
   describe 'GET password_reset_success' do
     context 'when the framework is live' do
+      include_context 'and RM6187 is live'
+
       it 'renders the password_reset_success page' do
         get :password_reset_success
 
@@ -206,8 +207,6 @@ RSpec.describe ManagementConsultancy::RM6187::PasswordsController do
     end
 
     context 'when the framework is not live' do
-      include_context 'and RM6187 has expired'
-
       it 'renders the unrecognised framework page with the right http status' do
         get :password_reset_success
 

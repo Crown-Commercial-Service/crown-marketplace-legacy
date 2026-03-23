@@ -4,6 +4,8 @@ RSpec.describe SupplyTeachers::RM6238::GatewayController do
   let(:default_params) { { service: 'supply_teachers', framework: framework } }
   let(:framework) { 'RM6238' }
 
+  include_context 'and RM6238 is live'
+
   describe 'GET index' do
     context 'when not signed in' do
       before { get :index }
