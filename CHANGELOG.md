@@ -7,11 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Upgrade Rails to v8.1.2.1 ([PR 2348](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2348))
+
 ## [6.6.0] - 2026-03-18
 
 ### Added
 
-- Add flag to show GCA branding ([PR 2273](https://github.com/Crown-Commercial-Service/crown-marketplace/pull/2273))
+- Add flag to show GCA branding ([PR 2273](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2273))
 - Added a new question for LPfG ([PR 2266](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2266))
 - Added another new question for LPfG ([PR 2316](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2316))
 
@@ -139,7 +143,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Set the correct dates for MCF3 and MCF4 ([PR 1976](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/1976))
-- Upgrade CCS Frontend Helpers version to v2.5.0 ([PR 1985](https://github.com/Crown-Commercial-Service/crown-marketplace/pull/1985))
+- Upgrade CCS Frontend Helpers version to v2.5.0 ([PR 1985](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/1985))
 - Update the MCF4 lot document ([PR 1981](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/1981))
 
 ## [5.0.1] - 2025-06-13
