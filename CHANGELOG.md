@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Added links to more easily access and edit the framework status ([PR 2350](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2350))
+
 ### Changed
 
 - Upgrade Rails to v8.1.2.1 ([PR 2348](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2348))
