@@ -39,3 +39,14 @@
   ],
   t('.user_reports')
 ) if framework_has_analytics? %>
+
+<%= ccs_dashboard_section(
+  [
+    {
+      title: t('.manage_framework_status.title'),
+      href: frameworks_index_path,
+      description: t('.manage_framework_status.description', service_name:)
+    },
+  ],
+  t('.manage_framework')
+) if current_user.has_role? :ccs_developer %>
