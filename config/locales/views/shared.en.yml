@@ -6,6 +6,10 @@ en:
         index:
           caption: "%{service_name} - %{framework}"
           heading: Admin dashboard
+          manage_framework: Manage frameworks
+          manage_framework_status:
+            description: Update the framework status for %{service_name}
+            title: Manage frameworks status
           manage_supplier_data:
             description: View and update the supplier's details and their lot data
             title: Manage supplier data
