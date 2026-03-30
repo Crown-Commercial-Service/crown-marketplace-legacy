@@ -10,6 +10,14 @@ namespace :db do
     DataLoader::Frameworks.update_frameworks
   end
 
+  desc 'Makes framework live for cucumber tests'
+  task :make_framework_live, [:framework] => :environment do |_t, args|
+    if Rails.env.test?
+      puts "Making framework #{args[:framework]} live"
+      DataLoader::Frameworks.make_framework_live(args[:framework])
+    end
+  end
+
   desc 'add static data to the database'
   task static: :frameworks
 end

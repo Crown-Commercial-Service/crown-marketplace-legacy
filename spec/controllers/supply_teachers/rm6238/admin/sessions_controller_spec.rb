@@ -11,6 +11,8 @@ RSpec.describe SupplyTeachers::RM6238::Admin::SessionsController do
 
   describe 'GET new' do
     context 'when the framework is live' do
+      include_context 'and RM6238 is live'
+
       it 'renders the new page' do
         get :new
 
@@ -19,8 +21,6 @@ RSpec.describe SupplyTeachers::RM6238::Admin::SessionsController do
     end
 
     context 'when the framework is not live' do
-      include_context 'and RM6238 has expired'
-
       it 'renders the new page' do
         get :new
 
@@ -42,94 +42,99 @@ RSpec.describe SupplyTeachers::RM6238::Admin::SessionsController do
       # rubocop:enable RSpec/AnyInstance
     end
 
-    context 'when the log in attempt is unsuccessful' do
-      before do
-        allow(aws_client).to receive(:initiate_auth).and_raise(exception)
+    context 'when teh framework is live' do
+      include_context 'and RM6238 is live'
 
-        post :create, params: { user: { email: email, password: 'Password12345!' } }
-        cookies.update(response.cookies)
-      end
+      # rubocop:disable RSpec/NestedGroups
+      context 'when the log in attempt is unsuccessful' do
+        before do
+          allow(aws_client).to receive(:initiate_auth).and_raise(exception)
 
-      context 'when the data is invalid' do
-        let(:email) { nil }
-        let(:exception) { nil }
+          post :create, params: { user: { email: email, password: 'Password12345!' } }
+          cookies.update(response.cookies)
+        end
 
-        it 'renders the new page' do
-          expect(response).to render_template(:new)
+        context 'when the data is invalid' do
+          let(:email) { nil }
+          let(:exception) { nil }
+
+          it 'renders the new page' do
+            expect(response).to render_template(:new)
+          end
+        end
+
+        context 'when the password needs to be reset' do
+          let(:exception) { Aws::CognitoIdentityProvider::Errors::PasswordResetRequiredException.new('oops', 'Oops') }
+
+          it 'redirects to supply_teachers_rm6238_admin_edit_user_password_path' do
+            expect(response).to redirect_to supply_teachers_rm6238_admin_edit_user_password_path
+          end
+
+          it 'sets the crown_marketplace_reset_email cookie' do
+            expect(cookies[:crown_marketplace_reset_email]).to eq email
+          end
+        end
+
+        context 'when the user needs confirmation' do
+          let(:exception) { Aws::CognitoIdentityProvider::Errors::UserNotConfirmedException.new('oops', 'Oops') }
+
+          it 'redirects to supply_teachers_rm6238_admin_edit_user_password_path' do
+            expect(response).to redirect_to supply_teachers_rm6238_admin_users_confirm_path
+          end
+
+          it 'sets the crown_marketplace_confirmation_email cookie' do
+            expect(cookies[:crown_marketplace_confirmation_email]).to eq email
+          end
         end
       end
 
-      context 'when the password needs to be reset' do
-        let(:exception) { Aws::CognitoIdentityProvider::Errors::PasswordResetRequiredException.new('oops', 'Oops') }
+      context 'when the login attempt is successful' do
+        include_context 'with cognito structs'
 
-        it 'redirects to supply_teachers_rm6238_admin_edit_user_password_path' do
-          expect(response).to redirect_to supply_teachers_rm6238_admin_edit_user_password_path
+        let(:username) { user.cognito_uuid }
+        let(:session) { 'I_AM_THE_SESSION' }
+        let(:cognito_groups) do
+          admin_list_groups_for_user_resp_struct.new(
+            groups: [
+              cognito_group_struct.new(group_name: 'ccs_employee'),
+              cognito_group_struct.new(group_name: 'st_access')
+            ]
+          )
         end
 
-        it 'sets the crown_marketplace_reset_email cookie' do
-          expect(cookies[:crown_marketplace_reset_email]).to eq email
-        end
-      end
+        before do
+          allow(aws_client).to receive_messages(initiate_auth: initiate_auth_resp_struct.new(challenge_name: challenge_name, session: session, challenge_parameters: { 'USER_ID_FOR_SRP' => username }), admin_list_groups_for_user: cognito_groups)
+          allow(Cognito::CreateUserFromCognito).to receive(:call).and_return(admin_create_user_resp_struct.new(user:))
 
-      context 'when the user needs confirmation' do
-        let(:exception) { Aws::CognitoIdentityProvider::Errors::UserNotConfirmedException.new('oops', 'Oops') }
-
-        it 'redirects to supply_teachers_rm6238_admin_edit_user_password_path' do
-          expect(response).to redirect_to supply_teachers_rm6238_admin_users_confirm_path
+          post :create, params: { user: { email: email, password: 'Password12345!' } }
+          cookies.update(response.cookies)
         end
 
-        it 'sets the crown_marketplace_confirmation_email cookie' do
-          expect(cookies[:crown_marketplace_confirmation_email]).to eq email
+        context 'and there is no challenge' do
+          let(:challenge_name) { nil }
+
+          it 'redirects to supply_teachers_rm6238_admin_path' do
+            expect(response).to redirect_to supply_teachers_rm6238_admin_path
+          end
         end
-      end
-    end
 
-    context 'when the login attempt is successful' do
-      include_context 'with cognito structs'
+        context 'and there is a challenge' do
+          let(:challenge_name) { 'NEW_PASSWORD_REQUIRED' }
 
-      let(:username) { user.cognito_uuid }
-      let(:session) { 'I_AM_THE_SESSION' }
-      let(:cognito_groups) do
-        admin_list_groups_for_user_resp_struct.new(
-          groups: [
-            cognito_group_struct.new(group_name: 'ccs_employee'),
-            cognito_group_struct.new(group_name: 'st_access')
-          ]
-        )
-      end
+          it 'redirects to supply_teachers_rm6238_admin_users_challenge_path' do
+            expect(response).to redirect_to supply_teachers_rm6238_admin_users_challenge_path(challenge_name:)
+          end
 
-      before do
-        allow(aws_client).to receive_messages(initiate_auth: initiate_auth_resp_struct.new(challenge_name: challenge_name, session: session, challenge_parameters: { 'USER_ID_FOR_SRP' => username }), admin_list_groups_for_user: cognito_groups)
-        allow(Cognito::CreateUserFromCognito).to receive(:call).and_return(admin_create_user_resp_struct.new(user:))
-
-        post :create, params: { user: { email: email, password: 'Password12345!' } }
-        cookies.update(response.cookies)
-      end
-
-      context 'and there is no challenge' do
-        let(:challenge_name) { nil }
-
-        it 'redirects to supply_teachers_rm6238_admin_path' do
-          expect(response).to redirect_to supply_teachers_rm6238_admin_path
+          it 'the cookies are updated correctly' do
+            expect(cookies[:crown_marketplace_challenge_session]).to eq(session)
+            expect(cookies[:crown_marketplace_challenge_username]).to eq(username)
+          end
         end
       end
-
-      context 'and there is a challenge' do
-        let(:challenge_name) { 'NEW_PASSWORD_REQUIRED' }
-
-        it 'redirects to supply_teachers_rm6238_admin_users_challenge_path' do
-          expect(response).to redirect_to supply_teachers_rm6238_admin_users_challenge_path(challenge_name:)
-        end
-
-        it 'the cookies are updated correctly' do
-          expect(cookies[:crown_marketplace_challenge_session]).to eq(session)
-          expect(cookies[:crown_marketplace_challenge_username]).to eq(username)
-        end
-      end
+      # rubocop:enable RSpec/NestedGroups
     end
 
     context 'when the framework is not live' do
-      include_context 'and RM6238 has expired'
       include_context 'with cognito structs'
 
       let(:username) { user.cognito_uuid }
