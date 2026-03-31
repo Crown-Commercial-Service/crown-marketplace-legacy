@@ -111,6 +111,10 @@ en:
           attributes:
             worker_type:
               inclusion: Select yes if you want an agency to supply the worker
+        supply_teachers/rm6376/journey/looking_for:
+          attributes:
+            looking_for:
+              inclusion: Select individual worker, managed service provider, or calculate temp-to-perm fee
   activerecord:
     errors:
       models:
@@ -559,6 +563,12 @@ en:
           your_schools_postcode: your school’s postcode
       journey:
         looking_for:
+          answer:
+            all_suppliers: A list of all agencies
+            calculate_fta_to_perm_fee: To work out what fixed term worker transfer fee I could be charged
+            calculate_temp_to_perm_fee: To calculate the fee my school will be charged if I make an agency worker permanent
+            master_vendor: An agency to manage all my school's needs; a 'managed service provider'
+            worker: An agency who can provide my school with an individual worker
           page_title: What is your school looking for?
           question: What is your school looking for?
       page_section: Find supply teachers and agency staff
