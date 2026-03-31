@@ -31,6 +31,24 @@ RSpec.describe SupplyTeachers::RM6376::Journey::PayrollProvider do
     end
   end
 
+  describe '.next_step_class' do
+    context 'when payroll provider is agency' do
+      let(:payroll_provider) { 'agency' }
+
+      it 'returns Journey::AgencyPayroll' do
+        expect(step.next_step_class).to be SupplyTeachers::RM6376::Journey::AgencyPayroll
+      end
+    end
+
+    context 'when payroll provider is school' do
+      let(:payroll_provider) { 'school' }
+
+      it 'returns Journey::FTACalculatorContractStart' do
+        expect(step.next_step_class).to be SupplyTeachers::RM6376::Journey::FTACalculatorContractStart
+      end
+    end
+  end
+
   describe '.permit_list' do
     it 'returns a list of the permitted attributes' do
       expect(described_class.permit_list).to eq [:payroll_provider, {}]
