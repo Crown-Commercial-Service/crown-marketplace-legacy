@@ -78,10 +78,4 @@ RSpec.describe SupplyTeachers::RM6376::Journey::WorkerType do
       expect(step.final?).to be false
     end
   end
-
-  describe '.final?' do
-    it 'returns false' do
-      expect(step.final?).to be false
-    end
-  end
 end
