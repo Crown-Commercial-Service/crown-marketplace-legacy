@@ -115,6 +115,14 @@ en:
           attributes:
             looking_for:
               inclusion: Select individual worker, managed service provider, or calculate temp-to-perm fee
+        supply_teachers/rm6376/journey/payroll_provider:
+          attributes:
+            payroll_provider:
+              inclusion: Select yes if you want to put the worker on the school’s payroll
+        supply_teachers/rm6376/journey/worker_type:
+          attributes:
+            worker_type:
+              inclusion: Select yes if you want an agency to supply the worker
   activerecord:
     errors:
       models:
