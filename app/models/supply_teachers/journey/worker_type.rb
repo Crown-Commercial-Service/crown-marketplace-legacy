@@ -2,7 +2,7 @@ module SupplyTeachers
   class Journey::WorkerType
     include Steppable
 
-    WORKER_TYPES = ['agency_supplied', 'nominated'].freeze
+    WORKER_TYPES = %w[agency_supplied nominated].freeze
 
     attribute :worker_type
     validates :worker_type, inclusion: WORKER_TYPES
