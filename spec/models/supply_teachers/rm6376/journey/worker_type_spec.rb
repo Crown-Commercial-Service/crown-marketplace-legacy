@@ -36,7 +36,7 @@ RSpec.describe SupplyTeachers::RM6376::Journey::WorkerType do
       let(:worker_type) { 'agency_supplied' }
 
       it 'returns Journey::SchoolPostcodeNominatedWorker' do
-        expect(step.next_step_class).to be SupplyTeachers::RM6238::Journey::PayrollProvider
+        expect(step.next_step_class).to be SupplyTeachers::RM6376::Journey::PayrollProvider
       end
     end
   end
