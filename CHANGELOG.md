@@ -24,7 +24,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add flag to show GCA branding ([PR 2273](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2273))
 - Added a new question for LPfG ([PR 2266](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2266))
 - Added another new question for LPfG ([PR 2316](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2316))
--Add service dashboard page for new supply teachers framework ([PR 2361](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2361))
+- Added service dashboard page for new supply teachers framework ([PR 2361](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2361))
+- Added fully managed worker question pages to new supply teachers framework ([PR 2362] (https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2362))
 
 ### Changed
 
