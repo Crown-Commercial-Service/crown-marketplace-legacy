@@ -39,6 +39,14 @@ RSpec.describe SupplyTeachers::RM6376::Journey::WorkerType do
         expect(step.next_step_class).to be SupplyTeachers::RM6376::Journey::PayrollProvider
       end
     end
+
+    context 'and the worker type is nominated' do
+      let(:worker_type) { 'nominated' }
+
+      it 'returns Journey::PayrollProvider' do
+        expect(step.next_step_class).to be SupplyTeachers::RM6376::Journey::SchoolPostcodeNominatedWorker
+      end
+    end
   end
 
   describe '.permit_list' do
@@ -62,6 +70,12 @@ RSpec.describe SupplyTeachers::RM6376::Journey::WorkerType do
   describe '.template' do
     it 'returns journey/worker_type' do
       expect(step.template).to eq 'journey/worker_type'
+    end
+  end
+
+  describe '.final?' do
+    it 'returns false' do
+      expect(step.final?).to be false
     end
   end
 
