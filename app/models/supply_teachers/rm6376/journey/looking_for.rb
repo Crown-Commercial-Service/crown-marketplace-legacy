@@ -2,11 +2,11 @@ module SupplyTeachers
   module RM6376
     class Journey::LookingFor < SupplyTeachers::Journey::LookingFor
       LOOKING_FOR_OPTIONS = %w[
-        all_suppliers 
+        all_suppliers
         worker
-        master_vendor 
-        calculate_temp_to_perm_fee 
-        calculate_fta_to_perm_fee 
+        master_vendor
+        calculate_temp_to_perm_fee
+        calculate_fta_to_perm_fee
       ].freeze
 
       validates :looking_for, inclusion: LOOKING_FOR_OPTIONS
