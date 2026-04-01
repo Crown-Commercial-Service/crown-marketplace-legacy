@@ -49,6 +49,7 @@
     }
   ) %>
 
+  when 'RM3238'
   <%= govuk_radios(
     :offset,
     offsets.map do |offset, term_type|
@@ -67,6 +68,7 @@
       }
     }
   ) %>
+  end
 
   <%= govuk_button(t('common.submit'), form: f) %>
 <% end %>
