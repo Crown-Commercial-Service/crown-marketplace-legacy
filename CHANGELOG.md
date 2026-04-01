@@ -11,6 +11,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Added links to more easily access and edit the framework status ([PR 2350](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2350))
 - Add the inital code for the new Supply Teachers framework RM6376 ([PR 2343](https://github.com/Crown-Commercial-Service/crown-marketplace/pull/2343))
+- Add service dashboard page for new Supply Teachers framework RM6376 ([PR 2361](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2361))
+- Added fully managed worker question pages to new Supply Teachers framework RM6376 ([PR 2362](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2362))
+- Add test data for new Supply Teachers framework RM6376 ([PR 2363](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2363))
 
 ### Changed
 

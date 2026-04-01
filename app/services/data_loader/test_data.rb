@@ -58,6 +58,16 @@ class DataLoader::TestData
         end
       end
     end
+
+    module RM6376
+      def self.import_data
+        Rails.logger.info 'Importing ST RM6376 data'
+
+        File.open('data/supply_teachers/rm6376/dummy_supplier_data.json', 'r') do |file|
+          Upload.upload!('RM6376', JSON.parse(file.read, symbolize_names: true))
+        end
+      end
+    end
   end
 
   class << self
@@ -87,6 +97,7 @@ class DataLoader::TestData
       LS::RM6240.import_data
       LPG::RM6360.import_data
       ST::RM6238.import_data
+      ST::RM6376.import_data
     end
 
     def import_test_data_for_framework_service(framework)
@@ -102,6 +113,8 @@ class DataLoader::TestData
         LPG::RM6360.import_data
       when 'RM6238'
         ST::RM6238.import_data
+      when 'RM6376'
+        ST::RM6376.import_data
       end
     end
   end

@@ -1,0 +1,2281 @@
+[
+  {
+    "id": "6218da46-2393-4b6d-97dd-6f6639b2f9c1",
+    "name": "LANG INC",
+    "supplier_frameworks": [
+      {
+        "framework_id": "RM6376",
+        "enabled": true,
+        "supplier_framework_contact_detail": {
+          "additional_details": {
+            "managed_service_provider": {
+              "name": "Prof. Cecily Price",
+              "telephone": "5096066310",
+              "email": "inc.lang@armstrong.test"
+            }
+          }
+        },
+        "supplier_framework_lots": [
+          {
+            "lot_id": "RM6376.2",
+            "enabled": true,
+            "supplier_framework_lot_services": [],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": "RM6376.2.1",
+                "rate": 4494,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.2.2",
+                "rate": 3745,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.2.3",
+                "rate": 2621,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.2.4",
+                "rate": 3370,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.2.5",
+                "rate": 4494,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.2.6",
+                "rate": 2996,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.2.7",
+                "rate": 2808,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.2.8",
+                "rate": 1872,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.2.9",
+                "rate": 3557,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.2.10",
+                "rate": 3932,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.2.11",
+                "rate": 3183,
+                "jurisdiction_id": "GB"
+              }
+            ],
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": [
+              {
+                "jurisdiction_id": "GB"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "855e5f33-df18-42d2-8bbb-6bed89ee2d0e",
+    "name": "ROLFSON-COLLIER",
+    "supplier_frameworks": [
+      {
+        "framework_id": "RM6376",
+        "enabled": true,
+        "supplier_framework_contact_detail": {
+          "additional_details": {
+            "managed_service_provider": {
+              "name": "Sarah Lesch",
+              "telephone": "637-379-1387",
+              "email": "rolfson.collier@jacobi.example"
+            }
+          }
+        },
+        "supplier_framework_lots": [
+          {
+            "lot_id": "RM6376.2",
+            "enabled": true,
+            "supplier_framework_lot_services": [],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": "RM6376.2.1",
+                "rate": 6328,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.2.2",
+                "rate": 5274,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.2.3",
+                "rate": 3691,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.2.4",
+                "rate": 4746,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.2.5",
+                "rate": 6328,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.2.6",
+                "rate": 4219,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.2.7",
+                "rate": 3955,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.2.8",
+                "rate": 2637,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.2.9",
+                "rate": 5010,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.2.10",
+                "rate": 5537,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.2.11",
+                "rate": 4482,
+                "jurisdiction_id": "GB"
+              }
+            ],
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": [
+              {
+                "jurisdiction_id": "GB"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "4364daa8-2519-4ad0-a017-0ddfe2ed139b",
+    "name": "MORAR, SHIELDS AND GIBSON",
+    "supplier_frameworks": [
+      {
+        "framework_id": "RM6376",
+        "enabled": true,
+        "supplier_framework_contact_detail": {
+          "additional_details": {
+            "managed_service_provider": {
+              "name": "Dorothea Gottlieb",
+              "telephone": "229-779-1965",
+              "email": "shields_gibson_and_morar@dietrich.example"
+            }
+          }
+        },
+        "supplier_framework_lots": [
+          {
+            "lot_id": "RM6376.2",
+            "enabled": true,
+            "supplier_framework_lot_services": [],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": "RM6376.2.1",
+                "rate": 4189,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.2.2",
+                "rate": 3491,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.2.3",
+                "rate": 2443,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.2.4",
+                "rate": 3141,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.2.5",
+                "rate": 4189,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.2.6",
+                "rate": 2792,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.2.7",
+                "rate": 2618,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.2.8",
+                "rate": 1745,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.2.9",
+                "rate": 3316,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.2.10",
+                "rate": 3665,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.2.11",
+                "rate": 2967,
+                "jurisdiction_id": "GB"
+              }
+            ],
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": [
+              {
+                "jurisdiction_id": "GB"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "4c80ff4f-72a3-4485-8669-f9eba417954c",
+    "name": "HEANEY GROUP",
+    "supplier_frameworks": [
+      {
+        "framework_id": "RM6376",
+        "enabled": true,
+        "supplier_framework_contact_detail": {
+          "additional_details": {
+            "managed_service_provider": {
+              "name": "Ambrose Steuber",
+              "telephone": "(956) 876 1626",
+              "email": "group.heaney@west-hamill.test"
+            }
+          }
+        },
+        "supplier_framework_lots": [
+          {
+            "lot_id": "RM6376.2",
+            "enabled": true,
+            "supplier_framework_lot_services": [],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": "RM6376.2.1",
+                "rate": 4996,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.2.2",
+                "rate": 4164,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.2.3",
+                "rate": 2914,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.2.4",
+                "rate": 3747,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.2.5",
+                "rate": 4996,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.2.6",
+                "rate": 3331,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.2.7",
+                "rate": 3123,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.2.8",
+                "rate": 2082,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.2.9",
+                "rate": 3955,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.2.10",
+                "rate": 4372,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.2.11",
+                "rate": 3539,
+                "jurisdiction_id": "GB"
+              }
+            ],
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": [
+              {
+                "jurisdiction_id": "GB"
+              }
+            ]
+          },
+          {
+            "lot_id": "RM6376.1",
+            "enabled": true,
+            "supplier_framework_lot_services": [],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": "RM6376.1.1",
+                "rate": 6664,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.2",
+                "rate": 5554,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.3",
+                "rate": 3887,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.4",
+                "rate": 4998,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.5",
+                "rate": 6664,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.6",
+                "rate": 4443,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.7",
+                "rate": 4165,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.8",
+                "rate": 2777,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.9",
+                "rate": 5276,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.10",
+                "rate": 5831,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.11",
+                "rate": 4720,
+                "jurisdiction_id": "GB"
+              }
+            ],
+            "supplier_framework_lot_branches": [
+              {
+                "lat": 51.50458599115668,
+                "lon": -0.02208052729799974,
+                "postcode": "E14 4PU",
+                "contact_name": "Gov. Ema Koelpin",
+                "contact_email": "koelpin.ema.gov@rice-wilkinson.example",
+                "telephone_number": "456-014-6305",
+                "name": "London",
+                "town": "London",
+                "address_line_1": "10 South Colonnade",
+                "address_line_2": null,
+                "county": null,
+                "region": "Inner London - East"
+              },
+              {
+                "lat": 53.46367330827036,
+                "lon": -2.2929726032049316,
+                "postcode": "M16 0RA",
+                "contact_name": "Rep. Majorie Auer",
+                "contact_email": "auer_rep_majorie@barton-feil.example",
+                "telephone_number": "284-232-5477",
+                "name": "Manchester",
+                "town": "Manchester",
+                "address_line_1": "Old Trafford",
+                "address_line_2": "Sir Matt Busby Way",
+                "county": "Greater Manchester",
+                "region": "Greater Manchester"
+              },
+              {
+                "lat": 52.59117109252977,
+                "lon": -2.1304508109396623,
+                "postcode": "WV1 4QR",
+                "contact_name": "Jim Kreiger Esq.",
+                "contact_email": "jim_esq_kreiger@sawayn-cormier.test",
+                "telephone_number": "(620) 506-1994",
+                "name": "Wolverhampton",
+                "town": "Wolverhampton",
+                "address_line_1": "Molineux Stadium",
+                "address_line_2": "Waterloo Rd",
+                "county": "West Midlands",
+                "region": "Wolverhampton"
+              }
+            ],
+            "supplier_framework_lot_jurisdictions": [
+              {
+                "jurisdiction_id": "GB"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "fa60321c-69fb-4961-8818-a1ddd2e1ead4",
+    "name": "FRITSCH-HAHN",
+    "supplier_frameworks": [
+      {
+        "framework_id": "RM6376",
+        "enabled": true,
+        "supplier_framework_contact_detail": {
+          "additional_details": {
+            "managed_service_provider": {
+              "name": "Benedict Schulist",
+              "telephone": "609-102-8353",
+              "email": "fritsch.hahn@haley.test"
+            }
+          }
+        },
+        "supplier_framework_lots": [
+          {
+            "lot_id": "RM6376.2",
+            "enabled": true,
+            "supplier_framework_lot_services": [],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": "RM6376.2.1",
+                "rate": 7639,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.2.2",
+                "rate": 6366,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.2.3",
+                "rate": 4456,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.2.4",
+                "rate": 5729,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.2.5",
+                "rate": 7639,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.2.6",
+                "rate": 5092,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.2.7",
+                "rate": 4774,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.2.8",
+                "rate": 3183,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.2.9",
+                "rate": 6047,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.2.10",
+                "rate": 6684,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.2.11",
+                "rate": 5411,
+                "jurisdiction_id": "GB"
+              }
+            ],
+            "supplier_framework_lot_branches": [],
+            "supplier_framework_lot_jurisdictions": [
+              {
+                "jurisdiction_id": "GB"
+              }
+            ]
+          },
+          {
+            "lot_id": "RM6376.1",
+            "enabled": true,
+            "supplier_framework_lot_services": [],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": "RM6376.1.1",
+                "rate": 8077,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.2",
+                "rate": 6731,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.3",
+                "rate": 4711,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.4",
+                "rate": 6057,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.5",
+                "rate": 8077,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.6",
+                "rate": 5384,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.7",
+                "rate": 5048,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.8",
+                "rate": 3365,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.9",
+                "rate": 6394,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.10",
+                "rate": 7067,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.11",
+                "rate": 5721,
+                "jurisdiction_id": "GB"
+              }
+            ],
+            "supplier_framework_lot_branches": [
+              {
+                "lat": 51.53856612802023,
+                "lon": -0.016517049198377255,
+                "postcode": "E20 2ST",
+                "contact_name": "Gail Koepp",
+                "contact_email": "koepp.gail@schaefer.example",
+                "telephone_number": "574-804-5257",
+                "name": "London",
+                "town": "London",
+                "address_line_1": "London Stadium",
+                "address_line_2": "Queen Elizabeth Olympic Park",
+                "county": null,
+                "region": "Inner London - East"
+              },
+              {
+                "lat": 53.64815863047592,
+                "lon": -3.0172629561364004,
+                "postcode": "PR8 1RX",
+                "contact_name": "Dee Powlowski Sr.",
+                "contact_email": "powlowski_sr_dee@greenholt-walter.test",
+                "telephone_number": "811 044 4005",
+                "name": "Southport",
+                "town": "Southport",
+                "address_line_1": "Southport Pleasureland",
+                "address_line_2": "Marine Dr",
+                "county": "Merseyside",
+                "region": "Merseyside"
+              },
+              {
+                "lat": 52.524659858134505,
+                "lon": -2.047541022496625,
+                "postcode": "DY1 4AL",
+                "contact_name": "Hassan Hermann I",
+                "contact_email": "i.hermann.hassan@marks.example",
+                "telephone_number": "634-601-6156",
+                "name": "Dudley",
+                "town": "Dudley",
+                "address_line_1": "Discovery Wy",
+                "address_line_2": null,
+                "county": "West Midlands",
+                "region": "Birmingham"
+              }
+            ],
+            "supplier_framework_lot_jurisdictions": [
+              {
+                "jurisdiction_id": "GB"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "0448e276-5895-4acb-8a88-a1117bb8f644",
+    "name": "ROHAN LLC",
+    "supplier_frameworks": [
+      {
+        "framework_id": "RM6376",
+        "enabled": true,
+        "supplier_framework_contact_detail": {},
+        "supplier_framework_lots": [
+          {
+            "lot_id": "RM6376.1",
+            "enabled": true,
+            "supplier_framework_lot_services": [],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": "RM6376.1.1",
+                "rate": 3734,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.2",
+                "rate": 3112,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.3",
+                "rate": 2178,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.4",
+                "rate": 2800,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.5",
+                "rate": 3734,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.6",
+                "rate": 2489,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.7",
+                "rate": 2334,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.8",
+                "rate": 1556,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.9",
+                "rate": 2956,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.10",
+                "rate": 3267,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.11",
+                "rate": 2645,
+                "jurisdiction_id": "GB"
+              }
+            ],
+            "supplier_framework_lot_branches": [
+              {
+                "lat": 51.50306085083827,
+                "lon": -0.1447072660356099,
+                "postcode": "SW1A 1AA",
+                "contact_name": "Pres. Grover Prohaska",
+                "contact_email": "prohaska_pres_grover@becker.test",
+                "telephone_number": "815 839 7237",
+                "name": "London",
+                "town": "London",
+                "address_line_1": "Buckingham Palace",
+                "address_line_2": null,
+                "county": null,
+                "region": "Inner London - West"
+              },
+              {
+                "lat": 53.33543706989522,
+                "lon": -2.8525950536169677,
+                "postcode": "L24 1YD",
+                "contact_name": "Reita Reichert",
+                "contact_email": "reichert_reita@blanda-robel.example",
+                "telephone_number": "854.977.8212",
+                "name": "Liverpool",
+                "town": "Liverpool",
+                "address_line_1": "Liverpool John Lennon Airport",
+                "address_line_2": "Speke Hall Ave",
+                "county": "Merseyside",
+                "region": "Merseyside"
+              },
+              {
+                "lat": 52.50948941053984,
+                "lon": -1.8839958035018183,
+                "postcode": "B6 6HE",
+                "contact_name": "Terrence Cruickshank",
+                "contact_email": "cruickshank.terrence@pfannerstill.example",
+                "telephone_number": "408.061.7793",
+                "name": "Birmingham",
+                "town": "Birmingham",
+                "address_line_1": "Villa Park",
+                "address_line_2": "Trinity Rd",
+                "county": "West Midlands",
+                "region": "Birmingham"
+              }
+            ],
+            "supplier_framework_lot_jurisdictions": [
+              {
+                "jurisdiction_id": "GB"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "4143c5c3-aa24-46cb-8995-abef463c8423",
+    "name": "SWANIAWSKI, CORWIN AND KUB",
+    "supplier_frameworks": [
+      {
+        "framework_id": "RM6376",
+        "enabled": true,
+        "supplier_framework_contact_detail": {},
+        "supplier_framework_lots": [
+          {
+            "lot_id": "RM6376.1",
+            "enabled": true,
+            "supplier_framework_lot_services": [],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": "RM6376.1.1",
+                "rate": 8336,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.2",
+                "rate": 6947,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.3",
+                "rate": 4862,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.4",
+                "rate": 6252,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.5",
+                "rate": 8336,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.6",
+                "rate": 5557,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.7",
+                "rate": 5210,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.8",
+                "rate": 3473,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.9",
+                "rate": 6599,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.10",
+                "rate": 7294,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.11",
+                "rate": 5904,
+                "jurisdiction_id": "GB"
+              }
+            ],
+            "supplier_framework_lot_branches": [
+              {
+                "lat": 51.46190833253159,
+                "lon": -0.340934872716188,
+                "postcode": "TW2 7BA",
+                "contact_name": "Jamel Baumbach",
+                "contact_email": "jamel_baumbach@davis.example",
+                "telephone_number": "480.624.2522",
+                "name": "Twickenham",
+                "town": "Twickenham",
+                "address_line_1": "Twickenham Stadium",
+                "address_line_2": "200 Whitton Rd",
+                "county": "London",
+                "region": "Outer London - West and North West"
+              },
+              {
+                "lat": 53.43134641218853,
+                "lon": -2.960931536892127,
+                "postcode": "L4 0TH",
+                "contact_name": "Mr. Lizzette Goyette",
+                "contact_email": "lizzette.mr.goyette@bashirian-becker.test",
+                "telephone_number": "(483) 951-3490",
+                "name": "Liverpool",
+                "town": "Liverpool",
+                "address_line_1": "Anfield",
+                "address_line_2": "Anfield Rd",
+                "county": "Merseyside",
+                "region": "Merseyside"
+              },
+              {
+                "lat": 52.4789997328729,
+                "lon": -1.9007014905137978,
+                "postcode": "B2 4BJ",
+                "contact_name": "Alberto Rau II",
+                "contact_email": "alberto.ii.rau@wolff.example",
+                "telephone_number": "545.052.8518",
+                "name": "Birmingham",
+                "town": "Birmingham",
+                "address_line_1": "23 Stephenson St",
+                "address_line_2": null,
+                "county": "West Midlands",
+                "region": "Birmingham"
+              }
+            ],
+            "supplier_framework_lot_jurisdictions": [
+              {
+                "jurisdiction_id": "GB"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "b340713b-f80e-477a-ab5a-48ce1be88bec",
+    "name": "GULGOWSKI-HUDSON",
+    "supplier_frameworks": [
+      {
+        "framework_id": "RM6376",
+        "enabled": true,
+        "supplier_framework_contact_detail": {},
+        "supplier_framework_lots": [
+          {
+            "lot_id": "RM6376.1",
+            "enabled": true,
+            "supplier_framework_lot_services": [],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": "RM6376.1.1",
+                "rate": 5445,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.2",
+                "rate": 4538,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.3",
+                "rate": 3176,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.4",
+                "rate": 4084,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.5",
+                "rate": 5445,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.6",
+                "rate": 3630,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.7",
+                "rate": 3403,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.8",
+                "rate": 2269,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.9",
+                "rate": 4311,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.10",
+                "rate": 4764,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.11",
+                "rate": 3857,
+                "jurisdiction_id": "GB"
+              }
+            ],
+            "supplier_framework_lot_branches": [
+              {
+                "lat": 51.549072447921404,
+                "lon": 0.7016791349027106,
+                "postcode": "SS2 6NQ",
+                "contact_name": "Freddy Kuvalis Esq.",
+                "contact_email": "esq.freddy.kuvalis@beatty-runolfsson.test",
+                "telephone_number": "(823) 308 3811",
+                "name": "Southend-on-Sea",
+                "town": "Southend-on-Sea",
+                "address_line_1": "Roots Hall",
+                "address_line_2": "Victoria Ave",
+                "county": "Essex",
+                "region": "Essex"
+              },
+              {
+                "lat": 53.40926484785927,
+                "lon": -2.9950993589489463,
+                "postcode": "L3 9PP",
+                "contact_name": "Rep. Rosalia Wintheiser",
+                "contact_email": "rosalia.rep.wintheiser@jakubowski.example",
+                "telephone_number": "126.358.5004",
+                "name": "Liverpool",
+                "town": "Liverpool",
+                "address_line_1": "The Capital Building",
+                "address_line_2": "Old Hall St",
+                "county": "Merseyside",
+                "region": "Merseyside"
+              },
+              {
+                "lat": 52.93691728961155,
+                "lon": -1.1322526160932878,
+                "postcode": "NG2 6AG",
+                "contact_name": "Kimberlee Osinski",
+                "contact_email": "osinski.kimberlee@ohara-dare.example",
+                "telephone_number": "(181) 385-0788",
+                "name": "Nottingham",
+                "town": "Nottingham",
+                "address_line_1": "Trent Bridge",
+                "address_line_2": "West Bridgford",
+                "county": "Nottinghamshire",
+                "region": "Nottingham"
+              }
+            ],
+            "supplier_framework_lot_jurisdictions": [
+              {
+                "jurisdiction_id": "GB"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "fe803f7b-90f9-4978-a77e-992723c497cd",
+    "name": "TREMBLAY-WEST",
+    "supplier_frameworks": [
+      {
+        "framework_id": "RM6376",
+        "enabled": true,
+        "supplier_framework_contact_detail": {},
+        "supplier_framework_lots": [
+          {
+            "lot_id": "RM6376.1",
+            "enabled": true,
+            "supplier_framework_lot_services": [],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": "RM6376.1.1",
+                "rate": 6194,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.2",
+                "rate": 5162,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.3",
+                "rate": 3613,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.4",
+                "rate": 4645,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.5",
+                "rate": 6194,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.6",
+                "rate": 4129,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.7",
+                "rate": 3871,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.8",
+                "rate": 2581,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.9",
+                "rate": 4903,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.10",
+                "rate": 5420,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.11",
+                "rate": 4387,
+                "jurisdiction_id": "GB"
+              }
+            ],
+            "supplier_framework_lot_branches": [
+              {
+                "lat": 51.50458599115668,
+                "lon": -0.02208052729799974,
+                "postcode": "E14 4PU",
+                "contact_name": "Prof. Delsie Rogahn",
+                "contact_email": "rogahn_delsie_prof@carroll.test",
+                "telephone_number": "(194) 092-2419",
+                "name": "London",
+                "town": "London",
+                "address_line_1": "10 South Colonnade",
+                "address_line_2": null,
+                "county": null,
+                "region": "Inner London - East"
+              },
+              {
+                "lat": 53.46367330827036,
+                "lon": -2.2929726032049316,
+                "postcode": "M16 0RA",
+                "contact_name": "Jacques Kuhic",
+                "contact_email": "kuhic_jacques@mante.example",
+                "telephone_number": "547-483-3317",
+                "name": "Manchester",
+                "town": "Manchester",
+                "address_line_1": "Old Trafford",
+                "address_line_2": "Sir Matt Busby Way",
+                "county": "Greater Manchester",
+                "region": "Greater Manchester"
+              },
+              {
+                "lat": 52.59117109252977,
+                "lon": -2.1304508109396623,
+                "postcode": "WV1 4QR",
+                "contact_name": "Mrs. Mike Mann",
+                "contact_email": "mike_mann_mrs@bogan.example",
+                "telephone_number": "292.876.9124",
+                "name": "Wolverhampton",
+                "town": "Wolverhampton",
+                "address_line_1": "Molineux Stadium",
+                "address_line_2": "Waterloo Rd",
+                "county": "West Midlands",
+                "region": "Wolverhampton"
+              }
+            ],
+            "supplier_framework_lot_jurisdictions": [
+              {
+                "jurisdiction_id": "GB"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ef645eec-b38e-412e-bdb6-f283fab5fcaa",
+    "name": "TILLMAN-EMMERICH",
+    "supplier_frameworks": [
+      {
+        "framework_id": "RM6376",
+        "enabled": true,
+        "supplier_framework_contact_detail": {},
+        "supplier_framework_lots": [
+          {
+            "lot_id": "RM6376.1",
+            "enabled": true,
+            "supplier_framework_lot_services": [],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": "RM6376.1.1",
+                "rate": 8126,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.2",
+                "rate": 6772,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.3",
+                "rate": 4740,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.4",
+                "rate": 6094,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.5",
+                "rate": 8126,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.6",
+                "rate": 5417,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.7",
+                "rate": 5079,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.8",
+                "rate": 3386,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.9",
+                "rate": 6433,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.10",
+                "rate": 7110,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.11",
+                "rate": 5756,
+                "jurisdiction_id": "GB"
+              }
+            ],
+            "supplier_framework_lot_branches": [
+              {
+                "lat": 51.53856612802023,
+                "lon": -0.016517049198377255,
+                "postcode": "E20 2ST",
+                "contact_name": "Rodrick Conroy",
+                "contact_email": "rodrick_conroy@green-cormier.test",
+                "telephone_number": "386-612-1721",
+                "name": "London",
+                "town": "London",
+                "address_line_1": "London Stadium",
+                "address_line_2": "Queen Elizabeth Olympic Park",
+                "county": null,
+                "region": "Inner London - East"
+              },
+              {
+                "lat": 53.64815863047592,
+                "lon": -3.0172629561364004,
+                "postcode": "PR8 1RX",
+                "contact_name": "Emeline Frami DO",
+                "contact_email": "emeline.frami.do@marquardt-bogisich.test",
+                "telephone_number": "7772825351",
+                "name": "Southport",
+                "town": "Southport",
+                "address_line_1": "Southport Pleasureland",
+                "address_line_2": "Marine Dr",
+                "county": "Merseyside",
+                "region": "Merseyside"
+              },
+              {
+                "lat": 52.524659858134505,
+                "lon": -2.047541022496625,
+                "postcode": "DY1 4AL",
+                "contact_name": "Edgar Buckridge",
+                "contact_email": "buckridge.edgar@abernathy.test",
+                "telephone_number": "982.631.5144",
+                "name": "Dudley",
+                "town": "Dudley",
+                "address_line_1": "Discovery Wy",
+                "address_line_2": null,
+                "county": "West Midlands",
+                "region": "Birmingham"
+              }
+            ],
+            "supplier_framework_lot_jurisdictions": [
+              {
+                "jurisdiction_id": "GB"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "643b11b6-0554-48b6-ba73-0908b08b6540",
+    "name": "GLOVER-ONDRICKA",
+    "supplier_frameworks": [
+      {
+        "framework_id": "RM6376",
+        "enabled": true,
+        "supplier_framework_contact_detail": {},
+        "supplier_framework_lots": [
+          {
+            "lot_id": "RM6376.1",
+            "enabled": true,
+            "supplier_framework_lot_services": [],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": "RM6376.1.1",
+                "rate": 4047,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.2",
+                "rate": 3373,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.3",
+                "rate": 2361,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.4",
+                "rate": 3035,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.5",
+                "rate": 4047,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.6",
+                "rate": 2698,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.7",
+                "rate": 2529,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.8",
+                "rate": 1686,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.9",
+                "rate": 3204,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.10",
+                "rate": 3541,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.11",
+                "rate": 2867,
+                "jurisdiction_id": "GB"
+              }
+            ],
+            "supplier_framework_lot_branches": [
+              {
+                "lat": 51.50306085083827,
+                "lon": -0.1447072660356099,
+                "postcode": "SW1A 1AA",
+                "contact_name": "Troy Mills",
+                "contact_email": "mills_troy@cummings.test",
+                "telephone_number": "(208) 859 8528",
+                "name": "London",
+                "town": "London",
+                "address_line_1": "Buckingham Palace",
+                "address_line_2": null,
+                "county": null,
+                "region": "Inner London - West"
+              },
+              {
+                "lat": 53.33543706989522,
+                "lon": -2.8525950536169677,
+                "postcode": "L24 1YD",
+                "contact_name": "Patrick Murray",
+                "contact_email": "patrick_murray@welch-jones.test",
+                "telephone_number": "757.666.7675",
+                "name": "Liverpool",
+                "town": "Liverpool",
+                "address_line_1": "Liverpool John Lennon Airport",
+                "address_line_2": "Speke Hall Ave",
+                "county": "Merseyside",
+                "region": "Merseyside"
+              },
+              {
+                "lat": 52.50948941053984,
+                "lon": -1.8839958035018183,
+                "postcode": "B6 6HE",
+                "contact_name": "Dick Schowalter",
+                "contact_email": "dick.schowalter@schuppe.example",
+                "telephone_number": "(502) 679 1431",
+                "name": "Birmingham",
+                "town": "Birmingham",
+                "address_line_1": "Villa Park",
+                "address_line_2": "Trinity Rd",
+                "county": "West Midlands",
+                "region": "Birmingham"
+              }
+            ],
+            "supplier_framework_lot_jurisdictions": [
+              {
+                "jurisdiction_id": "GB"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "4e85d810-421a-4efa-9858-4544f14b67fb",
+    "name": "DARE-ROHAN",
+    "supplier_frameworks": [
+      {
+        "framework_id": "RM6376",
+        "enabled": true,
+        "supplier_framework_contact_detail": {},
+        "supplier_framework_lots": [
+          {
+            "lot_id": "RM6376.1",
+            "enabled": true,
+            "supplier_framework_lot_services": [],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": "RM6376.1.1",
+                "rate": 6879,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.2",
+                "rate": 5733,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.3",
+                "rate": 4013,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.4",
+                "rate": 5159,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.5",
+                "rate": 6879,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.6",
+                "rate": 4586,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.7",
+                "rate": 4299,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.8",
+                "rate": 2866,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.9",
+                "rate": 5446,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.10",
+                "rate": 6019,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.11",
+                "rate": 4873,
+                "jurisdiction_id": "GB"
+              }
+            ],
+            "supplier_framework_lot_branches": [
+              {
+                "lat": 51.46190833253159,
+                "lon": -0.340934872716188,
+                "postcode": "TW2 7BA",
+                "contact_name": "Eilene Kovacek",
+                "contact_email": "kovacek.eilene@schinner-maggio.example",
+                "telephone_number": "125.498.4606",
+                "name": "Twickenham",
+                "town": "Twickenham",
+                "address_line_1": "Twickenham Stadium",
+                "address_line_2": "200 Whitton Rd",
+                "county": "London",
+                "region": "Outer London - West and North West"
+              },
+              {
+                "lat": 53.43134641218853,
+                "lon": -2.960931536892127,
+                "postcode": "L4 0TH",
+                "contact_name": "Asa Lueilwitz",
+                "contact_email": "asa_lueilwitz@rath.test",
+                "telephone_number": "(307) 339-4952",
+                "name": "Liverpool",
+                "town": "Liverpool",
+                "address_line_1": "Anfield",
+                "address_line_2": "Anfield Rd",
+                "county": "Merseyside",
+                "region": "Merseyside"
+              },
+              {
+                "lat": 52.4789997328729,
+                "lon": -1.9007014905137978,
+                "postcode": "B2 4BJ",
+                "contact_name": "Gov. Garland Rau",
+                "contact_email": "gov_rau_garland@yundt.test",
+                "telephone_number": "2293891820",
+                "name": "Birmingham",
+                "town": "Birmingham",
+                "address_line_1": "23 Stephenson St",
+                "address_line_2": null,
+                "county": "West Midlands",
+                "region": "Birmingham"
+              }
+            ],
+            "supplier_framework_lot_jurisdictions": [
+              {
+                "jurisdiction_id": "GB"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "f18b7573-5c23-4add-9f1d-4e50d067637a",
+    "name": "SATTERFIELD AND SONS",
+    "supplier_frameworks": [
+      {
+        "framework_id": "RM6376",
+        "enabled": true,
+        "supplier_framework_contact_detail": {},
+        "supplier_framework_lots": [
+          {
+            "lot_id": "RM6376.1",
+            "enabled": true,
+            "supplier_framework_lot_services": [],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": "RM6376.1.1",
+                "rate": 5228,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.2",
+                "rate": 4357,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.3",
+                "rate": 3049,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.4",
+                "rate": 3921,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.5",
+                "rate": 5228,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.6",
+                "rate": 3485,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.7",
+                "rate": 3267,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.8",
+                "rate": 2178,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.9",
+                "rate": 4139,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.10",
+                "rate": 4574,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.11",
+                "rate": 3703,
+                "jurisdiction_id": "GB"
+              }
+            ],
+            "supplier_framework_lot_branches": [
+              {
+                "lat": 51.549072447921404,
+                "lon": 0.7016791349027106,
+                "postcode": "SS2 6NQ",
+                "contact_name": "Ida McClure",
+                "contact_email": "mcclure_ida@ebert.example",
+                "telephone_number": "172.288.1462",
+                "name": "Southend-on-Sea",
+                "town": "Southend-on-Sea",
+                "address_line_1": "Roots Hall",
+                "address_line_2": "Victoria Ave",
+                "county": "Essex",
+                "region": "Essex"
+              },
+              {
+                "lat": 53.40926484785927,
+                "lon": -2.9950993589489463,
+                "postcode": "L3 9PP",
+                "contact_name": "Kareem Roob CPA",
+                "contact_email": "roob.kareem.cpa@rodriguez.example",
+                "telephone_number": "236 121 4970",
+                "name": "Liverpool",
+                "town": "Liverpool",
+                "address_line_1": "The Capital Building",
+                "address_line_2": "Old Hall St",
+                "county": "Merseyside",
+                "region": "Merseyside"
+              },
+              {
+                "lat": 52.93691728961155,
+                "lon": -1.1322526160932878,
+                "postcode": "NG2 6AG",
+                "contact_name": "Tyler Steuber",
+                "contact_email": "tyler_steuber@schaefer.test",
+                "telephone_number": "1043668045",
+                "name": "Nottingham",
+                "town": "Nottingham",
+                "address_line_1": "Trent Bridge",
+                "address_line_2": "West Bridgford",
+                "county": "Nottinghamshire",
+                "region": "Nottingham"
+              }
+            ],
+            "supplier_framework_lot_jurisdictions": [
+              {
+                "jurisdiction_id": "GB"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ff113453-4ae3-4b7f-b54c-591ba75c4343",
+    "name": "ROOB, CORWIN AND DICKI",
+    "supplier_frameworks": [
+      {
+        "framework_id": "RM6376",
+        "enabled": true,
+        "supplier_framework_contact_detail": {},
+        "supplier_framework_lots": [
+          {
+            "lot_id": "RM6376.1",
+            "enabled": true,
+            "supplier_framework_lot_services": [],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": "RM6376.1.1",
+                "rate": 4771,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.2",
+                "rate": 3976,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.3",
+                "rate": 2783,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.4",
+                "rate": 3578,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.5",
+                "rate": 4771,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.6",
+                "rate": 3180,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.7",
+                "rate": 2982,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.8",
+                "rate": 1988,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.9",
+                "rate": 3777,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.10",
+                "rate": 4174,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.11",
+                "rate": 3379,
+                "jurisdiction_id": "GB"
+              }
+            ],
+            "supplier_framework_lot_branches": [
+              {
+                "lat": 51.50458599115668,
+                "lon": -0.02208052729799974,
+                "postcode": "E14 4PU",
+                "contact_name": "Gil Tromp",
+                "contact_email": "tromp_gil@roob.test",
+                "telephone_number": "907.532.2286",
+                "name": "London",
+                "town": "London",
+                "address_line_1": "10 South Colonnade",
+                "address_line_2": null,
+                "county": null,
+                "region": "Inner London - East"
+              },
+              {
+                "lat": 53.46367330827036,
+                "lon": -2.2929726032049316,
+                "postcode": "M16 0RA",
+                "contact_name": "The Hon. Damion Roob",
+                "contact_email": "the_roob_damion_hon@pfeffer.example",
+                "telephone_number": "110 730 8170",
+                "name": "Manchester",
+                "town": "Manchester",
+                "address_line_1": "Old Trafford",
+                "address_line_2": "Sir Matt Busby Way",
+                "county": "Greater Manchester",
+                "region": "Greater Manchester"
+              },
+              {
+                "lat": 52.59117109252977,
+                "lon": -2.1304508109396623,
+                "postcode": "WV1 4QR",
+                "contact_name": "Jewell Stanton",
+                "contact_email": "stanton_jewell@prohaska.example",
+                "telephone_number": "318-652-5579",
+                "name": "Wolverhampton",
+                "town": "Wolverhampton",
+                "address_line_1": "Molineux Stadium",
+                "address_line_2": "Waterloo Rd",
+                "county": "West Midlands",
+                "region": "Wolverhampton"
+              }
+            ],
+            "supplier_framework_lot_jurisdictions": [
+              {
+                "jurisdiction_id": "GB"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "1ffdb48d-f3ec-4f3e-b0c4-f652af3c7fc2",
+    "name": "ROSENBAUM-HINTZ",
+    "supplier_frameworks": [
+      {
+        "framework_id": "RM6376",
+        "enabled": true,
+        "supplier_framework_contact_detail": {},
+        "supplier_framework_lots": [
+          {
+            "lot_id": "RM6376.1",
+            "enabled": true,
+            "supplier_framework_lot_services": [],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": "RM6376.1.1",
+                "rate": 6270,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.2",
+                "rate": 5225,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.3",
+                "rate": 3657,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.4",
+                "rate": 4702,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.5",
+                "rate": 6270,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.6",
+                "rate": 4180,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.7",
+                "rate": 3918,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.8",
+                "rate": 2612,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.9",
+                "rate": 4963,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.10",
+                "rate": 5486,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.11",
+                "rate": 4441,
+                "jurisdiction_id": "GB"
+              }
+            ],
+            "supplier_framework_lot_branches": [
+              {
+                "lat": 51.53856612802023,
+                "lon": -0.016517049198377255,
+                "postcode": "E20 2ST",
+                "contact_name": "Tyree Trantow",
+                "contact_email": "trantow_tyree@stamm.example",
+                "telephone_number": "992 119 1674",
+                "name": "London",
+                "town": "London",
+                "address_line_1": "London Stadium",
+                "address_line_2": "Queen Elizabeth Olympic Park",
+                "county": null,
+                "region": "Inner London - East"
+              },
+              {
+                "lat": 53.64815863047592,
+                "lon": -3.0172629561364004,
+                "postcode": "PR8 1RX",
+                "contact_name": "Devon Goyette",
+                "contact_email": "goyette_devon@franecki-reichert.test",
+                "telephone_number": "734.614.3588",
+                "name": "Southport",
+                "town": "Southport",
+                "address_line_1": "Southport Pleasureland",
+                "address_line_2": "Marine Dr",
+                "county": "Merseyside",
+                "region": "Merseyside"
+              },
+              {
+                "lat": 52.524659858134505,
+                "lon": -2.047541022496625,
+                "postcode": "DY1 4AL",
+                "contact_name": "Michael Dibbert",
+                "contact_email": "michael.dibbert@boehm.test",
+                "telephone_number": "978-628-5952",
+                "name": "Dudley",
+                "town": "Dudley",
+                "address_line_1": "Discovery Wy",
+                "address_line_2": null,
+                "county": "West Midlands",
+                "region": "Birmingham"
+              }
+            ],
+            "supplier_framework_lot_jurisdictions": [
+              {
+                "jurisdiction_id": "GB"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "88182164-c2bf-4313-a4ae-ee25b3b17db3",
+    "name": "GRADY AND SONS",
+    "supplier_frameworks": [
+      {
+        "framework_id": "RM6376",
+        "enabled": true,
+        "supplier_framework_contact_detail": {},
+        "supplier_framework_lots": [
+          {
+            "lot_id": "RM6376.1",
+            "enabled": true,
+            "supplier_framework_lot_services": [],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": "RM6376.1.1",
+                "rate": 8182,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.2",
+                "rate": 6819,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.3",
+                "rate": 4773,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.4",
+                "rate": 6137,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.5",
+                "rate": 8182,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.6",
+                "rate": 5455,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.7",
+                "rate": 5114,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.8",
+                "rate": 3409,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.9",
+                "rate": 6478,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.10",
+                "rate": 7159,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.11",
+                "rate": 5796,
+                "jurisdiction_id": "GB"
+              }
+            ],
+            "supplier_framework_lot_branches": [
+              {
+                "lat": 51.50306085083827,
+                "lon": -0.1447072660356099,
+                "postcode": "SW1A 1AA",
+                "contact_name": "Spencer Armstrong",
+                "contact_email": "spencer.armstrong@durgan-connelly.test",
+                "telephone_number": "190-016-3492",
+                "name": "London",
+                "town": "London",
+                "address_line_1": "Buckingham Palace",
+                "address_line_2": null,
+                "county": null,
+                "region": "Inner London - West"
+              },
+              {
+                "lat": 53.33543706989522,
+                "lon": -2.8525950536169677,
+                "postcode": "L24 1YD",
+                "contact_name": "Xiao Wintheiser JD",
+                "contact_email": "jd.xiao.wintheiser@herzog.test",
+                "telephone_number": "390 404 4384",
+                "name": "Liverpool",
+                "town": "Liverpool",
+                "address_line_1": "Liverpool John Lennon Airport",
+                "address_line_2": "Speke Hall Ave",
+                "county": "Merseyside",
+                "region": "Merseyside"
+              },
+              {
+                "lat": 52.50948941053984,
+                "lon": -1.8839958035018183,
+                "postcode": "B6 6HE",
+                "contact_name": "Dayna Ebert",
+                "contact_email": "ebert_dayna@oberbrunner-corkery.test",
+                "telephone_number": "(920) 148-1328",
+                "name": "Birmingham",
+                "town": "Birmingham",
+                "address_line_1": "Villa Park",
+                "address_line_2": "Trinity Rd",
+                "county": "West Midlands",
+                "region": "Birmingham"
+              }
+            ],
+            "supplier_framework_lot_jurisdictions": [
+              {
+                "jurisdiction_id": "GB"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "24cee606-ef0e-4cee-b412-9a36817dd0ac",
+    "name": "DANIEL AND SONS",
+    "supplier_frameworks": [
+      {
+        "framework_id": "RM6376",
+        "enabled": true,
+        "supplier_framework_contact_detail": {},
+        "supplier_framework_lots": [
+          {
+            "lot_id": "RM6376.1",
+            "enabled": true,
+            "supplier_framework_lot_services": [],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": "RM6376.1.1",
+                "rate": 6024,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.2",
+                "rate": 5020,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.3",
+                "rate": 3514,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.4",
+                "rate": 4518,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.5",
+                "rate": 6024,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.6",
+                "rate": 4016,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.7",
+                "rate": 3765,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.8",
+                "rate": 2510,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.9",
+                "rate": 4769,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.10",
+                "rate": 5271,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.11",
+                "rate": 4267,
+                "jurisdiction_id": "GB"
+              }
+            ],
+            "supplier_framework_lot_branches": [
+              {
+                "lat": 51.46190833253159,
+                "lon": -0.340934872716188,
+                "postcode": "TW2 7BA",
+                "contact_name": "Elna Lemke",
+                "contact_email": "lemke.elna@kozey.test",
+                "telephone_number": "(513) 948 9721",
+                "name": "Twickenham",
+                "town": "Twickenham",
+                "address_line_1": "Twickenham Stadium",
+                "address_line_2": "200 Whitton Rd",
+                "county": "London",
+                "region": "Outer London - West and North West"
+              },
+              {
+                "lat": 53.43134641218853,
+                "lon": -2.960931536892127,
+                "postcode": "L4 0TH",
+                "contact_name": "Norbert Barton",
+                "contact_email": "norbert_barton@vonrueden-lakin.test",
+                "telephone_number": "440.479.6390",
+                "name": "Liverpool",
+                "town": "Liverpool",
+                "address_line_1": "Anfield",
+                "address_line_2": "Anfield Rd",
+                "county": "Merseyside",
+                "region": "Merseyside"
+              },
+              {
+                "lat": 52.4789997328729,
+                "lon": -1.9007014905137978,
+                "postcode": "B2 4BJ",
+                "contact_name": "Buster Batz DC",
+                "contact_email": "buster.batz.dc@marvin-stamm.example",
+                "telephone_number": "2630635020",
+                "name": "Birmingham",
+                "town": "Birmingham",
+                "address_line_1": "23 Stephenson St",
+                "address_line_2": null,
+                "county": "West Midlands",
+                "region": "Birmingham"
+              }
+            ],
+            "supplier_framework_lot_jurisdictions": [
+              {
+                "jurisdiction_id": "GB"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "9a7f42a1-ce0a-4d32-8543-14b356d4b821",
+    "name": "NADER, CONN AND REINGER",
+    "supplier_frameworks": [
+      {
+        "framework_id": "RM6376",
+        "enabled": true,
+        "supplier_framework_contact_detail": {},
+        "supplier_framework_lots": [
+          {
+            "lot_id": "RM6376.1",
+            "enabled": true,
+            "supplier_framework_lot_services": [],
+            "supplier_framework_lot_rates": [
+              {
+                "position_id": "RM6376.1.1",
+                "rate": 5262,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.2",
+                "rate": 4385,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.3",
+                "rate": 3069,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.4",
+                "rate": 3946,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.5",
+                "rate": 5262,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.6",
+                "rate": 3508,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.7",
+                "rate": 3288,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.8",
+                "rate": 2192,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.9",
+                "rate": 4165,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.10",
+                "rate": 4604,
+                "jurisdiction_id": "GB"
+              },
+              {
+                "position_id": "RM6376.1.11",
+                "rate": 3727,
+                "jurisdiction_id": "GB"
+              }
+            ],
+            "supplier_framework_lot_branches": [
+              {
+                "lat": 51.549072447921404,
+                "lon": 0.7016791349027106,
+                "postcode": "SS2 6NQ",
+                "contact_name": "Deane Sipes Sr.",
+                "contact_email": "sr_sipes_deane@mann-schamberger.test",
+                "telephone_number": "8212216569",
+                "name": "Southend-on-Sea",
+                "town": "Southend-on-Sea",
+                "address_line_1": "Roots Hall",
+                "address_line_2": "Victoria Ave",
+                "county": "Essex",
+                "region": "Essex"
+              },
+              {
+                "lat": 53.40926484785927,
+                "lon": -2.9950993589489463,
+                "postcode": "L3 9PP",
+                "contact_name": "Rep. Meg Heidenreich",
+                "contact_email": "heidenreich_meg_rep@gleason.example",
+                "telephone_number": "487-919-3732",
+                "name": "Liverpool",
+                "town": "Liverpool",
+                "address_line_1": "The Capital Building",
+                "address_line_2": "Old Hall St",
+                "county": "Merseyside",
+                "region": "Merseyside"
+              },
+              {
+                "lat": 52.93691728961155,
+                "lon": -1.1322526160932878,
+                "postcode": "NG2 6AG",
+                "contact_name": "Magen Hermann",
+                "contact_email": "hermann_magen@terry.example",
+                "telephone_number": "816.366.3872",
+                "name": "Nottingham",
+                "town": "Nottingham",
+                "address_line_1": "Trent Bridge",
+                "address_line_2": "West Bridgford",
+                "county": "Nottinghamshire",
+                "region": "Nottingham"
+              }
+            ],
+            "supplier_framework_lot_jurisdictions": [
+              {
+                "jurisdiction_id": "GB"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
