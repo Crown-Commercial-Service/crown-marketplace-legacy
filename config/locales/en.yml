@@ -612,6 +612,13 @@ en:
         senior: 'Senior Roles: Headteacher and Senior Leadership positions'
         support: 'Educational Support Staff: (incl. Cover Supervisor, Teaching Assistants)'
         teacher: 'Teacher: (Incl. Qualified and Unqualified Teachers, Tutors)'
+        stem_teacher: 'STEM Teacher (Inc. Qualified Teachers, Tutors)'
+        non_stem_teachers: 'Non-STEM Teachers (Inc. Qualified Teachers, Tutors)'
+        educationl_support_non_send: 'Educational Support Staff non SEND:  (Inc. Cover Supervisor, Teaching Assistants and unqualified teachers)'
+        educationl_support_send: 'Educational Support Staff SEND: (Inc. Cover Supervisor, Teaching Assistants and unqualified teachers)'
+        senior_roles: 'Senior Roles:  (Inc. Headteacher and Senior Leadership positions)'
+        facilities_management: 'Facilities Management: (Inc. Caretakers, site roles etc)'
+        admin_and_clerical: 'Admin & Clerical: (Inc. Office Staff, Finance Support)'
       looking_for:
         managed_service_provider: Managed service provider
         worker: Individual worker
