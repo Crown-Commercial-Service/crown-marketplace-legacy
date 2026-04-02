@@ -510,9 +510,6 @@ en:
           page_title: Is your contract likely to be worth more than £2.5 million?
           question: Is your contract likely to be worth more than £2.5 million?
           question_hint: If the total value over the lifetime of the contract is likely to exceed £2.5m, or you require a Gold Standard contract, please select Yes.
-        agency_payroll:
-         job_tities:
-          other: 'Other Roles: (Invigilators, Admin & Clerical, IT Staff, Finance Staff, Cleaners etc.)'
       page_section: Find supply teachers and agency staff
       shared:
         rates_table:
