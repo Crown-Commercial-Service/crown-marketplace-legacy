@@ -1,4 +1,4 @@
-module SupplyTeachers::Admin::LotDataHelper
+module SupplyTeachers::RM6238::Admin::LotDataHelper
   include Admin::LotDataHelper
   include SupplyTeachers::RM6238::RatesHelper
 
@@ -22,7 +22,7 @@ module SupplyTeachers::Admin::LotDataHelper
           text: tag.span(id: aria_describedby_id('daily')) do
             concat(t('supply_teachers.rm6238.shared.rates_table.column2'))
             concat(tag.br)
-            concat(t('journey_step.supply_teachers.term_types.daily'))
+            concat(t('supply_teachers.rm6238.shared.term_types.daily'))
           end,
           classes: 'govuk-!-width-one-quarter'
         },
@@ -30,13 +30,13 @@ module SupplyTeachers::Admin::LotDataHelper
           text: tag.span(id: aria_describedby_id('six_weeks_plus')) do
             concat(t('supply_teachers.rm6238.shared.rates_table.column2'))
             concat(tag.br)
-            concat(t('journey_step.supply_teachers.term_types.six_weeks_plus'))
+            concat(t('supply_teachers.rm6238.shared.term_types.six_weeks_plus'))
           end,
           classes: 'govuk-!-width-one-quarter'
         }
       ],
       @lot.positions_grouped_by_name.map do |_position_name, positions|
-        inputs = positions.map { |position| create_rate_input(position, rates, ->(position) { I18n.t("journey_step.supply_teachers.job_titles.#{position.name}") }, position.category || 'daily') }
+        inputs = positions.map { |position| create_rate_input(position, rates, ->(position) { I18n.t("supply_teachers.rm6238.shared.job_titles.#{position.name}") }, position.category || 'daily') }
 
         [
           {
@@ -68,7 +68,7 @@ module SupplyTeachers::Admin::LotDataHelper
         }
       ],
       @lot.positions.order(:number).map do |position|
-        input = create_rate_input(position, rates, ->(position) { I18n.t("journey_step.supply_teachers.job_titles.#{position.name}.#{position.category}") })
+        input = create_rate_input(position, rates, ->(position) { I18n.t("supply_teachers.rm6238.shared.job_titles.#{position.name}.#{position.category}") })
 
         [
           {
