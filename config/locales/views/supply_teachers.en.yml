@@ -523,6 +523,9 @@ en:
           question_hint: If the total value over the lifetime of the contract is likely to exceed £2.5m, or you require a Gold Standard contract, please select Yes.
         payroll_provider:
           page_title: Do you want to put the worker on the school payroll?
+        agency_payroll:
+         job_tities:
+          other: 'Other Roles: (Invigilators, Admin & Clerical, IT Staff, Finance Staff, Cleaners etc.)'
       page_section: Find supply teachers and agency staff
       shared:
         job_titles:
