@@ -18,7 +18,7 @@ module SupplyTeachers::RM6238::RatesHelper
           text: capture do
             concat(t('supply_teachers.rm6238.shared.rates_table.column2'))
             concat(tag.br)
-            concat(t('journey_step.supply_teachers.term_types.daily'))
+            concat(t('supply_teachers.rm6238.shared.term_types.daily'))
           end,
           classes: 'govuk-table__header--numeric agency-record__markup-column'
         },
@@ -26,7 +26,7 @@ module SupplyTeachers::RM6238::RatesHelper
           text: capture do
             concat(t('supply_teachers.rm6238.shared.rates_table.column2'))
             concat(tag.br)
-            concat(t('journey_step.supply_teachers.term_types.six_weeks_plus'))
+            concat(t('supply_teachers.rm6238.shared.term_types.six_weeks_plus'))
           end,
           classes: 'govuk-table__header--numeric agency-record__markup-column'
         }
@@ -36,7 +36,7 @@ module SupplyTeachers::RM6238::RatesHelper
 
         [
           {
-            text: t("journey_step.supply_teachers.job_titles.#{position_name}")
+            text: t("supply_teachers.rm6238.shared.job_titles.#{position_name}")
           },
           agency_rate_cell(rates, positions[0]),
           agency_rate_cell(rates, positions[-1]),
@@ -60,7 +60,7 @@ module SupplyTeachers::RM6238::RatesHelper
       @lot.positions.order(:number).map do |position|
         [
           {
-            text: t("journey_step.supply_teachers.job_titles.#{position.name}.#{position.category}")
+            text: t("supply_teachers.rm6238.shared.job_titles.#{position.name}.#{position.category}")
           },
           agency_rate_cell(rates, position),
         ]
