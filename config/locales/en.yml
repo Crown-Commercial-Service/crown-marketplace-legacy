@@ -618,7 +618,7 @@ en:
         educationl_support_send: 'Educational Support Staff SEND: (Inc. Cover Supervisor, Teaching Assistants and unqualified teachers)'
         senior_roles: 'Senior Roles:  (Inc. Headteacher and Senior Leadership positions)'
         facilities_management: 'Facilities Management: (Inc. Caretakers, site roles etc)'
-        admin_and_clerical: 'Admin & Clerical: (Inc. Office Staff, Finance Support)'
+        admin_and_clerical: 'Admin & Clerical:(Inc. Office Staff, Finance Support)'
       looking_for:
         managed_service_provider: Managed service provider
         worker: Individual worker
