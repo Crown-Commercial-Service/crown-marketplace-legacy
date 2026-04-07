@@ -127,6 +127,10 @@ en:
           attributes:
             worker_type:
               inclusion: Select yes if you want an agency to supply the worker
+        supply_teachers/rm6376/journey/school_postcode_nominated_worker:
+          attributes:
+            location:
+              invalid_location: Enter a valid postcode
   activerecord:
     errors:
       models:
@@ -426,7 +430,7 @@ en:
         answer:
           agency: 'Yes'
           school: No, I want to put the worker on our payroll
-        page_title: Do you want to put the worker on the school payroll?
+        page_title: Do you want the agency to manage the worker’s pay?
         question: Do you want the agency to manage the worker’s pay?
       school_postcode_agency_supplied_worker:
         page_title: What is your school postcode
