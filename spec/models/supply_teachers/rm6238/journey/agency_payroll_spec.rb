@@ -71,13 +71,13 @@ RSpec.describe SupplyTeachers::RM6238::Journey::AgencyPayroll do
 
   describe '.permit_list' do
     it 'returns a list of the permitted attributes' do
-      expect(described_class.permit_list).to eq [:postcode, :radius, :offset, :position_number, {}]
+      expect(described_class.permit_list).to eq [:postcode, :radius, :position_number, :offset, {}]
     end
   end
 
   describe '.permitted_keys' do
     it 'returns a list of the permitted keys' do
-      expect(described_class.permitted_keys).to eq %i[postcode radius offset position_number]
+      expect(described_class.permitted_keys).to eq %i[postcode radius position_number offset]
     end
   end
 
