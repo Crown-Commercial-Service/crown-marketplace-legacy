@@ -9,3 +9,7 @@ Feature: Supply Teachers - Workers
     And I click on 'Continue'
     Then I am on the 'Do you want the agency to manage the worker’s pay?' page
     And I select 'Yes'
+    And I click on 'Continue'
+    Then I am on the 'School postcode and worker requirements' page
+    And I enter 'SW1A 1AA' for the 'postcode'
+    And I select 'STEM Teacher (Inc. Qualified Teachers, Tutors)'
