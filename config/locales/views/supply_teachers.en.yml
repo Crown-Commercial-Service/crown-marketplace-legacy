@@ -118,7 +118,7 @@ en:
         supply_teachers/rm6376/journey/payroll_provider:
           attributes:
             payroll_provider:
-              inclusion: Select yes if you want to put the worker on the school’s payroll
+              inclusion: Please select a payroll option
         supply_teachers/rm6376/journey/school_postcode_nominated_worker:
           attributes:
             location:
@@ -426,7 +426,6 @@ en:
         answer:
           agency: 'Yes'
           school: No, I want to put the worker on our payroll
-        page_title: Do you want to put the worker on the school payroll?
         question: Do you want the agency to manage the worker’s pay?
       school_postcode_agency_supplied_worker:
         page_title: What is your school postcode
@@ -514,6 +513,8 @@ en:
           page_title: Is your contract likely to be worth more than £2.5 million?
           question: Is your contract likely to be worth more than £2.5 million?
           question_hint: If the total value over the lifetime of the contract is likely to exceed £2.5m, or you require a Gold Standard contract, please select Yes.
+        payroll_provider:
+          page_title: Do you want to put the worker on the school payroll?
       page_section: Find supply teachers and agency staff
       shared:
         job_titles:
@@ -597,6 +598,8 @@ en:
             worker: An agency who can provide my school with an individual worker
           page_title: What is your school looking for?
           question: What is your school looking for?
+        payroll_provider:
+          page_title: Do you want the agency to manage the worker’s pay?
       page_section: Find supply teachers and agency staff
       shared:
         job_titles:

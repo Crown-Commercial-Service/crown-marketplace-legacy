@@ -11,7 +11,7 @@ RSpec.describe SupplyTeachers::RM6376::Journey::PayrollProvider do
 
       it 'is not valid and has the correct error message' do
         expect(step).not_to be_valid
-        expect(step.errors[:payroll_provider].first).to eq 'Select yes if you want to put the worker on the school’s payroll'
+        expect(step.errors[:payroll_provider].first).to eq 'Please select a payroll option'
       end
     end
 
@@ -20,7 +20,7 @@ RSpec.describe SupplyTeachers::RM6376::Journey::PayrollProvider do
 
       it 'is not valid and has the correct error message' do
         expect(step).not_to be_valid
-        expect(step.errors[:payroll_provider].first).to eq 'Select yes if you want to put the worker on the school’s payroll'
+        expect(step.errors[:payroll_provider].first).to eq 'Please select a payroll option'
       end
     end
 
