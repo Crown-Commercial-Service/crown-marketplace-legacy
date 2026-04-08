@@ -1,0 +1,16 @@
+<%= content_for :page_title, t('.heading') %>
+
+<% admin_breadcrumbs(
+  { text: t('shared.admin.change_logs.index.heading'), href: supplier_change_logs_index_path },
+  { text: t('.heading') }
+)%>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+    <h1 class="govuk-heading-xl">
+      <span class="govuk-caption-xl"><%= t('.caption', short_id: @change_log.short_id) %></span>
+      <%= t('.heading') %>
+    </h1>
+  </div>
+</div>
+

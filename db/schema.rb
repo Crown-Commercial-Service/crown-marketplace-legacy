@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_04_08_083653) do
+ActiveRecord::Schema[8.1].define(version: 2026_04_08_143151) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
   enable_extension "pgcrypto"
@@ -73,6 +73,17 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_08_083653) do
     t.datetime "updated_at", null: false
     t.uuid "user_id", null: false
     t.index ["user_id"], name: "index_buyer_details_on_user_id"
+  end
+
+  create_table "change_logs", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.jsonb "change_data"
+    t.text "change_type"
+    t.datetime "created_at", null: false
+    t.text "framework_id", null: false
+    t.datetime "updated_at", null: false
+    t.uuid "user_id", null: false
+    t.index ["framework_id"], name: "index_change_logs_on_framework_id"
+    t.index ["user_id"], name: "index_change_logs_on_user_id"
   end
 
   create_table "frameworks", id: :text, force: :cascade do |t|
@@ -328,6 +339,8 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_08_083653) do
   add_foreign_key "admin_uploads", "frameworks"
   add_foreign_key "admin_uploads", "users"
   add_foreign_key "buyer_details", "users"
+  add_foreign_key "change_logs", "frameworks"
+  add_foreign_key "change_logs", "users"
   add_foreign_key "lots", "frameworks"
   add_foreign_key "positions", "lots"
   add_foreign_key "reports", "frameworks"

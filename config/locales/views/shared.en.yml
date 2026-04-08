@@ -2,9 +2,36 @@
 en:
   shared:
     admin:
+      change_logs:
+        change_types:
+          update_supplier_additional_information: Additional supplier information
+          update_supplier_contact_information: Supplier contact information
+          update_supplier_framework_lot_branch: Branch
+          update_supplier_framework_lot_jurisdictions: Jurisdictions
+          update_supplier_framework_lot_rates: Rates
+          update_supplier_framework_lot_services: Services
+          update_supplier_framework_lot_status: Lot status
+          update_supplier_information: Supplier information
+          upload_supplier_data: Upload
+        index:
+          caption: "%{service_name} - %{framework}"
+          change_logs_table:
+            change_type: Change type
+            changed_at: Changed at
+            changed_by: Changed by
+            log_item: Lot item
+          heading: Supplier data change log
+          no_change_logs: There are no change logs to view
+          below_is_a_table: The table shows a list of all the changes made to the supplier data. You can view the specific change that was made by clicking on a log item.
+        show:
+          caption: "Log item #%{short_id}"
+          heading: Supplier data change log
       dashboard:
         index:
           caption: "%{service_name} - %{framework}"
+          change_logs:
+            description: View logs of all changes made to the supplier data
+            title: Supplier data change log
           heading: Admin dashboard
           manage_framework: Manage frameworks
           manage_framework_status:

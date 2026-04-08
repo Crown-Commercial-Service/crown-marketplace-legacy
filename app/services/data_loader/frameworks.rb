@@ -52,6 +52,7 @@ module DataLoader::Frameworks
         :searches,
         :reports,
         :admin_uploads,
+        :change_logs,
         :supplier_frameworks,
         :supplier_framework_lots,
         :supplier_framework_contact_details,

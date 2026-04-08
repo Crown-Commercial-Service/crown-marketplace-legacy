@@ -19,6 +19,7 @@ class FilesImporter
       @upload.fail!
     else
       @upload.publish!
+      ChangeLog.log_upload_supplier_data!(@upload, @supplier_data)
     end
   rescue StandardError => e
     @upload.update(import_errors: [{ error: 'upload_failed', details: e.message }])
