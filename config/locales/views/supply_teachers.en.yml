@@ -511,6 +511,8 @@ en:
             worker: An agency who can provide my school with an individual worker
           page_title: What is your school looking for?
           question: What is your school looking for?
+        payroll_provider:
+          page_title: Do you want to put the worker on the school payroll?
         master_vendor_options:
           answer:
             above_threshold: 'Yes'
@@ -601,6 +603,8 @@ en:
             worker: An agency who can provide my school with an individual worker
           page_title: What is your school looking for?
           question: What is your school looking for?
+        payroll_provider:
+          page_title: Do you want the agency to manage the worker’s pay?
       page_section: Find supply teachers and agency staff
       shared:
         job_titles:
