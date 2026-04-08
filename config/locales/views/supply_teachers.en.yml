@@ -512,9 +512,23 @@ en:
           question_hint: If the total value over the lifetime of the contract is likely to exceed £2.5m, or you require a Gold Standard contract, please select Yes.
       page_section: Find supply teachers and agency staff
       shared:
+        job_titles:
+          agency_management:
+            daily: 'Agency Management Fee: Daily supply worker (per worker, per day)'
+            six_weeks_plus: 'Agency Management Fee: Long term assignment (6 weeks+) (per worker, per day)'
+          fixed_term: Fixed Term
+          nominated: Nominated Worker
+          other: 'Other Roles: (Invigilators, Admin & Clerical, IT Staff, Finance Staff, Cleaners etc.)'
+          over_12_week: Over 12 Week Reduction
+          senior: 'Senior Roles: Headteacher and Senior Leadership positions'
+          support: 'Educational Support Staff: (incl. Cover Supervisor, Teaching Assistants)'
+          teacher: 'Teacher: (Incl. Qualified and Unqualified Teachers, Tutors)'
         rates_table:
           column1: Job type
           column2: 'Agency mark-up '
+        term_types:
+          daily: Daily Supply
+          six_weeks_plus: Long Term (6 weeks+)
       suppliers:
         education_technology_platform_vendor:
           column1: Job type
@@ -580,6 +594,22 @@ en:
           page_title: What is your school looking for?
           question: What is your school looking for?
       page_section: Find supply teachers and agency staff
+      shared:
+        job_titles:
+          admin_and_clerical: Admin & Clerical (Inc. Office Staff, Finance support)
+          educationl_support_non_send: Educational Support Staff non SEND (inc. Cover Supervisor, Teaching Assistants and unqualified teachers)
+          educationl_support_send: Educational Support Staff SEND (inc. Cover Supervisor, Teaching Assistants and unqualified teachers)
+          facilities_management: Facilities Management (Inc. Caretakers, site roles etc)
+          fixed_term: Fixed Term / Permanent Roles (on School Payroll)
+          nominated_worker: Nominated Workers
+          non_stem_teacher: Non - STEM Teacher (Inc. Qualified Teachers, Tutors)
+          other: Other (Inc. invigilators, cleaners, etc)
+          over_12_week: Over 12 Week Reduction
+          senior_roles: Senior Roles (inc. Headteacher and Senior Leadership positions)
+          stem_teacher: STEM Teacher (Inc. Qualified Teachers, Tutors)
+        rates_table:
+          column1: Job type
+          column2: 'Agency mark-up '
     service_name: Supply Teachers
     suppliers:
       agencies_table:

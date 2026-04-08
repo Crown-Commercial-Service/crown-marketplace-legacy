@@ -111,9 +111,8 @@ class DataLoader::TestData
         LS::RM6240.import_data
       when 'RM6360'
         LPG::RM6360.import_data
-      when 'RM6238'
+      when 'RM6238', 'RM6376'
         ST::RM6238.import_data
-      when 'RM6376'
         ST::RM6376.import_data
       end
     end
