@@ -15,11 +15,6 @@ module SupplyTeachers::JourneyHelper
         [0, 'daily'],
         [1, 'six_weeks_plus'],
       ]
-    when 'RM6376'
-      [
-        [0, 'daily'],
-        [1, 'six_weeks_plus'],
-      ]
     end
   end
 end
