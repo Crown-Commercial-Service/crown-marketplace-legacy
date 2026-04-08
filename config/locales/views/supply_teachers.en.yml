@@ -119,14 +119,14 @@ en:
           attributes:
             payroll_provider:
               inclusion: Please select a payroll option
-        supply_teachers/rm6376/journey/worker_type:
-          attributes:
-            worker_type:
-              inclusion: Select yes if you want an agency to supply the worker
         supply_teachers/rm6376/journey/school_postcode_nominated_worker:
           attributes:
             location:
               invalid_location: Enter a valid postcode
+        supply_teachers/rm6376/journey/worker_type:
+          attributes:
+            worker_type:
+              inclusion: Select yes if you want an agency to supply the worker
   activerecord:
     errors:
       models:
@@ -507,8 +507,6 @@ en:
             worker: An agency who can provide my school with an individual worker
           page_title: What is your school looking for?
           question: What is your school looking for?
-        payroll_provider:
-          page_title: Do you want to put the worker on the school payroll?
         master_vendor_options:
           answer:
             above_threshold: 'Yes'
@@ -516,6 +514,8 @@ en:
           page_title: Is your contract likely to be worth more than £2.5 million?
           question: Is your contract likely to be worth more than £2.5 million?
           question_hint: If the total value over the lifetime of the contract is likely to exceed £2.5m, or you require a Gold Standard contract, please select Yes.
+        payroll_provider:
+          page_title: Do you want to put the worker on the school payroll?
       page_section: Find supply teachers and agency staff
       shared:
         job_titles:
