@@ -2,8 +2,6 @@ module ManagementConsultancy
   module RM6187
     module Admin
       class Upload < ::Admin::Upload
-        self.table_name = 'management_consultancy_rm6187_admin_uploads'
-
         has_one_attached :supplier_details_file
         has_one_attached :supplier_rate_cards_file
         has_one_attached :supplier_service_offerings_file

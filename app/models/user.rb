@@ -4,6 +4,7 @@ class User < ApplicationRecord
   has_one :buyer_detail, inverse_of: :user, dependent: :destroy
   has_many :searches, inverse_of: :user, dependent: :destroy
   has_many :reports, inverse_of: :user, dependent: :destroy
+  has_many :admin_uploads, inverse_of: :user, class_name: 'Admin::Upload', dependent: :destroy
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :trackable and :omniauthable

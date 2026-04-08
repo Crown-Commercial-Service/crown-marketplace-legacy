@@ -3,7 +3,13 @@ class Admin::Upload < ApplicationRecord
 
   self.abstract_class = true
 
-  default_scope { order(created_at: :desc) }
+  self.table_name = 'admin_uploads'
+
+  belongs_to :user, inverse_of: :admin_uploads
+  belongs_to :framework, inverse_of: :admin_uploads
+
+  default_scope { where(framework_id: name.split('::')[1]).order(created_at: :desc) }
+
   serialize :import_errors, type: Array, coder: YAML
 
   validate :supplier_files_validation, on: :upload

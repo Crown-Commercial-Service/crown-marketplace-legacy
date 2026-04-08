@@ -11,7 +11,7 @@ module SupplyTeachers
 
       @st_upload.files_processing_complete!
     rescue StandardError => e
-      @st_upload.update(fail_reason: e)
+      @st_upload.update(fail_reason: e.message)
       @st_upload.fail!
       Rollbar.log('error', e)
     end

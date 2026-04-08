@@ -3,9 +3,14 @@ module SupplyTeachers
     class Upload < ApplicationRecord
       include AASM
 
-      self.abstract_class = true
+      self.table_name = 'admin_uploads'
 
-      default_scope { order(created_at: :desc) }
+      belongs_to :user, inverse_of: :admin_uploads
+      belongs_to :framework, inverse_of: :admin_uploads
+
+      default_scope { where(framework_id: name.split('::')[1]).order(created_at: :desc) }
+
+      serialize :import_errors, type: Array, coder: YAML
 
       FILE_TO_EXTENSION = { current_accredited_suppliers: 'xlsx', geographical_data_all_suppliers: 'xlsx', lot_1_and_lot_2_comparisons: 'xlsx', master_vendor_contacts: 'csv', neutral_vendor_contacts: 'csv', education_technology_platform_contacts: 'csv', pricing_for_tool: 'xlsx', supplier_lookup: 'csv' }.freeze
 
@@ -79,6 +84,14 @@ module SupplyTeachers
 
       def self.in_upload_progress
         not_started + processing_files + files_processed + uploading
+      end
+
+      def fail_reason
+        import_errors[0][:fail_reason] if import_errors.any?
+      end
+
+      def fail_reason=(value)
+        self.import_errors = [{ fail_reason: value }]
       end
 
       private
