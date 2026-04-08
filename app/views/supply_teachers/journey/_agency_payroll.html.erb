@@ -36,7 +36,7 @@
       {
         value: position.number.to_s,
         label: {
-          text: t("supply_teachers.rm6238.shared.job_titles.#{position.name}")
+          text: t("supply_teachers.#{params[:framework].downcase}.shared.job_titles.#{position.name}")
         }
       }
     end,
