@@ -21,7 +21,7 @@ module Admin::UploadsController
   end
 
   def create
-    @upload = service::Admin::Upload.new(upload_params)
+    @upload = service::Admin::Upload.new(user: current_user, framework_id: self.class.name.split('::')[1], **upload_params)
 
     if @upload.save(context: :upload)
       @upload.start_upload!
