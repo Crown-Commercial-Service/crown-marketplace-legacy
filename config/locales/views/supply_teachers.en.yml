@@ -426,7 +426,6 @@ en:
         answer:
           agency: 'Yes'
           school: No, I want to put the worker on our payroll
-        page_title: Do you want the agency to manage the worker’s pay?
         question: Do you want the agency to manage the worker’s pay?
       school_postcode_agency_supplied_worker:
         page_title: What is your school postcode
