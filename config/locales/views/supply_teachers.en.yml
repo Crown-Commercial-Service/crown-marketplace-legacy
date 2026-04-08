@@ -525,8 +525,8 @@ en:
       shared:
         job_titles:
           agency_management:
-            daily: 'Agency Management Fee: Daily supply worker (per worker, per day)'
-            six_weeks_plus: 'Agency Management Fee: Long term assignment (6 weeks+) (per worker, per day)'
+            daily: 'Daily Supply'
+            six_weeks_plus: 'Long Term (6 weeks+)'
           fixed_term: Fixed Term
           nominated: Nominated Worker
           other: 'Other Roles: (Invigilators, Admin & Clerical, IT Staff, Finance Staff, Cleaners etc.)'
