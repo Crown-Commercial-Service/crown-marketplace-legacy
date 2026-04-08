@@ -135,6 +135,12 @@ en:
           attributes:
             worker_type:
               inclusion: Select yes if you want an agency to supply the worker
+        supply_teachers/rm6376/journey/agency_payroll:
+          attributes:
+            location:
+              invalid_location: Enter a valid postcode
+            position_number:
+              blank: Select the type of worker you need
   activerecord:
     errors:
       models:
