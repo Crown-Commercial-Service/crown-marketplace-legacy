@@ -35,7 +35,6 @@ RSpec.describe SupplyTeachers::RM6376::SuppliersController do
       expect(assigns(:back_path)).to eq(expected_path)
     end
 
-
     it 'sets the back path to the looking-for question' do
       expected_path = journey_question_path(
         journey: 'supply-teachers',
