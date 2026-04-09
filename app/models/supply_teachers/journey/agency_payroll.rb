@@ -3,9 +3,6 @@ module SupplyTeachers
     include Steppable
     include Geolocatable
 
-    attribute :offset
-    validates :offset, presence: true
-
     attribute :position_number
     validates :position_number, presence: true
 

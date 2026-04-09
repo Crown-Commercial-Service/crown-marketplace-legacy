@@ -36,7 +36,7 @@
       {
         value: position.number.to_s,
         label: {
-          text: t("supply_teachers.rm6238.shared.job_titles.#{position.name}")
+          text: t("supply_teachers.#{params[:framework].downcase}.shared.job_titles.#{position.name}")
         }
       }
     end,
@@ -49,24 +49,26 @@
     }
   ) %>
 
-  <%= govuk_radios(
-    :offset,
-    offsets.map do |offset, term_type|
-      {
-        value: offset.to_s,
-        label: {
-          text: t("supply_teachers.rm6238.shared.term_types.#{term_type}")
+  <% if params[:framework] == 'RM6238' %>
+    <%= govuk_radios(
+      :offset,
+      offsets.map do |offset, term_type|
+        {
+          value: offset.to_s,
+          label: {
+            text: t("supply_teachers.rm6238.shared.term_types.#{term_type}")
+          }
+        }
+      end,
+      model: @journey.current_step,
+      fieldset: {
+        legend: {
+          text: t('.worker_term_question'),
+          classes: 'govuk-fieldset__legend--m',
         }
       }
-    end,
-    model: @journey.current_step,
-    fieldset: {
-      legend: {
-        text: t('.worker_term_question'),
-        classes: 'govuk-fieldset__legend--m',
-      }
-    }
-  ) %>
+    ) %>
+  <% end %>
 
   <%= govuk_button(t('common.submit'), form: f) %>
 <% end %>

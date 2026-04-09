@@ -3,6 +3,8 @@ module SupplyTeachers::JourneyHelper
     case params[:framework]
     when 'RM6238'
       Position.where(lot_id: 'RM6238.1', number: [1, 3, 5, 7]).order(:number)
+    when 'RM6376'
+      Position.where(lot_id: 'RM6376.1', number: (1..8)).order(:number)
     end
   end
 
