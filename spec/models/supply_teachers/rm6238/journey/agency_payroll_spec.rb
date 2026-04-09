@@ -25,7 +25,7 @@ RSpec.describe SupplyTeachers::RM6238::Journey::AgencyPayroll do
 
       it 'is not valid and has the correct error message' do
         expect(step).not_to be_valid
-        expect(step.errors[:location].first).to eq 'Enter a valid postcode'
+        expect(step.errors[:postcode].first).to eq 'Enter a valid postcode'
       end
     end
 
@@ -34,7 +34,7 @@ RSpec.describe SupplyTeachers::RM6238::Journey::AgencyPayroll do
 
       it 'is not valid and has the correct error message' do
         expect(step).not_to be_valid
-        expect(step.errors[:location].first).to eq 'Enter a valid postcode'
+        expect(step.errors[:postcode].first).to eq 'Enter a valid postcode'
       end
     end
 

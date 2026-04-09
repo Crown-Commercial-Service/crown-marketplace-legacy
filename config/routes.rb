@@ -181,7 +181,6 @@ Rails.application.routes.draw do
     concern :supply_teachers_suppliers do
       resources :suppliers, path: '/', only: %i[] do
         collection do
-          get '/master-vendors', action: :master_vendors
           get '/all-suppliers', action: :all_suppliers
           post '/all-suppliers/search', action: :search_all_suppliers, format: :json
         end
@@ -211,6 +210,7 @@ Rails.application.routes.draw do
 
       resources :suppliers, path: '/', only: %i[] do
         collection do
+          get '/master-vendors', action: :master_vendors
           get '/education-technology-platform-vendors', action: :education_technology_platform_vendors
         end
       end
