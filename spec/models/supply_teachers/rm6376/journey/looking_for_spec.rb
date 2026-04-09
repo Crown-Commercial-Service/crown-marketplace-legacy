@@ -51,8 +51,8 @@ RSpec.describe SupplyTeachers::RM6376::Journey::LookingFor do
     context 'when looking for is managed_service_provider' do
       let(:looking_for) { 'managed_service_provider' }
 
-      it 'returns Journey::ManagedServiceProvider' do
-        expect(step.next_step_class).to be SupplyTeachers::RM6376::Journey::ManagedServiceProvider
+      it 'returns Journey::ManagedServiceProviders' do
+        expect(step.next_step_class).to be SupplyTeachers::RM6376::Journey::ManagedServiceProviders
       end
     end
 
