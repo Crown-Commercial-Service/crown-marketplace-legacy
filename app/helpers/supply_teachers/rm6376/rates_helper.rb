@@ -8,7 +8,6 @@ module SupplyTeachers::RM6376::RatesHelper
         },
         {
           text: t('supply_teachers.rm6376.shared.rates_table.column2'),
-          # classes: 'govuk-!-width-three-quarters'
           classes: 'govuk-table__header--numeric agency-record__markup-column'
         }
       ],
