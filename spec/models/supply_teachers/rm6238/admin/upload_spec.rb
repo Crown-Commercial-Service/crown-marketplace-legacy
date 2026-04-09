@@ -19,6 +19,19 @@ RSpec.describe SupplyTeachers::RM6238::Admin::Upload do
 
   after { created_files.each(&:unlink) }
 
+  describe 'associations' do
+    it { is_expected.to belong_to(:user) }
+    it { is_expected.to belong_to(:framework) }
+
+    it 'has the user relationship' do
+      expect(upload.user).to be_present
+    end
+
+    it 'has the framework relationship' do
+      expect(upload.framework).to be_present
+    end
+  end
+
   describe 'validations' do
     context 'when considering if the files are attached' do
       context 'and no files are attached' do

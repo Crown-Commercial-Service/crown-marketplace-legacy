@@ -21,7 +21,8 @@ module SupplyTeachers
       end
 
       def create
-        @upload = service::Upload.new(upload_params)
+        @upload = service::Upload.new(user: current_user, framework_id: self.class.name.split('::')[1], **upload_params)
+
         @uploads_in_progress = service::Upload.in_upload_progress
 
         if @upload.save

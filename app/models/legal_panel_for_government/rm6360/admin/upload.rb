@@ -2,8 +2,6 @@ module LegalPanelForGovernment
   module RM6360
     module Admin
       class Upload < ::Admin::Upload
-        self.table_name = 'legal_panel_for_government_rm6360_admin_uploads'
-
         has_one_attached :supplier_details_file
         has_one_attached :supplier_service_offerings_file
         has_one_attached :supplier_other_lots_rate_cards_file
