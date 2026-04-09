@@ -15,7 +15,7 @@
 
   <%= govuk_input(
     :postcode,
-    error_message: @journey.current_step.errors[:location].first,
+    error_message: @journey.current_step.errors[:postcode].first,
     label: {
       text: t('.postcode_question'),
       classes: 'govuk-label--m',
@@ -49,26 +49,24 @@
     }
   ) %>
 
-  <% if params[:framework] == 'RM6238' %>
-    <%= govuk_radios(
-      :offset,
-      offsets.map do |offset, term_type|
-        {
-          value: offset.to_s,
-          label: {
-            text: t("supply_teachers.rm6238.shared.term_types.#{term_type}")
-          }
-        }
-      end,
-      model: @journey.current_step,
-      fieldset: {
-        legend: {
-          text: t('.worker_term_question'),
-          classes: 'govuk-fieldset__legend--m',
+  <%= govuk_radios(
+    :offset,
+    offsets.map do |offset, term_type|
+      {
+        value: offset.to_s,
+        label: {
+          text: t("supply_teachers.rm6238.shared.term_types.#{term_type}")
         }
       }
-    ) %>
-  <% end %>
+    end,
+    model: @journey.current_step,
+    fieldset: {
+      legend: {
+        text: t('.worker_term_question'),
+        classes: 'govuk-fieldset__legend--m',
+      }
+    }
+  ) if params[:framework] == 'RM6238' %>
 
   <%= govuk_button(t('common.submit'), form: f) %>
 <% end %>
