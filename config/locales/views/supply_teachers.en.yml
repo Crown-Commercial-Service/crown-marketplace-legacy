@@ -5,12 +5,12 @@ en:
       models:
         supply_teachers/rm6238/journey/agency_payroll:
           attributes:
-            location:
-              invalid_location: Enter a valid postcode
             offset:
               blank: Select how long you need the worker for
             position_number:
               blank: Select the type of worker you need
+            postcode:
+              invalid_location: Enter a valid postcode
         supply_teachers/rm6238/journey/fta_calculator_contract_end:
           attributes:
             contract_end_date:
@@ -63,11 +63,11 @@ en:
               inclusion: Select yes if you want to put the worker on the school’s payroll
         supply_teachers/rm6238/journey/school_postcode_agency_supplied_worker:
           attributes:
-            location:
+            postcode:
               invalid_location: Enter a valid postcode
         supply_teachers/rm6238/journey/school_postcode_nominated_worker:
           attributes:
-            location:
+            postcode:
               invalid_location: Enter a valid postcode
         supply_teachers/rm6238/journey/temp_to_perm_calculator:
           attributes:
@@ -113,10 +113,10 @@ en:
               inclusion: Select yes if you want an agency to supply the worker
         supply_teachers/rm6376/journey/agency_payroll:
           attributes:
-            location:
-              invalid_location: Enter a valid postcode
             position_number:
               blank: Select the type of worker you need
+            postcode:
+              invalid_location: Enter a valid postcode
         supply_teachers/rm6376/journey/looking_for:
           attributes:
             looking_for:
@@ -127,7 +127,7 @@ en:
               inclusion: Please select a payroll option
         supply_teachers/rm6376/journey/school_postcode_nominated_worker:
           attributes:
-            location:
+            postcode:
               invalid_location: Enter a valid postcode
         supply_teachers/rm6376/journey/worker_type:
           attributes:
@@ -448,11 +448,11 @@ en:
           school: No, I want to put the worker on our payroll
         question: Do you want the agency to manage the worker’s pay?
       school_postcode_agency_supplied_worker:
-        page_title: What is your school postcode
+        page_title: What is your school’s postcode?
         question: What is your school’s postcode?
         question_hint: We use this to find agencies near to your school
       school_postcode_nominated_worker:
-        page_title: What is your school postcode
+        page_title: What is your school’s postcode?
         question: What is your school’s postcode?
         question_hint: We use this to find agencies near to your school
       temp_to_perm_calculator:

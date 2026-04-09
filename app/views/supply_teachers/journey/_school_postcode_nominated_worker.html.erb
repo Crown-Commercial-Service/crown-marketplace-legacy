@@ -8,7 +8,7 @@
 
   <%= govuk_input(
     :postcode,
-    error_message: @journey.current_step.errors[:location].first,
+    error_message: @journey.current_step.errors[:postcode].first,
     label: {
       text: t('.question'),
       classes: 'govuk-label--m',
