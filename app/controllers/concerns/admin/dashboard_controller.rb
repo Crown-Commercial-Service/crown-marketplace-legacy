@@ -6,7 +6,7 @@ module Admin::DashboardController
   included do
     before_action :authenticate_user!, :authorize_user, only: %i[index]
 
-    helper_method :uploads_index_path, :reports_index_path, :frameworks_index_path, :framework_has_analytics?
+    helper_method :reports_index_path, :frameworks_index_path, :framework_has_analytics?
   end
 
   def index; end
@@ -19,10 +19,6 @@ module Admin::DashboardController
 
   def service
     @service ||= self.class.module_parent.module_parent
-  end
-
-  def uploads_index_path
-    "#{service_path_base}/uploads"
   end
 
   def reports_index_path

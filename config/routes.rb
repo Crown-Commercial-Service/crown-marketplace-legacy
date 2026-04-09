@@ -336,6 +336,7 @@ Rails.application.routes.draw do
   resources :suppliers, path: '/:service/:framework/admin/suppliers', only: Marketplace.environment_name == :production ? %i[index show] : %i[index show edit update] do
     resources :lot_data, path: 'lot-data', param: :lot_number, only: Marketplace.environment_name == :production ? %i[index show] : %i[index show edit update]
   end
+  resources :uploads, path: '/:service/:framework/admin/uploads', only: %i[index new create show]
   resources :change_logs, path: '/:service/:framework/admin/change-logs', only: %i[index show]
 end
 # rubocop:enable Metrics/BlockLength

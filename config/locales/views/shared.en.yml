@@ -24,8 +24,13 @@ en:
           no_change_logs: There are no change logs to view
           below_is_a_table: The table shows a list of all the changes made to the supplier data. You can view the specific change that was made by clicking on a log item.
         show:
-          caption: "Log item #%{short_id}"
-          heading: Supplier data change log
+          upload_supplier_data:
+            you_can_view_html: You can view the upload in the '%{link}' section of the portal.
+          changed_at: Changed at
+          changed_by: Changed by
+          change_type: Change type
+          heading: "Log item #%{short_id}"
+          page_title: Log item
       dashboard:
         index:
           caption: "%{service_name} - %{framework}"

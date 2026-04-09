@@ -24,7 +24,7 @@ class ChangeLog < ApplicationRecord
     user.email
   end
 
-  def self.log_upload_supplier_data!(upload, supplier_data)
-    create(user: upload.user)
+  def self.log_upload_supplier_data!(admin_upload, supplier_data)
+    create!(user: admin_upload.user, framework: admin_upload.framework, change_type: CHANGE_TYPES[:upload_supplier_data], change_data: { admin_upload_id: admin_upload.id, supplier_data: supplier_data })
   end
 end
