@@ -1,9 +1,9 @@
 module SupplyTeachers
   module RM6376
     class SuppliersController < SupplyTeachers::SuppliersController
-      before_action :set_end_of_journey, only: %i[managed_service_provider]
+      before_action :set_end_of_journey, only: %i[managed_service_providers]
 
-      def managed_service_provider
+      def managed_service_providers
         @lot_id = 'RM6376.2'
         set_lot
         @back_path = source_journey.previous_step_path

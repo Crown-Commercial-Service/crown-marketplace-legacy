@@ -221,7 +221,7 @@ Rails.application.routes.draw do
 
       resources :suppliers, path: '/', only: %i[] do
         collection do
-          get '/managed-service-provider', action: :managed_service_provider
+          get '/managed-service-providers', action: :managed_service_providers
         end
       end
     end
