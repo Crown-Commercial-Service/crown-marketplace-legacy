@@ -1,6 +1,6 @@
 module SupplyTeachers
   module RM6376
-    class Journey::MasterVendorOptions
+    class Journey::ManagedServiceProvider
       include Steppable
     end
   end
