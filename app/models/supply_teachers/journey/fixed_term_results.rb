@@ -23,8 +23,8 @@ module SupplyTeachers
     end
 
     def determine_position_id
-     framework = self.class.name.split('::')[1] 
-     POSITION_IDS[framework]
+      framework = self.class.name.split('::')[1]
+      POSITION_IDS[framework]
     end
 
     def inputs

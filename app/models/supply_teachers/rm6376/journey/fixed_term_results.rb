@@ -1,7 +1,6 @@
 module SupplyTeachers
   module RM6376
     class Journey::FixedTermResults < SupplyTeachers::Journey::FixedTermResults
-
       attribute :postcode
       attribute :radius
 
