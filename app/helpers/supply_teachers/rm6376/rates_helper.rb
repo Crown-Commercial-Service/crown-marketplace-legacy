@@ -8,8 +8,7 @@ module SupplyTeachers::RM6376::RatesHelper
         },
         {
           text: t('supply_teachers.rm6376.shared.rates_table.column2'),
-          classes: 'govuk-table__header--numeric agency-record__markup-column'
-        }
+          classes: 'govuk-table__header--numeric govuk-!-width-one-quarter'        }
       ],
       @lot.positions.order(:number).pluck(:id, :name).map do |position_id, position_name|
         [
@@ -18,7 +17,7 @@ module SupplyTeachers::RM6376::RatesHelper
           },
           {
             text: agency_rate(rates, position_id),
-            classes: 'govuk-table__cell govuk-table__cell--numeric agency-record__markup-column'
+            classes: 'govuk-table__cell govuk-table__cell--numeric govuk-!-width-one-quarter'
           }
         ]
       end.compact,
