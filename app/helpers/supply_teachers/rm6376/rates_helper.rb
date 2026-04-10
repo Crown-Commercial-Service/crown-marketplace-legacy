@@ -8,7 +8,8 @@ module SupplyTeachers::RM6376::RatesHelper
         },
         {
           text: t('supply_teachers.rm6376.shared.rates_table.column2'),
-          classes: 'govuk-table__header--numeric govuk-!-width-one-quarter'        }
+          classes: 'govuk-table__header--numeric govuk-!-width-one-quarter'
+        }
       ],
       @lot.positions.order(:number).pluck(:id, :name).map do |position_id, position_name|
         [
