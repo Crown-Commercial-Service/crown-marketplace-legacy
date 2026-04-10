@@ -1,18 +1,17 @@
 require 'rails_helper'
 
-RSpec.describe SupplyTeachers::RM6376::Journey::FTAToPermContractStart do
+RSpec.describe SupplyTeachers::RM6376::Journey::FTACalculatorContractStart do
   subject(:step) do
     described_class.new(
       contract_start_date_day:,
       contract_start_date_month:,
-      contract_start_date_year:,
+      contract_start_date_year:
     )
   end
 
-  let(:contract_start_date_day) { contract_start_date.day }
-  let(:contract_start_date_month) { contract_start_date.month }
-  let(:contract_start_date_year) { contract_start_date.year }
-  let(:contract_start_date) { Time.zone.today }
+  let(:contract_start_date_day) { '1' }
+  let(:contract_start_date_month) { '2' }
+  let(:contract_start_date_year) { '2022' }
 
   describe 'validations' do
     context 'when no contract_start_date_day is provided' do
@@ -59,8 +58,8 @@ RSpec.describe SupplyTeachers::RM6376::Journey::FTAToPermContractStart do
   end
 
   describe '.next_step_class' do
-    it 'returns Journey::FTAToPermContractEnd' do
-      expect(step.next_step_class).to be SupplyTeachers::RM6376::Journey::FTAToPermContractEnd
+    it 'returns Journey::FTACalculatorContractEnd' do
+      expect(step.next_step_class).to be SupplyTeachers::RM6376::Journey::FTACalculatorContractEnd
     end
   end
 
@@ -77,14 +76,14 @@ RSpec.describe SupplyTeachers::RM6376::Journey::FTAToPermContractStart do
   end
 
   describe '.slug' do
-    it 'returns fta-to-perm-contract-start' do
-      expect(step.slug).to eq 'fta-to-perm-contract-start'
+    it 'returns fta-calculator-contract-start' do
+      expect(step.slug).to eq 'fta-calculator-contract-start'
     end
   end
 
   describe '.template' do
-    it 'returns journey/fta_to_perm_contract_start' do
-      expect(step.template).to eq 'journey/fta_to_perm_contract_start'
+    it 'returns journey/fta_calculator_contract_start' do
+      expect(step.template).to eq 'journey/fta_calculator_contract_start'
     end
   end
 
