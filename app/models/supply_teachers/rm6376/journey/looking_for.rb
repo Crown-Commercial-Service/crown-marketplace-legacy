@@ -4,7 +4,7 @@ module SupplyTeachers
       LOOKING_FOR_OPTIONS = %w[
         all_suppliers
         worker
-        master_vendor
+        managed_service_providers
         calculate_temp_to_perm_fee
         calculate_fta_to_perm_fee
       ].freeze
@@ -17,8 +17,8 @@ module SupplyTeachers
           service_name::Journey::AllSuppliers
         when 'worker'
           service_name::Journey::WorkerType
-        when 'master_vendor'
-          service_name::Journey::MasterVendorOptions
+        when 'managed_service_providers'
+          service_name::Journey::ManagedServiceProviders
         when 'calculate_temp_to_perm_fee'
           service_name::Journey::TempToPermCalculator
         when 'calculate_fta_to_perm_fee'

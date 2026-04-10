@@ -218,6 +218,12 @@ Rails.application.routes.draw do
 
     namespace 'rm6376', path: 'RM6376', defaults: { framework: 'RM6376' } do
       concerns %i[buyer_shared_pages shared_pages gateway branches admin calculations supply_teachers_suppliers]
+
+      resources :suppliers, path: '/', only: %i[] do
+        collection do
+          get '/managed-service-providers', action: :managed_service_providers
+        end
+      end
     end
 
     get '/:framework', to: 'home#index', as: 'index'

@@ -600,7 +600,7 @@ en:
             all_suppliers: A list of all agencies
             calculate_fta_to_perm_fee: To work out what fixed term worker transfer fee I could be charged
             calculate_temp_to_perm_fee: To calculate the fee my school will be charged if I make an agency worker permanent
-            master_vendor: An agency to manage all my school's needs; a 'managed service provider'
+            managed_service_providers: An agency to manage all my school's needs; a 'managed service provider'
             worker: An agency who can provide my school with an individual worker
           page_title: What is your school looking for?
           question: What is your school looking for?
@@ -623,6 +623,18 @@ en:
         rates_table:
           column1: Job type
           column2: 'Agency mark-up '
+      suppliers:
+        managed_service_providers:
+          header: Managed service providers
+          page_title: Managed service providers
+        what_to_do_next:
+          do_next:
+            ccs_framework: "%{org_name_abbr} framework"
+            further_competition: run a further competition to select an agency
+            header: What to do next
+            more_help_html: Contact %{supply_teachers_email} if you need more help running a further competition.
+            select_an_agency_html: select an agency and sign the full version order form listed in the documents section of the %{ccs_website_link} as ‘RM6376 Order form template full version v1.docx’
+            supply_teachers_email: supplyteachers@%{org_domain}.gov.uk
     service_name: Supply Teachers
     suppliers:
       agencies_table:
