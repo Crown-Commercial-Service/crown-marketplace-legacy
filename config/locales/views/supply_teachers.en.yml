@@ -125,6 +125,10 @@ en:
           attributes:
             payroll_provider:
               inclusion: Please select a payroll option
+        supply_teachers/rm6376/journey/school_postcode_agency_supplied_worker:
+          attributes:
+            postcode:
+              invalid_location: Enter a valid postcode
         supply_teachers/rm6376/journey/school_postcode_nominated_worker:
           attributes:
             postcode:
