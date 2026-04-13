@@ -1,7 +1,10 @@
 module SupplyTeachers
   class Journey::FixedTermResults
     DATE_ATTIBUTES = %i[contract_start_date contract_end_date].freeze
-    POSITION_ID = 'RM6238.1.11'.freeze
+    POSITION_IDS = {
+      'RM6238' => 'RM6238.1.11',
+      'RM6376' => 'RM6376.1.11'
+    }.freeze
 
     include Steppable
     include Dateable
@@ -20,7 +23,8 @@ module SupplyTeachers
     end
 
     def determine_position_id
-      self.class::POSITION_ID
+      framework = self.class.name.split('::')[1]
+      POSITION_IDS[framework]
     end
 
     def inputs
