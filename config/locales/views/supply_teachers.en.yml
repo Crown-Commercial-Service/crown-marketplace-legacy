@@ -642,16 +642,16 @@ en:
       page_section: Find supply teachers and agency staff
       shared:
         job_titles:
-          admin_and_clerical: Admin & Clerical (Inc. Office Staff, Finance support)
-          educationl_support_non_send: Educational Support Staff non SEND (inc. Cover Supervisor, Teaching Assistants and unqualified teachers)
-          educationl_support_send: Educational Support Staff SEND (inc. Cover Supervisor, Teaching Assistants and unqualified teachers)
+          admin_and_clerical: Admin & Clerical (Inc. Office Staff, Finance Support)
+          educationl_support_non_send: Educational Support Staff non SEND (Inc. Cover Supervisor, Teaching Assistants and unqualified teachers)
+          educationl_support_send: Educational Support Staff SEND (Inc. Cover Supervisor, Teaching Assistants and unqualified teachers)
           facilities_management: Facilities Management (Inc. Caretakers, site roles etc)
           fixed_term: Fixed Term / Permanent Roles (on School Payroll)
           nominated_worker: Nominated Workers
-          non_stem_teacher: Non - STEM Teacher (Inc. Qualified Teachers, Tutors)
-          other: Other (Inc. invigilators, cleaners, etc)
+          non_stem_teacher: Non-STEM Teachers (Inc. Qualified Teachers, Tutors)
+          other: 'Other (Inc. Invigilators, cleaners)'
           over_12_week: Over 12 Week Reduction
-          senior_roles: Senior Roles (inc. Headteacher and Senior Leadership positions)
+          senior_roles: Senior Roles (Inc. Headteacher and Senior Leadership positions)
           stem_teacher: STEM Teacher (Inc. Qualified Teachers, Tutors)
         rates_table:
           column1: Job type
