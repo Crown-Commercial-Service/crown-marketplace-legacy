@@ -19,7 +19,7 @@ Feature: Supply Teachers - Admin - Supplier lot data - Lot 2.1 - View rates
       | Senior Roles (Inc. Headteacher and Senior Leadership positions)                                          | £44.94         |
       | Facilities Management (Inc. Caretakers, site roles etc)                                                  | £29.96         |
       | Admin & Clerical (Inc. Office Staff, Finance Support)                                                    | £28.08         |
-      | Other (Inc. Invigilators, cleaners).                                                                     | £18.72         |
+      | Other (Inc. Invigilators, cleaners)                                                                      | £18.72         |
       | Over 12 Week Reduction                                                                                   | 35.6%          |
       | Nominated Workers                                                                                        | 39.3%          |
       | Fixed Term / Permanent Roles (on School Payroll)                                                         | 31.8%          |
