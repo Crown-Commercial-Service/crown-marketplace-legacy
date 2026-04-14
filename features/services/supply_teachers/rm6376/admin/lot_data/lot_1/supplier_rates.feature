@@ -13,13 +13,13 @@ Feature: Supply Teachers - Admin - Supplier lot data - Lot 1 - View rates
     And the rates in the table are:
       | Job type                                                                                                 | Agency mark-up |
       | STEM Teacher (Inc. Qualified Teachers, Tutors)                                                           | £52.62         |
-      | Non - STEM Teacher (Inc. Qualified Teachers, Tutors)                                                     | £43.85         |
-      | Educational Support Staff non SEND (inc. Cover Supervisor, Teaching Assistants and unqualified teachers) | £30.69         |
-      | Educational Support Staff SEND (inc. Cover Supervisor, Teaching Assistants and unqualified teachers)     | £39.46         |
-      | Senior Roles (inc. Headteacher and Senior Leadership positions)                                          | £52.62         |
+      | Non-STEM Teachers (Inc. Qualified Teachers, Tutors)                                                      | £43.85         |
+      | Educational Support Staff non SEND (Inc. Cover Supervisor, Teaching Assistants and unqualified teachers) | £30.69         |
+      | Educational Support Staff SEND (Inc. Cover Supervisor, Teaching Assistants and unqualified teachers)     | £39.46         |
+      | Senior Roles (Inc. Headteacher and Senior Leadership positions)                                          | £52.62         |
       | Facilities Management (Inc. Caretakers, site roles etc)                                                  | £35.08         |
-      | Admin & Clerical (Inc. Office Staff, Finance support)                                                    | £32.88         |
-      | Other (Inc. invigilators, cleaners, etc)                                                                 | £21.92         |
+      | Admin & Clerical (Inc. Office Staff, Finance Support)                                                    | £32.88         |
+      | Other (Inc. Invigilators, cleaners)                                                                      | £21.92         |
       | Over 12 Week Reduction                                                                                   | 41.7%          |
       | Nominated Workers                                                                                        | 46.0%          |
       | Fixed Term / Permanent Roles (on School Payroll)                                                         | 37.3%          |
@@ -60,13 +60,13 @@ Feature: Supply Teachers - Admin - Supplier lot data - Lot 1 - View rates
   Scenario: Set rates
     Then I enter the following rates into the form:
       | STEM Teacher (Inc. Qualified Teachers, Tutors)                                                           | 123.11 |
-      | Non - STEM Teacher (Inc. Qualified Teachers, Tutors)                                                     | 123.11 |
-      | Educational Support Staff non SEND (inc. Cover Supervisor, Teaching Assistants and unqualified teachers) | 123.11 |
-      | Educational Support Staff SEND (inc. Cover Supervisor, Teaching Assistants and unqualified teachers)     | 123.11 |
-      | Senior Roles (inc. Headteacher and Senior Leadership positions)                                          | 123.11 |
+      | Non-STEM Teachers (Inc. Qualified Teachers, Tutors)                                                     | 123.11 |
+      | Educational Support Staff non SEND (Inc. Cover Supervisor, Teaching Assistants and unqualified teachers) | 123.11 |
+      | Educational Support Staff SEND (Inc. Cover Supervisor, Teaching Assistants and unqualified teachers)     | 123.11 |
+      | Senior Roles (Inc. Headteacher and Senior Leadership positions)                                          | 123.11 |
       | Facilities Management (Inc. Caretakers, site roles etc)                                                  | 123.11 |
-      | Admin & Clerical (Inc. Office Staff, Finance support)                                                    | 123.11 |
-      | Other (Inc. invigilators, cleaners, etc)                                                                 | 123.11 |
+      | Admin & Clerical (Inc. Office Staff, Finance Support)                                                    | 123.11 |
+      | Other (Inc. Invigilators, cleaners)                                                                 | 123.11 |
       | Over 12 Week Reduction                                                                                   | 12.5   |
       | Nominated Workers                                                                                        | 35     |
       | Fixed Term / Permanent Roles (on School Payroll)                                                         | 99.0   |
@@ -76,13 +76,13 @@ Feature: Supply Teachers - Admin - Supplier lot data - Lot 1 - View rates
     And the rates in the table are:
       | Job type                                                                                                 | Agency mark-up |
       | STEM Teacher (Inc. Qualified Teachers, Tutors)                                                           | 123.11         |
-      | Non - STEM Teacher (Inc. Qualified Teachers, Tutors)                                                     | 123.11         |
-      | Educational Support Staff non SEND (inc. Cover Supervisor, Teaching Assistants and unqualified teachers) | 123.11         |
-      | Educational Support Staff SEND (inc. Cover Supervisor, Teaching Assistants and unqualified teachers)     | 123.11         |
-      | Senior Roles (inc. Headteacher and Senior Leadership positions)                                          | 123.11         |
+      | Non-STEM Teachers (Inc. Qualified Teachers, Tutors)                                                     | 123.11         |
+      | Educational Support Staff non SEND (Inc. Cover Supervisor, Teaching Assistants and unqualified teachers) | 123.11         |
+      | Educational Support Staff SEND (Inc. Cover Supervisor, Teaching Assistants and unqualified teachers)     | 123.11         |
+      | Senior Roles (Inc. Headteacher and Senior Leadership positions)                                          | 123.11         |
       | Facilities Management (Inc. Caretakers, site roles etc)                                                  | 123.11         |
-      | Admin & Clerical (Inc. Office Staff, Finance support)                                                    | 123.11         |
-      | Other (Inc. invigilators, cleaners, etc)                                                                 | 123.11         |
+      | Admin & Clerical (Inc. Office Staff, Finance Support)                                                    | 123.11         |
+      | Other (Inc. Invigilators, cleaners)                                                                 | 123.11         |
       | Over 12 Week Reduction                                                                                   | 12.5           |
       | Nominated Workers                                                                                        | 35             |
       | Fixed Term / Permanent Roles (on School Payroll)                                                         | 99.0           |
