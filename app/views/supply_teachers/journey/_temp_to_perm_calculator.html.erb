@@ -39,7 +39,7 @@
         classes: 'govuk-input--width-3'
       ) %>
 
-      <% if params[:framework] == 'RM6238' %>
+
         <%= govuk_input(
           :daily_fee,
           model: @journey.current_step,
@@ -55,7 +55,7 @@
             text: '£'
           }
         ) %>
-      <% end %>
+
 
       <%= govuk_date_input(
         :hire_date,
