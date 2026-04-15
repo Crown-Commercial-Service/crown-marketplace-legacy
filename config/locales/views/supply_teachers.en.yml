@@ -132,26 +132,6 @@ en:
             salary:
               blank: Enter the annual salary
               invalid: Enter a valid salary
-        supply_teachers/rm6376/journey/looking_for:
-          attributes:
-            looking_for:
-              inclusion: Select individual worker, managed service provider, or calculate temp-to-perm fee
-        supply_teachers/rm6376/journey/payroll_provider:
-          attributes:
-            payroll_provider:
-              inclusion: Please select a payroll option
-        supply_teachers/rm6376/journey/school_postcode_agency_supplied_worker:
-          attributes:
-            postcode:
-              invalid_location: Enter a valid postcode
-        supply_teachers/rm6376/journey/school_postcode_nominated_worker:
-          attributes:
-            postcode:
-              invalid_location: Enter a valid postcode
-        supply_teachers/rm6376/journey/worker_type:
-          attributes:
-            worker_type:
-              inclusion: Select yes if you want an agency to supply the worker
         supply_teachers/rm6376/journey/fta_to_perm_contract_end:
           attributes:
             contract_end_date:
@@ -175,6 +155,22 @@ en:
               after_contract_end_date: The date that you wish to hire the worker must be after the date the fixed term contract ended
               blank: Enter the date, including the day, month and year
               invalid: Enter a real date
+        supply_teachers/rm6376/journey/looking_for:
+          attributes:
+            looking_for:
+              inclusion: Select individual worker, managed service provider, or calculate temp-to-perm fee
+        supply_teachers/rm6376/journey/payroll_provider:
+          attributes:
+            payroll_provider:
+              inclusion: Please select a payroll option
+        supply_teachers/rm6376/journey/school_postcode_agency_supplied_worker:
+          attributes:
+            postcode:
+              invalid_location: Enter a valid postcode
+        supply_teachers/rm6376/journey/school_postcode_nominated_worker:
+          attributes:
+            postcode:
+              invalid_location: Enter a valid postcode
         supply_teachers/rm6376/journey/temp_to_perm_calculator:
           attributes:
             contract_start_date:
@@ -213,7 +209,10 @@ en:
               before_contract_start_date: The date you notified the agency that you wish to hire the worker must be after the date the worker’s current contract started
               blank: Enter the date you notified the agency that you wish to hire the worker, including the day, month and year
               invalid: Enter a real date
-
+        supply_teachers/rm6376/journey/worker_type:
+          attributes:
+            worker_type:
+              inclusion: Select yes if you want an agency to supply the worker
   activerecord:
     errors:
       models:
