@@ -1,7 +1,6 @@
 module SupplyTeachers
   module RM6376
     class Journey::AgencyPayrollResults < SupplyTeachers::Journey::AgencyPayrollResults
-
       attribute :location
       attribute :radius
 
