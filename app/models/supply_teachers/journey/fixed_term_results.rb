@@ -35,9 +35,5 @@ module SupplyTeachers
         radius: number_to_human(radius, units: :miles)
       }
     end
-
-    def framework
-      self.class.name.split('::')[1]
-    end
   end
 end
