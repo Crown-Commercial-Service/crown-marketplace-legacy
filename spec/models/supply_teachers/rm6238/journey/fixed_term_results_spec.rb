@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe SupplyTeachers::RM6238::Journey::FixedTermResults do
-  subject(:step) { described_class.new(postcode: 'SW1A 1AA', radius: '5', framework: 'RM6238') }
+  subject(:step) { described_class.new(postcode: 'SW1A 1AA', radius: '5') }
 
   describe '.determine_position_id' do
     it 'returns RM6238.1.11' do
