@@ -3,6 +3,7 @@ module SupplyTeachers
     class Journey::FixedTermResults < SupplyTeachers::Journey::FixedTermResults
       attribute :postcode
       attribute :radius
+      attribute :framework
 
       include Journey::Results
 
