@@ -245,7 +245,7 @@ RSpec.describe SupplyTeachers::RM6238::BranchesController do
 
         it 'assigns back_path to agency-payroll question path' do
           expect(assigns(:back_path)).to eq(
-            journey_question_path(params.merge(slug: 'agency-payroll'))
+            journey_question_path(params.merge(slug: 'agency-payroll', framework: 'RM6238'))
           )
         end
       end
