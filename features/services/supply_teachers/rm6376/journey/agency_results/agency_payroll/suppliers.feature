@@ -13,19 +13,25 @@ Feature: Supply Teachers - Agency results - Agency payroll - Agencies
     And I click on 'Continue'
     Then I am on the 'School postcode and worker requirements' page
     And I enter 'L3 9PP' for the 'postcode'
-    And I select 'Teacher: (Incl. Qualified and Unqualified Teachers, Tutors)'
+    And I select 'STEM Teacher (Inc. Qualified Teachers, Tutors)'
     And I click on 'Continue'
     Then I am on the 'Agency results' page
 
   Scenario: The agency details shown are correct
-    And there are 5 agencies
+    And there are 12 agencies
     And the listed agencies with rates and distances are:
-      | BARTOLETTI, KOEPP AND NIENOW | Southport | £27.59 | 17.2 |
-      | STANTON, FADEL AND BOSCO     | Liverpool | £41.45 | 2.6  |
-      | KERLUKE, TORP AND HEATHCOTE  | Liverpool | £47.94 | 0.6  |
-      | EMARD AND SONS               | Liverpool | £58.35 | 2.6  |
-      | FEEST-MULLER                 | Liverpool | £59.55 | 7.3  |
-
+      | ROHAN LLC                    | Liverpool | £37.34 | 7.3  |
+      | GLOVER-ONDRICKA              | Liverpool | £40.47 | 7.3  |
+      | SATTERFIELD AND SONS         | Liverpool | £52.28 | 0.6  |
+      | NADER, CONN AND REINGER      | Liverpool | £52.62 | 0.6  |
+      | GULGOWSKI-HUDSON             | Liverpool | £54.45 | 0.6  |
+      | DANIEL AND SONS              | Liverpool | £60.24 | 2.6  |
+      | ROSENBAUM-HINTZ              | Southport | £62.70 | 17.2 |
+      | DARE-ROHAN                   | Liverpool | £68.79 | 2.6  |
+      | FRITSCH-HAHN                 | Southport | £80.77 | 17.2 |
+      | TILLMAN-EMMERICH             | Southport | £81.26 | 17.2 |
+      | GRADY AND SONS               | Liverpool | £81.82 | 7.3  |
+      | SWANIAWSKI, CORWIN AND KUB   | Liverpool | £83.36 | 2.6  |
   Scenario Outline: I can naviagte to the agency details
     Given I click on '<agency_name>'
     Then I am on the '<agency_name>' page
@@ -34,17 +40,17 @@ Feature: Supply Teachers - Agency results - Agency payroll - Agencies
 
     Examples:
       | agency_name                  | branch    |
-      | BARTOLETTI, KOEPP AND NIENOW | Southport |
-      | KERLUKE, TORP AND HEATHCOTE  | Liverpool |
-      | FEEST-MULLER                 | Liverpool |
+      | GLOVER-ONDRICKA              | Liverpool |
+      | SATTERFIELD AND SONS         | Liverpool |
+      | TILLMAN-EMMERICH             | Southport |
 
   Scenario: I can download the shortlist document
     And I click on 'Download shortlist of agencies'
     Then the spreadsheet 'Shortlist of agencies' is downloaded
 
   Scenario: Back buttons work
-    Given I click on 'EMARD AND SONS'
-    Then I am on the 'EMARD AND SONS' page
+    Given I click on 'GLOVER-ONDRICKA'
+    Then I am on the 'GLOVER-ONDRICKA' page
     And the sub title is Agency details
     And the 'Branch' is 'Liverpool'
     Then I click on 'Back'
@@ -53,13 +59,20 @@ Feature: Supply Teachers - Agency results - Agency payroll - Agencies
     Then I am on the 'School postcode and worker requirements' page
     And I click on 'Continue'
     Then I am on the 'Agency results' page
-    And there are 5 agencies
+    And there are 12 agencies
     And the listed agencies for agency results are:
-      | BARTOLETTI, KOEPP AND NIENOW | Southport |
-      | STANTON, FADEL AND BOSCO     | Liverpool |
-      | KERLUKE, TORP AND HEATHCOTE  | Liverpool |
-      | EMARD AND SONS               | Liverpool |
-      | FEEST-MULLER                 | Liverpool |
+      | ROHAN LLC                    | Liverpool | £37.34 | 7.3  |
+      | GLOVER-ONDRICKA              | Liverpool | £40.47 | 7.3  |
+      | SATTERFIELD AND SONS         | Liverpool | £52.28 | 0.6  |
+      | NADER, CONN AND REINGER      | Liverpool | £52.62 | 0.6  |
+      | GULGOWSKI-HUDSON             | Liverpool | £54.45 | 0.6  |
+      | DANIEL AND SONS              | Liverpool | £60.24 | 2.6  |
+      | ROSENBAUM-HINTZ              | Southport | £62.70 | 17.2 |
+      | DARE-ROHAN                   | Liverpool | £68.79 | 2.6  |
+      | FRITSCH-HAHN                 | Southport | £80.77 | 17.2 |
+      | TILLMAN-EMMERICH             | Southport | £81.26 | 17.2 |
+      | GRADY AND SONS               | Liverpool | £81.82 | 7.3  |
+      | SWANIAWSKI, CORWIN AND KUB   | Liverpool | £83.36 | 2.6  |
     Then I click on 'Back'
     Then I am on the 'School postcode and worker requirements' page
     Then I click on 'Back'
