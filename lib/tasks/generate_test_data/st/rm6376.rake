@@ -41,11 +41,9 @@ module GenerateTestData
         @suppliers[range].each do |supplier|
           supplier[:supplier_frameworks].each do |supplier_framework|
             supplier_framework[:supplier_framework_contact_detail][:additional_details] = {
-              managed_service_provider: {
-                name: Faker::Name.unique.name,
-                telephone: Faker::PhoneNumber.phone_number,
-                email: Faker::Internet.email(name: supplier[:name])
-              }
+              managed_service_provider_name: Faker::Name.unique.name,
+              managed_service_provider_telephone: Faker::PhoneNumber.phone_number,
+              managed_service_provider_email: Faker::Internet.email(name: supplier[:name])
             }
           end
         end

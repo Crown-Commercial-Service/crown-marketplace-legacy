@@ -157,6 +157,14 @@ en:
             lot_5_prospectus_link:
               blank: Enter the lot 5 prospectus link in the correct format, like https://example.com
               too_long: The lot 5 prospectus link must be no more than 255 characters
+            managed_service_provider_email:
+              blank: Enter the managed service provider contact email in the correct format, like name@example.com
+              too_long: The managed service provider contact email should be no more than 255 characters
+            managed_service_provider_name:
+              blank: Enter the managed service provider contact name
+              too_long: The managed service provider contact name should be no more than 255 characters
+            managed_service_provider_telephone:
+              blank: Enter the managed service provider contact telephone number in the correct format, like 07700 900000
             name:
               blank: Enter the contact name
               too_long: The contact name should be no more than 255 characters
