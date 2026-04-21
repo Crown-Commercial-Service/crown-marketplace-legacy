@@ -2,7 +2,9 @@ module Admin::SuppliersHelper
   BASIC_SUPPLIER_INFORMATION_SUMMARY_ROWS = [
     [:name, I18n.t('shared.admin.suppliers.show.basic_supplier_information.name'), ->(supplier_framework) { supplier_framework.supplier_name }],
     [:duns_number, I18n.t('shared.admin.suppliers.show.basic_supplier_information.duns'), ->(supplier_framework) { supplier_framework.supplier.duns_number || I18n.t('shared.admin.suppliers.show.no_data') }],
-    [:sme, I18n.t('shared.admin.suppliers.show.basic_supplier_information.is_sme'), ->(supplier_framework) { supplier_framework.supplier.sme ? I18n.t('yes') : I18n.t('no') }]
+    [:sme, I18n.t('shared.admin.suppliers.show.basic_supplier_information.is_sme'), ->(supplier_framework) { supplier_framework.supplier.sme ? I18n.t('yes') : I18n.t('no') }],
+    [:trading_name, I18n.t('shared.admin.suppliers.show.basic_supplier_information.trading_name'), ->(supplier_framework) { supplier_framework.supplier.trading_name }],
+    [:additional_identifier, I18n.t('shared.admin.suppliers.show.basic_supplier_information.additional_identifier'), ->(supplier_framework) { supplier_framework.supplier.additional_identifier }]
   ].freeze
 
   SUPPLIER_CONTACT_INFORMATION_SUMMARY_ROWS = [

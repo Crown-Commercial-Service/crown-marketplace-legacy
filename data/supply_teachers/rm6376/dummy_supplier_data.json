@@ -86,7 +86,11 @@
           }
         ]
       }
-    ]
+    ],
+    "additional_details": {
+      "trading_name": "LANG INC",
+      "additional_identifier": "847e28f0-344c-4adf-bb4d-09532039d254"
+    }
   },
   {
     "id": "855e5f33-df18-42d2-8bbb-6bed89ee2d0e",
@@ -175,7 +179,11 @@
           }
         ]
       }
-    ]
+    ],
+    "additional_details": {
+      "trading_name": "YUNDT GROUP",
+      "additional_identifier": "ef24ca52-1dbb-47d3-80b1-cf6a93a0ad5f"
+    }
   },
   {
     "id": "4364daa8-2519-4ad0-a017-0ddfe2ed139b",
@@ -264,7 +272,11 @@
           }
         ]
       }
-    ]
+    ],
+    "additional_details": {
+      "trading_name": "MORAR, SHIELDS AND GIBSON",
+      "additional_identifier": "c0565138-6335-40b5-a3ff-d208ae6425c6"
+    }
   },
   {
     "id": "4c80ff4f-72a3-4485-8669-f9eba417954c",
@@ -464,7 +476,11 @@
           }
         ]
       }
-    ]
+    ],
+    "additional_details": {
+      "trading_name": "HEANEY GROUP",
+      "additional_identifier": "4d8ee1b7-7dd8-4438-98da-983ee2e4b4d7"
+    }
   },
   {
     "id": "fa60321c-69fb-4961-8818-a1ddd2e1ead4",
@@ -664,7 +680,11 @@
           }
         ]
       }
-    ]
+    ],
+    "additional_details": {
+      "trading_name": "FRITSCH-HAHN",
+      "additional_identifier": "7136c161-8c20-4683-a242-cdacc097e2f7"
+    }
   },
   {
     "id": "0448e276-5895-4acb-8a88-a1117bb8f644",
@@ -673,7 +693,9 @@
       {
         "framework_id": "RM6376",
         "enabled": true,
-        "supplier_framework_contact_detail": {},
+        "supplier_framework_contact_detail": {
+          "additional_details": {}
+        },
         "supplier_framework_lots": [
           {
             "lot_id": "RM6376.1",
@@ -788,7 +810,11 @@
           }
         ]
       }
-    ]
+    ],
+    "additional_details": {
+      "trading_name": "ROHAN LLC",
+      "additional_identifier": "ab205f18-65bc-4bf6-8ab4-a21dadd80b24"
+    }
   },
   {
     "id": "4143c5c3-aa24-46cb-8995-abef463c8423",
@@ -797,7 +823,9 @@
       {
         "framework_id": "RM6376",
         "enabled": true,
-        "supplier_framework_contact_detail": {},
+        "supplier_framework_contact_detail": {
+          "additional_details": {}
+        },
         "supplier_framework_lots": [
           {
             "lot_id": "RM6376.1",
@@ -912,7 +940,11 @@
           }
         ]
       }
-    ]
+    ],
+    "additional_details": {
+      "trading_name": "SWANIAWSKI, CORWIN AND KUB",
+      "additional_identifier": "54a03944-f6dd-47d1-92f5-7a0b4cf6ff1f"
+    }
   },
   {
     "id": "b340713b-f80e-477a-ab5a-48ce1be88bec",
@@ -921,7 +953,9 @@
       {
         "framework_id": "RM6376",
         "enabled": true,
-        "supplier_framework_contact_detail": {},
+        "supplier_framework_contact_detail": {
+          "additional_details": {}
+        },
         "supplier_framework_lots": [
           {
             "lot_id": "RM6376.1",
@@ -1036,7 +1070,11 @@
           }
         ]
       }
-    ]
+    ],
+    "additional_details": {
+      "trading_name": "GULGOWSKI-HUDSON",
+      "additional_identifier": "e3531880-a52f-4426-89d5-bc69a47f904c"
+    }
   },
   {
     "id": "fe803f7b-90f9-4978-a77e-992723c497cd",
@@ -1045,7 +1083,9 @@
       {
         "framework_id": "RM6376",
         "enabled": true,
-        "supplier_framework_contact_detail": {},
+        "supplier_framework_contact_detail": {
+          "additional_details": {}
+        },
         "supplier_framework_lots": [
           {
             "lot_id": "RM6376.1",
@@ -1160,7 +1200,11 @@
           }
         ]
       }
-    ]
+    ],
+    "additional_details": {
+      "trading_name": "TREMBLAY-WEST",
+      "additional_identifier": "1605759e-b70a-4978-9580-6d8dd316b896"
+    }
   },
   {
     "id": "ef645eec-b38e-412e-bdb6-f283fab5fcaa",
@@ -1169,7 +1213,9 @@
       {
         "framework_id": "RM6376",
         "enabled": true,
-        "supplier_framework_contact_detail": {},
+        "supplier_framework_contact_detail": {
+          "additional_details": {}
+        },
         "supplier_framework_lots": [
           {
             "lot_id": "RM6376.1",
@@ -1284,7 +1330,11 @@
           }
         ]
       }
-    ]
+    ],
+    "additional_details": {
+      "trading_name": "CONN-MOEN",
+      "additional_identifier": "85cde301-4305-4b5e-a973-f5e4bb851217"
+    }
   },
   {
     "id": "643b11b6-0554-48b6-ba73-0908b08b6540",
@@ -1293,7 +1343,9 @@
       {
         "framework_id": "RM6376",
         "enabled": true,
-        "supplier_framework_contact_detail": {},
+        "supplier_framework_contact_detail": {
+          "additional_details": {}
+        },
         "supplier_framework_lots": [
           {
             "lot_id": "RM6376.1",
@@ -1408,7 +1460,11 @@
           }
         ]
       }
-    ]
+    ],
+    "additional_details": {
+      "trading_name": "GLOVER-ONDRICKA",
+      "additional_identifier": "9da0e394-545a-4524-9351-be6158724a24"
+    }
   },
   {
     "id": "4e85d810-421a-4efa-9858-4544f14b67fb",
@@ -1417,7 +1473,9 @@
       {
         "framework_id": "RM6376",
         "enabled": true,
-        "supplier_framework_contact_detail": {},
+        "supplier_framework_contact_detail": {
+          "additional_details": {}
+        },
         "supplier_framework_lots": [
           {
             "lot_id": "RM6376.1",
@@ -1532,7 +1590,11 @@
           }
         ]
       }
-    ]
+    ],
+    "additional_details": {
+      "trading_name": "DARE-ROHAN",
+      "additional_identifier": "8d80d95b-fb86-4daa-8d58-4b12f8d6dab6"
+    }
   },
   {
     "id": "f18b7573-5c23-4add-9f1d-4e50d067637a",
@@ -1541,7 +1603,9 @@
       {
         "framework_id": "RM6376",
         "enabled": true,
-        "supplier_framework_contact_detail": {},
+        "supplier_framework_contact_detail": {
+          "additional_details": {}
+        },
         "supplier_framework_lots": [
           {
             "lot_id": "RM6376.1",
@@ -1656,7 +1720,11 @@
           }
         ]
       }
-    ]
+    ],
+    "additional_details": {
+      "trading_name": "HARBER-WIEGAND",
+      "additional_identifier": "cc686353-ba8a-4f75-bf63-e9f6773707dc"
+    }
   },
   {
     "id": "ff113453-4ae3-4b7f-b54c-591ba75c4343",
@@ -1665,7 +1733,9 @@
       {
         "framework_id": "RM6376",
         "enabled": true,
-        "supplier_framework_contact_detail": {},
+        "supplier_framework_contact_detail": {
+          "additional_details": {}
+        },
         "supplier_framework_lots": [
           {
             "lot_id": "RM6376.1",
@@ -1780,7 +1850,11 @@
           }
         ]
       }
-    ]
+    ],
+    "additional_details": {
+      "trading_name": "HUDSON LLC",
+      "additional_identifier": "aceed3e7-f3a1-4e16-9e51-88bab63d2439"
+    }
   },
   {
     "id": "1ffdb48d-f3ec-4f3e-b0c4-f652af3c7fc2",
@@ -1789,7 +1863,9 @@
       {
         "framework_id": "RM6376",
         "enabled": true,
-        "supplier_framework_contact_detail": {},
+        "supplier_framework_contact_detail": {
+          "additional_details": {}
+        },
         "supplier_framework_lots": [
           {
             "lot_id": "RM6376.1",
@@ -1904,7 +1980,11 @@
           }
         ]
       }
-    ]
+    ],
+    "additional_details": {
+      "trading_name": "ROSENBAUM-HINTZ",
+      "additional_identifier": "418551f5-df3d-4046-8ec9-f41c721d02c9"
+    }
   },
   {
     "id": "88182164-c2bf-4313-a4ae-ee25b3b17db3",
@@ -1913,7 +1993,9 @@
       {
         "framework_id": "RM6376",
         "enabled": true,
-        "supplier_framework_contact_detail": {},
+        "supplier_framework_contact_detail": {
+          "additional_details": {}
+        },
         "supplier_framework_lots": [
           {
             "lot_id": "RM6376.1",
@@ -2028,7 +2110,11 @@
           }
         ]
       }
-    ]
+    ],
+    "additional_details": {
+      "trading_name": "WAELCHI INC",
+      "additional_identifier": "8afe504a-75b8-4b02-9dd1-36541ce4451e"
+    }
   },
   {
     "id": "24cee606-ef0e-4cee-b412-9a36817dd0ac",
@@ -2037,7 +2123,9 @@
       {
         "framework_id": "RM6376",
         "enabled": true,
-        "supplier_framework_contact_detail": {},
+        "supplier_framework_contact_detail": {
+          "additional_details": {}
+        },
         "supplier_framework_lots": [
           {
             "lot_id": "RM6376.1",
@@ -2152,7 +2240,11 @@
           }
         ]
       }
-    ]
+    ],
+    "additional_details": {
+      "trading_name": "DANIEL AND SONS",
+      "additional_identifier": "a6645e0e-346b-4b62-8caa-57b43d4ed784"
+    }
   },
   {
     "id": "9a7f42a1-ce0a-4d32-8543-14b356d4b821",
@@ -2161,7 +2253,9 @@
       {
         "framework_id": "RM6376",
         "enabled": true,
-        "supplier_framework_contact_detail": {},
+        "supplier_framework_contact_detail": {
+          "additional_details": {}
+        },
         "supplier_framework_lots": [
           {
             "lot_id": "RM6376.1",
@@ -2276,6 +2370,10 @@
           }
         ]
       }
-    ]
+    ],
+    "additional_details": {
+      "trading_name": "NADER, CONN AND REINGER",
+      "additional_identifier": "5bcea5fc-3d62-445a-be75-c71d906d627c"
+    }
   }
 ]

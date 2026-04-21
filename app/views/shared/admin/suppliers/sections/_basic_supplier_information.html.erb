@@ -50,3 +50,35 @@
   },
   classes: 'govuk-radios--inline'
 ) if @section_attributes.include?(:sme) %>
+
+<%= govuk_input(
+  :trading_name,
+  form: form,
+  label: {
+    text: t('.trading_name'),
+    classes: 'govuk-label--m'
+  },
+  hint: {
+    text: t('.trading_name_hint'),
+  },
+  classes: 'govuk-input--width-20',
+  attributes: {
+    maxlength: 255
+  }
+) if @section_attributes.include?(:trading_name) %>
+
+<%= govuk_input(
+  :additional_identifier,
+  form: form,
+  label: {
+    text: t('.additional_identifier'),
+    classes: 'govuk-label--m'
+  },
+  hint: {
+    text: t('.additional_identifier_hint'),
+  },
+  classes: 'govuk-input--width-20',
+  attributes: {
+    maxlength: 255
+  }
+) if @section_attributes.include?(:additional_identifier) %>
