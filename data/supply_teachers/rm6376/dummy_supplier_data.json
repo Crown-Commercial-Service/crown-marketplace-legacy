@@ -8,11 +8,9 @@
         "enabled": true,
         "supplier_framework_contact_detail": {
           "additional_details": {
-            "managed_service_provider": {
-              "name": "Prof. Cecily Price",
-              "telephone": "5096066310",
-              "email": "inc.lang@armstrong.test"
-            }
+            "managed_service_provider_name": "Prof. Cecily Price",
+            "managed_service_provider_telephone": "50960663100",
+            "managed_service_provider_email": "inc.lang@armstrong.test"
           }
         },
         "supplier_framework_lots": [
@@ -101,11 +99,9 @@
         "enabled": true,
         "supplier_framework_contact_detail": {
           "additional_details": {
-            "managed_service_provider": {
-              "name": "Sarah Lesch",
-              "telephone": "637-379-1387",
-              "email": "rolfson.collier@jacobi.example"
-            }
+            "managed_service_provider_name": "Sarah Lesch",
+            "managed_service_provider_telephone": "637-379-1387",
+            "managed_service_provider_email": "rolfson.collier@jacobi.example"
           }
         },
         "supplier_framework_lots": [
@@ -194,11 +190,9 @@
         "enabled": true,
         "supplier_framework_contact_detail": {
           "additional_details": {
-            "managed_service_provider": {
-              "name": "Dorothea Gottlieb",
-              "telephone": "229-779-1965",
-              "email": "shields_gibson_and_morar@dietrich.example"
-            }
+            "managed_service_provider_name": "Dorothea Gottlieb",
+            "managed_service_provider_telephone": "229-779-1965",
+            "managed_service_provider_email": "shields_gibson_and_morar@dietrich.example"
           }
         },
         "supplier_framework_lots": [
@@ -287,11 +281,9 @@
         "enabled": true,
         "supplier_framework_contact_detail": {
           "additional_details": {
-            "managed_service_provider": {
-              "name": "Ambrose Steuber",
-              "telephone": "(956) 876 1626",
-              "email": "group.heaney@west-hamill.test"
-            }
+            "managed_service_provider_name": "Ambrose Steuber",
+            "managed_service_provider_telephone": "(956) 876 1626",
+            "managed_service_provider_email": "group.heaney@west-hamill.test"
           }
         },
         "supplier_framework_lots": [
@@ -491,11 +483,9 @@
         "enabled": true,
         "supplier_framework_contact_detail": {
           "additional_details": {
-            "managed_service_provider": {
-              "name": "Benedict Schulist",
-              "telephone": "609-102-8353",
-              "email": "fritsch.hahn@haley.test"
-            }
+            "managed_service_provider_name": "Benedict Schulist",
+            "managed_service_provider_telephone": "609-102-8353",
+            "managed_service_provider_email": "fritsch.hahn@haley.test"
           }
         },
         "supplier_framework_lots": [

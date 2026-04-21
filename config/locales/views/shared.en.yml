@@ -176,6 +176,9 @@ en:
             lot_4b_prospectus_link: Lot 4b prospectus link
             lot_4c_prospectus_link: Lot 4c prospectus link
             lot_5_prospectus_link: Lot 5 prospectus link
+            managed_service_provider_email: Managed service provider contact email
+            managed_service_provider_name: Managed service provider contact name
+            managed_service_provider_telephone: Managed service provider contact telephone number
           basic_supplier_information:
             additional_identifier: Additional identifier
             additional_identifier_hint: This is a unique ID used to identify the supplier as part of the upload
@@ -199,6 +202,9 @@ en:
             lot_4b_prospectus_link: Lot 4b prospectus link
             lot_4c_prospectus_link: Lot 4c prospectus link
             lot_5_prospectus_link: Lot 5 prospectus link
+            managed_service_provider_email: Managed service provider contact email
+            managed_service_provider_name: Managed service provider contact name
+            managed_service_provider_telephone: Managed service provider contact telephone number
             title: Additional information
           basic_supplier_information:
             additional_identifier: Additional identifier

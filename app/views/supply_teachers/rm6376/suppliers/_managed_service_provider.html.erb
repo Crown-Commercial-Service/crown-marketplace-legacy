@@ -3,24 +3,24 @@
     <div class="govuk-grid-column-three-quarters">
       <h2 class="govuk-heading-m"><%= managed_service_provider.supplier_name %></h2>
 
-      <% managed_service_provider_contact = managed_service_provider.contact_detail.additional_details['managed_service_provider'] %>
+      <% managed_service_provider_contact = managed_service_provider.contact_detail.managed_service_provider %>
 
       <% if managed_service_provider_contact.present? %>
         <p class="govuk-body">
           <span class="managed-service-provider-contact-details__name">
-            <strong><%= managed_service_provider_contact['name'] %></strong>
+            <strong><%= managed_service_provider_contact[:name] %></strong>
           </span>
           <br />
           <span class="managed-service-provider-contact-details__telephone">
-            <%= format_telephone_number(managed_service_provider_contact['telephone']) %>
+            <%= format_telephone_number(managed_service_provider_contact[:telephone]) %>
           </span>
           <br />
           <span class="managed-service-provider-contact-details__email">
             <%= mail_to(
-              managed_service_provider_contact['email'],
-              managed_service_provider_contact['email'],
+              managed_service_provider_contact[:email],
+              managed_service_provider_contact[:email],
               aria: {
-                label: "Email #{managed_service_provider_contact['name']} from #{managed_service_provider.supplier_name}"
+                label: "Email #{managed_service_provider_contact[:name]} from #{managed_service_provider.supplier_name}"
               }
             ) %>
           </span>
