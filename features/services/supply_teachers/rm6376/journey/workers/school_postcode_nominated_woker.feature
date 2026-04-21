@@ -9,5 +9,3 @@ Feature: Supply Teachers - Workers - School postcode nominated worker
     And I click on 'Continue'
     Then I am on the 'What is your school’s postcode?' page
     And I enter 'SW1A 1AA' for the 'postcode'
-
-    

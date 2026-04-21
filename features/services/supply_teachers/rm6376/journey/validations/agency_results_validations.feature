@@ -28,8 +28,8 @@ Feature: Supply Teachers - Find individual worker - Validations
     Then I am on the 'School postcode and worker requirements' page
     And I click on 'Continue'
     Then I should see the following error messages:
-      | Enter a valid postcode                  |
-      | Select the type of worker you need      |
+      | Enter a valid postcode             |
+      | Select the type of worker you need |
 
   Scenario: Invalid school postcode validations
     And I select 'Yes'

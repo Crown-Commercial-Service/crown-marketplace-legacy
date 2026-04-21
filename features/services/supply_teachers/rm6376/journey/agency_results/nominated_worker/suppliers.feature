@@ -36,10 +36,10 @@ Feature: Supply Teachers - Agency results - Nominated worker - Agencies
     And the 'Branch' is '<branch>'
 
     Examples:
-      | agency_name       | branch |
-      | GLOVER-ONDRICKA   | London |
-      | FRITSCH-HAHN      | London |
-      | GRADY AND SONS    | London |
+      | agency_name     | branch |
+      | GLOVER-ONDRICKA | London |
+      | FRITSCH-HAHN    | London |
+      | GRADY AND SONS  | London |
 
   Scenario: I can download the shortlist document
     And I click on 'Download shortlist of agencies'

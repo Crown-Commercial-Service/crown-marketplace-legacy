@@ -217,12 +217,16 @@ Rails.application.routes.draw do
     end
 
     namespace 'rm6376', path: 'RM6376', defaults: { framework: 'RM6376' } do
-      concerns %i[buyer_shared_pages shared_pages gateway branches admin calculations supply_teachers_suppliers]
+      concerns %i[buyer_shared_pages shared_pages gateway branches calculations supply_teachers_suppliers]
 
       resources :suppliers, path: '/', only: %i[] do
         collection do
           get '/managed-service-providers', action: :managed_service_providers
         end
+      end
+
+      namespace :admin, defaults: { service: 'supply_teachers/admin' } do
+        concerns %i[admin_dashboard admin_suppliers admin_uploads admin_shared_pages]
       end
     end
 
