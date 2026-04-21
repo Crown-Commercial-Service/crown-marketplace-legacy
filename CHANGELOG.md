@@ -24,6 +24,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Upgrade Rails to v8.1.2.1 ([PR 2348](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2348))
 - Upgrade Ruby to v4.0.2 ([PR 2349](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2349))
 
+### Fixed
+
+- Make email validation consistent across authentication ([PR 2403](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2403))
+
 ## [6.6.0] - 2026-03-18
 
 ### Added
