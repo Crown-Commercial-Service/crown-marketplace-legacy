@@ -57,13 +57,15 @@ Feature: Supply Teachers - Admin - View supplier data pages
     Then I am on the 'Supplier details' page
     And the caption is "<supplier_name>"
     And I should see the following details in the 'Supplier information' summary:
-      | Name | <supplier_name> |
+      | Name                  | <supplier_name>         |
+      | Trading name          | <trading_name>          |
+      | Additional identifier | <additional_identifier> |
 
     Examples:
-      | supplier_name    |
-      | DARE-ROHAN                 |
-      | MORAR, SHIELDS AND GIBSON  |
-      | TILLMAN-EMMERICH           |
+      | supplier_name             | trading_name              | additional_identifier                |
+      | DARE-ROHAN                | DARE-ROHAN                | 8d80d95b-fb86-4daa-8d58-4b12f8d6dab6 |
+      | MORAR, SHIELDS AND GIBSON | MORAR, SHIELDS AND GIBSON | c0565138-6335-40b5-a3ff-d208ae6425c6 |
+      | TILLMAN-EMMERICH          | CONN-MOEN                 | 85cde301-4305-4b5e-a973-f5e4bb851217 |
 
   Scenario: Lot status - Lot 1
     And I click on 'View lot data' for 'DANIEL AND SONS'
