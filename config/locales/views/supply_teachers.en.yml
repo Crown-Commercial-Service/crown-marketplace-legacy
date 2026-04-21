@@ -203,6 +203,26 @@ en:
               too_large: The 'Supplier lookup' file must be smaller than 10mb
               wrong_content_type: The 'Supplier lookup' file does not contain the expected content type
               wrong_extension: The 'Supplier lookup' file must be a CSV
+        supply_teachers/rm6376/admin/upload:
+          attributes:
+            supplier_details_file:
+              malicious: The 'Supplier details' file contains a virus
+              not_attached: Select the 'Supplier details' file
+              too_large: The 'Supplier details' file must be smaller than 10mb
+              wrong_content_type: The 'Supplier details' file does not contain the expected content type
+              wrong_extension: The 'Supplier details' file must be an XLSX
+            supplier_geographical_data_file:
+              malicious: The 'Supplier geographical data' file contains a virus
+              not_attached: Select the 'Supplier geographical data' file
+              too_large: The 'Supplier geographical data' file must be smaller than 10mb
+              wrong_content_type: The 'Supplier geographical data' file does not contain the expected content type
+              wrong_extension: The 'Supplier geographical data' file must be an XLSX
+            supplier_rate_cards_file:
+              malicious: The 'Supplier rate cards' file contains a virus
+              not_attached: Select the 'Supplier rate cards' file
+              too_large: The 'Supplier rate cards' file must be smaller than 10mb
+              wrong_content_type: The 'Supplier rate cards' file does not contain the expected content type
+              wrong_extension: The 'Supplier rate cards' file must be an XLSX
   supply_teachers:
     admin:
       frameworks:
@@ -595,6 +615,94 @@ en:
             select_an_agency_html: select an agency and sign the full version order form listed in the documents section of the %{ccs_website_link} as ‘RM6238 Order form template full version v1.docx’
             supply_teachers_email: supplyteachers@%{org_domain}.gov.uk
     rm6376:
+      admin:
+        uploads:
+          failed:
+            below_is_a_list: Below is a list of the issues that have occurred with the file upload and details on how they might be fixed.
+            details: Details
+            error_details:
+              file_check_failed: Something went wrong when checking the files, please try uploading the files again
+              file_check_failed_html: 'Something went wrong when checking the files, the following error was returned: <br> <strong>%{list}</strong>'
+              file_process_failed: Something went wrong when processing the files, please try uploading the files again
+              file_process_failed_html: 'Something went wrong when processing the files, the following error was returned: <br> <strong>%{list}</strong>'
+              file_publish_failed: Something went wrong when publishing the files, please try uploading the files again
+              file_publish_failed_html: 'Something went wrong when publishing the files, the following error was returned: <br> <strong>%{list}</strong>'
+              supplier_details_has_empty_sheets: Make sure the sheet for 'Supplier details' have been filled in
+              supplier_details_has_incorrect_headers: 'Make sure the sheet for ''Supplier details'' has the following headers: ''Supplier Name'', ''Supplier Trading As'', ''Supplier Identifier'', ''Managed service provider Contact name'', ''Managed service provider Contact email'', ''Managed service provider Contact telephone'', ''Lot 1'', ''Lot 2'''
+              supplier_details_missing_sheets: The 'Supplier details' file should have 1 sheet named 'All Suppliers'
+              supplier_geographical_data_has_empty_sheets: Make sure the sheet for 'Supplier geographical data' have been filled in
+              supplier_geographical_data_has_incorrect_headers: 'Make sure the sheet for ''Supplier geographical data'' has the following headers: ''Supplier Name'', ''Supplier Identifier'', ''Branch Name/No.'', ''Branch Contact name'', ''Address 1'', ''Address 2'', ''Town'', ''County'', ''Post Code'', ''Branch Contact Name Email Address'', ''Branch Telephone Number'', ''Region'''
+              supplier_geographical_data_missing_sheets: The 'Supplier geographical data' file should have 1 sheet named 'Branch details'
+              supplier_missing_branches_html: 'The following suppliers do not have any branches: %{list} Make sure all the suppliers have the correct name and identifier'
+              supplier_missing_rates_html: 'The following suppliers do not have any rate cards: %{list} Make sure all the suppliers have the correct name and identifier'
+              supplier_missing_services_html: 'The following suppliers do not offer any lots: %{list} Make sure all the suppliers have the correct name and identifier'
+              supplier_rate_cards_has_empty_sheets_html: 'The following sheets have no data: %{list} Make sure all sheets for ''Supplier rate cards'' have been filled in'
+              supplier_rate_cards_has_incorrect_headers_html: 'The following sheets have incorrect headers: %{list} Make sure all sheets for ''Supplier rate cards'' have the right positions for the rates'
+              supplier_rate_cards_missing_sheets: 'The ''Supplier rate cards'' file should have 2 sheets with the following names: ''Lot 1'', ''Lot 2'''
+              upload_failed: Something went wrong with the file upload, please try uploading the files again
+              upload_failed_html: 'Something went wrong with the file upload, the following error was returned: <br> <strong>%{list}</strong>'
+            error_name:
+              file_check_failed: File check failed
+              file_process_failed: File processing failed
+              file_publish_failed: File publishing failed
+              supplier_details_has_empty_sheets: There are sheets in 'Supplier details' without any data
+              supplier_details_has_incorrect_headers: There are sheets in 'Supplier details' with incorrect headers
+              supplier_details_missing_sheets: The 'Supplier details' file is missing sheets
+              supplier_geographical_data_has_empty_sheets: There are sheets in 'Supplier geographical data' without any data
+              supplier_geographical_data_has_incorrect_headers: There are sheets in 'Supplier geographical data' with incorrect headers
+              supplier_geographical_data_missing_sheets: The 'Supplier geographical data' file is missing sheets
+              supplier_missing_branches: There are suppliers without any branches
+              supplier_missing_rates: There are suppliers without any rate cards
+              supplier_missing_services: There are suppliers without any services
+              supplier_rate_cards_has_empty_sheets: There are sheets in 'Supplier rate cards' without any data
+              supplier_rate_cards_has_incorrect_headers: There are sheets in 'Supplier rate cards' with incorrect headers
+              supplier_rate_cards_missing_sheets: The 'Supplier rate cards' file is missing sheets
+              upload_failed: Upload failed
+            errors_with_upload: Errors with the upload
+            issue: Issue
+          index:
+            caption: Supply Teachers - %{framework}
+            create_new: Create a new data upload
+            current_data: Current published data
+            date: Date
+            download: Download
+            file_name:
+              supplier_details_file: Supplier details
+              supplier_geographical_data_file: Supplier geographical data
+              supplier_rate_cards_file: Supplier rate cards
+            heading: Upload supplier data
+            name: Name
+            status: Status
+            table_caption: Previous uploads
+            upload_name: 'Upload session #%{number}'
+          new:
+            caption: Supply Teachers - %{framework}
+            download_templates: Download file templates
+            file_label:
+              supplier_details_file: Supplier details
+              supplier_geographical_data_file: Supplier geographical data
+              supplier_rate_cards_file: Supplier rate cards
+            heading: New data upload
+            return: Return to 'Upload supplier data'
+            template_file_name: Download spreadsheet templates
+            template_file_path: supply-teachers/%{framework}/Supplier spreadsheet templates.zip
+            upload_caption: Supported file format is .xlsx and maximum file size is 10mb
+            upload_data: Upload data
+            upload_title: Upload the supplier data
+            you_can_download: You can download a zip file containing an empty template for each of the spreadsheets
+          show:
+            caption: Supply Teachers - %{framework}
+            datetime: 'Date of file upload:'
+            download: Download
+            file_name:
+              supplier_details_file: Supplier details
+              supplier_geographical_data_file: Supplier geographical data
+              supplier_rate_cards_file: Supplier rate cards
+            files: Uploaded files
+            heading: 'Upload session #%{number}'
+            name: File name
+            return: Return to 'Upload supplier data'
+            status: 'Status:'
       home:
         index:
           accreditation_of_agencies: Accreditation of agencies

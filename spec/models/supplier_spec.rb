@@ -40,7 +40,7 @@ RSpec.describe Supplier do
   end
 
   describe 'supplier validation' do
-    let!(:default_supplier) { create(:supplier) }
+    let!(:default_supplier) { create(:supplier, :with_additional_details) }
 
     context 'when considering the supplier name' do
       let(:supplier) { build(:supplier, name:) }
@@ -64,6 +64,32 @@ RSpec.describe Supplier do
         it 'is not valid' do
           expect(supplier).not_to be_valid
           expect(supplier.errors[:duns_number].first).to eq('The DUNS number you entered is already in use by another supplier')
+        end
+      end
+    end
+
+    context 'when considering the supplier trading name' do
+      let(:supplier) { build(:supplier, trading_name:) }
+
+      context 'and it is the same as another suppliers trading name' do
+        let(:trading_name) { default_supplier.trading_name }
+
+        it 'is not valid' do
+          expect(supplier).not_to be_valid
+          expect(supplier.errors[:trading_name].first).to eq('The supplier trading name you entered is already in use by another supplier')
+        end
+      end
+    end
+
+    context 'when considering the supplier additional identifier' do
+      let(:supplier) { build(:supplier, additional_identifier:) }
+
+      context 'and it is the same as another suppliers additional identifier' do
+        let(:additional_identifier) { default_supplier.additional_identifier }
+
+        it 'is not valid' do
+          expect(supplier).not_to be_valid
+          expect(supplier.errors[:additional_identifier].first).to eq('The additional identifier you entered is already in use by another supplier')
         end
       end
     end

@@ -20,6 +20,11 @@ module GenerateTestData
           {
             id: SecureRandom.uuid,
             name: supplier_name,
+            duns_number: Faker::Company.unique.duns_number.delete('-').to_s,
+            additional_details: {
+              trading_name: rand < 0.25 ? Faker::Company.unique.name.upcase : supplier_name,
+              additional_identifier: SecureRandom.uuid
+            },
             supplier_frameworks: [
               {
                 framework_id: 'RM6376',

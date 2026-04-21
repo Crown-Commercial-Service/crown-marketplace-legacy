@@ -6,6 +6,8 @@ RSpec.describe Upload do
 
   let(:supplier_id) { SecureRandom.uuid }
   let(:supplier_name) { Faker::Name.unique.name }
+  let(:trading_name) { Faker::Name.unique.name }
+  let(:additional_identifier) { SecureRandom.uuid }
 
   let(:branch_name) { 'Head Office' }
   let(:branch_town) { 'Guildford' }
@@ -28,6 +30,10 @@ RSpec.describe Upload do
       {
         id: supplier_id,
         name: supplier_name,
+        additional_details: {
+          trading_name:,
+          additional_identifier:,
+        },
         supplier_frameworks: [
           {
             framework_id: 'RM6376',
@@ -72,6 +78,8 @@ RSpec.describe Upload do
 
         supplier = Supplier.last
         expect(supplier.name).to eq(supplier_name)
+        expect(supplier.trading_name).to eq(trading_name)
+        expect(supplier.additional_identifier).to eq(additional_identifier)
       end
 
       it 'creates supplier framework' do
@@ -471,12 +479,18 @@ RSpec.describe Upload do
     context 'and the supplier does not exist' do
       let(:new_supplier_id) { SecureRandom.uuid }
       let(:new_supplier_name) { Faker::Name.unique.name }
+      let(:new_trading_name) { Faker::Name.unique.name }
+      let(:new_additional_identifier) { SecureRandom.uuid }
 
       let(:new_suppliers) do
         [
           {
             id: supplier_id,
             name: supplier_name,
+            additional_details: {
+              trading_name:,
+              additional_identifier:,
+            },
             supplier_frameworks: [
               {
                 framework_id: 'RM6376',
@@ -491,6 +505,10 @@ RSpec.describe Upload do
           {
             id: new_supplier_id,
             name: new_supplier_name,
+            additional_details: {
+              trading_name: new_trading_name,
+              additional_identifier: new_additional_identifier,
+            },
             supplier_frameworks: [
               {
                 framework_id: 'RM6376',
@@ -546,6 +564,10 @@ RSpec.describe Upload do
           {
             id: supplier_id,
             name: new_supplier_name,
+            additional_details: {
+              trading_name:,
+              additional_identifier:,
+            },
             supplier_frameworks: [
               {
                 framework_id: 'RM6376',
@@ -573,6 +595,8 @@ RSpec.describe Upload do
 
         supplier = Supplier.last
         expect(supplier.name).to eq(new_supplier_name)
+        expect(supplier.trading_name).to eq(trading_name)
+        expect(supplier.additional_identifier).to eq(additional_identifier)
       end
 
       it 'does not create an additional supplier framework' do

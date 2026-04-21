@@ -107,7 +107,7 @@ RSpec.describe SupplyTeachers::RM6376::Admin::SuppliersController do
 
     context 'when the section is basic_supplier_information' do
       let(:section) { :basic_supplier_information }
-      let(:section_attributes) { %i[name] }
+      let(:section_attributes) { %i[name trading_name additional_identifier] }
       let(:expected_model_class) { SupplyTeachers::RM6376::Admin::Supplier }
 
       include_context 'when testing a section'
@@ -182,8 +182,10 @@ RSpec.describe SupplyTeachers::RM6376::Admin::SuppliersController do
       let(:section) { :basic_supplier_information }
 
       let(:model) { supplier }
-      let(:model_params) { { name: 'Zote the Mighty' } }
-      let(:model_params_invalid) { { name: '' } }
+      let(:model_params) { { name: 'Zote the Mighty', trading_name: 'Zote the Mightier', additional_identifier: '09c26c98-017f-4fcb-a55b-cbb4759285be' } }
+      let(:model_param_keys) { %i[name additional_details] }
+      let(:expected_updates) { { name: 'Zote the Mighty', additional_details: { trading_name: 'Zote the Mightier', additional_identifier: '09c26c98-017f-4fcb-a55b-cbb4759285be' } } }
+      let(:model_params_invalid) { { name: '', trading_name: '', additional_identifier: '' } }
 
       include_context 'when testing a section'
     end
@@ -192,7 +194,7 @@ RSpec.describe SupplyTeachers::RM6376::Admin::SuppliersController do
       let(:section) { :something_else }
 
       let(:model) { supplier }
-      let(:model_params) { { name: 'Zote the Mighty' } }
+      let(:model_params) { { name: 'Zote the Mighty', trading_name: 'Zote the Mightier', additional_identifier: '09c26c98-017f-4fcb-a55b-cbb4759285be' } }
 
       it 'redirects to the show page' do
         expect(response).to redirect_to("/supply-teachers/RM6376/admin/suppliers/#{supplier_framework.id}")
