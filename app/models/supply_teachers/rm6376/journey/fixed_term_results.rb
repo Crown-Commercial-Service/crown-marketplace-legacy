@@ -1,7 +1,6 @@
 module SupplyTeachers
   module RM6376
     class Journey::FixedTermResults < SupplyTeachers::Journey::FixedTermResults
-
       include Journey::Results
 
       def lot_id
