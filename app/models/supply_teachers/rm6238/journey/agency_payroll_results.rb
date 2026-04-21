@@ -8,7 +8,6 @@ module SupplyTeachers
       @determine_position_id ||= "RM6238.1.#{position_number.to_i + offset.to_i}"
     end
 
-
     def inputs
       {
         looking_for: translate_input('supply_teachers.looking_for.worker'),
