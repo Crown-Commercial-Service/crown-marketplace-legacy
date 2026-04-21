@@ -15,14 +15,17 @@ module Admin::SuppliersHelper
   ].freeze
 
   ADDITIONAL_SUPPLIER_INFORMATION_SUMMARY_ROWS = [
-    [:address, I18n.t('shared.admin.suppliers.show.additional_supplier_information.address'), ->(supplier_framework) { supplier_framework.contact_detail.additional_details['address'] }],
-    [:lot_1_prospectus_link, I18n.t('shared.admin.suppliers.show.additional_supplier_information.lot_1_prospectus_link'), ->(supplier_framework) { supplier_framework.contact_detail.additional_details['lot_1_prospectus_link'] || I18n.t('shared.admin.suppliers.show.no_data') }],
-    [:lot_2_prospectus_link, I18n.t('shared.admin.suppliers.show.additional_supplier_information.lot_2_prospectus_link'), ->(supplier_framework) { supplier_framework.contact_detail.additional_details['lot_2_prospectus_link'] || I18n.t('shared.admin.suppliers.show.no_data') }],
-    [:lot_3_prospectus_link, I18n.t('shared.admin.suppliers.show.additional_supplier_information.lot_3_prospectus_link'), ->(supplier_framework) { supplier_framework.contact_detail.additional_details['lot_3_prospectus_link'] || I18n.t('shared.admin.suppliers.show.no_data') }],
-    [:lot_4a_prospectus_link, I18n.t('shared.admin.suppliers.show.additional_supplier_information.lot_4a_prospectus_link'), ->(supplier_framework) { supplier_framework.contact_detail.additional_details['lot_4a_prospectus_link'] || I18n.t('shared.admin.suppliers.show.no_data') }],
-    [:lot_4b_prospectus_link, I18n.t('shared.admin.suppliers.show.additional_supplier_information.lot_4b_prospectus_link'), ->(supplier_framework) { supplier_framework.contact_detail.additional_details['lot_4b_prospectus_link'] || I18n.t('shared.admin.suppliers.show.no_data') }],
-    [:lot_4c_prospectus_link, I18n.t('shared.admin.suppliers.show.additional_supplier_information.lot_4c_prospectus_link'), ->(supplier_framework) { supplier_framework.contact_detail.additional_details['lot_4c_prospectus_link'] || I18n.t('shared.admin.suppliers.show.no_data') }],
-    [:lot_5_prospectus_link, I18n.t('shared.admin.suppliers.show.additional_supplier_information.lot_5_prospectus_link'), ->(supplier_framework) { supplier_framework.contact_detail.additional_details['lot_5_prospectus_link'] || I18n.t('shared.admin.suppliers.show.no_data') }],
+    [:address, I18n.t('shared.admin.suppliers.show.additional_supplier_information.address'), ->(supplier_framework) { supplier_framework.contact_detail.address }],
+    [:lot_1_prospectus_link, I18n.t('shared.admin.suppliers.show.additional_supplier_information.lot_1_prospectus_link'), ->(supplier_framework) { supplier_framework.contact_detail.lot_1_prospectus_link || I18n.t('shared.admin.suppliers.show.no_data') }],
+    [:lot_2_prospectus_link, I18n.t('shared.admin.suppliers.show.additional_supplier_information.lot_2_prospectus_link'), ->(supplier_framework) { supplier_framework.contact_detail.lot_2_prospectus_link || I18n.t('shared.admin.suppliers.show.no_data') }],
+    [:lot_3_prospectus_link, I18n.t('shared.admin.suppliers.show.additional_supplier_information.lot_3_prospectus_link'), ->(supplier_framework) { supplier_framework.contact_detail.lot_3_prospectus_link || I18n.t('shared.admin.suppliers.show.no_data') }],
+    [:lot_4a_prospectus_link, I18n.t('shared.admin.suppliers.show.additional_supplier_information.lot_4a_prospectus_link'), ->(supplier_framework) { supplier_framework.contact_detail.lot_4a_prospectus_link || I18n.t('shared.admin.suppliers.show.no_data') }],
+    [:lot_4b_prospectus_link, I18n.t('shared.admin.suppliers.show.additional_supplier_information.lot_4b_prospectus_link'), ->(supplier_framework) { supplier_framework.contact_detail.lot_4b_prospectus_link || I18n.t('shared.admin.suppliers.show.no_data') }],
+    [:lot_4c_prospectus_link, I18n.t('shared.admin.suppliers.show.additional_supplier_information.lot_4c_prospectus_link'), ->(supplier_framework) { supplier_framework.contact_detail.lot_4c_prospectus_link || I18n.t('shared.admin.suppliers.show.no_data') }],
+    [:lot_5_prospectus_link, I18n.t('shared.admin.suppliers.show.additional_supplier_information.lot_5_prospectus_link'), ->(supplier_framework) { supplier_framework.contact_detail.lot_5_prospectus_link || I18n.t('shared.admin.suppliers.show.no_data') }],
+    [:managed_service_provider_name, I18n.t('shared.admin.suppliers.show.additional_supplier_information.managed_service_provider_name'), ->(supplier_framework) { supplier_framework.contact_detail.managed_service_provider_name || I18n.t('shared.admin.suppliers.show.no_data') }],
+    [:managed_service_provider_email, I18n.t('shared.admin.suppliers.show.additional_supplier_information.managed_service_provider_email'), ->(supplier_framework) { supplier_framework.contact_detail.managed_service_provider_email || I18n.t('shared.admin.suppliers.show.no_data') }],
+    [:managed_service_provider_telephone, I18n.t('shared.admin.suppliers.show.additional_supplier_information.managed_service_provider_telephone'), ->(supplier_framework) { supplier_framework.contact_detail.managed_service_provider_telephone || I18n.t('shared.admin.suppliers.show.no_data') }],
   ].freeze
 
   def basic_supplier_information_summary_rows

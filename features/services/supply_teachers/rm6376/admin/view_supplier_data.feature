@@ -60,12 +60,16 @@ Feature: Supply Teachers - Admin - View supplier data pages
       | Name                  | <supplier_name>         |
       | Trading name          | <trading_name>          |
       | Additional identifier | <additional_identifier> |
+    And I should see the following details in the 'Additional information' summary:
+      | Managed service provider contact name             | <managed_service_provider_name>      |
+      | Managed service provider contact email            | <managed_service_provider_email>     |
+      | Managed service provider contact telephone number | <managed_service_provider_telephone> |
 
     Examples:
-      | supplier_name             | trading_name              | additional_identifier                |
-      | DARE-ROHAN                | DARE-ROHAN                | 8d80d95b-fb86-4daa-8d58-4b12f8d6dab6 |
-      | MORAR, SHIELDS AND GIBSON | MORAR, SHIELDS AND GIBSON | c0565138-6335-40b5-a3ff-d208ae6425c6 |
-      | TILLMAN-EMMERICH          | CONN-MOEN                 | 85cde301-4305-4b5e-a973-f5e4bb851217 |
+      | supplier_name             | trading_name              | additional_identifier                | managed_service_provider_name | managed_service_provider_email            | managed_service_provider_telephone |
+      | DARE-ROHAN                | DARE-ROHAN                | 8d80d95b-fb86-4daa-8d58-4b12f8d6dab6 | N/A                           | N/A                                       | N/A                                |
+      | MORAR, SHIELDS AND GIBSON | MORAR, SHIELDS AND GIBSON | c0565138-6335-40b5-a3ff-d208ae6425c6 | Dorothea Gottlieb             | shields_gibson_and_morar@dietrich.example | 229-779-1965                       |
+      | TILLMAN-EMMERICH          | CONN-MOEN                 | 85cde301-4305-4b5e-a973-f5e4bb851217 | N/A                           | N/A                                       | N/A                                |
 
   Scenario: Lot status - Lot 1
     And I click on 'View lot data' for 'DANIEL AND SONS'

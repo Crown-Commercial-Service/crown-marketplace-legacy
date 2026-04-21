@@ -17,6 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add initial admin pages for new Supply Teachers framework RM6376 ([PR 2365](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2365))
 - Migrate admin uploads to use the same model ([PR 2376](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2376))
 - Add admin section for Supply Teachers ([PR 2401](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2401))
+- Add additional information for Supply Teachers ([PR 2402](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2402))
 
 ### Changed
 

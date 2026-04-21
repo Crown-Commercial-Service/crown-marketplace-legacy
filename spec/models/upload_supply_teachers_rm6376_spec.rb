@@ -97,11 +97,9 @@ RSpec.describe Upload do
       context 'when additional_details are provided' do
         let(:additional_details) do
           {
-            managed_service_provider: {
-              name: Faker::Name.unique.name,
-              email: Faker::Internet.unique.email,
-              telephone_number: Faker::PhoneNumber.unique.phone_number
-            },
+            managed_service_provider_name: Faker::Name.unique.name,
+            managed_service_provider_email: Faker::Internet.unique.email,
+            managed_service_provider_telephone_number: Faker::PhoneNumber.unique.phone_number
           }
         end
 
@@ -466,11 +464,9 @@ RSpec.describe Upload do
 
     let(:additional_details) do
       {
-        managed_service_provider: {
-          name: Faker::Name.unique.name,
-          email: Faker::Internet.unique.email,
-          telephone_number: Faker::PhoneNumber.unique.phone_number
-        },
+        managed_service_provider_name: Faker::Name.unique.name,
+        managed_service_provider_email: Faker::Internet.unique.email,
+        managed_service_provider_telephone_number: Faker::PhoneNumber.unique.phone_number
       }
     end
 

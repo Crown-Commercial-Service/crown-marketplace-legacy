@@ -5,6 +5,7 @@ RSpec.describe SupplyTeachers::RM6376::Admin::SuppliersController do
 
   let(:supplier) { create(:supply_teachers_rm6376_admin_supplier) }
   let(:supplier_framework) { create(:supplier_framework, framework_id: 'RM6376', supplier_id: supplier.id) }
+  let(:contact_detail) { create(:supply_teachers_rm6376_admin_supplier_contact_detail, supplier_framework_id: supplier_framework.id) }
   let(:supplier_frameworks) { Supplier::Framework.where(id: supplier_framework.id) }
 
   describe 'GET index' do
@@ -45,7 +46,7 @@ RSpec.describe SupplyTeachers::RM6376::Admin::SuppliersController do
 
       context 'and the framework dose not exist' do
         it 'renders the unrecognised framework page with the right http status' do
-          get :index, params: { framework: 'RM6187' }
+          get :index, params: { framework: 'RM3826' }
 
           expect(response).to render_template('home/unrecognised_framework')
           expect(response).to have_http_status(:bad_request)
@@ -57,12 +58,7 @@ RSpec.describe SupplyTeachers::RM6376::Admin::SuppliersController do
   describe 'GET show' do
     login_st_admin
 
-    before do
-      supplier
-      supplier_framework
-
-      get :show, params: { id: supplier_framework.id }
-    end
+    before { get :show, params: { id: supplier_framework.id } }
 
     it 'renders the show template' do
       expect(response).to render_template(:show)
@@ -76,7 +72,13 @@ RSpec.describe SupplyTeachers::RM6376::Admin::SuppliersController do
   describe 'GET edit' do
     login_st_admin
 
-    before { get :edit, params: { id: supplier_framework.id, section: section } }
+    before do
+      supplier
+      supplier_framework
+      contact_detail
+
+      get :edit, params: { id: supplier_framework.id, section: section }
+    end
 
     shared_examples 'when testing a section' do
       it 'sets supplier_framework' do
@@ -84,7 +86,7 @@ RSpec.describe SupplyTeachers::RM6376::Admin::SuppliersController do
       end
 
       it 'sets the model' do
-        expect(assigns(:model).class).to be(expected_model_class)
+        expect(assigns(:model).class).to be(model.class)
       end
 
       it 'sets section' do
@@ -108,7 +110,15 @@ RSpec.describe SupplyTeachers::RM6376::Admin::SuppliersController do
     context 'when the section is basic_supplier_information' do
       let(:section) { :basic_supplier_information }
       let(:section_attributes) { %i[name trading_name additional_identifier] }
-      let(:expected_model_class) { SupplyTeachers::RM6376::Admin::Supplier }
+      let(:model) { supplier }
+
+      include_context 'when testing a section'
+    end
+
+    context 'when the section is additional_supplier_information' do
+      let(:section) { :additional_supplier_information }
+      let(:section_attributes) { %i[managed_service_provider_name managed_service_provider_email managed_service_provider_telephone] }
+      let(:model) { contact_detail }
 
       include_context 'when testing a section'
     end
@@ -131,6 +141,7 @@ RSpec.describe SupplyTeachers::RM6376::Admin::SuppliersController do
     before do
       supplier
       supplier_framework
+      contact_detail
 
       put :update, params: { id: supplier_framework.id, section: section, "#{model.model_name.param_key}": model_params }
     end
@@ -186,6 +197,18 @@ RSpec.describe SupplyTeachers::RM6376::Admin::SuppliersController do
       let(:model_param_keys) { %i[name additional_details] }
       let(:expected_updates) { { name: 'Zote the Mighty', additional_details: { trading_name: 'Zote the Mightier', additional_identifier: '09c26c98-017f-4fcb-a55b-cbb4759285be' } } }
       let(:model_params_invalid) { { name: '', trading_name: '', additional_identifier: '' } }
+
+      include_context 'when testing a section'
+    end
+
+    context 'when the section is additional_supplier_information' do
+      let(:section) { :additional_supplier_information }
+
+      let(:model) { contact_detail }
+      let(:model_params) { { managed_service_provider_name: 'Idris', managed_service_provider_email: 'idris@vulture.gov.com', managed_service_provider_telephone: '07123654897' } }
+      let(:model_param_keys) { %i[additional_details] }
+      let(:expected_updates) { { additional_details: model_params } }
+      let(:model_params_invalid) { { managed_service_provider_name: '', managed_service_provider_email: '', managed_service_provider_telephone: '' } }
 
       include_context 'when testing a section'
     end
