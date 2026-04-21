@@ -7,6 +7,10 @@ module SupplyTeachers
 
       include Journey::Results
 
+      def framework
+        'RM6376'
+      end
+
       def lot_id
         'RM6376.1'
       end

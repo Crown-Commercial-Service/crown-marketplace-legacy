@@ -18,6 +18,7 @@ module SupplyTeachers
     attribute :contract_end_date_month
     attribute :contract_end_date_year
 
+
     def fixed_term_length
       difference_in_months(contract_start_date, contract_end_date)
     end
