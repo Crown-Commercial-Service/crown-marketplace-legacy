@@ -177,9 +177,13 @@ en:
             lot_4c_prospectus_link: Lot 4c prospectus link
             lot_5_prospectus_link: Lot 5 prospectus link
           basic_supplier_information:
+            additional_identifier: Additional identifier
+            additional_identifier_hint: This is a unique ID used to identify the supplier as part of the upload
             duns: DUNS Number
             is_sme: Is an SME?
             supplier_name: Supplier name
+            trading_name: Trading name
+            trading_name_hint: This is the name that is shown to buyers
           supplier_contact_information:
             contact_email: Contact email
             contact_name: Contact name
@@ -197,10 +201,12 @@ en:
             lot_5_prospectus_link: Lot 5 prospectus link
             title: Additional information
           basic_supplier_information:
+            additional_identifier: Additional identifier
             duns: DUNS Number
             is_sme: Is an SME?
             name: Name
             title: Supplier information
+            trading_name: Trading name
           change: Change
           heading: Supplier details
           no_data: N/A

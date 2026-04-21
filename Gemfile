@@ -8,7 +8,7 @@ gem 'rails', '~> 8.1.3'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
-gem 'puma', '~> 7.2'
+gem 'puma', '~> 8.0'
 
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
 gem 'propshaft'
@@ -59,7 +59,7 @@ gem 'json-jwt', '>= 1.11.0'
 gem 'devise', '~> 5.0.3'
 
 # for cognito
-gem 'aws-sdk-cognitoidentityprovider', '~> 1.138.0'
+gem 'aws-sdk-cognitoidentityprovider', '~> 1.139.0'
 
 # for pagination
 gem 'kaminari', '~> 1.2.2'
@@ -79,7 +79,7 @@ gem 'jsonpath', '~> 1.1.5'
 gem 'aasm', '~> 5.5'
 
 # for running background jobs
-gem 'sidekiq', '~> 8.1.2'
+gem 'sidekiq', '~> 8.1.3'
 gem 'sinatra', '~> 4.2.1', require: false
 gem 'slim', '~> 5.2.1'
 gem 'sidekiq-cron'
@@ -133,7 +133,7 @@ group :development, :test do
   gem 'poltergeist', '>= 1.18.1'
   gem 'wdm', '>= 0.1.0', platforms: %i[windows]
   gem 'tzinfo-data', platforms: %i[windows]
-  gem 'faker', '~> 3.6.1'
+  gem 'faker', '~> 3.8.0'
   gem 'brakeman', '~> 8.0.4'
 end
 

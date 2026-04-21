@@ -109,6 +109,10 @@ en:
               not_a_date: Enter a valid ‘From’ date
         supplier:
           attributes:
+            additional_identifier:
+              blank: The additional identifier cannot be blank
+              taken: The additional identifier you entered is already in use by another supplier
+              too_long: The additional identifier must be no more than 255 characters
             duns_number:
               blank: The DUNS number cannot be blank
               invalid: The DUNS number must be 9 digits
@@ -120,6 +124,10 @@ en:
             sme:
               blank: Select if the supplier is an SME
               inclusion: Select if the supplier is an SME
+            trading_name:
+              blank: The supplier trading name cannot be blank
+              taken: The supplier trading name you entered is already in use by another supplier
+              too_long: The supplier trading name must be no more than 255 characters
         supplier/framework/contact_detail:
           attributes:
             address:

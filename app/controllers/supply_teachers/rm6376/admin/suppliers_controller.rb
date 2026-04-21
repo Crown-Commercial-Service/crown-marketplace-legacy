@@ -3,7 +3,7 @@ module SupplyTeachers
     module Admin
       class SuppliersController < SupplyTeachers::Admin::SuppliersController
         SECTION_TO_PARAMS = {
-          basic_supplier_information: %i[name],
+          basic_supplier_information: %i[name trading_name additional_identifier],
         }.freeze
       end
     end

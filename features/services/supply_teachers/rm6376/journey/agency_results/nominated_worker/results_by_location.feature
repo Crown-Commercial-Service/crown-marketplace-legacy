@@ -102,6 +102,7 @@ Feature: Supply Teachers - Agency results - Nominated worker - Results by locati
       | Worker type: Nominated         |
       | Postcode: SW1A 1AA             |
       | Search distance: 50 miles      |
+
   @geocode_liverpool
   Scenario: Liverpool postcode results
     And I enter 'L3 9PP' for the 'postcode'
@@ -130,9 +131,9 @@ Feature: Supply Teachers - Agency results - Nominated worker - Results by locati
     Then I am on the 'Agency results' page
     And there are 3 agencies
     And the listed agencies for agency results are:
-      | SATTERFIELD AND SONS       | Liverpool |
-      | NADER, CONN AND REINGER    | Liverpool |
-      | GULGOWSKI-HUDSON           | Liverpool |
+      | SATTERFIELD AND SONS    | Liverpool |
+      | NADER, CONN AND REINGER | Liverpool |
+      | GULGOWSKI-HUDSON        | Liverpool |
     And the choices used to generate the list are:
       | Looking for: Individual worker |
       | Worker type: Nominated         |
