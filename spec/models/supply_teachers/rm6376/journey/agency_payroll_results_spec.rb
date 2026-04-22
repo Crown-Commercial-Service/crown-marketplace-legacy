@@ -6,7 +6,7 @@ RSpec.describe SupplyTeachers::RM6376::Journey::AgencyPayrollResults do
   let(:position_number) { '1' }
 
   describe '.determine_position_id' do
-    it 'adds the postion_idt' do
+    it 'adds the postion_id' do
       expect(step.determine_position_id).to eq('RM6376.1.1')
     end
   end
