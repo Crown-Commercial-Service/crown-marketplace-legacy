@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe SupplyTeachers::RM6376::Journey::AgencyPayrollResults do
-  subject(:step) { described_class.new(postcode: 'SW1A 1AA', position_number: position_number, radius: '5', framework: 'RM6376') }
+  subject(:step) { described_class.new(postcode: 'SW1A 1AA', position_number: position_number, radius: '5') }
 
   let(:position_number) { '1' }
 
