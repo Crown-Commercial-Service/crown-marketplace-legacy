@@ -5,7 +5,6 @@ module SupplyTeachers
 
     attribute :position_number
     attribute :offset
-    
 
     def position
       Position.find(determine_position_id)
