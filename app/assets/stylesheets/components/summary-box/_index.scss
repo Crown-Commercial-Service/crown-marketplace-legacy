@@ -1,0 +1,15 @@
+.ccs-summary-box {
+  @extend %govuk-body-m;
+
+  border: 1px ccs-colour("green", $variant: "tint-25") solid;
+  border-top: govuk-spacing(1) ccs-colour("green", $variant: "tint-25") solid;
+  padding: govuk-spacing(3);
+}
+
+.ccs-summary-box__content {
+  background-color: govuk-colour("white");
+
+  & details {
+    margin-bottom: 0px
+  }
+}

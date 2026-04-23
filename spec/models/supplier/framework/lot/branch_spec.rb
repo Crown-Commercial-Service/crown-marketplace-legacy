@@ -96,6 +96,18 @@ RSpec.describe Supplier::Framework::Lot::Branch do
       it 'excludes far away branches' do
         expect(search_result).not_to include(edinburgh)
       end
+
+      context 'when position is ignored' do
+        let(:search_result) { described_class.search(point, lot_id:, radius:) }
+
+        it 'includes nearby branches' do
+          expect(search_result).to include(london_1, london_2)
+        end
+
+        it 'excludes far away branches' do
+          expect(search_result).not_to include(edinburgh)
+        end
+      end
     end
 
     context 'when there are branches outside of the search area' do
@@ -126,6 +138,18 @@ RSpec.describe Supplier::Framework::Lot::Branch do
 
       it 'excludes branches outside 25 miles' do
         expect(search_result).not_to include(branch_outside_search_area)
+      end
+
+      context 'when position is ignored' do
+        let(:search_result) { described_class.search(point, lot_id:, radius:) }
+
+        it 'includes branches within 25 miles' do
+          expect(search_result).to include(branch_within_search_area)
+        end
+
+        it 'excludes branches outside 25 miles' do
+          expect(search_result).not_to include(branch_outside_search_area)
+        end
       end
     end
 
@@ -181,6 +205,22 @@ RSpec.describe Supplier::Framework::Lot::Branch do
       it "excludes suppliers that don't have nominated worker rates for direct provision" do
         expect(search_result).not_to include(branch_with_master_vendor_nominated_worker_rate)
       end
+
+      context 'when position is ignored' do
+        let(:search_result) { described_class.search(point, lot_id:, radius:) }
+
+        it 'includes suppliers that have nominated worker rates' do
+          expect(search_result).to include(branch_with_nominated_worker_rates)
+        end
+
+        it "includes suppliers that don't have nominated worker rates" do
+          expect(search_result).to include(branch_with_no_nominated_worker_rates)
+        end
+
+        it "excludes suppliers that don't have nominated worker rates for direct provision" do
+          expect(search_result).not_to include(branch_with_master_vendor_nominated_worker_rate)
+        end
+      end
     end
 
     context 'when there are suppliers with fixed term rates' do
@@ -234,6 +274,22 @@ RSpec.describe Supplier::Framework::Lot::Branch do
 
       it "excludes suppliers that don't have fixed term rates for direct provision" do
         expect(search_result).not_to include(branch_with_master_vendor_fixed_term_rate)
+      end
+
+      context 'when position is ignored' do
+        let(:search_result) { described_class.search(point, lot_id:, radius:) }
+
+        it 'includes suppliers that have fixed term rates' do
+          expect(search_result).to include(branch_with_fixed_term_rates)
+        end
+
+        it "includes suppliers that don't have fixed term rates" do
+          expect(search_result).to include(branch_with_no_fixed_term_rates)
+        end
+
+        it "excludes suppliers that don't have fixed term rates for direct provision" do
+          expect(search_result).not_to include(branch_with_master_vendor_fixed_term_rate)
+        end
       end
     end
 

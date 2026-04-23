@@ -15,7 +15,7 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full govuk-!-margin-top-7 govuk-!-margin-bottom-7">
-    <%= render partial: "supply_teachers/#{params[:framework].downcase}/shared/rates_table", locals: { grouped_rates: @supplier_framework.grouped_rates_for_lot('RM6238.1') } %>
+    <%= render partial: "supply_teachers/#{params[:framework].downcase}/shared/rates_table", locals: { grouped_rates: @supplier_framework.grouped_rates_for_lot("#{params[:framework]}.1") } %>
   </div>
 </div>
 

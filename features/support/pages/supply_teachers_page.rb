@@ -21,12 +21,14 @@ module Pages
     end
 
     section :supplier_search, '#agency-search-container' do
-      element :input, '#agency_name'
+      element :agency_name_input, '#agency_name'
+      element :agency_postcode_input, '#agency_postcode'
+      element :agency_postcode_error, '#agency_postcode-error'
       element :search, '.govuk-button'
     end
 
     section :all_agencies, '#main-content' do
-      element :number_of_agencies, 'div:nth-child(1) > div > form > p'
+      element :number_of_agencies, 'div:nth-child(1) > div > p'
       elements :agencies, '.agency-row'
     end
 

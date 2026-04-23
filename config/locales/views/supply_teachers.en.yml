@@ -786,9 +786,16 @@ en:
     service_name: Supply Teachers
     suppliers:
       agencies_table:
-        agency: Agency
+        agencies_found:
+          plural: "%{total} agencies found"
+          singular: "%{total} agency found"
         no_agencies_found: No agencies found
       all_suppliers:
+        enter_agency_name:
+          question: Enter an agency name
+        enter_agency_postcode:
+          hint: This will filter the suppliers with a 25 mile radius of the location
+          question: Enter a postcode
         header: Find an agency
         results_found_with_location_html: There are <strong>%{results} agencies</strong> currently available in lot 1
         search: Search
