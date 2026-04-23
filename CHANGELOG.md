@@ -17,11 +17,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add initial admin pages for new Supply Teachers framework RM6376 ([PR 2365](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2365))
 - Migrate admin uploads to use the same model ([PR 2376](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2376))
 - Add admin section for Supply Teachers ([PR 2401](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2401))
+- Add additional information for Supply Teachers ([PR 2402](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2402))
+- Add admin upload section for Supply Teachers ([PR 2404](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2404))
 
 ### Changed
 
 - Upgrade Rails to v8.1.2.1 ([PR 2348](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2348))
 - Upgrade Ruby to v4.0.2 ([PR 2349](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2349))
+
+### Fixed
+
+- Make email validation consistent across authentication ([PR 2403](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2403))
 
 ## [6.6.0] - 2026-03-18
 
