@@ -12,7 +12,7 @@ Feature: Supply Teachers - Agency results - Agency payroll - Results by length
     And I select 'Yes'
     And I click on 'Continue'
     Then I am on the 'School postcode and worker requirements' page
-    And I select 'Teacher: (Incl. Qualified and Unqualified Teachers, Tutors)'
+    And I select 'STEM Teacher (Inc. Qualified Teachers, Tutors)'
     And I enter 'L3 9PP' for the 'postcode'
 
   Scenario: The length Daily Supply has the correct rates
@@ -32,7 +32,7 @@ Feature: Supply Teachers - Agency results - Agency payroll - Results by length
       | Payroll provider: Agency                                              |
       | Postcode: L3 9PP                                                      |
       | Search distance: 25 miles                                             |
-      | Job type: Teacher: (Incl. Qualified and Unqualified Teachers, Tutors) |
+      | Job type: STEM Teacher (Inc. Qualified Teachers, Tutors) |
       | Term: Daily Supply                                                    |
 
   Scenario: The Long Term (6 weeks+) has the correct rates
@@ -52,5 +52,5 @@ Feature: Supply Teachers - Agency results - Agency payroll - Results by length
       | Payroll provider: Agency                                              |
       | Postcode: L3 9PP                                                      |
       | Search distance: 25 miles                                             |
-      | Job type: Teacher: (Incl. Qualified and Unqualified Teachers, Tutors) |
+      | Job type: STEM Teacher (Inc. Qualified Teachers, Tutors) |
       | Term: Long Term (6 weeks+)                                            |
