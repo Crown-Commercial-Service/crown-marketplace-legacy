@@ -36,6 +36,10 @@ module FilesImporterHelper
     @supplier_data.find { |s| s[:duns_number] == supplier_duns }
   end
 
+  def get_supplier_by_additional_identifier(additional_identifier)
+    @supplier_data.find { |s| s[:additional_details][:additional_identifier] == additional_identifier }
+  end
+
   def extract_duns(supplier_name)
     supplier_name[/(?<=\[)(.*?)(?=\])/].to_i.to_s
   end
