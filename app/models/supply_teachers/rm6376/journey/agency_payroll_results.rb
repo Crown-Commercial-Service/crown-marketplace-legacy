@@ -4,7 +4,7 @@ module SupplyTeachers
       include Journey::Results
 
       def determine_position_id
-        @determine_position_id ||= "RM6376.1.#{position_number.to_i}"
+        @determine_position_id ||= "RM6376.1.#{position_number}"
       end
 
       def inputs
