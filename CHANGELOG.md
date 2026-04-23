@@ -18,6 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Migrate admin uploads to use the same model ([PR 2376](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2376))
 - Add admin section for Supply Teachers ([PR 2401](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2401))
 - Add additional information for Supply Teachers ([PR 2402](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2402))
+- Add admin upload section for Supply Teachers ([PR 2404](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2404))
 
 ### Changed
 
