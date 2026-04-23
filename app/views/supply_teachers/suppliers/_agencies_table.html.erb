@@ -3,7 +3,7 @@
 <%= govuk_table(
   [
     {
-      text: t('.agency') 
+      text: tag.span(t(".agencies_found.#{supplier_frameworks_total == 1 ? 'singular' : 'plural'}", total: supplier_frameworks_total) , class: 'govuk-!-font-size-27')
     }
   ],
   if supplier_frameworks.empty?

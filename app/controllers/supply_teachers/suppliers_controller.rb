@@ -1,7 +1,7 @@
 module SupplyTeachers
   class SuppliersController < SupplyTeachers::FrameworkController
     before_action :set_lot_for_all_suppliers, only: %i[all_suppliers search_all_suppliers show]
-    before_action :set_suppliers, only: %i[all_suppliers search_all_suppliers]
+    before_action :set_supplier_filter, only: %i[all_suppliers search_all_suppliers]
     before_action :set_lot, only: :show
 
     helper :telephone_number
@@ -20,9 +20,10 @@ module SupplyTeachers
       render json: {
         html: render_to_string(
           partial: 'supply_teachers/suppliers/agencies_table',
-          locals: { supplier_frameworks: @supplier_frameworks },
+          locals: { supplier_frameworks_total: @supplier_frameworks_total, supplier_frameworks: @supplier_frameworks },
           formats: [:html]
-        )
+        ),
+        error_message_html: @supplier_filter.errors[:agency_postcode].any? ? helpers.govuk_error_message(@supplier_filter.errors[:agency_postcode].first, :agency_postcode) : nil
       }
     end
 
@@ -32,16 +33,17 @@ module SupplyTeachers
       self.class.module_parent
     end
 
-    def set_suppliers
-      @supplier_frameworks = Kaminari.paginate_array(
-        Supplier::Framework.with_lots(@lot_id)
-                           .where(['lower(name) LIKE ?', "%#{agency_name&.downcase}%"])
-                           .sort_by(&:supplier_name)
-      ).page(params[:page])
+    def set_supplier_filter
+      @supplier_filter = SupplierFilter.new(lot_id: @lot_id, agency_name: supplier_filter_params[:agency_name], agency_postcode: supplier_filter_params[:agency_postcode])
+
+      filter_suppliers_result = @supplier_filter.filter_suppliers_query.sort_by(&:supplier_name)
+
+      @supplier_frameworks_total = filter_suppliers_result.size
+      @supplier_frameworks = Kaminari.paginate_array(filter_suppliers_result).page(params[:page])
     end
 
-    def agency_name
-      params.permit(:agency_name)[:agency_name]
+    def supplier_filter_params
+      @supplier_filter_params ||= params.permit(:agency_name, :agency_postcode)
     end
   end
 end

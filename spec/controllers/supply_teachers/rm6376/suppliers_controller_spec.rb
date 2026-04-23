@@ -35,4 +35,243 @@ RSpec.describe SupplyTeachers::RM6376::SuppliersController do
       expect(assigns(:back_path)).to eq(expected_path)
     end
   end
+
+  describe 'GET all suppliers' do
+    let(:lot_id) { 'RM6376.1' }
+    let(:supplier_framework_1) { create(:supplier_framework, framework_id: 'RM6376') }
+    let(:supplier_framework_2) { create(:supplier_framework, framework_id: 'RM6376') }
+
+    before do
+      create(:supplier_framework_lot, supplier_framework: supplier_framework_1, lot_id: lot_id)
+      create(:supplier_framework_lot, supplier_framework: supplier_framework_2, lot_id: lot_id)
+
+      get :all_suppliers, params: {
+        journey: 'supply-teachers',
+        looking_for: 'all_suppliers'
+      }
+    end
+
+    it 'renders the all_suppliers template' do
+      expect(response).to render_template('all_suppliers')
+    end
+
+    # rubocop:disable RSpec/ExampleLength
+    it 'assigns supplier_frameworks' do
+      expect(assigns(:supplier_frameworks).map do |supplier_framework|
+        {
+          supplier_framework_id: supplier_framework.id,
+          name: supplier_framework.supplier_name
+        }
+      end).to match_array([supplier_framework_1, supplier_framework_2].map do |supplier_framework|
+        {
+          supplier_framework_id: supplier_framework.id,
+          name: supplier_framework.supplier_name
+        }
+      end)
+    end
+    # rubocop:enable RSpec/ExampleLength
+
+    it 'sets the back path to the looking-for question' do
+      expected_path = journey_question_path(
+        journey: 'supply-teachers',
+        slug: 'looking-for',
+        looking_for: 'all_suppliers'
+      )
+      expect(assigns(:back_path)).to eq(expected_path)
+    end
+
+    context 'when the framework is not the current framework' do
+      let(:framework) { 'RM3826' }
+
+      it 'renders the unrecognised framework page with the right http status' do
+        expect(response).to render_template('supply_teachers/home/unrecognised_framework')
+        expect(response).to have_http_status(:bad_request)
+      end
+    end
+  end
+
+  describe 'POST search_all_suppliers' do
+    let(:lot_id) { 'RM6376.1' }
+    let(:paginated_supplier_names) { assigns(:supplier_frameworks).map(&:supplier_name) }
+
+    before do
+      supplier_framework_1 = create(:supplier_framework, framework_id: 'RM6238', supplier: create(:supplier, name: 'aaa'))
+      supplier_framework_2 = create(:supplier_framework, framework_id: 'RM6238', supplier: create(:supplier, name: 'aab'))
+      supplier_framework_3 = create(:supplier_framework, framework_id: 'RM6238', supplier: create(:supplier, name: 'zzy'))
+      supplier_framework_4 = create(:supplier_framework, framework_id: 'RM6238', supplier: create(:supplier, name: 'zzz'))
+
+      supplier_framework_lot_1 = create(:supplier_framework_lot, supplier_framework: supplier_framework_1, lot_id: lot_id)
+      supplier_framework_lot_2 = create(:supplier_framework_lot, supplier_framework: supplier_framework_2, lot_id: lot_id)
+      supplier_framework_lot_3 = create(:supplier_framework_lot, supplier_framework: supplier_framework_3, lot_id: lot_id)
+      supplier_framework_lot_4 = create(:supplier_framework_lot, supplier_framework: supplier_framework_4, lot_id: lot_id)
+
+      create(:supplier_framework_lot_rate, supplier_framework_lot: supplier_framework_lot_1, position_id: 'RM6376.1')
+      create(:supplier_framework_lot_rate, supplier_framework_lot: supplier_framework_lot_2, position_id: 'RM6376.1')
+      create(:supplier_framework_lot_rate, supplier_framework_lot: supplier_framework_lot_3, position_id: 'RM6376.1')
+      create(:supplier_framework_lot_rate, supplier_framework_lot: supplier_framework_lot_4, position_id: 'RM6376.1')
+
+      create(:supplier_framework_lot_branch, supplier_framework_lot: supplier_framework_lot_1, location: Geocoding.point(latitude: 51.5201, longitude: -0.0759))
+      create(:supplier_framework_lot_branch, supplier_framework_lot: supplier_framework_lot_2, location: Geocoding.point(latitude: 55.9619, longitude: -3.1953))
+      create(:supplier_framework_lot_branch, supplier_framework_lot: supplier_framework_lot_3, location: Geocoding.point(latitude: 55.9619, longitude: -3.1953))
+      create(:supplier_framework_lot_branch, supplier_framework_lot: supplier_framework_lot_4, location: Geocoding.point(latitude: 51.5201, longitude: -0.0759))
+
+      Geocoder::Lookup::Test.add_stub(
+        agency_postcode, [{ 'coordinates' => [51.5201, -0.0759] }]
+      )
+
+      post :search_all_suppliers, params: { agency_name:, agency_postcode: }
+    end
+
+    after do
+      Geocoder::Lookup::Test.reset
+    end
+
+    context 'when nothing is searched' do
+      let(:agency_name) { nil }
+      let(:agency_postcode) { nil }
+
+      it 'renders the _agencies_table partial' do
+        expect(response).to render_template('supply_teachers/suppliers/_agencies_table')
+      end
+
+      it 'renders the json with the expected keys' do
+        expect(response.content_type).to eq('application/json; charset=utf-8')
+
+        expect(response.parsed_body['html'].is_a?(String)).to be true
+      end
+
+      it 'has all suppliers in the list' do
+        expect(paginated_supplier_names).to contain_exactly('aaa', 'aab', 'zzy', 'zzz')
+      end
+
+      context 'when a london postocode is searched' do
+        let(:agency_postcode) { 'SW1A 1AA' }
+
+        it 'renders the _agencies_table partial' do
+          expect(response).to render_template('supply_teachers/suppliers/_agencies_table')
+        end
+
+        it 'renders the json with the expected keys' do
+          expect(response.content_type).to eq('application/json; charset=utf-8')
+
+          expect(response.parsed_body['html'].is_a?(String)).to be true
+        end
+
+        it 'has only the london suppliers in the list' do
+          expect(paginated_supplier_names).to contain_exactly('aaa', 'zzz')
+        end
+      end
+    end
+
+    context 'when "a" is searched' do
+      let(:agency_name) { 'a' }
+      let(:agency_postcode) { nil }
+
+      it 'renders the _agencies_table partial' do
+        expect(response).to render_template('supply_teachers/suppliers/_agencies_table')
+      end
+
+      it 'renders the json with the expected keys' do
+        expect(response.content_type).to eq('application/json; charset=utf-8')
+
+        expect(response.parsed_body['html'].is_a?(String)).to be true
+      end
+
+      it 'has just aaa and aab in the list' do
+        expect(paginated_supplier_names).to contain_exactly('aaa', 'aab')
+      end
+
+      context 'when a london postocode is searched' do
+        let(:agency_postcode) { 'SW1A 1AA' }
+
+        it 'renders the _agencies_table partial' do
+          expect(response).to render_template('supply_teachers/suppliers/_agencies_table')
+        end
+
+        it 'renders the json with the expected keys' do
+          expect(response.content_type).to eq('application/json; charset=utf-8')
+
+          expect(response.parsed_body['html'].is_a?(String)).to be true
+        end
+
+        it 'has only the london supplier in the list' do
+          expect(paginated_supplier_names).to contain_exactly('aaa')
+        end
+      end
+    end
+
+    context 'when "z" is searched' do
+      let(:agency_name) { 'z' }
+      let(:agency_postcode) { nil }
+
+      it 'renders the _agencies_table partial' do
+        expect(response).to render_template('supply_teachers/suppliers/_agencies_table')
+      end
+
+      it 'renders the json with the expected keys' do
+        expect(response.content_type).to eq('application/json; charset=utf-8')
+
+        expect(response.parsed_body['html'].is_a?(String)).to be true
+      end
+
+      it 'has just zzy and zzz in the list' do
+        expect(paginated_supplier_names).to contain_exactly('zzy', 'zzz')
+      end
+
+      context 'when a london postocode is searched' do
+        let(:agency_postcode) { 'SW1A 1AA' }
+
+        it 'renders the _agencies_table partial' do
+          expect(response).to render_template('supply_teachers/suppliers/_agencies_table')
+        end
+
+        it 'renders the json with the expected keys' do
+          expect(response.content_type).to eq('application/json; charset=utf-8')
+
+          expect(response.parsed_body['html'].is_a?(String)).to be true
+        end
+
+        it 'has only the london supplier in the list' do
+          expect(paginated_supplier_names).to contain_exactly('zzz')
+        end
+      end
+    end
+
+    context 'when "l" is searched' do
+      let(:agency_name) { 'l' }
+      let(:agency_postcode) { nil }
+
+      it 'renders the _agencies_table partial' do
+        expect(response).to render_template('supply_teachers/suppliers/_agencies_table')
+      end
+
+      it 'renders the json with the expected keys' do
+        expect(response.content_type).to eq('application/json; charset=utf-8')
+
+        expect(response.parsed_body['html'].is_a?(String)).to be true
+      end
+
+      it 'has no suppliers in the list' do
+        expect(paginated_supplier_names).to be_empty
+      end
+
+      context 'when a london postocode is searched' do
+        let(:agency_postcode) { 'SW1A 1AA' }
+
+        it 'renders the _agencies_table partial' do
+          expect(response).to render_template('supply_teachers/suppliers/_agencies_table')
+        end
+
+        it 'renders the json with the expected keys' do
+          expect(response.content_type).to eq('application/json; charset=utf-8')
+
+          expect(response.parsed_body['html'].is_a?(String)).to be true
+        end
+
+        it 'has no suppliers in the list' do
+          expect(paginated_supplier_names).to be_empty
+        end
+      end
+    end
+  end
 end
