@@ -6,7 +6,7 @@ module SupplyTeachers
       'RM6238' => 'RM6238.1.11',
       'RM6376' => 'RM6376.1.11'
     }.freeze
-    
+
     include Steppable
     include Dateable
     include DateValidations
@@ -22,7 +22,6 @@ module SupplyTeachers
     def fixed_term_length
       difference_in_months(contract_start_date, contract_end_date)
     end
-    
 
     def determine_position_id
       self.class::POSITION_ID
