@@ -25,34 +25,34 @@ Feature: Supply Teachers - Agency results - Fixed term - Daily rate
     And I click on 'Continue'
     Then I am on the 'Agency results' page
 
-  Scenario Outline: Using the calculator for ROHAN LLC
-    Then for the agency 'ROHAN LLC' I should see '£7,406.00' for the 'finders fee'
+Scenario Outline: Using the calculator for ROHAN LLC
+    Then for the agency 'ROHAN LLC' I should see '£1,542.92' for the 'finders fee'
     And I enter the rate '<annual_salary>' for the supplier 'ROHAN LLC'
     Then for the agency 'ROHAN LLC' I should see '<finders_fee>' for the 'finders fee'
 
     Examples:
       | annual_salary | finders_fee |
-      | 10000         | £2645.00    |
-      | 20000         | £5290.00    |
-      | 28000         | £7,406.00   |
-      | 41036         | £10854.02   |
-      | 819320        | £216710.14  |
+      | 10000         | £551.04     |
+      | 20000         | £1102.08    |
+      | 28000         | £1,542.92   |
+      | 41036         | £2261.25    |
+      | 819320        | £45147.95   |
 
-  Scenario Outline: Using the calculator for DIETRICH-BORER
-    Then for the agency 'DIETRICH-BORER' I should see '£1,492.75' for the 'finders fee'
-    And I enter the rate '<annual_salary>' for the supplier 'DIETRICH-BORER'
-    Then for the agency 'DIETRICH-BORER' I should see '<finders_fee>' for the 'finders fee'
+  Scenario Outline: Using the calculator for GLOVER-ONDRICKA
+    Then for the agency 'GLOVER-ONDRICKA' I should see '£1,672.42' for the 'finders fee'
+    And I enter the rate '<annual_salary>' for the supplier 'GLOVER-ONDRICKA'
+    Then for the agency 'GLOVER-ONDRICKA' I should see '<finders_fee>' for the 'finders fee'
 
     Examples:
       | annual_salary | finders_fee |
-      | 10000         | £533.13     |
-      | 20000         | £1066.25    |
-      | 28000         | £1,492.75   |
-      | 40142         | £2140.07    |
-      | 9104123       | £485363.56  |
+      | 10000         | £597.29     |
+      | 20000         | £1194.58    |
+      | 28000         | £1,672.42   |
+      | 40142         | £2397.65    |
+      | 9104123       | £543781.68  |
 
   Scenario: When nothing is entered the result is blank and the colours are muted
-    Then for the agency 'STANTON, FADEL AND BOSCO' I should see '£1,450.75' for the 'finders fee'
-    And I enter the rate '' for the supplier 'STANTON, FADEL AND BOSCO'
-    Then for the agency 'STANTON, FADEL AND BOSCO' I should see '' for the 'finders fee'
-    And the results for 'STANTON, FADEL AND BOSCO' are muted
+    Then for the agency 'SATTERFIELD AND SONS' I should see '£2,160.08' for the 'finders fee'
+    And I enter the rate '' for the supplier 'SATTERFIELD AND SONS'
+    Then for the agency 'SATTERFIELD AND SONS' I should see '' for the 'finders fee'
+    And the results for 'SATTERFIELD AND SONS' are muted

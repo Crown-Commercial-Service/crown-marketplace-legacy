@@ -2,7 +2,7 @@
 Feature: Supply Teachers - Agency results - Fixed term - Agencies
 
   Background: Navigate to the Agency results page
-    Given I sign in and navigate to the start page for the 'RM6238' framework in 'supply teachers'
+    Given I sign in and navigate to the start page for the 'RM6376' framework in 'supply teachers'
     And I select 'An agency who can provide my school with an individual worker'
     And I click on 'Continue'
     Then I am on the 'Do you want an agency to supply the worker?' page
@@ -26,16 +26,20 @@ Feature: Supply Teachers - Agency results - Fixed term - Agencies
     Then I am on the 'Agency results' page
 
   Scenario: The agency details shown are correct
-    And there are 8 agencies
+    And there are 12 agencies
     And the listed agencies with distances, fees and lengths are:
-      | BARTOLETTI, KOEPP AND NIENOW | London     | 6.0 | 28000 | 3 months | £1,158.50 | 16.6% |
-      | MCGLYNN GROUP                | London     | 5.2 | 28000 | 3 months | £1,673.00 | 23.9% |
-      | STANTON, FADEL AND BOSCO     | Twickenham | 9.0 | 28000 | 3 months | £1,740.90 | 24.9% |
-      | DIETRICH-BORER               | London     | 6.0 | 28000 | 3 months | £1,791.30 | 25.6% |
-      | HAGENES-BECHTELAR            | London     | 5.2 | 28000 | 3 months | £2,098.60 | 30.0% |
-      | ZIEMANN-HERMANN              | London     | 0.2 | 28000 | 3 months | £2,249.80 | 32.1% |
-      | EMARD AND SONS               | Twickenham | 9.0 | 28000 | 3 months | £2,450.70 | 35.0% |
-      | FEEST-MULLER                 | London     | 0.2 | 28000 | 3 months | £2,501.10 | 35.7% |
+      | ROHAN LLC                  | London     | 0.2 | 28000 | 3 months | £1,851.50 | 26.5% |
+      | GLOVER-ONDRICKA            | London     | 0.2 | 28000 | 3 months | £2,006.90 | 28.7% |
+      | ROOB, CORWIN AND DICKI     | London     | 5.2 | 28000 | 3 months | £2,365.30 | 33.8% |
+      | DANIEL AND SONS            | Twickenham | 9.0 | 28000 | 3 months | £2,986.90 | 42.7% |
+      | TREMBLAY-WEST              | London     | 5.2 | 28000 | 3 months | £3,070.90 | 43.9% |
+      | ROSENBAUM-HINTZ            | London     | 6.0 | 28000 | 3 months | £3,108.70 | 44.4% |
+      | HEANEY GROUP               | London     | 5.2 | 28000 | 3 months | £3,304.00 | 47.2% |
+      | DARE-ROHAN                 | Twickenham | 9.0 | 28000 | 3 months | £3,411.10 | 48.7% |
+      | FRITSCH-HAHN               | London     | 6.0 | 28000 | 3 months | £4,004.70 | 57.2% |
+      | TILLMAN-EMMERICH           | London     | 6.0 | 28000 | 3 months | £4,029.20 | 57.6% |
+      | GRADY AND SONS             | London     | 0.2 | 28000 | 3 months | £4,057.20 | 58.0% |
+      | SWANIAWSKI, CORWIN AND KUB | Twickenham | 9.0 | 28000 | 3 months | £4,132.80 | 59.0% |
 
   Scenario Outline: I can naviagte to the agency details
     Given I click on '<agency_name>'
@@ -44,18 +48,18 @@ Feature: Supply Teachers - Agency results - Fixed term - Agencies
     And the 'Branch' is '<branch>'
 
     Examples:
-      | agency_name                  | branch     |
-      | BARTOLETTI, KOEPP AND NIENOW | London     |
-      | DIETRICH-BORER               | London     |
-      | EMARD AND SONS               | Twickenham |
+      | agency_name                | branch     |
+      | ROHAN LLC                  | London     |
+      | ROSENBAUM-HINTZ            | London     |
+      | SWANIAWSKI, CORWIN AND KUB | Twickenham |
 
   Scenario: I can download the shortlist document
     And I click on 'Download shortlist of agencies'
     Then the spreadsheet 'Shortlist of agencies' is downloaded
 
   Scenario: Back buttons work
-    Given I click on 'MCGLYNN GROUP'
-    Then I am on the 'MCGLYNN GROUP' page
+    Given I click on 'GLOVER-ONDRICKA'
+    Then I am on the 'GLOVER-ONDRICKA' page
     And the sub title is Agency details
     And the 'Branch' is 'London'
     Then I click on 'Back'
@@ -64,16 +68,20 @@ Feature: Supply Teachers - Agency results - Fixed term - Agencies
     Then I am on the 'What is your school’s postcode?' page
     And I click on 'Continue'
     Then I am on the 'Agency results' page
-    And there are 8 agencies
+    And there are 12 agencies
     And the listed agencies for agency results are:
-      | BARTOLETTI, KOEPP AND NIENOW | London     |
-      | MCGLYNN GROUP                | London     |
-      | STANTON, FADEL AND BOSCO     | Twickenham |
-      | DIETRICH-BORER               | London     |
-      | HAGENES-BECHTELAR            | London     |
-      | ZIEMANN-HERMANN              | London     |
-      | EMARD AND SONS               | Twickenham |
-      | FEEST-MULLER                 | London     |
+      | ROHAN LLC                  | London     |
+      | GLOVER-ONDRICKA            | London     |
+      | ROOB, CORWIN AND DICKI     | London     |
+      | DANIEL AND SONS            | Twickenham |
+      | TREMBLAY-WEST              | London     |
+      | ROSENBAUM-HINTZ            | London     |
+      | HEANEY GROUP               | London     |
+      | DARE-ROHAN                 | Twickenham |
+      | FRITSCH-HAHN               | London     |
+      | TILLMAN-EMMERICH           | London     |
+      | GRADY AND SONS             | London     |
+      | SWANIAWSKI, CORWIN AND KUB | Twickenham |
     Then I click on 'Back'
     And I am on the 'What is your school’s postcode?' page
     Then I click on 'Back'
