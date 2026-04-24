@@ -16,8 +16,8 @@ class Supplier < ApplicationRecord
 
         delegate :supplier_name, to: :supplier_framework_lot
 
-        def self.search(point, lot_id:, position_id:, radius:)
-          includes(
+        def self.search(point, lot_id:, radius:, position_id: nil)
+          query = includes(
             supplier_framework_lot: [:rates, { supplier_framework: :supplier }]
           ).joins(
             supplier_framework_lot: [:rates, { supplier_framework: :supplier }]
@@ -26,9 +26,15 @@ class Supplier < ApplicationRecord
             { point: point, within_metres: DistanceConverter.miles_to_metres(radius) }
           ).where(
             supplier_framework_lot: { lot_id: lot_id, enabled: true, supplier_frameworks: { enabled: true } }
-          ).merge(
-            Rate.where(position_id:)
-          ).order(
+          )
+
+          if position_id
+            query = query.merge(
+              Rate.where(position_id:)
+            )
+          end
+
+          query.order(
             Rate.arel_table[:rate].asc
           ).order(
             Arel.sql("ST_Distance(location, '#{point}')")

@@ -120,9 +120,19 @@ Then('a list of {int} agencies are shown') do |number_of_agencies|
   expect(supply_teachers_page.all_agencies.number_of_agencies).to have_content("There are #{number_of_agencies} agencies currently available")
 end
 
-Then('I enter {string} for the agency search') do |agency_name|
-  supply_teachers_page.supplier_search.input.fill_in with: "#{agency_name}\n"
+Then('I enter {string} for the agency name search') do |agency_name|
+  supply_teachers_page.supplier_search.agency_name_input.fill_in with: "#{agency_name}\n"
   supply_teachers_page.supplier_search.search.click
+end
+
+Then('I enter {string} for the agency postcode search') do |agency_postcode|
+  supply_teachers_page.supplier_search.agency_postcode_input.fill_in with: "#{agency_postcode}\n"
+  supply_teachers_page.supplier_search.search.click
+  sleep 0.5 if @javascript
+end
+
+Then('I should see the following error message for the agency postcode {string}') do |error_message|
+  expect(supply_teachers_page.supplier_search.agency_postcode_error).to have_content(error_message)
 end
 
 Then('the listed agencies for agency results are:') do |raw_agency_name_and_branch|
@@ -261,7 +271,7 @@ Then('the agency has the following rates:') do |raw_rates|
     rate_row = rates_table.find('th', text: job_type).find(:xpath, '..')
 
     expect(rate_row.find(:xpath, './td[1]')).to have_content(rate[:one_week])
-    expect(rate_row.find(:xpath, './td[2]')).to have_content(rate[:twelve_weeks])
+    expect(rate_row.find(:xpath, './td[2]')).to have_content(rate[:twelve_weeks]) unless rate[:twelve_weeks].nil?
   end
 end
 

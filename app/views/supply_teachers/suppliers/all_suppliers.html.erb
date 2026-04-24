@@ -3,23 +3,62 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <%= form_with url: "/supply-teachers/#{params[:framework]}/all-suppliers/search", method: :post, html: { specialvalidation: true, remote: true } do |f| %>
-      <h1 class="govuk-heading-xl govuk-!-margin-bottom-3 cmp-page-heading">
-        <%= f.label :agency_name, t('.header'), class: 'govuk-label govuk-label--l' %>
-      </h1>
-    
-      <div id="agency-search-container">
-        <%= f.text_field :agency_name, class: 'govuk-input govuk-!-width-three-quarters govuk-!-margin-right-2', type: 'search', value: params[:agency_name], aria: { describedby: 'agency-search-hint' } %>
-        <%= govuk_button(t('.search'), form: f, classes: 'govuk-button--secondary') %>
-      </div>
-
-      <p class="govuk-body govuk-!-margin-bottom-8"><%= t('.results_found_with_location_html', results: @supplier_frameworks.total_count) %></p>
-    <% end %>
+    <h1 class="govuk-heading-xl">
+      <%= t('.header') %>
+    </h1>
+    <p class="govuk-body-l">
+      <%= t('.results_found_with_location_html', results: @supplier_frameworks.total_count) %>
+    </p>
   </div>
 </div>
 
 <div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-third">
+    <%= form_with model: @supplier_filter, url: "/supply-teachers/#{params[:framework]}/all-suppliers/search", method: :post, html: { specialvalidation: true, remote: true } do |f| %>
+      <div id="agency-search-container">
+        <div class="ccs-summary-box" id="agency-name">
+          <div class="ccs-summary-box__content">
+            <%= govuk_input(
+              :agency_name,
+              model: @supplier_filter,
+              label: {
+                text: t('.enter_agency_name.question'),
+                classes: 'govuk-label--m'
+              },
+              field_type: :search,
+              form_group: {
+                classes: 'govuk-!-margin-bottom-0'
+              }
+            ) %>
+          </div>
+        </div>
+
+        <div class="ccs-summary-box" id="agency-postcode">
+          <div class="ccs-summary-box__content">
+            <%= govuk_input(
+              :agency_postcode,
+              model: @supplier_filter,
+              label: {
+                text: t('.enter_agency_postcode.question'),
+                classes: 'govuk-label--m'
+              },
+              hint: {
+                text: t('.enter_agency_postcode.hint'),
+              },
+              field_type: :search,
+              form_group: {
+                classes: 'govuk-!-margin-bottom-0'
+              }
+            ) %>
+          </div>
+        </div>
+
+        <%= govuk_button(t('.search'), form: f, classes: 'govuk-button--secondary govuk-!-width-full') %>
+      </div>      
+    <% end %>
+  </div>
+
   <div class="govuk-grid-column-two-thirds" id="agency-table">
-    <%= render(partial: 'agencies_table', locals: { supplier_frameworks: @supplier_frameworks }) %>
+    <%= render(partial: 'agencies_table', locals: { supplier_frameworks_total: @supplier_frameworks_total, supplier_frameworks: @supplier_frameworks }) %>
   </div>
 </div>
