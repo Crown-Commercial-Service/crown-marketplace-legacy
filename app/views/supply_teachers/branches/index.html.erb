@@ -75,7 +75,8 @@
               </p>
               <p class="govuk-body">
                 <%= t(".do_next.#{params[:framework].downcase}.different_supplier") %>
-              </p> <% if params[:framework].downcase == 'rm6376' %>
+              </p>
+              <% if params[:framework] == 'RM6376' %>
                 <p class="govuk-body">
                   <%= t(".do_next.rm6376.results_markup") %>
                 </p>
