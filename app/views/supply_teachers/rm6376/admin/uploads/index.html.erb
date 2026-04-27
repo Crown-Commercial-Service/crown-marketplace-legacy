@@ -43,7 +43,7 @@
               text: format_date_time(@latest_upload.created_at),
             },
             {
-              text: link_to(t('.download'), admin_upload_file(@latest_upload, @latest_upload.send(file), :lpg, params[:framework].downcase), download: '')
+              text: link_to(t('.download'), admin_upload_file(@latest_upload, @latest_upload.send(file), :st, params[:framework].downcase), download: '')
             }
           ]
         end,
