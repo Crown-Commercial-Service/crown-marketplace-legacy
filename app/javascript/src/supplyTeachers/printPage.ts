@@ -5,6 +5,7 @@ const printPage = () => {
 const initPrintPage = () => {
   $('.ga-print-link').on('click', (event) => {
     event.preventDefault()
+
     printPage()
   })
 }
