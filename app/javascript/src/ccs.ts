@@ -9,6 +9,7 @@ import initReportProgress from './shared/reportProgress'
 import initSearchAllSuppliers from './supplyTeachers/searchAllSuppliers'
 import initSupplyTeachersAdminUpload from './supplyTeachers/adminUpload'
 import initSupplyTeachersSupplierMarkupCalculator from './supplyTeachers/supplierMarkupCalculator'
+import initPrintPage from "./supplyTeachers/printPage"
 
 const initAll = () => {
   initAdminUpload()
@@ -23,6 +24,8 @@ const initAll = () => {
   initSupplyTeachersAdminUpload()
   initSupplyTeachersSupplierMarkupCalculator()
   initSearchAllSuppliers()
+  initPrintPage()
 }
 
 export { initAll }
+

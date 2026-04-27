@@ -81,7 +81,7 @@
               <%= t('.mark_up_explanation') %>
             </p>
             <p class="govuk-body govuk-body-s supplier-record__print-option">
-              <%= link_to t('.print'), 'javascript:window.print()', class: 'govuk-link ga-print-link' %>
+              <%= link_to t('.print'), '#', class: 'govuk-link ga-print-link' %>
             </p>
             <p class="govuk-body govuk-body-s supplier-record__print-option">
               <%= link_to t('.download'), "/supply-teachers/#{params[:framework]}/branches?#{@journey.params.merge(format: :xlsx).to_query}", class: 'supplier-record__file-download ga-download-shortlist', aria: { label: t('.download_aria_label') } %>
