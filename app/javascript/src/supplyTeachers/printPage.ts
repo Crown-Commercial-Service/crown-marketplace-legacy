@@ -1,12 +1,12 @@
 const printPage = () => {
-    window.print()
+  window.print()
 }
 
 const initPrintPage = () => {
-    $(".ga-print-link").on("click", (event) => {
-        event.preventDefault()
-        printPage()
-    })
+  $('.ga-print-link').on('click', (event) => {
+    event.preventDefault()
+    printPage()
+  })
 }
 
 export default initPrintPage
