@@ -390,7 +390,6 @@ en:
             sign_once: You only need to sign the form once to use this agency for the duration of the framework (which runs until 4 July 2025).
           rm6376:
             different_supplier: If you use a different agency, you will need to sign another short order form.
-            results_markup: Results are sorted by mark-up from lowest to highest. Mark-up is the fee the agency charges on top of the charge for the worker. It includes things like overheads, the agencies’ profits and management charges.
             sign_form_html: sign the short order form (also available in the documents section of the %{framework_url} as ‘RM6376 Short order form.docx’)
             sign_once: You may choose to sign the order form for a longer period with the agency, rather than signing for an individual placement. In this, you would only sign an order form with this agency once for the period agreed, and then specific workers would be assigned under the terms of the same order form.
           short_order_form: short order form
