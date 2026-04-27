@@ -57,7 +57,7 @@
             text: t(".file_name.#{file}"),
           },
           {
-            text: link_to(t('.download'), admin_upload_file(@upload, @upload.send(file), :lpg, params[:framework].downcase), download: '')
+            text: link_to(t('.download'), admin_upload_file(@upload, @upload.send(file), :st, params[:framework].downcase), download: '')
           }
         ]
       end,
