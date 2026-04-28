@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [6.7.0] - 2026-04-28
+
 ### Added
 
 - Added links to more easily access and edit the framework status ([PR 2350](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2350))
