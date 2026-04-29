@@ -22,19 +22,13 @@ class Upload < ApplicationRecord
     raise error if error
   end
 
-  # rubocop:disable Metrics/PerceivedComplexity, Metrics/CyclomaticComplexity
+  # rubocop:disable Metrics/PerceivedComplexity
   def self.smart_upload!(framework, suppliers)
     error = all_or_none(framework) do
       Supplier::Framework.where(framework:).destroy_all
 
       suppliers.each do |supplier_data|
-        supplier = if supplier_data[:duns_number]
-                     Supplier.find_by(duns_number: supplier_data[:duns_number]) || Supplier.find_by(name: supplier_data[:name])
-                   elsif supplier_data.dig(:additional_details, :additional_identifier)
-                     Supplier.where("additional_details ->> 'additional_identifier' = ?", supplier_data.dig(:additional_details, :additional_identifier)).first
-                   elsif supplier_data[:id]
-                     Supplier.find_by(id: supplier_data[:id])
-                   end
+        supplier = find_supplier(framework, supplier_data)
 
         if supplier.present?
           supplier.update!(supplier_data.except(:id, :supplier_frameworks))
@@ -47,7 +41,6 @@ class Upload < ApplicationRecord
     end
     raise error if error
   end
-  # rubocop:enable Metrics/CyclomaticComplexity
 
   # rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/BlockLength
   def self.add_supplier_framework!(supplier, supplier_data)
@@ -127,5 +120,18 @@ class Upload < ApplicationRecord
     error = 'Upload already in progress, cannot do multiple uploads at the same time' unless lock_available
 
     error
+  end
+
+  def self.find_supplier(framework, supplier_data)
+    # Supply Teachers RM6238 does not have any IDs except for the name
+    if framework == 'RM6238'
+      Supplier.find_by(name: supplier_data[:name])
+    elsif supplier_data[:duns_number]
+      Supplier.find_by(duns_number: supplier_data[:duns_number]) || Supplier.find_by(name: supplier_data[:name])
+    elsif supplier_data.dig(:additional_details, :additional_identifier)
+      Supplier.where("additional_details ->> 'additional_identifier' = ?", supplier_data.dig(:additional_details, :additional_identifier)).first
+    elsif supplier_data[:id]
+      Supplier.find_by(id: supplier_data[:id])
+    end
   end
 end
