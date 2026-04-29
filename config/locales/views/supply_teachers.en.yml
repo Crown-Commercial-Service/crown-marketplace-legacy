@@ -306,8 +306,7 @@ en:
     branches:
       branch:
         branch: Branch
-        fee_or_markup:
-          rm6238: Supplier fee
+        fee_or_markup: Supplier fee
         miles: Miles
       daily_rate_calculator:
         calculator:
