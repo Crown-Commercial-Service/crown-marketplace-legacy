@@ -30,6 +30,10 @@ class MoveUploadsToNewModel < ActiveRecord::Migration[8.1]
   class STAdminUploads < ApplicationRecord
     self.table_name = 'supply_teachers_rm6238_admin_uploads'
 
+    def fail_reason
+      import_errors[0][:fail_reason] if import_errors.any?
+    end
+
     serialize :import_errors, type: Array, coder: YAML
   end
 
@@ -54,6 +58,23 @@ class MoveUploadsToNewModel < ActiveRecord::Migration[8.1]
     # rubocop:enable Rails/SkipsModelValidations
   end
 
+  def migrate_upload_supply_teachers(user, admin_upload)
+    import_errors = admin_upload.fail_reason.present? ? [{ fail_reason: admin_upload.fail_reason }] : []
+
+    new_admin_upload = AdminUploads.create!(
+      user_id: user.id,
+      framework_id: 'RM6238',
+      aasm_state: admin_upload.aasm_state,
+      import_errors: import_errors,
+      created_at: admin_upload.created_at,
+      updated_at: admin_upload.updated_at
+    )
+
+    # rubocop:disable Rails/SkipsModelValidations
+    ActiveStorage::Attachment.where(record_id: admin_upload.id, record_type: 'SupplyTeachers::Admin::Upload').update_all(record_id: new_admin_upload.id)
+    # rubocop:enable Rails/SkipsModelValidations
+  end
+
   def up
     ActiveRecord::Base.transaction do
       user = Users.find_by(email: 'timothy.south@crowncommercial.gov.uk')
@@ -69,7 +90,11 @@ class MoveUploadsToNewModel < ActiveRecord::Migration[8.1]
 
         model.find_in_batches do |group|
           group.each do |admin_upload|
-            migrate_upload(user, admin_upload, framework_id, record_type_prefix, is_supply_teachers)
+            if is_supply_teachers
+              migrate_upload_supply_teachers(user, admin_upload)
+            else
+              migrate_upload(user, admin_upload, framework_id, record_type_prefix, is_supply_teachers)
+            end
           end
         end
       end
