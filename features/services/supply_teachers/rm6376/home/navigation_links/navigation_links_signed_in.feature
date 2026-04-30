@@ -15,7 +15,7 @@ Feature: Supply Teachers - Navigation links when signed in
       | Back to start |
       | Sign out      |
     And I click on the header link '<header_link>'
-    Then I am on the 'Find supply teachers and agency workers' page
+    Then I am on the 'Supply Teachers and Education Recruitment' page
 
     Examples:
       | header_link   |
@@ -29,7 +29,7 @@ Feature: Supply Teachers - Navigation links when signed in
       | Back to start |
       | Sign out      |
     And I click on the header link '<header_link>'
-    Then I am on the 'Find supply teachers and agency workers' page
+    Then I am on the 'Supply Teachers and Education Recruitment' page
 
     Examples:
       | header_link   |
@@ -43,7 +43,7 @@ Feature: Supply Teachers - Navigation links when signed in
       | Back to start |
       | Sign out      |
     And I click on the header link '<header_link>'
-    Then I am on the 'Find supply teachers and agency workers' page
+    Then I am on the 'Supply Teachers and Education Recruitment' page
 
     Examples:
       | header_link   |
@@ -57,7 +57,7 @@ Feature: Supply Teachers - Navigation links when signed in
       | Back to start |
       | Sign out      |
     And I click on the header link '<header_link>'
-    Then I am on the 'Find supply teachers and agency workers' page
+    Then I am on the 'Supply Teachers and Education Recruitment' page
 
     Examples:
       | header_link   |
@@ -69,7 +69,7 @@ Feature: Supply Teachers - Navigation links when signed in
       | Back to start |
       | Sign out      |
     And I click on the header link '<header_link>'
-    Then I am on the 'Find supply teachers and agency workers' page
+    Then I am on the 'Supply Teachers and Education Recruitment' page
 
     Examples:
       | header_link   |

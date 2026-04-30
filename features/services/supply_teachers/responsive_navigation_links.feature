@@ -7,4 +7,4 @@ Feature: Supply Teachers - Headers are responsive
     Then I click on 'Menu'
     And the header navigation links 'are' visible
     Then I click on the header link 'Back to start'
-    And I am on the 'Find supply teachers and agency workers' page
+    And I am on the 'Supply Teachers and Education Recruitment' page

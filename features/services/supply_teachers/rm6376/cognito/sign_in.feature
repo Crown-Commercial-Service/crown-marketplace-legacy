@@ -2,9 +2,9 @@ Feature: Sign in to my account - Supply Teachers - RM6376
 
   Background: Navigate to the sign in page
     When I go to the 'supply teachers' start page for 'RM6376'
-    Then I am on the 'Find supply teachers and agency workers' page
+    Then I am on the 'Supply Teachers and Education Recruitment' page
     When I click on 'Start now'
-    Then I am on the 'Sign in to find supply teachers and agency workers' page
+    Then I am on the 'Sign in for Supply Teachers and Education Recruitment' page
     And I click on 'Sign in with CCS'
     And I am on the 'Sign in to your supply teachers account' page
 
@@ -62,4 +62,4 @@ Feature: Sign in to my account - Supply Teachers - RM6376
     And I click on 'Reset password'
     Then I am on the 'You have successfully changed your password' page
     And I click on the Sign in link
-    And I am on the 'Sign in to find supply teachers and agency workers' page
+    And I am on the 'Sign in for Supply Teachers and Education Recruitment' page

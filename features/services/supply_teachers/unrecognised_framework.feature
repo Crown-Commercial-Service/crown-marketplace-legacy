@@ -5,7 +5,7 @@ Feature: Supply Teachers - Start pages - With an unrecognised framework
     Then I am on the 'The web address contained an unrecognised framework' page
     And the unrecognised framework is 'RM007'
     And I click on '<framework>'
-    Then I am on the 'Find supply teachers and agency workers' page
+    Then I am on the 'Supply Teachers and Education Recruitment' page
     And the framework is '<framework>'
 
     Examples:
@@ -18,7 +18,7 @@ Feature: Supply Teachers - Start pages - With an unrecognised framework
     Then I am on the 'The web address contained an unrecognised framework' page
     And the unrecognised framework is 'RM0172'
     And I click on '<framework>'
-    Then I am on the 'Find supply teachers and agency workers' page
+    Then I am on the 'Supply Teachers and Education Recruitment' page
     And the framework is '<framework>'
 
     Examples:

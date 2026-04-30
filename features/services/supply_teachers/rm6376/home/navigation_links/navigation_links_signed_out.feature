@@ -16,7 +16,7 @@ Feature: Supply Teachers - Navigation links when signed out
 
   Scenario Outline: Sign in page
     And I click on 'Start now'
-    Then I am on the 'Sign in to find supply teachers and agency workers' page
+    Then I am on the 'Sign in for Supply Teachers and Education Recruitment' page
     And I should see the following navigation links:
       | Back to start |
       | Sign in       |
@@ -25,8 +25,8 @@ Feature: Supply Teachers - Navigation links when signed out
 
     Examples:
       | header_link   | page_title                                         |
-      | Back to start | Find supply teachers and agency workers            |
-      | Sign in       | Sign in to find supply teachers and agency workers |
+      | Back to start | Supply Teachers and Education Recruitment            |
+      | Sign in       | Sign in for Supply Teachers and Education Recruitment |
 
   Scenario Outline: Cookies policy
     When I click on 'Cookie policy'
@@ -39,8 +39,8 @@ Feature: Supply Teachers - Navigation links when signed out
 
     Examples:
       | header_link   | page_title                                         |
-      | Back to start | Find supply teachers and agency workers            |
-      | Sign in       | Sign in to find supply teachers and agency workers |
+      | Back to start | Supply Teachers and Education Recruitment            |
+      | Sign in       | Sign in for Supply Teachers and Education Recruitment |
 
   Scenario Outline: Cookies settings
     When I click on 'Cookie settings'
@@ -53,8 +53,8 @@ Feature: Supply Teachers - Navigation links when signed out
 
     Examples:
       | header_link   | page_title                                         |
-      | Back to start | Find supply teachers and agency workers            |
-      | Sign in       | Sign in to find supply teachers and agency workers |
+      | Back to start | Supply Teachers and Education Recruitment            |
+      | Sign in       | Sign in for Supply Teachers and Education Recruitment |
 
   Scenario Outline: Accessibility statement
     When I click on 'Accessibility statement'
@@ -67,5 +67,5 @@ Feature: Supply Teachers - Navigation links when signed out
 
     Examples:
       | header_link   | page_title                                         |
-      | Back to start | Find supply teachers and agency workers            |
-      | Sign in       | Sign in to find supply teachers and agency workers |
+      | Back to start | Supply Teachers and Education Recruitment            |
+      | Sign in       | Sign in for Supply Teachers and Education Recruitment |
