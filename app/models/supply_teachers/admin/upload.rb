@@ -3,6 +3,8 @@ module SupplyTeachers
     class Upload < ApplicationRecord
       include AASM
 
+      self.abstract_class = true
+
       self.table_name = 'admin_uploads'
 
       belongs_to :user, inverse_of: :admin_uploads
