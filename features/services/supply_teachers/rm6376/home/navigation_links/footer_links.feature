@@ -7,16 +7,16 @@ Feature: Supply Teachers - Footer links
     When I click on 'Cookie policy'
     Then I am on the 'Details about cookies on Crown Marketplace' page
     And I click on the header link 'Back to start'
-    And I am on the 'Find supply teachers and agency workers' page
+    And I am on the 'Supply Teachers and Education Recruitment' page
 
   Scenario: Cookies settings
     When I click on 'Cookie settings'
     Then I am on the 'Cookies on Crown Marketplace' page
     And I click on the header link 'Back to start'
-    And I am on the 'Find supply teachers and agency workers' page
+    And I am on the 'Supply Teachers and Education Recruitment' page
 
   Scenario: Accessibility statement
     When I click on 'Accessibility statement'
     Then I am on the 'Supply Teachers (ST) Accessibility statement' page
     And I click on the header link 'Back to start'
-    And I am on the 'Find supply teachers and agency workers' page
+    And I am on the 'Supply Teachers and Education Recruitment' page

@@ -2,9 +2,9 @@ Feature: Forgot my password - Supply Teachers - RM6376 - Validations
 
   Background: Navigate to forgot password
     When I go to the 'supply teachers' start page for 'RM6376'
-    Then I am on the 'Find supply teachers and agency workers' page
+    Then I am on the 'Supply Teachers and Education Recruitment' page
     When I click on 'Start now'
-    Then I am on the 'Sign in to find supply teachers and agency workers' page
+    Then I am on the 'Sign in for Supply Teachers and Education Recruitment' page
     And I click on 'Sign in with CCS'
     And I am on the 'Sign in to your supply teachers account' page
     When I click on 'I’ve forgotten my password'

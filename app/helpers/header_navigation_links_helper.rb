@@ -8,7 +8,7 @@ module HeaderNavigationLinksHelper
     when 'management_consultancy'
       t('home.index.management_consultancy_link')
     when 'supply_teachers'
-      t('home.index.supply_teachers_link')
+      t("home.index.supply_teachers_link.#{params[:framework].downcase}")
     else
       t('home.index.admin')
     end

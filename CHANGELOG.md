@@ -20,6 +20,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add additional information for Supply Teachers ([PR 2402](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2402))
 - Add admin upload section for Supply Teachers ([PR 2404](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2404))
 - Add the supplier search for buyers ([PR 2405](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2405))
+- Update the Supply Teachers RM6376 name ([PR 2420](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2420))
 
 ### Changed
 
