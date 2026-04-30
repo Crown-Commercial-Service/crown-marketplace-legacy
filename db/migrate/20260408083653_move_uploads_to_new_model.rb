@@ -31,7 +31,7 @@ class MoveUploadsToNewModel < ActiveRecord::Migration[8.1]
     self.table_name = 'supply_teachers_rm6238_admin_uploads'
 
     def fail_reason
-      import_errors[0][:fail_reason] if import_errors.any?
+      import_errors[0][:fail_reason] if import_errors&.any?
     end
 
     serialize :import_errors, type: Array, coder: YAML
