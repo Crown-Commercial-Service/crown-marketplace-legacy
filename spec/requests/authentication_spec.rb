@@ -68,7 +68,7 @@ RSpec.feature 'Authentication' do
     click_on 'Sign in with DfE Sign-in'
 
     expect(page).to have_no_text('Not permitted')
-    expect(page).to have_text('Find supply teachers')
+    expect(page).to have_text('Supply Teachers')
   end
 
   scenario 'Users signed in using DfE sign-in can sign out', :dfe do

@@ -5,8 +5,12 @@ RSpec.describe HeaderNavigationLinksHelper do
 
   describe '#service_name_text' do
     let(:result) { helper.service_name_text }
+    let(:framework) { nil }
 
-    before { helper.params[:service] = service }
+    before do
+      helper.params[:service] = service
+      helper.params[:framework] = framework
+    end
 
     context 'when the service is legal_services' do
       let(:service) { 'legal_services' }
@@ -59,8 +63,20 @@ RSpec.describe HeaderNavigationLinksHelper do
     context 'when the service is supply_teachers' do
       let(:service) { 'supply_teachers' }
 
-      it 'returns Find supply teachers and agency workers' do
-        expect(result).to eq('Find supply teachers and agency workers')
+      context 'and the framework is RM6238' do
+        let(:framework) { 'RM6238' }
+
+        it 'returns Find supply teachers and agency workers' do
+          expect(result).to eq('Find supply teachers and agency workers')
+        end
+      end
+
+      context 'and the framework is RM6376' do
+        let(:framework) { 'RM6376' }
+
+        it 'returns Supply Teachers and Education Recruitment' do
+          expect(result).to eq('Supply Teachers and Education Recruitment')
+        end
       end
     end
 
