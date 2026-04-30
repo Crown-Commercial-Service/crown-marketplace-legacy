@@ -22,13 +22,7 @@ module SupplyTeachers
 
         upload.publish!
       rescue ActiveRecord::RecordInvalid => e
-        summary = {
-          record: e.record,
-          record_class: e.record.class.to_s,
-          errors: e.record.errors
-        }
-
-        fail_upload(admin_upload_module.find(upload_id), summary)
+        fail_upload(admin_upload_module.find(upload_id), e.record.errors.messages.values.flatten.first)
       end
       # rubocop:enable Metrics/AbcSize
 
