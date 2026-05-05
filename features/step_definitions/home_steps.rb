@@ -50,7 +50,7 @@ Then('I should see the following navigation links:') do |navigation_links|
   expect(navigation_elements.length).to eq(navigation_links.raw.flatten.length)
 
   navigation_elements.zip(navigation_links.raw.flatten).each do |actual, expected|
-    expect(actual).to have_content expected
+    expect(actual).to have_text expected
   end
 end
 
