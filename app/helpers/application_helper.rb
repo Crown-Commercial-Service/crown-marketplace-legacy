@@ -86,7 +86,7 @@ module ApplicationHelper
   end
 
   def supply_teachers_accessibility_statement_links
-    ['sign-in', 'forgot-password', 'fixed-term-results', 'master-vendors', 'temp-to-perm-calculator?looking_for=calculate_temp_to_perm_fee', 'branches/3d-recruit'].map { |link| "https://marketplace.service.#{current_organisation_domain}.gov.uk/supply-teachers/#{link}" }
+    ['sign-in', 'forgot-password', 'fixed-term-results', 'master-vendors', 'temp-to-perm-calculator?looking_for=calculate_temp_to_perm_fee', 'branches/3d-recruit'].map { |link| "https://marketplace.service.gca.gov.uk/supply-teachers/#{link}" }
   end
 
   def link_to_public_file_for_download(filename, file_type, text, show_doc_image, **)
@@ -282,7 +282,5 @@ module ApplicationHelper
       govuk_breadcrumbs(breadcrumbs)
     end
   end
-
-  delegate :current_organisation_name, :current_organisation_name_abbr, :current_organisation_domain, to: :CurrentOrganisation
 end
 # rubocop:enable Metrics/ModuleLength

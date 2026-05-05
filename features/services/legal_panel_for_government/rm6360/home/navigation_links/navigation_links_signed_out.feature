@@ -29,7 +29,7 @@ Feature: Legal Panel for Government - Navigation links when signed out
     Examples:
       | header_link       | page_title                                         |
       | Back to start     | Find legal services for government                 |
-      | Create an account | Create a CCS account                               |
+      | Create an account | Create a GCA account                               |
       | Sign in           | Sign in to your legal panel for government account |
 
   Scenario Outline: Cookies policy
@@ -45,7 +45,7 @@ Feature: Legal Panel for Government - Navigation links when signed out
     Examples:
       | header_link       | page_title                                         |
       | Back to start     | Find legal services for government                 |
-      | Create an account | Create a CCS account                               |
+      | Create an account | Create a GCA account                               |
       | Sign in           | Sign in to your legal panel for government account |
 
   Scenario Outline: Cookies settings
@@ -61,7 +61,7 @@ Feature: Legal Panel for Government - Navigation links when signed out
     Examples:
       | header_link       | page_title                                         |
       | Back to start     | Find legal services for government                 |
-      | Create an account | Create a CCS account                               |
+      | Create an account | Create a GCA account                               |
       | Sign in           | Sign in to your legal panel for government account |
 
   Scenario Outline: Accessibility statement
@@ -77,5 +77,5 @@ Feature: Legal Panel for Government - Navigation links when signed out
     Examples:
       | header_link       | page_title                                         |
       | Back to start     | Find legal services for government                 |
-      | Create an account | Create a CCS account                               |
+      | Create an account | Create a GCA account                               |
       | Sign in           | Sign in to your legal panel for government account |

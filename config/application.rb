@@ -78,11 +78,11 @@ module Marketplace
   end
 
   def self.feedback_email_address
-    "info@#{CurrentOrganisation.current_organisation_domain}.gov.uk"
+    'info@gca.gov.uk'
   end
 
   def self.support_form_link
-    "https://www.#{CurrentOrganisation.current_organisation_domain}.gov.uk/contact"
+    'https://www.gca.gov.uk/contact'
   end
 
   def self.st_survey_link
@@ -106,11 +106,11 @@ module Marketplace
   end
 
   def self.ccs_homepage_url
-    "https://www.#{CurrentOrganisation.current_organisation_domain}.gov.uk/"
+    'https://www.gca.gov.uk/'
   end
 
   def self.service_information_doc
-    "https://assets.#{CurrentOrganisation.current_organisation_domain}.gov.uk/wp-content/uploads/Framework-Schedule-1-Specification-v1.0-1.docx"
+    'https://assets.gca.gov.uk/wp-content/uploads/Framework-Schedule-1-Specification-v1.0-1.docx'
   end
 
   # :nocov:
@@ -178,7 +178,7 @@ module Marketplace
   end
 
   def self.rails_env_url
-    @rails_env_url ||= ENV.fetch('RAILS_ENV_URL', "https://marketplace.service.#{CurrentOrganisation.current_organisation_domain}.gov.uk")
+    @rails_env_url ||= ENV.fetch('RAILS_ENV_URL', 'https://marketplace.service.gca.gov.uk')
   end
 
   def self.environment_name

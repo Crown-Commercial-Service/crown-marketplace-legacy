@@ -6,6 +6,6 @@ Feature: Sign up to legal services - RM6360 - Accessibility
     Then I am on the 'Find legal services for government' page
     When I click on 'Start now'
     And I am on the 'Sign in to your legal panel for government account' page
-    And I click on 'Create a CCS account'
-    Then I am on the 'Create a CCS account' page
+    And I click on 'Create a GCA account'
+    Then I am on the 'Create a GCA account' page
     Then the page should pass the accessibility checks
