@@ -21,7 +21,7 @@ Feature: Supply Teachers - Agency results - Fixed term - Results by location
     And I click on 'Continue'
     Then I am on the 'What is your school’s postcode?' page
 
-@geocode_london
+  @geocode_london
   Scenario: London postcode results
     And I enter 'SW1A 1AA' for the 'postcode'
     And I click on 'Continue'
@@ -120,7 +120,7 @@ Feature: Supply Teachers - Agency results - Fixed term - Results by location
       | Postcode: SW1A 1AA              |
       | Search distance: 50 miles       |
 
-@geocode_liverpool
+  @geocode_liverpool
   Scenario: Liverpool postcode results
     And I enter 'L3 9PP' for the 'postcode'
     And I click on 'Continue'
@@ -194,7 +194,7 @@ Feature: Supply Teachers - Agency results - Fixed term - Results by location
       | Postcode: L3 9PP                |
       | Search distance: 10 miles       |
 
-@geocode_birmingham
+  @geocode_birmingham
   Scenario: Birmingham postcode results
     And I enter 'B6 6HE' for the 'postcode'
     And I click on 'Continue'

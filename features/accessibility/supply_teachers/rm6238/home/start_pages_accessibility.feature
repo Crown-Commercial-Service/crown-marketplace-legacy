@@ -18,7 +18,7 @@ Feature: Supply Teachers - Start pages accessibility
     Then I am on the 'Find supply teachers and agency workers' page
     When I click on 'Start now'
     Then I am on the 'Sign in to find supply teachers and agency workers' page
-    Then I click on 'Sign in with CCS'
+    Then I click on 'Sign in with GCA'
     Then the page should pass the accessibility checks
 
   Scenario: Start page

@@ -29,7 +29,7 @@ Feature: Legal Services - Navigation links when signed out
     Examples:
       | header_link       | page_title                                      |
       | Back to start     | Find legal services for the wider public sector |
-      | Create an account | Create a CCS account                            |
+      | Create an account | Create a GCA account                            |
       | Sign in           | Sign in to your legal services account          |
 
   Scenario Outline: Cookies policy
@@ -45,7 +45,7 @@ Feature: Legal Services - Navigation links when signed out
     Examples:
       | header_link       | page_title                                      |
       | Back to start     | Find legal services for the wider public sector |
-      | Create an account | Create a CCS account                            |
+      | Create an account | Create a GCA account                            |
       | Sign in           | Sign in to your legal services account          |
 
   Scenario Outline: Cookies settings
@@ -61,7 +61,7 @@ Feature: Legal Services - Navigation links when signed out
     Examples:
       | header_link       | page_title                                      |
       | Back to start     | Find legal services for the wider public sector |
-      | Create an account | Create a CCS account                            |
+      | Create an account | Create a GCA account                            |
       | Sign in           | Sign in to your legal services account          |
 
   Scenario Outline: Accessibility statement
@@ -77,5 +77,5 @@ Feature: Legal Services - Navigation links when signed out
     Examples:
       | header_link       | page_title                                      |
       | Back to start     | Find legal services for the wider public sector |
-      | Create an account | Create a CCS account                            |
+      | Create an account | Create a GCA account                            |
       | Sign in           | Sign in to your legal services account          |
