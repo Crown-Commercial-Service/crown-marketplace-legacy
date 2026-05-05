@@ -5,7 +5,7 @@ Feature: Sign in to my account - Supply Teachers - RM6238 - Validations
     Then I am on the 'Find supply teachers and agency workers' page
     When I click on 'Start now'
     Then I am on the 'Sign in to find supply teachers and agency workers' page
-    And I click on 'Sign in with CCS'
+    And I click on 'Sign in with GCA'
     And I am on the 'Sign in to your supply teachers account' page
 
   Scenario: I sign in to my account - missing parameters

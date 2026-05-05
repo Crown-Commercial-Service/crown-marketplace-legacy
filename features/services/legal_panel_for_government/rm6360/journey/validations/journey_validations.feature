@@ -21,7 +21,7 @@ Feature: Legal Panel for Government - Jounrey validations
       | Enter the intended end date, including the month and year                         |
       | The estimated total value must be a whole number greater than 0                   |
       | You must select an option                                                         |
-      | You must select an option for the probability of awarding through a CCS framework |
+      | You must select an option for the probability of awarding through a GCA framework |
       | You must select an option                                                         |
 
   Scenario Outline: Information about your requirements start date validations

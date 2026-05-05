@@ -6,6 +6,6 @@ Feature: Sign up to management consultancy - RM6309 - Accessibility
     Then I am on the 'Find management consultants' page
     When I click on 'Start now'
     And I am on the 'Sign in to your management consultancy account' page
-    And I click on 'Create a CCS account'
-    Then I am on the 'Create a CCS account' page
+    And I click on 'Create a GCA account'
+    Then I am on the 'Create a GCA account' page
     Then the page should pass the accessibility checks

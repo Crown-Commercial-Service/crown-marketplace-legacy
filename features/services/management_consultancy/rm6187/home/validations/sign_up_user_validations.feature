@@ -6,8 +6,8 @@ Feature: Management Consultancy - Sign up user
     And I am on the 'Find management consultants' page
     When I click on 'Start now'
     Then I am on the 'Sign in to your management consultancy account' page
-    And I click on 'Create a CCS account'
-    Then I am on the 'Create a CCS account' page
+    And I click on 'Create a GCA account'
+    Then I am on the 'Create a GCA account' page
 
   Scenario: Email validations
     Given I enter '<email>' for my email

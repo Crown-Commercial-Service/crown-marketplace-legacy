@@ -24,8 +24,8 @@ Feature: Supply Teachers - Navigation links when signed out
     Then I am on the '<page_title>' page
 
     Examples:
-      | header_link   | page_title                                         |
-      | Back to start | Supply Teachers and Education Recruitment            |
+      | header_link   | page_title                                            |
+      | Back to start | Supply Teachers and Education Recruitment             |
       | Sign in       | Sign in for Supply Teachers and Education Recruitment |
 
   Scenario Outline: Cookies policy
@@ -38,8 +38,8 @@ Feature: Supply Teachers - Navigation links when signed out
     Then I am on the '<page_title>' page
 
     Examples:
-      | header_link   | page_title                                         |
-      | Back to start | Supply Teachers and Education Recruitment            |
+      | header_link   | page_title                                            |
+      | Back to start | Supply Teachers and Education Recruitment             |
       | Sign in       | Sign in for Supply Teachers and Education Recruitment |
 
   Scenario Outline: Cookies settings
@@ -52,8 +52,8 @@ Feature: Supply Teachers - Navigation links when signed out
     Then I am on the '<page_title>' page
 
     Examples:
-      | header_link   | page_title                                         |
-      | Back to start | Supply Teachers and Education Recruitment            |
+      | header_link   | page_title                                            |
+      | Back to start | Supply Teachers and Education Recruitment             |
       | Sign in       | Sign in for Supply Teachers and Education Recruitment |
 
   Scenario Outline: Accessibility statement
@@ -66,6 +66,6 @@ Feature: Supply Teachers - Navigation links when signed out
     Then I am on the '<page_title>' page
 
     Examples:
-      | header_link   | page_title                                         |
-      | Back to start | Supply Teachers and Education Recruitment            |
+      | header_link   | page_title                                            |
+      | Back to start | Supply Teachers and Education Recruitment             |
       | Sign in       | Sign in for Supply Teachers and Education Recruitment |

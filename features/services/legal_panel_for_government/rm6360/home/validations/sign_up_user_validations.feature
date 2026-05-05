@@ -6,8 +6,8 @@ Feature: Legal Panel for Government - Sign up user
     And I am on the 'Find legal services for government' page
     When I click on 'Start now'
     Then I am on the 'Sign in to your legal panel for government account' page
-    And I click on 'Create a CCS account'
-    Then I am on the 'Create a CCS account' page
+    And I click on 'Create a GCA account'
+    Then I am on the 'Create a GCA account' page
 
   Scenario: Email validations
     Given I enter '<email>' for my email

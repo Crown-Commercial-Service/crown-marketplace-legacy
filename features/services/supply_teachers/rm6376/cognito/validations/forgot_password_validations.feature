@@ -5,7 +5,7 @@ Feature: Forgot my password - Supply Teachers - RM6376 - Validations
     Then I am on the 'Supply Teachers and Education Recruitment' page
     When I click on 'Start now'
     Then I am on the 'Sign in for Supply Teachers and Education Recruitment' page
-    And I click on 'Sign in with CCS'
+    And I click on 'Sign in with GCA'
     And I am on the 'Sign in to your supply teachers account' page
     When I click on 'I’ve forgotten my password'
     Then I am on the 'Reset password' page

@@ -25,7 +25,7 @@ Feature: Supply Teachers - Agency results - Fixed term - Daily rate
     And I click on 'Continue'
     Then I am on the 'Agency results' page
 
-Scenario Outline: Using the calculator for ROHAN LLC
+  Scenario Outline: Using the calculator for ROHAN LLC
     Then for the agency 'ROHAN LLC' I should see '£1,542.92' for the 'finders fee'
     And I enter the rate '<annual_salary>' for the supplier 'ROHAN LLC'
     Then for the agency 'ROHAN LLC' I should see '<finders_fee>' for the 'finders fee'
