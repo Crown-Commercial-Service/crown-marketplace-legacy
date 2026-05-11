@@ -413,4 +413,577 @@ RSpec.describe Supplier::Framework::Lot::Branch do
       end
     end
   end
+
+  # rubocop:disable RSpec/NestedGroups
+  describe 'validations' do
+    before do
+      supplier_framework_lot_branch.assign_attributes(attributes)
+
+      Geocoder::Lookup::Test.add_stub(
+        postcode, [{ 'coordinates' => [51.5201, -0.0759] }],
+      )
+      Geocoder::Lookup::Test.add_stub(
+        'SW1 1AA', [{ 'coordinates' => [51.5201, -0.0759] }],
+      )
+    end
+
+    after do
+      Geocoder::Lookup::Test.reset
+    end
+
+    let(:attributes) { { name:, region:, contact_name:, contact_email:, telephone_number:, address_line_1:, address_line_2:, town:, county:, postcode: } }
+
+    let(:name) { Faker::Name.unique.name }
+    let(:region) { Faker::Address.state }
+    let(:contact_name) { Faker::Name.unique.name }
+    let(:contact_email) { Faker::Internet.unique.email }
+    let(:telephone_number) { '07700 900000' }
+    let(:address_line_1) { Faker::Address.street_address }
+    let(:address_line_2) { Faker::Address.secondary_address }
+    let(:town) { Faker::Address.city }
+    let(:county) { Faker::Address.state }
+    let(:postcode) { Faker::Address.unique.postcode }
+
+    context 'when considering the name' do
+      context 'and it is nil' do
+        let(:name) { nil }
+
+        it 'is invalid and has the correct error message' do
+          expect(supplier_framework_lot_branch.valid?(:branches)).to be(false)
+          expect(supplier_framework_lot_branch.errors[:name].first).to eq('The branch name cannot be blank')
+        end
+      end
+
+      context 'and it is blank' do
+        let(:name) { '' }
+
+        it 'is invalid and has the correct error message' do
+          expect(supplier_framework_lot_branch.valid?(:branches)).to be(false)
+          expect(supplier_framework_lot_branch.errors[:name].first).to eq('The branch name cannot be blank')
+        end
+      end
+
+      context 'and it is too long' do
+        let(:name) { 'a' * 256 }
+
+        it 'is invalid and has the correct error message' do
+          expect(supplier_framework_lot_branch.valid?(:branches)).to be(false)
+          expect(supplier_framework_lot_branch.errors[:name].first).to eq('The branch name must be no more than 255 characters')
+        end
+      end
+
+      context 'and it is present' do
+        context 'and it has excess white space' do
+          let(:name) { '     I am the name     ' }
+
+          it 'is valid and removes the excess white space' do
+            expect(supplier_framework_lot_branch).to be_valid(:branches)
+            expect(supplier_framework_lot_branch.name).to eq('I am the name')
+          end
+        end
+
+        it 'is valid' do
+          expect(supplier_framework_lot_branch).to be_valid(:branches)
+        end
+      end
+    end
+
+    context 'when considering the region' do
+      context 'and it is nil' do
+        let(:region) { nil }
+
+        it 'is invalid and has the correct error message' do
+          expect(supplier_framework_lot_branch.valid?(:branches)).to be(false)
+          expect(supplier_framework_lot_branch.errors[:region].first).to eq('The branch region cannot be blank')
+        end
+      end
+
+      context 'and it is blank' do
+        let(:region) { '' }
+
+        it 'is invalid and has the correct error message' do
+          expect(supplier_framework_lot_branch.valid?(:branches)).to be(false)
+          expect(supplier_framework_lot_branch.errors[:region].first).to eq('The branch region cannot be blank')
+        end
+      end
+
+      context 'and it is too long' do
+        let(:region) { 'a' * 256 }
+
+        it 'is invalid and has the correct error message' do
+          expect(supplier_framework_lot_branch.valid?(:branches)).to be(false)
+          expect(supplier_framework_lot_branch.errors[:region].first).to eq('The branch region must be no more than 255 characters')
+        end
+      end
+
+      context 'and it is present' do
+        context 'and it has excess white space' do
+          let(:region) { '     I am the region     ' }
+
+          it 'is valid and removes the excess white space' do
+            expect(supplier_framework_lot_branch).to be_valid(:branches)
+            expect(supplier_framework_lot_branch.region).to eq('I am the region')
+          end
+        end
+
+        it 'is valid' do
+          expect(supplier_framework_lot_branch).to be_valid(:branches)
+        end
+      end
+    end
+
+    context 'when considering the contact name' do
+      context 'and it is nil' do
+        let(:contact_name) { nil }
+
+        it 'is invalid and has the correct error message' do
+          expect(supplier_framework_lot_branch.valid?(:branches)).to be(false)
+          expect(supplier_framework_lot_branch.errors[:contact_name].first).to eq('The contact name cannot be blank')
+        end
+      end
+
+      context 'and it is blank' do
+        let(:contact_name) { '' }
+
+        it 'is invalid and has the correct error message' do
+          expect(supplier_framework_lot_branch.valid?(:branches)).to be(false)
+          expect(supplier_framework_lot_branch.errors[:contact_name].first).to eq('The contact name cannot be blank')
+        end
+      end
+
+      context 'and it is too long' do
+        let(:contact_name) { 'a' * 256 }
+
+        it 'is invalid and has the correct error message' do
+          expect(supplier_framework_lot_branch.valid?(:branches)).to be(false)
+          expect(supplier_framework_lot_branch.errors[:contact_name].first).to eq('The contact name must be no more than 255 characters')
+        end
+      end
+
+      context 'and it is present' do
+        context 'and it has excess white space' do
+          let(:contact_name) { '     I am the contact name     ' }
+
+          it 'is valid and removes the excess white space' do
+            expect(supplier_framework_lot_branch).to be_valid(:branches)
+            expect(supplier_framework_lot_branch.contact_name).to eq('I am the contact name')
+          end
+        end
+
+        it 'is valid' do
+          expect(supplier_framework_lot_branch).to be_valid(:branches)
+        end
+      end
+    end
+
+    context 'when considering the contact email' do
+      context 'and it is nil' do
+        let(:contact_email) { nil }
+
+        it 'is invalid and has the correct error message' do
+          expect(supplier_framework_lot_branch.valid?(:branches)).to be(false)
+          expect(supplier_framework_lot_branch.errors[:contact_email].first).to eq('Enter the contact email in the correct format, like name@example.com')
+        end
+      end
+
+      context 'and it is blank' do
+        let(:contact_email) { '' }
+
+        it 'is invalid and has the correct error message' do
+          expect(supplier_framework_lot_branch.valid?(:branches)).to be(false)
+          expect(supplier_framework_lot_branch.errors[:contact_email].first).to eq('Enter the contact email in the correct format, like name@example.com')
+        end
+      end
+
+      context 'and it is too long' do
+        let(:contact_email) { "a@#{'a' * 254}.com" }
+
+        it 'is invalid and has the correct error message' do
+          expect(supplier_framework_lot_branch.valid?(:branches)).to be(false)
+          expect(supplier_framework_lot_branch.errors[:contact_email].first).to eq('The contact email must be no more than 255 characters')
+        end
+      end
+
+      context 'and it is not an email' do
+        let(:contact_email) { 'a.com' }
+
+        it 'is invalid and has the correct error message' do
+          expect(supplier_framework_lot_branch.valid?(:branches)).to be(false)
+          expect(supplier_framework_lot_branch.errors[:contact_email].first).to eq('Enter the contact email in the correct format, like name@example.com')
+        end
+      end
+
+      context 'and it is present' do
+        context 'and it has uppercase characters' do
+          let(:contact_email) { 'Test@Test.com' }
+
+          it 'is valid and it makes the email lower case' do
+            expect(supplier_framework_lot_branch).to be_valid(:branches)
+            expect(supplier_framework_lot_branch.contact_email).to eq('test@test.com')
+          end
+        end
+
+        context 'and it has spaces' do
+          let(:contact_email) { '   test@test.com   ' }
+
+          it 'is valid and removes the excess white space' do
+            expect(supplier_framework_lot_branch).to be_valid(:branches)
+            expect(supplier_framework_lot_branch.contact_email).to eq('test@test.com')
+          end
+        end
+
+        it 'is valid' do
+          expect(supplier_framework_lot_branch).to be_valid(:branches)
+        end
+      end
+    end
+
+    context 'when considering the telephone number' do
+      context 'and it is nil' do
+        let(:telephone_number) { nil }
+
+        it 'is invalid and has the correct error message' do
+          expect(supplier_framework_lot_branch.valid?(:branches)).to be(false)
+          expect(supplier_framework_lot_branch.errors[:telephone_number].first).to eq('Enter the phone number in the correct format, like 07700 900000')
+        end
+      end
+
+      context 'and it is blank' do
+        let(:telephone_number) { '' }
+
+        it 'is invalid and has the correct error message' do
+          expect(supplier_framework_lot_branch.valid?(:branches)).to be(false)
+          expect(supplier_framework_lot_branch.errors[:telephone_number].first).to eq('Enter the phone number in the correct format, like 07700 900000')
+        end
+      end
+
+      context 'and it is too short' do
+        let(:telephone_number) { '1' * 10 }
+
+        it 'is invalid and has the correct error message' do
+          expect(supplier_framework_lot_branch.valid?(:branches)).to be(false)
+          expect(supplier_framework_lot_branch.errors[:telephone_number].first).to eq('Enter the phone number in the correct format, like 07700 900000')
+        end
+      end
+
+      context 'and it is too long' do
+        let(:telephone_number) { '1' * 16 }
+
+        it 'is invalid and has the correct error message' do
+          expect(supplier_framework_lot_branch.valid?(:branches)).to be(false)
+          expect(supplier_framework_lot_branch.errors[:telephone_number].first).to eq('Enter the phone number in the correct format, like 07700 900000')
+        end
+      end
+
+      context 'and it is not a telephonenumber' do
+        let(:telephone_number) { 'I am not a telephone number' }
+
+        it 'is invalid and has the correct error message' do
+          expect(supplier_framework_lot_branch.valid?(:branches)).to be(false)
+          expect(supplier_framework_lot_branch.errors[:telephone_number].first).to eq('Enter the phone number in the correct format, like 07700 900000')
+        end
+      end
+
+      context 'and it is present' do
+        context 'and it has spaces' do
+          let(:telephone_number) { '   07123456789   ' }
+
+          it 'is valid and removes the excess white space' do
+            expect(supplier_framework_lot_branch).to be_valid(:branches)
+            expect(supplier_framework_lot_branch.telephone_number).to eq('07123456789')
+          end
+        end
+
+        context 'and it is in the format with 1 space' do
+          let(:telephone_number) { '01632 960000' }
+
+          it 'is valid and removes the excess white space' do
+            expect(supplier_framework_lot_branch).to be_valid(:branches)
+            expect(supplier_framework_lot_branch.telephone_number).to eq('01632 960000')
+          end
+        end
+
+        context 'and it is in the format with 2 spaces' do
+          let(:telephone_number) { '020 7946 0000' }
+
+          it 'is valid and removes the excess white space' do
+            expect(supplier_framework_lot_branch).to be_valid(:branches)
+            expect(supplier_framework_lot_branch.telephone_number).to eq('020 7946 0000')
+          end
+        end
+
+        it 'is valid' do
+          expect(supplier_framework_lot_branch).to be_valid(:branches)
+        end
+      end
+    end
+
+    context 'when considering the address line 1' do
+      context 'and it is nil' do
+        let(:address_line_1) { nil }
+
+        it 'is invalid and has the correct error message' do
+          expect(supplier_framework_lot_branch.valid?(:branches)).to be(false)
+          expect(supplier_framework_lot_branch.errors[:address_line_1].first).to eq('Address line 1 cannot be blank')
+        end
+      end
+
+      context 'and it is blank' do
+        let(:address_line_1) { '' }
+
+        it 'is invalid and has the correct error message' do
+          expect(supplier_framework_lot_branch.valid?(:branches)).to be(false)
+          expect(supplier_framework_lot_branch.errors[:address_line_1].first).to eq('Address line 1 cannot be blank')
+        end
+      end
+
+      context 'and it is too long' do
+        let(:address_line_1) { 'a' * 256 }
+
+        it 'is invalid and has the correct error message' do
+          expect(supplier_framework_lot_branch.valid?(:branches)).to be(false)
+          expect(supplier_framework_lot_branch.errors[:address_line_1].first).to eq('Address line 1 must be no more than 255 characters')
+        end
+      end
+
+      context 'and it is present' do
+        context 'and it has excess white space' do
+          let(:address_line_1) { '     I am the address line 1     ' }
+
+          it 'is valid and removes the excess white space' do
+            expect(supplier_framework_lot_branch).to be_valid(:branches)
+            expect(supplier_framework_lot_branch.address_line_1).to eq('I am the address line 1')
+          end
+        end
+
+        it 'is valid' do
+          expect(supplier_framework_lot_branch).to be_valid(:branches)
+        end
+      end
+    end
+
+    context 'when considering the address line 2' do
+      context 'and it is too long' do
+        let(:address_line_2) { 'a' * 256 }
+
+        it 'is invalid and has the correct error message' do
+          expect(supplier_framework_lot_branch.valid?(:branches)).to be(false)
+          expect(supplier_framework_lot_branch.errors[:address_line_2].first).to eq('Address line 2 must be no more than 255 characters')
+        end
+      end
+
+      context 'and it is present' do
+        context 'and it is nil' do
+          let(:address_line_2) { nil }
+
+          it 'is valid' do
+            expect(supplier_framework_lot_branch).to be_valid(:branches)
+          end
+        end
+
+        context 'and it is blank' do
+          let(:address_line_2) { '' }
+
+          it 'is valid' do
+            expect(supplier_framework_lot_branch).to be_valid(:branches)
+          end
+        end
+
+        context 'and it has excess white space' do
+          let(:address_line_2) { '     I am address line 2     ' }
+
+          it 'is valid and removes the excess white space' do
+            expect(supplier_framework_lot_branch).to be_valid(:branches)
+            expect(supplier_framework_lot_branch.address_line_2).to eq('I am address line 2')
+          end
+        end
+
+        it 'is valid' do
+          expect(supplier_framework_lot_branch).to be_valid(:branches)
+        end
+      end
+    end
+
+    context 'when considering the town' do
+      context 'and it is nil' do
+        let(:town) { nil }
+
+        it 'is invalid and has the correct error message' do
+          expect(supplier_framework_lot_branch.valid?(:branches)).to be(false)
+          expect(supplier_framework_lot_branch.errors[:town].first).to eq('The town cannot be blank')
+        end
+      end
+
+      context 'and it is blank' do
+        let(:town) { '' }
+
+        it 'is invalid and has the correct error message' do
+          expect(supplier_framework_lot_branch.valid?(:branches)).to be(false)
+          expect(supplier_framework_lot_branch.errors[:town].first).to eq('The town cannot be blank')
+        end
+      end
+
+      context 'and it is too long' do
+        let(:town) { 'a' * 256 }
+
+        it 'is invalid and has the correct error message' do
+          expect(supplier_framework_lot_branch.valid?(:branches)).to be(false)
+          expect(supplier_framework_lot_branch.errors[:town].first).to eq('The town must be no more than 255 characters')
+        end
+      end
+
+      context 'and it is present' do
+        context 'and it has excess white space' do
+          let(:town) { '     I am the town     ' }
+
+          it 'is valid and removes the excess white space' do
+            expect(supplier_framework_lot_branch).to be_valid(:branches)
+            expect(supplier_framework_lot_branch.town).to eq('I am the town')
+          end
+        end
+
+        it 'is valid' do
+          expect(supplier_framework_lot_branch).to be_valid(:branches)
+        end
+      end
+    end
+
+    context 'when considering the county' do
+      context 'and it is too long' do
+        let(:county) { 'a' * 256 }
+
+        it 'is invalid and has the correct error message' do
+          expect(supplier_framework_lot_branch.valid?(:branches)).to be(false)
+          expect(supplier_framework_lot_branch.errors[:county].first).to eq('The county must be no more than 255 characters')
+        end
+      end
+
+      context 'and it is present' do
+        context 'and it is nil' do
+          let(:county) { nil }
+
+          it 'is valid' do
+            expect(supplier_framework_lot_branch).to be_valid(:branches)
+          end
+        end
+
+        context 'and it is blank' do
+          let(:county) { '' }
+
+          it 'is valid' do
+            expect(supplier_framework_lot_branch).to be_valid(:branches)
+          end
+        end
+
+        context 'and it has excess white space' do
+          let(:county) { '     I am the county     ' }
+
+          it 'is valid and removes the excess white space' do
+            expect(supplier_framework_lot_branch).to be_valid(:branches)
+            expect(supplier_framework_lot_branch.county).to eq('I am the county')
+          end
+        end
+
+        it 'is valid' do
+          expect(supplier_framework_lot_branch).to be_valid(:branches)
+        end
+      end
+    end
+
+    context 'when considering the postcode' do
+      context 'and it is nil' do
+        let(:postcode) { nil }
+
+        it 'is invalid and has the correct error message' do
+          expect(supplier_framework_lot_branch.valid?(:branches)).to be(false)
+          expect(supplier_framework_lot_branch.errors[:postcode].first).to eq('The postcode cannot be blank')
+        end
+      end
+
+      context 'and it is blank' do
+        let(:postcode) { '' }
+
+        it 'is invalid and has the correct error message' do
+          expect(supplier_framework_lot_branch.valid?(:branches)).to be(false)
+          expect(supplier_framework_lot_branch.errors[:postcode].first).to eq('The postcode cannot be blank')
+        end
+      end
+
+      context 'and it is not a real postcode' do
+        let(:postcode) { 'AAA AAA' }
+
+        it 'is invalid and has the correct error message' do
+          expect(supplier_framework_lot_branch.valid?(:branches)).to be(false)
+          expect(supplier_framework_lot_branch.errors[:postcode].first).to eq('Enter a valid postcode')
+        end
+      end
+
+      context 'and it is present' do
+        context 'and it has excess white space' do
+          let(:postcode) { '     SW1 1AA     ' }
+
+          it 'is valid and removes the excess white space' do
+            expect(supplier_framework_lot_branch).to be_valid(:branches)
+            expect(supplier_framework_lot_branch.postcode).to eq('SW1 1AA')
+          end
+        end
+
+        it 'is valid' do
+          expect(supplier_framework_lot_branch).to be_valid(:branches)
+        end
+      end
+    end
+  end
+
+  describe 'geocodes the postcode' do
+    let(:postcode) { 'SW1 1AA' }
+    let(:result) { supplier_framework_lot_branch.save(context: :branches) }
+
+    before do
+      supplier_framework_lot_branch.assign_attributes(postcode:)
+
+      Geocoder::Lookup::Test.add_stub(
+        'SW1 1AA', [{ 'coordinates' => [51.5201, -0.0759] }],
+      )
+      Geocoder::Lookup::Test.add_stub(
+        'SW1 1AB', [{ 'coordinates' => [nil, nil] }]
+      )
+    end
+
+    after do
+      Geocoder::Lookup::Test.reset
+    end
+
+    context 'when the location cannot be found' do
+      let(:postcode) { 'SW1 1AB' }
+
+      it 'does not save and rasies an error' do
+        expect(result).to be(false)
+        expect(supplier_framework_lot_branch.errors[:postcode].first).to eq('No location could be found for this postcode, make sure it is a real UK postcode')
+      end
+    end
+
+    context 'when the location search causes an error' do
+      before { allow(Geocoding).to receive(:new).and_raise(Geocoder::InvalidRequest) }
+
+      it 'does not save and rasies an error' do
+        expect(result).to be(false)
+        expect(supplier_framework_lot_branch.errors[:postcode].first).to eq('No location could be found for this postcode, make sure it is a real UK postcode')
+      end
+    end
+
+    context 'when the location can be found' do
+      it 'saves and sets the coordiantes' do
+        result
+        expect(result).to be(true)
+        expect(supplier_framework_lot_branch.location).to eq(
+          Geocoding.point(
+            latitude: 51.5201,
+            longitude: -0.0759
+          )
+        )
+      end
+    end
+  end
+  # rubocop:enable RSpec/NestedGroups
 end

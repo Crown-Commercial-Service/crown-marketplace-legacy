@@ -95,4 +95,12 @@ module Admin::LotDataHelper
   def aria_describedby_id(category = nil)
     "ccs-rates-table--rate-type#{"--#{category&.downcase&.gsub('_', '-')}" if category}"
   end
+
+  def additional_form_params
+    %i[jurisdiction_id branch_id].each do |key|
+      return { "#{key}": params[key] } if params[key]
+    end
+
+    {}
+  end
 end

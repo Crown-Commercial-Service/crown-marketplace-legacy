@@ -16,7 +16,7 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-three-quarters">
-    <%= form_with url: supplier_lot_data_update_path(@supplier_framework, @lot.number_as_slug, @section, **(params[:jurisdiction_id] ? { jurisdiction_id: params[:jurisdiction_id] } : {})), model: @model, method: :put, html: { novalidate: true } do |f| %>
+    <%= form_with url: supplier_lot_data_update_path(@supplier_framework, @lot.number_as_slug, @section, **additional_form_params), model: @model, method: :put, html: { novalidate: true } do |f| %>
       <%= edit_page_error_summary %>
 
       <%= govuk_fieldset(

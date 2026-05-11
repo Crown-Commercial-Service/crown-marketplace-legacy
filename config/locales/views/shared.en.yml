@@ -57,6 +57,18 @@ en:
         upload_progress: Upload progress
       lot_data:
         edit:
+          branches:
+            address: Address
+            address_line_1: Address line 1
+            address_line_2: Address line 2
+            branch_name: Name
+            branch_region: Region
+            contact_email: Contact email
+            contact_name: Contact name
+            county: County
+            postcode: Postcode
+            telephone_number: Phone number
+            town: Town
           heading:
             branches: branch
             caption: Lot %{lot_number} - %{lot_name}
