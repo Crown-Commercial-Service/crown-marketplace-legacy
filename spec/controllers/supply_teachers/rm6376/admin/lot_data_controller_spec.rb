@@ -163,11 +163,17 @@ RSpec.describe SupplyTeachers::RM6376::Admin::LotDataController do
   describe 'GET edit' do
     login_st_admin
 
+    let(:branch_id) { nil }
+    let(:model) { Supplier::Framework::Lot }
+
     before do
       supplier_framework_lot_rates
       supplier_framework_lot_branch
 
-      get :edit, params: { lot_number:, section: }
+      method_params = { lot_number:, section: }
+      method_params[:branch_id] = branch_id if branch_id
+
+      get :edit, params: method_params
     end
 
     shared_examples 'when testing a section' do
@@ -192,7 +198,7 @@ RSpec.describe SupplyTeachers::RM6376::Admin::LotDataController do
       end
 
       it 'assigns model' do
-        expect(assigns(:model).class).to be(Supplier::Framework::Lot)
+        expect(assigns(:model).class).to be(model)
       end
 
       context 'when considering the templates' do
@@ -228,6 +234,21 @@ RSpec.describe SupplyTeachers::RM6376::Admin::LotDataController do
         end
       end
 
+      context 'and the section is branches' do
+        let(:section) { 'branches' }
+        let(:branch_id) { supplier_framework_lot_branch.id }
+        let(:model) { Supplier::Framework::Lot::Branch }
+
+        include_context 'when testing a section'
+
+        it 'assigns supplier_framework_lot_branch' do
+          assigned_supplier_framework_lot_branches = assigns(:supplier_framework_lot_branches)
+
+          expect(assigned_supplier_framework_lot_branches.count).to eq(1)
+          expect(assigned_supplier_framework_lot_branches.first.id).to eq(supplier_framework_lot_branch.id)
+        end
+      end
+
       context 'when the section is unexpected' do
         let(:section) { :something_else }
 
@@ -241,12 +262,22 @@ RSpec.describe SupplyTeachers::RM6376::Admin::LotDataController do
   describe 'GET update' do
     login_st_admin
 
+    let(:branch_id) { nil }
+    let(:model) { Supplier::Framework::Lot }
+
     before do
+      Geocoder::Lookup::Test.add_stub('SW6 1HS', [{ 'coordinates' => [51.5201, -0.0759] }],)
+
       supplier_framework_lot_rates
       supplier_framework_lot_branch
 
-      get :update, params: { lot_number: lot_number, section: section, supplier_framework_lot: model_params }
+      method_params = { lot_number: lot_number, section: section, "#{model.model_name.param_key}": model_params }
+      method_params[:branch_id] = branch_id if branch_id
+
+      post :update, params: method_params
     end
+
+    after { Geocoder::Lookup::Test.reset }
 
     shared_examples 'when testing a section' do
       it 'assigns framework' do
@@ -266,7 +297,7 @@ RSpec.describe SupplyTeachers::RM6376::Admin::LotDataController do
       end
 
       it 'assigns model' do
-        expect(assigns(:model).class).to be(Supplier::Framework::Lot)
+        expect(assigns(:model).class).to be(model)
       end
     end
 
@@ -348,6 +379,50 @@ RSpec.describe SupplyTeachers::RM6376::Admin::LotDataController do
             assigns(:supplier_framework_lot_rates).each_value do |supplier_framework_lot_rate|
               expect(supplier_framework_lot_rate.errors).to be_present
             end
+          end
+
+          it 'renders section partial template' do
+            expect(response).to have_http_status(:ok)
+            expect(response).to render_template(partial: "shared/admin/lot_data/edit/_#{section}")
+          end
+        end
+        # rubocop:enable RSpec/NestedGroups
+      end
+
+      context 'and the section is branches' do
+        let(:section) { 'branches' }
+        let(:branch_id) { supplier_framework_lot_branch.id }
+        let(:model) { Supplier::Framework::Lot::Branch }
+        let(:model_params) { { name: branch_name, region: 'London', contact_name: 'Frank Lampard', contact_email: 'frank.lampard@chelsea.com', telephone_number: '07123456789', address_line_1: 'Stamford Bridge', address_line_2: 'Fulham Broadway', town: 'Fulham', county: 'Greater London', postcode: 'SW6 1HS' } }
+        let(:branch_name) { 'Chelsea' }
+
+        include_context 'when testing a section'
+
+        it 'assigns supplier_framework_lot_branch' do
+          assigned_supplier_framework_lot_branches = assigns(:supplier_framework_lot_branches)
+
+          expect(assigned_supplier_framework_lot_branches.count).to eq(1)
+          expect(assigned_supplier_framework_lot_branches.first.id).to eq(supplier_framework_lot_branch.id)
+        end
+
+        # rubocop:disable RSpec/NestedGroups
+        context 'when it is valid' do
+          it 'redirects to the show page' do
+            expect(response).to redirect_to(supply_teachers_rm6376_admin_supplier_lot_datum_path(section:))
+          end
+
+          it 'updates the details' do
+            expect(supplier_framework_lot_branch.reload.attributes.deep_symbolize_keys.slice(*model_params.keys)).to eq(model_params)
+          end
+        end
+
+        context 'when it is invalid' do
+          let(:branch_name) { nil }
+
+          render_views
+
+          it 'has errors on the model' do
+            expect(assigns(:model).errors).to be_present
           end
 
           it 'renders section partial template' do

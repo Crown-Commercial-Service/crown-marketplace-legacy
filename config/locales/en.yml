@@ -181,8 +181,34 @@ en:
               inclusion: Select if the supplier is on this lot
         supplier/framework/lot/branch:
           attributes:
+            address_line_1:
+              blank: Address line 1 cannot be blank
+              too_long: Address line 1 must be no more than 255 characters
+            address_line_2:
+              too_long: Address line 2 must be no more than 255 characters
+            contact_email:
+              blank: Enter the contact email in the correct format, like name@example.com
+              too_long: The contact email must be no more than 255 characters
+            contact_name:
+              blank: The contact name cannot be blank
+              too_long: The contact name must be no more than 255 characters
+            county:
+              too_long: The county must be no more than 255 characters
+            name:
+              blank: The branch name cannot be blank
+              too_long: The branch name must be no more than 255 characters
             postcode:
+              blank: The postcode cannot be blank
               invalid_postcode: Enter a valid postcode
+              location_not_found: No location could be found for this postcode, make sure it is a real UK postcode
+            region:
+              blank: The branch region cannot be blank
+              too_long: The branch region must be no more than 255 characters
+            telephone_number:
+              blank: Enter the phone number in the correct format, like 07700 900000
+            town:
+              blank: The town cannot be blank
+              too_long: The town must be no more than 255 characters
         supplier/framework/lot/rate:
           attributes:
             rate:

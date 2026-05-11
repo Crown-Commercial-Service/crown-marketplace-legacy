@@ -107,6 +107,8 @@ module Admin::LotDataController
     @model = case @section
              when :lot_status, :services, :rates
                @supplier_framework_lot
+             when :branches
+               @supplier_framework_lot.branches.find(params[:branch_id])
              end
   end
 
@@ -187,6 +189,14 @@ module Admin::LotDataController
     end
   end
   # rubocop:enable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Naming/PredicateMethod
+
+  def update_for_branches
+    new_attributes = params[@model.model_name.param_key].present? ? params.expect("#{@model.model_name.param_key}": %i[name region contact_name contact_email telephone_number address_line_1 address_line_2 town county postcode]) : {}
+
+    @model.assign_attributes(new_attributes)
+
+    @model.save(context: @section)
+  end
 
   def authorize_user
     authorize! :manage, service.module_parent::Admin

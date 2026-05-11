@@ -90,7 +90,7 @@ RSpec.describe SupplyTeachers::RM6238::Admin::DataConverter do
                         postcode: 'E20 2ST',
                         contact_name: 'Jae Bradtke JD',
                         contact_email: 'jae_bradtke_jd@considine.org',
-                        telephone_number: '796.971.2756 x5567',
+                        telephone_number: '07969712756',
                         name: 'London',
                         town: 'London',
                         address_line_1: 'London Stadium',
