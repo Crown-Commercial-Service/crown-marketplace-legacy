@@ -10,10 +10,12 @@ jobs:
     strategy:
       matrix:
         service:
-          - legal-services
-          - legal-panel-for-government
-          - management-consultancy
-          - supply-teachers
+          - legal-panel-for-government:RM6360
+          - legal-services:RM6240
+          - management-consultancy:RM6187
+          - management-consultancy:RM6309
+          - supply-teachers:RM6238
+          - supply-teachers:RM6376
 
     services:
       postgres:

@@ -423,6 +423,9 @@ RSpec.describe Supplier::Framework::Lot::Branch do
         postcode, [{ 'coordinates' => [51.5201, -0.0759] }],
       )
       Geocoder::Lookup::Test.add_stub(
+        supplier_framework_lot_branch.postcode, [{ 'coordinates' => [51.5201, -0.0759] }],
+      )
+      Geocoder::Lookup::Test.add_stub(
         'SW1 1AA', [{ 'coordinates' => [51.5201, -0.0759] }],
       )
     end

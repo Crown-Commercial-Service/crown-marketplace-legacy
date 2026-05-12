@@ -20,28 +20,25 @@ unless ARGV.any? { |a| a =~ /^gems/ } # Don't load anything when running the gem
         t.profile = 'default'
       end
 
-      Cucumber::Rake::Task.new({ 'legal-services': 'test:prepare' }, 'Run the full suite of features that should pass for Legal Services') do |t|
-        t.binary = vendored_cucumber_bin # If nil, the gem's binary is used.
-        t.fork = true # You may get faster startup if you set this to false
-        t.profile = 'legal-services'
-      end
+      [
+        ['Supply Teachers', 'supply-teachers', %w[RM6238 RM6376]],
+        ['Management Consultancy', 'management-consultancy', %w[RM6187 RM6309]],
+        ['Legal Services', 'legal-services', %w[RM6240]],
+        ['Legal Panel for Government', 'legal-panel-for-government', %w[RM6360]],
+      ].each do |service, service_slug, frameworks|
+        Cucumber::Rake::Task.new({ "#{service_slug}": 'test:prepare' }, "Run the full suite of features that should pass for #{service}") do |t|
+          t.binary = vendored_cucumber_bin # If nil, the gem's binary is used.
+          t.fork = true # You may get faster startup if you set this to false
+          t.profile = service_slug.to_s
+        end
 
-      Cucumber::Rake::Task.new({ 'legal-panel-for-government': 'test:prepare' }, 'Run the full suite of features that should pass for Legal Panel for Government') do |t|
-        t.binary = vendored_cucumber_bin # If nil, the gem's binary is used.
-        t.fork = true # You may get faster startup if you set this to false
-        t.profile = 'legal-panel-for-government'
-      end
-
-      Cucumber::Rake::Task.new({ 'management-consultancy': 'test:prepare' }, 'Run the full suite of features that should pass for Management Consultancy') do |t|
-        t.binary = vendored_cucumber_bin # If nil, the gem's binary is used.
-        t.fork = true # You may get faster startup if you set this to false
-        t.profile = 'management-consultancy'
-      end
-
-      Cucumber::Rake::Task.new({ 'supply-teachers': 'test:prepare' }, 'Run the full suite of features that should pass for Supply Teachers') do |t|
-        t.binary = vendored_cucumber_bin # If nil, the gem's binary is used.
-        t.fork = true # You may get faster startup if you set this to false
-        t.profile = 'supply-teachers'
+        frameworks.each do |framework|
+          Cucumber::Rake::Task.new({ "#{service_slug}:#{framework}": 'test:prepare' }, "Run the full suite of features that should pass for #{service} (#{framework})") do |t|
+            t.binary = vendored_cucumber_bin # If nil, the gem's binary is used.
+            t.fork = true # You may get faster startup if you set this to false
+            t.profile = "#{service_slug}:#{framework}"
+          end
+        end
       end
 
       Cucumber::Rake::Task.new({ wip: 'test:prepare' }, 'Run features that are being worked on') do |t|

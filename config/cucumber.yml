@@ -9,7 +9,14 @@ default: <%= std_opts %> features
 wip: --tags @wip:3 --wip features --publish-quiet
 rerun: <%= rerun_opts %> --format rerun --out rerun.txt --strict --tags 'not @wip'
 accessibility: <%= accessibility_opts %> features/accessibility
-legal-services: <%= std_opts %> features/services/legal_services
-legal-panel-for-government: <%= std_opts %> features/services/legal_panel_for_government
-management-consultancy: <%= std_opts %> features/services/management_consultancy
-supply-teachers: <%= std_opts %> features/services/supply_teachers
+<% [
+  ['supply-teachers', 'supply_teachers', %w[RM6238 RM6376]],
+  ['management-consultancy', 'management_consultancy', %w[RM6187 RM6309]],
+  ['legal-services', 'legal_services', %w[RM6240]],
+  ['legal-panel-for-government', 'legal_panel_for_government', %w[RM6360]],
+].each do |service_slug, service_folder, frameworks| %>
+<%= service_slug %>: <%= std_opts %> features/services/<%= service_folder %>
+<% frameworks.each do |framework| %>
+<%= service_slug %>:<%= framework %>: <%= std_opts %> features/services/<%= service_folder %>/<%= framework.downcase %>
+<% end %>
+<% end %>
