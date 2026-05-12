@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Fix issue with the admin upload where clashes were not accounted for ([PR 2441](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2441))
+
 ### Changed
 
 - Update CCS Frontend to v3.2.0 ([PR 2429](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2429))
