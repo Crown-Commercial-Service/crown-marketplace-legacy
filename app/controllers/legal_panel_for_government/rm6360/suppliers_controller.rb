@@ -45,7 +45,7 @@ module LegalPanelForGovernment
       end
 
       def fetch_lot
-        @lot = Lot.find(params[:lot_id])
+        @lot = Lot.find(params.expect(:lot_id))
       end
 
       def set_supplier_selector
@@ -61,7 +61,7 @@ module LegalPanelForGovernment
       end
 
       def fetch_supplier_framework
-        @supplier_framework = Supplier::Framework.joins(:supplier).find(params[:id])
+        @supplier_framework = Supplier::Framework.joins(:supplier).find(params.expect(:id))
       end
 
       def fetch_rates
