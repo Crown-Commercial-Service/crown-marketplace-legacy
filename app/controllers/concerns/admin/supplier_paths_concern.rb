@@ -40,6 +40,6 @@ module Admin::SupplierPathsConcern
   end
 
   def service_name
-    @service_name ||= params[:service].split('/').first.dasherize
+    @service_name ||= params.expect(:service).split('/').first.dasherize
   end
 end

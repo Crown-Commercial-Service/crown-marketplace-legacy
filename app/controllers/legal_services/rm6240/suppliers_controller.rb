@@ -12,13 +12,13 @@ module LegalServices
           if @lot.id == 'RM6240.3'
             ['RM6240.3.1']
           else
-            params[:service_numbers].map { |service_number| "#{@lot.id}.#{service_number}" }
+            params.expect(service_numbers: []).map { |service_number| "#{@lot.id}.#{service_number}" }
           end
         ).shuffle
       end
 
       def fetch_lot
-        @lot = Lot.find("RM6240.#{params[:lot_number]}#{params[:jurisdiction]}")
+        @lot = Lot.find("RM6240.#{params.expect(:lot_number)}#{params.fetch(:jurisdiction, nil)}")
       end
     end
   end

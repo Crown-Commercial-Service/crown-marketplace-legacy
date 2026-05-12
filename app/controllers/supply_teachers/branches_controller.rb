@@ -21,7 +21,7 @@ module SupplyTeachers
 
     def show
       @back_path = :back
-      @branch = Supplier::Framework::Lot::Branch.friendly.find(params[:id])
+      @branch = Supplier::Framework::Lot::Branch.friendly.find(params.expect(:id))
     end
 
     private
