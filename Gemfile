@@ -56,7 +56,7 @@ gem 'omniauth_openid_connect', '~> 0.8.0'
 gem 'json-jwt', '>= 1.11.0'
 
 # for authentication
-gem 'devise', '~> 5.0.3'
+gem 'devise', '~> 5.0.4'
 
 # for cognito
 gem 'aws-sdk-cognitoidentityprovider', '~> 1.140.0'
@@ -65,7 +65,7 @@ gem 'aws-sdk-cognitoidentityprovider', '~> 1.140.0'
 gem 'kaminari', '~> 1.2.2'
 
 # for pretty urls
-gem 'friendly_id', '~> 5.6.0'
+gem 'friendly_id', '~> 5.7.0'
 
 # aws s3 bucket access for postcode data
 gem 'aws-sdk-s3', '~> 1'
@@ -108,7 +108,7 @@ gem 'gov_uk_date_fields', '>= 4.2.0'
 gem 'date_validator', '>= 0.12.0'
 
 # Use CCS Frontend Helpers
-gem 'ccs-frontend_helpers', '~> 4.0.0'
+gem 'ccs-frontend_helpers', '~> 4.1.0'
 
 # Need to add Open SSL to fix bug in v3.3.0
 gem 'openssl', '~> 4.0.1'

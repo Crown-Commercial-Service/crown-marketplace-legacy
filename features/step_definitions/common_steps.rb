@@ -91,13 +91,13 @@ When('I go to {string}') do |uri|
 end
 
 Then('I am on the {string} page') do |title|
-  expect(page.find('h1')).to have_content(title)
+  expect(page.find('h1')).to have_text(title)
 rescue NoMethodError
-  expect(page.find('h1')).to have_content(title)
+  expect(page.find('h1')).to have_text(title)
 end
 
 Then('the caption is {string}') do |caption|
-  expect(page.first('span[class*=govuk-caption]')).to have_content(caption)
+  expect(page.first('span[class*=govuk-caption]')).to have_text(caption)
 end
 
 When('I click on {string}') do |button_text|
@@ -176,7 +176,7 @@ Then('the framework is {string}') do |framework|
 end
 
 Then('the unrecognised framework is {string}') do |framework|
-  expect(home_page.unrecognised_framework.description).to have_content("The framework in the web address is '#{framework}'. Make sure the web address contains one of the listed frameworks.")
+  expect(home_page.unrecognised_framework.description).to have_text("The framework in the web address is '#{framework}'. Make sure the web address contains one of the listed frameworks.")
 end
 
 Then('I am on {string}') do |expected_path|

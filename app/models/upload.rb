@@ -124,14 +124,15 @@ class Upload < ApplicationRecord
 
   def self.find_supplier(framework, supplier_data)
     # Supply Teachers RM6238 does not have any IDs except for the name
-    if framework == 'RM6238'
-      Supplier.find_by(name: supplier_data[:name])
-    elsif supplier_data[:duns_number]
-      Supplier.find_by(duns_number: supplier_data[:duns_number]) || Supplier.find_by(name: supplier_data[:name])
-    elsif supplier_data.dig(:additional_details, :additional_identifier)
-      Supplier.where("additional_details ->> 'additional_identifier' = ?", supplier_data.dig(:additional_details, :additional_identifier)).first
-    elsif supplier_data[:id]
-      Supplier.find_by(id: supplier_data[:id])
-    end
+    # If we cannot find the supplier by any other means then we will use the supplier name
+    if framework != 'RM6238'
+      if supplier_data[:duns_number]
+        Supplier.find_by(duns_number: supplier_data[:duns_number])
+      elsif supplier_data.dig(:additional_details, :additional_identifier)
+        Supplier.where("additional_details ->> 'additional_identifier' = ?", supplier_data.dig(:additional_details, :additional_identifier)).first
+      elsif supplier_data[:id]
+        Supplier.find_by(id: supplier_data[:id])
+      end
+    end || Supplier.find_by(name: supplier_data[:name])
   end
 end

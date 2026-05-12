@@ -30,7 +30,7 @@ module Admin::DashboardController
   end
 
   def frameworks_index_path
-    "/#{params[:service].split('/').first.gsub('_', '-')}/admin/frameworks"
+    "/#{params.expect(:service).split('/').first.gsub('_', '-')}/admin/frameworks"
   end
 
   def framework_has_analytics?

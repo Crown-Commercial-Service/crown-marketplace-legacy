@@ -15,7 +15,7 @@ module LegalServices
 
     def show
       @back_path = :back
-      @supplier_framework = Supplier::Framework.joins(:supplier).find(params[:id])
+      @supplier_framework = Supplier::Framework.joins(:supplier).find(params.expect(:id))
       @rates = fetch_rates
     end
 
