@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [6.7.1] - 2026-05-12
+
 ### Fixed
 
 - Fix issue with the admin upload where clashes were not accounted for ([PR 2441](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2441))
