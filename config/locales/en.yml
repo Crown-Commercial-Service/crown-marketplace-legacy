@@ -700,6 +700,7 @@ en:
     unit:
       one: mile
       other: miles
+  na: N/A
   'no': 'No'
   number:
     currency:
