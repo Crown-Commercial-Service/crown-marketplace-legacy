@@ -206,7 +206,7 @@ class SupplyTeachers::RM6376::Admin::FilesProcessor < FilesProcessor
     }
 
     row[2..].each.with_index(1) do |rate, index|
-      rate = convert_rate(rate, index >= 9 ? :percentage : :pence)
+      rate = convert_rate(rate, [9, 11].include?(index) ? :percentage : :pence)
 
       next if rate.zero?
 
