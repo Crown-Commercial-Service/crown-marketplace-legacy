@@ -38,7 +38,7 @@ Feature: Supply Teachers - All agencies - suppliers
       | Admin & Clerical (Inc. Office Staff, Finance Support)                                                    | £41.65 |
       | Other (Inc. Invigilators, cleaners)                                                                      | £27.77 |
       | Over 12 Week Reduction                                                                                   | 52.8%  |
-      | Nominated Workers                                                                                        | 58.3%  |
+      | Nominated Workers                                                                                        | £58.31 |
       | Fixed Term / Permanent Roles (on School Payroll)                                                         | 47.2%  |
     And the 'Branch' is 'Manchester - Greater Manchester' for the 'Manchester' branch
     And the 'Contact name' is 'Rep. Majorie Auer' for the 'Manchester' branch

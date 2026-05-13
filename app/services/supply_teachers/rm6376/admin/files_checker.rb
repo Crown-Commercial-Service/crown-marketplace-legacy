@@ -21,7 +21,7 @@ class SupplyTeachers::RM6376::Admin::FilesChecker
   def check_supplier_details_spreadsheet(suppliers_workbook)
     if suppliers_workbook.sheets != ['All Suppliers']
       @errors << { error: 'supplier_details_missing_sheets' }
-    elsif suppliers_workbook.sheet(0).row(1) != ['Supplier Name', 'Supplier Trading Name', 'Supplier Identifier', 'Managed service provider contact name', 'Managed service provider contact email', 'Managed service provider contact telephone', 'Lot 1', 'Lot 2']
+    elsif suppliers_workbook.sheet(0).row(1) != ['Supplier Name', 'Supplier Trading Name', 'Supplier Identifier', 'Managed service provider contact name', 'Managed service provider contact email', 'Managed service provider contact telephone', 'Accredited supplier', 'Lot 1', 'Lot 2']
       @errors << { error: 'supplier_details_has_incorrect_headers' }
     elsif suppliers_workbook.sheet(0).last_row == 1
       @errors << { error: 'supplier_details_has_empty_sheets' }

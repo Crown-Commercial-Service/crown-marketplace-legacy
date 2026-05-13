@@ -18,11 +18,11 @@ module SupplyTeachers
         end
 
         SUPPLIERS = [
-          ['NOAH LTD', 'NOAH LTD', '123456', '', '', '', 'X', ''],
-          ['MIO CORP', 'MIO CORP', '234561', '', '', '', 'X', ''],
-          ['REKU LTD', 'COMMON VARIETY NOPON', '345612', 'Reku', 'reku@xenoblade3.com', '0204 345 6789', 'X', 'X'],
-          ['GUERNICA EXEC CORP', 'GUERNICA EXEC CORP', '456123', 'Guernica', 'guernica@xenoblade3.com', '0205 456 7890', '', 'X'],
-          ['ETHEL LTD', 'COLONY 4', '561234', 'Ethel', 'ethel@xenoblade3.com', '0204 567 8901', '', 'X'],
+          ['NOAH LTD', 'NOAH LTD', '123456', '', '', '', 'X', 'X', ''],
+          ['MIO CORP', 'MIO CORP', '234561', '', '', '', 'X', 'X', ''],
+          ['REKU LTD', 'COMMON VARIETY NOPON', '345612', 'Reku', 'reku@xenoblade3.com', '0204 345 6789', 'X', 'X', 'X'],
+          ['GUERNICA EXEC CORP', 'GUERNICA EXEC CORP', '456123', 'Guernica', 'guernica@xenoblade3.com', '0205 456 7890', 'X', '', 'X'],
+          ['ETHEL LTD', 'COLONY 4', '561234', 'Ethel', 'ethel@xenoblade3.com', '0204 567 8901', 'X', '', 'X'],
         ].freeze
 
         def suppliers(sheet_name)
@@ -52,7 +52,7 @@ module SupplyTeachers
         OUTPUT_PATH = './tmp/test_supplier_details_file.xlsx'.freeze
 
         SHEETS = ['All Suppliers'].freeze
-        HEADERS = ['Supplier Name', 'Supplier Trading Name', 'Supplier Identifier', 'Managed service provider contact name', 'Managed service provider contact email', 'Managed service provider contact telephone', 'Lot 1', 'Lot 2'].freeze
+        HEADERS = ['Supplier Name', 'Supplier Trading Name', 'Supplier Identifier', 'Managed service provider contact name', 'Managed service provider contact email', 'Managed service provider contact telephone', 'Accredited supplier', 'Lot 1', 'Lot 2'].freeze
 
         def self.sheets_with_extra_headers(sheets_with_extra_headers)
           self::SHEETS.map do |sheet|
