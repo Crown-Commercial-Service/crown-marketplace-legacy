@@ -1,7 +1,7 @@
 class LegalPanelForGovernment::RM6360::Admin::ReportExport < ReportExport
   class << self
     def search_criteria_headers
-      ['Name', 'Job title', 'Email address', 'Organisation name', 'Organisation sector', 'Requirements start date', 'Requirements end date', 'Requirements estimated total value', 'Replaces existing contract', "Award through #{CurrentOrganisation.current_organisation_name_abbr} framework", 'Opted in to be contacted', 'Lot', 'Services', 'Countries']
+      ['Name', 'Job title', 'Email address', 'Organisation name', 'Organisation sector', 'Requirements start date', 'Requirements end date', 'Requirements estimated total value', 'Replaces existing contract', 'Award through GCA framework', 'Opted in to be contacted', 'Lot', 'Services', 'Countries']
     end
 
     # rubocop:disable Metrics/AbcSize

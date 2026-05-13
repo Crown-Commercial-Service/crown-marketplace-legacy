@@ -7,7 +7,7 @@ Then('I select {string} for {string}') do |option, field|
 end
 
 Then('I should see that {string} suppliers can provide legal specialisms for government') do |number_of_suppliers|
-  expect(legal_panel_for_government_page.number_of_suppliers).to have_content "#{number_of_suppliers} suppliers can provide the legal specialisms that meet your requirements."
+  expect(legal_panel_for_government_page.number_of_suppliers).to have_text "#{number_of_suppliers} suppliers can provide the legal specialisms that meet your requirements."
 end
 
 Then('the selected legal service for government suppliers are:') do |suppliers|
@@ -17,13 +17,13 @@ Then('the selected legal service for government suppliers are:') do |suppliers|
   expect(supplier_element_rows.length).to eq supplier_names_and_prospectus.length
 
   supplier_element_rows.zip(supplier_names_and_prospectus).each do |row, (expected_name, expected_prospectus)|
-    expect(row.name).to have_content expected_name
-    expect(row.prospectus).to have_content expected_prospectus
+    expect(row.name).to have_text expected_name
+    expect(row.prospectus).to have_text expected_prospectus
   end
 end
 
 Then('I should see that {string} suppliers have been selected for comparison') do |number_of_suppliers|
-  expect(legal_panel_for_government_page.number_of_suppliers).to have_content "#{number_of_suppliers} suppliers have been selected for comparison."
+  expect(legal_panel_for_government_page.number_of_suppliers).to have_text "#{number_of_suppliers} suppliers have been selected for comparison."
 end
 
 Then('I click on {string} legal panel for governemnt supplier') do |supplier_name|

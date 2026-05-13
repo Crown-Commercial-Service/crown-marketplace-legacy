@@ -43,7 +43,7 @@ module Admin::LotDataController
   private
 
   def set_framework
-    @framework = Framework.find(params[:framework])
+    @framework = Framework.find(params.expect(:framework))
   end
 
   # rubocop:disable Rails/DynamicFindBy
@@ -53,7 +53,7 @@ module Admin::LotDataController
   # rubocop:enable Rails/DynamicFindBy
 
   def set_supplier_framework
-    @supplier_framework = Supplier::Framework.includes(:supplier).find(params[:supplier_id])
+    @supplier_framework = Supplier::Framework.includes(:supplier).find(params.expect(:supplier_id))
   end
 
   def set_supplier_framework_lots
@@ -85,13 +85,13 @@ module Admin::LotDataController
   end
 
   def set_section_for_show
-    @section = params[:section].to_sym
+    @section = params.expect(:section).to_sym
 
     redirect_to action: :index unless self.class::SECTIONS_TO_SHOW.include?(@section)
   end
 
   def set_section_for_edit
-    @section = params[:section].to_sym
+    @section = params.expect(:section).to_sym
 
     redirect_to action: :show, section: @section unless self.class::SECTIONS_TO_EDIT.include?(@section)
   end
@@ -107,6 +107,8 @@ module Admin::LotDataController
     @model = case @section
              when :lot_status, :services, :rates
                @supplier_framework_lot
+             when :branches
+               @supplier_framework_lot.branches.find(params.expect(:branch_id))
              end
   end
 
@@ -187,6 +189,14 @@ module Admin::LotDataController
     end
   end
   # rubocop:enable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Naming/PredicateMethod
+
+  def update_for_branches
+    new_attributes = params[@model.model_name.param_key].present? ? params.expect("#{@model.model_name.param_key}": %i[name region contact_name contact_email telephone_number address_line_1 address_line_2 town county postcode]) : {}
+
+    @model.assign_attributes(new_attributes)
+
+    @model.save(context: @section)
+  end
 
   def authorize_user
     authorize! :manage, service.module_parent::Admin

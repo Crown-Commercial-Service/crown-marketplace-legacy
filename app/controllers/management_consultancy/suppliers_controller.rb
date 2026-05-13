@@ -5,7 +5,7 @@ module ManagementConsultancy
     def index
       @journey = ManagementConsultancy::Journey.new(params[:framework], params[:slug], params)
       @back_path = @journey.previous_step_path
-      @lot = Lot.find(params[:lot_id])
+      @lot = Lot.find(params.expect(:lot_id))
       begin
         Search.log_new_search(@lot.framework, current_user, session.id, @journey.params.to_hash, @supplier_frameworks)
       rescue StandardError => e
@@ -16,9 +16,9 @@ module ManagementConsultancy
 
     def show
       @back_path = :back
-      @supplier_framework = Supplier::Framework.joins(:supplier).find(params[:id])
+      @supplier_framework = Supplier::Framework.joins(:supplier).find(params.expect(:id))
       @rates = @supplier_framework.grouped_rates_for_lot(params[:lot_id])
-      @lot = Lot.find(params[:lot_id])
+      @lot = Lot.find(params.expect(:lot_id))
     end
 
     def download

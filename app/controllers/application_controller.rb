@@ -72,7 +72,7 @@ class ApplicationController < ActionController::Base
   end
 
   def redirect_to_buyer_detail
-    redirect_to(buyer_detail_path(params[:service].dasherize, params[:framework], BuyerDetail.find_or_create_by(user: current_user))) if current_user&.buyer_details_incomplete?
+    redirect_to(buyer_detail_path(params.expect(:service).dasherize, params[:framework], BuyerDetail.find_or_create_by(user: current_user))) if current_user&.buyer_details_incomplete?
   end
 
   def set_end_of_journey

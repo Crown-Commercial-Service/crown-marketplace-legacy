@@ -60,7 +60,7 @@ module SupplyTeachers
       end
 
       def set_upload
-        @upload = service::Upload.find(params[:id])
+        @upload = service::Upload.find(params.expect(:id))
       end
 
       def new_path

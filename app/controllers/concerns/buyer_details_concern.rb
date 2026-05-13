@@ -38,7 +38,7 @@ module BuyerDetailsConcern
   end
 
   def set_section
-    @section = params[:section].to_sym
+    @section = params.expect(:section).to_sym
 
     redirect_to action: :show unless SECTION_TO_PARAMS.include?(@section)
   end

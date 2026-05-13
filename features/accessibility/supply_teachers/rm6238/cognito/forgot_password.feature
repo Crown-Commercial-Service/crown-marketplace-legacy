@@ -6,7 +6,7 @@ Feature: Forgot my password - Supply Teachers - RM6238 - Accessibility
     Then I am on the 'Find supply teachers and agency workers' page
     When I click on 'Start now'
     Then I am on the 'Sign in to find supply teachers and agency workers' page
-    And I click on 'Sign in with CCS'
+    And I click on 'Sign in with GCA'
     And I am on the 'Sign in to your supply teachers account' page
     When I click on 'I’ve forgotten my password'
     Then I am on the 'Reset password' page

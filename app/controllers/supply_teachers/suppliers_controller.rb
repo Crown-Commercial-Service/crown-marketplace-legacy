@@ -12,7 +12,7 @@ module SupplyTeachers
 
     def show
       @back_path = "/supply-teachers/#{params[:framework]}/all-suppliers"
-      @supplier_framework = Supplier::Framework.find(params[:id])
+      @supplier_framework = Supplier::Framework.find(params.expect(:id))
       @branches = @supplier_framework.lots.find_by(lot_id: @lot_id).branches.order(:name)
     end
 

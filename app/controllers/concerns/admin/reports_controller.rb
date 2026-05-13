@@ -46,7 +46,7 @@ module Admin::ReportsController
   end
 
   def set_framework
-    @framework = Framework.find(params[:framework])
+    @framework = Framework.find(params.expect(:framework))
   end
 
   def set_report

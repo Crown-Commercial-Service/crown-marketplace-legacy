@@ -49,11 +49,11 @@ module Admin::SuppliersController
   end
 
   def set_supplier_framework
-    @supplier_framework = Supplier::Framework.includes(:supplier, :contact_detail).find(params[:id])
+    @supplier_framework = Supplier::Framework.includes(:supplier, :contact_detail).find(params.expect(:id))
   end
 
   def set_section
-    @section = params[:section].to_sym
+    @section = params.expect(:section).to_sym
 
     redirect_to action: :show unless self.class::SECTION_TO_PARAMS.include?(@section)
   end
@@ -80,6 +80,6 @@ module Admin::SuppliersController
   end
 
   def current_supplier_name
-    Supplier::Framework.find(params[:id]).supplier_name
+    Supplier::Framework.find(params.expect(:id)).supplier_name
   end
 end
