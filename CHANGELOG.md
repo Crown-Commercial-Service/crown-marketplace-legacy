@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [6.7.3] - 2026-05-13
+
+### Fixed
+
+- Fix issue where nominated work was imported as a percentage instead of money ([PR 2456](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2456))
+- Fix templates for ST RM6376 ([PR 2456](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2456))
+
 ## [6.7.2] - 2026-05-13
 
 ### Fixed
