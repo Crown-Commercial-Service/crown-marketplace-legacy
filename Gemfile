@@ -46,7 +46,7 @@ gem 'caxlsx_rails', '>= 0.6.3'
 gem 'phonejack'
 gem 'holidays'
 
-gem 'rollbar', '~> 3.7.0'
+gem 'rollbar', '~> 3.8.0'
 
 # for dfe sign in
 gem 'omniauth', '~> 2.1.4'
@@ -79,7 +79,7 @@ gem 'jsonpath', '~> 1.1.5'
 gem 'aasm', '~> 5.5'
 
 # for running background jobs
-gem 'sidekiq', '~> 8.1.3'
+gem 'sidekiq', '~> 8.1.4'
 gem 'sinatra', '~> 4.2.1', require: false
 gem 'slim', '~> 5.2.1'
 gem 'sidekiq-cron'

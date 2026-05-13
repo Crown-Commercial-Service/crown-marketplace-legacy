@@ -21,7 +21,7 @@ Feature: Supply Teachers - Admin - Supplier lot data - Lot 1 - View rates
       | Admin & Clerical (Inc. Office Staff, Finance Support)                                                    | £32.88         |
       | Other (Inc. Invigilators, cleaners)                                                                      | £21.92         |
       | Over 12 Week Reduction                                                                                   | 41.7%          |
-      | Nominated Workers                                                                                        | 46.0%          |
+      | Nominated Workers                                                                                        | £46.04         |
       | Fixed Term / Permanent Roles (on School Payroll)                                                         | 37.3%          |
     Given I click on 'Change (Rates for the supplier)'
     Then I am on the 'Edit rates' page
@@ -68,7 +68,7 @@ Feature: Supply Teachers - Admin - Supplier lot data - Lot 1 - View rates
       | Admin & Clerical (Inc. Office Staff, Finance Support)                                                    | 123.11 |
       | Other (Inc. Invigilators, cleaners)                                                                      | 123.11 |
       | Over 12 Week Reduction                                                                                   | 12.5   |
-      | Nominated Workers                                                                                        | 35     |
+      | Nominated Workers                                                                                        | 35.50  |
       | Fixed Term / Permanent Roles (on School Payroll)                                                         | 99.0   |
     And I click on 'Save and return'
     Then I am on the 'Lot 1 - Direct provision View rates' page
@@ -84,5 +84,5 @@ Feature: Supply Teachers - Admin - Supplier lot data - Lot 1 - View rates
       | Admin & Clerical (Inc. Office Staff, Finance Support)                                                    | 123.11         |
       | Other (Inc. Invigilators, cleaners)                                                                      | 123.11         |
       | Over 12 Week Reduction                                                                                   | 12.5           |
-      | Nominated Workers                                                                                        | 35             |
+      | Nominated Workers                                                                                        | 35.50          |
       | Fixed Term / Permanent Roles (on School Payroll)                                                         | 99.0           |

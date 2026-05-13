@@ -25,7 +25,7 @@ class FilesProcessor
       supplier[:supplier_frameworks][0][:supplier_framework_lots_data].each do |lot_id, supplier_framework_lot_data|
         supplier[:supplier_frameworks][0][:supplier_framework_lots] << {
           lot_id: lot_id,
-          enabled: true,
+          enabled: supplier_framework_lot_data.fetch(:enabled, true),
           supplier_framework_lot_services: supplier_framework_lot_data[:services],
           supplier_framework_lot_jurisdictions: supplier_framework_lot_data[:jurisdictions],
           supplier_framework_lot_rates: supplier_framework_lot_data[:rates],

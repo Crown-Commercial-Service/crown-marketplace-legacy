@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [6.7.2] - 2026-05-13
+
+### Fixed
+
+- Fix issue where nominated work was shown as a percentage instead of money ([PR 2453](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2453))
+
+### Changed
+
+- Update ST admin upload to mark suppliers as accredited or not ([PR 2444](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2444))
+
+### Added
+
+- Allow rates to be blank for Supply Teachers ([PR 2453](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2453))
+
 ## [6.7.1] - 2026-05-12
 
 ### Fixed
