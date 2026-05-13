@@ -26,6 +26,8 @@ module SupplyTeachers::RM6376::RatesHelper
   end
 
   def agency_rate(rates, position_id)
+    return t('na') unless rates[position_id]
+
     if rates[position_id].rate_type == 'percentage'
       number_to_percentage(rates[position_id].normalized_rate, precision: 1)
     else
