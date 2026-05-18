@@ -21,10 +21,10 @@ class SupplyTeachers::SupplierFilter
 
     if agency_postcode.present? && valid?
       query = query.where(id: Supplier::Framework::Lot::Branch.search(@location.point, lot_id: @lot_id, radius: @radius)
-                              .unscope(:includes)
-                              .reorder(nil)
-                              .select('supplier_framework_lot.supplier_framework_id')
-                              .distinct)
+                                                              .unscope(:includes)
+                                                              .reorder(nil)
+                                                              .select('supplier_framework_lot.supplier_framework_id')
+                                                              .distinct)
     end
 
     query
