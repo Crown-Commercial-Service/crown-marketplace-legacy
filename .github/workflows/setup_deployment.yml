@@ -23,12 +23,6 @@ jobs:
               "refs/heads/develop")
                 echo "Sandbox"
                 ;;
-              "refs/heads/preview")
-                echo "Preview"
-                ;;
-              "refs/heads/production")
-                echo "Production"
-                ;;
               *)
                 echo "FAIL"
                 ;;

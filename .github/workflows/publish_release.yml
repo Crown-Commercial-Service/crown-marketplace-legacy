@@ -58,3 +58,19 @@ jobs:
           tag_name: v${{ needs.check_for_release.outputs.version }}
           name: Release v${{ needs.check_for_release.outputs.version }}
           body: ${{ steps.changelog_reader.outputs.changes }}
+
+  release_to_preview:
+    if: ${{ needs.check_for_release.outputs.exists == 'false' }}
+
+    needs: [release, check_for_release]
+
+    uses: ./.github/workflows/deploy_to_aws.yml
+    with:
+      environment: Preview
+      target_branch: v${{ needs.check_for_release.outputs.version }}
+    secrets:
+      AWS_PIPELINE_REGION: ${{ secrets.AWS_PIPELINE_REGION }}
+      AWS_PIPELINE_ACCESS_KEY: ${{ secrets.AWS_PIPELINE_ACCESS_KEY }}
+      AWS_PIPELINE_SECRET_KEY: ${{ secrets.AWS_PIPELINE_SECRET_KEY }}
+      AWS_PIPELINE_MAIN_NAME: ${{ secrets.AWS_PIPELINE_MAIN_NAME }}
+      AWS_PIPELINE_SIDEKIQ_NAME: ${{ secrets.AWS_PIPELINE_SIDEKIQ_NAME }}
