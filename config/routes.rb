@@ -305,6 +305,17 @@ Rails.application.routes.draw do
 
       namespace :admin, defaults: { service: 'legal_panel_for_government/admin' } do
         concerns %i[admin_dashboard admin_suppliers admin_uploads admin_reports admin_shared_pages]
+
+        unless Marketplace.environment_name == :production
+          scope path: '/suppliers/:supplier_id/lot-data/:lot_number/jurisdictions', as: :jurisdictions do
+            get '/edit', to: 'jurisdictions#edit', as: 'edit'
+            put '/update', to: 'jurisdictions#update', as: 'update'
+            get '/:jurisdiction_id/new', to: 'jurisdictions#new', as: 'new'
+            post '/:jurisdiction_id', to: 'jurisdictions#create', as: 'create'
+            get '/:jurisdiction_id/delete', to: 'jurisdictions#delete', as: 'delete'
+            delete '/:jurisdiction_id', to: 'jurisdictions#destroy', as: 'destroy'
+          end
+        end
       end
     end
 

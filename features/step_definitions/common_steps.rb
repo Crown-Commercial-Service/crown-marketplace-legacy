@@ -115,6 +115,14 @@ Then('I sign in') do
   click_button 'Sign in'
 end
 
+Then('the following content should be displayed on the page:') do |table|
+  page_text = page.find_by_id('main-content').text
+
+  table.raw.flatten.each do |item|
+    expect(page_text).to include(item)
+  end
+end
+
 Then('I should see the following error messages:') do |table|
   expect(page).to have_css('div.govuk-error-summary')
   expect(page.find('.govuk-error-summary__list').find_all('a').map(&:text).reject(&:empty?)).to eq table.raw.flatten
@@ -146,6 +154,10 @@ end
 
 Given('I check {string}') do |item|
   check item
+end
+
+Given('I select {string} from {string}') do |item, question|
+  page.select item, from: question
 end
 
 Then('I enter {string} for the {string}') do |value, field|
@@ -181,6 +193,15 @@ end
 
 Then('I am on {string}') do |expected_path|
   expect(page).to have_current_path expected_path, ignore_query: true
+end
+
+Then('I should see the following messgae in a {string} notification banner:') do |banner_type, notification_message|
+  expect(home_page.notification_banner).to have_css('.govuk-notification-banner.govuk-notification-banner--success') if banner_type == 'sucess'
+
+  banner_messages = notification_message.transpose.raw.to_h
+
+  expect(home_page.notification_banner.heading).to have_text(banner_messages['Heading']) if banner_messages['Heading']
+  expect(home_page.notification_banner.message).to have_text(messages['Message']) if banner_messages['Message']
 end
 
 Then('I pause') do

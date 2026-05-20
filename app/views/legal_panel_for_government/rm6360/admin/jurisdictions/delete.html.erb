@@ -1,0 +1,37 @@
+<%= content_for :page_title, t('.heading') %>
+
+<% admin_breadcrumbs(
+  { text: t('shared.admin.suppliers.index.heading'), href: suppliers_index_path },
+  { text: t('shared.admin.lot_data.index.heading'), href: supplier_lot_data_index_path(@supplier_framework) },
+  { text: t('shared.admin.lot_data.show.heading.heading', section: t("shared.admin.lot_data.show.heading.#{@section}")), href: supplier_lot_data_show_path(@supplier_framework, @lot.number_as_slug, @section) },
+  { text: t('legal_panel_for_government.rm6360.admin.jurisdictions.edit.heading'), href: legal_panel_for_government_rm6360_admin_jurisdictions_edit_path(@supplier_framework, @lot.number_as_slug) },
+  { text: t('.heading') }
+)%>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+    <%= form_with url: legal_panel_for_government_rm6360_admin_jurisdictions_destroy_path, method: :delete, html: { novalidate: true } do |f| %>
+      <h1 class="govuk-heading-l">
+        <span class="govuk-caption-m"><%= @supplier_framework.supplier_name %></span>
+        <span class="govuk-caption-l"><%= t("shared.admin.lot_data.show.heading.caption", lot_number: @lot.number, lot_name: @lot.name) %></span>
+        <%= t('.heading') %>
+      </h1>
+
+      <p class="govuk-body-l">
+        <%= t('.are_you_sure_html', jurisdiction: @supplier_framework_lot_jurisdiction.jurisdiction.name) %>
+      </p>
+
+      <p class="govuk-body-l">
+        <%= t('.this_will') %>
+      </p>
+
+      <div class="govuk-button-group">
+        <%= govuk_button(t('.remove'), form: f, classes: 'govuk-button--warning', attributes: { aria: { label: t('.remove') } }) %>
+        <%= govuk_button(t('.cancel'), href: legal_panel_for_government_rm6360_admin_jurisdictions_edit_path(@supplier_framework, @lot.number_as_slug), classes: 'govuk-button--secondary', attributes: { aria: { label: t('.cancel') } }) %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+

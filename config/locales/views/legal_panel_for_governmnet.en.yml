@@ -3,6 +3,14 @@ en:
   activemodel:
     errors:
       models:
+        legal_panel_for_government/rm6360/admin/change_jurisdictions:
+          attributes:
+            add_or_remove:
+              inclusion: You must select add or remove
+            jurisdiction_to_add:
+              inclusion: You must select a jurisdiction to add
+            jurisdiction_to_remove:
+              inclusion: You must select a jurisdiction to remove
         legal_panel_for_government/rm6360/journey/choose_jurisdiction:
           attributes:
             jurisdiction_ids:
@@ -117,6 +125,35 @@ en:
       lot_legal_specialisms: Lot %{lot_number} legal specialisms
     rm6360:
       admin:
+        jurisdictions:
+          delete:
+            are_you_sure_html: Are you sure you want to remove the <strong>%{jurisdiction}</strong> jurisdiction for the supplier?
+            cancel: Cancel
+            heading: Remove jurisdiction
+            remove: Remove
+            this_will: This will remove their rates for this jurisdiction and they will no longer appear in the results for this jurisdiction.
+          edit:
+            add_or_remove:
+              options:
+                add:
+                  hint: You will need add the rates for this jurisdiction on the next page
+                  text: Add
+                remove:
+                  hint: You will be asked to confirm the removal of this jurisdiction on the next page
+                  text: Remove
+              question: Add or a remove a jurisdiction from the supplier
+            cancel: Cancel
+            heading: Change jurisdictions
+            jurisdiction_added: The jurisdiction '%{jurisdiction}' was added successfully
+            jurisdiction_removed: The jurisdiction '%{jurisdiction}' was removed successfully
+            jurisdiction_to_add:
+              question: Select jurisdiction to add
+            jurisdiction_to_remove:
+              question: Select jurisdiction to remove
+          new:
+            add_rates: Add rates
+            cancel: Cancel
+            heading: Add rates for the jurisdiction
         lot_data:
           show:
             jurisdictions:
