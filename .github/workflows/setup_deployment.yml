@@ -5,8 +5,6 @@ on:
     branches:
       - develop
       - main
-      - preview
-      - production
 
 jobs:
   determine-environment:
@@ -52,6 +50,7 @@ jobs:
       - determine-environment
     with:
       environment: ${{ needs.determine-environment.outputs.ENV_NAME }}
+      target_branch: ${{ github.ref_name }}
     secrets:
       AWS_PIPELINE_REGION: ${{ secrets.AWS_PIPELINE_REGION }}
       AWS_PIPELINE_ACCESS_KEY: ${{ secrets.AWS_PIPELINE_ACCESS_KEY }}
