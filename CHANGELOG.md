@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [6.8.0] - 2026-05-20
+
 ### Changed
 
 - Update how we do releases to preview and production to target a specific tag  ([PR 2472](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2472))
