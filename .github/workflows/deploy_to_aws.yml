@@ -32,7 +32,7 @@ on:
   workflow_dispatch:
     inputs:
       environment:
-        description: 'The name of the environment we are deploying to (e.g., dev, staging, prod)'
+        description: 'The name of the environment we are deploying to (e.g., "CMPDEV", preview, production)'
         required: true
         type: environment
       target_branch:
@@ -51,7 +51,7 @@ jobs:
       name: ${{ inputs.environment }}
     steps:
       - name: Trigger AWS CodePipeline - main container
-        uses: Crown-Commercial-Service/ccs-aws-codepipeline-action@c163896bb790c65252348fd9030a3e92e0449073
+        uses: Crown-Commercial-Service/ccs-aws-codepipeline-action@v3.0.0
         with:
           aws-region: ${{ secrets.AWS_PIPELINE_REGION }}
           aws-access-key: ${{ secrets.AWS_PIPELINE_ACCESS_KEY }}
@@ -65,7 +65,7 @@ jobs:
       name: ${{ inputs.environment }}
     steps:
       - name: Trigger AWS CodePipeline - sidekiq container
-        uses: Crown-Commercial-Service/ccs-aws-codepipeline-action@c163896bb790c65252348fd9030a3e92e0449073
+        uses: Crown-Commercial-Service/ccs-aws-codepipeline-action@v3.0.0
         with:
           aws-region: ${{ secrets.AWS_PIPELINE_REGION }}
           aws-access-key: ${{ secrets.AWS_PIPELINE_ACCESS_KEY }}
