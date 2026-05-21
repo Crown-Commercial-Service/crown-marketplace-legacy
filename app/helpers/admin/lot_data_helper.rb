@@ -5,21 +5,25 @@ module Admin::LotDataHelper
 
   def edit_page_error_summary
     if @section == :rates
-      error_summary = []
-
-      @supplier_framework_lot_rates.each do |position_id, supplier_framework_lot_rate|
-        next if supplier_framework_lot_rate.errors[:rate].blank?
-
-        error_summary << {
-          text: supplier_framework_lot_rate.errors[:rate].first,
-          href: "##{error_id("supplier_framework_lot[rates][#{position_id}]")}"
-        }
-      end
-
-      govuk_error_summary(t('shared.error_summary.there_is_a_problem'), error_summary) if error_summary.any?
+      rates_error_summary
     else
       render(partial: 'shared/error_summary', locals: { errors: @model.errors })
     end
+  end
+
+  def rates_error_summary
+    error_summary = []
+
+    @supplier_framework_lot_rates.each do |position_id, supplier_framework_lot_rate|
+      next if supplier_framework_lot_rate.errors[:rate].blank?
+
+      error_summary << {
+        text: supplier_framework_lot_rate.errors[:rate].first,
+        href: "##{error_id("supplier_framework_lot[rates][#{position_id}]")}"
+      }
+    end
+
+    govuk_error_summary(t('shared.error_summary.there_is_a_problem'), error_summary) if error_summary.any?
   end
 
   def services_lot_title(supplier_lot_data_item)

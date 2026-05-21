@@ -1,0 +1,68 @@
+<%= content_for :page_title, t('.heading') %>
+
+<% admin_breadcrumbs(
+  { text: t('shared.admin.suppliers.index.heading'), href: suppliers_index_path },
+  { text: t('shared.admin.lot_data.index.heading'), href: supplier_lot_data_index_path(@supplier_framework) },
+  { text: t('shared.admin.lot_data.show.heading.heading', section: t("shared.admin.lot_data.show.heading.#{@section}")), href: supplier_lot_data_show_path(@supplier_framework, @lot.number_as_slug, @section) },
+  { text: t('.heading') }
+)%>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+    <%= form_with url: legal_panel_for_government_rm6360_admin_jurisdictions_update_path(@supplier_framework, @lot.number_as_slug), model: @model, method: :put, html: { novalidate: true } do |f| %>
+      <%= render partial: 'shared/error_summary', locals: { errors: @model.errors } %>
+
+      <%= govuk_notification_banner(t(".jurisdiction_removed", jurisdiction: flash[:jurisdiction_removed]), true) if flash[:jurisdiction_removed] %>
+      <%= govuk_notification_banner(t(".jurisdiction_added", jurisdiction: flash[:jurisdiction_added]), true) if flash[:jurisdiction_added] %>
+
+      <%= govuk_radios(
+        :add_or_remove,
+        @model.class::ADD_OR_REMOVE_OPTIONS.map do |option|
+          next if @model.jurisdiction_lists[option].blank?
+
+          {
+            value: option,
+            label: {
+              text: t(".add_or_remove.options.#{option}.text")
+            },
+            hint: {
+              text: t(".add_or_remove.options.#{option}.hint")
+            },
+            conditional: {
+              content: govuk_select(
+                :"jurisdiction_to_#{option}",
+                [{value: nil}] + @model.jurisdiction_lists[option].map { |jurisdiction| { text: jurisdiction.name, value: jurisdiction.id } },
+                form: f,
+                label: {
+                  text: t(".jurisdiction_to_#{option}.question")
+                },
+              )
+            }
+          }
+        end.compact,
+        form: f,
+        fieldset: {
+          legend: {
+            text: t('.add_or_remove.question'),
+            classes: 'govuk-fieldset__legend--l',
+            is_page_heading: true,
+            caption: {
+              text: capture do
+                concat(tag.span(@supplier_framework.supplier_name, class: 'govuk-caption-m'))
+                concat(tag.span(t("shared.admin.lot_data.show.heading.caption", lot_number: @lot.number, lot_name: @lot.name), class: 'govuk-caption-l'))
+              end,
+            }
+          }
+        }
+      ) %>
+
+      <div class="govuk-button-group">
+        <%= govuk_button(t('common.continue'), form: f, attributes: { aria: { label: t('common.continue') } }) %>
+        <%= govuk_button(t('.cancel'), href: supplier_lot_data_show_path(@supplier_framework, @lot.number_as_slug, @section), classes: 'govuk-button--secondary', attributes: { aria: { label: t('.cancel') } }) %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+
