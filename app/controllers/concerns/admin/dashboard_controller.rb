@@ -6,7 +6,7 @@ module Admin::DashboardController
   included do
     before_action :authenticate_user!, :authorize_user, only: %i[index]
 
-    helper_method :uploads_index_path, :reports_index_path, :frameworks_index_path, :framework_has_analytics?
+    helper_method :uploads_index_path, :reports_index_path, :frameworks_show_path, :framework_has_analytics?
   end
 
   def index; end
@@ -29,8 +29,8 @@ module Admin::DashboardController
     "#{service_path_base}/reports"
   end
 
-  def frameworks_index_path
-    "/#{params.expect(:service).split('/').first.gsub('_', '-')}/admin/frameworks"
+  def frameworks_show_path
+    "#{service_path_base}/frameworks"
   end
 
   def framework_has_analytics?

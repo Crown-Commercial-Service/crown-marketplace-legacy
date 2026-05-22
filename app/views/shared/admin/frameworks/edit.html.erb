@@ -1,14 +1,25 @@
-<% content_for :page_title, t('.page_title').html_safe %>
+<%= content_for :page_title, t('.heading') %>
 
-<%= form_with model: @framework, url: local_update_path, method: :put, html: { specialvalidation: true, novalidate: true } do |f| %>
-  <%= render partial: 'shared/error_summary', locals: { errors: f.object.errors } %>
+<%= form_with model: @framework, url: framework_show_path, method: :put, html: { specialvalidation: true, novalidate: true } do |f| %>
+  <% admin_breadcrumbs(
+    { text: t('shared.admin.frameworks.show.heading'), href: framework_show_path },
+    { text: t('.heading') }
+  )%>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+      <%= render partial: 'shared/error_summary', locals: { errors: f.object.errors } %>
+
+      <h1 class="govuk-heading-xl">
+        <span class="govuk-caption-xl"><%= t('shared.admin.frameworks.show.caption', service_name: t("#{service.module_parent.to_s.underscore}.service_name"), framework: params[:framework]) %></span>
+        <%= t('.heading') %>
+      </h1>
+    </div>
+  </div>
+
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-m">
-        <%= t('.update_the_framework_dates') %>
-      </h1>
-
       <div class="govuk-!-margin-top-5">
         <%= govuk_date_input(
           :live_at,
@@ -42,9 +53,6 @@
       </div>
 
       <%= govuk_button(t('.save_and_return'), form: f, attributes: { name: t('.save_and_return') }) %>
-      <p class="govuk-body">
-        <%= link_to t('.return_to_frameworks', service_name: service_name), local_index_path, class: 'govuk-link--no-visited-state' %>
-      </p>
     </div>
   </div>
 <% end %>

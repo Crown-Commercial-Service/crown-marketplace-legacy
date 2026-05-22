@@ -1,21 +1,30 @@
 require 'rails_helper'
 
-RSpec.describe LegalServices::Admin::FrameworksController do
-  let(:default_params) { { service: 'legal_services/admin' } }
+RSpec.describe LegalServices::RM6240::Admin::FrameworksController do
+  let(:default_params) { { service: 'legal_services/admin', framework: 'RM6240' } }
+  let(:framework) { Framework.find('RM6240') }
 
   login_ccs_developer
 
-  describe 'GET index' do
-    it 'renders the index page' do
-      get :index
-      expect(response).to render_template(:index)
+  describe 'GET show' do
+    it 'renders the show page' do
+      get :show
+
+      expect(response).to render_template(:show)
+    end
+
+    it 'sets the framework' do
+      get :show
+
+      expect(assigns(:framework).id).to eq(framework.id)
     end
 
     context 'when logged in as a buyer' do
       login_ls_buyer
 
       it 'redirects to not permitted' do
-        get :index
+        get :show
+
         expect(response).to redirect_to '/legal-services/RM6240/admin/not-permitted'
       end
     end
@@ -24,32 +33,39 @@ RSpec.describe LegalServices::Admin::FrameworksController do
       login_ls_admin
 
       it 'redirects to not permitted' do
-        get :index
+        get :show
+
         expect(response).to redirect_to '/legal-services/RM6240/admin/not-permitted'
       end
     end
   end
 
   describe 'GET edit' do
-    let(:framework) { create(:framework) }
+    before { get :edit }
 
     it 'renders the edit page' do
-      get :edit, params: { id: framework.id }
       expect(response).to render_template(:edit)
+    end
+
+    it 'sets the framework' do
+      expect(assigns(:framework).id).to eq(framework.id)
     end
   end
 
   describe 'POST update' do
-    let(:framework) { create(:framework) }
     let(:live_at_yyyy) { framework.live_at.year.to_s }
     let(:live_at_mm) { framework.live_at.month.to_s }
     let(:live_at_dd) { framework.live_at.day.to_s }
 
-    before { post :update, params: { id: framework.id, framework: { live_at_dd:, live_at_mm:, live_at_yyyy: } } }
+    before { post :update, params: { framework_update: { live_at_dd:, live_at_mm:, live_at_yyyy: } } }
+
+    it 'sets the framework' do
+      expect(assigns(:framework).id).to eq(framework.id)
+    end
 
     context 'when the data is valid' do
-      it 'redirects to legal_services_admin_frameworks_path' do
-        expect(response).to redirect_to legal_services_admin_frameworks_path
+      it 'redirects to legal_services_rm6240_admin_frameworks_path' do
+        expect(response).to redirect_to legal_services_rm6240_admin_frameworks_path
       end
     end
 
