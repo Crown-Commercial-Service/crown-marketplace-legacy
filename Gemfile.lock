@@ -650,7 +650,7 @@ GEM
       rubocop-rspec (~> 3.5)
     ruby-progressbar (1.13.0)
     ruby2_keywords (0.0.5)
-    rubyXL (3.4.35)
+    rubyXL (3.4.37)
       nokogiri (>= 1.10.8)
       rubyzip (>= 3.2.2)
     rubyzip (3.3.0)
