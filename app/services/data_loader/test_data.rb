@@ -56,6 +56,9 @@ class DataLoader::TestData
         File.open('data/supply_teachers/rm6238/dummy_supplier_data.json', 'r') do |file|
           Upload.upload!('RM6238', JSON.parse(file.read, symbolize_names: true))
         end
+
+        Rails.logger.info 'Making RM6238 live'
+        Framework.find('RM6238').update(expires_at: 1.day.from_now)
       end
     end
 
@@ -104,15 +107,17 @@ class DataLoader::TestData
       empty_tables
 
       case framework
-      when 'RM6187', 'RM6309'
+      when 'RM6187'
         MC::RM6187.import_data
+      when 'RM6309'
         MC::RM6309.import_data
       when 'RM6240'
         LS::RM6240.import_data
       when 'RM6360'
         LPG::RM6360.import_data
-      when 'RM6238', 'RM6376'
+      when 'RM6238'
         ST::RM6238.import_data
+      when 'RM6376'
         ST::RM6376.import_data
       end
     end

@@ -2,7 +2,7 @@ module Admin::SupplierPathsConcern
   extend ActiveSupport::Concern
 
   included do
-    helper_method :suppliers_index_path, :supplier_show_path, :supplier_edit_path, :supplier_update_path, :supplier_lot_data_index_path, :supplier_lot_data_show_path, :supplier_lot_data_edit_path, :supplier_lot_data_update_path
+    helper_method :suppliers_index_path, :supplier_show_path, :supplier_edit_path, :supplier_update_path, :supplier_lot_data_index_path, :supplier_lot_data_show_path, :supplier_lot_data_edit_path, :supplier_lot_data_update_path, :framework_show_path, :framework_edit_path, :framework_update_path
   end
 
   private
@@ -37,6 +37,14 @@ module Admin::SupplierPathsConcern
 
   def supplier_lot_data_update_path(supplier_framework, lot_number, section, **)
     supplier_lot_datum_path(service_name, params[:framework], supplier_framework.id, lot_number, section:, **)
+  end
+
+  def framework_show_path
+    frameworks_path(service_name, params[:framework])
+  end
+
+  def framework_edit_path
+    frameworks_edit_path(service_name, params[:framework])
   end
 
   def service_name

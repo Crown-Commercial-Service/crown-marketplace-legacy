@@ -119,7 +119,11 @@ Rails.application.routes.draw do
   end
 
   concern :admin_frameworks do
-    resources :frameworks, only: %i[index edit update]
+    scope path: '/frameworks', as: :frameworks do
+      get '/', to: 'frameworks#show', action: :show
+      get '/edit', to: 'frameworks#edit', action: :edit
+      put '/', to: 'frameworks#update', action: :update
+    end
   end
 
   concern :admin_dashboard do
@@ -195,14 +199,14 @@ Rails.application.routes.draw do
             get :progress, action: :progress
           end
         end
-        concerns :admin_dashboard, :admin_suppliers, :admin_shared_pages
+        concerns :admin_dashboard, :admin_frameworks, :admin_suppliers, :admin_shared_pages
       end
     end
 
     concerns :framework
 
     namespace :admin, defaults: { service: 'supply_teachers/admin' } do
-      concerns %i[framework admin_frameworks]
+      concerns %i[framework]
     end
 
     namespace 'rm6238', path: 'RM6238', defaults: { framework: 'RM6238' } do
@@ -226,7 +230,7 @@ Rails.application.routes.draw do
       end
 
       namespace :admin, defaults: { service: 'supply_teachers/admin' } do
-        concerns %i[admin_dashboard admin_suppliers admin_uploads admin_shared_pages]
+        concerns %i[admin_dashboard admin_frameworks admin_suppliers admin_uploads admin_shared_pages]
       end
     end
 
@@ -241,14 +245,14 @@ Rails.application.routes.draw do
     concerns :framework
 
     namespace :admin, defaults: { service: 'management_consultancy/admin' } do
-      concerns %i[framework admin_frameworks]
+      concerns %i[framework]
     end
 
     namespace 'rm6187', path: 'RM6187', defaults: { framework: 'RM6187' } do
       concerns %i[buyer_shared_pages shared_pages suppliers]
 
       namespace :admin, defaults: { service: 'management_consultancy/admin' } do
-        concerns %i[admin_dashboard admin_suppliers admin_uploads admin_reports admin_shared_pages]
+        concerns %i[admin_dashboard admin_frameworks admin_suppliers admin_uploads admin_reports admin_shared_pages]
       end
     end
 
@@ -256,7 +260,7 @@ Rails.application.routes.draw do
       concerns %i[buyer_shared_pages shared_pages suppliers]
 
       namespace :admin, defaults: { service: 'management_consultancy/admin' } do
-        concerns %i[admin_dashboard admin_suppliers admin_uploads admin_reports admin_shared_pages]
+        concerns %i[admin_dashboard admin_frameworks admin_suppliers admin_uploads admin_reports admin_shared_pages]
       end
     end
 
@@ -273,14 +277,14 @@ Rails.application.routes.draw do
     concerns :framework
 
     namespace :admin, defaults: { service: 'legal_services/admin' } do
-      concerns %i[framework admin_frameworks]
+      concerns %i[framework]
     end
 
     namespace 'rm6240', path: 'RM6240', defaults: { framework: 'RM6240' } do
       concerns %i[buyer_shared_pages shared_pages suppliers]
 
       namespace :admin, defaults: { service: 'legal_services/admin' } do
-        concerns %i[admin_dashboard admin_suppliers admin_uploads admin_reports admin_shared_pages]
+        concerns %i[admin_dashboard admin_frameworks admin_suppliers admin_uploads admin_reports admin_shared_pages]
       end
     end
 
@@ -295,7 +299,7 @@ Rails.application.routes.draw do
     concerns :framework
 
     namespace :admin, defaults: { service: 'legal_panel_for_government/admin' } do
-      concerns %i[framework admin_frameworks]
+      concerns %i[framework]
     end
 
     namespace 'rm6360', path: 'RM6360', defaults: { framework: 'RM6360' } do
@@ -304,7 +308,7 @@ Rails.application.routes.draw do
       get '/supplier-results', to: 'journey#question', as: 'journey_question'
 
       namespace :admin, defaults: { service: 'legal_panel_for_government/admin' } do
-        concerns %i[admin_dashboard admin_suppliers admin_uploads admin_reports admin_shared_pages]
+        concerns %i[admin_dashboard admin_frameworks admin_suppliers admin_uploads admin_reports admin_shared_pages]
 
         unless Marketplace.environment_name == :production
           scope path: '/suppliers/:supplier_id/lot-data/:lot_number/jurisdictions', as: :jurisdictions do
@@ -352,6 +356,11 @@ Rails.application.routes.draw do
   resources :buyer_details, path: '/:service/:framework/buyer-details', only: %i[index show edit update]
   resources :suppliers, path: '/:service/:framework/admin/suppliers', only: Marketplace.environment_name == :production ? %i[index show] : %i[index show edit update] do
     resources :lot_data, path: 'lot-data', param: :lot_number, only: Marketplace.environment_name == :production ? %i[index show] : %i[index show edit update]
+  end
+  scope path: '/:service/:framework/admin/frameworks', as: :frameworks do
+    get '/', to: 'frameworks#show', action: :show
+    get '/edit', to: 'frameworks#edit', action: :edit
+    put '/', to: 'frameworks#update', action: :update
   end
 end
 # rubocop:enable Metrics/BlockLength

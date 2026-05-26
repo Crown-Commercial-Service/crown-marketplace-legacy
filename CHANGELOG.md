@@ -13,7 +13,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- Update how we do releases to preview and production to target a specific tag  ([PR 2472](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2472))
+- Update how we do releases to preview and production to target a specific tag ([PR 2472](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2472))
+- Allow framework status to be updated at the framework level rather than the service level ([PR 2476](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2476))
 
 ## [6.7.3] - 2026-05-13
 
