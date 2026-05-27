@@ -36,7 +36,7 @@ module SupplyTeachers::RM6238::RatesHelper
 
         [
           {
-            text: t("supply_teachers.rm6238.shared.job_titles.#{position_name}")
+            text: t("shared.rates_table.rm6238.job_titles.#{position_name}")
           },
           agency_rate_cell(rates, positions[0]),
           agency_rate_cell(rates, positions[-1]),
@@ -60,7 +60,7 @@ module SupplyTeachers::RM6238::RatesHelper
       @lot.positions.order(:number).map do |position|
         [
           {
-            text: t("supply_teachers.rm6238.shared.job_titles.#{position.name}.#{position.category}")
+            text: t("shared.rates_table.rm6238.job_titles.#{position.name}#{"_#{position.category}" if position.category}")
           },
           agency_rate_cell(rates, position),
         ]

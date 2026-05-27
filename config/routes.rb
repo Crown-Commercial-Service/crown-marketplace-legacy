@@ -142,6 +142,10 @@ Rails.application.routes.draw do
     end
   end
 
+  concern :admin_change_logs do
+    resources :change_logs, path: 'change-logs', only: %i[index show]
+  end
+
   concern :admin_reports do
     resources :reports, only: %i[index new create show] do
       get '/progress', action: :progress
@@ -199,7 +203,7 @@ Rails.application.routes.draw do
             get :progress, action: :progress
           end
         end
-        concerns :admin_dashboard, :admin_frameworks, :admin_suppliers, :admin_shared_pages
+        concerns :admin_dashboard, :admin_frameworks, :admin_suppliers, :admin_change_logs, :admin_shared_pages
       end
     end
 
@@ -230,7 +234,7 @@ Rails.application.routes.draw do
       end
 
       namespace :admin, defaults: { service: 'supply_teachers/admin' } do
-        concerns %i[admin_dashboard admin_frameworks admin_suppliers admin_uploads admin_shared_pages]
+        concerns %i[admin_dashboard admin_frameworks admin_suppliers admin_uploads admin_change_logs admin_shared_pages]
       end
     end
 
@@ -252,7 +256,7 @@ Rails.application.routes.draw do
       concerns %i[buyer_shared_pages shared_pages suppliers]
 
       namespace :admin, defaults: { service: 'management_consultancy/admin' } do
-        concerns %i[admin_dashboard admin_frameworks admin_suppliers admin_uploads admin_reports admin_shared_pages]
+        concerns %i[admin_dashboard admin_frameworks admin_suppliers admin_uploads admin_change_logs admin_reports admin_shared_pages]
       end
     end
 
@@ -260,7 +264,7 @@ Rails.application.routes.draw do
       concerns %i[buyer_shared_pages shared_pages suppliers]
 
       namespace :admin, defaults: { service: 'management_consultancy/admin' } do
-        concerns %i[admin_dashboard admin_frameworks admin_suppliers admin_uploads admin_reports admin_shared_pages]
+        concerns %i[admin_dashboard admin_frameworks admin_suppliers admin_uploads admin_change_logs admin_reports admin_shared_pages]
       end
     end
 
@@ -284,7 +288,7 @@ Rails.application.routes.draw do
       concerns %i[buyer_shared_pages shared_pages suppliers]
 
       namespace :admin, defaults: { service: 'legal_services/admin' } do
-        concerns %i[admin_dashboard admin_frameworks admin_suppliers admin_uploads admin_reports admin_shared_pages]
+        concerns %i[admin_dashboard admin_frameworks admin_suppliers admin_uploads admin_change_logs admin_reports admin_shared_pages]
       end
     end
 
@@ -308,7 +312,7 @@ Rails.application.routes.draw do
       get '/supplier-results', to: 'journey#question', as: 'journey_question'
 
       namespace :admin, defaults: { service: 'legal_panel_for_government/admin' } do
-        concerns %i[admin_dashboard admin_frameworks admin_suppliers admin_uploads admin_reports admin_shared_pages]
+        concerns %i[admin_dashboard admin_frameworks admin_suppliers admin_uploads admin_change_logs admin_reports admin_shared_pages]
 
         unless Marketplace.environment_name == :production
           scope path: '/suppliers/:supplier_id/lot-data/:lot_number/jurisdictions', as: :jurisdictions do
@@ -357,6 +361,8 @@ Rails.application.routes.draw do
   resources :suppliers, path: '/:service/:framework/admin/suppliers', only: Marketplace.environment_name == :production ? %i[index show] : %i[index show edit update] do
     resources :lot_data, path: 'lot-data', param: :lot_number, only: Marketplace.environment_name == :production ? %i[index show] : %i[index show edit update]
   end
+  resources :uploads, path: '/:service/:framework/admin/uploads', only: %i[index new create show]
+  resources :change_logs, path: '/:service/:framework/admin/change-logs', only: %i[index show]
   scope path: '/:service/:framework/admin/frameworks', as: :frameworks do
     get '/', to: 'frameworks#show', action: :show
     get '/edit', to: 'frameworks#edit', action: :edit

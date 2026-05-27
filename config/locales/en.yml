@@ -113,6 +113,8 @@ en:
               blank: The additional identifier cannot be blank
               taken: The additional identifier you entered is already in use by another supplier
               too_long: The additional identifier must be no more than 255 characters
+            base:
+              something_went_wrong: Something went wrong when trying to save the supplier data. Please do not try this again
             duns_number:
               blank: The DUNS number cannot be blank
               invalid: The DUNS number must be 9 digits
@@ -133,6 +135,8 @@ en:
             address:
               blank: Enter the address
               too_long: The address should be no more than 255 characters
+            base:
+              something_went_wrong: Something went wrong when trying to save the supplier data. Please do not try this again
             email:
               blank: Enter the contact email in the correct format, like name@example.com
               too_long: The contact email should be no more than 255 characters
@@ -177,6 +181,7 @@ en:
           attributes:
             base:
               service_update_invalid: Something went wrong when updating the service selection. If this problem persist contact a developer
+              something_went_wrong: Something went wrong when trying to save the supplier data. Please do not try this again
             enabled:
               inclusion: Select if the supplier is on this lot
         supplier/framework/lot/branch:
@@ -186,6 +191,8 @@ en:
               too_long: Address line 1 must be no more than 255 characters
             address_line_2:
               too_long: Address line 2 must be no more than 255 characters
+            base:
+              something_went_wrong: Something went wrong when trying to save the supplier data. Please do not try this again
             contact_email:
               blank: Enter the contact email in the correct format, like name@example.com
               too_long: The contact email must be no more than 255 characters

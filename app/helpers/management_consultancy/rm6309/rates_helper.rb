@@ -8,14 +8,14 @@ module ManagementConsultancy::RM6309::RatesHelper
         }
       ] + @lot.positions.order(:number).pluck(:category).uniq.map do |category|
         {
-          text: t('management_consultancy.rm6309.suppliers.show.max_day_rate', rate_type: t("management_consultancy.rm6309.suppliers.show.rate_type.#{category}")),
+          text: t("shared.rates_table.rm6309.categories.#{category}"),
           classes: 'govuk-!-width-one-quarter'
         }
       end,
       @lot.positions_grouped_by_name.reverse.map do |position_name, positions|
         [
           {
-            text: t("management_consultancy.rm6309.suppliers.show.job_titles.#{position_name}")
+            text: t("shared.rates_table.rm6309.job_titles.#{position_name}")
           },
           {
             text: number_to_currency(rates[positions[0].id].normalized_rate, precision: 0)

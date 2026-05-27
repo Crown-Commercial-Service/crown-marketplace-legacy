@@ -139,7 +139,21 @@ module Admin::LotDataController
 
     @model.assign_attributes(new_attributes)
 
-    @model.save(context: @section)
+    ActiveRecord::Base.transaction do
+      @model.save!(context: @section)
+      ChangeLog.log_update_supplier_framework_lot_status!(user: current_user, framework: params[:framework], model: @model)
+
+      true
+    rescue ActiveRecord::RecordInvalid => e
+      unless @model.errors.any?
+        Rails.logger.error e
+        Rollbar.log('error', e)
+
+        @model.errors.add(:base, :something_went_wrong)
+      end
+
+      false
+    end
   end
 
   # rubocop:disable Metrics/AbcSize, Naming/PredicateMethod
@@ -152,6 +166,7 @@ module Admin::LotDataController
     ActiveRecord::Base.transaction do
       @model.services.where(service_id: service_ids_to_remove).find_each(&:destroy!)
       @model.services.build(service_ids_to_add.map { |service_id| { service_id: } }).each(&:save!)
+      ChangeLog.log_update_supplier_framework_lot_services!(user: current_user, framework: params[:framework], model: @model, added: service_ids_to_add, removed: service_ids_to_remove)
     rescue ActiveRecord::RecordInvalid => e
       Rails.logger.error e
       Rollbar.log('error', e)
@@ -173,8 +188,17 @@ module Admin::LotDataController
     if valid_rates.all?
       ActiveRecord::Base.transaction do
         @supplier_framework_lot_rates.each_value do |supplier_framework_lot_rate|
-          supplier_framework_lot_rate.rate.nil? ? supplier_framework_lot_rate.destroy! : supplier_framework_lot_rate.save!
+          if supplier_framework_lot_rate.rate.nil?
+            next unless supplier_framework_lot_rate.persisted?
+
+            # We need to reload the rate so that the change log can register what the rate was before it was deleted
+            supplier_framework_lot_rate.reload
+            supplier_framework_lot_rate.destroy!
+          else
+            supplier_framework_lot_rate.save!
+          end
         end
+        ChangeLog.log_update_supplier_framework_lot_rates!(user: current_user, framework: params[:framework], model: @model, rates: @supplier_framework_lot_rates)
       rescue ActiveRecord::RecordInvalid => e
         Rails.logger.error e
         Rollbar.log('error', e)
@@ -195,7 +219,21 @@ module Admin::LotDataController
 
     @model.assign_attributes(new_attributes)
 
-    @model.save(context: @section)
+    ActiveRecord::Base.transaction do
+      @model.save!(context: @section)
+      ChangeLog.log_update_supplier_framework_lot_branch!(user: current_user, framework: params[:framework], model: @model)
+
+      true
+    rescue ActiveRecord::RecordInvalid => e
+      unless @model.errors.any?
+        Rails.logger.error e
+        Rollbar.log('error', e)
+
+        @model.errors.add(:base, :something_went_wrong)
+      end
+
+      false
+    end
   end
 
   def authorize_user

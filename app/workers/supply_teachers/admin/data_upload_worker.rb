@@ -18,8 +18,10 @@ module SupplyTeachers
           tmpfile.close
         end
 
-        ::Upload.smart_upload!(framework_id, data_converter_module.convert_data(suppliers))
+        supplier_data = data_converter_module.convert_data(suppliers)
+        ::Upload.smart_upload!(framework_id, supplier_data)
 
+        ChangeLog.log_upload_supplier_data!(admin_upload: upload, supplier_data: supplier_data)
         upload.publish!
       rescue ActiveRecord::RecordInvalid => e
         fail_upload(admin_upload_module.find(upload_id), e.record.errors.messages.values.flatten.first)

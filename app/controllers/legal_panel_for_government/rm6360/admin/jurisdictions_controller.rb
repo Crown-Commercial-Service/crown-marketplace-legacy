@@ -33,6 +33,7 @@ module LegalPanelForGovernment
 
               supplier_framework_lot_rate.save!
             end
+            ChangeLog.log_add_rates_for_supplier_framework_lot_jurisdiction!(user: current_user, framework: params[:framework], model: @supplier_framework_lot, rates: @supplier_framework_lot_rates)
 
             flash[:jurisdiction_added] = @supplier_framework_lot_jurisdiction.jurisdiction.name
 
@@ -67,11 +68,17 @@ module LegalPanelForGovernment
         def delete; end
 
         def destroy
-          @supplier_framework_lot_jurisdiction.destroy
+          ActiveRecord::Base.transaction do
+            supplier_framework_lot_rates = @supplier_framework_lot_jurisdiction.rates.index_by(&:position_id)
+            @supplier_framework_lot_jurisdiction.destroy!
+            ChangeLog.log_remove_rates_for_supplier_framework_lot_jurisdiction!(user: current_user, framework: params[:framework], model: @supplier_framework_lot, rates: supplier_framework_lot_rates)
 
-          flash[:jurisdiction_removed] = @supplier_framework_lot_jurisdiction.jurisdiction.name
+            flash[:jurisdiction_removed] = @supplier_framework_lot_jurisdiction.jurisdiction.name
 
-          redirect_to legal_panel_for_government_rm6360_admin_jurisdictions_edit_path
+            return redirect_to(legal_panel_for_government_rm6360_admin_jurisdictions_edit_path)
+          end
+
+          render :delete
         end
 
         private

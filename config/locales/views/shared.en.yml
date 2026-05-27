@@ -2,9 +2,60 @@
 en:
   shared:
     admin:
+      change_logs:
+        change_types:
+          add_rates_for_supplier_framework_lot_jurisdiction: Add rates for jurisdiction
+          remove_rates_for_supplier_framework_lot_jurisdiction: Remove rates for jurisdiction
+          update_supplier_additional_information: Additional supplier information update
+          update_supplier_contact_information: Supplier contact information update
+          update_supplier_framework_lot_branch: Branch update
+          update_supplier_framework_lot_jurisdictions: Jurisdictions update
+          update_supplier_framework_lot_rates: Rates update
+          update_supplier_framework_lot_services: Services update
+          update_supplier_framework_lot_status: Lot status update
+          update_supplier_information: Supplier information update
+          upload_supplier_data: Upload
+        index:
+          below_is_a_table: The table shows a list of all the changes made to the supplier data. You can view the specific change that was made by clicking on a log item.
+          caption: "%{service_name} - %{framework}"
+          change_logs_table:
+            change_type: Change type
+            changed_at: Changed at
+            changed_by: Changed by
+            log_item: Lot item
+          heading: Supplier data change log
+          no_change_logs: There are no change logs to view
+        show:
+          change_table:
+            after: New value
+            attribute: Attribute
+            before: Previous value
+            position: Poisiton
+            rate_type: Type
+          heading: Log item %{short_id}
+          lot_name: Lot %{number} - %{name}
+          page_title: Log item
+          summary_list:
+            change_type: Change type
+            changed_at: Changed at
+            changed_by: Changed by
+            jurisdiction: Jurisdiction
+            lot: Lot
+            supplier_name: Supplier name
+          update_supplier_framework_lot_jurisdictions:
+            added: 'The following jurisdictions were added:'
+            removed: 'The following jurisdictions were removed:'
+          update_supplier_framework_lot_services:
+            added: 'The following services were added:'
+            removed: 'The following services were removed:'
+          upload_supplier_data:
+            you_can_view_html: You can view the upload in the '%{link}' section of the portal.
       dashboard:
         index:
           caption: "%{service_name} - %{framework}"
+          change_logs:
+            description: View logs of all changes made to the supplier data
+            title: Supplier data change log
           heading: Admin dashboard
           manage_framework: Manage frameworks
           manage_framework_status:
@@ -104,6 +155,12 @@ en:
               services: Services
         show:
           add_html: Add<span class="govuk-visually-hidden"> (%{section})</span>
+          branches:
+            address: Address
+            branch_name: Branch
+            contact_email: Contact email
+            contact_name: Contact name
+            phone_number: Phone number
           change_html: Change<span class="govuk-visually-hidden"> (%{section})</span>
           heading:
             branches: branches
@@ -241,3 +298,86 @@ en:
       sign_in_with_cognito: Sign in with GCA
       sign_in_with_dfe: Sign in with DfE Sign-in
       start_now: Start now
+    rates_table:
+      rm6187:
+        categories:
+          default: Max day rate
+        job_titles:
+          director: Partner
+          junior: Analyst / Junior Consultant
+          managing: Managing Consultant / Director
+          principal: Principal Consultant / Associate Director
+          senior: Senior Consultant / Engagement Manager / Project Lead
+          standard: Consultant
+      rm6238:
+        categories:
+          daily: Agency mark-up Daily Supply
+          default: Agency mark-up
+          six_weeks_plus: Agency mark-up Long Term (6 weeks+)
+        job_titles:
+          agency_management: Agency Management
+          agency_management_daily: 'Agency Management Fee: Daily supply worker (per worker, per day)'
+          agency_management_six_weeks_plus: 'Agency Management Fee: Long term assignment (6 weeks+) (per worker, per day)'
+          fixed_term: Fixed Term
+          nominated: Nominated Worker
+          other: 'Other Roles: (Invigilators, Admin & Clerical, IT Staff, Finance Staff, Cleaners etc.)'
+          over_12_week: Over 12 Week Reduction
+          senior: 'Senior Roles: Headteacher and Senior Leadership positions'
+          support: 'Educational Support Staff: (incl. Cover Supervisor, Teaching Assistants)'
+          teacher: 'Teacher: (Incl. Qualified and Unqualified Teachers, Tutors)'
+      rm6240:
+        categories:
+          default: Hourly
+        job_titles:
+          junior: NQ Solicitor/Associate, Junior Solicitor/Associate
+          legal_project_manager: LMP (Legal project manager)
+          paralegal: Paralegal, Legal Assistant
+          partner: Partner
+          senior: Senior Solicitor, Senior Associate
+          solicitor: Solicitor, Associate
+          trainee: Trainee
+      rm6309:
+        categories:
+          advice: Max day rate (Advice)
+          complex: Max day rate (Complex)
+          delivery: Max day rate (Delivery)
+          non_complex: Max day rate (Non-Complex)
+        job_titles:
+          director: Partner / Managing Director
+          junior: Analyst / Junior Consultant
+          managing: Managing Consultant / Director
+          principal: Principal Consultant / Associate Director
+          senior: Senior Consultant / Manager / Project Lead
+          standard: Consultant / Senior Analyst
+      rm6360:
+        categories:
+          default: Hourly
+        job_titles:
+          analyst: Analyst, Associate Analyst, Research Associate, Research Officer
+          junior: NQ Solicitor/Associate, Junior Solicitor/Associate/Legal Executive
+          legal_director: Legal Director/Counsel or equivalent
+          legal_project_manager: Legal Project Managers
+          modeller: Modeller, Econometrician, Analyst, Associate Analyst
+          paralegal: Paralegal, Legal Assistant
+          partner: Partner
+          senior: Senior Solicitor, Senior Associate/Senior Legal Executive
+          senior_analyst: Senior Analyst
+          senior_modeller: Senior Modeller, Senior Econometrician, Senior Analyst
+          senior_partner: Senior Counsel, Senior Partner (20 years +PQE)
+          solicitor: Solicitor, Associate/Legal Executive
+          trainee: Trainee/Legal Apprentice
+      rm6376:
+        categories:
+          default: Agency mark-up
+        job_titles:
+          admin_and_clerical: Admin & Clerical (Inc. Office Staff, Finance Support)
+          educationl_support_non_send: Educational Support Staff non SEND (Inc. Cover Supervisor, Teaching Assistants and unqualified teachers)
+          educationl_support_send: Educational Support Staff SEND (Inc. Cover Supervisor, Teaching Assistants and unqualified teachers)
+          facilities_management: Facilities Management (Inc. Caretakers, site roles etc)
+          fixed_term: Fixed Term / Permanent Roles (on School Payroll)
+          nominated_worker: Nominated Workers
+          non_stem_teacher: Non-STEM Teachers (Inc. Qualified Teachers, Tutors)
+          other: Other (Inc. Invigilators, cleaners)
+          over_12_week: Over 12 Week Reduction
+          senior_roles: Senior Roles (Inc. Headteacher and Senior Leadership positions)
+          stem_teacher: STEM Teacher (Inc. Qualified Teachers, Tutors)

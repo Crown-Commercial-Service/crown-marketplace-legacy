@@ -10,12 +10,12 @@ module ManagementConsultancy::RM6187::Admin::LotDataHelper
           classes: 'govuk-!-width-three-quarters'
         },
         {
-          text: tag.span(t('management_consultancy.rm6187.suppliers.show.max_day_rate'), id: aria_describedby_id),
+          text: tag.span(t('shared.rates_table.rm6187.categories.default'), id: aria_describedby_id),
           classes: 'govuk-!-width-one-quarter'
         }
       ],
       @lot.positions.order(:number).map do |position|
-        input = create_rate_input(position, rates, ->(position) { I18n.t("management_consultancy.rm6187.suppliers.show.job_titles.#{position.name}") })
+        input = create_rate_input(position, rates, ->(position) { I18n.t("shared.rates_table.rm6187.job_titles.#{position.name}") })
 
         [
           {

@@ -626,17 +626,6 @@ en:
           page_title: Do you want to put the worker on the school payroll?
       page_section: Find supply teachers and agency staff
       shared:
-        job_titles:
-          agency_management:
-            daily: 'Agency Management Fee: Daily supply worker (per worker, per day)'
-            six_weeks_plus: 'Agency Management Fee: Long term assignment (6 weeks+) (per worker, per day)'
-          fixed_term: Fixed Term
-          nominated: Nominated Worker
-          other: 'Other Roles: (Invigilators, Admin & Clerical, IT Staff, Finance Staff, Cleaners etc.)'
-          over_12_week: Over 12 Week Reduction
-          senior: 'Senior Roles: Headteacher and Senior Leadership positions'
-          support: 'Educational Support Staff: (incl. Cover Supervisor, Teaching Assistants)'
-          teacher: 'Teacher: (Incl. Qualified and Unqualified Teachers, Tutors)'
         rates_table:
           column1: Job type
           column2: 'Agency mark-up '
@@ -801,21 +790,8 @@ en:
           page_title: Do you want the agency to manage the worker’s pay?
       page_section: Find supply teachers and agency staff
       shared:
-        job_titles:
-          admin_and_clerical: Admin & Clerical (Inc. Office Staff, Finance Support)
-          educationl_support_non_send: Educational Support Staff non SEND (Inc. Cover Supervisor, Teaching Assistants and unqualified teachers)
-          educationl_support_send: Educational Support Staff SEND (Inc. Cover Supervisor, Teaching Assistants and unqualified teachers)
-          facilities_management: Facilities Management (Inc. Caretakers, site roles etc)
-          fixed_term: Fixed Term / Permanent Roles (on School Payroll)
-          nominated_worker: Nominated Workers
-          non_stem_teacher: Non-STEM Teachers (Inc. Qualified Teachers, Tutors)
-          other: Other (Inc. Invigilators, cleaners)
-          over_12_week: Over 12 Week Reduction
-          senior_roles: Senior Roles (Inc. Headteacher and Senior Leadership positions)
-          stem_teacher: STEM Teacher (Inc. Qualified Teachers, Tutors)
         rates_table:
           column1: Job type
-          column2: 'Agency mark-up '
       suppliers:
         managed_service_providers:
           header: Managed service providers

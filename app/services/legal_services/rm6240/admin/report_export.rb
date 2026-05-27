@@ -13,11 +13,11 @@ class LegalServices::RM6240::Admin::ReportExport < ReportExport
         search_criteria['central_government'].capitalize,
         "Lot #{search_criteria['lot_number']} - #{lot.name}",
         Service.where(lot_id: lot.id, number: search_criteria['service_numbers'] || ['1']).order(:name).pluck(:name).join(";\n"),
-        JURSIDICTION_LETTER_TO_NAME[search_criteria['jurisdiction']]
+        JURISDICTION_LETTER_TO_NAME[search_criteria['jurisdiction']]
       ]
     end
 
-    JURSIDICTION_LETTER_TO_NAME = {
+    JURISDICTION_LETTER_TO_NAME = {
       'a' => 'England and Wales',
       'b' => 'Scotland',
       'c' => 'Northern Ireland'

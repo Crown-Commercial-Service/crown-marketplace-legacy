@@ -9,11 +9,11 @@ RSpec.describe LegalPanelForGovernment::RM6360::Admin::ChangeJurisdictions do
   let(:jurisdiction_ids) { ['DJ', 'ER', 'GF', 'GN', 'SX', 'FI', 'GR', 'AW', 'MS', 'KI', 'NC', 'SB', 'LC', 'AO', 'LU', 'TC', 'SH', 'MM', 'RO', 'BQ'] }
 
   describe '.jurisdiction_lists' do
-    it 'has the right number of jursidictions for adding' do
+    it 'has the right number of jurisdictions for adding' do
       expect(change_jurisdictions.jurisdiction_lists['add'].length).to eq(220)
     end
 
-    it 'has the right number of jursidictions for removing' do
+    it 'has the right number of jurisdictions for removing' do
       expect(change_jurisdictions.jurisdiction_lists['remove'].length).to eq(20)
     end
   end
