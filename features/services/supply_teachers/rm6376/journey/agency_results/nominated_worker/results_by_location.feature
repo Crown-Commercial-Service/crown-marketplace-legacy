@@ -122,12 +122,10 @@ Feature: Supply Teachers - Agency results - Nominated worker - Results by locati
       | GRADY AND SONS             | London          |
       | SWANIAWSKI, CORWIN AND KUB | Twickenham      |
     And the choices used to generate the list are:
-      | Looking for: Individual worker                           |
-      | Worker type: Supplied by agency                          |
-      | Payroll provider: Agency                                 |
-      | Postcode: SW1A 1AA                                       |
-      | Search distance: 100 miles                               |
-      | Job type: STEM Teacher (Inc. Qualified Teachers, Tutors) |
+      | Looking for: Individual worker |
+      | Worker type: Nominated         |
+      | Postcode: SW1A 1AA             |
+      | Search distance: 100 miles     |
 
   @geocode_liverpool
   Scenario: Liverpool postcode results
@@ -257,12 +255,10 @@ Feature: Supply Teachers - Agency results - Nominated worker - Results by locati
       | SWANIAWSKI, CORWIN AND KUB | Liverpool     |
       | SWANIAWSKI, CORWIN AND KUB | Birmingham    |
     And the choices used to generate the list are:
-      | Looking for: Individual worker                           |
-      | Worker type: Supplied by agency                          |
-      | Payroll provider: Agency                                 |
-      | Postcode: L3 9PP                                         |
-      | Search distance: 100 miles                               |
-      | Job type: STEM Teacher (Inc. Qualified Teachers, Tutors) |
+      | Looking for: Individual worker |
+      | Worker type: Nominated         |
+      | Postcode: L3 9PP               |
+      | Search distance: 100 miles     |
 
   @geocode_birmingham
   Scenario: Birmingham postcode results
