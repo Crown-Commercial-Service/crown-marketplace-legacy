@@ -140,7 +140,7 @@ Feature: Supply Teachers - Agency results - Agency payroll - Results by location
       | Worker type: Supplied by agency                          |
       | Payroll provider: Agency                                 |
       | Postcode: SW1A 1AA                                       |
-      | Search distance: 100 miles                                |
+      | Search distance: 100 miles                               |
       | Job type: STEM Teacher (Inc. Qualified Teachers, Tutors) |
 
   @geocode_liverpool
