@@ -3,7 +3,7 @@ module SupplyTeachers
     before_action :set_end_of_journey
     before_action :set_lot, only: :show
 
-    SEARCH_RADIUSES = [50, 25, 10, 5, 1].freeze
+    SEARCH_RADIUSES = [100, 50, 25, 10, 5, 1].freeze
 
     helper :telephone_number
 
