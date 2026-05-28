@@ -116,6 +116,32 @@ Feature: Supply Teachers - Agency results - Agency payroll - Results by location
       | Postcode: SW1A 1AA                                       |
       | Search distance: 50 miles                                |
       | Job type: STEM Teacher (Inc. Qualified Teachers, Tutors) |
+    And I click on '100 miles'
+    Then I am on the 'Agency results' page
+    And there are 15 agencies
+    And the listed agencies for agency results are:
+      | ROHAN LLC                  | London          |
+      | GLOVER-ONDRICKA            | London          |
+      | ROOB, CORWIN AND DICKI     | London          |
+      | SATTERFIELD AND SONS       | Southend-on-Sea |
+      | NADER, CONN AND REINGER    | Southend-on-Sea |
+      | GULGOWSKI-HUDSON           | Southend-on-Sea |
+      | DANIEL AND SONS            | Twickenham      |
+      | TREMBLAY-WEST              | London          |
+      | ROSENBAUM-HINTZ            | London          |
+      | HEANEY GROUP               | London          |
+      | DARE-ROHAN                 | Twickenham      |
+      | FRITSCH-HAHN               | London          |
+      | TILLMAN-EMMERICH           | London          |
+      | GRADY AND SONS             | London          |
+      | SWANIAWSKI, CORWIN AND KUB | Twickenham      |
+    And the choices used to generate the list are:
+      | Looking for: Individual worker                           |
+      | Worker type: Supplied by agency                          |
+      | Payroll provider: Agency                                 |
+      | Postcode: SW1A 1AA                                       |
+      | Search distance: 100 miles                                |
+      | Job type: STEM Teacher (Inc. Qualified Teachers, Tutors) |
 
   @geocode_liverpool
   Scenario: Liverpool postcode results
@@ -220,6 +246,47 @@ Feature: Supply Teachers - Agency results - Agency payroll - Results by location
       | Postcode: L3 9PP                                         |
       | Search distance: 50 miles                                |
       | Job type: STEM Teacher (Inc. Qualified Teachers, Tutors) |
+    And I click on '100 miles'
+    Then I am on the 'Agency results' page
+    And there are 30 agencies
+    And the listed agencies for agency results are:
+      | ROHAN LLC                  | Liverpool     |
+      | ROHAN LLC                  | Birmingham    |
+      | GLOVER-ONDRICKA            | Liverpool     |
+      | GLOVER-ONDRICKA            | Birmingham    |
+      | ROOB, CORWIN AND DICKI     | Manchester    |
+      | ROOB, CORWIN AND DICKI     | Wolverhampton |
+      | SATTERFIELD AND SONS       | Liverpool     |
+      | SATTERFIELD AND SONS       | Nottingham    |
+      | NADER, CONN AND REINGER    | Liverpool     |
+      | NADER, CONN AND REINGER    | Nottingham    |
+      | GULGOWSKI-HUDSON           | Liverpool     |
+      | GULGOWSKI-HUDSON           | Nottingham    |
+      | DANIEL AND SONS            | Liverpool     |
+      | DANIEL AND SONS            | Birmingham    |
+      | TREMBLAY-WEST              | Manchester    |
+      | TREMBLAY-WEST              | Wolverhampton |
+      | ROSENBAUM-HINTZ            | Southport     |
+      | ROSENBAUM-HINTZ            | Dudley        |
+      | HEANEY GROUP               | Manchester    |
+      | HEANEY GROUP               | Wolverhampton |
+      | DARE-ROHAN                 | Liverpool     |
+      | DARE-ROHAN                 | Birmingham    |
+      | FRITSCH-HAHN               | Southport     |
+      | FRITSCH-HAHN               | Dudley        |
+      | TILLMAN-EMMERICH           | Southport     |
+      | TILLMAN-EMMERICH           | Dudley        |
+      | GRADY AND SONS             | Liverpool     |
+      | GRADY AND SONS             | Birmingham    |
+      | SWANIAWSKI, CORWIN AND KUB | Liverpool     |
+      | SWANIAWSKI, CORWIN AND KUB | Birmingham    |
+    And the choices used to generate the list are:
+      | Looking for: Individual worker                           |
+      | Worker type: Supplied by agency                          |
+      | Payroll provider: Agency                                 |
+      | Postcode: L3 9PP                                         |
+      | Search distance: 100 miles                               |
+      | Job type: STEM Teacher (Inc. Qualified Teachers, Tutors) |
 
   @geocode_birmingham
   Scenario: Birmingham postcode results
@@ -323,4 +390,48 @@ Feature: Supply Teachers - Agency results - Agency payroll - Results by location
       | Payroll provider: Agency                                 |
       | Postcode: B6 6HE                                         |
       | Search distance: 50 miles                                |
+      | Job type: STEM Teacher (Inc. Qualified Teachers, Tutors) |
+    And I click on '100 miles'
+    Then I am on the 'Agency results' page
+    And there are 33 agencies
+    And the listed agencies for agency results are:
+      | ROHAN LLC                  | Birmingham    |
+      | ROHAN LLC                  | Liverpool     |
+      | GLOVER-ONDRICKA            | Birmingham    |
+      | GLOVER-ONDRICKA            | Liverpool     |
+      | ROOB, CORWIN AND DICKI     | Wolverhampton |
+      | ROOB, CORWIN AND DICKI     | Manchester    |
+      | SATTERFIELD AND SONS       | Nottingham    |
+      | SATTERFIELD AND SONS       | Liverpool     |
+      | NADER, CONN AND REINGER    | Nottingham    |
+      | NADER, CONN AND REINGER    | Liverpool     |
+      | GULGOWSKI-HUDSON           | Nottingham    |
+      | GULGOWSKI-HUDSON           | Liverpool     |
+      | DANIEL AND SONS            | Birmingham    |
+      | DANIEL AND SONS            | Liverpool     |
+      | DANIEL AND SONS            | Twickenham    |
+      | TREMBLAY-WEST              | Wolverhampton |
+      | TREMBLAY-WEST              | Manchester    |
+      | ROSENBAUM-HINTZ            | Dudley        |
+      | ROSENBAUM-HINTZ            | Southport     |
+      | HEANEY GROUP               | Wolverhampton |
+      | HEANEY GROUP               | Manchester    |
+      | DARE-ROHAN                 | Birmingham    |
+      | DARE-ROHAN                 | Liverpool     |
+      | DARE-ROHAN                 | Twickenham    |
+      | FRITSCH-HAHN               | Dudley        |
+      | FRITSCH-HAHN               | Southport     |
+      | TILLMAN-EMMERICH           | Dudley        |
+      | TILLMAN-EMMERICH           | Southport     |
+      | GRADY AND SONS             | Birmingham    |
+      | GRADY AND SONS             | Liverpool     |
+      | SWANIAWSKI, CORWIN AND KUB | Birmingham    |
+      | SWANIAWSKI, CORWIN AND KUB | Liverpool     |
+      | SWANIAWSKI, CORWIN AND KUB | Twickenham    |
+    And the choices used to generate the list are:
+      | Looking for: Individual worker                           |
+      | Worker type: Supplied by agency                          |
+      | Payroll provider: Agency                                 |
+      | Postcode: B6 6HE                                         |
+      | Search distance: 100 miles                               |
       | Job type: STEM Teacher (Inc. Qualified Teachers, Tutors) |
