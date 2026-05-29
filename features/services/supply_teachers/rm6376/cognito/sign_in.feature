@@ -6,7 +6,7 @@ Feature: Sign in to my account - Supply Teachers - RM6376
     When I click on 'Start now'
     Then I am on the 'Sign in for Supply Teachers and Education Recruitment' page
     And I click on 'Sign in with GCA'
-    And I am on the 'Sign in to your supply teachers account' page
+    And I am on the 'Sign in to access GCA framework suppliers and pricing' page
 
   Scenario: I sign in to my existing account
     Then I should sign in with the roles:

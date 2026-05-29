@@ -264,17 +264,27 @@ en:
         forgotten_password: I’ve forgotten my password
         heading:
           legal_panel_for_government:
-            admin: Sign in to your legal panel for government admin account
-            buyer: Sign in to your legal panel for government account
+            rm6360:
+              admin: Sign in to your legal panel for government admin account
+              buyer: Sign in to your legal panel for government account
           legal_services:
-            admin: Sign in to your legal services admin account
-            buyer: Sign in to your legal services account
+            rm6240:
+              admin: Sign in to your legal services admin account
+              buyer: Sign in to your legal services account
           management_consultancy:
-            admin: Sign in to your management consultancy admin account
-            buyer: Sign in to your management consultancy account
+            rm6187:
+              admin: Sign in to your management consultancy admin account
+              buyer: Sign in to your management consultancy account
+            rm6309:
+              admin: Sign in to your management consultancy admin account
+              buyer: Sign in to your management consultancy account
           supply_teachers:
-            admin: Sign in to your supply teachers admin account
-            buyer: Sign in to your supply teachers account
+            rm6238:
+              admin: Sign in to your supply teachers admin account
+              buyer: Sign in to your supply teachers account
+            rm6376:
+              admin: Sign in to your supply teachers admin account
+              buyer: Sign in to access GCA framework suppliers and pricing
         password: Password
         problems_signing_in: Problems signing in
         session_expired: Sorry, your session has timed out due to 30 minutes of inactivity. To continue using this service, you need to sign in again.
