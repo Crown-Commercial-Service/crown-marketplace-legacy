@@ -3,7 +3,7 @@ module ManagementConsultancy
     module Admin
       class DashboardController < ManagementConsultancy::Admin::FrameworkController
         include SharedPagesConcern
-        include ::Admin::DashboardController
+        include ::Admin::DashboardActions
       end
     end
   end

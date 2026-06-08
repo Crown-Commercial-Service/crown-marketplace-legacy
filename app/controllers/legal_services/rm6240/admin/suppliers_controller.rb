@@ -1,7 +1,8 @@
 module LegalServices
   module RM6240
     module Admin
-      class SuppliersController < LegalServices::Admin::SuppliersController
+      class SuppliersController < LegalServices::Admin::FrameworkController
+        include ::Admin::SupplierActions
         include SectionsConcern
       end
     end

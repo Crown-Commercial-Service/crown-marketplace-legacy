@@ -115,20 +115,6 @@ module ApplicationHelper
     end
   end
 
-  def get_error_details(service, error, details)
-    return t("#{service}.admin.uploads.failed.error_details.#{error}") unless details
-
-    t("#{service}.admin.uploads.failed.error_details.#{error}_html", list: details.is_a?(Array) ? details_to_list(details) : details)
-  end
-
-  def details_to_list(details)
-    tag.ul class: 'govuk-list govuk-list--bullet' do
-      details.each do |detail|
-        concat(tag.li(detail))
-      end
-    end
-  end
-
   def url_formatter(url)
     u = URI.parse(url)
 

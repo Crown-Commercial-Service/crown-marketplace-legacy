@@ -3,7 +3,7 @@ module LegalPanelForGovernment
     module Admin
       class DashboardController < LegalPanelForGovernment::Admin::FrameworkController
         include SharedPagesConcern
-        include ::Admin::DashboardController
+        include ::Admin::DashboardActions
       end
     end
   end

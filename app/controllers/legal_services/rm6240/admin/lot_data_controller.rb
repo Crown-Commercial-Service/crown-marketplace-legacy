@@ -1,7 +1,9 @@
 module LegalServices
   module RM6240
     module Admin
-      class LotDataController < LegalServices::Admin::LotDataController
+      class LotDataController < LegalServices::Admin::FrameworkController
+        include ::Admin::LotDataActions
+
         LOT_SORT_CRITERIA = 'lots.number'.freeze
 
         SECTIONS_TO_SHOW = %i[services rates].freeze

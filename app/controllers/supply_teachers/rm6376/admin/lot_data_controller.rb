@@ -1,7 +1,9 @@
 module SupplyTeachers
   module RM6376
     module Admin
-      class LotDataController < SupplyTeachers::Admin::LotDataController
+      class LotDataController < SupplyTeachers::Admin::FrameworkController
+        include ::Admin::LotDataActions
+
         helper :telephone_number
 
         LOT_SORT_CRITERIA = 'lots.number'.freeze

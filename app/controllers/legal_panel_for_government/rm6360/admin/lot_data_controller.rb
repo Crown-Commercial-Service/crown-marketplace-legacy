@@ -2,7 +2,7 @@ module LegalPanelForGovernment
   module RM6360
     module Admin
       class LotDataController < LegalPanelForGovernment::Admin::FrameworkController
-        include ::Admin::LotDataController
+        include ::Admin::LotDataActions
 
         LOT_SORT_CRITERIA = 'lots.number'.freeze
 

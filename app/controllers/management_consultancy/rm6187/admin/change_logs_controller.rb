@@ -2,7 +2,7 @@ module ManagementConsultancy
   module RM6187
     module Admin
       class ChangeLogsController < ManagementConsultancy::Admin::FrameworkController
-        include ::Admin::ChangeLogsController
+        include ::Admin::ChangeLogActions
         include SectionsConcern
       end
     end

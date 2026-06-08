@@ -111,7 +111,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::Admin::UploadsController do
 
       it 'renders the show template and the in_progress partial' do
         expect(response).to render_template(:show)
-        expect(response).to render_template(partial: 'shared/admin/_in_progress')
+        expect(response).to render_template(partial: 'shared/admin/uploads/_in_progress')
       end
     end
 
@@ -122,7 +122,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::Admin::UploadsController do
 
       it 'renders the show template and the failed partial' do
         expect(response).to render_template(:show)
-        expect(response).to render_template(partial: 'legal_panel_for_government/rm6360/admin/uploads/_failed')
+        expect(response).to render_template(partial: 'shared/admin/uploads/_failed')
       end
     end
   end

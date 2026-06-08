@@ -156,8 +156,6 @@ en:
               supplier_rates_for: Supplier rates for %{country}
         uploads:
           failed:
-            below_is_a_list: Below is a list of the issues that have occurred with the file upload and details on how they might be fixed.
-            details: Details
             error_details:
               file_check_failed: Something went wrong when checking the files, please try uploading the files again
               file_check_failed_html: 'Something went wrong when checking the files, the following error was returned: <br> <strong>%{list}</strong>'
@@ -212,61 +210,13 @@ en:
               supplier_service_offerings_has_incorrect_headers: There are sheets in 'Supplier service offerings' with incorrect services
               supplier_service_offerings_missing_sheets: The 'Supplier service offerings' file is missing sheets
               upload_failed: Upload failed
-            errors_with_upload: Errors with the upload
-            issue: Issue
-          index:
-            caption: Legal Panel for Government - %{framework}
-            create_new: Create a new data upload
-            current_data: Current published data
-            date: Date
-            download: Download
-            file_name:
-              supplier_details_file: Supplier details
-              supplier_lot_4a_rate_cards_file: Supplier lot 4a rate cards
-              supplier_lot_4b_rate_cards_file: Supplier lot 4b rate cards
-              supplier_lot_4c_rate_cards_file: Supplier lot 4c rate cards
-              supplier_other_lots_rate_cards_file: Supplier rate cards (lots 1, 2, 3, 5)
-              supplier_service_offerings_file: Supplier service offerings
-            heading: Upload supplier data
-            name: Name
-            status: Status
-            table_caption: Previous uploads
-            upload_name: 'Upload session #%{number}'
-          new:
-            caption: Legal Panel for Government - %{framework}
-            download_templates: Download file templates
-            file_label:
-              supplier_details_file: Supplier details
-              supplier_lot_4a_rate_cards_file: Supplier lot 4a rate cards
-              supplier_lot_4b_rate_cards_file: Supplier lot 4b rate cards
-              supplier_lot_4c_rate_cards_file: Supplier lot 4c rate cards
-              supplier_other_lots_rate_cards_file: Supplier rate cards (lots 1, 2, 3, 5)
-              supplier_service_offerings_file: Supplier service offerings
-            heading: New data upload
-            return: Return to 'Upload supplier data'
-            template_file_name: Download spreadsheet templates
-            template_file_path: legal-panel-for-government/%{framework}/Supplier spreadsheet templates.zip
-            upload_caption: Supported file format is .xlsx and maximum file size is 10mb
-            upload_data: Upload data
-            upload_title: Upload the supplier data
-            you_can_download: You can download a zip file containing an empty template for each of the spreadsheets
-          show:
-            caption: Legal Panel for Government - %{framework}
-            datetime: 'Date of file upload:'
-            download: Download
-            file_name:
-              supplier_details_file: Supplier details
-              supplier_lot_4a_rate_cards_file: Supplier lot 4a rate cards
-              supplier_lot_4b_rate_cards_file: Supplier lot 4b rate cards
-              supplier_lot_4c_rate_cards_file: Supplier lot 4c rate cards
-              supplier_other_lots_rate_cards_file: Supplier rate cards (lots 1, 2, 3, 5)
-              supplier_rate_cards_file: Supplier rate cards
-              supplier_service_offerings_file: Supplier service offerings
-            files: Uploaded files
-            heading: 'Upload session #%{number}'
-            name: File name
-            return: Return to 'Upload supplier data'
-            status: 'Status:'
+          file_names:
+            supplier_details_file: Supplier details
+            supplier_lot_4a_rate_cards_file: Supplier lot 4a rate cards
+            supplier_lot_4b_rate_cards_file: Supplier lot 4b rate cards
+            supplier_lot_4c_rate_cards_file: Supplier lot 4c rate cards
+            supplier_other_lots_rate_cards_file: Supplier rate cards (lots 1, 2, 3, 5)
+            supplier_service_offerings_file: Supplier service offerings
       buyer_details:
         index:
           manage_your_details:

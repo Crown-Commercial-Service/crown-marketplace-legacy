@@ -1,0 +1,55 @@
+<%= content_for :page_title, t('.heading') %>
+
+<% admin_breadcrumbs(
+  { text: t('supply_teachers.rm6238.admin.uploads.index.heading'), href: index_path },
+  { text: t('.heading') }
+)%>
+
+<%= render partial: 'shared/error_summary', locals: { errors: @upload.errors } %>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <span class="govuk-caption-l">
+      <%= t('.caption') %>
+    </span>
+    <h1 class="govuk-heading-xl">
+      <%= t('.heading') %>
+    </h1>
+
+    <%= govuk_warning_text(warning_details(@uploads_in_progress)) if @uploads_in_progress.any? %>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <%= form_with model: @upload, url: index_path, method: :post, html: { specialvalidation: true, novalidate: true } do |f| %>
+      <fieldset class="govuk-fieldset">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+          <h2 class="govuk-fieldset__heading">
+            <%= t('.upload_title') %>
+          </h2>
+        </legend>
+        <div class="govuk-hint">
+          <%= t('.upload_caption') %>
+        </div>
+        <% service::Upload::ATTRIBUTES.each do |file| %>
+          <%= govuk_file_upload(
+            file,
+            form: f,
+            label: {
+              text: t(".file_label.#{file}")
+            },
+            hint: {
+              text: expected_file_type(file)
+            },
+            javascript: true
+          ) %>
+        <% end %>
+      </fieldset>
+      <%= govuk_button(t('.upload_button'), form: f) %>
+      <p>
+        <%= link_to t('.return'), index_path, class: 'govuk-link govuk-link--no-visited-state' %> 
+      </p>
+    <% end %>
+  </div>
+</div>

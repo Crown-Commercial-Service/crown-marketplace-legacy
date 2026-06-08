@@ -362,6 +362,7 @@ Rails.application.routes.draw do
     resources :lot_data, path: 'lot-data', param: :lot_number, only: Marketplace.environment_name == :production ? %i[index show] : %i[index show edit update]
   end
   resources :uploads, path: '/:service/:framework/admin/uploads', only: %i[index new create show]
+  resources :reports, path: '/:service/:framework/admin/reports', only: %i[index new create show]
   resources :change_logs, path: '/:service/:framework/admin/change-logs', only: %i[index show]
   scope path: '/:service/:framework/admin/frameworks', as: :frameworks do
     get '/', to: 'frameworks#show', action: :show
