@@ -2,7 +2,7 @@ module ManagementConsultancy
   module RM6309
     module Admin
       class FrameworksController < ManagementConsultancy::Admin::FrameworkController
-        include ::Admin::FrameworksController
+        include ::Admin::FrameworkActions
       end
     end
   end

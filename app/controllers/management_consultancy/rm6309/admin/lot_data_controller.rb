@@ -2,7 +2,7 @@ module ManagementConsultancy
   module RM6309
     module Admin
       class LotDataController < ManagementConsultancy::Admin::FrameworkController
-        include ::Admin::LotDataController
+        include ::Admin::LotDataActions
 
         LOT_SORT_CRITERIA = 'lots.number::integer'.freeze
 

@@ -18,11 +18,11 @@ class ReportExport
     end
 
     def search_criteria_headers
-      NotImplementedError
+      raise NotImplementedError
     end
 
     def search_criteria_row(_search)
-      NotImplementedError
+      raise NotImplementedError
     end
 
     def additional_details_headers

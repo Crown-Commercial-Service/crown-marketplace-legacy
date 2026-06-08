@@ -98,13 +98,6 @@ en:
           status: Status
           the_admin_section: The admin section for a framework will always be visible for any framework that is on the system no matter when it goes live.
           this_section_allows: This section allows you to view and change the 'live at' date for the %{service_name} %{framework} framework.
-      in_progress:
-        checking_files: Checking files
-        complete: Complete
-        files_uploaded: Files uploaded
-        processing_data: Processing data
-        publishing_data: Publishing data
-        upload_progress: Upload progress
       lot_data:
         edit:
           branches:
@@ -290,6 +283,53 @@ en:
             telephone_number: Contact telephone number
             title: Contact information
             website: Website
+      uploads:
+        failed:
+          below_is_a_list: Below is a list of the issues that have occurred with the file upload and details on how they might be fixed.
+          common_causes: 'Common causes of these issues may include:'
+          common_causes_1: Suppliers having the incorrect DUNS number
+          common_causes_2: Sheets have a blank row
+          details: Details
+          errors_with_upload: Errors with the upload
+          issue: Issue
+        in_progress:
+          checking_files: Checking files
+          complete: Complete
+          files_uploaded: Files uploaded
+          processing_data: Processing data
+          publishing_data: Publishing data
+          upload_progress: Upload progress
+        index:
+          caption: "%{service_name} - %{framework}"
+          create_new: Create a new data upload
+          current_data: Current published data
+          date: Date
+          download: Download
+          heading: Upload supplier data
+          name: Name
+          status: Status
+          table_caption: Previous uploads
+          upload_name: 'Upload session #%{number}'
+        new:
+          caption: "%{service_name} - %{framework}"
+          download_templates: Download file templates
+          heading: New data upload
+          return: Return to 'Upload supplier data'
+          template_file_name: Download spreadsheet templates
+          template_file_path: "%{service}/Supplier spreadsheet templates.zip"
+          upload_caption: Supported file format is .xlsx and maximum file size is 10mb
+          upload_data: Upload data
+          upload_title: Upload the supplier data
+          you_can_download: You can download a zip file containing an empty template for each of the spreadsheets
+        show:
+          caption: "%{service_name} - %{framework}"
+          datetime: 'Date of file upload:'
+          download: Download
+          files: Uploaded files
+          heading: 'Upload session #%{number}'
+          name: File name
+          return: Return to 'Upload supplier data'
+          status: 'Status:'
     basket:
       remove_all: Remove all
     error_summary:

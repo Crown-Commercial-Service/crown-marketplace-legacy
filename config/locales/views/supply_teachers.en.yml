@@ -282,72 +282,6 @@ en:
           make_sure_listed: The framework in the web address is '%{framework}'. Make sure the web address contains one of the listed frameworks.
           page_title: Unrecognised framework
           the_recognised_are: 'The Supply Teachers frameworks are:'
-      uploads:
-        index:
-          caption: Upload supplier data
-          create_new: Set up upload session
-          current_table_caption: Data currently used
-          date: Date and time
-          download: Download
-          heading: Supply teachers and agency workers
-          name: Name
-          no_of_files: Number of files
-          spreadsheet: Spreadsheet
-          status: Status
-          table_caption: Upload sessions
-          upload_name: 'Upload session #%{number}'
-          upload_session: Upload session
-        new:
-          caption: Supply teachers and agency workers
-          extension_type:
-            csv: This file must be a CSV
-            xlsx: This file must be an XLSX
-          file_label:
-            current_accredited_suppliers: Current accredited suppliers
-            education_technology_platform_contacts: Education technology platform contacts
-            geographical_data_all_suppliers: Geographical data all suppliers
-            master_vendor_contacts: Master vendor contacts
-            pricing_for_tool: Pricing for tool
-            supplier_lookup: Supplier lookup
-          heading: Set up a new upload session
-          return: Return to upload supplier data
-          upload_button: Upload spreadsheets
-          upload_caption: The maximum file size is 5mb.
-          upload_title: Choose one or more spreadsheets to upload
-          warning_plural: Upload sessions %{sessions} are in %{states} respectively. Uploading new spreadsheets will cancel those sessions
-          warning_singular: Upload session %{session} is in %{state}. Uploading new spreadsheets will cancel that session
-        show:
-          approve: Publish to live service
-          caption: Supply teachers and agency workers
-          confirm_changes: 'Confirm these files are ready to be used by the live service:'
-          current_accredited_suppliers: Current accredited suppliers
-          datetime: 'Date and time:'
-          delete: Delete session
-          download: Download
-          education_technology_platform_contacts: Education technology platform contacts
-          error_heading: There is a problem
-          files: Files
-          geographical_data_all_suppliers: Geographical data all suppliers
-          heading: Upload session %{number}
-          lot_1_and_lot_2_comparisons: Lot 1 and Lot 2 comparisons
-          master_vendor_contacts: Master vendor contacts
-          neutral_vendor_contacts: Neutral vendor contacts
-          pricing_for_tool: Pricing for tool
-          reject: Cancel session
-          return: Return to upload supplier data
-          spreadsheet: Spreadsheet
-          status: 'Status:'
-          supplier_lookup: Supplier lookup
-        state:
-          canceled: Cancelled session
-          failed: Failed
-          files_processed: Waiting to publish
-          in_progress: Processing files
-          not_started: Not started
-          processing_files: Processing files
-          published: Published on live
-          rejected: Cancelled session
-          uploading: Publishing files
     branches:
       branch:
         branch: Branch
@@ -572,6 +506,73 @@ en:
         page_title: Do you want an agency to supply the worker?
         question: Do you want an agency to supply the worker?
     rm6238:
+      admin:
+        uploads:
+          index:
+            caption: Upload supplier data
+            create_new: Set up upload session
+            current_table_caption: Data currently used
+            date: Date and time
+            download: Download
+            heading: Supply teachers and agency workers
+            name: Name
+            no_of_files: Number of files
+            spreadsheet: Spreadsheet
+            status: Status
+            table_caption: Upload sessions
+            upload_name: 'Upload session #%{number}'
+            upload_session: Upload session
+          new:
+            caption: Supply teachers and agency workers
+            extension_type:
+              csv: This file must be a CSV
+              xlsx: This file must be an XLSX
+            file_label:
+              current_accredited_suppliers: Current accredited suppliers
+              education_technology_platform_contacts: Education technology platform contacts
+              geographical_data_all_suppliers: Geographical data all suppliers
+              master_vendor_contacts: Master vendor contacts
+              pricing_for_tool: Pricing for tool
+              supplier_lookup: Supplier lookup
+            heading: Set up a new upload session
+            return: Return to upload supplier data
+            upload_button: Upload spreadsheets
+            upload_caption: The maximum file size is 5mb.
+            upload_title: Choose one or more spreadsheets to upload
+            warning_plural: Upload sessions %{sessions} are in %{states} respectively. Uploading new spreadsheets will cancel those sessions
+            warning_singular: Upload session %{session} is in %{state}. Uploading new spreadsheets will cancel that session
+          show:
+            approve: Publish to live service
+            caption: Supply teachers and agency workers
+            confirm_changes: 'Confirm these files are ready to be used by the live service:'
+            current_accredited_suppliers: Current accredited suppliers
+            datetime: 'Date and time:'
+            delete: Delete session
+            download: Download
+            education_technology_platform_contacts: Education technology platform contacts
+            error_heading: There is a problem
+            files: Files
+            geographical_data_all_suppliers: Geographical data all suppliers
+            heading: Upload session %{number}
+            lot_1_and_lot_2_comparisons: Lot 1 and Lot 2 comparisons
+            master_vendor_contacts: Master vendor contacts
+            neutral_vendor_contacts: Neutral vendor contacts
+            pricing_for_tool: Pricing for tool
+            reject: Cancel session
+            return: Return to upload supplier data
+            spreadsheet: Spreadsheet
+            status: 'Status:'
+            supplier_lookup: Supplier lookup
+          state:
+            canceled: Cancelled session
+            failed: Failed
+            files_processed: Waiting to publish
+            in_progress: Processing files
+            not_started: Not started
+            processing_files: Processing files
+            published: Published on live
+            rejected: Cancelled session
+            uploading: Publishing files
       home:
         index:
           accreditation_of_agencies: Accreditation of agencies
@@ -657,8 +658,6 @@ en:
       admin:
         uploads:
           failed:
-            below_is_a_list: Below is a list of the issues that have occurred with the file upload and details on how they might be fixed.
-            details: Details
             error_details:
               file_check_failed: Something went wrong when checking the files, please try uploading the files again
               file_check_failed_html: 'Something went wrong when checking the files, the following error was returned: <br> <strong>%{list}</strong>'
@@ -699,51 +698,10 @@ en:
               supplier_rate_cards_has_incorrect_headers: There are sheets in 'Supplier rate cards' with incorrect headers
               supplier_rate_cards_missing_sheets: The 'Supplier rate cards' file is missing sheets
               upload_failed: Upload failed
-            errors_with_upload: Errors with the upload
-            issue: Issue
-          index:
-            caption: Supply Teachers - %{framework}
-            create_new: Create a new data upload
-            current_data: Current published data
-            date: Date
-            download: Download
-            file_name:
-              supplier_details_file: Supplier details
-              supplier_geographical_data_file: Supplier geographical data
-              supplier_rate_cards_file: Supplier rate cards
-            heading: Upload supplier data
-            name: Name
-            status: Status
-            table_caption: Previous uploads
-            upload_name: 'Upload session #%{number}'
-          new:
-            caption: Supply Teachers - %{framework}
-            download_templates: Download file templates
-            file_label:
-              supplier_details_file: Supplier details
-              supplier_geographical_data_file: Supplier geographical data
-              supplier_rate_cards_file: Supplier rate cards
-            heading: New data upload
-            return: Return to 'Upload supplier data'
-            template_file_name: Download spreadsheet templates
-            template_file_path: supply-teachers/%{framework}/Supplier spreadsheet templates.zip
-            upload_caption: Supported file format is .xlsx and maximum file size is 10mb
-            upload_data: Upload data
-            upload_title: Upload the supplier data
-            you_can_download: You can download a zip file containing an empty template for each of the spreadsheets
-          show:
-            caption: Supply Teachers - %{framework}
-            datetime: 'Date of file upload:'
-            download: Download
-            file_name:
-              supplier_details_file: Supplier details
-              supplier_geographical_data_file: Supplier geographical data
-              supplier_rate_cards_file: Supplier rate cards
-            files: Uploaded files
-            heading: 'Upload session #%{number}'
-            name: File name
-            return: Return to 'Upload supplier data'
-            status: 'Status:'
+          file_names:
+            supplier_details_file: Supplier details
+            supplier_geographical_data_file: Supplier geographical data
+            supplier_rate_cards_file: Supplier rate cards
       home:
         index:
           accreditation_of_agencies: Accreditation of agencies
