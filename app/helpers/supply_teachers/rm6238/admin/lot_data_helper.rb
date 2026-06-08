@@ -36,7 +36,7 @@ module SupplyTeachers::RM6238::Admin::LotDataHelper
         }
       ],
       @lot.positions_grouped_by_name.map do |_position_name, positions|
-        inputs = positions.map { |position| create_rate_input(position, rates, ->(position) { I18n.t("supply_teachers.rm6238.shared.job_titles.#{position.name}") }, position.category || 'daily') }
+        inputs = positions.map { |position| create_rate_input(position, rates, ->(position) { I18n.t("shared.rates_table.rm6238.job_titles.#{position.name}") }, position.category || 'daily') }
 
         [
           {
@@ -68,7 +68,7 @@ module SupplyTeachers::RM6238::Admin::LotDataHelper
         }
       ],
       @lot.positions.order(:number).map do |position|
-        input = create_rate_input(position, rates, ->(position) { I18n.t("supply_teachers.rm6238.shared.job_titles.#{position.name}.#{position.category}") })
+        input = create_rate_input(position, rates, ->(position) { I18n.t("shared.rates_table.rm6238.job_titles.#{position.name}#{"_#{position.category}" if position.category}") })
 
         [
           {

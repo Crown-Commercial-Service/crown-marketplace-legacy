@@ -137,6 +137,7 @@ RSpec.describe SupplyTeachers::RM6376::Admin::SuppliersController do
 
     let(:model_param_keys) { model_params.keys }
     let(:expected_updates) { model_params }
+    let(:change_log) { ChangeLog.find_by(user_id: controller.current_user.id, framework_id: 'RM6376') }
 
     before do
       supplier
@@ -171,6 +172,12 @@ RSpec.describe SupplyTeachers::RM6376::Admin::SuppliersController do
         it 'updates the details' do
           expect(model.reload.attributes.deep_symbolize_keys.slice(*model_param_keys)).to eq(expected_updates)
         end
+
+        it 'creates a change log' do
+          expect(change_log.change_type).to eq(change_type)
+          expect(change_log.change_data['id']).to eq(model.id)
+          expect(change_log.change_data['after']).to eq(change_data_after)
+        end
       end
 
       context 'when it is invalid' do
@@ -186,6 +193,10 @@ RSpec.describe SupplyTeachers::RM6376::Admin::SuppliersController do
           expect(response).to have_http_status(:ok)
           expect(response).to render_template(partial: "shared/admin/suppliers/sections/_#{section}")
         end
+
+        it 'does not create a change log' do
+          expect(change_log).to be_nil
+        end
       end
     end
 
@@ -197,6 +208,8 @@ RSpec.describe SupplyTeachers::RM6376::Admin::SuppliersController do
       let(:model_param_keys) { %i[name additional_details] }
       let(:expected_updates) { { name: 'Zote the Mighty', additional_details: { trading_name: 'Zote the Mightier', additional_identifier: '09c26c98-017f-4fcb-a55b-cbb4759285be' } } }
       let(:model_params_invalid) { { name: '', trading_name: '', additional_identifier: '' } }
+      let(:change_type) { 'update_supplier_information' }
+      let(:change_data_after) { { 'name' => 'Zote the Mighty', 'additional_details' => { 'trading_name' => 'Zote the Mightier', 'additional_identifier' => '09c26c98-017f-4fcb-a55b-cbb4759285be' } } }
 
       include_context 'when testing a section'
     end
@@ -209,6 +222,8 @@ RSpec.describe SupplyTeachers::RM6376::Admin::SuppliersController do
       let(:model_param_keys) { %i[additional_details] }
       let(:expected_updates) { { additional_details: model_params } }
       let(:model_params_invalid) { { managed_service_provider_name: '', managed_service_provider_email: '', managed_service_provider_telephone: '' } }
+      let(:change_type) { 'update_supplier_additional_information' }
+      let(:change_data_after) { { 'additional_details' => { 'managed_service_provider_name' => 'Idris', 'managed_service_provider_email' => 'idris@vulture.gov.com', 'managed_service_provider_telephone' => '07123654897' } } }
 
       include_context 'when testing a section'
     end

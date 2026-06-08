@@ -18,7 +18,10 @@ class FilesImporter
       @upload.update(import_errors: @errors)
       @upload.fail!
     else
-      @upload.publish!
+      ActiveRecord::Base.transaction do
+        ChangeLog.log_upload_supplier_data!(admin_upload: @upload, supplier_data: @supplier_data)
+        @upload.publish!
+      end
     end
   rescue StandardError => e
     @upload.update(import_errors: [{ error: 'upload_failed', details: e.message }])

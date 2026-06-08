@@ -7,7 +7,7 @@ module LegalServices::RatesHelper
           classes: 'govuk-!-width-three-quarters'
         },
         {
-          text: t('legal_services.rm6240.suppliers.rates_table.hourly'),
+          text: t('shared.rates_table.rm6240.categories.default'),
           classes: 'govuk-!-width-one-quarter'
         }
       ],
@@ -18,7 +18,7 @@ module LegalServices::RatesHelper
 
         [
           {
-            text: t("legal_services.rm6240.suppliers.rates_table.job_titles.#{position_name}"),
+            text: t("shared.rates_table.rm6240.job_titles.#{position_name}"),
           },
           {
             text: rate

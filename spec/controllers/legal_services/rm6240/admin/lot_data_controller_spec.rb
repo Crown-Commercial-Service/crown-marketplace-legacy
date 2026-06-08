@@ -351,14 +351,16 @@ RSpec.describe LegalServices::RM6240::Admin::LotDataController do
     end
   end
 
-  describe 'GET update' do
+  describe 'POST update' do
+    let(:change_log) { ChangeLog.find_by(user_id: controller.current_user.id, framework_id: 'RM6240') }
+
     login_ls_admin
 
     before do
       supplier_framework_lot_services
       supplier_framework_lot_rates
 
-      get :update, params: { lot_number: lot_number, section: section, supplier_framework_lot: model_params }
+      post :update, params: { lot_number: lot_number, section: section, supplier_framework_lot: model_params }
     end
 
     shared_examples 'when testing a section' do
@@ -401,6 +403,12 @@ RSpec.describe LegalServices::RM6240::Admin::LotDataController do
           it 'updates the details' do
             expect(supplier_framework_lot.reload.enabled).to be(false)
           end
+
+          it 'creates a change log' do
+            expect(change_log.change_type).to eq('update_supplier_framework_lot_status')
+            expect(change_log.change_data['id']).to eq(supplier_framework_lot.id)
+            expect(change_log.change_data['after']).to eq({ 'enabled' => false })
+          end
         end
 
         context 'when it is invalid' do
@@ -415,6 +423,10 @@ RSpec.describe LegalServices::RM6240::Admin::LotDataController do
           it 'renders section partial template' do
             expect(response).to have_http_status(:ok)
             expect(response).to render_template(partial: "shared/admin/lot_data/edit/_#{section}")
+          end
+
+          it 'does not create a change log' do
+            expect(change_log).to be_nil
           end
         end
         # rubocop:enable RSpec/NestedGroups
@@ -438,8 +450,17 @@ RSpec.describe LegalServices::RM6240::Admin::LotDataController do
           end
 
           it 'updates the details' do
-            expect(supplier_framework_lot.reload.services.pluck(:service_id)).to eq(service_ids)
+            expect(supplier_framework_lot.reload.services.pluck(:service_id).sort).to eq(service_ids)
           end
+
+          # rubocop:disable RSpec/MultipleExpectations
+          it 'creates a change log' do
+            expect(change_log.change_type).to eq('update_supplier_framework_lot_services')
+            expect(change_log.change_data['id']).to eq(supplier_framework_lot.id)
+            expect(change_log.change_data['added']).to eq(['RM6240.1a.6', 'RM6240.1a.7'])
+            expect(change_log.change_data['removed']).to eq(['RM6240.1a.4', 'RM6240.1a.5'])
+          end
+          # rubocop:enable RSpec/MultipleExpectations
         end
 
         context 'when it is invalid' do
@@ -454,6 +475,10 @@ RSpec.describe LegalServices::RM6240::Admin::LotDataController do
           it 'renders section partial template' do
             expect(response).to have_http_status(:ok)
             expect(response).to render_template(partial: "shared/admin/lot_data/edit/_#{section}")
+          end
+
+          it 'does not create a change log' do
+            expect(change_log).to be_nil
           end
         end
         # rubocop:enable RSpec/NestedGroups
@@ -489,6 +514,25 @@ RSpec.describe LegalServices::RM6240::Admin::LotDataController do
               expect(rate.rate).to eq(234567)
             end
           end
+
+          # rubocop:disable RSpec/MultipleExpectations, RSpec/ExampleLength
+          it 'creates a change log' do
+            expect(change_log.change_type).to eq('update_supplier_framework_lot_rates')
+            expect(change_log.change_data['id']).to eq(supplier_framework_lot.id)
+            expect(change_log.change_data['jurisdiction_id']).to eq('GB')
+            expect(change_log.change_data['rates'].map { |rate_change| { position_id: rate_change['position_id'], before_rate: rate_change['before'].present?, after: rate_change['after'] } }).to eq(
+              [
+                { after: 234567, before_rate: true, position_id: 'RM6240.1a.1' },
+                { after: 234567, before_rate: true, position_id: 'RM6240.1a.2' },
+                { after: 234567, before_rate: true, position_id: 'RM6240.1a.3' },
+                { after: 234567, before_rate: true, position_id: 'RM6240.1a.4' },
+                { after: 234567, before_rate: true, position_id: 'RM6240.1a.5' },
+                { after: 234567, before_rate: true, position_id: 'RM6240.1a.6' },
+                { after: 234567, before_rate: false, position_id: 'RM6240.1a.7' }
+              ]
+            )
+          end
+          # rubocop:enable RSpec/MultipleExpectations, RSpec/ExampleLength
         end
 
         context 'when it is invalid' do
@@ -509,6 +553,10 @@ RSpec.describe LegalServices::RM6240::Admin::LotDataController do
           it 'renders section partial template' do
             expect(response).to have_http_status(:ok)
             expect(response).to render_template(partial: "shared/admin/lot_data/edit/_#{section}")
+          end
+
+          it 'does not create a change log' do
+            expect(change_log).to be_nil
           end
         end
         # rubocop:enable RSpec/NestedGroups
@@ -542,6 +590,12 @@ RSpec.describe LegalServices::RM6240::Admin::LotDataController do
           it 'updates the details' do
             expect(supplier_framework_lot.reload.enabled).to be(false)
           end
+
+          it 'creates a change log' do
+            expect(change_log.change_type).to eq('update_supplier_framework_lot_status')
+            expect(change_log.change_data['id']).to eq(supplier_framework_lot.id)
+            expect(change_log.change_data['after']).to eq({ 'enabled' => false })
+          end
         end
 
         context 'when it is invalid' do
@@ -556,6 +610,10 @@ RSpec.describe LegalServices::RM6240::Admin::LotDataController do
           it 'renders section partial template' do
             expect(response).to have_http_status(:ok)
             expect(response).to render_template(partial: "shared/admin/lot_data/edit/_#{section}")
+          end
+
+          it 'does not create a change log' do
+            expect(change_log).to be_nil
           end
         end
         # rubocop:enable RSpec/NestedGroups
@@ -579,8 +637,17 @@ RSpec.describe LegalServices::RM6240::Admin::LotDataController do
           end
 
           it 'updates the details' do
-            expect(supplier_framework_lot.reload.services.pluck(:service_id)).to eq(service_ids)
+            expect(supplier_framework_lot.reload.services.pluck(:service_id).sort).to eq(service_ids)
           end
+
+          # rubocop:disable RSpec/MultipleExpectations
+          it 'creates a change log' do
+            expect(change_log.change_type).to eq('update_supplier_framework_lot_services')
+            expect(change_log.change_data['id']).to eq(supplier_framework_lot.id)
+            expect(change_log.change_data['added']).to eq([])
+            expect(change_log.change_data['removed']).to eq(['RM6240.3.1'])
+          end
+          # rubocop:enable RSpec/MultipleExpectations
         end
 
         context 'when it is invalid' do
@@ -595,6 +662,10 @@ RSpec.describe LegalServices::RM6240::Admin::LotDataController do
           it 'renders section partial template' do
             expect(response).to have_http_status(:ok)
             expect(response).to render_template(partial: "shared/admin/lot_data/edit/_#{section}")
+          end
+
+          it 'does not create a change log' do
+            expect(change_log).to be_nil
           end
         end
         # rubocop:enable RSpec/NestedGroups
@@ -630,6 +701,24 @@ RSpec.describe LegalServices::RM6240::Admin::LotDataController do
               expect(rate.rate).to eq(234567)
             end
           end
+
+          # rubocop:disable RSpec/MultipleExpectations, RSpec/ExampleLength
+          it 'creates a change log' do
+            expect(change_log.change_type).to eq('update_supplier_framework_lot_rates')
+            expect(change_log.change_data['id']).to eq(supplier_framework_lot.id)
+            expect(change_log.change_data['jurisdiction_id']).to eq('GB')
+            expect(change_log.change_data['rates'].map { |rate_change| { position_id: rate_change['position_id'], before_rate: rate_change['before'].present?, after: rate_change['after'] } }).to eq(
+              [
+                { after: 234567, before_rate: true, position_id: 'RM6240.3.1' },
+                { after: 234567, before_rate: true, position_id: 'RM6240.3.2' },
+                { after: 234567, before_rate: true, position_id: 'RM6240.3.3' },
+                { after: 234567, before_rate: true, position_id: 'RM6240.3.4' },
+                { after: 234567, before_rate: true, position_id: 'RM6240.3.5' },
+                { after: 234567, before_rate: true, position_id: 'RM6240.3.6' }
+              ]
+            )
+          end
+          # rubocop:enable RSpec/MultipleExpectations, RSpec/ExampleLength
         end
 
         context 'when it is invalid' do
@@ -650,6 +739,10 @@ RSpec.describe LegalServices::RM6240::Admin::LotDataController do
           it 'renders section partial template' do
             expect(response).to have_http_status(:ok)
             expect(response).to render_template(partial: "shared/admin/lot_data/edit/_#{section}")
+          end
+
+          it 'does not create a change log' do
+            expect(change_log).to be_nil
           end
         end
         # rubocop:enable RSpec/NestedGroups

@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe ManagementConsultancy::RM6309::Admin::SuppliersController do
   let(:default_params) { { service: 'management_consultancy/admin', framework: 'RM6309' } }
 
-  let(:supplier) { create(:management_consultancy_rm6309_admin_supplier) }
+  let(:supplier) { create(:management_consultancy_rm6309_admin_supplier, sme: true) }
   let(:supplier_framework) { create(:supplier_framework, framework_id: 'RM6309', supplier_id: supplier.id) }
   let(:contact_detail) { create(:management_consultancy_rm6309_admin_supplier_contact_detail, supplier_framework_id: supplier_framework.id) }
   let(:supplier_frameworks) { Supplier::Framework.where(id: supplier_framework.id) }
@@ -145,6 +145,7 @@ RSpec.describe ManagementConsultancy::RM6309::Admin::SuppliersController do
 
     let(:model_param_keys) { model_params.keys }
     let(:expected_updates) { model_params }
+    let(:change_log) { ChangeLog.find_by(user_id: controller.current_user.id, framework_id: 'RM6309') }
 
     before do
       supplier
@@ -179,6 +180,12 @@ RSpec.describe ManagementConsultancy::RM6309::Admin::SuppliersController do
         it 'updates the details' do
           expect(model.reload.attributes.deep_symbolize_keys.slice(*model_param_keys)).to eq(expected_updates)
         end
+
+        it 'creates a change log' do
+          expect(change_log.change_type).to eq(change_type)
+          expect(change_log.change_data['id']).to eq(model.id)
+          expect(change_log.change_data['after']).to eq(change_data_after)
+        end
       end
 
       context 'when it is invalid' do
@@ -194,6 +201,10 @@ RSpec.describe ManagementConsultancy::RM6309::Admin::SuppliersController do
           expect(response).to have_http_status(:ok)
           expect(response).to render_template(partial: "shared/admin/suppliers/sections/_#{section}")
         end
+
+        it 'does not create a change log' do
+          expect(change_log).to be_nil
+        end
       end
     end
 
@@ -203,6 +214,8 @@ RSpec.describe ManagementConsultancy::RM6309::Admin::SuppliersController do
       let(:model) { supplier }
       let(:model_params) { { name: 'Zote the Mighty', duns_number: '123456789', sme: true } }
       let(:model_params_invalid) { { name: '', duns_number: '', sme: '' } }
+      let(:change_type) { 'update_supplier_information' }
+      let(:change_data_after) { { 'name' => 'Zote the Mighty', 'duns_number' => '123456789', } }
 
       include_context 'when testing a section'
     end
@@ -213,6 +226,8 @@ RSpec.describe ManagementConsultancy::RM6309::Admin::SuppliersController do
       let(:model) { contact_detail }
       let(:model_params) { { name: 'Zote the Mighty', email: 'zote@the.mighty', telephone_number: '07123456789', website: 'https://example.com' } }
       let(:model_params_invalid) { { name: '', email: '', telephone_number: '', website: '' } }
+      let(:change_type) { 'update_supplier_contact_information' }
+      let(:change_data_after) { { 'name' => 'Zote the Mighty', 'email' => 'zote@the.mighty', 'telephone_number' => '07123456789', 'website' => 'https://example.com', } }
 
       include_context 'when testing a section'
     end
@@ -225,6 +240,8 @@ RSpec.describe ManagementConsultancy::RM6309::Admin::SuppliersController do
       let(:model_param_keys) { %i[additional_details] }
       let(:expected_updates) { { additional_details: model_params } }
       let(:model_params_invalid) { { address: '' } }
+      let(:change_type) { 'update_supplier_additional_information' }
+      let(:change_data_after) { { 'additional_details' => { 'address' => 'Hollow nest' } } }
 
       include_context 'when testing a section'
     end

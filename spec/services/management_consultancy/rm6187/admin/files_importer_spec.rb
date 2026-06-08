@@ -109,10 +109,17 @@ RSpec.describe ManagementConsultancy::RM6187::Admin::FilesImporter do
         'ZEKE VON GEMBU CORP': { lots: 9, services: 131, jurisdictions: 9, rates: 54 },
       }
     end
+    let(:change_log) { ChangeLog.find_by(user_id: upload.user_id, framework_id: 'RM6187') }
 
     it 'publishes the data and all the suppliers are imported' do
       expect(upload).to have_state(:published)
       expect(Supplier::Framework.where(framework_id: 'RM6187').count).to eq 3
+    end
+
+    it 'creates a change log' do
+      expect(change_log.change_type).to eq('upload_supplier_data')
+      expect(change_log.change_data['admin_upload_id']).to eq(upload.id)
+      expect(change_log.change_data['supplier_data'].length).to eq(3)
     end
 
     # rubocop:disable RSpec/MultipleExpectations

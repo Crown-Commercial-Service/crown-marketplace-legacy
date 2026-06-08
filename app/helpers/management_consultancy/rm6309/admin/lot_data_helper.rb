@@ -12,12 +12,12 @@ module ManagementConsultancy::RM6309::Admin::LotDataHelper
         }
       ] + @lot.positions.order(:number).pluck(:category).uniq.map do |category|
         {
-          text: tag.span(t('management_consultancy.rm6309.suppliers.show.max_day_rate', rate_type: t("management_consultancy.rm6309.suppliers.show.rate_type.#{category}")), id: aria_describedby_id(category)),
+          text: tag.span(t("shared.rates_table.rm6309.categories.#{category}"), id: aria_describedby_id(category)),
           classes: 'govuk-!-width-one-quarter'
         }
       end,
       @lot.positions_grouped_by_name.reverse.map do |_position_name, positions|
-        inputs = positions.map { |position| create_rate_input(position, rates, ->(position) { I18n.t("management_consultancy.rm6309.suppliers.show.job_titles.#{position.name}") }, position.category) }
+        inputs = positions.map { |position| create_rate_input(position, rates, ->(position) { I18n.t("shared.rates_table.rm6309.job_titles.#{position.name}") }, position.category) }
 
         [
           {

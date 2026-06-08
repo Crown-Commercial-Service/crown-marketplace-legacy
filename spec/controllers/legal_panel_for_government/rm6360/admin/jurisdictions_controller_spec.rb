@@ -8,6 +8,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::Admin::JurisdictionsController d
   let(:supplier_framework_lot) { create(:supplier_framework_lot, supplier_framework: supplier_framework, lot_id: "RM6360.#{lot_number}") }
   let!(:supplier_framework_lot_jurisdictions) { jurisdiction_ids.map { |jurisdiction_id| create(:supplier_framework_lot_jurisdiction, supplier_framework_lot:, jurisdiction_id:) } }
   let(:lot_number) { '4a' }
+  let(:change_log) { ChangeLog.find_by(user_id: controller.current_user.id, framework_id: 'RM6360') }
 
   shared_examples 'when testing a view' do
     it 'assigns framework' do
@@ -166,6 +167,31 @@ RSpec.describe LegalPanelForGovernment::RM6360::Admin::JurisdictionsController d
           expect(rate.rate).to eq(12300)
         end
       end
+
+      # rubocop:disable RSpec/MultipleExpectations, RSpec/ExampleLength
+      it 'creates a change log' do
+        expect(change_log.change_type).to eq('add_rates_for_supplier_framework_lot_jurisdiction')
+        expect(change_log.change_data['id']).to eq(supplier_framework_lot.id)
+        expect(change_log.change_data['jurisdiction_id']).to eq(jurisdiction_id)
+        expect(change_log.change_data['rates'].map { |rate_change| { position_id: rate_change['position_id'], before_rate: rate_change['before'].present?, after: rate_change['after'] } }).to eq(
+          [
+            { after: 12300, before_rate: false, position_id: 'RM6360.4a.1' },
+            { after: 12300, before_rate: false, position_id: 'RM6360.4a.2' },
+            { after: 12300, before_rate: false, position_id: 'RM6360.4a.3' },
+            { after: 12300, before_rate: false, position_id: 'RM6360.4a.4' },
+            { after: 12300, before_rate: false, position_id: 'RM6360.4a.5' },
+            { after: 12300, before_rate: false, position_id: 'RM6360.4a.6' },
+            { after: 12300, before_rate: false, position_id: 'RM6360.4a.7' },
+            { after: 12300, before_rate: false, position_id: 'RM6360.4a.8' },
+            { after: 12300, before_rate: false, position_id: 'RM6360.4a.9' },
+            { after: 12300, before_rate: false, position_id: 'RM6360.4a.10' },
+            { after: 12300, before_rate: false, position_id: 'RM6360.4a.11' },
+            { after: 12300, before_rate: false, position_id: 'RM6360.4a.12' },
+            { after: 12300, before_rate: false, position_id: 'RM6360.4a.13' }
+          ]
+        )
+      end
+      # rubocop:enable RSpec/MultipleExpectations, RSpec/ExampleLength
     end
 
     context 'when it is invalid' do
@@ -189,6 +215,10 @@ RSpec.describe LegalPanelForGovernment::RM6360::Admin::JurisdictionsController d
       it 'builds but does not create the supplier_framework_lot_rates' do
         expect(assigns(:supplier_framework_lot_rates).length).to eq(13)
         expect(assigns(:supplier_framework_lot_rates).map { |position_id, supplier_framework_lot_rate| [position_id, supplier_framework_lot_rate.id] }).to eq(Position.where(lot_id: "RM6360.#{lot_number}").pluck(:id).map { |position_id| [position_id, nil] })
+      end
+
+      it 'does not create a change log' do
+        expect(change_log).to be_nil
       end
     end
   end
@@ -257,5 +287,30 @@ RSpec.describe LegalPanelForGovernment::RM6360::Admin::JurisdictionsController d
         expect { Supplier::Framework::Lot::Rate.find(supplier_framework_lot_rate.id) }.to raise_error(ActiveRecord::RecordNotFound)
       end
     end
+
+    # rubocop:disable RSpec/MultipleExpectations, RSpec/ExampleLength
+    it 'creates a change log' do
+      expect(change_log.change_type).to eq('remove_rates_for_supplier_framework_lot_jurisdiction')
+      expect(change_log.change_data['id']).to eq(supplier_framework_lot.id)
+      expect(change_log.change_data['jurisdiction_id']).to eq(jurisdiction_id)
+      expect(change_log.change_data['rates'].map { |rate_change| { position_id: rate_change['position_id'], before_rate: rate_change['before'].present?, after_rate: rate_change['after'].present? } }).to eq(
+        [
+          { after_rate: false, before_rate: true, position_id: 'RM6360.4a.1' },
+          { after_rate: false, before_rate: true, position_id: 'RM6360.4a.2' },
+          { after_rate: false, before_rate: true, position_id: 'RM6360.4a.3' },
+          { after_rate: false, before_rate: true, position_id: 'RM6360.4a.4' },
+          { after_rate: false, before_rate: true, position_id: 'RM6360.4a.5' },
+          { after_rate: false, before_rate: true, position_id: 'RM6360.4a.6' },
+          { after_rate: false, before_rate: true, position_id: 'RM6360.4a.7' },
+          { after_rate: false, before_rate: true, position_id: 'RM6360.4a.8' },
+          { after_rate: false, before_rate: true, position_id: 'RM6360.4a.9' },
+          { after_rate: false, before_rate: true, position_id: 'RM6360.4a.10' },
+          { after_rate: false, before_rate: true, position_id: 'RM6360.4a.11' },
+          { after_rate: false, before_rate: true, position_id: 'RM6360.4a.12' },
+          { after_rate: false, before_rate: true, position_id: 'RM6360.4a.13' }
+        ]
+      )
+    end
+    # rubocop:enable RSpec/MultipleExpectations, RSpec/ExampleLength
   end
 end

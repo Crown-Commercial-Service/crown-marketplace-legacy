@@ -148,10 +148,17 @@ module SupplyTeachers::RM6376::Admin
           'ETHEL LTD': { lots: 1, services: 0, branches: 0, jurisdictions: 1, rates: 11 },
         }
       end
+      let(:change_log) { ChangeLog.find_by(user_id: upload.user_id, framework_id: 'RM6376') }
 
       it 'publishes the data and all the suppliers are imported' do
         expect(upload).to have_state(:published)
         expect(Supplier::Framework.where(framework_id: 'RM6376').count).to eq 5
+      end
+
+      it 'creates a change log' do
+        expect(change_log.change_type).to eq('upload_supplier_data')
+        expect(change_log.change_data['admin_upload_id']).to eq(upload.id)
+        expect(change_log.change_data['supplier_data'].length).to eq(5)
       end
 
       # rubocop:disable RSpec/MultipleExpectations

@@ -9,7 +9,7 @@ module Admin::SuppliersController
     before_action :set_supplier_framework, only: %i[show edit update]
     before_action :set_section, :set_model, :set_section_attributes, only: %i[edit update]
 
-    helper_method :service, :current_supplier_name, :section_attributes
+    helper_method :service, :current_supplier_name
   end
 
   def index
@@ -27,7 +27,23 @@ module Admin::SuppliersController
   def update
     @model.assign_attributes(model_params)
 
-    if @model.save(context: @section)
+    model_saved = ActiveRecord::Base.transaction do
+      @model.save!(context: @section)
+      ChangeLog.public_send(:"log_#{self.class::SECTION_TO_CHANGE_TYPE[@section]}!", user: current_user, framework: params[:framework], model: @model)
+
+      true
+    rescue ActiveRecord::RecordInvalid => e
+      unless @model.errors.any?
+        Rails.logger.error e
+        Rollbar.log('error', e)
+
+        @model.errors.add(:base, :something_went_wrong)
+      end
+
+      false
+    end
+
+    if model_saved
       redirect_to action: :show
     else
       render template: 'shared/admin/suppliers/edit'
@@ -69,10 +85,6 @@ module Admin::SuppliersController
 
   def set_section_attributes
     @section_attributes = section_attributes(@section)
-  end
-
-  def section_attributes(section)
-    self.class::SECTION_TO_PARAMS[section]
   end
 
   def model_params

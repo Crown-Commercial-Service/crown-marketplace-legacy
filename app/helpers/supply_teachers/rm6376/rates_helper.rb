@@ -7,14 +7,14 @@ module SupplyTeachers::RM6376::RatesHelper
           classes: 'govuk-!-width-three-quarters'
         },
         {
-          text: t('supply_teachers.rm6376.shared.rates_table.column2'),
+          text: t('shared.rates_table.rm6376.categories.default'),
           classes: 'govuk-table__header--numeric govuk-!-width-one-quarter'
         }
       ],
       @lot.positions.order(:number).pluck(:id, :name).map do |position_id, position_name|
         [
           {
-            text: t("supply_teachers.rm6376.shared.job_titles.#{position_name}")
+            text: t("shared.rates_table.rm6376.job_titles.#{position_name}")
           },
           {
             text: agency_rate(rates, position_id),

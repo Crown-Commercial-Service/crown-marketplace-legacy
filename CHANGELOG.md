@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Added the ability to add jurisdictions for legal panel for government ([PR 2475](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2475))
+- Add change log records for admin updates to supplier data ([PR 2484](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2484))
 
 ### Changed
 

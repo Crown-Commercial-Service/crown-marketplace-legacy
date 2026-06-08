@@ -7,7 +7,7 @@ module LegalPanelForGovernment::RM6360::RatesHelper
           classes: 'govuk-!-width-three-quarters'
         },
         {
-          text: t('legal_panel_for_government.rm6360.suppliers.rates_table.hourly'),
+          text: t('shared.rates_table.rm6360.categories.default'),
           classes: 'govuk-!-width-one-quarter'
         }
       ],
@@ -18,7 +18,7 @@ module LegalPanelForGovernment::RM6360::RatesHelper
 
         [
           {
-            text: t("legal_panel_for_government.rm6360.suppliers.rates_table.job_titles.#{position_name}"),
+            text: t("shared.rates_table.rm6360.job_titles.#{position_name}"),
           },
           {
             text: rate

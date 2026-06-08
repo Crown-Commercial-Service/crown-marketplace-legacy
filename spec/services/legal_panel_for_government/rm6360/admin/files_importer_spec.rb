@@ -166,10 +166,17 @@ module LegalPanelForGovernment::RM6360::Admin
           'IZURD LTD': { lots: 1, services: 13, jurisdictions: 1, rates: 8 },
         }
       end
+      let(:change_log) { ChangeLog.find_by(user_id: upload.user_id, framework_id: 'RM6360') }
 
       it 'publishes the data and all the suppliers are imported' do
         expect(upload).to have_state(:published)
         expect(Supplier::Framework.where(framework_id: 'RM6360').count).to eq 11
+      end
+
+      it 'creates a change log' do
+        expect(change_log.change_type).to eq('upload_supplier_data')
+        expect(change_log.change_data['admin_upload_id']).to eq(upload.id)
+        expect(change_log.change_data['supplier_data'].length).to eq(11)
       end
 
       # rubocop:disable RSpec/MultipleExpectations

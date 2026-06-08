@@ -109,7 +109,7 @@ class LegalPanelForGovernment::RM6360::SupplierSpreadsheetCreator < SupplierSpre
 
   def get_supplier_columns(positions, lot)
     [
-      ['Supplier name', 'Prospectus'] + positions.map { |_position_id, position_name| I18n.t("legal_panel_for_government.rm6360.suppliers.rates_table.job_titles.#{position_name}") }
+      ['Supplier name', 'Prospectus'] + positions.map { |_position_id, position_name| I18n.t("shared.rates_table.rm6360.job_titles.#{position_name}") }
     ] + @supplier_frameworks.map do |supplier_framework, _rates|
       [
         supplier_framework.supplier_name,

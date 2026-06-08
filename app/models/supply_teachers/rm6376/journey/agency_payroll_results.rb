@@ -14,7 +14,7 @@ module SupplyTeachers
           payroll_provider: translate_input('supply_teachers.payroll_provider.agency'),
           postcode: postcode,
           radius: number_to_human(radius, units: :miles),
-          job_type: I18n.t("supply_teachers.rm6376.shared.job_titles.#{position.name}")
+          job_type: I18n.t("shared.rates_table.rm6376.job_titles.#{position.name}")
         }
       end
     end

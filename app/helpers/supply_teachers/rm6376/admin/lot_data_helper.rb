@@ -10,12 +10,12 @@ module SupplyTeachers::RM6376::Admin::LotDataHelper
           classes: 'govuk-!-width-three-quarters'
         },
         {
-          text: tag.span(t('supply_teachers.rm6376.shared.rates_table.column2'), id: aria_describedby_id),
+          text: tag.span(t('shared.rates_table.rm6376.categories.default'), id: aria_describedby_id),
           classes: 'govuk-!-width-one-quarter'
         }
       ],
       @lot.positions.order(:number).map do |position|
-        input = create_rate_input(position, rates, ->(position) { I18n.t("supply_teachers.rm6376.shared.job_titles.#{position.name}") })
+        input = create_rate_input(position, rates, ->(position) { I18n.t("shared.rates_table.rm6376.job_titles.#{position.name}") })
 
         [
           {
