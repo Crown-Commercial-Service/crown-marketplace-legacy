@@ -3,6 +3,14 @@ en:
   shared:
     admin:
       change_logs:
+        change_log_csv:
+          change_log_attributes:
+            jurisdictions: Jurisdictions
+            rate: Rate
+            services: Services
+          headings:
+            added: Added
+            removed: Removed
         change_types:
           add_rates_for_supplier_framework_lot_jurisdiction: Add rates for jurisdiction
           remove_rates_for_supplier_framework_lot_jurisdiction: Remove rates for jurisdiction
@@ -16,20 +24,23 @@ en:
           update_supplier_information: Supplier information update
           upload_supplier_data: Upload
         index:
-          below_is_a_table: The table shows a list of all the changes made to the supplier data. You can view the specific change that was made by clicking on a log item.
+          below_is_a_table: The table shows a list of all the changes made to the supplier data. You can view a specific change that was made by clicking on a log item.
           caption: "%{service_name} - %{framework}"
           change_logs_table:
             change_type: Change type
             changed_at: Changed at
             changed_by: Changed by
-            log_item: Lot item
+            log_item: Log item
+          change_lot_filename: Change log - %{service_name} - %{framework} - %{generation_time}.csv
+          download_logs: Download full change logs
           heading: Supplier data change log
           no_change_logs: There are no change logs to view
+          you_can_download: You can download a CSV file of the full logs by clicking on 'Download full change logs'
         show:
           change_table:
             after: New value
             attribute: Attribute
-            before: Previous value
+            before: Old value
             position: Poisiton
             rate_type: Type
           heading: Log item %{short_id}
@@ -70,9 +81,6 @@ en:
             description: Use spreadsheets to upload the supplier data
             title: Upload supplier data
           user_reports: User reports
-          view_supplier_data:
-            description: View the supplier's details and their lot data
-            title: View supplier data
           view_user_reports:
             description: View and generate reports of user searches
             title: User reports

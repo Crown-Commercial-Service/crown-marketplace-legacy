@@ -38,6 +38,11 @@ FactoryBot.define do
       change_data { { 'id' => SecureRandom.uuid, 'supplier_name' => Faker::Name.unique.name, 'lot_id' => 'RM6360.1', 'added' => ['RM6360.1.1', 'RM6360.1.2', 'RM6360.1.3'], 'removed' => ['RM6360.1.4', 'RM6360.1.5', 'RM6360.1.6'] } }
     end
 
+    trait :with_update_supplier_framework_lot_jurisdictions_change_type do
+      change_type { 'update_supplier_framework_lot_jurisdictions' }
+      change_data { { 'id' => SecureRandom.uuid, 'supplier_name' => Faker::Name.unique.name, 'lot_id' => 'RM6360.1', 'added' => ['BR', 'CN', 'JP'], 'removed' => ['HK', 'KH', 'ME'] } }
+    end
+
     trait :with_update_supplier_framework_lot_rates_change_type do
       change_type { 'update_supplier_framework_lot_rates' }
       change_data { { 'id' => SecureRandom.uuid, 'supplier_name' => Faker::Name.unique.name, 'lot_id' => 'RM6376.1', 'jurisdiction_id' => 'GB', 'rates' => [{ 'before' => 15000, 'id' => SecureRandom.uuid, 'position_id' => 'RM6376.1.1' }, { 'before' => 18000, 'after' => 17999, 'id' => SecureRandom.uuid, 'position_id' => 'RM6376.1.2' }, { 'after' => 20000, 'id' => SecureRandom.uuid, 'position_id' => 'RM6376.1.3' }] } }

@@ -12,7 +12,12 @@ module Admin::ChangeLogActions
   end
 
   def index
-    render template: 'shared/admin/change_logs/index'
+    respond_to do |format|
+      format.html { render template: 'shared/admin/change_logs/index' }
+      format.csv do
+        send_data "\xEF\xBB\xBF#{ChangeLog::CsvGenerator.new(params[:framework], helpers).generate_csv}", filename: t('shared.admin.change_logs.index.change_lot_filename', service_name: t("#{service.module_parent.to_s.underscore}.service_name"), framework: params[:framework], generation_time: Time.now.in_time_zone('London').strftime('%d_%m_%Y %H_%M').squish), type: 'text/csv'
+      end
+    end
   end
 
   def show

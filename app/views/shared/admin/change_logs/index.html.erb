@@ -13,6 +13,10 @@
     <p class="govuk-body">
       <%= t('.below_is_a_table') %>
     </p>
+    <p>
+      <%= t('.you_can_download') %>
+    </p>
+    <%= govuk_button(t('.download_logs'), href: "#{supplier_change_logs_index_path}?format=csv", classes: 'govuk-button--secondary', attributes: { download: '', aria: { label: t('.download_logs') } }) %>
   </div>
 </div>
 
