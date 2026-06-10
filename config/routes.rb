@@ -131,8 +131,8 @@ Rails.application.routes.draw do
   end
 
   concern :admin_suppliers do
-    resources :suppliers, only: Marketplace.environment_name == :production ? %i[index show] : %i[index show edit update] do
-      resources :lot_data, path: 'lot-data', param: :lot_number, only: Marketplace.environment_name == :production ? %i[index show] : %i[index show edit update]
+    resources :suppliers, only: %i[index show edit update] do
+      resources :lot_data, path: 'lot-data', param: :lot_number, only: %i[index show edit update]
     end
   end
 
@@ -314,15 +314,13 @@ Rails.application.routes.draw do
       namespace :admin, defaults: { service: 'legal_panel_for_government/admin' } do
         concerns %i[admin_dashboard admin_frameworks admin_suppliers admin_uploads admin_change_logs admin_reports admin_shared_pages]
 
-        unless Marketplace.environment_name == :production
-          scope path: '/suppliers/:supplier_id/lot-data/:lot_number/jurisdictions', as: :jurisdictions do
-            get '/edit', to: 'jurisdictions#edit', as: 'edit'
-            put '/update', to: 'jurisdictions#update', as: 'update'
-            get '/:jurisdiction_id/new', to: 'jurisdictions#new', as: 'new'
-            post '/:jurisdiction_id', to: 'jurisdictions#create', as: 'create'
-            get '/:jurisdiction_id/delete', to: 'jurisdictions#delete', as: 'delete'
-            delete '/:jurisdiction_id', to: 'jurisdictions#destroy', as: 'destroy'
-          end
+        scope path: '/suppliers/:supplier_id/lot-data/:lot_number/jurisdictions', as: :jurisdictions do
+          get '/edit', to: 'jurisdictions#edit', as: 'edit'
+          put '/update', to: 'jurisdictions#update', as: 'update'
+          get '/:jurisdiction_id/new', to: 'jurisdictions#new', as: 'new'
+          post '/:jurisdiction_id', to: 'jurisdictions#create', as: 'create'
+          get '/:jurisdiction_id/delete', to: 'jurisdictions#delete', as: 'delete'
+          delete '/:jurisdiction_id', to: 'jurisdictions#destroy', as: 'destroy'
         end
       end
     end
@@ -358,8 +356,8 @@ Rails.application.routes.draw do
   get '/:journey/:framework/:slug/answer', to: 'journey#answer', as: 'journey_answer'
 
   resources :buyer_details, path: '/:service/:framework/buyer-details', only: %i[index show edit update]
-  resources :suppliers, path: '/:service/:framework/admin/suppliers', only: Marketplace.environment_name == :production ? %i[index show] : %i[index show edit update] do
-    resources :lot_data, path: 'lot-data', param: :lot_number, only: Marketplace.environment_name == :production ? %i[index show] : %i[index show edit update]
+  resources :suppliers, path: '/:service/:framework/admin/suppliers', only: %i[index show edit update] do
+    resources :lot_data, path: 'lot-data', param: :lot_number, only: %i[index show edit update]
   end
   resources :uploads, path: '/:service/:framework/admin/uploads', only: %i[index new create show]
   resources :reports, path: '/:service/:framework/admin/reports', only: %i[index new create show]

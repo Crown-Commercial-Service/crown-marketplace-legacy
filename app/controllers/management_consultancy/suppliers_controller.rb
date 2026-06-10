@@ -29,7 +29,7 @@ module ManagementConsultancy
         format.xlsx do
           spreadsheet_builder = service_name::SupplierSpreadsheetCreator.new(@supplier_frameworks, params)
           spreadsheet = spreadsheet_builder.build
-          send_data spreadsheet.to_stream.read, filename: "shortlist_of_management_consultancy_suppliers_#{DateTime.now.getlocal.strftime '%d-%m-%Y'}.xlsx", type: :xlsx
+          send_data spreadsheet.to_stream.read, filename: "shortlist_of_management_consultancy_suppliers_#{Time.now.in_time_zone('London').strftime '%d-%m-%Y'}.xlsx", type: :xlsx
         end
       end
     end

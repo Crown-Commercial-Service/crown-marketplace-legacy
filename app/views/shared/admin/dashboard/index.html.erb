@@ -16,11 +16,7 @@
       href: supplier_uploads_index_path,
       description: t('.upload_supplier_data.description')
     },
-    Marketplace.environment_name == :production ? {
-      title: t('.view_supplier_data.title'),
-      href: suppliers_index_path,
-      description: t('.view_supplier_data.description')
-    } : {
+    {
       title: t('.manage_supplier_data.title'),
       href: suppliers_index_path,
       description: t('.manage_supplier_data.description')

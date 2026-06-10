@@ -54,33 +54,6 @@ RSpec.describe ChangeLog do
     end
   end
 
-  describe '.log_upload_supplier_data!' do
-    let(:user) { create(:user) }
-    let(:admin_upload) { create(:management_consultancy_rm6309_admin_upload, user:) }
-    let(:supplier_data) { { 'tv' => 'The Rookie' } }
-    let(:change_log) { described_class.log_upload_supplier_data!(admin_upload:, supplier_data:) }
-
-    it 'creates the change log' do
-      expect { change_log }.to change(described_class, :count).by(1)
-    end
-
-    it 'has the right user' do
-      expect(change_log.user).to eq(user)
-    end
-
-    it 'has the right framework' do
-      expect(change_log.framework_id).to eq('RM6309')
-    end
-
-    it 'has the right change type' do
-      expect(change_log.change_type).to eq('upload_supplier_data')
-    end
-
-    it 'has the right change data' do
-      expect(change_log.change_data).to eq({ 'admin_upload_id' => admin_upload.id, 'supplier_data' => supplier_data })
-    end
-  end
-
   shared_examples 'when testing a change type' do
     it 'creates the change log' do
       expect { change_log }.to change(described_class, :count).by(1)
@@ -101,6 +74,18 @@ RSpec.describe ChangeLog do
     it 'has the right change data' do
       expect(change_log.change_data).to eq(expected_change_data)
     end
+  end
+
+  describe '.log_upload_supplier_data!' do
+    let(:user) { create(:user) }
+    let(:framework_id) { 'RM6309' }
+    let(:admin_upload) { create(:management_consultancy_rm6309_admin_upload, user:) }
+    let(:supplier_data) { { 'tv' => 'The Rookie' } }
+    let(:change_type) { 'upload_supplier_data' }
+    let(:change_log) { described_class.log_upload_supplier_data!(admin_upload:, supplier_data:) }
+    let(:expected_change_data) { { 'admin_upload_id' => admin_upload.id, 'supplier_data' => supplier_data } }
+
+    include_context 'when testing a change type'
   end
 
   describe '.log_update_supplier_information!' do

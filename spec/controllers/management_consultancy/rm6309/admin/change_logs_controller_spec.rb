@@ -51,6 +51,23 @@ RSpec.describe ManagementConsultancy::RM6309::Admin::ChangeLogsController do
     end
   end
 
+  describe 'GET index CSV' do
+    login_mc_admin
+
+    before do
+      csv_generator = instance_double(ChangeLog::CsvGenerator)
+      allow(ChangeLog::CsvGenerator).to receive(:generate_csv).and_return(csv_generator)
+      allow(csv_generator).to receive(:generate_csv).and_return("\n")
+
+      get :index, format: :csv
+    end
+
+    it 'download the csv' do
+      expect(response.headers['Content-Disposition']).to include 'filename="Change log - Management Consultancy - RM6309 - '
+      expect(response.headers['Content-Type']).to eq 'text/csv'
+    end
+  end
+
   describe 'GET show' do
     login_mc_admin
 
