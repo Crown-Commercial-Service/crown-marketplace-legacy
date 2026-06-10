@@ -6,7 +6,7 @@ class ReportCsvGenerator
 
   def generate
     @report.report_csv.attach(
-      io: StringIO.new(@report_generator_class.call(@report)),
+      io: StringIO.new("\xEF\xBB\xBF#{@report_generator_class.call(@report)}"),
       filename: "#{@report.framework.service}_#{@report.framework.id.downcase}_#{created_at}_#{date_to_string(@report.start_date)}-#{date_to_string(@report.end_date)}.csv",
       content_type: 'text/csv'
     )
