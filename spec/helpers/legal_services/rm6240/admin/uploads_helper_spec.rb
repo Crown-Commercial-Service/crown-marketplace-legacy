@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe LegalServices::RM6240::Admin::UploadsHelper do
   describe 'get_error_details' do
-    let(:error_details) { helper.get_error_details(error, details) }
+    let(:error_details) { helper.get_error_details('legal_services.rm6240.admin.uploads.failed', error, details) }
 
     before do
       allow(helper).to receive(:service).and_return(LegalServices::RM6240)
