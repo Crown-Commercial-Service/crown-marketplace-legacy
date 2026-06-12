@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe ManagementConsultancy::RM6187::Admin::UploadsHelper do
   describe 'get_error_details' do
-    let(:error_details) { helper.get_error_details(error, details) }
+    let(:error_details) { helper.get_error_details('management_consultancy.rm6187.admin.uploads.failed', error, details) }
 
     before do
       allow(helper).to receive(:service).and_return(ManagementConsultancy::RM6187)
