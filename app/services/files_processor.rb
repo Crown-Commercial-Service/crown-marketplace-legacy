@@ -20,6 +20,12 @@ class FilesProcessor
 
   private
 
+  def add_suppliers(suppliers_workbook, headers, &)
+    @supplier_data = suppliers_workbook.sheet(0).parse(headers).map(&)
+
+    @suppliers_by_duns = @supplier_data.index_by { |s| s[:duns_number] }
+  end
+
   def clean_supplier_data_service_and_rates
     @supplier_data.each do |supplier|
       supplier[:supplier_frameworks][0][:supplier_framework_lots_data].each do |lot_id, supplier_framework_lot_data|

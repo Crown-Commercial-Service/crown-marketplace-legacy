@@ -1,61 +1,54 @@
 class ManagementConsultancy::RM6187::Admin::FilesProcessor < FilesProcessor
   private
 
-  # rubocop:disable Metrics/AbcSize
   def add_suppliers(suppliers_workbook)
-    headers = {
-      name: 'Supplier name',
-      email: 'Email address',
-      telephone_number: 'Phone number',
-      website: 'Website URL',
-      address: 'Postal address',
-      sme: 'Is an SME?',
-      duns: 'DUNS Number',
-      clean: true
-    }
-
-    supplier_data = []
-
-    number_of_sheets(suppliers_workbook).times { |index| supplier_data += suppliers_workbook.sheet(index).parse(headers).map(&:stringify_keys!) }
-
-    supplier_data.delete_if { |supplier| supplier['duns'].nil? }
-
-    supplier_data.uniq! { |supplier| supplier['duns'] }
-
-    @supplier_data = supplier_data.map do |supplier|
+    super(
+      suppliers_workbook,
+      {
+        name: 'Supplier name',
+        email: 'Email address',
+        telephone_number: 'Phone number',
+        website: 'Website URL',
+        address: 'Postal address',
+        sme: 'Is an SME?',
+        duns: 'DUNS Number',
+        clean: true
+      }
+    ) do |supplier|
       {
         id: SecureRandom.uuid,
-        name: supplier['name'],
-        duns_number: supplier['duns'].to_i.to_s,
-        sme: ['YES', 'Y'].include?(supplier['sme'].to_s.upcase),
+        name: supplier[:name],
+        duns_number: supplier[:duns].to_i.to_s,
+        sme: ['YES', 'Y'].include?(supplier[:sme].to_s.upcase),
         supplier_frameworks: [
           {
             framework_id: 'RM6187',
             enabled: true,
             supplier_framework_contact_detail: {
-              email: supplier['email'],
-              telephone_number: supplier['telephone_number'],
-              website: supplier['website'],
+              email: supplier[:email],
+              telephone_number: supplier[:telephone_number],
+              website: supplier[:website],
               additional_details: {
-                address: supplier['address'],
+                address: supplier[:address],
               }
             },
-            supplier_framework_lots_data: {},
+            supplier_framework_lots_data: Hash.new { |h, k| h[k] = { services: [], rates: [], jurisdictions: [{ jurisdiction_id: 'GB' }], branches: [] } },
             supplier_framework_lots: []
           }
         ]
       }
     end
   end
-  # rubocop:enable Metrics/AbcSize
 
   def add_service_offerings_per_supplier(service_offerings_workbook)
     number_of_sheets(service_offerings_workbook).times do |sheet_number|
       sheet = service_offerings_workbook.sheet(sheet_number)
-      service_names = sheet.column(1)
 
-      (2..sheet.last_column).each do |column_number|
-        column = sheet.column(column_number)
+      sheet_columns_and_rows = sheet.to_a.transpose
+
+      service_names = sheet_columns_and_rows[0]
+
+      sheet_columns_and_rows[1..].each do |column|
         supplier_duns = extract_duns(column.first)
         supplier = get_supplier(supplier_duns)
         next unless supplier
@@ -80,7 +73,6 @@ class ManagementConsultancy::RM6187::Admin::FilesProcessor < FilesProcessor
       service_id = "RM6187.#{service_number_parts[1]}.#{service_number_parts[2]}"
       lot_id = "RM6187.#{service_number_parts[1]}"
 
-      supplier_framework_lots_data[lot_id] ||= { services: [], rates: [], jurisdictions: [{ jurisdiction_id: 'GB' }], branches: [] }
       supplier_framework_lots_data[lot_id][:services] << { service_id: }
     end
   end
@@ -105,7 +97,6 @@ class ManagementConsultancy::RM6187::Admin::FilesProcessor < FilesProcessor
     supplier_framework_lots_data = supplier[:supplier_frameworks][0][:supplier_framework_lots_data]
 
     row[1..6].each.with_index(1) do |rate, position_id|
-      supplier_framework_lots_data[lot_id] ||= { services: [], rates: [], jurisdictions: [{ jurisdiction_id: 'GB' }], branches: [] }
       supplier_framework_lots_data[lot_id][:rates] << {
         position_id: "#{lot_id}.#{position_id}",
         rate: convert_price(rate),

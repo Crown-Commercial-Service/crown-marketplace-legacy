@@ -2,42 +2,43 @@ class LegalServices::RM6240::Admin::FilesProcessor < FilesProcessor
   private
 
   def add_suppliers(suppliers_workbook)
-    headers = {
-      name: 'Supplier Name',
-      email: 'Email address',
-      telephone_number: 'Phone number',
-      website: 'Website URL',
-      address: 'Postal address',
-      sme: 'Is an SME',
-      duns: 'DUNS Number',
-      lot_1_prospectus_link: 'Lot 1: Prospectus Link',
-      lot_2_prospectus_link: 'Lot 2: Prospectus Link',
-      lot_3_prospectus_link: 'Lot 3: Prospectus Link',
-      clean: true
-    }
-
-    @supplier_data = suppliers_workbook.sheet(0).parse(headers).map(&:stringify_keys!).map do |supplier|
+    super(
+      suppliers_workbook,
+      {
+        name: 'Supplier Name',
+        email: 'Email address',
+        telephone_number: 'Phone number',
+        website: 'Website URL',
+        address: 'Postal address',
+        sme: 'Is an SME',
+        duns: 'DUNS Number',
+        lot_1_prospectus_link: 'Lot 1: Prospectus Link',
+        lot_2_prospectus_link: 'Lot 2: Prospectus Link',
+        lot_3_prospectus_link: 'Lot 3: Prospectus Link',
+        clean: true
+      }
+    ) do |supplier|
       {
         id: SecureRandom.uuid,
-        name: supplier['name'],
-        duns_number: supplier['duns'].to_i.to_s,
-        sme: ['YES', 'Y'].include?(supplier['sme'].to_s.upcase),
+        name: supplier[:name],
+        duns_number: supplier[:duns].to_i.to_s,
+        sme: ['YES', 'Y'].include?(supplier[:sme].to_s.upcase),
         supplier_frameworks: [
           {
             framework_id: 'RM6240',
             enabled: true,
             supplier_framework_contact_detail: {
-              email: supplier['email'],
-              telephone_number: supplier['telephone_number'],
-              website: supplier['website'],
+              email: supplier[:email],
+              telephone_number: supplier[:telephone_number],
+              website: supplier[:website],
               additional_details: {
-                address: supplier['address'],
-                lot_1_prospectus_link: supplier['lot_1_prospectus_link'],
-                lot_2_prospectus_link: supplier['lot_2_prospectus_link'],
-                lot_3_prospectus_link: supplier['lot_3_prospectus_link'],
+                address: supplier[:address],
+                lot_1_prospectus_link: supplier[:lot_1_prospectus_link],
+                lot_2_prospectus_link: supplier[:lot_2_prospectus_link],
+                lot_3_prospectus_link: supplier[:lot_3_prospectus_link],
               }
             },
-            supplier_framework_lots_data: {},
+            supplier_framework_lots_data: Hash.new { |h, k| h[k] = { services: [], rates: [], jurisdictions: [{ jurisdiction_id: 'GB' }], branches: [] } },
             supplier_framework_lots: []
           }
         ]
@@ -48,23 +49,28 @@ class LegalServices::RM6240::Admin::FilesProcessor < FilesProcessor
   def add_lot_services_per_supplier(lot_services)
     3.times do |sheet_number|
       sheet = lot_services.sheet(sheet_number)
-      service_codes = sheet.column(2)[2..].map(&:to_s)
+
+      sheet_columns_and_rows = sheet.to_a.transpose
+
+      service_codes = sheet_columns_and_rows[1][2..].map(&:to_s)
       jurisdiction = ('a'..'c').to_a[sheet_number]
 
-      add_service_offerings(sheet, service_codes, jurisdiction)
+      add_service_offerings(sheet_columns_and_rows, service_codes, jurisdiction)
     end
   end
 
   def add_lot_3_services_per_supplier(lot_3_services)
     sheet = lot_3_services.sheet(0)
-    service_codes = sheet.column(2)[2..].map(&:to_s)
 
-    add_service_offerings(sheet, service_codes)
+    sheet_columns_and_rows = sheet.to_a.transpose
+
+    service_codes = sheet_columns_and_rows[1][2..].map(&:to_s)
+
+    add_service_offerings(sheet_columns_and_rows, service_codes)
   end
 
-  def add_service_offerings(sheet, service_codes, jurisdiction = nil)
-    (3..sheet.last_column).each do |column_number|
-      column = sheet.column(column_number)
+  def add_service_offerings(sheet_columns_and_rows, service_codes, jurisdiction = nil)
+    sheet_columns_and_rows[2..].each do |column|
       supplier_duns = column[1].to_i.to_s
       supplier = get_supplier(supplier_duns)
       next unless supplier
@@ -86,7 +92,6 @@ class LegalServices::RM6240::Admin::FilesProcessor < FilesProcessor
       lot_id = "RM6240.#{lot_number}#{jurisdiction}"
       service_id = "#{lot_id}.#{service_number}"
 
-      supplier_framework_lots_data[lot_id] ||= { services: [], rates: [], jurisdictions: [{ jurisdiction_id: 'GB' }], branches: [] }
       supplier_framework_lots_data[lot_id][:services] << { service_id: }
     end
   end
@@ -111,7 +116,6 @@ class LegalServices::RM6240::Admin::FilesProcessor < FilesProcessor
     lot_id = "RM6240.#{LOT_NUMBERS[sheet_number]}"
 
     row[2..].each.with_index(1) do |rate, position_id|
-      supplier_framework_lots_data[lot_id] ||= { services: [], rates: [], jurisdictions: [{ jurisdiction_id: 'GB' }], branches: [] }
       supplier_framework_lots_data[lot_id][:rates] << {
         position_id: "#{lot_id}.#{position_id}",
         rate: convert_rate_to_pence(rate),
