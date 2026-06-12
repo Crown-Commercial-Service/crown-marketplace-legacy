@@ -6,31 +6,31 @@ class SupplyTeachers::RM6376::Admin::FilesProcessor < FilesProcessor
 
   private
 
-  # rubocop:disable Metrics/CyclomaticComplexity
   def add_suppliers(suppliers_workbook)
-    headers = {
-      name: 'Supplier Name',
-      trading_name: 'Supplier Trading Name',
-      additional_identifier: 'Supplier Identifier',
-      managed_service_provider_name: 'Managed service provider contact name',
-      managed_service_provider_email: 'Managed service provider contact email',
-      managed_service_provider_telephone: 'Managed service provider contact telephone',
-      accredited_supplier: 'Accredited supplier',
-      lot_1: 'Lot 1',
-      lot_2: 'Lot 2',
-      clean: true
-    }
-
-    @supplier_data = suppliers_workbook.sheet(0).parse(headers).map(&:stringify_keys!).map do |supplier|
-      lot_ids = (1..2).map { |lot_number| supplier["lot_#{lot_number}"]&.downcase == 'x' ? "RM6376.#{lot_number}" : nil }.compact
-      accredited = supplier['accredited_supplier']&.downcase == 'x'
+    super(
+      suppliers_workbook,
+      {
+        name: 'Supplier Name',
+        trading_name: 'Supplier Trading Name',
+        additional_identifier: 'Supplier Identifier',
+        managed_service_provider_name: 'Managed service provider contact name',
+        managed_service_provider_email: 'Managed service provider contact email',
+        managed_service_provider_telephone: 'Managed service provider contact telephone',
+        accredited_supplier: 'Accredited supplier',
+        lot_1: 'Lot 1',
+        lot_2: 'Lot 2',
+        clean: true
+      }
+    ) do |supplier|
+      lot_ids = (1..2).map { |lot_number| supplier[:"lot_#{lot_number}"]&.downcase == 'x' ? "RM6376.#{lot_number}" : nil }.compact
+      accredited = supplier[:accredited_supplier]&.downcase == 'x'
 
       {
         id: SecureRandom.uuid,
-        name: supplier['name'],
+        name: supplier[:name],
         additional_details: {
-          trading_name: supplier['trading_name'] || supplier['name'],
-          additional_identifier: supplier['additional_identifier'].to_s,
+          trading_name: supplier[:trading_name] || supplier[:name],
+          additional_identifier: supplier[:additional_identifier].to_s,
         },
         supplier_frameworks: [
           {
@@ -38,9 +38,9 @@ class SupplyTeachers::RM6376::Admin::FilesProcessor < FilesProcessor
             enabled: true,
             supplier_framework_contact_detail: {
               additional_details: {
-                managed_service_provider_name: supplier['managed_service_provider_name'],
-                managed_service_provider_email: supplier['managed_service_provider_email'],
-                managed_service_provider_telephone: supplier['managed_service_provider_telephone'],
+                managed_service_provider_name: supplier[:managed_service_provider_name],
+                managed_service_provider_email: supplier[:managed_service_provider_email],
+                managed_service_provider_telephone: supplier[:managed_service_provider_telephone],
               }
             },
             supplier_framework_lots_data: lot_ids.index_with do |_lot_id|
@@ -57,8 +57,9 @@ class SupplyTeachers::RM6376::Admin::FilesProcessor < FilesProcessor
         ]
       }
     end
+
+    @suppliers_by_additional_identifier = @supplier_data.index_by { |s| s[:additional_details][:additional_identifier] }
   end
-  # rubocop:enable Metrics/CyclomaticComplexity
 
   def add_branches(supplier_geographical_data_workbook)
     headers = {

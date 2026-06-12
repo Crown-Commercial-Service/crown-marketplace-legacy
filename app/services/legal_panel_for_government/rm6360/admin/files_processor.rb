@@ -7,50 +7,51 @@ class LegalPanelForGovernment::RM6360::Admin::FilesProcessor < FilesProcessor
   private
 
   def add_suppliers(suppliers_workbook)
-    headers = {
-      name: 'Supplier Name',
-      email: 'Email address',
-      telephone_number: 'Phone number',
-      website: 'Website URL',
-      address: 'Postal address',
-      sme: 'Is an SME',
-      duns: 'DUNS Number',
-      lot_1_prospectus_link: 'Lot 1: Prospectus Link',
-      lot_2_prospectus_link: 'Lot 2: Prospectus Link',
-      lot_3_prospectus_link: 'Lot 3: Prospectus Link',
-      lot_4a_prospectus_link: 'Lot 4a: Prospectus Link',
-      lot_4b_prospectus_link: 'Lot 4b: Prospectus Link',
-      lot_4c_prospectus_link: 'Lot 4c: Prospectus Link',
-      lot_5_prospectus_link: 'Lot 5: Prospectus Link',
-      clean: true
-    }
-
-    @supplier_data = suppliers_workbook.sheet(0).parse(headers).map(&:stringify_keys!).map do |supplier|
+    super(
+      suppliers_workbook,
+      {
+        name: 'Supplier Name',
+        email: 'Email address',
+        telephone_number: 'Phone number',
+        website: 'Website URL',
+        address: 'Postal address',
+        sme: 'Is an SME',
+        duns: 'DUNS Number',
+        lot_1_prospectus_link: 'Lot 1: Prospectus Link',
+        lot_2_prospectus_link: 'Lot 2: Prospectus Link',
+        lot_3_prospectus_link: 'Lot 3: Prospectus Link',
+        lot_4a_prospectus_link: 'Lot 4a: Prospectus Link',
+        lot_4b_prospectus_link: 'Lot 4b: Prospectus Link',
+        lot_4c_prospectus_link: 'Lot 4c: Prospectus Link',
+        lot_5_prospectus_link: 'Lot 5: Prospectus Link',
+        clean: true
+      }
+    ) do |supplier|
       {
         id: SecureRandom.uuid,
-        name: supplier['name'],
-        duns_number: supplier['duns'].to_i.to_s,
-        sme: ['YES', 'Y'].include?(supplier['sme'].to_s.upcase),
+        name: supplier[:name],
+        duns_number: supplier[:duns].to_i.to_s,
+        sme: ['YES', 'Y'].include?(supplier[:sme].to_s.upcase),
         supplier_frameworks: [
           {
             framework_id: 'RM6360',
             enabled: true,
             supplier_framework_contact_detail: {
-              email: supplier['email'],
-              telephone_number: supplier['telephone_number'],
-              website: supplier['website'],
+              email: supplier[:email],
+              telephone_number: supplier[:telephone_number],
+              website: supplier[:website],
               additional_details: {
-                address: supplier['address'],
-                lot_1_prospectus_link: supplier['lot_1_prospectus_link'],
-                lot_2_prospectus_link: supplier['lot_2_prospectus_link'],
-                lot_3_prospectus_link: supplier['lot_3_prospectus_link'],
-                lot_4a_prospectus_link: supplier['lot_4a_prospectus_link'],
-                lot_4b_prospectus_link: supplier['lot_4b_prospectus_link'],
-                lot_4c_prospectus_link: supplier['lot_4c_prospectus_link'],
-                lot_5_prospectus_link: supplier['lot_5_prospectus_link'],
+                address: supplier[:address],
+                lot_1_prospectus_link: supplier[:lot_1_prospectus_link],
+                lot_2_prospectus_link: supplier[:lot_2_prospectus_link],
+                lot_3_prospectus_link: supplier[:lot_3_prospectus_link],
+                lot_4a_prospectus_link: supplier[:lot_4a_prospectus_link],
+                lot_4b_prospectus_link: supplier[:lot_4b_prospectus_link],
+                lot_4c_prospectus_link: supplier[:lot_4c_prospectus_link],
+                lot_5_prospectus_link: supplier[:lot_5_prospectus_link],
               }
             },
-            supplier_framework_lots_data: {},
+            supplier_framework_lots_data: Hash.new { |h, k| h[k] = { services: [], rates: [], jurisdictions: [], branches: [] } },
             supplier_framework_lots: []
           }
         ]
@@ -61,15 +62,17 @@ class LegalPanelForGovernment::RM6360::Admin::FilesProcessor < FilesProcessor
   def add_lot_services_per_supplier(lot_services)
     LOT_NUMBERS.each.with_index do |lot_number, sheet_number|
       sheet = lot_services.sheet(sheet_number)
-      service_ids = sheet.column(2)[2..].map(&:to_s)
 
-      add_service_offerings(sheet, lot_number, service_ids)
+      sheet_columns_and_rows = sheet.to_a.transpose
+
+      service_ids = sheet_columns_and_rows[1][2..].map(&:to_s)
+
+      add_service_offerings(sheet_columns_and_rows, lot_number, service_ids)
     end
   end
 
-  def add_service_offerings(sheet, lot_number, service_ids)
-    (3..sheet.last_column).each do |column_number|
-      column = sheet.column(column_number)
+  def add_service_offerings(sheet_columns_and_rows, lot_number, service_ids)
+    sheet_columns_and_rows[2..].each do |column|
       supplier_duns = column[1].to_i.to_s
       supplier = get_supplier(supplier_duns)
       next unless supplier
@@ -90,8 +93,8 @@ class LegalPanelForGovernment::RM6360::Admin::FilesProcessor < FilesProcessor
 
       service_id = service_ids[index]
 
-      supplier_framework_lots_data[lot_id] ||= { services: [], rates: [], jurisdictions: [{ jurisdiction_id: 'GB' }], branches: [] }
       supplier_framework_lots_data[lot_id][:services] << { service_id: }
+      supplier_framework_lots_data[lot_id][:jurisdictions] << { jurisdiction_id: 'GB' }
     end
   end
 
@@ -148,8 +151,6 @@ class LegalPanelForGovernment::RM6360::Admin::FilesProcessor < FilesProcessor
     supplier_framework_lots_data = supplier[:supplier_frameworks][0][:supplier_framework_lots_data]
     lot_id = "RM6360.#{lot_number}"
 
-    supplier_framework_lots_data[lot_id] ||= { services: [], rates: [], jurisdictions: [], branches: [] }
-
     row[starting_column..].each.with_index(1) do |rate, index|
       rate = convert_rate_to_pence(rate)
 
@@ -174,7 +175,7 @@ class LegalPanelForGovernment::RM6360::Admin::FilesProcessor < FilesProcessor
     @supplier_data.each do |supplier|
       supplier_framework_lots_data = supplier[:supplier_frameworks][0][:supplier_framework_lots_data]
 
-      supplier_framework_lots_data[lot_id][:jurisdictions].uniq! if supplier_framework_lots_data[lot_id]
+      supplier_framework_lots_data[lot_id][:jurisdictions].uniq! if supplier_framework_lots_data.key?(lot_id)
     end
   end
 
