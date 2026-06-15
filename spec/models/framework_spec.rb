@@ -5,6 +5,7 @@ RSpec.describe Framework do
   describe 'associations' do
     it { is_expected.to have_many(:lots) }
     it { is_expected.to have_many(:supplier_frameworks) }
+    it { is_expected.to have_many(:jurisdictions) }
     it { is_expected.to have_many(:searches) }
     it { is_expected.to have_many(:reports) }
     it { is_expected.to have_many(:uploads) }
@@ -58,8 +59,8 @@ RSpec.describe Framework do
 
   describe '.frameworks' do
     context 'when no scope is provided' do
-      it 'returns RM6238, RM6187, RM6240, RM6309, RM6360 and RM6376' do
-        expect(described_class.frameworks).to eq %w[RM6238 RM6187 RM6240 RM6309 RM6360 RM6376]
+      it 'returns RM6187, RM6238, RM6240, RM6309, RM6360 and RM6376' do
+        expect(described_class.frameworks).to eq %w[RM6187 RM6238 RM6240 RM6309 RM6360 RM6376]
       end
     end
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_05_27_101957) do
+ActiveRecord::Schema[8.1].define(version: 2026_06_15_125759) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
   enable_extension "pgcrypto"
@@ -96,10 +96,13 @@ ActiveRecord::Schema[8.1].define(version: 2026_05_27_101957) do
 
   create_table "jurisdictions", id: :text, force: :cascade do |t|
     t.text "category"
+    t.text "code", null: false
     t.datetime "created_at", null: false
+    t.text "framework_id", null: false
     t.text "mapping_name"
     t.text "name"
     t.datetime "updated_at", null: false
+    t.index ["framework_id"], name: "index_jurisdictions_on_framework_id"
   end
 
   create_table "legal_panel_for_government_rm6360_admin_uploads", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -344,6 +347,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_05_27_101957) do
   add_foreign_key "buyer_details", "users"
   add_foreign_key "change_logs", "frameworks"
   add_foreign_key "change_logs", "users"
+  add_foreign_key "jurisdictions", "frameworks"
   add_foreign_key "lots", "frameworks"
   add_foreign_key "positions", "lots"
   add_foreign_key "reports", "frameworks"

@@ -19,6 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Allow framework status to be updated at the framework level rather than the service level ([PR 2476](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2476))
 - Update the sign in page heading for supply teachers ([PR 2486](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2486))
 - Refactored the admin name spacing for Legal Services and Supply Teachers ([PR 2501](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2501))
+- Change how jurisdictions work so that they have a framework relationship ([PR 2518](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2518))
 
 ## [6.7.3] - 2026-05-13
 

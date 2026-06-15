@@ -197,7 +197,7 @@ class SupplyTeachers::RM6376::Admin::FilesProcessor < FilesProcessor
 
   def add_rates(supplier, row, lot_number)
     lot_id = "RM6376.#{lot_number}"
-    jurisdiction_id = 'GB'
+    jurisdiction_id = 'RM6376.GB'
     supplier_framework_lot = supplier[:supplier_frameworks][0][:supplier_framework_lots_data][lot_id]
 
     return if supplier_framework_lot.nil?

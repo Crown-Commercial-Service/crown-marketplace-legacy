@@ -4,9 +4,9 @@ RSpec.describe LegalPanelForGovernment::RM6360::Admin::ChangeJurisdictions do
   subject(:change_jurisdictions) { described_class.new(add_or_remove:, jurisdiction_to_add:, jurisdiction_to_remove:, jurisdiction_ids:) }
 
   let(:add_or_remove) { 'add' }
-  let(:jurisdiction_to_add) { 'AL' }
+  let(:jurisdiction_to_add) { 'RM6360.AL' }
   let(:jurisdiction_to_remove) { nil }
-  let(:jurisdiction_ids) { ['DJ', 'ER', 'GF', 'GN', 'SX', 'FI', 'GR', 'AW', 'MS', 'KI', 'NC', 'SB', 'LC', 'AO', 'LU', 'TC', 'SH', 'MM', 'RO', 'BQ'] }
+  let(:jurisdiction_ids) { %w[RM6360.DJ RM6360.ER RM6360.GF RM6360.GN RM6360.SX RM6360.FI RM6360.GR RM6360.AW RM6360.MS RM6360.KI RM6360.NC RM6360.SB RM6360.LC RM6360.AO RM6360.LU RM6360.TC RM6360.SH RM6360.MM RM6360.RO RM6360.BQ] }
 
   describe '.jurisdiction_lists' do
     it 'has the right number of jurisdictions for adding' do
@@ -66,7 +66,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::Admin::ChangeJurisdictions do
       end
 
       context 'when jurisdiction_to_add is already added' do
-        let(:jurisdiction_to_add) { 'GF' }
+        let(:jurisdiction_to_add) { 'RM6360.GF' }
 
         it 'is not valid and has the correct error message' do
           expect(change_jurisdictions).not_to be_valid
@@ -82,7 +82,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::Admin::ChangeJurisdictions do
     context 'when add_or_remove is remove' do
       let(:add_or_remove) { 'remove' }
       let(:jurisdiction_to_add) { nil }
-      let(:jurisdiction_to_remove) { 'GF' }
+      let(:jurisdiction_to_remove) { 'RM6360.GF' }
 
       context 'when jurisdiction_to_remove is nil' do
         let(:jurisdiction_to_remove) { nil }
@@ -103,7 +103,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::Admin::ChangeJurisdictions do
       end
 
       context 'when jurisdiction_to_remove is already removed' do
-        let(:jurisdiction_to_remove) { 'AL' }
+        let(:jurisdiction_to_remove) { 'RM6360.AL' }
 
         it 'is not valid and has the correct error message' do
           expect(change_jurisdictions).not_to be_valid

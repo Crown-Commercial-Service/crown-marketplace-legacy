@@ -56,9 +56,9 @@ module LegalPanelForGovernment
 
           if @model.valid?
             if @model.add_or_remove == 'add'
-              redirect_to legal_panel_for_government_rm6360_admin_jurisdictions_new_path(jurisdiction_id: @model.jurisdiction_to_add)
+              redirect_to legal_panel_for_government_rm6360_admin_jurisdictions_new_path(jurisdiction_id: @model.jurisdiction_to_add.gsub('.', '-'))
             else
-              redirect_to legal_panel_for_government_rm6360_admin_jurisdictions_delete_path(jurisdiction_id: @model.jurisdiction_to_remove)
+              redirect_to legal_panel_for_government_rm6360_admin_jurisdictions_delete_path(jurisdiction_id: @model.jurisdiction_to_remove.gsub('.', '-'))
             end
           else
             render :edit
@@ -110,7 +110,7 @@ module LegalPanelForGovernment
         end
 
         def set_jurisdiction
-          @supplier_framework_lot_jurisdiction = @supplier_framework_lot.jurisdictions.find_by(jurisdiction_id: params[:jurisdiction_id])
+          @supplier_framework_lot_jurisdiction = @supplier_framework_lot.jurisdictions.find_by(jurisdiction_id:)
         end
 
         def redirect_if_supplier_framework_lot_jurisdiction_does_not_exist
@@ -122,8 +122,12 @@ module LegalPanelForGovernment
         end
 
         def build_jurisdiction_and_rates
-          @supplier_framework_lot_jurisdiction = @supplier_framework_lot.jurisdictions.build(jurisdiction_id: params[:jurisdiction_id])
+          @supplier_framework_lot_jurisdiction = @supplier_framework_lot.jurisdictions.build(jurisdiction_id:)
           @supplier_framework_lot_rates = @lot.positions.pluck(:id).index_with { |position_id| @supplier_framework_lot.rates.build(position_id: position_id, supplier_framework_lot_jurisdiction_id: @supplier_framework_lot_jurisdiction.id) }
+        end
+
+        def jurisdiction_id
+          @jurisdiction_id ||= params.expect(:jurisdiction_id).gsub('-', '.')
         end
 
         def update_params

@@ -1,7 +1,7 @@
 class LegalPanelForGovernment::RM6360::Admin::FilesProcessor < FilesProcessor
   def initialize(upload)
     super
-    @jurisdiction_name_to_ids = Jurisdiction.non_core.pluck(:mapping_name, :id).to_h
+    @jurisdiction_name_to_ids = Jurisdiction.where(framework_id: 'RM6360').non_core.pluck(:mapping_name, :id).to_h
   end
 
   private
@@ -94,7 +94,7 @@ class LegalPanelForGovernment::RM6360::Admin::FilesProcessor < FilesProcessor
       service_id = service_ids[index]
 
       supplier_framework_lots_data[lot_id][:services] << { service_id: }
-      supplier_framework_lots_data[lot_id][:jurisdictions] << { jurisdiction_id: 'GB' }
+      supplier_framework_lots_data[lot_id][:jurisdictions] << { jurisdiction_id: 'RM6360.GB' }
     end
   end
 
@@ -147,7 +147,7 @@ class LegalPanelForGovernment::RM6360::Admin::FilesProcessor < FilesProcessor
     end
   end
 
-  def add_rates(supplier, row, lot_number, jurisdiction_id = 'GB', starting_column = 2)
+  def add_rates(supplier, row, lot_number, jurisdiction_id = 'RM6360.GB', starting_column = 2)
     supplier_framework_lots_data = supplier[:supplier_frameworks][0][:supplier_framework_lots_data]
     lot_id = "RM6360.#{lot_number}"
 

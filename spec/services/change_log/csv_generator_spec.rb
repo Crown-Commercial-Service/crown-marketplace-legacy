@@ -126,8 +126,8 @@ RSpec.describe ChangeLog::CsvGenerator, type: :helper do
           'id' => 'b5fffe0e-cd1a-42d9-b935-c080c476e27c',
           'supplier_name' => 'Armin Arlert',
           'lot_id' => 'RM6360.1',
-          'added' => ['BR', 'CN', 'JP'],
-          'removed' => ['HK', 'KH', 'ME']
+          'added' => ['RM6360.BR', 'RM6360.CN', 'RM6360.JP'],
+          'removed' => ['RM6360.HK', 'RM6360.KH', 'RM6360.ME']
         }
       )
       create(
@@ -141,7 +141,7 @@ RSpec.describe ChangeLog::CsvGenerator, type: :helper do
           'id' => '7331826c-8f3c-4a95-aa25-a95a31e5a1cd',
           'supplier_name' => 'Reeves Commerce Guild',
           'lot_id' => 'RM6376.1',
-          'jurisdiction_id' => 'GB',
+          'jurisdiction_id' => 'RM6376.GB',
           'rates' => [
             { 'after' => 15000, 'id' => '53fd6a82-4a7b-4b22-86bc-d1ea53bec6b1', 'position_id' => 'RM6376.1.1' },
             { 'after' => 18000, 'id' => '9ea462c8-d79f-4c1c-b775-579cdc136317', 'position_id' => 'RM6376.1.2' },
@@ -160,7 +160,7 @@ RSpec.describe ChangeLog::CsvGenerator, type: :helper do
           'id' => '7331826c-8f3c-4a95-aa25-a95a31e5a1cd',
           'supplier_name' => 'Mikasa Ackerman',
           'lot_id' => 'RM6376.1',
-          'jurisdiction_id' => 'GB',
+          'jurisdiction_id' => 'RM6376.GB',
           'rates' => [
             { 'after' => 15000, 'id' => '53fd6a82-4a7b-4b22-86bc-d1ea53bec6b1', 'position_id' => 'RM6376.1.1' },
             { 'after' => 18000, 'id' => '9ea462c8-d79f-4c1c-b775-579cdc136317', 'position_id' => 'RM6376.1.2' },
@@ -179,7 +179,7 @@ RSpec.describe ChangeLog::CsvGenerator, type: :helper do
           'id' => '48988a3d-07f2-41c7-b42a-79e6ae820e31',
           'supplier_name' => 'Reiner Braun',
           'lot_id' => 'RM6376.1',
-          'jurisdiction_id' => 'GB',
+          'jurisdiction_id' => 'RM6376.GB',
           'rates' => [
             { 'before' => 15000, 'id' => '1a7599cf-da42-480f-b4a9-69a4401e12ca', 'position_id' => 'RM6376.1.1' },
             { 'before' => 18000, 'id' => 'b64d455a-b8e9-4a17-816e-27d1facdf28a', 'position_id' => 'RM6376.1.2' },

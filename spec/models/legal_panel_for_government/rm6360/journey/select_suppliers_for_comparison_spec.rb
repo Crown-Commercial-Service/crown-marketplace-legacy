@@ -103,11 +103,11 @@ RSpec.describe LegalPanelForGovernment::RM6360::Journey::SelectSuppliersForCompa
     %w[1 2 3 5].each do |lot_number|
       context "when the lot number is #{lot_number}" do
         let(:lot_id) { "RM6360.#{lot_number}" }
-        let(:expected_jurisdiction_ids) { %w[GB] }
+        let(:expected_jurisdiction_ids) { %w[RM6360.GB] }
 
         it 'returns the supplier frameworks and calls supplier frameworks with a jurisdiction of GB' do
           expect(result).to eq(supplier_frameworks)
-          expect(Supplier::Framework).to have_received(:with_services_and_jurisdiction).with(%w[RM6360.1.1], %w[GB])
+          expect(Supplier::Framework).to have_received(:with_services_and_jurisdiction).with(%w[RM6360.1.1], %w[RM6360.GB])
         end
       end
     end
@@ -117,23 +117,23 @@ RSpec.describe LegalPanelForGovernment::RM6360::Journey::SelectSuppliersForCompa
         let(:lot_id) { "RM6360.#{lot_number}" }
 
         context 'and not_core_jurisdiction is no' do
-          let(:expected_jurisdiction_ids) { %w[GB] }
+          let(:expected_jurisdiction_ids) { %w[RM6360.GB] }
           let(:not_core_jurisdiction) { 'no' }
 
           it 'returns the supplier frameworks and calls supplier frameworks with a jurisdiction of GB' do
             expect(result).to eq(supplier_frameworks)
-            expect(Supplier::Framework).to have_received(:with_services_and_jurisdiction).with(%w[RM6360.1.1], %w[GB])
+            expect(Supplier::Framework).to have_received(:with_services_and_jurisdiction).with(%w[RM6360.1.1], %w[RM6360.GB])
           end
         end
 
         context 'and not_core_jurisdiction is yes' do
           let(:not_core_jurisdiction) { 'yes' }
-          let(:jurisdiction_ids) { %w[AX TV] }
+          let(:jurisdiction_ids) { %w[RM6360.AX RM6360.TV] }
           let(:expected_jurisdiction_ids) { jurisdiction_ids }
 
           it 'returns the supplier frameworks and calls supplier frameworks with the passed jurisdiction ids' do
             expect(result).to eq(supplier_frameworks)
-            expect(Supplier::Framework).to have_received(:with_services_and_jurisdiction).with(%w[RM6360.1.1], %w[AX TV])
+            expect(Supplier::Framework).to have_received(:with_services_and_jurisdiction).with(%w[RM6360.1.1], %w[RM6360.AX RM6360.TV])
           end
         end
       end

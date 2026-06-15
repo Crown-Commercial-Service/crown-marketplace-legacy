@@ -4,11 +4,16 @@ RSpec.describe Jurisdiction do
   describe 'associations' do
     let(:jurisdiction) { described_class.first }
 
+    it { is_expected.to belong_to(:framework) }
     it { is_expected.to have_many(:supplier_framework_lot_jurisdictions) }
+
+    it 'has the framework relationship' do
+      expect(jurisdiction.framework).to be_present
+    end
   end
 
   it 'has all the jurisdictions loaded' do
-    expect(described_class.count).to eq(248)
+    expect(described_class.count).to eq(253)
   end
 
   describe 'scopes' do

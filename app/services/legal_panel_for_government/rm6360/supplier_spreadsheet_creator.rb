@@ -30,10 +30,10 @@ class LegalPanelForGovernment::RM6360::SupplierSpreadsheetCreator < SupplierSpre
       add_audit_trail(package.workbook.add_worksheet(name: 'Shortlist audit'), lot)
 
       jurisdictions.each do |jurisdiction|
-        worksheet_name = if jurisdiction.id == 'GB'
+        worksheet_name = if jurisdiction.id == 'RM6360.GB'
                            'Supplier rates'
                          else
-                           "Supplier rates (#{jurisdiction.id})"
+                           "Supplier rates (#{jurisdiction.code})"
                          end
 
         add_supplier_rates(package.workbook.add_worksheet(name: worksheet_name), supplier_details_columns, lot, jurisdiction, positions)
@@ -100,7 +100,7 @@ class LegalPanelForGovernment::RM6360::SupplierSpreadsheetCreator < SupplierSpre
   end
 
   def get_jurisdictions(lot)
-    Jurisdiction.where(id: lot.id.starts_with?('RM6360.4') && @params['not_core_jurisdiction'] == 'yes' ? @params['jurisdiction_ids'] : ['GB']).order(:name)
+    Jurisdiction.where(id: lot.id.starts_with?('RM6360.4') && @params['not_core_jurisdiction'] == 'yes' ? @params['jurisdiction_ids'] : ['RM6360.GB']).order(:name)
   end
 
   def get_positions(lot)

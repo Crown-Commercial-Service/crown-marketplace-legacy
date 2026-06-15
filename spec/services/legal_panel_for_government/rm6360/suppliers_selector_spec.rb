@@ -13,10 +13,10 @@ RSpec.describe LegalPanelForGovernment::RM6360::SuppliersSelector do
   let(:not_core_jurisdiction) { nil }
   let(:jurisdiction_ids) { nil }
 
-  let(:expected_jurisdiction_ids) { ['GB'] }
+  let(:expected_jurisdiction_ids) { ['RM6360.GB'] }
 
   describe '.initialize' do
-    let(:jurisdiction_ids) { ['AE', 'AX'] }
+    let(:jurisdiction_ids) { ['RM6360.AE', 'RM6360.AX'] }
     let(:not_core_jurisdiction) { 'yes' }
 
     it 'sets service_ids' do
@@ -67,7 +67,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::SuppliersSelector do
       end
 
       context 'and not_core_jurisdiction is yes' do
-        let(:jurisdiction_ids) { ['AE', 'AX'] }
+        let(:jurisdiction_ids) { ['RM6360.AE', 'RM6360.AX'] }
         let(:not_core_jurisdiction) { 'yes' }
         let(:expected_jurisdiction_ids) { jurisdiction_ids }
 

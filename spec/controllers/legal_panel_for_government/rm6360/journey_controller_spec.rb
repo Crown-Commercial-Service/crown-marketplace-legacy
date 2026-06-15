@@ -11,7 +11,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::JourneyController do
   let(:services) { Service.where(lot_id:).sample(5) }
   let(:service_ids) { services.map(&:id) }
   let(:central_government) { 'yes' }
-  let(:jurisdiction_ids) { ['GB'] }
+  let(:jurisdiction_ids) { ['RM6360.GB'] }
   let(:requirement_start_date_day) { '1' }
   let(:requirement_start_date_month) { '10' }
   let(:requirement_start_date_year) { '2025' }
