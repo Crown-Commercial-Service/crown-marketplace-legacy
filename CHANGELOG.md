@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [7.0.0] - 2026-06-15
+
 ### Added
 
 - Added the ability to add jurisdictions for legal panel for government ([PR 2475](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2475))
