@@ -134,7 +134,7 @@ group :development, :test do
   gem 'wdm', '>= 0.1.0', platforms: %i[windows]
   gem 'tzinfo-data', platforms: %i[windows]
   gem 'faker', '~> 3.8.0'
-  gem 'brakeman', '~> 8.0.4'
+  gem 'brakeman', '~> 8.0.5'
 end
 
 group :development do
