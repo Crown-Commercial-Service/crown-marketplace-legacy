@@ -122,7 +122,7 @@ module GenerateTestData
 
         @suppliers[supplier_range].each do |supplier|
           supplier_framework_lot = supplier[:supplier_frameworks][0][:supplier_framework_lots].find { |supplier_framework_lot| supplier_framework_lot[:lot_id] == lot_id }
-          jurisdiction_ids = ['GB']
+          jurisdiction_ids = ['RM6360.GB']
           positions_ids = NORMAL_POSITIONS
 
           generate_rates(supplier_framework_lot, jurisdiction_ids, positions_ids)
@@ -147,7 +147,7 @@ module GenerateTestData
 
         @suppliers[supplier_range].each do |supplier|
           supplier_framework_lot = supplier[:supplier_frameworks][0][:supplier_framework_lots].find { |supplier_framework_lot| supplier_framework_lot[:lot_id] == lot_id }
-          jurisdiction_ids = (['GB'] + fetch_jurisdiction_ids.sample(rand((fetch_jurisdiction_ids.length * (1 / 4.0)).to_i..(fetch_jurisdiction_ids.length * (3 / 4.0)).to_i))).uniq.sort
+          jurisdiction_ids = (['RM6360.GB'] + fetch_jurisdiction_ids.sample(rand((fetch_jurisdiction_ids.length * (1 / 4.0)).to_i..(fetch_jurisdiction_ids.length * (3 / 4.0)).to_i))).uniq.sort
           positions_ids = LOT_4_MANDATORY_POSITIONS + LOT_4_OPTIONAL_POSITIONS.sample(rand(LOT_4_OPTIONAL_POSITIONS.length))
 
           generate_rates(supplier_framework_lot, jurisdiction_ids, positions_ids)

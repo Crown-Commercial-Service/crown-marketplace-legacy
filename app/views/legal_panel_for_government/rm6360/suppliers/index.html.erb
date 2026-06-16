@@ -29,8 +29,8 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full ccs-supplier-comparison">
-    <% if @jurisdictions.pluck(:id) == ['GB'] %>
-      <%= render(partial: 'comparison_rates_table', locals: { jurisdiction_id: 'GB' }) %>
+    <% if @jurisdictions.pluck(:id) == ['RM6360.GB'] %>
+      <%= render(partial: 'comparison_rates_table', locals: { jurisdiction_id: 'RM6360.GB' }) %>
     <% else %>
       <%= govuk_tabs(
         @jurisdictions.map do |jurisdiction|
@@ -39,7 +39,7 @@
             panel: {
               content: render(partial: 'comparison_rates_table', locals: { jurisdiction_id: jurisdiction.id }),
               attributes: {
-                id: jurisdiction.id
+                id: jurisdiction.id.gsub('.', '-')
               }
             }
           }

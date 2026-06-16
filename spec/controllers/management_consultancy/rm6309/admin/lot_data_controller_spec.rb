@@ -7,7 +7,7 @@ RSpec.describe ManagementConsultancy::RM6309::Admin::LotDataController do
   let(:supplier_framework_lot) { create(:supplier_framework_lot, supplier_framework: supplier_framework, lot_id: "RM6309.#{lot_number}") }
   let(:supplier_framework_lot_services) { (1..5).map { |service_number| "RM6309.#{lot_number}.#{service_number}" }.map { |service_id| create(:supplier_framework_lot_service, supplier_framework_lot:, service_id:) } }
   let(:supplier_framework_lot_rates) { Position.where(lot_id: "RM6309.#{lot_number}").pluck(:id).map { |position_id| create(:supplier_framework_lot_rate, supplier_framework_lot: supplier_framework_lot, jurisdiction: supplier_framework_lot_jurisdiction, position_id: position_id) } }
-  let(:supplier_framework_lot_jurisdiction) { create(:supplier_framework_lot_jurisdiction, supplier_framework_lot: supplier_framework_lot, jurisdiction_id: 'GB') }
+  let(:supplier_framework_lot_jurisdiction) { create(:supplier_framework_lot_jurisdiction, supplier_framework_lot: supplier_framework_lot, jurisdiction_id: 'RM6309.GB') }
   let(:lot_number) { '1' }
 
   describe 'GET index' do
@@ -540,7 +540,7 @@ RSpec.describe ManagementConsultancy::RM6309::Admin::LotDataController do
           it 'creates a change log' do
             expect(change_log.change_type).to eq('update_supplier_framework_lot_rates')
             expect(change_log.change_data['id']).to eq(supplier_framework_lot.id)
-            expect(change_log.change_data['jurisdiction_id']).to eq('GB')
+            expect(change_log.change_data['jurisdiction_id']).to eq('RM6309.GB')
             expect(change_log.change_data['rates'].map { |rate_change| { position_id: rate_change['position_id'], before_rate: rate_change['before'].present?, after: rate_change['after'] } }).to eq(
               [
                 { after: 234567, before_rate: true, position_id: 'RM6309.1.1' },
@@ -728,7 +728,7 @@ RSpec.describe ManagementConsultancy::RM6309::Admin::LotDataController do
           it 'creates a change log' do
             expect(change_log.change_type).to eq('update_supplier_framework_lot_rates')
             expect(change_log.change_data['id']).to eq(supplier_framework_lot.id)
-            expect(change_log.change_data['jurisdiction_id']).to eq('GB')
+            expect(change_log.change_data['jurisdiction_id']).to eq('RM6309.GB')
             expect(change_log.change_data['rates'].map { |rate_change| { position_id: rate_change['position_id'], before_rate: rate_change['before'].present?, after: rate_change['after'] } }).to eq(
               [
                 { after: 234567, before_rate: true, position_id: 'RM6309.10.1' },

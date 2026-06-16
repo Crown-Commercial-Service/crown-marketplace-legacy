@@ -6,7 +6,7 @@ class LegalPanelForGovernment::RM6360::SuppliersSelector
     @jurisdiction_ids = if lot_id.starts_with?('RM6360.4') && not_core_jurisdiction == 'yes'
                           jurisdiction_ids
                         else
-                          ['GB']
+                          ['RM6360.GB']
                         end
   end
 

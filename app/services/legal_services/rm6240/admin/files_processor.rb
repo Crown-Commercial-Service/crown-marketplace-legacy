@@ -38,7 +38,7 @@ class LegalServices::RM6240::Admin::FilesProcessor < FilesProcessor
                 lot_3_prospectus_link: supplier[:lot_3_prospectus_link],
               }
             },
-            supplier_framework_lots_data: Hash.new { |h, k| h[k] = { services: [], rates: [], jurisdictions: [{ jurisdiction_id: 'GB' }], branches: [] } },
+            supplier_framework_lots_data: Hash.new { |h, k| h[k] = { services: [], rates: [], jurisdictions: [{ jurisdiction_id: 'RM6240.GB' }], branches: [] } },
             supplier_framework_lots: []
           }
         ]
@@ -119,7 +119,7 @@ class LegalServices::RM6240::Admin::FilesProcessor < FilesProcessor
       supplier_framework_lots_data[lot_id][:rates] << {
         position_id: "#{lot_id}.#{position_id}",
         rate: convert_rate_to_pence(rate),
-        jurisdiction_id: 'GB'
+        jurisdiction_id: 'RM6240.GB'
       }
     end
   end

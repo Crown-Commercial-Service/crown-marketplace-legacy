@@ -57,16 +57,12 @@
             text: "#{branch.name} - #{branch.region}"
           },
           actions: {
-            items: if Marketplace.environment_name != :production
-                     [
-                       {
-                         href: supplier_lot_data_edit_path(@supplier_framework, @lot.number_as_slug, @section, branch_id: branch.id),
-                         text: t('shared.admin.lot_data.show.change_html', section: "#{branch.name} - #{branch.region}")
-                       }
-                     ]
-                   else
-                     []
-                   end
+            items: [
+                      {
+                        href: supplier_lot_data_edit_path(@supplier_framework, @lot.number_as_slug, @section, branch_id: branch.id),
+                        text: t('shared.admin.lot_data.show.change_html', section: "#{branch.name} - #{branch.region}")
+                      }
+                    ]
           }
         },
         attributes: {

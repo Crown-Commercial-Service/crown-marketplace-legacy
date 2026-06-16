@@ -20,6 +20,9 @@
             value: jurisdiction.id,
             label: {
               text: jurisdiction.name
+            },
+            attributes: {
+              id: "jurisdiction_#{jurisdiction.id.gsub('.', '-')}"
             }
           }
         end,

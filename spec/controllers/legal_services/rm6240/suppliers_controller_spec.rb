@@ -17,7 +17,7 @@ RSpec.describe LegalServices::RM6240::SuppliersController do
 
   before do
     allow(Supplier::Framework).to receive(:with_services).with(service_ids).and_return(supplier_frameworks)
-    allow(Supplier::Framework).to receive(:with_services).with(['RM6240.3.1'], 'GB').and_return(supplier_frameworks)
+    allow(Supplier::Framework).to receive(:with_services).with(['RM6240.3.1'], 'RM6240.GB').and_return(supplier_frameworks)
     allow(Search).to receive(:log_new_search).and_return(true)
   end
 

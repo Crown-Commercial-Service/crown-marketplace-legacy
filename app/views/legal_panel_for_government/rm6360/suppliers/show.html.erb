@@ -19,8 +19,8 @@
     <% if @rates.present? %>
       <h2 class="govuk-heading-m govuk-!-margin-bottom-1"><%= t('.rates') %></h2>
       <p class="govuk-body"><%= t('.further_competition') %></p>
-      <% if @jurisdictions.pluck(:id) == ['GB'] %>
-        <%= render(partial: 'rates_table', locals: { jurisdiction_id: 'GB' }) %>
+      <% if @jurisdictions.pluck(:id) == ['RM6360.GB'] %>
+        <%= render(partial: 'rates_table', locals: { jurisdiction_id: 'RM6360.GB' }) %>
       <% else %>
         <%= govuk_tabs(
           @jurisdictions.map do |jurisdiction|
@@ -29,7 +29,7 @@
               panel: {
                 content: render(partial: 'rates_table', locals: { jurisdiction_id: jurisdiction.id }),
                 attributes: {
-                  id: jurisdiction.id
+                  id: jurisdiction.id.gsub('.', '-')
                 }
               }
             }

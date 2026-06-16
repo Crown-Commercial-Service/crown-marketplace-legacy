@@ -17,9 +17,9 @@ module LegalPanelForGovernment
             @jurisdictions = Jurisdiction.non_core.order(:name)
           when :rates
             @jurisdictions = if @lot.number.starts_with?('4')
-                               Jurisdiction.non_core.or(Jurisdiction.where(id: 'GB')).order(:name)
+                               Jurisdiction.non_core.or(Jurisdiction.where(id: 'RM6360.GB')).order(:name)
                              else
-                               Jurisdiction.where(id: 'GB').order(:name)
+                               Jurisdiction.where(id: 'RM6360.GB').order(:name)
                              end
           else
             super

@@ -32,7 +32,7 @@ class ManagementConsultancy::RM6187::Admin::FilesProcessor < FilesProcessor
                 address: supplier[:address],
               }
             },
-            supplier_framework_lots_data: Hash.new { |h, k| h[k] = { services: [], rates: [], jurisdictions: [{ jurisdiction_id: 'GB' }], branches: [] } },
+            supplier_framework_lots_data: Hash.new { |h, k| h[k] = { services: [], rates: [], jurisdictions: [{ jurisdiction_id: 'RM6187.GB' }], branches: [] } },
             supplier_framework_lots: []
           }
         ]
@@ -100,7 +100,7 @@ class ManagementConsultancy::RM6187::Admin::FilesProcessor < FilesProcessor
       supplier_framework_lots_data[lot_id][:rates] << {
         position_id: "#{lot_id}.#{position_id}",
         rate: convert_price(rate),
-        jurisdiction_id: 'GB'
+        jurisdiction_id: 'RM6187.GB'
       }
     end
 

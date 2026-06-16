@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe LegalPanelForGovernment::RM6360::Admin::JurisdictionsController do
   let(:default_params) { { service: 'legal_panel_for_government/admin', framework: 'RM6360', supplier_id: supplier_framework.id, lot_number: lot_number } }
 
-  let(:jurisdiction_ids) { ['DJ', 'ER', 'GF', 'GN', 'SX', 'FI', 'GR', 'AW', 'MS', 'KI', 'NC', 'SB', 'LC', 'AO', 'LU', 'TC', 'SH', 'MM', 'RO', 'BQ'] }
+  let(:jurisdiction_ids) { %w[RM6360.DJ RM6360.ER RM6360.GF RM6360.GN RM6360.SX RM6360.FI RM6360.GR RM6360.AW RM6360.MS RM6360.KI RM6360.NC RM6360.SB RM6360.LC RM6360.AO RM6360.LU RM6360.TC RM6360.SH RM6360.MM RM6360.RO RM6360.BQ] }
   let(:supplier_framework) { create(:supplier_framework, framework_id: 'RM6360') }
   let(:supplier_framework_lot) { create(:supplier_framework_lot, supplier_framework: supplier_framework, lot_id: "RM6360.#{lot_number}") }
   let!(:supplier_framework_lot_jurisdictions) { jurisdiction_ids.map { |jurisdiction_id| create(:supplier_framework_lot_jurisdiction, supplier_framework_lot:, jurisdiction_id:) } }
@@ -50,7 +50,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::Admin::JurisdictionsController d
 
   describe 'PUT update' do
     let(:add_or_remove) { 'add' }
-    let(:jurisdiction_to_add) { 'BM' }
+    let(:jurisdiction_to_add) { 'RM6360.BM' }
     let(:jurisdiction_to_remove) { nil }
 
     login_ls_admin
@@ -66,17 +66,17 @@ RSpec.describe LegalPanelForGovernment::RM6360::Admin::JurisdictionsController d
     context 'when it is valid' do
       context 'and the add_or_remove is add' do
         it 'redirects to the new page' do
-          expect(response).to redirect_to(legal_panel_for_government_rm6360_admin_jurisdictions_new_path(jurisdiction_id: jurisdiction_to_add))
+          expect(response).to redirect_to(legal_panel_for_government_rm6360_admin_jurisdictions_new_path(jurisdiction_id: jurisdiction_to_add.gsub('.', '-')))
         end
       end
 
       context 'and the add_or_remove is remove' do
         let(:add_or_remove) { 'remove' }
         let(:jurisdiction_to_add) { nil }
-        let(:jurisdiction_to_remove) { 'DJ' }
+        let(:jurisdiction_to_remove) { 'RM6360.DJ' }
 
         it 'redirects to the delete page' do
-          expect(response).to redirect_to(legal_panel_for_government_rm6360_admin_jurisdictions_delete_path(jurisdiction_id: jurisdiction_to_remove))
+          expect(response).to redirect_to(legal_panel_for_government_rm6360_admin_jurisdictions_delete_path(jurisdiction_id: jurisdiction_to_remove.gsub('.', '-')))
         end
       end
     end
@@ -97,14 +97,14 @@ RSpec.describe LegalPanelForGovernment::RM6360::Admin::JurisdictionsController d
   describe 'GET new' do
     login_ls_admin
 
-    let(:jurisdiction_id) { 'BM' }
+    let(:jurisdiction_id) { 'RM6360-BM' }
 
     before { get :new, params: { jurisdiction_id: } }
 
     include_context 'when testing a view'
 
     context 'when the jurisdiction already exists' do
-      let(:jurisdiction_id) { 'DJ' }
+      let(:jurisdiction_id) { 'RM6360-DJ' }
 
       it 'redirects to the edit page' do
         expect(response).to redirect_to(legal_panel_for_government_rm6360_admin_jurisdictions_edit_path)
@@ -117,7 +117,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::Admin::JurisdictionsController d
 
     it 'builds supplier_framework_lot_jurisdiction' do
       expect(assigns(:supplier_framework_lot_jurisdiction).id).to be_nil
-      expect(assigns(:supplier_framework_lot_jurisdiction).jurisdiction_id).to eq(jurisdiction_id)
+      expect(assigns(:supplier_framework_lot_jurisdiction).jurisdiction_id).to eq(jurisdiction_id.gsub('-', '.'))
     end
 
     it 'builds supplier_framework_lot_rates' do
@@ -129,7 +129,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::Admin::JurisdictionsController d
   describe 'POST create' do
     login_ls_admin
 
-    let(:jurisdiction_id) { 'BM' }
+    let(:jurisdiction_id) { 'RM6360-BM' }
     let(:model_params) { { rates: Position.where(lot_id: "RM6360.#{lot_number}").pluck(:id).index_with { 123 } } }
 
     before { post :create, params: { jurisdiction_id: jurisdiction_id, supplier_framework_lot: model_params } }
@@ -137,7 +137,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::Admin::JurisdictionsController d
     include_context 'when testing a view'
 
     context 'when the jurisdiction already exists' do
-      let(:jurisdiction_id) { 'DJ' }
+      let(:jurisdiction_id) { 'RM6360-DJ' }
 
       it 'redirects to the edit page' do
         expect(response).to redirect_to(legal_panel_for_government_rm6360_admin_jurisdictions_edit_path)
@@ -155,7 +155,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::Admin::JurisdictionsController d
 
       it 'creates supplier_framework_lot_jurisdiction' do
         expect(assigns(:supplier_framework_lot_jurisdiction).id).not_to be_nil
-        expect(assigns(:supplier_framework_lot_jurisdiction).jurisdiction_id).to eq(jurisdiction_id)
+        expect(assigns(:supplier_framework_lot_jurisdiction).jurisdiction_id).to eq(jurisdiction_id.gsub('-', '.'))
       end
 
       it 'creates supplier_framework_lot_rates' do
@@ -172,7 +172,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::Admin::JurisdictionsController d
       it 'creates a change log' do
         expect(change_log.change_type).to eq('add_rates_for_supplier_framework_lot_jurisdiction')
         expect(change_log.change_data['id']).to eq(supplier_framework_lot.id)
-        expect(change_log.change_data['jurisdiction_id']).to eq(jurisdiction_id)
+        expect(change_log.change_data['jurisdiction_id']).to eq(jurisdiction_id.gsub('-', '.'))
         expect(change_log.change_data['rates'].map { |rate_change| { position_id: rate_change['position_id'], before_rate: rate_change['before'].present?, after: rate_change['after'] } }).to eq(
           [
             { after: 12300, before_rate: false, position_id: 'RM6360.4a.1' },
@@ -209,7 +209,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::Admin::JurisdictionsController d
 
       it 'builds but does not create the supplier_framework_lot_jurisdiction' do
         expect(assigns(:supplier_framework_lot_jurisdiction).id).to be_nil
-        expect(assigns(:supplier_framework_lot_jurisdiction).jurisdiction_id).to eq(jurisdiction_id)
+        expect(assigns(:supplier_framework_lot_jurisdiction).jurisdiction_id).to eq(jurisdiction_id.gsub('-', '.'))
       end
 
       it 'builds but does not create the supplier_framework_lot_rates' do
@@ -226,14 +226,14 @@ RSpec.describe LegalPanelForGovernment::RM6360::Admin::JurisdictionsController d
   describe 'GET delete' do
     login_ls_admin
 
-    let(:jurisdiction_id) { 'DJ' }
+    let(:jurisdiction_id) { 'RM6360-DJ' }
 
     before { get :delete, params: { jurisdiction_id: } }
 
     include_context 'when testing a view'
 
     context 'when the jurisdiction does not exist' do
-      let(:jurisdiction_id) { 'BM' }
+      let(:jurisdiction_id) { 'RM6360-BM' }
 
       it 'redirects to the edit page' do
         expect(response).to redirect_to(legal_panel_for_government_rm6360_admin_jurisdictions_edit_path)
@@ -245,15 +245,15 @@ RSpec.describe LegalPanelForGovernment::RM6360::Admin::JurisdictionsController d
     end
 
     it 'assigns supplier_framework_lot_jurisdiction' do
-      expect(assigns(:supplier_framework_lot_jurisdiction).jurisdiction_id).to eq(jurisdiction_id)
+      expect(assigns(:supplier_framework_lot_jurisdiction).jurisdiction_id).to eq(jurisdiction_id.gsub('-', '.'))
     end
   end
 
   describe 'DELETE destroy' do
     login_ls_admin
 
-    let(:jurisdiction_id) { 'DJ' }
-    let!(:supplier_framework_lot_jurisdiction) { supplier_framework_lot_jurisdictions.find { |supplier_framework_lot_jurisdiction| supplier_framework_lot_jurisdiction.jurisdiction_id == jurisdiction_id } }
+    let(:jurisdiction_id) { 'RM6360-DJ' }
+    let!(:supplier_framework_lot_jurisdiction) { supplier_framework_lot_jurisdictions.find { |supplier_framework_lot_jurisdiction| supplier_framework_lot_jurisdiction.jurisdiction_id == jurisdiction_id.gsub('-', '.') } }
     let!(:supplier_framework_lot_rates) { Position.where(lot_id: "RM6360.#{lot_number}").pluck(:id).map { |position_id| create(:supplier_framework_lot_rate, supplier_framework_lot: supplier_framework_lot, jurisdiction: supplier_framework_lot_jurisdiction, position_id: position_id) } }
 
     before { delete :destroy, params: { jurisdiction_id: } }
@@ -261,7 +261,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::Admin::JurisdictionsController d
     include_context 'when testing a view'
 
     context 'when the jurisdiction does not exist' do
-      let(:jurisdiction_id) { 'BM' }
+      let(:jurisdiction_id) { 'RM6360-BM' }
       let(:supplier_framework_lot_jurisdiction) { nil }
       let(:supplier_framework_lot_rates) { nil }
 
@@ -292,7 +292,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::Admin::JurisdictionsController d
     it 'creates a change log' do
       expect(change_log.change_type).to eq('remove_rates_for_supplier_framework_lot_jurisdiction')
       expect(change_log.change_data['id']).to eq(supplier_framework_lot.id)
-      expect(change_log.change_data['jurisdiction_id']).to eq(jurisdiction_id)
+      expect(change_log.change_data['jurisdiction_id']).to eq(jurisdiction_id.gsub('-', '.'))
       expect(change_log.change_data['rates'].map { |rate_change| { position_id: rate_change['position_id'], before_rate: rate_change['before'].present?, after_rate: rate_change['after'].present? } }).to eq(
         [
           { after_rate: false, before_rate: true, position_id: 'RM6360.4a.1' },

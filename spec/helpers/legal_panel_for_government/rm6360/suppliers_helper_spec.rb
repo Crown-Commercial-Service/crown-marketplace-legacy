@@ -144,8 +144,8 @@ RSpec.describe LegalPanelForGovernment::RM6360::SuppliersHelper do
         [supplier_framework_lot_1, hourly_1_1, hourly_1_2, hourly_1_3],
         [supplier_framework_lot_2, hourly_2_1, hourly_2_2, hourly_2_3],
       ].each do |supplier_framework_lot, hourly_1, hourly_2, hourly_3|
-        ae_jurisdiction_id = create(:supplier_framework_lot_jurisdiction, supplier_framework_lot: supplier_framework_lot, jurisdiction_id: 'AE').id
-        az_jurisdiction_id = create(:supplier_framework_lot_jurisdiction, supplier_framework_lot: supplier_framework_lot, jurisdiction_id: 'AX').id
+        ae_jurisdiction_id = create(:supplier_framework_lot_jurisdiction, supplier_framework_lot: supplier_framework_lot, jurisdiction_id: 'RM6360.AE').id
+        az_jurisdiction_id = create(:supplier_framework_lot_jurisdiction, supplier_framework_lot: supplier_framework_lot, jurisdiction_id: 'RM6360.AX').id
 
         create(:supplier_framework_lot_rate, supplier_framework_lot: supplier_framework_lot, rate: hourly_1, position_id: 'RM6360.1.1', supplier_framework_lot_jurisdiction_id: ae_jurisdiction_id)
         create(:supplier_framework_lot_rate, supplier_framework_lot: supplier_framework_lot, rate: hourly_1 * 2, position_id: 'RM6360.1.1', supplier_framework_lot_jurisdiction_id: az_jurisdiction_id)
@@ -168,7 +168,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::SuppliersHelper do
         let(:position) { 'RM6360.1.1' }
 
         context 'and the jurisdiction is AE' do
-          let(:jurisdiction_id) { 'AE' }
+          let(:jurisdiction_id) { 'RM6360.AE' }
 
           it 'returns the rate in punds and pence' do
             expect(result).to eq "£#{(hourly_1_1 / 100).to_fs(:delimited)}.00"
@@ -176,7 +176,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::SuppliersHelper do
         end
 
         context 'and the jurisdiction is AX' do
-          let(:jurisdiction_id) { 'AX' }
+          let(:jurisdiction_id) { 'RM6360.AX' }
 
           it 'returns the rate in punds and pence' do
             expect(result).to eq "£#{(hourly_1_1 / 50).to_fs(:delimited)}.00"
@@ -184,7 +184,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::SuppliersHelper do
         end
 
         context 'and the jurisdiction is DE' do
-          let(:jurisdiction_id) { 'DE' }
+          let(:jurisdiction_id) { 'RM6360.DE' }
 
           it 'returns nil' do
             expect(result).to be_nil
@@ -196,7 +196,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::SuppliersHelper do
         let(:position) { 'RM6360.1.2' }
 
         context 'and the jurisdiction is AE' do
-          let(:jurisdiction_id) { 'AE' }
+          let(:jurisdiction_id) { 'RM6360.AE' }
 
           it 'returns nil' do
             expect(result).to be_nil
@@ -204,7 +204,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::SuppliersHelper do
         end
 
         context 'and the jurisdiction is AX' do
-          let(:jurisdiction_id) { 'AX' }
+          let(:jurisdiction_id) { 'RM6360.AX' }
 
           it 'returns the rate in punds and pence' do
             expect(result).to be_nil
@@ -212,7 +212,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::SuppliersHelper do
         end
 
         context 'and the jurisdiction is DE' do
-          let(:jurisdiction_id) { 'DE' }
+          let(:jurisdiction_id) { 'RM6360.DE' }
 
           it 'returns nil' do
             expect(result).to be_nil
@@ -224,7 +224,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::SuppliersHelper do
         let(:position) { 'RM6360.1.3' }
 
         context 'and the jurisdiction is AE' do
-          let(:jurisdiction_id) { 'AE' }
+          let(:jurisdiction_id) { 'RM6360.AE' }
 
           it 'returns the rate in punds and pence' do
             expect(result).to eq "£#{(hourly_1_3 / 100).to_fs(:delimited)}.00"
@@ -232,7 +232,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::SuppliersHelper do
         end
 
         context 'and the jurisdiction is AX' do
-          let(:jurisdiction_id) { 'AX' }
+          let(:jurisdiction_id) { 'RM6360.AX' }
 
           it 'returns the rate in punds and pence' do
             expect(result).to eq "£#{(hourly_1_3 / 25).to_fs(:delimited)}.00"
@@ -240,7 +240,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::SuppliersHelper do
         end
 
         context 'and the jurisdiction is DE' do
-          let(:jurisdiction_id) { 'DE' }
+          let(:jurisdiction_id) { 'RM6360.DE' }
 
           it 'returns nil' do
             expect(result).to be_nil
@@ -250,7 +250,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::SuppliersHelper do
 
       context 'when the position is out of range' do
         let(:position) { 'RM6360.1.8' }
-        let(:jurisdiction_id) { 'AE' }
+        let(:jurisdiction_id) { 'RM6360.AE' }
 
         it 'returns nil' do
           expect(result).to be_nil
@@ -271,7 +271,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::SuppliersHelper do
         let(:position) { 'RM6360.1.1' }
 
         context 'and the jurisdiction is AE' do
-          let(:jurisdiction_id) { 'AE' }
+          let(:jurisdiction_id) { 'RM6360.AE' }
 
           it 'returns the rate in punds and pence' do
             expect(result).to eq "£#{(hourly_2_1 / 100).to_fs(:delimited)}.00"
@@ -279,7 +279,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::SuppliersHelper do
         end
 
         context 'and the jurisdiction is AX' do
-          let(:jurisdiction_id) { 'AX' }
+          let(:jurisdiction_id) { 'RM6360.AX' }
 
           it 'returns the rate in punds and pence' do
             expect(result).to eq "£#{(hourly_2_1 / 50).to_fs(:delimited)}.00"
@@ -287,7 +287,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::SuppliersHelper do
         end
 
         context 'and the jurisdiction is DE' do
-          let(:jurisdiction_id) { 'DE' }
+          let(:jurisdiction_id) { 'RM6360.DE' }
 
           it 'returns nil' do
             expect(result).to be_nil
@@ -299,7 +299,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::SuppliersHelper do
         let(:position) { 'RM6360.1.2' }
 
         context 'and the jurisdiction is AE' do
-          let(:jurisdiction_id) { 'AE' }
+          let(:jurisdiction_id) { 'RM6360.AE' }
 
           it 'returns nil' do
             expect(result).to be_nil
@@ -307,7 +307,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::SuppliersHelper do
         end
 
         context 'and the jurisdiction is AX' do
-          let(:jurisdiction_id) { 'AX' }
+          let(:jurisdiction_id) { 'RM6360.AX' }
 
           it 'returns the rate in punds and pence' do
             expect(result).to be_nil
@@ -315,7 +315,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::SuppliersHelper do
         end
 
         context 'and the jurisdiction is DE' do
-          let(:jurisdiction_id) { 'DE' }
+          let(:jurisdiction_id) { 'RM6360.DE' }
 
           it 'returns nil' do
             expect(result).to be_nil
@@ -327,7 +327,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::SuppliersHelper do
         let(:position) { 'RM6360.1.3' }
 
         context 'and the jurisdiction is AE' do
-          let(:jurisdiction_id) { 'AE' }
+          let(:jurisdiction_id) { 'RM6360.AE' }
 
           it 'returns the rate in punds and pence' do
             expect(result).to eq "£#{(hourly_2_3 / 100).to_fs(:delimited)}.00"
@@ -335,7 +335,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::SuppliersHelper do
         end
 
         context 'and the jurisdiction is AX' do
-          let(:jurisdiction_id) { 'AX' }
+          let(:jurisdiction_id) { 'RM6360.AX' }
 
           it 'returns the rate in punds and pence' do
             expect(result).to eq "£#{(hourly_2_3 / 25).to_fs(:delimited)}.00"
@@ -343,7 +343,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::SuppliersHelper do
         end
 
         context 'and the jurisdiction is DE' do
-          let(:jurisdiction_id) { 'DE' }
+          let(:jurisdiction_id) { 'RM6360.DE' }
 
           it 'returns nil' do
             expect(result).to be_nil
@@ -353,7 +353,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::SuppliersHelper do
 
       context 'when the position is out of range' do
         let(:position) { 'RM6360.1.8' }
-        let(:jurisdiction_id) { 'AE' }
+        let(:jurisdiction_id) { 'RM6360.AE' }
 
         it 'returns nil' do
           expect(result).to be_nil

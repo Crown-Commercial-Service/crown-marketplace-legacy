@@ -9,7 +9,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::SuppliersController do
   let(:services) { Service.where(lot_id:).sample(5) }
   let(:service_ids) { services.map(&:id) }
   let(:central_government) { 'yes' }
-  let(:jurisdiction_ids) { ['GB'] }
+  let(:jurisdiction_ids) { ['RM6360.GB'] }
   let(:requirement_start_date_day) { '1' }
   let(:requirement_start_date_month) { '10' }
   let(:requirement_start_date_year) { '2025' }
@@ -95,7 +95,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::SuppliersController do
 
       # rubocop:disable RSpec/MultipleExpectations
       it 'makes the calls to supplier framework' do
-        expect(Supplier::Framework).to have_received(:with_services_and_jurisdiction).with(service_ids, ['GB'])
+        expect(Supplier::Framework).to have_received(:with_services_and_jurisdiction).with(service_ids, ['RM6360.GB'])
         expect(supplier_frameworks_relation).to have_received(:where).with(id: supplier_framework_ids)
         expect(supplier_frameworks_relation).to have_received(:order).with('supplier.name')
         expect(supplier_frameworks_relation).to have_received(:map)
@@ -154,7 +154,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::SuppliersController do
 
         # rubocop:disable RSpec/MultipleExpectations
         it 'makes the calls to supplier framework' do
-          expect(Supplier::Framework).to have_received(:with_services_and_jurisdiction).with(service_ids, ['GB'])
+          expect(Supplier::Framework).to have_received(:with_services_and_jurisdiction).with(service_ids, ['RM6360.GB'])
           expect(supplier_frameworks_relation).to have_received(:where).with(id: supplier_framework_ids)
           expect(supplier_frameworks_relation).to have_received(:order).with('supplier.name')
           expect(supplier_frameworks_relation).to have_received(:map)
@@ -168,7 +168,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::SuppliersController do
 
       context 'and requirements are in a non-core jurisdiction' do
         let(:not_core_jurisdiction) { 'yes' }
-        let(:jurisdiction_ids) { ['AE', 'AX'] }
+        let(:jurisdiction_ids) { ['RM6360.AE', 'RM6360.AX'] }
 
         let(:default_journey_params) { super().merge(jurisdiction_ids:) }
 
@@ -202,7 +202,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::SuppliersController do
 
         # rubocop:disable RSpec/MultipleExpectations
         it 'makes the calls to supplier framework' do
-          expect(Supplier::Framework).to have_received(:with_services_and_jurisdiction).with(service_ids, ['AE', 'AX'])
+          expect(Supplier::Framework).to have_received(:with_services_and_jurisdiction).with(service_ids, ['RM6360.AE', 'RM6360.AX'])
           expect(supplier_frameworks_relation).to have_received(:where).with(id: supplier_framework_ids)
           expect(supplier_frameworks_relation).to have_received(:order).with('supplier.name')
           expect(supplier_frameworks_relation).to have_received(:map)
@@ -250,7 +250,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::SuppliersController do
 
       # rubocop:disable RSpec/MultipleExpectations
       it 'makes the calls to supplier framework' do
-        expect(Supplier::Framework).to have_received(:with_services_and_jurisdiction).with(service_ids, ['GB'])
+        expect(Supplier::Framework).to have_received(:with_services_and_jurisdiction).with(service_ids, ['RM6360.GB'])
         expect(supplier_frameworks_relation).not_to have_received(:where).with(id: supplier_framework_ids)
         expect(supplier_frameworks_relation).to have_received(:order).with('supplier.name')
         expect(supplier_frameworks_relation).to have_received(:map)

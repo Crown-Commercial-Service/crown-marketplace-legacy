@@ -14,7 +14,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::SupplierSpreadsheetCreator do
   let(:services) { Service.where(lot_id:).sample(5).sort_by(&:id) }
   let(:service_ids) { services.map(&:id) }
   let(:central_government) { 'yes' }
-  let(:jurisdiction_ids) { ['GB'] }
+  let(:jurisdiction_ids) { ['RM6360.GB'] }
   let(:params) { { 'central_government' => central_government, 'service_ids' => service_ids, 'lot_id' => lot_id } }
   let(:spreadsheet_creator) { described_class.new(supplier_frameworks, params) }
 
@@ -89,7 +89,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::SupplierSpreadsheetCreator do
         end
 
         context 'and not core jurisdictions is yes' do
-          let(:params) { super().merge({ 'jurisdiction_ids' => ['AE', 'AX'], 'not_core_jurisdiction' => 'yes' }) }
+          let(:params) { super().merge({ 'jurisdiction_ids' => ['RM6360.AE', 'RM6360.AX'], 'not_core_jurisdiction' => 'yes' }) }
 
           it 'has the correct data' do
             expect(sheet.row(1)).to eq ['Lot', '4a - Trade and Investment Negotiations']
@@ -131,7 +131,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::SupplierSpreadsheetCreator do
           end
 
           context 'and not core jurisdictions is yes' do
-            let(:jurisdiction_ids) { ['BW', 'UG'] }
+            let(:jurisdiction_ids) { ['RM6360.BW', 'RM6360.UG'] }
             let(:params) { super().merge({ 'jurisdiction_ids' => jurisdiction_ids, 'not_core_jurisdiction' => 'yes' }) }
 
             it 'has the correct data' do
@@ -172,7 +172,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::SupplierSpreadsheetCreator do
           end
 
           context 'and not core jurisdictions is yes' do
-            let(:jurisdiction_ids) { ['BW', 'UG'] }
+            let(:jurisdiction_ids) { ['RM6360.BW', 'RM6360.UG'] }
             let(:params) { super().merge({ 'jurisdiction_ids' => jurisdiction_ids, 'not_core_jurisdiction' => 'yes' }) }
 
             context 'when considering the sheet for Botswana' do
@@ -232,7 +232,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::SupplierSpreadsheetCreator do
           end
 
           context 'and not core jurisdictions is yes' do
-            let(:jurisdiction_ids) { ['BW', 'UG'] }
+            let(:jurisdiction_ids) { ['RM6360.BW', 'RM6360.UG'] }
             let(:params) { super().merge({ 'jurisdiction_ids' => jurisdiction_ids, 'not_core_jurisdiction' => 'yes' }) }
 
             it 'has the correct data' do
@@ -271,7 +271,7 @@ RSpec.describe LegalPanelForGovernment::RM6360::SupplierSpreadsheetCreator do
           end
 
           context 'and not core jurisdictions is yes' do
-            let(:jurisdiction_ids) { ['BW', 'UG'] }
+            let(:jurisdiction_ids) { ['RM6360.BW', 'RM6360.UG'] }
             let(:params) { super().merge({ 'jurisdiction_ids' => jurisdiction_ids, 'not_core_jurisdiction' => 'yes' }) }
 
             context 'when considering the sheet for Botswana' do

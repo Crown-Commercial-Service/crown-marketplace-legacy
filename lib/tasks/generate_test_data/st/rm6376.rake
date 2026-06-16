@@ -52,7 +52,7 @@ module GenerateTestData
       def self.add_supplier_framework_lots(range, lot_number)
         @suppliers[range].each do |supplier|
           supplier[:supplier_frameworks].each do |supplier_framework|
-            supplier_framework[:supplier_framework_lots] << { lot_id: "#{supplier_framework[:framework_id]}.#{lot_number}", enabled: true, supplier_framework_lot_services: [], supplier_framework_lot_rates: [], supplier_framework_lot_branches: [], supplier_framework_lot_jurisdictions: [{ jurisdiction_id: 'GB' }] }
+            supplier_framework[:supplier_framework_lots] << { lot_id: "#{supplier_framework[:framework_id]}.#{lot_number}", enabled: true, supplier_framework_lot_services: [], supplier_framework_lot_rates: [], supplier_framework_lot_branches: [], supplier_framework_lot_jurisdictions: [{ jurisdiction_id: 'RM6376.GB' }] }
           end
         end
       end
@@ -94,7 +94,7 @@ module GenerateTestData
           yield({
             position_id: "RM6376.#{lot_number}.#{position_number}",
             rate: determin_base_fee_for_job(base_rate, job_type),
-            jurisdiction_id: 'GB'
+            jurisdiction_id: 'RM6376.GB'
           })
         end
       end
