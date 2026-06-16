@@ -1,0 +1,7 @@
+module LegalServices
+  module RM6374
+    class SessionsController < Base::SessionsController
+      include LegalServices::FrameworkStatusConcern
+    end
+  end
+end

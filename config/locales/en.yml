@@ -137,18 +137,32 @@ en:
               too_long: The address should be no more than 255 characters
             base:
               something_went_wrong: Something went wrong when trying to save the supplier data. Please do not try this again
+            description:
+              too_long: The description should be no more than 255 characters
             email:
               blank: Enter the contact email in the correct format, like name@example.com
               too_long: The contact email should be no more than 255 characters
             lot_1_prospectus_link:
               blank: Enter the lot 1 prospectus link in the correct format, like https://example.com
               too_long: The lot 1 prospectus link must be no more than 255 characters
+            lot_1a_prospectus_link:
+              blank: Enter the lot 1a prospectus link in the correct format, like https://example.com
+              too_long: The lot 1a prospectus link must be no more than 255 characters
+            lot_1b_prospectus_link:
+              blank: Enter the lot 1b prospectus link in the correct format, like https://example.com
+              too_long: The lot 1b prospectus link must be no more than 255 characters
+            lot_1c_prospectus_link:
+              blank: Enter the lot 1c prospectus link in the correct format, like https://example.com
+              too_long: The lot 1c prospectus link must be no more than 255 characters
             lot_2_prospectus_link:
               blank: Enter the lot 2 prospectus link in the correct format, like https://example.com
               too_long: The lot 2 prospectus link must be no more than 255 characters
             lot_3_prospectus_link:
               blank: Enter the lot 3 prospectus link in the correct format, like https://example.com
               too_long: The lot 3 prospectus link must be no more than 255 characters
+            lot_4_prospectus_link:
+              blank: Enter the lot 4 prospectus link in the correct format, like https://example.com
+              too_long: The lot 4 prospectus link must be no more than 255 characters
             lot_4a_prospectus_link:
               blank: Enter the lot 4a prospectus link in the correct format, like https://example.com
               too_long: The lot 4a prospectus link must be no more than 255 characters
@@ -161,6 +175,9 @@ en:
             lot_5_prospectus_link:
               blank: Enter the lot 5 prospectus link in the correct format, like https://example.com
               too_long: The lot 5 prospectus link must be no more than 255 characters
+            lot_6_prospectus_link:
+              blank: Enter the lot 6 prospectus link in the correct format, like https://example.com
+              too_long: The lot 6 prospectus link must be no more than 255 characters
             managed_service_provider_email:
               blank: Enter the managed service provider contact email in the correct format, like name@example.com
               too_long: The managed service provider contact email should be no more than 255 characters
@@ -276,6 +293,9 @@ en:
               buyer: Sign in to your legal panel for government account
           legal_services:
             rm6240:
+              admin: Sign in to your legal services admin account
+              buyer: Sign in to your legal services account
+            rm6374:
               admin: Sign in to your legal services admin account
               buyer: Sign in to your legal services account
           management_consultancy:
@@ -650,9 +670,14 @@ en:
       we_use_glassbox: We use Glassbox software to collect information about how you use Crown Marketplace. We do this to help make sure the site is meeting the needs of its users and to help us make improvements.
     index:
       admin: Crown Marketplace
-      legal_panel_for_government_link: Find legal services for government
-      legal_services_link: Find legal services for the wider public sector
-      management_consultancy_link: Find management consultancy services
+      legal_panel_for_government_link:
+        rm6360: Find legal services for government
+      legal_services_link:
+        rm6240: Find legal services for the wider public sector
+        rm6374: Find legal services for the wider public sector
+      management_consultancy_link:
+        rm6187: Find management consultancy services
+        rm6309: Find management consultancy services
       supply_teachers_link:
         rm6238: Find supply teachers and agency workers
         rm6376: Supply Teachers and Education Recruitment

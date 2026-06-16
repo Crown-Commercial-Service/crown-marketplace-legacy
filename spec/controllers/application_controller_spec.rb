@@ -120,7 +120,7 @@ RSpec.describe ApplicationController do
 
       context 'when the framework is nil' do
         it 'returns /legal-services/RM6240' do
-          expect(result).to eq '/legal-services/RM6240'
+          expect(result).to eq '/legal-services/RM6374'
         end
       end
 
@@ -137,8 +137,8 @@ RSpec.describe ApplicationController do
       let(:service) { 'legal_services/admin' }
 
       context 'when the framework is nil' do
-        it 'returns /legal-services/RM6240/admin' do
-          expect(result).to eq '/legal-services/RM6240/admin'
+        it 'returns /legal-services/RM6374/admin' do
+          expect(result).to eq '/legal-services/RM6374/admin'
         end
       end
 

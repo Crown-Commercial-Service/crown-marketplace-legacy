@@ -1,6 +1,6 @@
 module LegalServices::RM6240::Admin::LotDataHelper
   include Admin::LotDataHelper
-  include LegalServices::RatesHelper
+  include LegalServices::RM6240::RatesHelper
 
   def services_lot_title(supplier_lot_data_item)
     if supplier_lot_data_item[:lot][:number] == '3'
@@ -39,11 +39,5 @@ module LegalServices::RM6240::Admin::LotDataHelper
         ]
       end,
     ]
-  end
-
-  def display_rate(position_id, rates)
-    return if rates[position_id].nil? || rates[position_id].rate.zero?
-
-    number_to_currency(rates[position_id].normalized_rate, precision: 2)
   end
 end

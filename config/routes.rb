@@ -75,6 +75,13 @@ Rails.application.routes.draw do
           concerns :authenticatable
         end
       end
+
+      namespace 'rm6374', path: 'RM6374', defaults: { framework: 'RM6374' } do
+        concerns %i[authenticatable registrable]
+        namespace :admin, defaults: { service: 'legal_services/admin' } do
+          concerns :authenticatable
+        end
+      end
     end
 
     namespace 'legal_panel_for_government', path: 'legal-panel-for-government', defaults: { service: 'legal_panel_for_government' } do
@@ -286,6 +293,14 @@ Rails.application.routes.draw do
 
     namespace 'rm6240', path: 'RM6240', defaults: { framework: 'RM6240' } do
       concerns %i[buyer_shared_pages shared_pages suppliers]
+
+      namespace :admin, defaults: { service: 'legal_services/admin' } do
+        concerns %i[admin_dashboard admin_frameworks admin_suppliers admin_uploads admin_change_logs admin_reports admin_shared_pages]
+      end
+    end
+
+    namespace 'rm6374', path: 'RM6374', defaults: { framework: 'RM6374' } do
+      concerns %i[buyer_shared_pages shared_pages buyer_details suppliers]
 
       namespace :admin, defaults: { service: 'legal_services/admin' } do
         concerns %i[admin_dashboard admin_frameworks admin_suppliers admin_uploads admin_change_logs admin_reports admin_shared_pages]

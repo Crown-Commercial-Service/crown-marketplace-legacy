@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.feature 'Authentication' do
+  include_context 'and RM6240 is live'
+
   include_context 'with cognito structs'
 
   let(:aws_client) { instance_double(Aws::CognitoIdentityProvider::Client) }

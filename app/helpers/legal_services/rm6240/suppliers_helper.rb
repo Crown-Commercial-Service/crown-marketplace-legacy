@@ -1,6 +1,6 @@
 module LegalServices::RM6240::SuppliersHelper
   include LegalServices::SuppliersHelper
-  include LegalServices::RatesHelper
+  include LegalServices::RM6240::RatesHelper
 
   def download_legal_services_suppliers_path
     download_legal_services_rm6240_suppliers_path(

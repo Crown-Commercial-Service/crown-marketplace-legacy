@@ -47,9 +47,25 @@ module Admin::SuppliersHelper
       I18n.t('shared.admin.suppliers.show.additional_supplier_information.address'),
       ->(supplier_framework) { supplier_framework.contact_detail.address }
     ],
+    description: [
+      I18n.t('shared.admin.suppliers.show.additional_supplier_information.description'),
+      ->(supplier_framework) { supplier_framework.contact_detail.description }
+    ],
     lot_1_prospectus_link: [
       I18n.t('shared.admin.suppliers.show.additional_supplier_information.lot_1_prospectus_link'),
       ->(supplier_framework) { supplier_framework.contact_detail.lot_1_prospectus_link || I18n.t('shared.admin.suppliers.show.no_data') }
+    ],
+    lot_1a_prospectus_link: [
+      I18n.t('shared.admin.suppliers.show.additional_supplier_information.lot_1a_prospectus_link'),
+      ->(supplier_framework) { supplier_framework.contact_detail.lot_1a_prospectus_link || I18n.t('shared.admin.suppliers.show.no_data') }
+    ],
+    lot_1b_prospectus_link: [
+      I18n.t('shared.admin.suppliers.show.additional_supplier_information.lot_1b_prospectus_link'),
+      ->(supplier_framework) { supplier_framework.contact_detail.lot_1b_prospectus_link || I18n.t('shared.admin.suppliers.show.no_data') }
+    ],
+    lot_1c_prospectus_link: [
+      I18n.t('shared.admin.suppliers.show.additional_supplier_information.lot_1c_prospectus_link'),
+      ->(supplier_framework) { supplier_framework.contact_detail.lot_1c_prospectus_link || I18n.t('shared.admin.suppliers.show.no_data') }
     ],
     lot_2_prospectus_link: [
       I18n.t('shared.admin.suppliers.show.additional_supplier_information.lot_2_prospectus_link'),
@@ -58,6 +74,10 @@ module Admin::SuppliersHelper
     lot_3_prospectus_link: [
       I18n.t('shared.admin.suppliers.show.additional_supplier_information.lot_3_prospectus_link'),
       ->(supplier_framework) { supplier_framework.contact_detail.lot_3_prospectus_link || I18n.t('shared.admin.suppliers.show.no_data') }
+    ],
+    lot_4_prospectus_link: [
+      I18n.t('shared.admin.suppliers.show.additional_supplier_information.lot_4_prospectus_link'),
+      ->(supplier_framework) { supplier_framework.contact_detail.lot_4_prospectus_link || I18n.t('shared.admin.suppliers.show.no_data') }
     ],
     lot_4a_prospectus_link: [
       I18n.t('shared.admin.suppliers.show.additional_supplier_information.lot_4a_prospectus_link'),
@@ -74,6 +94,10 @@ module Admin::SuppliersHelper
     lot_5_prospectus_link: [
       I18n.t('shared.admin.suppliers.show.additional_supplier_information.lot_5_prospectus_link'),
       ->(supplier_framework) { supplier_framework.contact_detail.lot_5_prospectus_link || I18n.t('shared.admin.suppliers.show.no_data') }
+    ],
+    lot_6_prospectus_link: [
+      I18n.t('shared.admin.suppliers.show.additional_supplier_information.lot_6_prospectus_link'),
+      ->(supplier_framework) { supplier_framework.contact_detail.lot_6_prospectus_link || I18n.t('shared.admin.suppliers.show.no_data') }
     ],
     managed_service_provider_name: [
       I18n.t('shared.admin.suppliers.show.additional_supplier_information.managed_service_provider_name'),

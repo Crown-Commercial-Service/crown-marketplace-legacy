@@ -6,10 +6,10 @@ module Pages
 
   class BuyerDetailPage < SitePrism::Page
     section :buyer_details, '#main-content' do
-      section :'Personal details', '#buyer-details-summery--personal-details' do
+      section :'Personal details', '#buyer-details-summary--personal-details' do
         sections :rows, SummaryRowRowSection, 'govuk-summary-list__row'
       end
-      section :'Organisation details', '#buyer-details-summery--organisation-details' do
+      section :'Organisation details', '#buyer-details-summary--organisation-details' do
         sections :rows, SummaryRowRowSection, 'govuk-summary-list__row'
       end
     end

@@ -2,11 +2,11 @@ module HeaderNavigationLinksHelper
   def service_name_text
     case params[:service]
     when 'legal_services'
-      t('home.index.legal_services_link')
+      t("home.index.legal_services_link.#{params[:framework].downcase}")
     when 'legal_panel_for_government'
-      t('home.index.legal_panel_for_government_link')
+      t("home.index.legal_panel_for_government_link.#{params[:framework].downcase}")
     when 'management_consultancy'
-      t('home.index.management_consultancy_link')
+      t("home.index.management_consultancy_link.#{params[:framework].downcase}")
     when 'supply_teachers'
       t("home.index.supply_teachers_link.#{params[:framework].downcase}")
     else
@@ -46,8 +46,9 @@ module HeaderNavigationLinksHelper
     navigation_links
   end
 
+  # rubocop:disable Metrics/AbcSize
   def service_navigation_links
-    if user_signed_in? && params[:service] == 'management_consultancy'
+    if back_to_journey_start?
       [
         {
           text: t('header_navigation_links_helper.back_to_start'),
@@ -55,12 +56,12 @@ module HeaderNavigationLinksHelper
           active: current_page?(management_consultancy_journey_question_path(framework: params[:framework], slug: 'choose-lot'))
         }
       ]
-    elsif user_signed_in? && params[:service] == 'legal_panel_for_government'
+    elsif my_account_link?
       [
         {
           text: t('header_navigation_links_helper.my_account'),
-          href: legal_panel_for_government_rm6360_buyer_details_path,
-          active: current_page?(legal_panel_for_government_rm6360_buyer_details_path)
+          href: buyer_details_path(params[:service].dasherize),
+          active: current_page?(buyer_details_path(params[:service].dasherize))
         }
       ]
     else
@@ -72,5 +73,16 @@ module HeaderNavigationLinksHelper
         }
       ]
     end + service_authentication_links
+  end
+  # rubocop:enable Metrics/AbcSize
+
+  private
+
+  def back_to_journey_start?
+    user_signed_in? && params[:service] == 'management_consultancy'
+  end
+
+  def my_account_link?
+    user_signed_in? && (params[:service] == 'legal_panel_for_government' || (params[:service] == 'legal_services' && params[:framework] == 'RM6374'))
   end
 end

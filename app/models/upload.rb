@@ -13,6 +13,8 @@ class Upload < ApplicationRecord
       Supplier.where(id: supplier_ids).find_each(&:destroy)
 
       suppliers.each do |supplier_data|
+        Rails.logger.debug supplier_data[:name]
+
         supplier = Supplier.create!(supplier_data.except(:supplier_frameworks))
 
         add_supplier_framework!(supplier, supplier_data)

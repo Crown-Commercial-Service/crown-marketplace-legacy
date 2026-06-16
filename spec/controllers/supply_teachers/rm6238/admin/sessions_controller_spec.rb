@@ -42,7 +42,7 @@ RSpec.describe SupplyTeachers::RM6238::Admin::SessionsController do
       # rubocop:enable RSpec/AnyInstance
     end
 
-    context 'when teh framework is live' do
+    context 'when the framework is live' do
       include_context 'and RM6238 is live'
 
       # rubocop:disable RSpec/NestedGroups

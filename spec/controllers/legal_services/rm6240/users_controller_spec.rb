@@ -9,6 +9,8 @@ RSpec.describe LegalServices::RM6240::UsersController do
 
   describe 'GET confirm_new' do
     context 'when the framework is live' do
+      include_context 'and RM6240 is live'
+
       it 'renders the confirm_new page' do
         get :confirm_new
 
@@ -17,8 +19,6 @@ RSpec.describe LegalServices::RM6240::UsersController do
     end
 
     context 'when the framework is not live' do
-      include_context 'and RM6240 has expired'
-
       it 'renders the unrecognised framework page with the right http status' do
         get :confirm_new
 
@@ -35,6 +35,8 @@ RSpec.describe LegalServices::RM6240::UsersController do
 
     # rubocop:disable RSpec/NestedGroups
     context 'when the framework is live' do
+      include_context 'and RM6240 is live'
+
       context 'and there is no exception' do
         before do
           cookies[:crown_marketplace_confirmation_email] = user_email
@@ -106,8 +108,6 @@ RSpec.describe LegalServices::RM6240::UsersController do
     # rubocop:enable RSpec/NestedGroups
 
     context 'when the framework is not live' do
-      include_context 'and RM6240 has expired'
-
       it 'renders the unrecognised framework page with the right http status' do
         post :confirm, params: { cognito_confirm_sign_up: { email: user_email, confirmation_code: '123456' } }
 
@@ -121,6 +121,8 @@ RSpec.describe LegalServices::RM6240::UsersController do
     let(:email) { 'test@testemail.com' }
 
     context 'when the framework is live' do
+      include_context 'and RM6240 is live'
+
       before do
         allow(Cognito::ResendConfirmationCode).to receive(:call).with(email).and_return(Cognito::ResendConfirmationCode.new(email))
         post :resend_confirmation_email, params: { cognito_confirm_sign_up: { email: } }
@@ -132,8 +134,6 @@ RSpec.describe LegalServices::RM6240::UsersController do
     end
 
     context 'when the framework is not live' do
-      include_context 'and RM6240 has expired'
-
       it 'renders the unrecognised framework page with the right http status' do
         post :resend_confirmation_email, params: { cognito_confirm_sign_up: { email: } }
 
@@ -149,6 +149,8 @@ RSpec.describe LegalServices::RM6240::UsersController do
     before { cookies[:crown_marketplace_challenge_username] = user.cognito_uuid }
 
     context 'when the framework is live' do
+      include_context 'and RM6240 is live'
+
       before { get :challenge_new, params: { challenge_name: } }
 
       render_views
@@ -171,8 +173,6 @@ RSpec.describe LegalServices::RM6240::UsersController do
     end
 
     context 'when the framework is not live' do
-      include_context 'and RM6240 has expired'
-
       it 'renders the unrecognised framework page with the right http status' do
         get :challenge_new, params: { challenge_name: 'NEW_PASSWORD_REQUIRED' }
 
@@ -209,6 +209,7 @@ RSpec.describe LegalServices::RM6240::UsersController do
       end
 
       context 'when the framework is live' do
+        include_context 'and RM6240 is live'
         before do
           post :challenge, params: { challenge_name: challenge_name, cognito_respond_to_challenge: { username: username, session: session, new_password: password, new_password_confirmation: password } }
           cookies.update(response.cookies)
@@ -255,8 +256,6 @@ RSpec.describe LegalServices::RM6240::UsersController do
       end
 
       context 'when the framework is not live' do
-        include_context 'and RM6240 has expired'
-
         it 'renders the unrecognised framework page with the right http status' do
           post :challenge, params: { challenge_name: challenge_name, cognito_respond_to_challenge: { username:, session: } }
 
@@ -278,6 +277,7 @@ RSpec.describe LegalServices::RM6240::UsersController do
       end
 
       context 'when the framework is live' do
+        include_context 'and RM6240 is live'
         before do
           post :challenge, params: { challenge_name: challenge_name, cognito_respond_to_challenge: { username:, session:, access_code: } }
           cookies.update(response.cookies)
@@ -309,8 +309,6 @@ RSpec.describe LegalServices::RM6240::UsersController do
       end
 
       context 'when the framework is not live' do
-        include_context 'and RM6240 has expired'
-
         it 'renders the unrecognised framework page with the right http status' do
           post :challenge, params: { challenge_name: challenge_name, cognito_respond_to_challenge: { username:, session: } }
 
