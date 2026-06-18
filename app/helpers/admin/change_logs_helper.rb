@@ -88,10 +88,30 @@ module Admin::ChangeLogsHelper
       ->(change_data) { (change_data['additional_details'] || {}).key?('address') },
       ->(change_data) { change_data.dig('additional_details', 'address') }
     ],
+    description: [
+      I18n.t('shared.admin.suppliers.show.additional_supplier_information.description'),
+      ->(change_data) { (change_data['additional_details'] || {}).key?('description') },
+      ->(change_data) { change_data.dig('additional_details', 'description') }
+    ],
     lot_1_prospectus_link: [
       I18n.t('shared.admin.suppliers.show.additional_supplier_information.lot_1_prospectus_link'),
       ->(change_data) { (change_data['additional_details'] || {}).key?('lot_1_prospectus_link') },
       ->(change_data) { change_data.dig('additional_details', 'lot_1_prospectus_link') }
+    ],
+    lot_1a_prospectus_link: [
+      I18n.t('shared.admin.suppliers.show.additional_supplier_information.lot_1a_prospectus_link'),
+      ->(change_data) { (change_data['additional_details'] || {}).key?('lot_1a_prospectus_link') },
+      ->(change_data) { change_data.dig('additional_details', 'lot_1a_prospectus_link') }
+    ],
+    lot_1b_prospectus_link: [
+      I18n.t('shared.admin.suppliers.show.additional_supplier_information.lot_1b_prospectus_link'),
+      ->(change_data) { (change_data['additional_details'] || {}).key?('lot_1b_prospectus_link') },
+      ->(change_data) { change_data.dig('additional_details', 'lot_1b_prospectus_link') }
+    ],
+    lot_1c_prospectus_link: [
+      I18n.t('shared.admin.suppliers.show.additional_supplier_information.lot_1c_prospectus_link'),
+      ->(change_data) { (change_data['additional_details'] || {}).key?('lot_1c_prospectus_link') },
+      ->(change_data) { change_data.dig('additional_details', 'lot_1c_prospectus_link') }
     ],
     lot_2_prospectus_link: [
       I18n.t('shared.admin.suppliers.show.additional_supplier_information.lot_2_prospectus_link'),
@@ -102,6 +122,11 @@ module Admin::ChangeLogsHelper
       I18n.t('shared.admin.suppliers.show.additional_supplier_information.lot_3_prospectus_link'),
       ->(change_data) { (change_data['additional_details'] || {}).key?('lot_3_prospectus_link') },
       ->(change_data) { change_data.dig('additional_details', 'lot_3_prospectus_link') }
+    ],
+    lot_4_prospectus_link: [
+      I18n.t('shared.admin.suppliers.show.additional_supplier_information.lot_4_prospectus_link'),
+      ->(change_data) { (change_data['additional_details'] || {}).key?('lot_4_prospectus_link') },
+      ->(change_data) { change_data.dig('additional_details', 'lot_4_prospectus_link') }
     ],
     lot_4a_prospectus_link: [
       I18n.t('shared.admin.suppliers.show.additional_supplier_information.lot_4a_prospectus_link'),
@@ -122,6 +147,11 @@ module Admin::ChangeLogsHelper
       I18n.t('shared.admin.suppliers.show.additional_supplier_information.lot_5_prospectus_link'),
       ->(change_data) { (change_data['additional_details'] || {}).key?('lot_5_prospectus_link') },
       ->(change_data) { change_data.dig('additional_details', 'lot_5_prospectus_link') }
+    ],
+    lot_6_prospectus_link: [
+      I18n.t('shared.admin.suppliers.show.additional_supplier_information.lot_6_prospectus_link'),
+      ->(change_data) { (change_data['additional_details'] || {}).key?('lot_6_prospectus_link') },
+      ->(change_data) { change_data.dig('additional_details', 'lot_6_prospectus_link') }
     ],
     managed_service_provider_name: [
       I18n.t('shared.admin.suppliers.show.additional_supplier_information.managed_service_provider_name'),

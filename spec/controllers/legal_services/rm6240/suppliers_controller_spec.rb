@@ -13,6 +13,8 @@ RSpec.describe LegalServices::RM6240::SuppliersController do
   let(:jurisdiction) { 'a' }
   let(:central_government) { 'no' }
 
+  include_context 'and RM6240 is live'
+
   login_ls_buyer
 
   before do

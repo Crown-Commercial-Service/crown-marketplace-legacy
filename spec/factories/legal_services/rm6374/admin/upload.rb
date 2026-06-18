@@ -1,0 +1,10 @@
+FactoryBot.define do
+  factory :legal_services_rm6374_admin_upload, class: 'LegalServices::RM6374::Admin::Upload' do
+    user { association(:user) }
+    framework_id { 'RM6374' }
+  end
+
+  factory :legal_services_rm6374_admin_upload_with_document, parent: :legal_services_rm6374_admin_upload do
+    supplier_details_file { Rack::Test::UploadedFile.new(Rails.root.join('spec', 'fixtures', 'test_xlsx.xlsx'), 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet') }
+  end
+end

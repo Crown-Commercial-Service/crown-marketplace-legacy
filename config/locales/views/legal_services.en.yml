@@ -197,6 +197,41 @@ en:
           further_competition: These are the maximum rates the supplier charges for a direct award. You may get a cheaper rate by running a further competition.
           position: Position
           rates: Rates
+    rm6374:
+      buyer_details:
+        index:
+          manage_your_details:
+            desc: Update and edit your details
+            link: Manage your details
+          return_to_this_page: To return to this page at any time, just click on 'My account'.
+          search_for_suppliers:
+            desc: Find a shortlist of suppliers who can provide the legal specialisms you need
+            link: Search for suppliers
+          view_furth_informtion_html: View further information about the %{url}
+          view_furth_informtion_link:
+            href: https://www.gca.gov.uk/agreements/RM6374
+            text: Legal Panel for wider public sector RM6374 (opens in a new tab)
+      home:
+        index:
+          heading: Find legal services for the wider public sector
+          ojeu_link:
+            text: OJEU contract notice
+            url_html: "#"
+          use_this_service:
+            before_heading: Before you start
+            guidance_heading: Guidance and other useful documents
+            legal_panel_for_government: RM6360 Legal Panel for Government
+            para01: Use this service to download a shortlist of suppliers that provide the legal specialisms you need.
+            para02: Using this service means you're following the public sector procurement procedures.
+            para03_html: Central Government departments can also access legal service services through %{link}.
+            para04_html: You can contact <a href="mailto:info@gca.gov.uk">info@gca.gov.uk</a> for help.
+            para05_html: To use this service you need to be a recognised public sector body listed in the <a href="#">authorised customer list</a>.
+          wps_link:
+            text: WPS Legal Services panel specification
+            url: https://www.gca.gov.uk/agreements/RM6374
+      suppliers:
+        rates_table:
+          grade: Grade
     service_name: Legal Services
     suppliers:
       download:

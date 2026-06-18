@@ -3,6 +3,8 @@ require 'rails_helper'
 RSpec.describe LegalServices::RM6240::HomeController do
   let(:default_params) { { service: 'legal_services', framework: 'RM6240' } }
 
+  include_context 'and RM6240 is live'
+
   login_ls_buyer
 
   describe 'GET index' do

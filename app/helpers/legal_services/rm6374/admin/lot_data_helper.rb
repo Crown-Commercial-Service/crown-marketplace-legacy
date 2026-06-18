@@ -1,0 +1,31 @@
+module LegalServices::RM6374::Admin::LotDataHelper
+  include Admin::LotDataHelper
+  include LegalServices::RM6374::RatesHelper
+
+  def rates_form_table_headers_and_rows(rates)
+    [
+      [
+        {
+          text: t('legal_services.rm6374.suppliers.rates_table.grade'),
+          classes: 'govuk-!-width-three-quarters'
+        },
+        {
+          text: tag.span(t('shared.rates_table.rm6374.categories.default'), id: aria_describedby_id),
+          classes: 'govuk-!-width-one-quarter'
+        }
+      ],
+      @lot.positions.order(:number).map do |position|
+        input = create_rate_input(position, rates, ->(position) { I18n.t("shared.rates_table.rm6374.job_titles.#{position.name}") })
+
+        [
+          {
+            text: label_for_table_header(input),
+          },
+          {
+            text: input_for_table_cell(input)
+          }
+        ]
+      end,
+    ]
+  end
+end

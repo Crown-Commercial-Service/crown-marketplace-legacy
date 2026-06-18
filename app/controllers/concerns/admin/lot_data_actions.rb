@@ -105,7 +105,7 @@ module Admin::LotDataActions
 
   def set_model
     @model = case @section
-             when :lot_status, :services, :rates
+             when :lot_status, :services, :jurisdictions, :rates
                @supplier_framework_lot
              when :branches
                @supplier_framework_lot.branches.find(params.expect(:branch_id))
@@ -171,6 +171,25 @@ module Admin::LotDataActions
       Rails.logger.error e
       Rollbar.log('error', e)
       @model.errors.add(:base, :service_update_invalid)
+    end
+
+    @model.errors.none?
+  end
+
+  def update_for_jurisdictions
+    jurisdiction_ids = (params[@model.model_name.param_key].present? ? params.expect("#{@model.model_name.param_key}": { jurisdiction_ids: [] }) : {})[:jurisdiction_ids] || []
+
+    jurisdiction_ids_to_add = jurisdiction_ids - @supplier_framework_lot_jurisdiction_ids
+    jurisdiction_ids_to_remove = @supplier_framework_lot_jurisdiction_ids - jurisdiction_ids
+
+    ActiveRecord::Base.transaction do
+      @model.jurisdictions.where(jurisdiction_id: jurisdiction_ids_to_remove).find_each(&:destroy!)
+      @model.jurisdictions.build(jurisdiction_ids_to_add.map { |jurisdiction_id| { jurisdiction_id: } }).each(&:save!)
+      ChangeLog.log_update_supplier_framework_lot_jurisdictions!(user: current_user, framework: params[:framework], model: @model, added: jurisdiction_ids_to_add, removed: jurisdiction_ids_to_remove)
+    rescue ActiveRecord::RecordInvalid => e
+      Rails.logger.error e
+      Rollbar.log('error', e)
+      @model.errors.add(:base, :jurisdiction_update_invalid)
     end
 
     @model.errors.none?

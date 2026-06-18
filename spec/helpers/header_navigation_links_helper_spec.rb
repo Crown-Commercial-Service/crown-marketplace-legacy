@@ -15,8 +15,20 @@ RSpec.describe HeaderNavigationLinksHelper do
     context 'when the service is legal_services' do
       let(:service) { 'legal_services' }
 
-      it 'returns Find legal services for the wider public sector' do
-        expect(result).to eq('Find legal services for the wider public sector')
+      context 'and the framework is RM6240' do
+        let(:framework) { 'RM6240' }
+
+        it 'returns Find legal services for the wider public sector' do
+          expect(result).to eq('Find legal services for the wider public sector')
+        end
+      end
+
+      context 'and the framework is RM6374' do
+        let(:framework) { 'RM6374' }
+
+        it 'returns Find legal services for the wider public sector' do
+          expect(result).to eq('Find legal services for the wider public sector')
+        end
       end
     end
 
@@ -31,8 +43,12 @@ RSpec.describe HeaderNavigationLinksHelper do
     context 'when the service is legal_panel_for_government' do
       let(:service) { 'legal_panel_for_government' }
 
-      it 'returns Find legal services for government' do
-        expect(result).to eq('Find legal services for government')
+      context 'and the framework is RM6360' do
+        let(:framework) { 'RM6360' }
+
+        it 'returns Find legal services for government' do
+          expect(result).to eq('Find legal services for government')
+        end
       end
     end
 
@@ -47,8 +63,20 @@ RSpec.describe HeaderNavigationLinksHelper do
     context 'when the service is management_consultancy' do
       let(:service) { 'management_consultancy' }
 
-      it 'returns Find management consultancy services' do
-        expect(result).to eq('Find management consultancy services')
+      context 'and the framework is RM6187' do
+        let(:framework) { 'RM6187' }
+
+        it 'returns Find management consultancy services' do
+          expect(result).to eq('Find management consultancy services')
+        end
+      end
+
+      context 'and the framework is RM6309' do
+        let(:framework) { 'RM6309' }
+
+        it 'returns Find management consultancy services' do
+          expect(result).to eq('Find management consultancy services')
+        end
       end
     end
 

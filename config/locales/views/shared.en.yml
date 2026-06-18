@@ -125,9 +125,13 @@ en:
             caption: Lot %{lot_number} - %{lot_name}
             heading: Edit %{section}
             heading_with_country: Edit %{section} for %{country}
+            jurisdictions: jurisdiction selection
             lot_status: lot status
             rates: rates
             services: service selection
+          jurisdictions:
+            question: Select the jurisdictions the supplier can offer
+            question_group: Select the jurisdictions the supplier can offer (%{group})
           lot_status:
             question: Set supplier status on Lot %{lot_number} - %{lot_name}
           rates:
@@ -170,6 +174,9 @@ en:
             jurisdictions: jurisdictions
             rates: rates
             services: services
+          jurisdictions:
+            jurisdiction_supplier_offers: Jurisdictions the supplier can offer
+            no_jurisdictions_offered: The supplier does not offer any jurisdictions in this lot
           rates:
             supplier_rates: Rates for the supplier
           services:
@@ -238,13 +245,19 @@ en:
         sections:
           additional_supplier_information:
             address: Address
+            description: Description
             lot_1_prospectus_link: Lot 1 prospectus link
+            lot_1a_prospectus_link: Lot 1a prospectus link
+            lot_1b_prospectus_link: Lot 1b prospectus link
+            lot_1c_prospectus_link: Lot 1c prospectus link
             lot_2_prospectus_link: Lot 2 prospectus link
             lot_3_prospectus_link: Lot 3 prospectus link
+            lot_4_prospectus_link: Lot 4 prospectus link
             lot_4a_prospectus_link: Lot 4a prospectus link
             lot_4b_prospectus_link: Lot 4b prospectus link
             lot_4c_prospectus_link: Lot 4c prospectus link
             lot_5_prospectus_link: Lot 5 prospectus link
+            lot_6_prospectus_link: Lot 6 prospectus link
             managed_service_provider_email: Managed service provider contact email
             managed_service_provider_name: Managed service provider contact name
             managed_service_provider_telephone: Managed service provider contact telephone number
@@ -264,13 +277,19 @@ en:
         show:
           additional_supplier_information:
             address: Address
+            description: Description
             lot_1_prospectus_link: Lot 1 prospectus link
+            lot_1a_prospectus_link: Lot 1a prospectus link
+            lot_1b_prospectus_link: Lot 1b prospectus link
+            lot_1c_prospectus_link: Lot 1c prospectus link
             lot_2_prospectus_link: Lot 2 prospectus link
             lot_3_prospectus_link: Lot 3 prospectus link
+            lot_4_prospectus_link: Lot 4 prospectus link
             lot_4a_prospectus_link: Lot 4a prospectus link
             lot_4b_prospectus_link: Lot 4b prospectus link
             lot_4c_prospectus_link: Lot 4c prospectus link
             lot_5_prospectus_link: Lot 5 prospectus link
+            lot_6_prospectus_link: Lot 6 prospectus link
             managed_service_provider_email: Managed service provider contact email
             managed_service_provider_name: Managed service provider contact name
             managed_service_provider_telephone: Managed service provider contact telephone number
@@ -414,6 +433,23 @@ en:
           senior_modeller: Senior Modeller, Senior Econometrician, Senior Analyst
           senior_partner: Senior Counsel, Senior Partner (20 years +PQE)
           solicitor: Solicitor, Associate/Legal Executive
+          trainee: Trainee/Legal Apprentice
+      rm6374:
+        categories:
+          default: Hourly
+        job_titles:
+          junior: NQ Solicitor/Associate, Junior Solicitor/Associate/Legal Executive
+          legal_director: Legal Director/ Counsel or equivalent
+          legal_document_reviewers: Legal Document Reviewers, Document Reviewers
+          legal_project_manager: Legal Project Managers
+          paralegal: Paralegal, Legal Assistant
+          partner: Partner
+          senior: Senior Solicitor, Senior Associate/Senior Legal Executive
+          solicitor: Solicitor, Associate/Legal Executive
+          solicitor_less_than_4_years: Grade C
+          solicitor_more_than_4_years: Grade B
+          solicitor_more_than_8_years: Grade A
+          solicitor_paralegal: Grade D
           trainee: Trainee/Legal Apprentice
       rm6376:
         categories:

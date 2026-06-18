@@ -58,7 +58,7 @@ module Base::AuthenticationPathsConcern
   def determine_start_path
     if service_path_base.include?('admin')
       ''
-    elsif params[:service] == 'legal_panel_for_government'
+    elsif params[:service] == 'legal_panel_for_government' || (params[:service] == 'legal_services' && params[:framework] == 'RM6374')
       '/buyer-details'
     else
       '/start'

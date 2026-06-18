@@ -4,17 +4,17 @@ RSpec.describe LegalServices::HomeController do
   let(:default_params) { { service: 'legal_services' } }
 
   describe 'GET framework' do
-    context 'when RM6240 is live' do
-      it 'redirects to the RM6240 home page' do
+    context 'when RM6374 is live' do
+      it 'redirects to the RM6374 home page' do
         get :framework
-        expect(response).to redirect_to legal_services_index_path('RM6240')
+        expect(response).to redirect_to legal_services_index_path('RM6374')
       end
     end
   end
 
   describe 'GET index' do
-    context 'when RM6240 is live' do
-      context 'and the framework is not RM6240' do
+    context 'when RM6374 is live' do
+      context 'and the framework is not RM6374' do
         it 'renders the unrecognised framework page with the right http status' do
           get :index, params: { framework: 'RM3826' }
 
@@ -25,19 +25,19 @@ RSpec.describe LegalServices::HomeController do
 
       # This is because in practice, the rails router will have already used the correct framework controller,
       # therefore, this test is just to make sure that the UnrecognisedLiveFrameworkError is not invoked
-      context 'and the framework is RM6240' do
+      context 'and the framework is RM6374' do
         it 'raises the MissingExactTemplate error' do
           expect do
-            get :index, params: { framework: 'RM6240' }
+            get :index, params: { framework: 'RM6374' }
           end.to raise_error(ActionController::MissingExactTemplate)
         end
       end
     end
 
-    context 'when RM6240 is not live' do
-      include_context 'and RM6240 is live in the future'
+    context 'when RM6374 is not live' do
+      include_context 'and RM6374 is live in the future'
 
-      context 'and the framework is not RM6240' do
+      context 'and the framework is not RM6374' do
         it 'renders the unrecognised framework page with the right http status' do
           get :index, params: { framework: 'RM3826' }
 
@@ -46,9 +46,9 @@ RSpec.describe LegalServices::HomeController do
         end
       end
 
-      context 'and the framework is RM6240' do
+      context 'and the framework is RM6374' do
         it 'renders the unrecognised framework page with the right http status' do
-          get :index, params: { framework: 'RM6240' }
+          get :index, params: { framework: 'RM6374' }
 
           expect(response).to render_template('legal_services/home/unrecognised_framework')
           expect(response).to have_http_status(:bad_request)

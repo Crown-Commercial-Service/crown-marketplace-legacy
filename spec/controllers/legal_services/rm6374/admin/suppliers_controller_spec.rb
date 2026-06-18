@@ -1,0 +1,260 @@
+require 'rails_helper'
+
+RSpec.describe LegalServices::RM6374::Admin::SuppliersController do
+  let(:default_params) { { service: 'legal_services/admin', framework: 'RM6374' } }
+
+  let(:supplier) { create(:legal_services_rm6374_admin_supplier, sme: true) }
+  let(:supplier_framework) { create(:supplier_framework, framework_id: 'RM6374', supplier_id: supplier.id) }
+  let(:contact_detail) { create(:legal_services_rm6374_admin_supplier_contact_detail, supplier_framework_id: supplier_framework.id) }
+  let(:supplier_frameworks) { Supplier::Framework.where(id: supplier_framework.id) }
+
+  describe 'GET index' do
+    context 'when not logged in' do
+      it 'redirects to the sign-in' do
+        get :index
+        expect(response).to redirect_to legal_services_rm6374_admin_new_user_session_path
+      end
+    end
+
+    context 'when logged in as a buyer' do
+      login_ls_buyer
+
+      it 'redirects to not permitted' do
+        get :index
+        expect(response).to redirect_to '/legal-services/RM6374/admin/not-permitted'
+      end
+    end
+
+    context 'when logged in as an admin' do
+      login_ls_admin
+
+      before { supplier_frameworks }
+
+      it 'renders the page' do
+        get :index
+        expect(response).to render_template(:index)
+      end
+
+      it 'assigns supplier_frameworks' do
+        get :index
+
+        assigned_supplier_frameworks = assigns(:supplier_frameworks)
+
+        expect(assigned_supplier_frameworks.count).to eq(1)
+        expect(assigned_supplier_frameworks.first.id).to eq(supplier_frameworks.first.id)
+      end
+
+      context 'and the framework dose not exist' do
+        it 'renders the unrecognised framework page with the right http status' do
+          get :index, params: { framework: 'RM3826' }
+
+          expect(response).to render_template('home/unrecognised_framework')
+          expect(response).to have_http_status(:bad_request)
+        end
+      end
+    end
+  end
+
+  describe 'GET show' do
+    login_ls_admin
+
+    before { get :show, params: { id: supplier_framework.id } }
+
+    it 'renders the show template' do
+      expect(response).to render_template(:show)
+    end
+
+    it 'assigns supplier_frameworks' do
+      expect(assigns(:supplier_framework)).to eq(supplier_framework)
+    end
+  end
+
+  describe 'GET edit' do
+    login_ls_admin
+
+    before do
+      supplier
+      supplier_framework
+      contact_detail
+
+      get :edit, params: { id: supplier_framework.id, section: section }
+    end
+
+    shared_examples 'when testing a section' do
+      it 'sets supplier_framework' do
+        expect(assigns(:supplier_framework)).to be_present
+      end
+
+      it 'sets the model' do
+        expect(assigns(:model).class).to be(model.class)
+      end
+
+      it 'sets section' do
+        expect(assigns(:section)).to eq(section)
+      end
+
+      it 'sets section_attributes' do
+        expect(assigns(:section_attributes)).to eq(section_attributes)
+      end
+
+      context 'when considering the templates' do
+        render_views
+
+        it 'renders section partial template' do
+          expect(response).to have_http_status(:ok)
+          expect(response).to render_template(partial: "shared/admin/suppliers/sections/_#{section}")
+        end
+      end
+    end
+
+    context 'when the section is basic_supplier_information' do
+      let(:section) { :basic_supplier_information }
+      let(:section_attributes) { %i[name duns_number sme] }
+      let(:model) { supplier }
+
+      include_context 'when testing a section'
+    end
+
+    context 'when the section is supplier_contact_information' do
+      let(:section) { :supplier_contact_information }
+      let(:section_attributes) { %i[email telephone_number website] }
+      let(:model) { contact_detail }
+
+      include_context 'when testing a section'
+    end
+
+    context 'when the section is additional_supplier_information' do
+      let(:section) { :additional_supplier_information }
+      let(:section_attributes) { %i[address description lot_1a_prospectus_link lot_1b_prospectus_link lot_1c_prospectus_link lot_2_prospectus_link lot_3_prospectus_link lot_4_prospectus_link lot_5_prospectus_link lot_6_prospectus_link] }
+      let(:model) { contact_detail }
+
+      include_context 'when testing a section'
+    end
+
+    context 'when the section is unexpected' do
+      let(:section) { :something_else }
+
+      it 'redirects to the show page' do
+        expect(response).to redirect_to("/legal-services/RM6374/admin/suppliers/#{supplier_framework.id}")
+      end
+    end
+  end
+
+  describe 'PUT update' do
+    login_ls_admin
+
+    let(:model_param_keys) { model_params.keys }
+    let(:expected_updates) { model_params }
+    let(:change_log) { ChangeLog.find_by(user_id: controller.current_user.id, framework_id: 'RM6374') }
+
+    before do
+      supplier
+      supplier_framework
+      contact_detail
+
+      put :update, params: { id: supplier_framework.id, section: section, "#{model.model_name.param_key}": model_params }
+    end
+
+    shared_examples 'when testing a section' do
+      it 'sets supplier_framework' do
+        expect(assigns(:supplier_framework)).to be_present
+      end
+
+      it 'sets the model' do
+        expect(assigns(:model).class).to be(model.class)
+      end
+
+      it 'sets section' do
+        expect(assigns(:section)).to eq(section)
+      end
+
+      it 'sets section_attributes' do
+        expect(assigns(:section_attributes)).to eq(model_params.keys)
+      end
+
+      context 'when it is valid' do
+        it 'redirects to the show page' do
+          expect(response).to redirect_to("/legal-services/RM6374/admin/suppliers/#{supplier_framework.id}")
+        end
+
+        it 'updates the details' do
+          expect(model.reload.attributes.deep_symbolize_keys.slice(*model_param_keys)).to eq(expected_updates)
+        end
+
+        it 'creates a change log' do
+          expect(change_log.change_type).to eq(change_type)
+          expect(change_log.change_data['id']).to eq(model.id)
+          expect(change_log.change_data['after']).to eq(change_data_after)
+        end
+      end
+
+      context 'when it is invalid' do
+        let(:model_params) { model_params_invalid }
+
+        render_views
+
+        it 'has errors on the model' do
+          expect(assigns(:model).errors).to be_present
+        end
+
+        it 'renders section partial template' do
+          expect(response).to have_http_status(:ok)
+          expect(response).to render_template(partial: "shared/admin/suppliers/sections/_#{section}")
+        end
+
+        it 'does not create a change log' do
+          expect(change_log).to be_nil
+        end
+      end
+    end
+
+    context 'when the section is basic_supplier_information' do
+      let(:section) { :basic_supplier_information }
+
+      let(:model) { supplier }
+      let(:model_params) { { name: 'Zote the Mighty', duns_number: '123456789', sme: true } }
+      let(:model_params_invalid) { { name: '', duns_number: '', sme: '' } }
+      let(:change_type) { 'update_supplier_information' }
+      let(:change_data_after) { { 'name' => 'Zote the Mighty', 'duns_number' => '123456789', } }
+
+      include_context 'when testing a section'
+    end
+
+    context 'when the section is supplier_contact_information' do
+      let(:section) { :supplier_contact_information }
+
+      let(:model) { contact_detail }
+      let(:model_params) { { email: 'zote@the.mighty', telephone_number: '07123456789', website: 'https://example.com' } }
+      let(:model_params_invalid) { { email: '', telephone_number: '', website: '' } }
+      let(:change_type) { 'update_supplier_contact_information' }
+      let(:change_data_after) { { 'email' => 'zote@the.mighty', 'telephone_number' => '07123456789', 'website' => 'https://example.com', } }
+
+      include_context 'when testing a section'
+    end
+
+    context 'when the section is additional_supplier_information' do
+      let(:section) { :additional_supplier_information }
+
+      let(:model) { contact_detail }
+      let(:model_params) { { address: 'Hollow nest', description: 'A fine wielder of the nail', lot_1a_prospectus_link: 'https://example.com', lot_1b_prospectus_link: 'https://example.com', lot_1c_prospectus_link: 'https://example.com', lot_2_prospectus_link: 'https://example.com', lot_3_prospectus_link: 'https://example.com', lot_4_prospectus_link: 'https://example.com', lot_5_prospectus_link: 'https://example.com', lot_6_prospectus_link: 'https://example.com' } }
+      let(:model_param_keys) { %i[additional_details] }
+      let(:expected_updates) { { additional_details: model_params } }
+      let(:model_params_invalid) { { address: '', description: '', lot_1a_prospectus_link: '', lot_1b_prospectus_link: '', lot_1c_prospectus_link: '', lot_2_prospectus_link: '', lot_3_prospectus_link: '', Lot_4_prospectus_link: '', Lot_5_prospectus_link: '', Lot_6_prospectus_link: '' } }
+      let(:change_type) { 'update_supplier_additional_information' }
+      let(:change_data_after) { { 'additional_details' => { 'address' => 'Hollow nest', 'description' => 'A fine wielder of the nail', 'lot_1a_prospectus_link' => 'https://example.com', 'lot_1b_prospectus_link' => 'https://example.com', 'lot_1c_prospectus_link' => 'https://example.com', 'lot_2_prospectus_link' => 'https://example.com', 'lot_3_prospectus_link' => 'https://example.com', 'lot_4_prospectus_link' => 'https://example.com', 'lot_5_prospectus_link' => 'https://example.com', 'lot_6_prospectus_link' => 'https://example.com' } } }
+
+      include_context 'when testing a section'
+    end
+
+    context 'when the section is unexpected' do
+      let(:section) { :something_else }
+
+      let(:model) { supplier }
+      let(:model_params) { { name: 'Zote the Mighty', duns_number: '123456789', sme: true } }
+
+      it 'redirects to the show page' do
+        expect(response).to redirect_to("/legal-services/RM6374/admin/suppliers/#{supplier_framework.id}")
+      end
+    end
+  end
+end

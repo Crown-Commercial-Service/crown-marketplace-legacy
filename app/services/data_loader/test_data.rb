@@ -32,6 +32,19 @@ class DataLoader::TestData
         File.open('data/legal_services/rm6240/dummy_supplier_data.json', 'r') do |file|
           Upload.upload!('RM6240', JSON.parse(file.read, symbolize_names: true))
         end
+
+        Rails.logger.info 'Making RM6240 live'
+        Framework.find('RM6240').update(expires_at: 1.day.from_now)
+      end
+    end
+
+    module RM6374
+      def self.import_data
+        Rails.logger.info 'Importing LS RM6374 data'
+
+        File.open('data/legal_services/rm6374/dummy_supplier_data.json', 'r') do |file|
+          Upload.upload!('RM6374', JSON.parse(file.read, symbolize_names: true))
+        end
       end
     end
   end
@@ -90,36 +103,28 @@ class DataLoader::TestData
       )
     end
 
+    FRAMEWORK_TO_MODULE = {
+      'RM6187' => MC::RM6187,
+      'RM6309' => MC::RM6309,
+      'RM6240' => LS::RM6240,
+      'RM6374' => LS::RM6374,
+      'RM6360' => LPG::RM6360,
+      'RM6238' => ST::RM6238,
+      'RM6376' => ST::RM6376,
+    }.freeze
+
     public
 
     def import_test_data
       empty_tables
 
-      MC::RM6187.import_data
-      MC::RM6309.import_data
-      LS::RM6240.import_data
-      LPG::RM6360.import_data
-      ST::RM6238.import_data
-      ST::RM6376.import_data
+      FRAMEWORK_TO_MODULE.each_value(&:import_data)
     end
 
     def import_test_data_for_framework_service(framework)
       empty_tables
 
-      case framework
-      when 'RM6187'
-        MC::RM6187.import_data
-      when 'RM6309'
-        MC::RM6309.import_data
-      when 'RM6240'
-        LS::RM6240.import_data
-      when 'RM6360'
-        LPG::RM6360.import_data
-      when 'RM6238'
-        ST::RM6238.import_data
-      when 'RM6376'
-        ST::RM6376.import_data
-      end
+      FRAMEWORK_TO_MODULE[framework].import_data
     end
   end
 end
