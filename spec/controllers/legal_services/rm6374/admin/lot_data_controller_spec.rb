@@ -5,7 +5,7 @@ RSpec.describe LegalServices::RM6374::Admin::LotDataController do
 
   let(:supplier_framework) { create(:supplier_framework, framework_id: 'RM6374') }
   let(:supplier_framework_lot) { create(:supplier_framework_lot, supplier_framework: supplier_framework, lot_id: "RM6374.#{lot_number}") }
-  let(:supplier_framework_lot_services) { (lot_number == '6' ? (1..2) : (1..5)).map { |service_number| "RM6374.#{lot_number}.#{service_number}" }.map { |service_id| create(:supplier_framework_lot_service, supplier_framework_lot:, service_id:) } }
+  let(:supplier_framework_lot_services) { (lot_number == '6' ? [6, 36] : (1..5)).map { |service_number| "RM6374.#{lot_number}.#{service_number}" }.map { |service_id| create(:supplier_framework_lot_service, supplier_framework_lot:, service_id:) } }
   let(:supplier_framework_lot_jurisdiction) { create(:supplier_framework_lot_jurisdiction, supplier_framework_lot: supplier_framework_lot, jurisdiction_id: 'RM6374.GB') }
   let(:supplier_framework_lot_jurisdictions) { %w[EW NI].map { |jurisdiction_code| create(:supplier_framework_lot_jurisdiction, supplier_framework_lot: supplier_framework_lot, jurisdiction_id: "RM6374.#{jurisdiction_code}") } }
   let(:supplier_framework_lot_rates) { Position.where(lot_id: "RM6374.#{lot_number}", mandatory: true).pluck(:id).map { |position_id| create(:supplier_framework_lot_rate, supplier_framework_lot: supplier_framework_lot, jurisdiction: supplier_framework_lot_jurisdiction, position_id: position_id) } }
@@ -481,7 +481,7 @@ RSpec.describe LegalServices::RM6374::Admin::LotDataController do
 
       context 'and the section is services' do
         let(:section) { 'services' }
-        let(:service_ids) { [1, 2, 3, 6, 7].map { |service_number| "RM6374.#{lot_number}.#{service_number}" } }
+        let(:service_ids) { [1, 2, 3, 7, 8].map { |service_number| "RM6374.#{lot_number}.#{service_number}" } }
         let(:model_params) { { service_ids: } }
 
         include_context 'when testing a section'
@@ -504,7 +504,7 @@ RSpec.describe LegalServices::RM6374::Admin::LotDataController do
           it 'creates a change log' do
             expect(change_log.change_type).to eq('update_supplier_framework_lot_services')
             expect(change_log.change_data['id']).to eq(supplier_framework_lot.id)
-            expect(change_log.change_data['added']).to eq(['RM6374.1a.6', 'RM6374.1a.7'])
+            expect(change_log.change_data['added']).to eq(['RM6374.1a.7', 'RM6374.1a.8'])
             expect(change_log.change_data['removed']).to eq(['RM6374.1a.4', 'RM6374.1a.5'])
           end
           # rubocop:enable RSpec/MultipleExpectations
@@ -742,7 +742,7 @@ RSpec.describe LegalServices::RM6374::Admin::LotDataController do
             expect(change_log.change_type).to eq('update_supplier_framework_lot_services')
             expect(change_log.change_data['id']).to eq(supplier_framework_lot.id)
             expect(change_log.change_data['added']).to eq([])
-            expect(change_log.change_data['removed']).to eq(['RM6374.6.1', 'RM6374.6.2'])
+            expect(change_log.change_data['removed']).to eq(['RM6374.6.6', 'RM6374.6.36'])
           end
           # rubocop:enable RSpec/MultipleExpectations
         end

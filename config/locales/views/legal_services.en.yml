@@ -23,6 +23,34 @@ en:
           attributes:
             lot_number:
               blank: Select the lot you need
+        legal_services/rm6374/journey/choose_sector:
+          attributes:
+            sector:
+              inclusion: Select your customer sector
+        legal_services/rm6374/journey/choose_specialisms:
+          attributes:
+            service_numbers:
+              blank: Select at least one legal specialism
+        legal_services/rm6374/journey/information_about_your_requirement:
+          attributes:
+            ccs_can_contact_you:
+              inclusion: You must select an option
+            replaces_existing_contract:
+              inclusion: You must select an option
+            requirement_being_awarded:
+              inclusion: You must select an option for the probability of awarding through a GCA framework
+            requirement_end_date:
+              after_requirement_start_date: The intended end date must be after the intended start date
+              blank: Enter the intended end date, including the month and year
+              invalid: Enter a real date for the intended end date
+            requirement_estimated_total_value:
+              greater_than: The estimated total value must be a whole number greater than 0
+              less_than: The estimated total value must be less than 1,000,000,000,000 (1 trillion)
+              not_a_number: The estimated total value must be a whole number greater than 0
+              not_an_integer: The estimated total value must be a whole number greater than 0
+            requirement_start_date:
+              blank: Enter the intended start date, including the month and year
+              invalid: Enter a real date for the intended start date
   activerecord:
     errors:
       models:
@@ -229,6 +257,47 @@ en:
           wps_link:
             text: WPS Legal Services panel specification
             url: https://www.gca.gov.uk/agreements/RM6374
+      journey:
+        choose_sector:
+          options:
+            culture: Culture, Media & Sport
+            defence: Defence and Security
+            education: Education
+            government_policy: Government Policy
+            health: Health
+            infrastructure: Infrastructure
+            local_community: Local Community & Housing
+            transport: Transport and Rail
+          question: Please select your customer sector
+        choose_specialisms:
+          no_specialisms_selected: No specialism selected
+          question: Select the legal specialisms you need
+          search_specialisms: Search specialisms
+          specialism_selected: Specialism selected
+          specialisms_selected: Specialisms selected
+        information_about_your_requirement:
+          ccs_can_contact_you:
+            hint: Any follow-up activity is intended to deliver ongoing support
+            question: Can GCA contact you about this search?
+          description: To help GCA understand your needs, please tell us how long this will take and what it’s worth. If you’re not sure at this stage, an estimate can be provided.
+          heading: Information about your requirements
+          replaces_existing_contract:
+            question: Will this requirement replace an existing contract that was previously awarded under a GCA legal services framework?
+          requirement_being_awarded:
+            options:
+              highly_likely: Highly likely
+              likely: Likely
+              possibly: Possibly
+              unlikely: Unlikely
+            question: What is the probability of this requirement being awarded through a GCA framework?
+          requirement_end_date:
+            hint: For example, 3 2026
+            question: What is the intended end date for your requirement?
+          requirement_estimated_total_value:
+            question: What is the estimated total value of your requirement?
+          requirement_start_date:
+            hint: For example, 12 2025
+            question: What is the intended start date for your requirement?
       suppliers:
         rates_table:
           grade: Grade
