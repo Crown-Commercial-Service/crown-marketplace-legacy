@@ -1,0 +1,44 @@
+module LegalServices
+  module RM6374
+    class Journey::InformationAboutYourRequirement
+      DATE_ATTIBUTES = %i[requirement_start_date requirement_end_date].freeze
+
+      include Steppable
+      include DateValidations
+
+      REPLACES_EXISTING_CONTRACT_OPTIONS = %w[yes no].freeze
+      CCS_CAN_CONTACT_YOU_OPTIONS = %w[yes no].freeze
+      REQUIREMENT_BEING_AWARDED = %w[unlikely possibly likely highly_likely].freeze
+
+      attribute :requirement_start_date_day, default: '1'
+      attribute :requirement_start_date_month
+      attribute :requirement_start_date_year
+      attribute :requirement_end_date_day, default: '1'
+      attribute :requirement_end_date_month
+      attribute :requirement_end_date_year
+      attribute :requirement_estimated_total_value, :numeric
+      attribute :replaces_existing_contract
+      attribute :requirement_being_awarded
+      attribute :ccs_can_contact_you
+
+      validate  -> { ensure_date_valid(:requirement_start_date, false) }, unless: -> { requirement_start_date_month.blank? || requirement_start_date_year.blank? }
+      validates :requirement_start_date, presence: true
+
+      validate  -> { ensure_date_valid(:requirement_end_date, false) }, unless: -> { requirement_end_date_month.blank? || requirement_end_date_year.blank? }
+      validates :requirement_end_date, presence: true
+      validate -> { ensure_date_is_after(requirement_end_date, requirement_start_date, :requirement_end_date, :after_requirement_start_date) }
+
+      validates :requirement_estimated_total_value, numericality: { only_integer: true, greater_than: 0, less_than: 1_000_000_000_000 }
+
+      validates :replaces_existing_contract, inclusion: REPLACES_EXISTING_CONTRACT_OPTIONS
+
+      validates :requirement_being_awarded, inclusion: REQUIREMENT_BEING_AWARDED
+
+      validates :ccs_can_contact_you, inclusion: CCS_CAN_CONTACT_YOU_OPTIONS
+
+      def next_step_class
+        Journey::ChooseSector
+      end
+    end
+  end
+end
