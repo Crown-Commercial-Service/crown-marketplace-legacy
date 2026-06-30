@@ -29,8 +29,8 @@ en:
               inclusion: Select your customer sector
         legal_services/rm6374/journey/choose_specialisms:
           attributes:
-            service_numbers:
-              blank: Select at least one legal specialism
+            specialism:
+              inclusion: Select at least one legal service
         legal_services/rm6374/journey/information_about_your_requirement:
           attributes:
             ccs_can_contact_you:
@@ -271,12 +271,12 @@ en:
           question: Please select your customer sector
         choose_specialisms:
           options:
-            full_service: Legal services across a broad range of legal specialisms (Full Service Provision) 
-            specific: Focused support for specific legal specialism(s)
-            dispute_resolution: Legal services in relation to litigation and dispute resolution
-            risk_innovation: Legal services for a project involving increasing levels of risk, innovation, and multiple interdependent factors such as public-private partnerships (PPP), private finance initiative (PFI) and significant commercial and infrastructure schemes
-            transport_highways: Legal services requiring a deep understanding of the transport, rail, highways, maritime, ports aviation and planning industry
             costs_service: Costs Lawyer Services
+            dispute_resolution: Legal services in relation to litigation and dispute resolution
+            full_service: Legal services across a broad range of legal specialisms (Full Service Provision)
+            risk_innovation: Legal services for a project involving increasing levels of risk, innovation, and multiple interdependent factors such as public-private partnerships (PPP), private finance initiative (PFI) and significant commercial and infrastructure schemes
+            specific: Focused support for specific legal specialism(s)
+            transport_highways: Legal services requiring a deep understanding of the transport, rail, highways, maritime, ports aviation and planning industry
           question: Do you require
         information_about_your_requirement:
           ccs_can_contact_you:
