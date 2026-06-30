@@ -3,15 +3,10 @@ module LegalServices
     class Journey::ChooseSpecialisms
       include Steppable
 
-      attribute :sector
-      attribute :service_numbers, :array, default: -> { [] }
-      validates :service_numbers, presence: true
+      SPECIALISM_OPTIONS = %w[full_service specific dispute_resolution risk_innovation transport_highways costs_service].freeze
 
-      def specialisms
-        lot_numbers = sector == 'transport' ? %w[3] : %w[1a 1b 1c 2 3 4 6]
-
-        Service.where(lot_id: lot_numbers.map { |lot_number| "RM6374.#{lot_number}" }).select(:name, 'number::integer').distinct('number::integer').order('number::integer')
-      end
+      attribute :specialism
+      validates :specialism, inclusion: SPECIALISM_OPTIONS
 
       def next_step_class
         Journey::SelectLot
