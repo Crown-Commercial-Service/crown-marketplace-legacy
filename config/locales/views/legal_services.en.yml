@@ -270,11 +270,14 @@ en:
             transport: Transport and Rail
           question: Please select your customer sector
         choose_specialisms:
-          no_specialisms_selected: No specialism selected
-          question: Select the legal specialisms you need
-          search_specialisms: Search specialisms
-          specialism_selected: Specialism selected
-          specialisms_selected: Specialisms selected
+          options:
+            full_service: Legal services across a broad range of legal specialisms (Full Service Provision) 
+            specific: Focused support for specific legal specialism(s)
+            dispute_resolution: Legal services in relation to litigation and dispute resolution
+            risk_innovation: Legal services for a project involving increasing levels of risk, innovation, and multiple interdependent factors such as public-private partnerships (PPP), private finance initiative (PFI) and significant commercial and infrastructure schemes
+            transport_highways: Legal services requiring a deep understanding of the transport, rail, highways, maritime, ports aviation and planning industry
+            costs_service: Costs Lawyer Services
+          question: Do you require
         information_about_your_requirement:
           ccs_can_contact_you:
             hint: Any follow-up activity is intended to deliver ongoing support
