@@ -9,21 +9,7 @@ module LegalServices
       validates :specialism, inclusion: SPECIALISM_OPTIONS
 
       def next_step_class
-        case looking_for
-        when 'full_service'
-          service_name::Journey::FullService
-        when 'specific'
-          service_name::Journey::Specific
-        when 'dispute_resolution'
-          service_name::Journey::DisputeResolution
-        when 'risk_innovation'
-          service_name::Journey::RiskInnovation
-        when 'transport_highways'
-          service_name::Journey::TransportHighways
-        end
-        when 'costs_service'
-          service_name::Journey::CostService
-        end
+        Journey::SelectLot
       end
     end
   end
