@@ -31,6 +31,10 @@ en:
           attributes:
             specialism:
               inclusion: Select at least one legal service
+        legal_services/rm6374/journey/full_service:
+          attributes:
+            service_numbers:
+              blank: Please select a minimum of one legal service to continue
         legal_services/rm6374/journey/information_about_your_requirement:
           attributes:
             ccs_can_contact_you:
@@ -278,6 +282,9 @@ en:
             specific: Focused support for specific legal specialism(s)
             transport_highways: Legal services requiring a deep understanding of the transport, rail, highways, maritime, ports aviation and planning industry
           question: Do you require
+        full_service:
+          heading_1 : Lot 5- Transport rail legal services
+          question: Please confirm legal services required
         information_about_your_requirement:
           ccs_can_contact_you:
             hint: Any follow-up activity is intended to deliver ongoing support
