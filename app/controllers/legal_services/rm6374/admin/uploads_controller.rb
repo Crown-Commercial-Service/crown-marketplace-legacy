@@ -11,10 +11,10 @@ module LegalServices
         end
 
         def upload_params
-          params.require(:legal_services_rm6374_admin_upload).permit(
-            :supplier_details_file,
-            :supplier_geographical_data_file,
-            :supplier_rate_cards_file
+          params.expect(
+            legal_services_rm6374_admin_upload: %i[supplier_details_file
+                                                   supplier_geographical_data_file
+                                                   supplier_rate_cards_file]
           )
         end
       end
