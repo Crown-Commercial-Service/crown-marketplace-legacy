@@ -3,7 +3,7 @@ module LegalServices
     class Journey::ChooseSpecialisms
       include Steppable
 
-      SPECIALISM_OPTIONS = %w[full_service specific dispute_resolution risk_innovation transport_highways costs_service].freeze
+      SPECIALISM_OPTIONS = %w[full_service specific dispute_resolution risk_innovation transport_highways cost_service].freeze
 
       attribute :specialism
       validates :specialism, inclusion: SPECIALISM_OPTIONS
@@ -20,7 +20,7 @@ module LegalServices
           service_name::Journey::RiskInnovation
         when 'transport_highways'
           service_name::Journey::TransportHighways
-        when 'costs_service'
+        when 'cost_service'
           service_name::Journey::CostService
         end
       end

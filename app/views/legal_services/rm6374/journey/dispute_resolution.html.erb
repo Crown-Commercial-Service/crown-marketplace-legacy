@@ -19,7 +19,7 @@
     <div class="govuk-grid-column-two-thirds" id="selection-checkboxes">
       <%= govuk_checkboxes(
         :service_numbers,
-        @journey.current_step.full_service.map do |service|
+        @journey.current_step.dispute_resolution.map do |service|
 
           {
             value: service.number,
@@ -42,7 +42,7 @@
     </div>
 
     <div class="govuk-grid-column-one-third">
-      <%= render partial: 'shared/basket', locals: { form: f, data_text_1:  t('.full_service_selected'), data_text_2: t('.no_full_service_selected'), data_text_3: t('.specialism_selected'), search_text: t('.search_full_services') } %>
+      <%= render partial: 'shared/basket', locals: { form: f, data_text_1:  t('.dispute_resolution_selected'), data_text_2: t('.no_dispute_resolution_selected'), data_text_3: t('.specialism_selected'), search_text: t('.search_dispute_resolutions') } %>
     </div>
   <% end %>
 </div>
