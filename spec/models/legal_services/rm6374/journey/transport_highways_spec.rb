@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe LegalServices::RM6374::Journey::TransportHighways do
-  subject(:step) { described_class.new(service_numbers: service_numbers) }
+  subject(:step) { described_class.new(service_numbers:) }
 
   let(:service_numbers) { ['1'] }
 
@@ -25,9 +25,9 @@ RSpec.describe LegalServices::RM6374::Journey::TransportHighways do
   describe '#transport_highways' do
     it 'returns distinct services for lot RM6374.5 ordered by number' do
       results = step.transport_highways
-      
+
       expect(results.length).to eq(23)
-      expect(results.first.name).to eq('Assimilated Law') 
+      expect(results.first.name).to eq('Assimilated Law')
       expect(results.last.name).to eq('Tax Law')
     end
   end
@@ -46,7 +46,7 @@ RSpec.describe LegalServices::RM6374::Journey::TransportHighways do
 
   describe '.permitted_keys' do
     it 'returns a list of the permitted keys' do
-      expect(described_class.permitted_keys).to eq([:sector, :service_numbers])
+      expect(described_class.permitted_keys).to eq(%i[sector service_numbers])
     end
   end
 
@@ -57,7 +57,7 @@ RSpec.describe LegalServices::RM6374::Journey::TransportHighways do
   end
 
   describe '.slug' do
-    it 'returns transport-highways' do 
+    it 'returns transport-highways' do
       expect(step.slug).to eq('transport-highways')
     end
   end

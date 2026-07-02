@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe LegalServices::RM6374::Journey::CostService do
-  subject(:step) { described_class.new(service_numbers: service_numbers) }
+  subject(:step) { described_class.new(service_numbers:) }
 
   let(:service_numbers) { ['1'] }
 
@@ -20,13 +20,12 @@ RSpec.describe LegalServices::RM6374::Journey::CostService do
         expect(step.errors[:service_numbers]).to include('Please select a minimum of one legal service to continue')
       end
     end
-
   end
 
   describe '#cost_service' do
     it 'returns distinct services for lot RM6374.6 ordered by number' do
       results = step.cost_service
-      
+
       expect(results.length).to eq(2)
       expect(results.first.name).to eq('Clinical Negligence Specialist Services')
       expect(results.last.name).to eq('General Costs Law Services')
@@ -47,7 +46,7 @@ RSpec.describe LegalServices::RM6374::Journey::CostService do
 
   describe '.permitted_keys' do
     it 'returns a list of the permitted keys' do
-      expect(described_class.permitted_keys).to eq([:sector, :service_numbers])
+      expect(described_class.permitted_keys).to eq(%i[sector service_numbers])
     end
   end
 

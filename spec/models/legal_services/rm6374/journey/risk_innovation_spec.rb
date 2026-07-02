@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe LegalServices::RM6374::Journey::RiskInnovation do
-  subject(:step) { described_class.new(service_numbers: service_numbers) }
+  subject(:step) { described_class.new(service_numbers:) }
 
   let(:service_numbers) { ['1'] }
 
@@ -25,7 +25,7 @@ RSpec.describe LegalServices::RM6374::Journey::RiskInnovation do
   describe '#risk_innovation' do
     it 'returns distinct services for lot RM6374.4 ordered by number' do
       results = step.risk_innovation
-      
+
       expect(results.length).to eq(11)
       expect(results.first.name).to eq('Competition Law')
       expect(results.last.name).to eq('Public-Private Partnerships (PPP)')
@@ -46,7 +46,7 @@ RSpec.describe LegalServices::RM6374::Journey::RiskInnovation do
 
   describe '.permitted_keys' do
     it 'returns a list of the permitted keys' do
-      expect(described_class.permitted_keys).to eq([:sector, :service_numbers])
+      expect(described_class.permitted_keys).to eq(%i[sector service_numbers])
     end
   end
 
