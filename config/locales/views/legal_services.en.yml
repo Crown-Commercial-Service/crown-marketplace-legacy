@@ -51,8 +51,9 @@ en:
             requirement_start_date:
               blank: Enter the intended start date, including the month and year
               invalid: Enter a real date for the intended start date
-      activerecord:
-        models:
+  activerecord:
+    errors:
+      models:       
         legal_services/rm6240/admin/upload:
           attributes:
             supplier_details_file:
