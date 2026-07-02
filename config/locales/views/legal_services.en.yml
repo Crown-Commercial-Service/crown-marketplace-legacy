@@ -31,20 +31,11 @@ en:
           attributes:
             specialism:
               inclusion: Select at least one legal service
-        legal_services/rm6374/journey/dispute_resolution:
-          attributes:
-            service_numbers:
-              blank: Please select a minimum of one legal service to continue
-
-        legal_services/rm6374/journey/risk_innovation:
-          attributes:
-            service_numbers:
-              blank: Please select a minimum of one legal service to continue
-        legal_services/rm6374/journey/transport_highways:
-          attributes:
-            service_numbers:
-              blank: Please select a minimum of one legal service to continue
         legal_services/rm6374/journey/cost_service:
+          attributes:
+            service_numbers:
+              blank: Please select a minimum of one legal service to continue
+        legal_services/rm6374/journey/dispute_resolution:
           attributes:
             service_numbers:
               blank: Please select a minimum of one legal service to continue
@@ -68,6 +59,14 @@ en:
             requirement_start_date:
               blank: Enter the intended start date, including the month and year
               invalid: Enter a real date for the intended start date
+        legal_services/rm6374/journey/risk_innovation:
+          attributes:
+            service_numbers:
+              blank: Please select a minimum of one legal service to continue
+        legal_services/rm6374/journey/transport_highways:
+          attributes:
+            service_numbers:
+              blank: Please select a minimum of one legal service to continue
   activerecord:
     errors:
       models:
@@ -295,17 +294,11 @@ en:
             specific: Focused support for specific legal specialism(s)
             transport_highways: Legal services requiring a deep understanding of the transport, rail, highways, maritime, ports aviation and planning industry
           question: Do you require
-        dispute_resolution:
-          heading_1 : Lot 3- Legal Services in relation to Litigation and Dispute Resolution
-          question: Please confirm legal services required
-        risk_innovation:
-          heading_1 : Lot 4- Legal services for a project involving increasing levels of risk, innovation, and multiple interdependent factors such as public-private partnerships (PPP), private finance initiative (PFI) and significant commercial and infrastructure schemes
-          question: Please confirm legal services required
-        transport_highways:
-          heading_1 : Lot 5- Transport rail legal services
-          question: Please confirm legal services required
         cost_service:
-          heading_1 : Lot 6- Costs Lawyer Services
+          heading_1: Lot 6- Costs Lawyer Services
+          question: Please confirm legal services required
+        dispute_resolution:
+          heading_1: Lot 3- Legal Services in relation to Litigation and Dispute Resolution
           question: Please confirm legal services required
         information_about_your_requirement:
           ccs_can_contact_you:
@@ -330,6 +323,12 @@ en:
           requirement_start_date:
             hint: For example, 12 2025
             question: What is the intended start date for your requirement?
+        risk_innovation:
+          heading_1: Lot 4- Legal services for a project involving increasing levels of risk, innovation, and multiple interdependent factors such as public-private partnerships (PPP), private finance initiative (PFI) and significant commercial and infrastructure schemes
+          question: Please confirm legal services required
+        transport_highways:
+          heading_1: Lot 5- Transport rail legal services
+          question: Please confirm legal services required
       suppliers:
         rates_table:
           grade: Grade

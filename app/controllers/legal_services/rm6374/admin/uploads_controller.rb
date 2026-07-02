@@ -11,7 +11,7 @@ module LegalServices
         end
 
         def upload_params
-         params.expect(legal_services_rm6374_admin_upload: %i[supplier_details_file supplier_geographical_data_file supplier_rate_cards_file ]) if params[:legal_services_rm6374_admin_upload].present?
+          params.expect(legal_services_rm6374_admin_upload: %i[supplier_details_file supplier_geographical_data_file supplier_rate_cards_file]) if params[:legal_services_rm6374_admin_upload].present?
         end
       end
     end

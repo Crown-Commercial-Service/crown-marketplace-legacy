@@ -12,7 +12,7 @@ module LegalServices
       end
 
       def next_step_class
-        Journey::SelectLot
+        Journey::ChooseJurisdiction
       end
     end
   end
