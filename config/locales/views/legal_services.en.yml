@@ -3,6 +3,56 @@ en:
   activemodel:
     errors:
       models:
+        legal_services/rm6240/journey/check_suitability:
+          attributes:
+            service_suitable:
+              inclusion: Select yes if your requirements allow you to continue
+        legal_services/rm6240/journey/choose_jurisdiction:
+          attributes:
+            jurisdiction:
+              inclusion: Select the jurisdiction you need
+        legal_services/rm6240/journey/choose_organisation_type:
+          attributes:
+            central_government:
+              inclusion: Select yes if you work for central government
+        legal_services/rm6240/journey/choose_services:
+          attributes:
+            service_numbers:
+              blank: Select at least one legal service
+        legal_services/rm6240/journey/select_lot:
+          attributes:
+            lot_number:
+              blank: Select the lot you need
+        legal_services/rm6374/journey/choose_sector:
+          attributes:
+            sector:
+              inclusion: Select your customer sector
+        legal_services/rm6374/journey/choose_specialisms:
+          attributes:
+            specialism:
+              inclusion: Select at least one legal service
+        legal_services/rm6374/journey/information_about_your_requirement:
+          attributes:
+            ccs_can_contact_you:
+              inclusion: You must select an option
+            replaces_existing_contract:
+              inclusion: You must select an option
+            requirement_being_awarded:
+              inclusion: You must select an option for the probability of awarding through a GCA framework
+            requirement_end_date:
+              after_requirement_start_date: The intended end date must be after the intended start date
+              blank: Enter the intended end date, including the month and year
+              invalid: Enter a real date for the intended end date
+            requirement_estimated_total_value:
+              greater_than: The estimated total value must be a whole number greater than 0
+              less_than: The estimated total value must be less than 1,000,000,000,000 (1 trillion)
+              not_a_number: The estimated total value must be a whole number greater than 0
+              not_an_integer: The estimated total value must be a whole number greater than 0
+            requirement_start_date:
+              blank: Enter the intended start date, including the month and year
+              invalid: Enter a real date for the intended start date
+      activerecord:
+        models:
         legal_services/rm6240/admin/upload:
           attributes:
             supplier_details_file:
