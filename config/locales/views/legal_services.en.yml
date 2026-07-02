@@ -31,6 +31,22 @@ en:
           attributes:
             specialism:
               inclusion: Select at least one legal service
+        legal_services/rm6374/journey/cost_service:
+          attributes:
+            service_numbers:
+              blank: Please select a minimum of one legal service to continue
+        legal_services/rm6374/journey/dispute_resolution:
+          attributes:
+            service_numbers:
+              blank: Please select a minimum of one legal service to continue
+        legal_services/rm6374/journey/risk_innovation:
+          attributes:
+            service_numbers:
+              blank: Please select a minimum of one legal service to continue
+        legal_services/rm6374/journey/transport_highways:
+          attributes:
+            service_numbers:
+              blank: Please select a minimum of one legal service to continue
         legal_services/rm6374/journey/information_about_your_requirement:
           attributes:
             ccs_can_contact_you:
@@ -53,7 +69,7 @@ en:
               invalid: Enter a real date for the intended start date
   activerecord:
     errors:
-      models:       
+      models:
         legal_services/rm6240/admin/upload:
           attributes:
             supplier_details_file:
