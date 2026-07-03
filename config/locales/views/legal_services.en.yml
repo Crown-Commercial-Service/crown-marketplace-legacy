@@ -297,13 +297,13 @@ en:
         cost_service:
           cost_service_selected: Cost service selected
           no_cost_service_selected: 0 cost services selected
-          question: Select legal services required 
+          question: Select legal services required
           search_cost_services: Search cost services
           specialism_selected: specialism selected
         dispute_resolution:
           dispute_resolution_selected: Dispute resolution selected
           no_dispute_resolution_selected: 0 dispute resolutions selected
-          question: Select legal services required 
+          question: Select legal services required
           search_dispute_resolutions: Search dispute resolutions
           specialism_selected: specialism selected
         information_about_your_requirement:
@@ -331,7 +331,7 @@ en:
             question: What is the intended start date for your requirement?
         risk_innovation:
           no_risk_innovation_selected: 0 risk innovations selected
-          question: Select legal services required 
+          question: Select legal services required
           risk_innovation_selected: Risk innovation selected
           search_risk_innovations: Search risk innovations
           specialism_selected: specialism selected
