@@ -308,20 +308,6 @@ en:
           question: Please confirm legal services required
           search_dispute_resolutions: Search dispute resolutions
           specialism_selected: specialism selected
-        risk_innovation:
-          heading_1: Lot 4- Legal services for a project involving increasing levels of risk, innovation, and multiple interdependent factors such as public-private partnerships (PPP), private finance initiative (PFI) and significant commercial and infrastructure schemes
-          question: Please confirm legal services required
-          risk_innovation_selected: Risk innovation selected
-          no_risk_innovation_selected: 0 risk innovations selected
-          search_risk_innovations: Search risk innovations
-          specialism_selected: specialism selected
-        transport_highways:
-          heading_1: Lot 5- Transport rail legal services
-          question: Please confirm legal services required
-          transport_highways_selected: Transport highways selected
-          no_transport_highways_selected: 0 transport highways selected
-          search_transport_highwayss: Search transport highways
-          specialism_selected: specialism selected
         information_about_your_requirement:
           ccs_can_contact_you:
             hint: Any follow-up activity is intended to deliver ongoing support
@@ -345,6 +331,20 @@ en:
           requirement_start_date:
             hint: For example, 12 2025
             question: What is the intended start date for your requirement?
+        risk_innovation:
+          heading_1: Lot 4- Legal services for a project involving increasing levels of risk, innovation, and multiple interdependent factors such as public-private partnerships (PPP), private finance initiative (PFI) and significant commercial and infrastructure schemes
+          no_risk_innovation_selected: 0 risk innovations selected
+          question: Please confirm legal services required
+          risk_innovation_selected: Risk innovation selected
+          search_risk_innovations: Search risk innovations
+          specialism_selected: specialism selected
+        transport_highways:
+          heading_1: Lot 5- Transport rail legal services
+          no_transport_highways_selected: 0 transport highways selected
+          question: Please confirm legal services required
+          search_transport_highwayss: Search transport highways
+          specialism_selected: specialism selected
+          transport_highways_selected: Transport highways selected
       suppliers:
         rates_table:
           grade: Grade
