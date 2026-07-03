@@ -296,16 +296,14 @@ en:
           question: Do you require
         cost_service:
           cost_service_selected: Cost service selected
-          heading_1: Lot 6- Costs Lawyer Services
           no_cost_service_selected: 0 cost services selected
-          question: Please confirm legal services required
+          question: Select legal services required 
           search_cost_services: Search cost services
           specialism_selected: specialism selected
         dispute_resolution:
           dispute_resolution_selected: Dispute resolution selected
-          heading_1: Lot 3- Legal Services in relation to Litigation and Dispute Resolution
           no_dispute_resolution_selected: 0 dispute resolutions selected
-          question: Please confirm legal services required
+          question: Select legal services required 
           search_dispute_resolutions: Search dispute resolutions
           specialism_selected: specialism selected
         information_about_your_requirement:
@@ -332,16 +330,14 @@ en:
             hint: For example, 12 2025
             question: What is the intended start date for your requirement?
         risk_innovation:
-          heading_1: Lot 4- Legal services for a project involving increasing levels of risk, innovation, and multiple interdependent factors such as public-private partnerships (PPP), private finance initiative (PFI) and significant commercial and infrastructure schemes
           no_risk_innovation_selected: 0 risk innovations selected
-          question: Please confirm legal services required
+          question: Select legal services required 
           risk_innovation_selected: Risk innovation selected
           search_risk_innovations: Search risk innovations
           specialism_selected: specialism selected
         transport_highways:
-          heading_1: Lot 5- Transport rail legal services
           no_transport_highways_selected: 0 transport highways selected
-          question: Please confirm legal services required
+          question: Select legal services required
           search_transport_highwayss: Search transport highways
           specialism_selected: specialism selected
           transport_highways_selected: Transport highways selected
