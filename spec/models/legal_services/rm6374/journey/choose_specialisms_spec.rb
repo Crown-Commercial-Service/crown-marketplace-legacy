@@ -33,7 +33,7 @@ RSpec.describe LegalServices::RM6374::Journey::ChooseSpecialisms do
 
   describe '.next_step_class' do
     it 'returns Journey::ChooseSpecialisms' do
-      expect(step.next_step_class).to be LegalServices::RM6374::Journey::SelectLot
+      expect(step.next_step_class).to be LegalServices::RM6374::Journey::FullService
     end
   end
 

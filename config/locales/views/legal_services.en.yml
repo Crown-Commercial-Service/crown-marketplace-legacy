@@ -31,6 +31,14 @@ en:
           attributes:
             specialism:
               inclusion: Select at least one legal service
+        legal_services/rm6374/journey/cost_service:
+          attributes:
+            service_numbers:
+              blank: Please select a minimum of one legal service to continue
+        legal_services/rm6374/journey/dispute_resolution:
+          attributes:
+            service_numbers:
+              blank: Please select a minimum of one legal service to continue
         legal_services/rm6374/journey/information_about_your_requirement:
           attributes:
             ccs_can_contact_you:
@@ -51,6 +59,14 @@ en:
             requirement_start_date:
               blank: Enter the intended start date, including the month and year
               invalid: Enter a real date for the intended start date
+        legal_services/rm6374/journey/risk_innovation:
+          attributes:
+            service_numbers:
+              blank: Please select a minimum of one legal service to continue
+        legal_services/rm6374/journey/transport_highways:
+          attributes:
+            service_numbers:
+              blank: Please select a minimum of one legal service to continue
   activerecord:
     errors:
       models:
@@ -271,13 +287,25 @@ en:
           question: Please select your customer sector
         choose_specialisms:
           options:
-            costs_service: Costs Lawyer Services
+            cost_service: Costs Lawyer Services
             dispute_resolution: Legal services in relation to litigation and dispute resolution
             full_service: Legal services across a broad range of legal specialisms (Full Service Provision)
             risk_innovation: Legal services for a project involving increasing levels of risk, innovation, and multiple interdependent factors such as public-private partnerships (PPP), private finance initiative (PFI) and significant commercial and infrastructure schemes
             specific: Focused support for specific legal specialism(s)
             transport_highways: Legal services requiring a deep understanding of the transport, rail, highways, maritime, ports aviation and planning industry
           question: Do you require
+        cost_service:
+          cost_service_selected: Cost service selected
+          no_cost_service_selected: 0 cost services selected
+          question: Select legal services required
+          search_cost_services: Search cost services
+          specialism_selected: specialism selected
+        dispute_resolution:
+          dispute_resolution_selected: Dispute resolution selected
+          no_dispute_resolution_selected: 0 dispute resolutions selected
+          question: Select legal services required
+          search_dispute_resolutions: Search dispute resolutions
+          specialism_selected: specialism selected
         information_about_your_requirement:
           ccs_can_contact_you:
             hint: Any follow-up activity is intended to deliver ongoing support
@@ -301,6 +329,18 @@ en:
           requirement_start_date:
             hint: For example, 12 2025
             question: What is the intended start date for your requirement?
+        risk_innovation:
+          no_risk_innovation_selected: 0 risk innovations selected
+          question: Select legal services required
+          risk_innovation_selected: Risk innovation selected
+          search_risk_innovations: Search risk innovations
+          specialism_selected: specialism selected
+        transport_highways:
+          no_transport_highways_selected: 0 transport highways selected
+          question: Select legal services required
+          search_transport_highwayss: Search transport highways
+          specialism_selected: specialism selected
+          transport_highways_selected: Transport highways selected
       suppliers:
         rates_table:
           grade: Grade
