@@ -14,7 +14,7 @@
     <div class="govuk-grid-column-two-thirds" id="selection-checkboxes">
       <%= govuk_checkboxes(
         :service_numbers,
-        @journey.current_step.cost_service.map do |service|
+        @journey.current_step.dispute_resolution.sort_by { |s| s.name.downcase }.map do |service|
 
           {
             value: service.number,
