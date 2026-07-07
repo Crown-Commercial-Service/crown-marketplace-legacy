@@ -67,6 +67,10 @@ en:
           attributes:
             service_numbers:
               blank: Please select a minimum of one legal service to continue
+        legal_services/rm6374/journey/choose_jurisdiction:
+          attributes:
+            jurisdiction:
+              inclusion: Select the jurisdiction you need
   activerecord:
     errors:
       models:
