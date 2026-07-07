@@ -46,11 +46,17 @@
           </p>
         </div>
       </div>
+
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-full">
-          <%= govuk_button(t('.download_suppliers_list'), href: download_legal_services_suppliers_path) %>
+          <% if params[:framework] == 'RM6374' %>
+            <%= govuk_button(t('.download_suppliers_list'), href: download_legal_services_rm6374_suppliers_path(request.query_parameters)) %>
+          <% else %>
+            <%= govuk_button(t('.download_suppliers_list'), href: download_legal_services_suppliers_path(request.query_parameters)) %>
+          <% end %>
         </div>
       </div>
+
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds ccs-search-results">
           <ul class="ccs-results-list">
