@@ -23,6 +23,10 @@ en:
           attributes:
             lot_number:
               blank: Select the lot you need
+        legal_services/rm6374/journey/choose_jurisdiction:
+          attributes:
+            jurisdiction:
+              inclusion: Select the jurisdiction you need
         legal_services/rm6374/journey/choose_sector:
           attributes:
             sector:
@@ -122,6 +126,7 @@ en:
           a: England and Wales
           b: Scotland
           c: Northern Ireland
+        other_jurisdictions: For other jurisdictions, please contact suppliers directly to confirm coverage
         question: Select the jurisdiction you need
       choose_organisation_type:
         question: Do you work for central government?
