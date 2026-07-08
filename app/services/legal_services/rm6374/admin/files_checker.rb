@@ -59,7 +59,7 @@ class LegalServices::RM6374::Admin::FilesChecker
 
   # TODO: Define the sheet names expected in the new geographical data file.
   GEOGRAPHICAL_DATA_SHEETS = ['Sheet 1', 'Sheet 2'].freeze
-  
+
   # TODO: Set the correct number of expected columns for the geographical data file.
   GEOGRAPHICAL_DATA_EXPECTED_COLUMNS = 5
 

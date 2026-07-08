@@ -50,7 +50,7 @@ class LegalServices::RM6374::Admin::FilesProcessor < FilesProcessor
 
   def add_supplier_geographical_data(geographical_data_workbook)
     # TODO: Implement parsing logic for the geographical data workbook.
-    # 
+    #
     # Example approach based on other methods:
     # 1. Iterate through sheets/rows.
     # 2. Extract the DUNS number to find the supplier: `supplier = get_supplier(supplier_duns)`
