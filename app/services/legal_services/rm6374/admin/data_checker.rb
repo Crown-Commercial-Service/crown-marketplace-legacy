@@ -1,1 +1,1 @@
-class LegalServices::RM6240::Admin::DataChecker < DataChecker; end
+class LegalServices::RM6374::Admin::DataChecker < DataChecker; end
