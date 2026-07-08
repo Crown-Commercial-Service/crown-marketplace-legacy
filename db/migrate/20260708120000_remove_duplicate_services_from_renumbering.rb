@@ -12,12 +12,12 @@ class RemoveDuplicateServicesFromRenumbering < ActiveRecord::Migration[8.1]
   SERVICES_FILE_PATH = Rails.root.join('data', 'services.csv')
 
   def up
-    current_ids = CSV.read(SERVICES_FILE_PATH, headers: true).map { |row| row['id'] }.to_set
+    current_ids = CSV.read(SERVICES_FILE_PATH, headers: true).to_set { |row| row['id'] }
 
     duplicate_groups = Services.group(:lot_id, :name).having('count(services.id) > 1').count
 
     duplicate_groups.each_key do |lot_id, name|
-      rows = Services.where(lot_id: lot_id, name: name).to_a
+      rows = Services.where(lot_id:, name:).to_a
       keepers, orphans = rows.partition { |row| current_ids.include?(row.id) }
 
       next unless keepers.size == 1
