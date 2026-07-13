@@ -17,10 +17,8 @@ module LegalServices
       ].freeze
 
       attribute :professions, :array
-      
+
       validates :professions, presence: true
-
-
     end
   end
 end
