@@ -346,6 +346,9 @@ en:
           search_transport_highwayss: Search transport highways
           specialism_selected: specialism selected
           transport_highways_selected: Transport highways selected
+        choose_law_professionals:
+          question: Please select which type of law professionals you seek to compare
+          hint: If you know the grades required, please select them below. Only rates for the selected grades will be included in the results
       suppliers:
         rates_table:
           grade: Grade
@@ -362,7 +365,6 @@ en:
         can_provide_legal_services: can provide legal services that meet your requirements.
         can_provide_legal_specialisms_html: "<span class='govuk-!-font-weight-bold'>%{count} suppliers</span> can provide the legal specialisms that meet your requirements."
         compare_supplier_rates: Compare the supplier rates
-        download_supplier_list: Download the supplier list
         download_suppliers_list: Download the supplier list
         heading: Supplier results
         no_suppliers_found:

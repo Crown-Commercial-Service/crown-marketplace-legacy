@@ -50,7 +50,7 @@
           <div class="govuk-grid-column-full">
             <div class="govuk-button-group">
               <%= govuk_button(t('.compare_supplier_rates'), href: legal_services_journey_question_path(framework: 'RM6374', slug: 'choose-law-professionals', **request.query_parameters.symbolize_keys)) %>
-              <%= govuk_button(t('.download_supplier_list'), href: download_legal_services_rm6374_suppliers_path(request.query_parameters), classes: 'govuk-button--secondary') %>
+              <%= govuk_button(t('.download_suppliers_list'), href: download_legal_services_rm6374_suppliers_path(request.query_parameters), classes: 'govuk-button--secondary') %>
             </div>
           </div>
         </div>
