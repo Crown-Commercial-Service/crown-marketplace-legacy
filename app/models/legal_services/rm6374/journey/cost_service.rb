@@ -13,7 +13,7 @@ module LegalServices
       end
 
       def next_step_class
-        Journey::ChooseJurisdiction
+        Journey::Suppliers
       end
     end
   end

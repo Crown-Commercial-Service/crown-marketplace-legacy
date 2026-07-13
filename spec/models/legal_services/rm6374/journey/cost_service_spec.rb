@@ -33,8 +33,8 @@ RSpec.describe LegalServices::RM6374::Journey::CostService do
   end
 
   describe '.next_step_class' do
-    it 'returns Journey::ChooseJurisdiction' do
-      expect(step.next_step_class).to eq(LegalServices::RM6374::Journey::ChooseJurisdiction)
+    it 'returns Journey::Suppliers' do
+      expect(step.next_step_class).to eq(LegalServices::RM6374::Journey::Suppliers)
     end
   end
 
