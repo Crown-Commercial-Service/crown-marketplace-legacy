@@ -5,6 +5,7 @@
     <span class="govuk-caption-xl">
       <%= full_lot_name(@lot) %>
     </span>
+    
     <% if @supplier_frameworks.count.zero? %>
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
@@ -33,24 +34,47 @@
       </div>
     <% else %>
       <h1 class="govuk-heading-xl govuk-!-margin-bottom-4 govuk-!-margin-top-0"><%= t('.heading') %></h1>
-      <div class="govuk-grid-row">
-        <div class="govuk-grid-column-full">
-          <p class="govuk-body">
-            <span class='govuk-!-font-weight-bold'>
-              <span class='govuk-!-font-size-27 govuk-!-font-weight-bold'>
-                <%= @supplier_frameworks.count %>
+      
+      <% if params[:framework] == 'RM6374' %>
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-full">
+            <p class="govuk-body">
+              <%= t('.can_provide_legal_specialisms_html', count: @supplier_frameworks.count) %>
+            </p>
+            <p class="govuk-body">
+              <%= t('.assessment_advice') %>
+            </p>
+          </div>
+        </div>
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-full">
+            <div class="govuk-button-group">
+              <%= govuk_button(t('.compare_supplier_rates'), href: legal_services_journey_question_path(framework: 'RM6374', slug: 'choose-law-professionals', **request.query_parameters.symbolize_keys)) %>
+              <%= govuk_button(t('.download_supplier_list'), href: download_legal_services_rm6374_suppliers_path(request.query_parameters), classes: 'govuk-button--secondary') %>
+            </div>
+          </div>
+        </div>
+      <% else %>
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-full">
+            <p class="govuk-body">
+              <span class='govuk-!-font-weight-bold'>
+                <span class='govuk-!-font-size-27 govuk-!-font-weight-bold'>
+                  <%= @supplier_frameworks.count %>
+                </span>
+                <%= t('.supplier').pluralize(@supplier_frameworks.count) %>
               </span>
-              <%= t('.supplier').pluralize(@supplier_frameworks.count) %>
-            </span>
-            <%= t('.can_provide_legal_services') %>
-          </p>
+              <%= t('.can_provide_legal_services') %>
+            </p>
+          </div>
         </div>
-      </div>
-      <div class="govuk-grid-row">
-        <div class="govuk-grid-column-full">
-          <%= govuk_button(t('.download_suppliers_list'), href: download_legal_services_suppliers_path) %>
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-full">
+            <%= govuk_button(t('.download_suppliers_list'), href: download_legal_services_suppliers_path) %>
+          </div>
         </div>
-      </div>
+      <% end %>
+
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds ccs-search-results">
           <ul class="ccs-results-list">

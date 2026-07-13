@@ -8,7 +8,7 @@ module LegalServices
       end
 
       def next_step_class
-        Journey::SelectLot
+        Journey::Suppliers
       end
     end
   end

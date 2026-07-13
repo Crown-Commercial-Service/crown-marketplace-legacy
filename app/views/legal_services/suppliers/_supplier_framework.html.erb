@@ -1,6 +1,11 @@
 <li>
   <h2 class="govuk-heading-m">
-    <%= link_to supplier_framework.supplier_name, legal_services_supplier_path(supplier_framework), class: 'govuk-link ccs-no-underline' %>
+    <% if params[:framework] == 'RM6374' %>
+      <%= link_to supplier_framework.supplier_name, legal_services_rm6374_supplier_path(supplier_framework), class: 'govuk-link ccs-no-underline' %>
+    <% else %>
+      <%= link_to supplier_framework.supplier_name, legal_services_supplier_path(supplier_framework), class: 'govuk-link ccs-no-underline' %>
+    <% end %>
+    
     <% if supplier_framework.supplier.sme %>
       <%= govuk_tag(t('sme'), 'grey', classes: 'ccs-tag') %>
     <% end %>

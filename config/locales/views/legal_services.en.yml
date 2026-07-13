@@ -361,6 +361,10 @@ en:
         can_provide_legal_services: can provide legal services that meet your requirements.
         download_suppliers_list: Download the supplier list
         heading: Supplier results
+        can_provide_legal_specialisms_html: <span class='govuk-!-font-weight-bold'>%{count} suppliers</span> can provide the legal specialisms that meet your requirements.
+        assessment_advice: You may wish to undertake an assessment using the suppliers prospectus’ at this stage to help your down selection process. You can do this by using the links provided here or in a downloadable list by clicking "Download the supplier list"
+        compare_supplier_rates: Compare the supplier rates
+        download_supplier_list: Download the supplier list
         no_suppliers_found:
           contact_html: "%{contact_link} for help."
           contact_link_text: Contact GCA Support
