@@ -279,6 +279,9 @@ en:
             text: WPS Legal Services panel specification
             url: https://www.gca.gov.uk/agreements/RM6374
       journey:
+        choose_law_professionals:
+          hint: If you know the grades required, please select them below. Only rates for the selected grades will be included in the results
+          question: Please select which type of law professionals you seek to compare
         choose_sector:
           options:
             culture: Culture, Media & Sport
@@ -346,9 +349,6 @@ en:
           search_transport_highwayss: Search transport highways
           specialism_selected: specialism selected
           transport_highways_selected: Transport highways selected
-        choose_law_professionals:
-          question: Please select which type of law professionals you seek to compare
-          hint: If you know the grades required, please select them below. Only rates for the selected grades will be included in the results
       suppliers:
         rates_table:
           grade: Grade
