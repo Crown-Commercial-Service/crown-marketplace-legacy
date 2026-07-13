@@ -17,6 +17,11 @@ module LegalServices
       ].freeze
 
       attribute :professions, :array
+      attribute :lot_number, :string
+
+      def lot
+        Lot.find("RM6374.#{lot_number}")
+      end
 
       validates :professions, presence: true
     end

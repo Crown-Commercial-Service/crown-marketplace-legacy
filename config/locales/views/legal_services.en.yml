@@ -282,6 +282,17 @@ en:
         choose_law_professionals:
           hint: If you know the grades required, please select them below. Only rates for the selected grades will be included in the results
           question: Please select which type of law professionals you seek to compare
+          options:
+            partner: Partner
+            legal_director: Legal Director/ Counsel or equivalent
+            senior_solicitor: Senior Solicitor, Senior Associate/Senior Legal Executive
+            solicitor: Solicitor, Associate/Legal Executive 
+            nq_solicitor: NQ Solicitor/Associate, Junior Solicitor/Associate/Legal Executive
+            trainee: Trainee/Legal Apprentice
+            paralegal: Paralegal, Legal Assistant
+            legal_project_manager: Legal Project Managers
+            legal_document_reviewer: Legal Document Reviewers, Document Reviewers
+            all: Select all grades for comparison
         choose_sector:
           options:
             culture: Culture, Media & Sport

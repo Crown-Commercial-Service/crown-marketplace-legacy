@@ -1,3 +1,8 @@
+<%
+  if params[:framework].to_s.casecmp('rm6374').zero?
+    @back_path = request.referer.presence || legal_services_journey_question_path(framework: 'rm6374', slug: 'choose-jurisdiction', **request.query_parameters.symbolize_keys)
+  end
+%>
 <%= content_for :page_title, t('.page_title')  %>
 
 <div class="govuk-grid-row">
