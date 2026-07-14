@@ -3,8 +3,14 @@ module LegalServices
     class Journey::Suppliers
       include Steppable
 
+      attribute :lot_number, :string
+
       def next_step_class
-        Journey::ChooseLawProfessionals
+        if lot_number == '6'
+          Journey::ChooseCostsLawProfessionals
+        else
+          Journey::ChooseLawProfessionals
+        end
       end
     end
   end
