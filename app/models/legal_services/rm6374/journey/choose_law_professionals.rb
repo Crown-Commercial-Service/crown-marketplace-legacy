@@ -24,6 +24,10 @@ module LegalServices
       end
 
       validates :professions, presence: true
+
+      def next_step_class
+        Journey::ChooseCallOffMechanism
+      end
     end
   end
 end

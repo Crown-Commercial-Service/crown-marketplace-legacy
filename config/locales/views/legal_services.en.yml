@@ -23,6 +23,10 @@ en:
           attributes:
             lot_number:
               blank: Select the lot you need
+        legal_services/rm6374/journey/choose_call_off_mechanism:
+          attributes:
+            call_off_mechanism:
+              blank: Please select an option below
         legal_services/rm6374/journey/choose_costs_law_professionals:
           attributes:
             professions:
@@ -287,6 +291,13 @@ en:
             text: WPS Legal Services panel specification
             url: https://www.gca.gov.uk/agreements/RM6374
       journey:
+        choose_call_off_mechanism:
+          answer:
+            award_with_direct_competition: Award with direct competition
+            quotation_process: Quotation Process
+            rapid_award: Rapid Award
+          hint: Please select the call off award mechanism being used
+          question: Have you reviewed the suppliers' prospectus to inform your down-selection?
         choose_costs_law_professionals:
           hint: If you know the grades required, please select them below. Only rates for the selected grades will be included in the results
           options:
