@@ -1,8 +1,13 @@
 <%
   if params[:framework].to_s.casecmp('rm6374').zero?
-    @back_path = request.referer.presence || legal_services_journey_question_path(framework: 'rm6374', slug: 'choose-jurisdiction', **request.query_parameters.symbolize_keys)
+    clean_params = request.query_parameters.except(:commit, :utf8).symbolize_keys
+    
+    previous_slug = @lot.number == '6' ? 'cost-service' : 'choose-jurisdiction'
+    
+    @back_path = legal_services_journey_question_path(framework: 'RM6374', slug: previous_slug, **clean_params)
   end
 %>
+
 <%= content_for :page_title, t('.page_title')  %>
 
 <div class="govuk-grid-row">
@@ -40,7 +45,7 @@
     <% else %>
       <h1 class="govuk-heading-xl govuk-!-margin-bottom-4 govuk-!-margin-top-0"><%= t('.heading') %></h1>
       
-      <% if params[:framework] == 'RM6374' %>
+      <% if params[:framework].to_s.casecmp('rm6374').zero? %>
         <div class="govuk-grid-row">
           <div class="govuk-grid-column-full">
             <p class="govuk-body">
@@ -54,7 +59,11 @@
         <div class="govuk-grid-row">
           <div class="govuk-grid-column-full">
             <div class="govuk-button-group">
-              <%= govuk_button(t('.compare_supplier_rates'), href: legal_services_journey_question_path(framework: 'RM6374', slug: 'choose-law-professionals', **request.query_parameters.symbolize_keys)) %>
+              <% professional_slug = @lot.number == '6' ? 'choose-costs-law-professionals' : 'choose-law-professionals' %>
+              
+              <%# Use clean_params here so the new page loads fresh without errors %>
+              <%= govuk_button(t('.compare_supplier_rates'), href: legal_services_journey_question_path(framework: 'RM6374', slug: professional_slug, **clean_params)) %>
+              
               <%= govuk_button(t('.download_suppliers_list'), href: download_legal_services_rm6374_suppliers_path(request.query_parameters), classes: 'govuk-button--secondary') %>
             </div>
           </div>

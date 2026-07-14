@@ -23,10 +23,18 @@ en:
           attributes:
             lot_number:
               blank: Select the lot you need
+        legal_services/rm6374/journey/choose_costs_law_professionals:
+          attributes:
+            professions:
+              blank: Please select a minimum of one profession
         legal_services/rm6374/journey/choose_jurisdiction:
           attributes:
             jurisdiction:
               inclusion: Select the jurisdiction you need
+        legal_services/rm6374/journey/choose_law_professionals:
+          attributes:
+            professions:
+              blank: Please select a minimum of one profession
         legal_services/rm6374/journey/choose_sector:
           attributes:
             sector:
@@ -279,6 +287,24 @@ en:
             text: WPS Legal Services panel specification
             url: https://www.gca.gov.uk/agreements/RM6374
       journey:
+        choose_costs_law_professionals:
+          hint: If you know the grades required, please select them below. Only rates for the selected grades will be included in the results
+          options:
+            all:
+              label: Select all grades for comparison
+            grade_a:
+              hint: Solicitor/Costs Lawyer/Chartered Legal Executive/Law Costs Draftsman/Fellow Costs Lawyer/Legal Executives and Fee Earners with Equivalent Experience
+              label: 'Grade A: Individual with more than 8 years cost litigation experience'
+            grade_b:
+              hint: Solicitor/Costs Lawyer/Chartered Legal Executive/Law Costs Draftsman/Fellow Costs Lawyer/Legal Executives and Fee Earners or Equivalent Experience with more than 8 years experience
+              label: 'Grade B: Individual with less than 4 years cost litigation experience'
+            grade_c:
+              hint: Solicitor/Costs Lawyer/Chartered Legal Executive/Law Costs Draftsman/Legal Executives and Fee Earners or Equivalent Experience with more than 4 years experience
+              label: 'Grade C: Individual with more than 4 years cost litigation experience'
+            grade_d:
+              hint: Paralegal/Legal Assistant/Trainee Solicitor
+              label: Grade D
+          question: Please select which type of law professionals you seek to compare
         choose_law_professionals:
           hint: If you know the grades required, please select them below. Only rates for the selected grades will be included in the results
           options:
