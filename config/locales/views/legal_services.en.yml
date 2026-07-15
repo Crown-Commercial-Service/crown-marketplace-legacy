@@ -293,7 +293,7 @@ en:
       journey:
         choose_call_off_mechanism:
           answer:
-            award_with_direct_competition: Award with direct competition
+            direct_competition: Award with direct competition
             quotation_process: Quotation Process
             rapid_award: Rapid Award
           hint: Please select the call off award mechanism being used
@@ -356,6 +356,12 @@ en:
           question: Select legal services required
           search_cost_services: Search cost services
           specialism_selected: specialism selected
+        direct_competition:
+          assessment_advice: You may wish to undertake an assessment using the suppliers' prospectus at this stage to help your down selection process. You can do this by using the links provided here or in a downloadable list by clicking "Download the supplier list".
+          can_provide_legal_specialisms_html: "<strong>%{count}</strong> suppliers can provide the legal specialisms that meet your requirements."
+          compare_supplier_rates: Compare the supplier rates
+          download_suppliers_list: Download the supplier list
+          heading: Supplier results
         dispute_resolution:
           dispute_resolution_selected: Dispute resolution selected
           no_dispute_resolution_selected: 0 dispute resolutions selected
