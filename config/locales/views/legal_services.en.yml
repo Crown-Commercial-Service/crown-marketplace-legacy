@@ -293,7 +293,7 @@ en:
       journey:
         choose_call_off_mechanism:
           answer:
-            award_with_direct_competition: Award with direct competition
+            direct_competition: Award with direct competition
             quotation_process: Quotation Process
             rapid_award: Rapid Award
           hint: Please select the call off award mechanism being used
