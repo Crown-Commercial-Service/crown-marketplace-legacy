@@ -16,8 +16,8 @@ module LegalServices
         case call_off_mechanism
         when 'direct_competition'
           Journey::DirectCompetition
-        when 'rapid_award'
-          Journey::SupplierProspectus
+        when 'rapid_award'       
+          Journey::ReviewProspectus
         when 'quotation_process'
           Journey::CompareSelectSuppliers
         end
