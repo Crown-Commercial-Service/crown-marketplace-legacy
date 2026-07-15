@@ -291,6 +291,12 @@ en:
             text: WPS Legal Services panel specification
             url: https://www.gca.gov.uk/agreements/RM6374
       journey:
+        direct_competition:
+          heading: "Supplier results"
+          can_provide_legal_specialisms_html: "<strong>%{count}</strong> suppliers can provide the legal specialisms that meet your requirements."
+          assessment_advice: "You may wish to undertake an assessment using the suppliers' prospectus at this stage to help your down selection process. You can do this by using the links provided here or in a downloadable list by clicking \"Download the supplier list\"."
+          compare_supplier_rates: "Compare the supplier rates"
+          download_suppliers_list: "Download the supplier list"
         choose_call_off_mechanism:
           answer:
             direct_competition: Award with direct competition
