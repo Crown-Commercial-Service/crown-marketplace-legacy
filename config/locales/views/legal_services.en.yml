@@ -291,11 +291,6 @@ en:
             text: WPS Legal Services panel specification
             url: https://www.gca.gov.uk/agreements/RM6374
       journey:
-        review_prospectus:
-          heading: Have you reviewed the supplier prospectuses to support your downselection?
-          answer:
-            yes: Yes
-            no: No
         choose_call_off_mechanism:
           answer:
             direct_competition: Award with direct competition
@@ -396,6 +391,11 @@ en:
           requirement_start_date:
             hint: For example, 12 2025
             question: What is the intended start date for your requirement?
+        review_prospectus:
+          answer:
+            'false': false
+            'true': true
+          heading: Have you reviewed the supplier prospectuses to support your downselection?
         risk_innovation:
           no_risk_innovation_selected: 0 risk innovations selected
           question: Select legal services required
