@@ -11,7 +11,7 @@ module LegalServices
       end
 
       def supplier_frameworks(params)
-        service_numbers = Array(params[:service_numbers]).reject(&:blank?)
+        service_numbers = Array(params[:service_numbers]).compact_blank
         return [] if service_numbers.empty?
 
         service_codes = service_numbers.map { |service_number| "#{lot.id}.#{service_number}" }
