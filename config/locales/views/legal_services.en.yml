@@ -23,6 +23,10 @@ en:
           attributes:
             lot_number:
               blank: Select the lot you need
+        legal_services/rm6374/journey/all_legal_specalisms:
+          attributes:
+            service_numbers:
+              blank: Please select a minimum of one legal service to continue
         legal_services/rm6374/journey/choose_call_off_mechanism:
           attributes:
             call_off_mechanism:
@@ -291,6 +295,12 @@ en:
             text: WPS Legal Services panel specification
             url: https://www.gca.gov.uk/agreements/RM6374
       journey:
+        all_legal_specalisms:
+          all_legal_specalisms_selected: Dispute resolution selected
+          no_dall_legal_specalisms_selected: 0 dispute resolutions selected
+          question: Select legal services required
+          search_all_legal_specalisms: Search dispute resolutions
+          specialism_selected: specialism selected
         choose_call_off_mechanism:
           answer:
             direct_competition: Award with direct competition
