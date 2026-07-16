@@ -17,7 +17,7 @@ module LegalServices
         when 'direct_competition'
           Journey::DirectCompetition
         when 'rapid_award'
-          Journey::SupplierProspectus
+          Journey::ReviewProspectus
         when 'quotation_process'
           Journey::CompareSelectSuppliers
         end

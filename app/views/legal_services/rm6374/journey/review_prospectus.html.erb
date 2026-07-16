@@ -1,0 +1,43 @@
+<% @back_path = legal_services_journey_question_path(framework: 'RM6374', slug: 'choose-call-off-mechanism', **request.query_parameters.symbolize_keys) %>
+
+<%= add_optional_error_prefix_to_page_title(@journey.errors) %>
+<%= content_for :page_title, t('.heading') %>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <%= render partial: 'shared/error_summary', locals: { errors: @journey.errors } %>
+
+    <span class="govuk-caption-xl">
+      <%= lot_full_name(@journey.current_step.lot) %>
+    </span>
+
+    <%= form_with url: @form_path, method: :get, html: { specialvalidation: true, novalidate: true } do |f| %>
+      <%= hidden_fields_for_previous_steps_and_responses(@journey) %>
+      <%= hidden_field_tag(:lot_number, params[:lot_number]) %>
+      
+      <%= govuk_radios(
+        :review_prospectus,
+        [
+          {
+            value: 'yes',
+            label: { text: t('.answer.yes') }
+          },
+          {
+            value: 'no',
+            label: { text: t('.answer.no') }
+          }
+        ],
+        model: @journey.current_step,
+        fieldset: {
+          legend: {
+            text: t('.heading'),
+            classes: 'govuk-fieldset__legend--m govuk-!-margin-top-0',
+            is_page_heading: true
+          }
+        }
+      ) %>
+
+      <%= govuk_button(t('common.continue', default: 'Continue'), form: f, classes: 'govuk-!-padding-left-7 govuk-!-padding-right-7', attributes: { id: 'submit', name: t('common.continue', default: 'Continue') }) %>
+    <% end %>
+  </div>
+</div>
