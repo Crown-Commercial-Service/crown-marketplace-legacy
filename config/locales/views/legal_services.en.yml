@@ -297,7 +297,7 @@ en:
       journey:
         all_legal_specalisms:
           all_legal_specalisms_selected: Dispute resolution selected
-          no_dall_legal_specalisms_selected: 0 dispute resolutions selected
+          no_all_legal_specalisms_selected: 0 dispute resolutions selected
           question: Select legal services required
           search_all_legal_specalisms: Search dispute resolutions
           specialism_selected: specialism selected
