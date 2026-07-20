@@ -83,6 +83,10 @@ en:
           attributes:
             service_numbers:
               blank: Please select a minimum of one legal service to continue
+        legal_services/rm6374/journey/single_or_multiple_suppliers:
+          attributes:
+            single_or_multiple_suppliers:
+              inclusion: Select an option to continue
         legal_services/rm6374/journey/specific:
           attributes:
             service_numbers:
@@ -416,6 +420,11 @@ en:
           risk_innovation_selected: Risk innovation selected
           search_risk_innovations: Search risk innovations
           specialism_selected: specialism selected
+        single_or_multiple_suppliers:
+          options:
+            multiple: Multiple suppliers
+            single: A single supplier who can provide all specialisms
+          question: Do you require
         specific:
           all_specific_selected: Focused legal specialisms selected
           no_specific_selected: 0 focused legal specialisms selected
