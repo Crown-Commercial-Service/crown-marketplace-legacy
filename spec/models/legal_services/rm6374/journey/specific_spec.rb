@@ -21,7 +21,7 @@ RSpec.describe LegalServices::RM6374::Journey::Specific do
       end
     end
   end
-    
+
   describe '#Specific' do
     it 'returns distinct services for lot RM6374.2 ordered by number' do
       results = step.specific
@@ -65,7 +65,7 @@ RSpec.describe LegalServices::RM6374::Journey::Specific do
       expect(step.template).to eq 'journey/specific'
     end
   end
-  
+
   describe '.slug' do
     it 'returns specific' do
       expect(step.slug).to eq 'specific'
