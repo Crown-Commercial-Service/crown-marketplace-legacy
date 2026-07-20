@@ -27,6 +27,10 @@ en:
           attributes:
             service_numbers:
               blank: Please select a minimum of one legal service to continue
+        legal_services/rm6374/journey/specific:
+          attributes:
+            service_numbers:
+              blank: Please select a minimum of one legal service to continue
         legal_services/rm6374/journey/choose_call_off_mechanism:
           attributes:
             call_off_mechanism:
@@ -301,6 +305,12 @@ en:
           question: Select legal services required
           search_all_legal_specalisms: Search dispute resolutions
           specialism_selected: specialism selected
+        specific:
+          all_specific_selected: Focused legal specialisms selected
+          no_specific_selected: 0 focused legal specialisms selected
+          question: Select focused legal specialisms required
+          search_specific: Search focused legal support
+          specialism_selected: focused legal specialisms selected
         choose_call_off_mechanism:
           answer:
             direct_competition: Award with direct competition
