@@ -51,6 +51,10 @@ en:
           attributes:
             specialism:
               inclusion: Select at least one legal service
+        legal_services/rm6374/journey/compare_select_suppliers:
+          attributes:
+            supplier_framework_ids:
+              too_short: Please select a minimum of one supplier for comparison
         legal_services/rm6374/journey/cost_service:
           attributes:
             service_numbers:
@@ -368,6 +372,11 @@ en:
             specific: Focused support for specific legal specialism(s)
             transport_highways: Legal services requiring a deep understanding of the transport, rail, highways, maritime, ports aviation and planning industry
           question: Do you require
+        compare_select_suppliers:
+          no_suppliers_selected: No suppliers selected
+          question: Select suppliers for comparison
+          supplier_selected: supplier selected
+          suppliers_selected: suppliers selected
         cost_service:
           cost_service_selected: Cost service selected
           no_cost_service_selected: 0 cost services selected
