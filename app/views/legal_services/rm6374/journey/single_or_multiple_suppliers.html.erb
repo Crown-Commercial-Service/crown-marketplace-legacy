@@ -8,6 +8,9 @@
     <%= form_with url: @form_path, method: :get, html: { specialvalidation: true, novalidate: true } do |f| %>
       <%= hidden_fields_for_previous_steps_and_responses(@journey) %>
       <%= hidden_field_tag(:lot_number, @journey.current_step.lot_number) %>
+      <% Array(@journey.current_step.service_numbers).each do |service_number| %>
+        <%= hidden_field_tag('service_numbers[]', service_number, id: nil) %>
+      <% end %>
 
         <%= govuk_radios(
             :single_or_multiple_suppliers,

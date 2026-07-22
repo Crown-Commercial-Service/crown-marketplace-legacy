@@ -13,7 +13,16 @@ module LegalServices
       end
 
       def next_step_class
-        Journey::ChooseJurisdiction
+        result = ::LegalServices::RM6374::Journey::CrossLotCheck.evaluate(
+          selected_sector: sector,
+          selected_specialisms: service_numbers
+        )
+
+        if result[:alternatives].present?
+          Journey::RecommendedLot
+        else
+          Journey::ChooseJurisdiction
+        end
       end
     end
   end
