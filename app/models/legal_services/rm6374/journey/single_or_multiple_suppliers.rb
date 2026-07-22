@@ -7,6 +7,7 @@ module LegalServices
 
       attribute :lot_number, :string
       attribute :single_or_multiple_suppliers
+      attribute :service_numbers, :array, default: -> { [] }
       validates :single_or_multiple_suppliers, inclusion: SINGLE_OR_MULTIPLE_SUPPLIERS_OPTIONS
 
       def lot
@@ -17,7 +18,16 @@ module LegalServices
         if single_or_multiple_suppliers == 'single'
           Journey::ChooseJurisdiction
         else
-          Journey::SelectLot
+          result = ::LegalServices::RM6374::Journey::CrossLotCheck.evaluate(
+            selected_sector: nil,
+            selected_specialisms: service_numbers
+          )
+
+          if result[:alternatives].present?
+            Journey::RecommendedLot
+          else
+            Journey::ChooseJurisdiction
+          end
         end
       end
     end

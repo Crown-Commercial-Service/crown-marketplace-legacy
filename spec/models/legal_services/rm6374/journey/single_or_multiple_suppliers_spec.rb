@@ -1,10 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe LegalServices::RM6374::Journey::SingleOrMultipleSuppliers do
-  subject(:step) { described_class.new(lot_number:, single_or_multiple_suppliers:) }
+  subject(:step) { described_class.new(lot_number:, single_or_multiple_suppliers:, service_numbers:) }
 
   let(:lot_number) { '2' }
   let(:single_or_multiple_suppliers) { 'single' }
+  let(:service_numbers) { [] }
 
   describe 'validations' do
     context 'when no option is provided' do
@@ -51,21 +52,21 @@ RSpec.describe LegalServices::RM6374::Journey::SingleOrMultipleSuppliers do
     context 'when multiple supplier options are selected' do
       let(:single_or_multiple_suppliers) { 'multiple' }
 
-      it 'returns Journey::SelectLot' do
-        expect(step.next_step_class).to be LegalServices::RM6374::Journey::SelectLot
+      it 'returns Journey::RecommendedLot' do
+        expect(step.next_step_class).to be LegalServices::RM6374::Journey::RecommendedLot
       end
     end
   end
 
   describe '.permit_list' do
     it 'returns a list of the permitted attributes' do
-      expect(described_class.permit_list).to eq([:lot_number, :single_or_multiple_suppliers, {}])
+      expect(described_class.permit_list).to eq([:lot_number, :single_or_multiple_suppliers, { service_numbers: [] }])
     end
   end
 
   describe '.permitted_keys' do
     it 'returns a list of the permitted keys' do
-      expect(described_class.permitted_keys).to eq(%i[lot_number single_or_multiple_suppliers])
+      expect(described_class.permitted_keys).to eq(%i[lot_number single_or_multiple_suppliers service_numbers])
     end
   end
 
