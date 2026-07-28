@@ -14,6 +14,12 @@
         <%= hidden_field_tag('service_numbers[]', service_number, id: nil) %>
       <% end %>
 
+      <% 
+        if @journey.current_step.recommended_or_alternatives == 'alternatives'
+          @journey.current_step.lot_number = nil
+        end
+      %>
+
     <h1 class="govuk-heading-m">
       <%= t('.heading_0') %>
     </h1>

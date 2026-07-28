@@ -17,10 +17,15 @@ module LegalServices
       end
 
       def next_step_class
-        if single_or_multiple_suppliers == 'single' || lot_number.present?
-          Journey::ChooseJurisdiction
-        else
+        result = ::LegalServices::RM6374::Journey::CrossLotCheck.evaluate(
+          selected_sector: nil,
+          selected_specialisms: service_numbers
+        )
+
+        if single_or_multiple_suppliers == 'multiple' && result[:alternatives].any?
           Journey::RecommendedLot
+        else
+          Journey::ChooseJurisdiction
         end
       end
 
