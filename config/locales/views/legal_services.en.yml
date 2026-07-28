@@ -459,6 +459,35 @@ en:
           search_transport_highwayss: Search transport highways
           specialism_selected: specialism selected
           transport_highways_selected: Transport highways selected
+        suppliers_comparison:
+          page_title: "Supplier results"
+          heading: "Supplier results"
+          supplier: "supplier"
+          can_provide_specialisms: "can provide the legal specialisms that meet your requirements."
+          prospectus_advice: "You may wish to undertake an assessment using the suppliers prospectus’ at this stage to help your down selection process. You can do this by using the links provided here or in a downloadable list by clicking \"Download the supplier list\""
+          compare_rates: "Compare the supplier rates"
+          reselect_suppliers: "Reselect suppliers for comparison"
+          download_suppliers_list: "Download the supplier list"
+          disclaimer: "The rates provided are maximum rates and subject to further competition."
+          contact_hint_html: "If you have any questions, <a class=\"govuk-link\" href=\"%{contact_link}\">contact CCS</a>."
+          no_suppliers_found:
+            heading: "No suppliers found"
+            text: "There are no suppliers available for your selection."
+          back_to_start: "Back to start"
+        comparison_rates_table:
+          supplier: "Supplier"
+          scroll_to_the_right: "Scroll the table to the right to view all job roles and rates."
+          rates: "Rates"
+          job_titles:
+            partner: "Partner"
+            legal_director: "Legal Director"
+            senior_solicitor: "Senior Solicitor"
+            solicitor: "Solicitor"
+            nq_solicitor: "NQ Solicitor"
+            trainee: "Trainee"
+            paralegal: "Paralegal"
+            legal_project_manager: "Legal Project Manager"
+            legal_document_reviewer: "Legal Document Reviewer"
       suppliers:
         rates_table:
           grade: Grade

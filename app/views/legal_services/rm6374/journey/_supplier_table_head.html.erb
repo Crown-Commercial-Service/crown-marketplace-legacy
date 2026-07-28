@@ -1,0 +1,12 @@
+<div class="ccs-results-list__supplier-name">
+  <%= include_link ? link_to(supplier_framework.supplier_name, legal_services_rm6374_supplier_path(supplier_framework, **@journey.params), class: 'govuk-link ccs-no-underline') : supplier_framework.supplier_name %>
+  <% if supplier_framework.supplier&.sme? %>
+    <%= govuk_tag(t('sme'), 'grey', classes: 'ccs-tag') %>
+  <% end %>
+</div>
+
+<% if supplier_framework.contact_detail&.website.present? %>
+  <div class="ccs-results-list__prospectus">
+    <%= link_to supplier_framework.contact_detail.website, url_formatter(supplier_framework.contact_detail.website), class: 'govuk-link', target: '_blank', rel: 'noopener noreferrer' %>
+  </div>
+<% end %>
