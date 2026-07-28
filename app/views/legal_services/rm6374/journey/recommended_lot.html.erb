@@ -1,0 +1,84 @@
+<%= add_optional_error_prefix_to_page_title(@journey.errors) %>
+<%= content_for :page_title, t('.question') %>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <%= render partial: 'shared/error_summary', locals: { errors: @journey.errors } %>
+
+    <%= form_with url: @form_path, method: :get, html: { specialvalidation: true, novalidate: true } do |f| %>
+      <%= hidden_fields_for_previous_steps_and_responses(@journey) %>
+      <%= hidden_field_tag(:sector, @journey.current_step.sector) %>
+      <%= hidden_field_tag(:specialism, @journey.current_step.specialism) %>
+
+      <% Array(@journey.current_step.service_numbers).each do |service_number| %>
+        <%= hidden_field_tag('service_numbers[]', service_number, id: nil) %>
+      <% end %>
+
+    <h1 class="govuk-heading-m">
+      <%= t('.heading_0') %>
+    </h1>
+
+      <p class="govuk-body">
+        <%= t('.heading_1_html', full_lot_name: lot_full_name_via_number(@journey.current_step.result[:recommended_lot].to_s)) %>
+      </p>
+
+      <p class="govuk-body">       
+        <%= t('.sub_heading') %>
+        <% if @journey.current_step.result[:recommended_lot].present? %>
+          <ul class="govuk-list govuk-list--bullet">
+            <% @journey.current_step.result[:alternatives].each do |lot| %>
+              <li><b> <%=lot_full_name_via_number(lot.to_s)%> </b></li>
+
+            <% end %>
+          </ul>
+        <% end %>
+
+        <p> <b> <%= t('.question')%> </b> </p>
+      </p>
+
+      <%= govuk_radios(
+            :recommended_or_alternatives,
+            [
+              {
+                value: 'recommended',
+                label: {
+                  text: t('.recommended', full_lot_name: lot_full_name_via_number(@journey.current_step.result[:recommended_lot].to_s))
+                },
+                conditional: {
+                  content: hidden_field_tag(:lot_number, @journey.current_step.result[:recommended_lot])
+                }
+              },
+              {
+                value: 'alternatives',
+                label: {
+                  text: t('.alternatives')
+                },
+                conditional: {
+                    content: govuk_radios(
+                      :lot_number,
+                      @journey.current_step.result[:alternatives].map do |option|
+                        {
+                          value: option,
+                          label: { text: lot_full_name_via_number(option) }
+                        }
+                      end,
+                      model: @journey.current_step,
+                      error_message: (@journey.errors[:lot_number].first if @journey.errors[:lot_number].any?),
+                      fieldset: {
+                        legend: {
+                          text: 'Select an alternative lot',
+                          classes: 'govuk-fieldset__legend--s'
+                        }
+                      }
+                    )
+                  }
+              }
+            ],
+            model: @journey.current_step,
+            attributes: { data: { module: 'govuk-radios' } }
+          ) %>
+
+      <%= govuk_button(t('common.submit'), form: f, classes: 'govuk-!-padding-left-7 govuk-!-padding-right-7', attributes: { id: 'submit', name: t('common.submit') }) %>
+    <% end %>
+  </div>
+</div>

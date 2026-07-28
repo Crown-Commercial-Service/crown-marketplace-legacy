@@ -28,7 +28,7 @@ RSpec.describe LegalServices::RM6374::Journey::CrossLotCheck do
     end
 
     context 'when coming from Lot 1 (selected_sector is present)' do
-      let(:selected_sector) { 'government_policy' } # Maps to lot_1a
+      let(:selected_sector) { 'government_policy' } # Maps to 1a
 
       context 'when selected specialisms are available in other Lot 1 sublots and Lot 2 has suppliers' do
         before do
@@ -38,14 +38,14 @@ RSpec.describe LegalServices::RM6374::Journey::CrossLotCheck do
             .and_return([double('Supplier')]) # rubocop:disable RSpec/VerifiedDoubles
         end
 
-        it 'recommends lot_1a and includes lot_1b and lot_2 as alternatives' do
+        it 'recommends 1a and includes 1b and 2 as alternatives' do
           result = described_class.evaluate(
             selected_sector: selected_sector,
             selected_specialisms: %w[2 3]
           )
 
-          expect(result[:recommended_lot]).to eq('lot_1a')
-          expect(result[:alternatives]).to contain_exactly('lot_1b', 'lot_2')
+          expect(result[:recommended_lot]).to eq('1a')
+          expect(result[:alternatives]).to contain_exactly('1b', '2')
         end
       end
 
@@ -54,13 +54,13 @@ RSpec.describe LegalServices::RM6374::Journey::CrossLotCheck do
           allow(Supplier::Framework).to receive(:with_services).and_return([])
         end
 
-        it 'returns recommended lot_1a with no alternatives' do
+        it 'returns recommended 1a with no alternatives' do
           result = described_class.evaluate(
             selected_sector: selected_sector,
-            selected_specialisms: %w[1 2 3] # Only lot_1a has all three
+            selected_specialisms: %w[1 2 3] # Only 1a has all three
           )
 
-          expect(result[:recommended_lot]).to eq('lot_1a')
+          expect(result[:recommended_lot]).to eq('1a')
           expect(result[:alternatives]).to be_empty
         end
       end
@@ -69,7 +69,7 @@ RSpec.describe LegalServices::RM6374::Journey::CrossLotCheck do
     context 'when coming from Lot 2 (selected_sector is nil)' do
       let(:selected_sector) { nil }
 
-      it 'recommends lot_2' do
+      it 'recommends 2' do
         allow(Supplier::Framework).to receive(:with_services).and_return([])
 
         result = described_class.evaluate(
@@ -77,11 +77,11 @@ RSpec.describe LegalServices::RM6374::Journey::CrossLotCheck do
           selected_specialisms: %w[1 2]
         )
 
-        expect(result[:recommended_lot]).to eq('lot_2')
-        expect(result[:alternatives]).to contain_exactly('lot_1a')
+        expect(result[:recommended_lot]).to eq('2')
+        expect(result[:alternatives]).to contain_exactly('1a')
       end
 
-      it 'does not add lot_2 to alternatives even if Lot 2 suppliers exist' do
+      it 'does not add 2 to alternatives even if Lot 2 suppliers exist' do
         allow(Supplier::Framework).to receive(:with_services).and_return([double('Supplier')]) # rubocop:disable RSpec/VerifiedDoubles
 
         result = described_class.evaluate(
@@ -89,7 +89,7 @@ RSpec.describe LegalServices::RM6374::Journey::CrossLotCheck do
           selected_specialisms: %w[1 2]
         )
 
-        expect(result[:alternatives]).not_to include('lot_2')
+        expect(result[:alternatives]).not_to include('2')
       end
 
       it 'returns matching Lot 1 sublots as alternatives' do
@@ -97,16 +97,16 @@ RSpec.describe LegalServices::RM6374::Journey::CrossLotCheck do
 
         result = described_class.evaluate(
           selected_sector: nil,
-          selected_specialisms: %w[2 3] # Fits lot_1a and lot_1b
+          selected_specialisms: %w[2 3] # Fits 1a and 1b
         )
 
-        expect(result[:recommended_lot]).to eq('lot_2')
-        expect(result[:alternatives]).to contain_exactly('lot_1a', 'lot_1b')
+        expect(result[:recommended_lot]).to eq('2')
+        expect(result[:alternatives]).to contain_exactly('1a', '1b')
       end
     end
 
     context 'sector mapping edge cases' do # rubocop:disable RSpec/ContextWording
-      it 'correctly maps health to lot_1c' do
+      it 'correctly maps health to 1c' do
         allow(Supplier::Framework).to receive(:with_services).and_return([])
 
         result = described_class.evaluate(
@@ -114,10 +114,10 @@ RSpec.describe LegalServices::RM6374::Journey::CrossLotCheck do
           selected_specialisms: %w[5]
         )
 
-        expect(result[:recommended_lot]).to eq('lot_1c')
+        expect(result[:recommended_lot]).to eq('1c')
       end
 
-      it 'correctly maps local_community to lot_1b' do
+      it 'correctly maps local_community to 1b' do
         allow(Supplier::Framework).to receive(:with_services).and_return([])
 
         result = described_class.evaluate(
@@ -125,7 +125,7 @@ RSpec.describe LegalServices::RM6374::Journey::CrossLotCheck do
           selected_specialisms: %w[4]
         )
 
-        expect(result[:recommended_lot]).to eq('lot_1b')
+        expect(result[:recommended_lot]).to eq('1b')
       end
     end
   end

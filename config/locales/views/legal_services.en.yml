@@ -83,6 +83,12 @@ en:
             requirement_start_date:
               blank: Enter the intended start date, including the month and year
               invalid: Enter a real date for the intended start date
+        legal_services/rm6374/journey/recommended_lot:
+          attributes:
+            lot_number:
+              blank: Select an option
+            recommended_or_alternatives:
+              inclusion: Select an option
         legal_services/rm6374/journey/risk_innovation:
           attributes:
             service_numbers:
@@ -418,6 +424,13 @@ en:
           requirement_start_date:
             hint: For example, 12 2025
             question: What is the intended start date for your requirement?
+        recommended_lot:
+          alternatives: Select another lot
+          heading_0: Lots that meet your requirements
+          heading_1_html: Based on your selection %{full_lot_name} has been identified as the most appropriate Lot for your requirement.
+          question: Do you want to
+          recommended: Continue with %{full_lot_name}
+          sub_heading: Services are also available through
         review_prospectus:
           answer:
             'no': 'No'

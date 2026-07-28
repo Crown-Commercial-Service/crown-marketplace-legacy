@@ -51,6 +51,7 @@ RSpec.describe LegalServices::RM6374::Journey::SingleOrMultipleSuppliers do
 
     context 'when multiple supplier options are selected' do
       let(:single_or_multiple_suppliers) { 'multiple' }
+      let(:lot_number) { '' }
 
       it 'returns Journey::RecommendedLot' do
         expect(step.next_step_class).to be LegalServices::RM6374::Journey::RecommendedLot
