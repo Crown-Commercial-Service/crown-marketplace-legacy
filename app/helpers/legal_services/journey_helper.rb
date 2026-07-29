@@ -1,4 +1,6 @@
 module LegalServices::JourneyHelper
+  include LegalServices::RatesHelper
+
   def lot_full_name(lot)
     "Lot #{lot.number[0]} - #{lot.name}"
   end

@@ -1,15 +1,5 @@
 <%
-  positions = %w[
-    partner
-    legal_director
-    senior_solicitor
-    solicitor
-    nq_solicitor
-    trainee
-    paralegal
-    legal_project_manager
-    legal_document_reviewer
-  ]
+  positions = lot.positions.order(:number).pluck(:id, :name)
 %>
 
 <div class="ccs-suppliers-comparison-container">
@@ -22,54 +12,21 @@
         {
           text: t('.supplier'),
         },
-      ] + positions.map do |position_name|
+      ] + positions.map do |_position_id, position_name|
         {
-          text: t(".job_titles.#{position_name}"),
+          text: t("shared.rates_table.rm6374.job_titles.#{position_name}"),
         }
       end,
-      supplier_frameworks.map do |item|
-        supplier_framework, rates = item.is_a?(Array) ? item : [item, nil]
-        lot_num = lot.try(:number) || lot.to_s.split('.').last
-
-        rates_collection = rates || 
-                           supplier_framework.try(:rates) || 
-                           supplier_framework.try(:supplier)&.try(:rates) || 
-                           []
-
+      supplier_frameworks.map do |supplier_framework, rates|
         [
           {
             text: render(partial: 'legal_services/rm6374/journey/supplier_table_head', locals: { supplier_framework: supplier_framework, lot: lot, include_link: true })
           }
-        ] + positions.map do |position_name|
-          rate_val = nil
-
-          if supplier_framework.respond_to?(:rate_for)
-            rate_val = supplier_framework.rate_for(position_name, lot_num) || supplier_framework.rate_for(position_name)
-          end
-
-          if rate_val.nil?
-            matched_records = rates_collection.to_a.select do |r|
-              p_name = r.try(:position) || r.try(:job_title) || r.try(:grade) || r.try(:role) || r.try(:position_code) || r.try(:position_name)
-              p_name.to_s.parameterize.underscore == position_name.parameterize.underscore
-            end
-
-            matched_record = matched_records.find do |r|
-              r_lot = r.try(:lot_number) || r.try(:lot_id) || r.try(:lot)
-              r_lot.blank? || r_lot.to_s.include?(lot_num.to_s) || r_lot.to_s == lot.try(:id).to_s
-            end || matched_records.first
-
-            rate_val = matched_record.try(:rate) || matched_record.try(:amount) || matched_record.try(:price) || matched_record.try(:value)
-          end
-
-          formatted_rate = if rate_val.present? && rate_val.to_f > 0
-                             val = rate_val.to_f > 1000 ? (rate_val.to_f / 100.0) : rate_val.to_f
-                             number_to_currency(val, unit: '£')
-                           else
-                             '-'
-                           end
+        ] + positions.map do |position_id, _position_name|
+          rate = display_rate(position_id, rates)
 
           {
-            text: formatted_rate
+            text: rate.presence || '-'
           }
         end
       end,
