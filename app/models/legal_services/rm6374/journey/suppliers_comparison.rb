@@ -1,31 +1,30 @@
 module LegalServices
   module RM6374
     class Journey::SuppliersComparison
+      include LegalServices::RM6374
       include Steppable
 
       attribute :lot_number, :string
       attribute :service_numbers, :array, default: -> { [] }
+      attribute :supplier_framework_ids, :array, default: -> { [] }
       attribute :professions, :array, default: -> { [] }
       attribute :jurisdiction, :string
-
-      JURISDICTION_MAP = {
-        'a' => 'RM6374.EW',
-        'b' => 'RM6374.SC',
-        'c' => 'RM6374.NI'
-      }.freeze
 
       def lot
         @lot ||= Lot.find("RM6374.#{lot_number}")
       end
 
       def supplier_frameworks
-        selected_services = service_numbers.map do |service_number|
-          "RM6374.#{lot_number}.#{service_number}"
+        selected_services = get_service_numbers(lot_number)
+        selected_jurisdiction_id = get_jurisdiction(jurisdiction)
+
+        @supplier_frameworks ||= begin
+          scope = ::Supplier::Framework.with_lots(lot.id)
+                                       .with_services_and_jurisdiction(selected_services, [selected_jurisdiction_id])
+          scope = scope.where(id: supplier_framework_ids) if supplier_framework_ids.present?
+
+          scope.sort_by(&:supplier_name)
         end
-
-        selected_jurisdiction_id = JURISDICTION_MAP[jurisdiction] || jurisdiction
-
-        @supplier_frameworks ||= ::Supplier::Framework.with_lots(lot.id).with_services_and_jurisdiction(selected_services, [selected_jurisdiction_id]).sort_by(&:supplier_name)
       end
 
       def supplier_frameworks_with_rates

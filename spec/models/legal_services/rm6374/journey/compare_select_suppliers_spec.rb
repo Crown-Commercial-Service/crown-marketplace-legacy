@@ -4,11 +4,15 @@ RSpec.describe LegalServices::RM6374::Journey::CompareSelectSuppliers do
   subject(:step) do
     described_class.new(
       lot_number:,
+      jurisdiction:,
+      service_numbers:,
       supplier_framework_ids:
     )
   end
 
   let(:lot_number) { '1' }
+  let(:jurisdiction) { 'a' }
+  let(:service_numbers) { %w[2 3] }
   let(:supplier_framework_ids) { ['supplier-uuid-1'] }
 
   describe 'attributes' do
@@ -55,33 +59,51 @@ RSpec.describe LegalServices::RM6374::Journey::CompareSelectSuppliers do
 
   describe '#available_suppliers' do
     let(:lot) { instance_double(Lot, id: 'RM6374.1') }
+    let(:selected_services) { %w[RM6374.1.2 RM6374.1.3] }
+    let(:selected_jurisdiction_id) { 'RM6374.EW' }
 
     let(:supplier_z) { instance_double(Supplier, name: 'Zebra Law') }
     let(:supplier_a) { instance_double(Supplier, name: 'Alpha Legal') }
 
-    let(:framework_z) { instance_double(Supplier::Framework, supplier: supplier_z) }
-    let(:framework_a) { instance_double(Supplier::Framework, supplier: supplier_a) }
+    let(:framework_z) { instance_double(Supplier::Framework, supplier: supplier_z, supplier_name: 'Zebra Law') }
+    let(:framework_a) { instance_double(Supplier::Framework, supplier: supplier_a, supplier_name: 'Alpha Legal') }
 
-    let(:framework_lot_1) { instance_double(Supplier::Framework::Lot, supplier_framework: framework_z) }
-    let(:framework_lot_2) { instance_double(Supplier::Framework::Lot, supplier_framework: framework_a) }
-    let(:framework_lot_duplicate) { instance_double(Supplier::Framework::Lot, supplier_framework: framework_a) }
+    let(:frameworks_relation) { double('supplier_frameworks_relation') } # rubocop:disable RSpec/VerifiedDoubles
 
     before do
       allow(Lot).to receive(:find).with('RM6374.1').and_return(lot)
-
-      relation_double = instance_double(ActiveRecord::Relation)
-      allow(Supplier::Framework::Lot).to receive(:where).with(lot_id: lot.id).and_return(relation_double)
-      allow(relation_double).to receive(:includes).with(supplier_framework: :supplier).and_return(
-        [framework_lot_1, framework_lot_2, framework_lot_duplicate]
-      )
+      allow(Supplier::Framework).to receive(:with_lots).with(lot.id).and_return(frameworks_relation)
+      allow(frameworks_relation).to receive(:with_services_and_jurisdiction)
+        .with(selected_services, [selected_jurisdiction_id])
+        .and_return([framework_z, framework_a])
     end
 
-    it 'returns unique supplier frameworks' do
-      expect(step.available_suppliers.length).to eq(2)
-    end
-
-    it 'sorts the supplier frameworks alphabetically by supplier name' do
+    it 'returns the supplier frameworks sorted by supplier name' do
       expect(step.available_suppliers).to eq([framework_a, framework_z])
+    end
+
+    context 'when the jurisdiction is not mapped' do
+      let(:jurisdiction) { 'RM6374.GB' }
+      let(:selected_jurisdiction_id) { 'RM6374.GB' }
+
+      it 'passes the jurisdiction through unchanged' do
+        step.available_suppliers
+
+        expect(frameworks_relation).to have_received(:with_services_and_jurisdiction)
+          .with(selected_services, [selected_jurisdiction_id])
+      end
+    end
+
+    context 'when the jurisdiction maps to Scotland' do
+      let(:jurisdiction) { 'b' }
+      let(:selected_jurisdiction_id) { 'RM6374.SC' }
+
+      it 'translates the jurisdiction code using JURISDICTION_MAP' do
+        step.available_suppliers
+
+        expect(frameworks_relation).to have_received(:with_services_and_jurisdiction)
+          .with(selected_services, [selected_jurisdiction_id])
+      end
     end
   end
 end

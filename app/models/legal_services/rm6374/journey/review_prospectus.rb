@@ -13,9 +13,11 @@ module LegalServices
       end
 
       def next_step_class
-        return unless review_prospectus == 'yes'
-
-        LegalServices::RM6374::Journey::SuppliersComparison
+        if review_prospectus == 'yes'
+          Journey::SuppliersComparison
+        else
+          Journey::Suppliers
+        end
       end
     end
   end
