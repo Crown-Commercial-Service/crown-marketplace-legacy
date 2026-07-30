@@ -15,7 +15,7 @@ module LegalServices
       def next_step_class
         case call_off_mechanism
         when 'direct_competition'
-          Journey::DirectCompetition
+          Journey::SuppliersComparison
         when 'rapid_award'
           Journey::ReviewProspectus
         when 'quotation_process'

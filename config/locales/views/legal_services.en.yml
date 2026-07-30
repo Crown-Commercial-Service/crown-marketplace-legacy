@@ -383,6 +383,20 @@ en:
           question: Select suppliers for comparison
           supplier_selected: supplier selected
           suppliers_selected: suppliers selected
+        comparison_rates_table:
+          job_titles:
+            legal_director: Legal Director/ Counsel or equivalent
+            legal_document_reviewer: Legal Document Reviewers, Document Reviewers
+            legal_project_manager: Legal Project Managers
+            nq_solicitor: NQ Solicitor/Associate, Junior Solicitor/Associate/Legal Executive
+            paralegal: Paralegal, Legal Assistant
+            partner: Partner
+            senior_solicitor: Senior Solicitor, Senior Associate/Senior Legal Executive
+            solicitor: Solicitor, Associate/Legal Executive
+            trainee: Trainee/Legal Apprentice
+          rates: Rates
+          scroll_to_the_right: Scroll the table to the right to view all job roles and rates.
+          supplier: Supplier
         cost_service:
           cost_service_selected: Cost service selected
           no_cost_service_selected: 0 cost services selected
@@ -453,6 +467,21 @@ en:
           question: Select focused legal specialisms required
           search_specific: Search focused legal support
           specialism_selected: focused legal specialisms selected
+        suppliers_comparison:
+          can_provide_specialisms: can provide the legal specialisms that meet your requirements.
+          compare_rates: Compare the supplier rates
+          contact_hint_html: If you have any questions, <a class="govuk-link" href="%{contact_link}">contact CCS</a>.
+          disclaimer: The rates provided are maximum rates and subject to further competition.
+          download_suppliers_list: Download the supplier list
+          heading: Supplier results
+          no_suppliers_found:
+            back_to_start: Back to start
+            heading: No suppliers found
+            text: There are no suppliers available for your selection.
+          page_title: Supplier results
+          prospectus_advice: You may wish to undertake an assessment using the suppliers prospectus’ at this stage to help your down selection process. You can do this by using the links provided here or in a downloadable list by clicking "Download the supplier list"
+          reselect_suppliers: Reselect suppliers for comparison
+          supplier: supplier
         transport_highways:
           no_transport_highways_selected: 0 transport highways selected
           question: Select legal services required
