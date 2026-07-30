@@ -303,8 +303,8 @@ en:
             legal_panel_for_government: RM6360 Legal Panel for Government
             para01: Use this service to find legal suppliers. Using this tool ensures you follow public sector procurement procedures.
             para02: The tool will identify the most appropriate lot for your requirements, allow you to download and compare supplier pricing, and support your customer journey to downselect suppliers.
-            para04_html:  If you need legal services for a non-UK jurisdiction, contact <a href="mailto:info@gca.gov.uk">info@gca.gov.uk</a>
-            para05_html: To use this service you need to be a recognised public sector body. 
+            para04_html: If you need legal services for a non-UK jurisdiction, contact <a href="mailto:info@gca.gov.uk">info@gca.gov.uk</a>
+            para05_html: To use this service you need to be a recognised public sector body.
           wps_link:
             text: WPS Legal Services panel specification
             url: https://www.gca.gov.uk/agreements/RM6374
