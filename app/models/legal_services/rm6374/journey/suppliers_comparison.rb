@@ -18,18 +18,14 @@ module LegalServices
         @lot ||= Lot.find("RM6374.#{lot_number}")
       end
 
-      def selected_jurisdiction_ids
-        raw_keys = Array(jurisdiction.presence || 'a').compact_blank
-        mapped_ids = raw_keys.map { |key| JURISDICTION_MAP[key] || key }
-        mapped_ids[0]
-      end
-
       def supplier_frameworks
         selected_services = service_numbers.map do |service_number|
           "RM6374.#{lot_number}.#{service_number}"
         end
 
-        @supplier_frameworks ||= ::Supplier::Framework.with_lots(lot.id).with_services(selected_services).sort_by(&:supplier_name)
+        selected_jurisdiction_id = JURISDICTION_MAP[jurisdiction] || jurisdiction
+
+        @supplier_frameworks ||= ::Supplier::Framework.with_lots(lot.id).with_services_and_jurisdiction(selected_services, [selected_jurisdiction_id]).sort_by(&:supplier_name)
       end
 
       def supplier_frameworks_with_rates
