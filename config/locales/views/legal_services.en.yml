@@ -296,19 +296,15 @@ en:
             text: Legal Panel for wider public sector RM6374 (opens in a new tab)
       home:
         index:
-          heading: Find legal services for the wider public sector
-          ojeu_link:
-            text: OJEU contract notice
-            url_html: "#"
+          heading: Find legal services for the public sector
           use_this_service:
             before_heading: Before you start
             guidance_heading: Guidance and other useful documents
             legal_panel_for_government: RM6360 Legal Panel for Government
-            para01: Use this service to download a shortlist of suppliers that provide the legal specialisms you need.
-            para02: Using this service means you're following the public sector procurement procedures.
-            para03_html: Central Government departments can also access legal service services through %{link}.
-            para04_html: You can contact <a href="mailto:info@gca.gov.uk">info@gca.gov.uk</a> for help.
-            para05_html: To use this service you need to be a recognised public sector body listed in the <a href="#">authorised customer list</a>.
+            para01: Use this service to find legal suppliers. Using this tool ensures you follow public sector procurement procedures.
+            para02: The tool will identify the most appropriate lot for your requirements, allow you to download and compare supplier pricing, and support your customer journey to downselect suppliers.
+            para04_html:  If you need legal services for a non-UK jurisdiction, contact <a href="mailto:info@gca.gov.uk">info@gca.gov.uk</a>
+            para05_html: To use this service you need to be a recognised public sector body. 
           wps_link:
             text: WPS Legal Services panel specification
             url: https://www.gca.gov.uk/agreements/RM6374
