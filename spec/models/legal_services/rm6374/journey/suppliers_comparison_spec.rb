@@ -116,8 +116,7 @@ RSpec.describe LegalServices::RM6374::Journey::SuppliersComparison do
     let(:rates) { { 'RM6374.3.4' => 'rate-a', 'RM6374.3.2' => 'rate-b' } }
 
     before do
-      allow(comparison).to receive(:supplier_frameworks).and_return([supplier_framework])
-      allow(comparison).to receive(:lot).and_return(lot)
+      allow(comparison).to receive_messages(supplier_frameworks: [supplier_framework], lot: lot) # rubocop:disable RSpec/SubjectStub
       allow(supplier_framework).to receive(:grouped_rates_for_lot).with(lot.id).and_return(rates)
     end
 
