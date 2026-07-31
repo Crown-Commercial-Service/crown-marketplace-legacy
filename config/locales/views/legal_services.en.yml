@@ -469,10 +469,8 @@ en:
           specialism_selected: focused legal specialisms selected
         suppliers_comparison:
           can_provide_specialisms: can provide the legal specialisms that meet your requirements.
-          # compare_rates: Compare the supplier rates
           contact_hint_html: If you have any questions, <a class="govuk-link" href="%{contact_link}">contact CCS</a>.
           disclaimer: The rates provided are maximum rates and subject to further competition.
-          # download_suppliers_list: Download the supplier list
           heading: Supplier results
           no_suppliers_found:
             back_to_start: Back to start
