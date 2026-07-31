@@ -51,9 +51,14 @@
       <p class="govuk-body govuk-!-margin-bottom-6">
         <%= t('.contact_hint_html', contact_link: t('common.ccs_contact_url')) %>
       </p>
-      <div class="govuk-button-group">
-        <%#= govuk_button(t('.compare_rates'), href: '#rates-comparison') %>
-        <%#= govuk_button(t('.download_suppliers_list'), href: download_legal_services_rm6374_suppliers_path(request.query_parameters.merge(format: :xlsx)), classes: 'govuk-button--secondary') %>
+
+      <div class="govuk-button-group" style= "border-style: solid; border-color: red;">
+        <%= govuk_button(t('.return_to_result_page'), href: '#rates-comparison') %>
+        <%= govuk_button(t('.reselect_suppliers'), href: '#reselect-suppliers', classes: 'govuk-button--secondary') %>
+        <%= govuk_button(t('.download'), href: '#download', classes: 'govuk-button--secondary') %>
+        <p class="govuk-!-font-size-16">
+          <b>Those button dont work yet, pls ignore while testing</b>
+        </p>
       </div>
     </div>
   </div>

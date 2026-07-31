@@ -471,6 +471,7 @@ en:
           can_provide_specialisms: can provide the legal specialisms that meet your requirements.
           contact_hint_html: If you have any questions, <a class="govuk-link" href="%{contact_link}">contact CCS</a>.
           disclaimer: The rates provided are maximum rates and subject to further competition.
+          download: Download the supplier list
           heading: Supplier results
           no_suppliers_found:
             back_to_start: Back to start
@@ -478,6 +479,8 @@ en:
             text: There are no suppliers available for your selection.
           page_title: Supplier results
           prospectus_advice: You may wish to undertake an assessment using the suppliers prospectus’ at this stage to help your down selection process. You can do this by using the links provided here or in a downloadable list by clicking "Download the supplier list"
+          reselect_suppliers: Reselect suppliers for comparision
+          return_to_result_page: Return to results page
           supplier: supplier
         transport_highways:
           no_transport_highways_selected: 0 transport highways selected
