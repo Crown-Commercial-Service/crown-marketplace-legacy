@@ -1,18 +1,19 @@
 module LegalServices
   module RM6374
     class SuppliersController < LegalServices::SuppliersController
-      private
+      include LegalServices::RM6374
 
-      def fetch_rates
-        @supplier_framework.grouped_rates_for_lot(@lot.id)
-      end
+      private
 
       def fetch_supplier_frameworks
         service_codes = params.expect(service_numbers: []).map do |service_number|
           "#{@lot.id}.#{service_number}"
         end
 
-        @supplier_frameworks = Supplier::Framework.with_services(service_codes).shuffle
+        selected_jurisdiction_id = get_jurisdiction(params.expect(:jurisdiction))
+
+        @supplier_frameworks = ::Supplier::Framework.with_lots(@lot.id)
+                                                    .with_services_and_jurisdiction(service_codes, [selected_jurisdiction_id]).shuffle
       end
 
       def fetch_lot

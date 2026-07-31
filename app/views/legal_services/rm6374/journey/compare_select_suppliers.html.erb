@@ -11,6 +11,13 @@
   <%= form_with url: @form_path, method: :get, html: { specialvalidation: true, novalidate: true } do |f| %>
     <%= hidden_fields_for_previous_steps_and_responses(@journey) %>
     <%= hidden_field_tag(:lot_number, @journey.current_step.lot_number) %>
+    <%= hidden_field_tag(:jurisdiction, @journey.current_step.jurisdiction) %>
+    <% @journey.current_step.service_numbers.each do |service_number| %>
+        <%= hidden_field_tag(:'service_numbers[]', service_number) %>
+    <% end %>
+    <% @journey.current_step.professions.each do |profession| %>
+        <%= hidden_field_tag(:'professions[]', profession) %>
+    <% end %>
 
     <div class="govuk-grid-column-two-thirds" id="selection-checkboxes">
       <%= govuk_checkboxes(
