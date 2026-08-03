@@ -10,10 +10,12 @@ module LegalServices
           "#{@lot.id}.#{service_number}"
         end
 
-        selected_jurisdiction_id = get_jurisdiction(params.expect(:jurisdiction))
-
-        @supplier_frameworks = ::Supplier::Framework.with_lots(@lot.id)
-                                                    .with_services_and_jurisdiction(service_codes, [selected_jurisdiction_id]).shuffle
+        @supplier_frameworks = if params[:lot_number] == '6'
+                                 ::Supplier::Framework.with_lots(@lot.id).with_services(service_codes)
+                               else
+                                 jurisdiction_id = get_jurisdiction(params.expect(:jurisdiction))
+                                 ::Supplier::Framework.with_lots(@lot.id).with_services_and_jurisdiction(service_codes, [jurisdiction_id])
+                               end.shuffle
       end
 
       def fetch_lot
