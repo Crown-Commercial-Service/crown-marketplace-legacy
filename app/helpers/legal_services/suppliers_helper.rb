@@ -3,18 +3,18 @@ module LegalServices::SuppliersHelper
     "Lot #{lot.number[0]} - #{lot.name}"
   end
 
-  def prospectus_link_present?
-    prospectus_link.present? && prospectus_link.downcase != 'n/a'
+  def prospectus_link_present?(supplier_framework, lot)
+    prospectus_link(supplier_framework, lot).present? && prospectus_link(supplier_framework, lot).downcase != 'n/a'
   end
 
-  def prospectus_link_a_url?
-    URI.parse(prospectus_link)
+  def prospectus_link_a_url?(supplier_framework, lot)
+    URI.parse(prospectus_link(supplier_framework, lot))
     true
   rescue StandardError
     false
   end
 
-  def prospectus_link
-    @prospectus_link ||= @supplier_framework.contact_detail.additional_details["lot_#{@lot.number[0]}_prospectus_link"]
+  def prospectus_link(supplier_framework, lot)
+    (@prospectus_link ||= {})[supplier_framework.id] ||= supplier_framework.contact_detail.additional_details["lot_#{lot.number}_prospectus_link"]
   end
 end
