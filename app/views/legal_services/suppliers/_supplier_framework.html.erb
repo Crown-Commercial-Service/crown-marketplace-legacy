@@ -1,7 +1,7 @@
 <li>
   <h2 class="govuk-heading-m">
     <% if params[:framework] == 'RM6374' %>
-      <%= link_to supplier_framework.supplier_name, legal_services_rm6374_supplier_path(supplier_framework), class: 'govuk-link ccs-no-underline' %>
+      <%= link_to supplier_framework.supplier_name, legal_services_rm6374_supplier_path(supplier_framework, **@journey.params), class: 'govuk-link ccs-no-underline' %>
     <% else %>
       <%= link_to supplier_framework.supplier_name, legal_services_supplier_path(supplier_framework), class: 'govuk-link ccs-no-underline' %>
     <% end %>
