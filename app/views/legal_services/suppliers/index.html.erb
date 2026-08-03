@@ -64,7 +64,7 @@
               <%# Use clean_params here so the new page loads fresh without errors %>
               <%= govuk_button(t('.compare_supplier_rates'), href: legal_services_journey_question_path(framework: 'RM6374', slug: professional_slug, **clean_params)) %>
               
-              <%= govuk_button(t('.download_suppliers_list'), href: download_legal_services_rm6374_suppliers_path(request.query_parameters), classes: 'govuk-button--secondary') %>
+               <%= govuk_button(t('.download_suppliers_list'), href: download_legal_services_rm6374_suppliers_path(format: :xlsx, **@journey.params), classes: 'govuk-button--secondary') %>
             </div>
           </div>
         </div>
