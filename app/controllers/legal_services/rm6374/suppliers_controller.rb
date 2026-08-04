@@ -3,6 +3,10 @@ module LegalServices
     class SuppliersController < LegalServices::SuppliersController
       include LegalServices::RM6374
 
+      helper LegalServices::RM6374::RatesHelper
+
+      before_action :fetch_supplier_framework, :fetch_rates, only: :show
+
       def download
         begin
           Search.log_results_downloaded_to_search(@lot.framework, current_user, session.id, params)
@@ -21,6 +25,14 @@ module LegalServices
       end
 
       private
+
+      def fetch_supplier_framework
+        @supplier_framework = Supplier::Framework.joins(:supplier).find(params.expect(:id))
+      end
+
+      def fetch_rates
+        @rates = @supplier_framework.grouped_rates_for_lot(@lot.id)
+      end
 
       def fetch_supplier_frameworks
         service_codes = params.expect(service_numbers: []).map do |service_number|

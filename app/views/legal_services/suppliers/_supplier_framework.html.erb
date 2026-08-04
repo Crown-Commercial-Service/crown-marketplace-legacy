@@ -1,7 +1,7 @@
 <li>
   <h2 class="govuk-heading-m">
     <% if params[:framework] == 'RM6374' %>
-      <%= link_to supplier_framework.supplier_name, legal_services_rm6374_supplier_path(supplier_framework), class: 'govuk-link ccs-no-underline' %>
+      <%= link_to supplier_framework.supplier_name, legal_services_rm6374_supplier_path(supplier_framework, **@journey.params), class: 'govuk-link ccs-no-underline' %>
     <% else %>
       <%= link_to supplier_framework.supplier_name, legal_services_supplier_path(supplier_framework), class: 'govuk-link ccs-no-underline' %>
     <% end %>
@@ -9,5 +9,17 @@
     <% if supplier_framework.supplier.sme %>
       <%= govuk_tag(t('sme'), 'grey', classes: 'ccs-tag') %>
     <% end %>
+
+
+    <% if params[:framework] == 'RM6374' %>
+      <% link_url = prospectus_link_for_list_page(supplier_framework) %>
+      
+      <% if link_url.present? %>
+        <div class="ccs-results-list__prospectus">
+          <%= link_to link_url, url_formatter(link_url), class: 'govuk-link', target: '_blank', rel: 'noopener' %>
+        </div>
+      <% end %>
+    <% end %>
+
   </h2>
 </li>
