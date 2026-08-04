@@ -486,6 +486,8 @@ en:
       suppliers:
         rates_table:
           grade: Grade
+          position: Position
+          rates: Rates
     service_name: Legal Services
     suppliers:
       download:
