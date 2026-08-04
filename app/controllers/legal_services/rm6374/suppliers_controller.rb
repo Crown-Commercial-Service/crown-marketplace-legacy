@@ -3,6 +3,23 @@ module LegalServices
     class SuppliersController < LegalServices::SuppliersController
       include LegalServices::RM6374
 
+      def download
+        begin
+          Search.log_results_downloaded_to_search(@lot.framework, current_user, session.id, params)
+        rescue StandardError => e
+          Rails.logger.error e
+          Rollbar.log('error', e)
+        end
+
+        respond_to do |format|
+          format.xlsx do
+            spreadsheet_builder = SupplierSpreadsheetCreator.new(@supplier_frameworks, params)
+            spreadsheet = spreadsheet_builder.build
+            send_data spreadsheet.to_stream.read, filename: params[:call_off_mechanism].nil? ? 'Shortlist of Legal Services Suppliers.xlsx.xlsx' : 'Rates of Legal Services Suppliers.xlsx', type: :xlsx
+          end
+        end
+      end
+
       private
 
       def fetch_supplier_frameworks
