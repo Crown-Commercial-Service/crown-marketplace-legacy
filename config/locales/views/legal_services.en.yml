@@ -421,7 +421,7 @@ en:
             question: Will this requirement replace an existing contract that was previously awarded under a GCA legal services framework?
           requirement_being_awarded:
             options:
-              highly_likely: Highly likely
+              highly_likely: Highly likely 
               likely: Likely
               possibly: Possibly
               unlikely: Unlikely
