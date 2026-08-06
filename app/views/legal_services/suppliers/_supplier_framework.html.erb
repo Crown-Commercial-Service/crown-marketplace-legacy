@@ -16,7 +16,7 @@
       
       <% if link_url.present? %>
         <div class="ccs-results-list__prospectus">
-          <%= link_to link_url, url_formatter(link_url), class: 'govuk-link', target: '_blank', rel: 'noopener' %>
+          <%= link_to link_url, url_formatter(link_url), class: 'govuk-link ccs-no-underline' %>
         </div>
       <% end %>
     <% end %>
