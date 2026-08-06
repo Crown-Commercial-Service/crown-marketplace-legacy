@@ -17,7 +17,7 @@ Feature: Legal services -  Central governemnt - Lot 5 - Suppliers
     And I select 'Legal services requiring a deep understanding of the transport, rail, highways, maritime, ports aviation and planning industry' for 'requirements'
     And I click on 'Continue'
     And I click on 'Continue'
-    Then I am on the 'Select legal services required' page
+    Then I am on the 'Select the legal specialism(s) you require' page
     When I check the following items:
       | Competition Law        |
       | Employment Law         |
@@ -42,7 +42,7 @@ Feature: Legal services -  Central governemnt - Lot 5 - Suppliers
     Given I click on the 'Back' back link
     Then I am on the 'Select the jurisdiction you need' page
     Given I click on the 'Back' back link
-    Then I am on the 'Select legal services required' page
+    Then I am on the 'Select the legal specialism(s) you require' page
     And I deselect all the items
     Given I check 'Public Procurement Law'
     When I click on 'Continue'

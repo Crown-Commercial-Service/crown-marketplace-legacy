@@ -293,7 +293,7 @@ en:
           view_furth_informtion_html: View further information about the %{url}
           view_furth_informtion_link:
             href: https://www.gca.gov.uk/agreements/RM6374
-            text: Legal Panel for wider public sector RM6374 (opens in a new tab)
+            text: Legal Panel for Public Sector RM6374
       home:
         index:
           heading: Find legal services for the public sector
@@ -305,19 +305,19 @@ en:
             para04_html: If you need legal services for a non-UK jurisdiction, contact <a href="mailto:info@gca.gov.uk">info@gca.gov.uk</a>
             para05_html: To use this service you need to be a recognised public sector body.
           wps_link:
-            text: WPS Legal Services panel specification
+            text: Legal Panel for Public Sector RM6374 webpage
             url: https://www.gca.gov.uk/agreements/RM6374
       journey:
         all_legal_specalisms:
-          all_legal_specalisms_selected: Dispute resolution selected
-          no_all_legal_specalisms_selected: 0 dispute resolutions selected
-          question: Select legal services required
-          search_all_legal_specalisms: Search dispute resolutions
+          all_legal_specalisms_selected: legal specialisms  selected
+          no_all_legal_specalisms_selected: 0 legal specialisms selected
+          question: Select the legal specialism(s) you require
+          search_all_legal_specalisms: Search legal specialisms
           specialism_selected: specialism selected
         choose_call_off_mechanism:
           answer:
             further_competition: Further Competition
-            quotation_process: Quotation Process
+            quotation_process: Quote Process
             rapid_award: Rapid Award
           hint: Select an option below
           question: Please select the call off award mechanism being used
@@ -338,7 +338,7 @@ en:
             grade_d:
               hint: Paralegal/Legal Assistant/Trainee Solicitor
               label: Grade D
-          question: Please select which type of law professionals you seek to compare
+          question: Please select the legal roles needed for your requirement
         choose_law_professionals:
           hint: If you know the grades required, please select them below. Only rates for the selected grades will be included in the results
           options:
@@ -352,17 +352,30 @@ en:
             senior_solicitor: Senior Solicitor, Senior Associate/Senior Legal Executive
             solicitor: Solicitor, Associate/Legal Executive
             trainee: Trainee/Legal Apprentice
-          question: Please select which type of law professionals you seek to compare
+          question: Please select the legal roles needed for your requirement
         choose_sector:
           options:
-            culture: Culture, Media & Sport
-            defence: Defence and Security
-            education: Education
-            government_policy: Government Policy
-            health: Health
-            infrastructure: Infrastructure
-            local_community: Local Community & Housing
-            transport: Transport and Rail
+            culture:
+              label: Culture, Media & Sport
+              hint: DCMS, Libraries, Leisure & Sports Centres, Arts, Galleries, Parks, Museums 
+            defence: 
+              label: Defence and Security 
+              hint: Armed Forces, Fire & Rescue, MOD, Home Office, Police Services, Prisons and MOJ
+            education:
+              label: Education
+              hint: Schools, Unis, Colleges, Nursery, DfE and other Educational Centres
+            government_policy: 
+              label: Government Policy
+              hint: Agencies & Public Bodies, Ministerial Departments and Non-Ministerial Departments
+            health: 
+              label: Health
+              hint: Acute Providers, DHSC, ICBs, ICSs & Health Boards, NHS, Community & Mental Health Providers, Local Providers, Ambulance Services and CSU & Procurement Partnerships 
+            infrastructure:
+              label: Infrastructure
+              hint: DFT, Energy, Private Sector and Transport 
+            local_community: 
+              label: Local Community & Housing
+              hint: County Councils, Housing Associations, Charities and Town/ Parish/ District Councils
           question: Please select your customer sector
         choose_specialisms:
           options:
@@ -394,16 +407,16 @@ en:
           scroll_to_the_right: Scroll the table to the right to view all job roles and rates.
           supplier: Supplier
         cost_service:
-          cost_service_selected: Cost service selected
-          no_cost_service_selected: 0 cost services selected
-          question: Select legal services required
-          search_cost_services: Search cost services
+          cost_service_selected: legal specialisms selected
+          no_cost_service_selected: 0 legal specialisms selected
+          question: Select the legal specialism(s) you require
+          search_cost_services: Search legal specialisms
           specialism_selected: specialism selected
         dispute_resolution:
-          dispute_resolution_selected: Dispute resolution selected
-          no_dispute_resolution_selected: 0 dispute resolutions selected
-          question: Select legal services required
-          search_dispute_resolutions: Search dispute resolutions
+          dispute_resolution_selected: legal specialisms selected
+          no_dispute_resolution_selected: 0 legal specialisms selected
+          question: Select the legal specialism(s) you require
+          search_dispute_resolutions: Search legal specialisms
           specialism_selected: specialism selected
         further_competition:
           assessment_advice: You may wish to undertake an assessment using the suppliers' prospectus at this stage to help your down selection process. You can do this by using the links provided here or in a downloadable list by clicking "Download the supplier list".
@@ -415,13 +428,13 @@ en:
           ccs_can_contact_you:
             hint: Any follow-up activity is intended to deliver ongoing support
             question: Can GCA contact you about this search?
-          description: To help GCA understand your needs, please tell us how long this will take and what it’s worth. If you’re not sure at this stage, an estimate can be provided.
+          description: To help GCA understand your needs, please tell us the length of your requirement and the value. If you’re not sure at this stage, an estimate can be provided.
           heading: Information about your requirements
           replaces_existing_contract:
             question: Will this requirement replace an existing contract that was previously awarded under a GCA legal services framework?
           requirement_being_awarded:
             options:
-              highly_likely: Highly likely 
+              highly_likely: Highly likely
               likely: Likely
               possibly: Possibly
               unlikely: Unlikely
@@ -447,10 +460,10 @@ en:
             'yes': 'Yes'
           heading: Have you reviewed the supplier prospectuses to support your downselection?
         risk_innovation:
-          no_risk_innovation_selected: 0 risk innovations selected
-          question: Select legal services required
-          risk_innovation_selected: Risk innovation selected
-          search_risk_innovations: Search risk innovations
+          no_risk_innovation_selected: 0 legal specialisms selected
+          question: Select the legal specialism(s) you require
+          risk_innovation_selected: legal specialisms selected
+          search_risk_innovations: Search legal specialisms
           specialism_selected: specialism selected
         single_or_multiple_suppliers:
           options:
@@ -474,16 +487,16 @@ en:
             heading: No suppliers found
             text: There are no suppliers available for your selection.
           page_title: Supplier results
-          prospectus_advice: You may wish to undertake an assessment using the suppliers prospectus’ at this stage to help your down selection process. You can do this by using the links provided here or in a downloadable list by clicking "Download the supplier list"
+          prospectus_advice: You may wish to undertake an assessment using the suppliers prospectus’ at this stage to help your down selection process if using a rapid award or quote process. You can do this by using the links provided here or in a downloadable list by clicking "Download the supplier list".
           reselect_suppliers: Reselect suppliers for comparision
           return_to_result_page: Return to results page
           supplier: supplier
         transport_highways:
-          no_transport_highways_selected: 0 transport highways selected
-          question: Select legal services required
-          search_transport_highwayss: Search transport highways
+          no_transport_highways_selected: 0 legal specialismsselected
+          question: Select the legal specialism(s) you require
+          search_transport_highwayss: Search legal specialisms
           specialism_selected: specialism selected
-          transport_highways_selected: Transport highways selected
+          transport_highways_selected: legal specialisms selected
       suppliers:
         rates_table:
           grade: Grade
