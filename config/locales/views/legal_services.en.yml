@@ -374,6 +374,7 @@ en:
             transport_highways: Legal services requiring a deep understanding of the transport, rail, highways, maritime, ports aviation and planning industry
           question: Do you require
         compare_select_suppliers:
+          open_all_supplier_rates: View supplier rates (opens in new tab)
           no_suppliers_selected: No suppliers selected
           question: Select suppliers for comparison
           supplier_selected: supplier selected
