@@ -14,10 +14,12 @@ module LegalServices
 
       def next_step_class
         case call_off_mechanism
-        when 'further_competition', 'quotation_process'
+        when 'further_competition'
           Journey::SuppliersComparison
         when 'rapid_award'
           Journey::ReviewProspectus
+        when 'quotation_process'
+          Journey::CompareSelectSuppliers
         end
       end
     end

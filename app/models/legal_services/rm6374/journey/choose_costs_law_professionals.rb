@@ -4,11 +4,11 @@ module LegalServices
       include Steppable
 
       PROFESSION_OPTIONS = %w[
+        all
         grade_a
         grade_b
         grade_c
         grade_d
-        all
       ].freeze
 
       attribute :professions, :array
