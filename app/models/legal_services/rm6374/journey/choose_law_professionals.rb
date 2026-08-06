@@ -6,14 +6,13 @@ module LegalServices
       PROFESSION_OPTIONS = %w[
         partner
         legal_director
-        senior_solicitor
+        senior
         solicitor
-        nq_solicitor
+        junior
         trainee
         paralegal
         legal_project_manager
-        legal_document_reviewer
-        all
+        legal_document_reviewers
       ].freeze
 
       attribute :professions, :array
