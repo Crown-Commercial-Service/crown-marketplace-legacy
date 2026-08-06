@@ -19,7 +19,7 @@ module LegalServices
         when 'rapid_award'
           Journey::ReviewProspectus
         when 'quotation_process'
-          Journey::CompareSelectSuppliers
+          Journey::SuppliersComparison
         end
       end
     end
