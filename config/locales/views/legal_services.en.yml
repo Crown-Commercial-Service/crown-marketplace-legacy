@@ -356,26 +356,26 @@ en:
         choose_sector:
           options:
             culture:
+              hint: DCMS, Libraries, Leisure & Sports Centres, Arts, Galleries, Parks, Museums
               label: Culture, Media & Sport
-              hint: DCMS, Libraries, Leisure & Sports Centres, Arts, Galleries, Parks, Museums 
-            defence: 
-              label: Defence and Security 
+            defence:
               hint: Armed Forces, Fire & Rescue, MOD, Home Office, Police Services, Prisons and MOJ
+              label: Defence and Security
             education:
-              label: Education
               hint: Schools, Unis, Colleges, Nursery, DfE and other Educational Centres
-            government_policy: 
-              label: Government Policy
+              label: Education
+            government_policy:
               hint: Agencies & Public Bodies, Ministerial Departments and Non-Ministerial Departments
-            health: 
+              label: Government Policy
+            health:
+              hint: Acute Providers, DHSC, ICBs, ICSs & Health Boards, NHS, Community & Mental Health Providers, Local Providers, Ambulance Services and CSU & Procurement Partnerships
               label: Health
-              hint: Acute Providers, DHSC, ICBs, ICSs & Health Boards, NHS, Community & Mental Health Providers, Local Providers, Ambulance Services and CSU & Procurement Partnerships 
             infrastructure:
+              hint: DFT, Energy, Private Sector and Transport
               label: Infrastructure
-              hint: DFT, Energy, Private Sector and Transport 
-            local_community: 
-              label: Local Community & Housing
+            local_community:
               hint: County Councils, Housing Associations, Charities and Town/ Parish/ District Councils
+              label: Local Community & Housing
           question: Please select your customer sector
         choose_specialisms:
           options:
