@@ -149,7 +149,7 @@ class LegalServices::RM6374::Admin::FilesProcessor < FilesProcessor
     lot_data = supplier_framework_lots_data[lot_id]
 
     max_positions = lot_name == '6' ? 4 : 9
-    applicable_jurisdictions = lot_data[:jurisdictions].map { |j| j[:jurisdiction_id] }
+    applicable_jurisdictions = lot_data[:jurisdictions].pluck(:jurisdiction_id)
 
     row[2..].take(max_positions).each.with_index(1) do |rate, position_id|
       next if rate.nil?
