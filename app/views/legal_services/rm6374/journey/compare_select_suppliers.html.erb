@@ -47,6 +47,20 @@
     </div>
 
     <div class="govuk-grid-column-one-third">
+
+      <% 
+        supplier_rates_params = request.query_parameters.symbolize_keys.merge(
+          framework: 'RM6374',
+          slug: 'suppliers-comparison',
+          call_off_mechanism: 'award_with_competition',
+          plan_view: 'true'
+        ).except(:slug)
+      %>
+    
+
+      <%= link_to t('.open_all_supplier_rates'), legal_services_journey_question_path(supplier_rates_params), target: '_blank', rel: 'noopener', class: 'govuk-!-padding-3 govuk-button govuk-button--secondary govuk-link--no-visited-state govuk-link--no-underline' %>
+
+
       <%= render partial: 'shared/basket', locals: { 
         form: f, 
         data_text_1: t('.suppliers_selected'), 

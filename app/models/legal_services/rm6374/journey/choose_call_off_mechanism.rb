@@ -3,10 +3,13 @@ module LegalServices
     class Journey::ChooseCallOffMechanism
       include Steppable
 
-      attribute :call_off_mechanism, :string
-      attribute :lot_number, :string
+      CALL_OFF_MECHANISM_OPTIONS = %w[award_with_competition rapid_award quotation_process].freeze
+
+      attribute :lot_number
+      attribute :call_off_mechanism
 
       validates :call_off_mechanism, presence: true
+      validates :call_off_mechanism, inclusion: CALL_OFF_MECHANISM_OPTIONS
 
       def lot
         Lot.find("RM6374.#{lot_number}")
