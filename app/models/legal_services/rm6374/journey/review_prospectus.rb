@@ -14,9 +14,9 @@ module LegalServices
 
       def next_step_class
         if review_prospectus == 'yes'
-          Journey::SuppliersComparison
+          Journey::CompareSelectSuppliers
         else
-          Journey::Suppliers
+          Journey::SuppliersComparison
         end
       end
     end

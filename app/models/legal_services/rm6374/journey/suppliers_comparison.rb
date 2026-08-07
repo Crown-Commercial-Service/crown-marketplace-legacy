@@ -49,6 +49,8 @@ module LegalServices
           ["RM6374.#{lot_number}.9", 'legal_document_reviewer']
         ]
 
+        return positions if professions.include?('all')
+
         positions.select do |_code, profession|
           professions.include?(profession)
         end

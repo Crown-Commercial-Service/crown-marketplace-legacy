@@ -4,15 +4,16 @@ module LegalServices
       include Steppable
 
       PROFESSION_OPTIONS = %w[
+        all
         partner
         legal_director
-        senior
+        senior_solicitor
         solicitor
-        junior
+        nq_solicitor
         trainee
         paralegal
         legal_project_manager
-        legal_document_reviewers
+        legal_document_reviewer
       ].freeze
 
       attribute :professions, :array
