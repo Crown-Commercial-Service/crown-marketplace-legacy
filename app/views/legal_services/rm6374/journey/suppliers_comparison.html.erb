@@ -77,7 +77,7 @@ journey_path = ->(slug, params = {}) {
 
         <div class="govuk-button-group">
           <%= govuk_button(t('.return_to_result_page'), href: @return_to_suppliers) %>
-          <% if params[:call_off_mechanism] != 'further_competition' %>
+          <% unless params[:call_off_mechanism] == 'award_with_competition' || params[:review_prospectus] == 'no' %>
             <%= govuk_button(
                   t('.reselect_suppliers'), 
                   href: @reselect_supplier, 
