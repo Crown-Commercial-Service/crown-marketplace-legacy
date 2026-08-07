@@ -37,22 +37,12 @@ module LegalServices
       end
 
       def positions
-        positions = [
-          ["RM6374.#{lot_number}.1", 'partner'],
-          ["RM6374.#{lot_number}.2", 'legal_director'],
-          ["RM6374.#{lot_number}.3", 'senior_solicitor'],
-          ["RM6374.#{lot_number}.4", 'solicitor'],
-          ["RM6374.#{lot_number}.5", 'nq_solicitor'],
-          ["RM6374.#{lot_number}.6", 'trainee'],
-          ["RM6374.#{lot_number}.7", 'paralegal'],
-          ["RM6374.#{lot_number}.8", 'legal_project_manager'],
-          ["RM6374.#{lot_number}.9", 'legal_document_reviewer']
-        ]
+        all_positions = lot.positions.order(:number).pluck(:id, :name)
 
-        return positions if professions.include?('all')
+        return all_positions if professions.blank? || professions.include?('all')
 
-        positions.select do |_code, profession|
-          professions.include?(profession)
+        all_positions.select do |position_id, profession_name|
+          professions.include?(profession_name) || professions.include?(position_id)
         end
       end
     end
