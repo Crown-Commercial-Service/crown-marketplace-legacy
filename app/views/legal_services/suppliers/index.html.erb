@@ -10,12 +10,14 @@
 
 <%= content_for :page_title, t('.page_title')  %>
 
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-full">
-    <span class="govuk-caption-xl">
-      <%= full_lot_name(@lot) %>
-    </span>
-    
+<span class="govuk-caption-xl">
+  <% if params[:framework].to_s.casecmp('rm6374').zero? %>
+    <%= full_lot_name(LegalServices::Lot.find_by(number: @journey.current_step.lot_number)) %>
+  <% else %>
+    <%= full_lot_name(@lot) %>
+  <% end %>
+</span>
+
     <% if @supplier_frameworks.count.zero? %>
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
