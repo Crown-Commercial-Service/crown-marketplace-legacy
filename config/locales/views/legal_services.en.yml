@@ -315,11 +315,11 @@ en:
           search_all_legal_specalisms: Search legal specialisms
           specialism_selected: specialism selected
         choose_call_off_mechanism:
-          answer:
+          hint: Select an option below
+          options:
             award_with_competition: Award with competition
             quotation_process: Quote Process
             rapid_award: Rapid Award
-          hint: Select an option below
           question: Please select the call off award mechanism being used
         choose_costs_law_professionals:
           hint: If you know the grades required, please select them below. Only rates for the selected grades will be included in the results

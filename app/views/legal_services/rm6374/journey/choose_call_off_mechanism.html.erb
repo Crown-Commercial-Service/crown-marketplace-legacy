@@ -15,11 +15,11 @@
       
       <%= govuk_radios(
         :call_off_mechanism,
-        %w[award_with_competition rapid_award quotation_process].map do |option|
+        @journey.current_step.class::CALL_OFF_MECHANISM_OPTIONS.map do |option|
           {
             value: option,
             label: {
-              text: t(".answer.#{option}")
+              text: t(".options.#{option}")
             }
           }
         end,

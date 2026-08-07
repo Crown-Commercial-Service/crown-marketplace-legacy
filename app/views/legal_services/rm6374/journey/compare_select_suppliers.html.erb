@@ -52,7 +52,7 @@
         supplier_rates_params = request.query_parameters.symbolize_keys.merge(
           framework: 'RM6374',
           slug: 'suppliers-comparison',
-          call_off_mechanism: 'direct_competition',
+          call_off_mechanism: 'award_with_competition',
           plan_view: 'true'
         ).except(:slug)
       %>
