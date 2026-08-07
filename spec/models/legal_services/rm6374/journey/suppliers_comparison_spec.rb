@@ -156,22 +156,50 @@ RSpec.describe LegalServices::RM6374::Journey::SuppliersComparison do
   end
 
   describe '#positions' do
+    let(:lot) { instance_double(Lot, id: "RM6374.#{lot_number}") }
+    let(:positions_relation) { double('positions_relation') } # rubocop:disable RSpec/VerifiedDoubles
+
+    let(:all_mocked_positions) do
+      [
+        ["RM6374.#{lot_number}.1", 'partner'],
+        ["RM6374.#{lot_number}.2", 'legal_director'],
+        ["RM6374.#{lot_number}.3", 'senior'],
+        ["RM6374.#{lot_number}.4", 'solicitor'],
+        ["RM6374.#{lot_number}.5", 'junior'],
+        ["RM6374.#{lot_number}.6", 'trainee'],
+        ["RM6374.#{lot_number}.7", 'paralegal'],
+        ["RM6374.#{lot_number}.8", 'legal_project_manager'],
+        ["RM6374.#{lot_number}.9", 'legal_document_reviewers']
+      ]
+    end
+
+    before do
+      allow(Lot).to receive(:find).with("RM6374.#{lot_number}").and_return(lot)
+      allow(lot).to receive(:positions).and_return(positions_relation)
+
+      ordered_positions = double('ordered_positions') # rubocop:disable RSpec/VerifiedDoubles
+      allow(positions_relation).to receive(:order).with(:number).and_return(ordered_positions)
+      allow(ordered_positions).to receive(:pluck).with(:id, :name).and_return(all_mocked_positions)
+    end
+
     context 'when professions include partner and solicitor' do
       it 'returns only the matching position codes and names' do
         expect(comparison.positions).to eq(
           [
-            ['RM6374.3.1', 'partner'],
-            ['RM6374.3.4', 'solicitor']
+            ["RM6374.#{lot_number}.1", 'partner'],
+            ["RM6374.#{lot_number}.4", 'solicitor']
           ]
         )
       end
     end
 
     context 'when professions are empty' do
+      subject(:comparison) { described_class.new(lot_number:, service_numbers:, professions:, jurisdiction:) }
+
       let(:professions) { [] }
 
       it 'returns an empty array' do
-        expect(comparison.positions).to eq([])
+        expect(comparison.positions).to eq(all_mocked_positions)
       end
     end
 
@@ -181,17 +209,15 @@ RSpec.describe LegalServices::RM6374::Journey::SuppliersComparison do
       it 'filters out unsupported profession names' do
         expect(comparison.positions).to eq(
           [
-            ['RM6374.3.1', 'partner'],
-            ['RM6374.3.4', 'solicitor']
+            ["RM6374.#{lot_number}.1", 'partner'],
+            ["RM6374.#{lot_number}.4", 'solicitor']
           ]
         )
       end
     end
 
     context 'when selecting all available professions' do
-      let(:professions) do
-        %w[partner legal_director senior_solicitor solicitor nq_solicitor trainee paralegal legal_project_manager legal_document_reviewer]
-      end
+      let(:professions) { %w[all] }
 
       it 'returns all 9 positions formatted for the current lot_number' do
         expect(comparison.positions.count).to eq(9)
