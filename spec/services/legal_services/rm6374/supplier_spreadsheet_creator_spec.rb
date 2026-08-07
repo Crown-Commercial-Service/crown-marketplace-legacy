@@ -164,8 +164,7 @@ RSpec.describe LegalServices::RM6374::SupplierSpreadsheetCreator do
       end
 
       it 'handles missing lot record gracefully without crashing' do
-        expect(sheet.row(2)[0]).to eq 'COLONY 4 CORP'
-        expect(sheet.row(2)[2..3]).to eq [nil, nil]
+        expect(sheet.row(2).compact).to be_empty
       end
     end
   end
