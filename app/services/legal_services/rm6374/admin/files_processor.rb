@@ -1,6 +1,10 @@
 class LegalServices::RM6374::Admin::FilesProcessor < FilesProcessor
   private
 
+  LOT_NUMBERS = ['1a', '1b', '1c', '2', '3', '4', '5', '6'].freeze
+  JURISDICTIONS = ['RM6374.EW', 'RM6374.SC', 'RM6374.NI'].freeze
+  LOT_1_JURISDICTION_SUFFIXES = ['a', 'b', 'c'].freeze
+
   def add_suppliers(suppliers_workbook) # rubocop:disable Metrics/MethodLength
     super(
       suppliers_workbook,
@@ -57,47 +61,66 @@ class LegalServices::RM6374::Admin::FilesProcessor < FilesProcessor
   end
 
   def add_lot_services_per_supplier(lot_services)
-    lot_services.sheets.each do |sheet_name|
-      sheet = lot_services.sheet(sheet_name)
+    3.times do |sheet_number|
+      sheet = lot_services.sheet(sheet_number)
       sheet_columns_and_rows = sheet.to_a.transpose
-
       service_codes = sheet_columns_and_rows[1][2..].map(&:to_s)
 
-      add_service_offerings(sheet_columns_and_rows, service_codes)
+      jurisdiction_id = JURISDICTIONS[sheet_number]
+      lot_1_suffix = LOT_1_JURISDICTION_SUFFIXES[sheet_number]
+
+      add_service_offerings(sheet_columns_and_rows, service_codes, jurisdiction_id, lot_1_suffix)
     end
   end
 
   def add_lot_6_services_per_supplier(lot_6_services)
     sheet = lot_6_services.sheet(0)
-
     sheet_columns_and_rows = sheet.to_a.transpose
     service_codes = sheet_columns_and_rows[1][2..].map(&:to_s)
 
     add_service_offerings(sheet_columns_and_rows, service_codes)
   end
 
-  def add_service_offerings(sheet_columns_and_rows, service_codes)
+  def add_service_offerings(sheet_columns_and_rows, service_codes, jurisdiction_id = nil, lot_1_suffix = nil) # rubocop:disable Metrics/CyclomaticComplexity
+    lot_number = service_codes.compact.first&.split('.')&.first
+
     sheet_columns_and_rows[2..].each do |column|
       supplier_duns = column[1].to_i.to_s
       supplier = get_supplier(supplier_duns)
       next unless supplier
 
-      add_services(supplier, service_codes, column)
+      has_offerings = column[2..].any? { |val| val.to_s.casecmp?('x') }
+      next unless has_offerings
+
+      lot_id = "RM6374.#{lot_number}#{lot_1_suffix if lot_number == '1'}"
+
+      update_lot_jurisdiction(supplier, lot_id, jurisdiction_id)
+
+      add_services(supplier, lot_id, service_codes, column)
     end
   end
 
-  def add_services(supplier, service_codes, column)
-    supplier_framework_lots_data = supplier[:supplier_frameworks][0][:supplier_framework_lots_data]
+  def update_lot_jurisdiction(supplier, lot_id, jurisdiction_id)
+    return if jurisdiction_id.blank?
+
+    lot_data = supplier[:supplier_frameworks][0][:supplier_framework_lots_data][lot_id]
+    jurisdictions_list = lot_data[:jurisdictions]
+
+    jurisdictions_list.reject! { |j| j[:jurisdiction_id] == 'RM6374.GB' }
+    return if jurisdictions_list.any? { |j| j[:jurisdiction_id] == jurisdiction_id }
+
+    jurisdictions_list << { jurisdiction_id: }
+  end
+
+  def add_services(supplier, lot_id, service_codes, column)
+    services_list = supplier[:supplier_frameworks][0][:supplier_framework_lots_data][lot_id][:services]
 
     column[2..].each_with_index do |value, index|
-      next unless value.to_s.downcase == 'x'
-      next if service_codes[index].blank?
+      next unless value.to_s.casecmp?('x') && service_codes[index].present?
 
-      lot_number, service_number = service_codes[index].split('.')
-      lot_id = "RM6374.#{lot_number}"
+      service_number = service_codes[index].split('.').last
       service_id = "#{lot_id}.#{service_number}"
 
-      services_list = supplier_framework_lots_data[lot_id][:services]
       services_list << { service_id: } unless services_list.any? { |s| s[:service_id] == service_id }
     end
   end
@@ -123,25 +146,27 @@ class LegalServices::RM6374::Admin::FilesProcessor < FilesProcessor
     supplier_framework_lots_data = supplier[:supplier_frameworks][0][:supplier_framework_lots_data]
     lot_name = LOT_NUMBERS[sheet_index]
     lot_id = "RM6374.#{lot_name}"
+    lot_data = supplier_framework_lots_data[lot_id]
 
     max_positions = lot_name == '6' ? 4 : 9
+    applicable_jurisdictions = lot_data[:jurisdictions].map { |j| j[:jurisdiction_id] }
 
     row[2..].take(max_positions).each.with_index(1) do |rate, position_id|
       next if rate.nil?
 
-      supplier_framework_lots_data[lot_id][:rates] << {
-        position_id: "#{lot_id}.#{position_id}",
-        rate: convert_rate_to_pence(rate),
-        jurisdiction_id: 'RM6374.GB'
-      }
+      applicable_jurisdictions.each do |j_id|
+        lot_data[:rates] << {
+          position_id: "#{lot_id}.#{position_id}",
+          rate: convert_rate_to_pence(rate),
+          jurisdiction_id: j_id
+        }
+      end
     end
   end
 
   def convert_rate_to_pence(rate)
     rate&.*(100).to_i
   end
-
-  LOT_NUMBERS = ['1a', '1b', '1c', '2', '3', '4', '5', '6'].freeze
 
   PROCESS_FILES_AND_METHODS = {
     supplier_details_file: :add_suppliers,
