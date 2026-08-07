@@ -54,19 +54,40 @@ journey_path = ->(slug, params = {}) {
       <%= t('.can_provide_specialisms') %>
     </p>
 
-      <div class="govuk-button-group">
-        <%= govuk_button(t('.return_to_result_page'), href: @return_to_suppliers) %>
-        <% if params[:call_off_mechanism] != 'further_competition' %>
-          <%= govuk_button(
-                t('.reselect_suppliers'), 
-                href: @reselect_supplier, 
-                classes: 'govuk-button--secondary'
-              ) %>
-        <% end %>
-        <%= govuk_button(t('.download'), href: download_legal_services_rm6374_suppliers_path(request.query_parameters.merge(format: :xlsx)), classes: 'govuk-button--secondary') %>
+    <p class="govuk-body govuk-!-margin-bottom-6">
+      <%= t('.prospectus_advice') %>
+    </p>
 
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full ccs-supplier-comparison">
+        <%= render(partial: 'legal_services/rm6374/journey/comparison_rates_table', locals: { supplier_frameworks: @journey.current_step.supplier_frameworks_with_rates }) %>
       </div>
     </div>
+
+    <hr class="govuk-section-break govuk-section-break--m">
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-three-quarters">
+        <p class="govuk-body">
+          <%= t('.disclaimer') %>
+        </p>
+        <p class="govuk-body govuk-!-margin-bottom-6">
+          <%= t('.contact_hint_html', contact_link: t('common.ccs_contact_url')) %>
+        </p>
+
+        <div class="govuk-button-group">
+          <%= govuk_button(t('.return_to_result_page'), href: @return_to_suppliers) %>
+          <% if params[:call_off_mechanism] != 'further_competition' %>
+            <%= govuk_button(
+                  t('.reselect_suppliers'), 
+                  href: @reselect_supplier, 
+                  classes: 'govuk-button--secondary'
+                ) %>
+          <% end %>
+          <%= govuk_button(t('.download'), href: download_legal_services_rm6374_suppliers_path(request.query_parameters.merge(format: :xlsx)), classes: 'govuk-button--secondary') %>
+
+        </div>
+      </div>
 
   <% end %>
 <% end %>
