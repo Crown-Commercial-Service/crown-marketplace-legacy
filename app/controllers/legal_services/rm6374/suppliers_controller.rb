@@ -7,6 +7,21 @@ module LegalServices
 
       before_action :fetch_supplier_framework, :fetch_rates, only: :show
 
+      def index
+        fetch_supplier_frameworks
+
+        @journey = LegalServices::Journey.new(params[:framework], params[:slug], params)
+        begin
+          Search.log_new_search(@lot.framework, current_user, session.id, @journey.params.to_hash, @supplier_frameworks)
+        rescue StandardError => e
+          Rollbar.log('error', e)
+        end
+
+        return unless params[:framework].to_s.casecmp?('rm6374') && @lot&.number.to_s == '2'
+
+        render 'lot_2_interim_result_page'
+      end
+
       def download
         begin
           Search.log_results_downloaded_to_search(@lot.framework, current_user, session.id, params)
