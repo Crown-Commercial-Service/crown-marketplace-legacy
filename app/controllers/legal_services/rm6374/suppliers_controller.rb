@@ -24,6 +24,10 @@ module LegalServices
         end
       end
 
+      def fetch_supplier_frameworks
+        @supplier_frameworks = scoped_supplier_frameworks.shuffle
+      end
+
       private
 
       def fetch_supplier_framework
@@ -34,17 +38,22 @@ module LegalServices
         @rates = @supplier_framework.grouped_rates_for_lot(@lot.id)
       end
 
-      def fetch_supplier_frameworks
-        service_codes = params.expect(service_numbers: []).map do |service_number|
-          "#{@lot.id}.#{service_number}"
+      def scoped_supplier_frameworks
+        if params[:lot_number] == '6'
+          ::Supplier::Framework.with_lots(@lot.id).with_services(service_codes)
+        elsif params[:lot_number] == '2' && params[:single_or_multiple_suppliers] == 'multiple'
+          ::Supplier::Framework.with_any_services_and_jurisdiction(service_codes, [selected_jurisdiction_id])
+        else
+          ::Supplier::Framework.with_lots(@lot.id).with_services_and_jurisdiction(service_codes, [selected_jurisdiction_id])
         end
+      end
 
-        @supplier_frameworks = if params[:lot_number] == '6'
-                                 ::Supplier::Framework.with_lots(@lot.id).with_services(service_codes)
-                               else
-                                 jurisdiction_id = get_jurisdiction(params.expect(:jurisdiction))
-                                 ::Supplier::Framework.with_lots(@lot.id).with_services_and_jurisdiction(service_codes, [jurisdiction_id])
-                               end.shuffle
+      def service_codes
+        params.expect(service_numbers: []).map { |num| "#{@lot.id}.#{num}" }
+      end
+
+      def selected_jurisdiction_id
+        get_jurisdiction(params.expect(:jurisdiction))
       end
 
       def fetch_lot
