@@ -12,8 +12,7 @@ journey_path = ->(slug, params = {}) {
 <%= content_for :page_title, t('.page_title')  %>
 
 <% if params[:plan_view].present? %>
-  <%# workaround to disable the back button %>
-  <style> .govuk-back-link { display: none !important;}</style>
+  <% @back_path = false %>
   
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full ccs-supplier-comparison">
