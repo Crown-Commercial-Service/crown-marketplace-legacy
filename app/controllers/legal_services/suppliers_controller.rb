@@ -1,5 +1,7 @@
 module LegalServices
   class SuppliersController < LegalServices::FrameworkController
+    helper LegalServices::JourneyHelper
+
     before_action :fetch_lot
     before_action :fetch_supplier_frameworks, only: %i[index download]
 

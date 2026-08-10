@@ -2,7 +2,11 @@ module LegalServices::JourneyHelper
   include LegalServices::RatesHelper
 
   def lot_full_name(lot)
-    "Lot #{lot.number[0]} - #{lot.name}"
+    if params[:framework].to_s.casecmp('rm6374').zero?
+      "Lot #{lot.number} - #{lot.name}"
+    else
+      "Lot #{lot.number[0]} - #{lot.name}"
+    end
   end
 
   def lot_full_name_via_number(lot_number)
