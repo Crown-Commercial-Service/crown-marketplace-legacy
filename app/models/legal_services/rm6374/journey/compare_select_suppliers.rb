@@ -19,6 +19,9 @@ module LegalServices
 
         def available_suppliers
           selected_services = get_service_numbers(lot_number)
+
+          return ::Supplier::Framework.with_lots(lot.id).with_services(selected_services).sort_by(&:supplier_name) if lot_number == '6'
+
           selected_jurisdiction_id = get_jurisdiction(jurisdiction)
 
           ::Supplier::Framework.with_lots(lot.id)

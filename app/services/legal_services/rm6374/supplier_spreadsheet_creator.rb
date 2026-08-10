@@ -66,7 +66,7 @@ class LegalServices::RM6374::SupplierSpreadsheetCreator < LegalServices::Supplie
     services = Service.where(id: service_ids).order(:id).pluck(:name)
     sheet.add_row ['Services', services.join(', ')]
 
-    add_jurisdiction(sheet)
+    add_jurisdiction(sheet) unless @params['lot_number'] == '6'
   end
 
   def selected_supplier_frameworks
