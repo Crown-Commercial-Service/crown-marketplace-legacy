@@ -22,7 +22,7 @@ module LegalServices
           selected_specialisms: service_numbers
         )
 
-        if single_or_multiple_suppliers == 'multiple' && result[:alternatives].any?
+        if single_or_multiple_suppliers == 'single' && result[:alternatives].any?
           Journey::RecommendedLot
         else
           Journey::ChooseJurisdiction

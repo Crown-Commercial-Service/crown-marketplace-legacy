@@ -45,7 +45,7 @@ RSpec.describe LegalServices::RM6374::Journey::SingleOrMultipleSuppliers do
   describe '.next_step_class' do
     context 'when a single supplier option is selected' do
       it 'returns Journey::ChooseJurisdiction' do
-        expect(step.next_step_class).to be LegalServices::RM6374::Journey::ChooseJurisdiction
+        expect(step.next_step_class).to be LegalServices::RM6374::Journey::RecommendedLot
       end
     end
 
@@ -54,7 +54,7 @@ RSpec.describe LegalServices::RM6374::Journey::SingleOrMultipleSuppliers do
       let(:lot_number) { '' }
 
       it 'returns Journey::RecommendedLot' do
-        expect(step.next_step_class).to be LegalServices::RM6374::Journey::RecommendedLot
+        expect(step.next_step_class).to be LegalServices::RM6374::Journey::ChooseJurisdiction
       end
     end
   end

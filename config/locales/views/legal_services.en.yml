@@ -498,6 +498,15 @@ en:
           specialism_selected: specialism selected
           transport_highways_selected: legal specialisms selected
       suppliers:
+        lot_2_interim_result_page:
+          back_to_start: Back to start
+          can_provide_legal_specialisms_html: "<span class='govuk-!-font-weight-bold'>%{count} suppliers</span> can provide the legal specialisms that meet your requirements."
+          description: Due to technical issues we are working to resolve, please download the supplier rate card and filter to matched suppliers to view and compare rates to continue your journey
+          download_supplier_rate: Download Supplier Rates
+          no_suppliers_found:
+            heading: No suppliers were found
+            text: There are no suppliers on this panel that can provide the law services you need
+          page_title: Compare supplier rates
         rates_table:
           grade: Grade
           position: Position
