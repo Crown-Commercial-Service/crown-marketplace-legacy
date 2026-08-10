@@ -23,6 +23,7 @@ class LegalServices::RM6374::SupplierSpreadsheetCreator < LegalServices::Supplie
 
   def build_with_rates
     Axlsx::Package.new do |package|
+      add_supplier_details(package.workbook.add_worksheet(name: 'Supplier shortlist'))
       add_audit_trail(package.workbook.add_worksheet(name: 'Shortlist audit'))
       add_supplier_rates(package.workbook.add_worksheet(name: 'Supplier rates'))
     end
