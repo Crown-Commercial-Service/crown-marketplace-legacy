@@ -35,7 +35,6 @@ module LegalServices
 
       def positions
         all_positions = lot.positions.order(:number).pluck(:id, :name)
-        dada = professions
 
         return all_positions if professions.blank? || professions.include?('all')
 
