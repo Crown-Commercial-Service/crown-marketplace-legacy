@@ -37,7 +37,10 @@
               <%= t('.description') %>
             </u></strong></p>
             
-            <%= govuk_button(t('.download_supplier_rate'), href: "#") %>
+            <div class="govuk-button-group">
+              <%= govuk_button(t('.download_supplier_rate'), href: "#") %>
+              <%= govuk_button(t('.download_suppliers_list'), href: download_legal_services_rm6374_suppliers_path(format: :xlsx, **@journey.params), classes: 'govuk-button--secondary') %>
+            </div>
 
             <div class=" ccs-search-results">
               <ul class="ccs-results-list">

@@ -4,6 +4,7 @@ module LegalServices
       include LegalServices::RM6374
 
       helper LegalServices::RM6374::RatesHelper
+      helper_method :fetch_services_from_supplier_framework_for_lot_2
 
       before_action :fetch_supplier_framework, :fetch_rates, only: :show
 
@@ -65,6 +66,16 @@ module LegalServices
 
       def service_codes
         params.expect(service_numbers: []).map { |num| "#{@lot.id}.#{num}" }
+      end
+
+      def fetch_services_from_supplier_framework_for_lot_2(supplier_framework)
+        framework_lot = supplier_framework.lots.find { |l| l.lot_id == @lot.id }
+
+        selected_codes = service_codes.map { |code| code.start_with?('RM6374.') ? code : "RM6374.#{code}" }
+
+        framework_lot.services
+                     .select { |s| selected_codes.include?(s.service_id) }
+                     .map { |s| s.service.name }
       end
 
       def selected_jurisdiction_id
