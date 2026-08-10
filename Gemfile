@@ -59,7 +59,7 @@ gem 'json-jwt', '>= 1.11.0'
 gem 'devise', '~> 5.0.4'
 
 # for cognito
-gem 'aws-sdk-cognitoidentityprovider', '~> 1.144.0'
+gem 'aws-sdk-cognitoidentityprovider', '~> 1.149.0'
 
 # for pagination
 gem 'kaminari', '~> 1.2.2'
@@ -143,6 +143,7 @@ group :development do
   gem 'pry-byebug'
   gem 'pry-rescue'
   gem 'pry-stack_explorer'
+  gem 'debug'
 end
 
 group :test do

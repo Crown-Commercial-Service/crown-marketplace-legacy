@@ -1,0 +1,53 @@
+<% 
+  back_params = request.query_parameters.symbolize_keys.merge(
+    framework: 'RM6374',
+    slug: @lot.number == '6' ? 'cost-service' : 'choose-jurisdiction'
+  )
+  @back_path = legal_services_journey_question_path(back_params)
+
+%>
+
+<%= content_for :page_title, t('.page_title')  %>
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <span class="govuk-caption-xl">
+      <%= full_lot_name(@lot) %>
+    </span>
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          
+          <% if @supplier_frameworks.count.zero? %>
+            <h1 class="govuk-heading-xl"><%= t('.no_suppliers_found.heading') %></h1>
+              <p class="govuk-body govuk-!-font-size-24">
+                <%=t('.no_suppliers_found.text') %>
+              </p>
+            <%= govuk_button(t('.back_to_start'), href: legal_services_index_path, classes: 'govuk-!-margin-top-4 govuk-!-padding-left-4 govuk-!-padding-right-4') %>
+          
+          <% else %>
+            <h1 class="govuk-heading-xl"><%= t('.page_title') %></h1>
+
+            <p class="govuk-body">
+              <%= t('.can_provide_legal_specialisms_html', count: @supplier_frameworks.count) %>
+            </p>
+
+            <p class="govuk-body govuk-!-font-size-24"><strong><u>
+              <%= t('.description') %>
+            </u></strong></p>
+            
+            <%= govuk_button(t('.download_supplier_rate'), href: "#") %>
+
+            <div class=" ccs-search-results">
+              <ul class="ccs-results-list">
+                <%= render partial: 'supplier_framework', collection: @supplier_frameworks %>
+              </ul>
+            </div>
+
+          <% end %>
+        </div>
+      </div>
+
+  </div>
+</div>

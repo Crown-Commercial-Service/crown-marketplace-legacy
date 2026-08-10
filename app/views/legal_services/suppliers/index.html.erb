@@ -1,10 +1,27 @@
+<%
+  if params[:framework].to_s.casecmp('rm6374').zero?
+    clean_params = request.query_parameters.except(:commit, :utf8).symbolize_keys
+    
+    previous_slug = @lot.number == '6' ? 'cost-service' : 'choose-jurisdiction'
+    
+    @back_path = legal_services_journey_question_path(framework: 'RM6374', slug: previous_slug, **clean_params)
+  end
+%>
+
 <%= content_for :page_title, t('.page_title')  %>
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
-    <span class="govuk-caption-xl">
-      <%= full_lot_name(@lot) %>
-    </span>
+    <% if params[:framework].to_s.casecmp('rm6374').zero? %>
+      <span class="govuk-caption-xl">
+        <%= lot_full_name(@journey.current_step.lot) %>
+      </span>
+    <% else %>
+      <span class="govuk-caption-xl">
+        <%= full_lot_name(@lot) %>
+      </span>
+    <% end %>
+    
     <% if @supplier_frameworks.count.zero? %>
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
@@ -33,24 +50,50 @@
       </div>
     <% else %>
       <h1 class="govuk-heading-xl govuk-!-margin-bottom-4 govuk-!-margin-top-0"><%= t('.heading') %></h1>
-      <div class="govuk-grid-row">
-        <div class="govuk-grid-column-full">
-          <p class="govuk-body">
-            <span class='govuk-!-font-weight-bold'>
-              <span class='govuk-!-font-size-27 govuk-!-font-weight-bold'>
-                <%= @supplier_frameworks.count %>
+      
+      <% if params[:framework].to_s.casecmp('rm6374').zero? %>
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-full">
+            <p class="govuk-body">
+              <%= t('.can_provide_legal_specialisms_html', count: @supplier_frameworks.count) %>
+            </p>
+            <p class="govuk-body">
+              <%= t('.assessment_advice') %>
+            </p>
+          </div>
+        </div>
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-full">
+            <div class="govuk-button-group">
+              <% professional_slug = @lot.number == '6' ? 'choose-costs-law-professionals' : 'choose-law-professionals' %>
+              
+              <%= govuk_button(t('.compare_supplier_rates'), href: legal_services_journey_question_path(framework: 'RM6374', slug: professional_slug, **clean_params)) %>
+              
+               <%= govuk_button(t('.download_suppliers_list'), href: download_legal_services_rm6374_suppliers_path(format: :xlsx, **@journey.params), classes: 'govuk-button--secondary') %>
+            </div>
+          </div>
+        </div>
+      <% else %>
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-full">
+            <p class="govuk-body">
+              <span class='govuk-!-font-weight-bold'>
+                <span class='govuk-!-font-size-27 govuk-!-font-weight-bold'>
+                  <%= @supplier_frameworks.count %>
+                </span>
+                <%= t('.supplier').pluralize(@supplier_frameworks.count) %>
               </span>
-              <%= t('.supplier').pluralize(@supplier_frameworks.count) %>
-            </span>
-            <%= t('.can_provide_legal_services') %>
-          </p>
+              <%= t('.can_provide_legal_services') %>
+            </p>
+          </div>
         </div>
-      </div>
-      <div class="govuk-grid-row">
-        <div class="govuk-grid-column-full">
-          <%= govuk_button(t('.download_suppliers_list'), href: download_legal_services_suppliers_path) %>
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-full">
+            <%= govuk_button(t('.download_suppliers_list'), href: download_legal_services_suppliers_path) %>
+          </div>
         </div>
-      </div>
+      <% end %>
+
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds ccs-search-results">
           <ul class="ccs-results-list">
