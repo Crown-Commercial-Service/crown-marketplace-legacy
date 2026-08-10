@@ -16,15 +16,12 @@ module LegalServices
 
       def supplier_frameworks
         selected_services = get_service_numbers(lot_number)
-        selected_jurisdiction_id = get_jurisdiction(jurisdiction)
 
-        @supplier_frameworks ||= begin
-          scope = ::Supplier::Framework.with_lots(lot.id)
-                                       .with_services_and_jurisdiction(selected_services, [selected_jurisdiction_id])
-          scope = scope.where(id: supplier_framework_ids) if supplier_framework_ids.present?
-
-          scope.sort_by(&:supplier_name)
-        end
+        @supplier_frameworks ||= if lot_number == '6'
+                                   fetch_lot_6_supplier_frameworks(selected_services)
+                                 else
+                                   fetch_standard_supplier_frameworks(selected_services)
+                                 end
       end
 
       def supplier_frameworks_with_rates
@@ -38,12 +35,29 @@ module LegalServices
 
       def positions
         all_positions = lot.positions.order(:number).pluck(:id, :name)
+        dada = professions
 
         return all_positions if professions.blank? || professions.include?('all')
 
         all_positions.select do |position_id, profession_name|
           professions.include?(profession_name) || professions.include?(position_id)
         end
+      end
+
+      private
+
+      def fetch_lot_6_supplier_frameworks(selected_services)
+        scope = ::Supplier::Framework.with_lots(lot.id).with_services(selected_services)
+        scope = scope.where(id: supplier_framework_ids) if supplier_framework_ids.present?
+        scope.sort_by(&:supplier_name)
+      end
+
+      def fetch_standard_supplier_frameworks(selected_services)
+        selected_jurisdiction_id = get_jurisdiction(jurisdiction)
+        scope = ::Supplier::Framework.with_lots(lot.id)
+                                     .with_services_and_jurisdiction(selected_services, [selected_jurisdiction_id])
+        scope = scope.where(id: supplier_framework_ids) if supplier_framework_ids.present?
+        scope.sort_by(&:supplier_name)
       end
     end
   end

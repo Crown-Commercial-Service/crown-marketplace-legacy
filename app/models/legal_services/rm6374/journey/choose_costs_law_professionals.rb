@@ -5,10 +5,10 @@ module LegalServices
 
       PROFESSION_OPTIONS = %w[
         all
-        grade_a
-        grade_b
-        grade_c
-        grade_d
+        solicitor_more_than_8_years
+        solicitor_more_than_4_years
+        solicitor_less_than_4_years
+        solicitor_paralegal
       ].freeze
 
       attribute :professions, :array
