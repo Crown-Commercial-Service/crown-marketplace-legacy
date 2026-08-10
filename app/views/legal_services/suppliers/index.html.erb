@@ -12,9 +12,15 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
-    <span class="govuk-caption-xl">
-      <%= full_lot_name(@lot) %>
-    </span>
+    <% if params[:framework].to_s.casecmp('rm6374').zero? %>
+      <span class="govuk-caption-xl">
+        <%= lot_full_name(@journey.current_step.lot) %>
+      </span>
+    <% else %>
+      <span class="govuk-caption-xl">
+        <%= full_lot_name(@lot) %>
+      </span>
+    <% end %>
     
     <% if @supplier_frameworks.count.zero? %>
       <div class="govuk-grid-row">
