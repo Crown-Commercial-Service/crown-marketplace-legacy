@@ -108,6 +108,10 @@ module LegalServices
       def fetch_lot
         @lot = Lot.find("RM6374.#{params.expect(:lot_number)}")
       end
+
+      def s3_client
+        @s3_client ||= Aws::S3::Client.new(region: 'eu-west-2')
+      end
     end
   end
 end
