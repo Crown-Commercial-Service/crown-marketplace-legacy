@@ -53,10 +53,6 @@ journey_path = ->(slug, params = {}) {
       <%= t('.can_provide_specialisms') %>
     </p>
 
-    <p class="govuk-body govuk-!-margin-bottom-6">
-      <%= t('.prospectus_advice') %>
-    </p>
-
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-full ccs-supplier-comparison">
         <%= render(partial: 'legal_services/rm6374/journey/comparison_rates_table', locals: { supplier_frameworks: @journey.current_step.supplier_frameworks_with_rates }) %>
@@ -67,9 +63,13 @@ journey_path = ->(slug, params = {}) {
 
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-three-quarters">
-        <p class="govuk-body">
-          <%= t('.disclaimer') %>
-        </p>
+        
+        <% if params[:call_off_mechanism] == 'award_with_competition' %>
+          <p class="govuk-body">
+            <%= t('.disclaimer') %>
+          </p>
+        <% end %>
+        
         <p class="govuk-body govuk-!-margin-bottom-6">
           <%= t('.contact_hint_html', contact_link: t('common.ccs_contact_url')) %>
         </p>

@@ -376,7 +376,7 @@ en:
             local_community:
               hint: County Councils, Housing Associations, Charities and Town/ Parish/ District Councils
               label: Local Community & Housing
-          question: Please select your customer sector
+          question: Select your customer sector or the sector most relevant to your requirements
         choose_specialisms:
           options:
             cost_service: Costs Lawyer Services
@@ -482,8 +482,8 @@ en:
           specialism_selected: focused legal specialisms selected
         suppliers_comparison:
           can_provide_specialisms: can provide the legal specialisms that meet your requirements.
-          contact_hint_html: If you have any questions, <a class="govuk-link" href="%{contact_link}">contact CCS</a>.
-          disclaimer: The rates provided are maximum rates and subject to further competition.
+          contact_hint_html: If you have any questions, <a class="govuk-link" href="%{contact_link}">contact GCA</a>.
+          disclaimer: The rates provided are maximum rates and subject to award with competition.
           download: Download the supplier list
           heading: Supplier results
           no_suppliers_found:
@@ -491,7 +491,6 @@ en:
             heading: No suppliers found
             text: There are no suppliers available for your selection.
           page_title: Supplier results
-          prospectus_advice: You may wish to undertake an assessment using the suppliers prospectus’ at this stage to help your down selection process if using a rapid award or quote process. You can do this by using the links provided here or in a downloadable list by clicking "Download the supplier list".
           reselect_suppliers: Reselect suppliers for comparision
           return_to_result_page: Return to results page
           supplier: supplier
@@ -505,8 +504,8 @@ en:
         lot_2_interim_result_page:
           back_to_start: Back to start
           can_provide_legal_specialisms_html: "<span class='govuk-!-font-weight-bold'>%{count} suppliers</span> can provide the legal specialisms that meet your requirements."
-          description: Due to technical issues we are working to resolve, please download the supplier rate card and filter to matched suppliers to view and compare rates to continue your journey
-          download_supplier_rate: Download the supplier list
+          description: We're resolving a technical issue. Please download the supplier rate card spreadsheet and filter by the matched supplier(s) to continue your journey
+          download_supplier_rate: Download the supplier rate card
           download_suppliers_list: Download the supplier list
           no_suppliers_found:
             heading: No suppliers were found
