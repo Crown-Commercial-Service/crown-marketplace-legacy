@@ -40,6 +40,29 @@ module LegalServices
         end
       end
 
+      def download_rm6374_lot_2_rate
+        filename = 'lot_2_rate.xlsx'
+
+        file_path = if Rails.env.local?
+                      Rails.root.join('app', 'controllers', 'legal_services', 'rm6374', filename)
+                    else
+                      temp_path = Rails.root.join('tmp', filename)
+                      s3_client.get_object(
+                        bucket: ENV.fetch('LOT2_RATE_BUCKET', nil),
+                        key: filename,
+                        response_target: temp_path.to_s
+                      )
+                      temp_path
+                    end
+
+        send_file(
+          file_path,
+          filename: filename,
+          type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+          disposition: 'attachment'
+        )
+      end
+
       def fetch_supplier_frameworks
         @supplier_frameworks = scoped_supplier_frameworks.shuffle
       end
