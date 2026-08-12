@@ -89,7 +89,7 @@ RSpec.describe LegalServices::RM6374::Admin::LotDataController do
             {
               lot: { number: '6', number_as_slug: '6', name: 'Costs Lawyer Services' },
               enabled: nil,
-              sections: %i[services jurisdictions rates]
+              sections: %i[services rates]
             }
           ]
         )
