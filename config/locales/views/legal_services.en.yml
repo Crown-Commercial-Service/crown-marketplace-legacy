@@ -524,7 +524,7 @@ en:
         download_supplier_shortlist_link: Download supplier shortlist
         heading: Download the supplier shortlist
       index:
-        assessment_advice: You may wish to undertake an assessment using the suppliers prospectus’ at this stage to help your down selection process. You can do this by using the links provided here or in a downloadable list by clicking "Download the supplier list"
+        assessment_advice: You may wish to undertake an assessment using the suppliers prospectus’ at this stage to help your down selection process if using a rapid award or quote process. You can do this by using the links provided here or in a downloadable list by clicking "Download the supplier list".
         back_to_start: Back to start
         can_provide_legal_services: can provide legal services that meet your requirements.
         can_provide_legal_specialisms_html: "<span class='govuk-!-font-weight-bold'>%{count} suppliers</span> can provide the legal specialisms that meet your requirements."
