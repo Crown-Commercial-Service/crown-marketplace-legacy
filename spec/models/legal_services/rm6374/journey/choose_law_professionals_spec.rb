@@ -4,19 +4,23 @@ RSpec.describe LegalServices::RM6374::Journey::ChooseLawProfessionals do
   subject(:step) { described_class.new }
 
   describe 'constants' do
+    let(:expected_professions) do
+      %w[
+        all
+        partner
+        legal_director
+        senior
+        solicitor
+        junior
+        trainee
+        paralegal
+        legal_project_manager
+        legal_document_reviewers
+      ]
+    end
+
     it 'has the correct PROFESSION_OPTIONS' do
-      expect(described_class::PROFESSION_OPTIONS).to eq(%w[
-                                                          all
-                                                          partner
-                                                          legal_director
-                                                          senior
-                                                          solicitor
-                                                          junior
-                                                          trainee
-                                                          paralegal
-                                                          legal_project_manager
-                                                          legal_document_reviewers
-                                                        ])
+      expect(described_class::PROFESSION_OPTIONS).to eq(expected_professions)
     end
   end
 
