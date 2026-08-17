@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe LegalServices::RM6374::Journey::ChooseCallOffMechanism, type: :model do
+RSpec.describe LegalServices::RM6374::Journey::ChooseCallOffMechanism do
   subject(:step) { described_class.new }
 
   describe 'attributes' do

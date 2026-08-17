@@ -1,22 +1,22 @@
 require 'rails_helper'
 
-RSpec.describe LegalServices::RM6374::Journey::ChooseLawProfessionals, type: :model do
+RSpec.describe LegalServices::RM6374::Journey::ChooseLawProfessionals do
   subject(:step) { described_class.new }
 
   describe 'constants' do
     it 'has the correct PROFESSION_OPTIONS' do
       expect(described_class::PROFESSION_OPTIONS).to eq(%w[
-        all
-        partner
-        legal_director
-        senior
-        solicitor
-        junior
-        trainee
-        paralegal
-        legal_project_manager
-        legal_document_reviewers
-      ])
+                                                          all
+                                                          partner
+                                                          legal_director
+                                                          senior
+                                                          solicitor
+                                                          junior
+                                                          trainee
+                                                          paralegal
+                                                          legal_project_manager
+                                                          legal_document_reviewers
+                                                        ])
     end
   end
 

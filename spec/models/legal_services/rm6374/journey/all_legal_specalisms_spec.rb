@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe LegalServices::RM6374::Journey::AllLegalSpecalisms, type: :model do
+RSpec.describe LegalServices::RM6374::Journey::AllLegalSpecalisms do
   subject(:step) { described_class.new }
 
   describe 'attributes' do
@@ -19,7 +19,7 @@ RSpec.describe LegalServices::RM6374::Journey::AllLegalSpecalisms, type: :model 
 
       it 'is not valid' do
         expect(step).not_to be_valid
-        expect(step.errors[:service_numbers]).to include("Please select a minimum of one legal service to continue")
+        expect(step.errors[:service_numbers]).to include('Please select a minimum of one legal service to continue')
       end
     end
 
@@ -53,8 +53,8 @@ RSpec.describe LegalServices::RM6374::Journey::AllLegalSpecalisms, type: :model 
   describe '#next_step_class' do
     let(:sector) { 'central_government' }
     let(:service_numbers) { ['1', '2'] }
-    let(:step) { described_class.new(sector: sector, service_numbers: service_numbers) }
-    
+    let(:step) { described_class.new(sector:, service_numbers:) }
+
     before do
       allow(LegalServices::RM6374::Journey::CrossLotCheck).to receive(:evaluate)
         .with(selected_sector: sector, selected_specialisms: service_numbers)

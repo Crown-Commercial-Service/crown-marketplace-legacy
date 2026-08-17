@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe LegalServices::RM6374::Journey::ChooseJurisdiction, type: :model do
+RSpec.describe LegalServices::RM6374::Journey::ChooseJurisdiction do
   subject(:step) { described_class.new }
 
   describe 'attributes' do

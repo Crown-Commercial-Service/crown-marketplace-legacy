@@ -1,17 +1,17 @@
 require 'rails_helper'
 
-RSpec.describe LegalServices::RM6374::Journey::ChooseCostsLawProfessionals, type: :model do
+RSpec.describe LegalServices::RM6374::Journey::ChooseCostsLawProfessionals do
   subject(:step) { described_class.new }
 
   describe 'constants' do
     it 'has the correct PROFESSION_OPTIONS' do
       expect(described_class::PROFESSION_OPTIONS).to eq(%w[
-        all
-        solicitor_more_than_8_years
-        solicitor_more_than_4_years
-        solicitor_less_than_4_years
-        solicitor_paralegal
-      ])
+                                                          all
+                                                          solicitor_more_than_8_years
+                                                          solicitor_more_than_4_years
+                                                          solicitor_less_than_4_years
+                                                          solicitor_paralegal
+                                                        ])
     end
   end
 

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe LegalServices::RM6374::Journey::Suppliers, type: :model do
+RSpec.describe LegalServices::RM6374::Journey::Suppliers do
   subject(:step) { described_class.new }
 
   describe 'attributes' do
@@ -23,8 +23,8 @@ RSpec.describe LegalServices::RM6374::Journey::Suppliers, type: :model do
         expect(step.next_step_class).to eq(LegalServices::RM6374::Journey::ChooseLawProfessionals)
       end
     end
-    
-    context "when lot_number is nil" do
+
+    context 'when lot_number is nil' do
       before { step.lot_number = nil }
 
       it 'returns Journey::ChooseLawProfessionals' do
