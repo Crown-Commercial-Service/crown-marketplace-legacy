@@ -129,7 +129,7 @@ RSpec.describe LegalServices::RM6374::Admin::ReportExport do
             user_3.id,
             search.created_at.in_time_zone('London').strftime('%e %B %Y, %l:%M%P'),
             'Lot 6 - Costs Lawyer Services',
-            'Clinical Negligence Specialist Services;\nGeneral Costs Law Services',
+            "Clinical Negligence Specialist Services;\nGeneral Costs Law Services",
             'All regions',
             "CHARLES;\nMABEL;\nOLIVER"
           ]
