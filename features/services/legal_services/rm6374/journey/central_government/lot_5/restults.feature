@@ -25,7 +25,7 @@ Feature: Legal services -  Central governemnt - Lot 5 - Suppliers
       | Maritime and Shipping  |
     And I click on 'Continue'
     Then I am on the 'Select the jurisdiction you need' page
-    And the sub title is 'Lot 5 - Transport and Planning'
+    And the sub title is 'Lot 5 - Transport and Rail'
     And I select 'Scotland'
     And I click on 'Continue'
     Then I am on the 'Supplier results' page
@@ -47,7 +47,7 @@ Feature: Legal services -  Central governemnt - Lot 5 - Suppliers
     Given I check 'Public Procurement Law'
     When I click on 'Continue'
     Then I am on the 'Select the jurisdiction you need' page
-    And the sub title is 'Lot 5 - Transport and Planning'
+    And the sub title is 'Lot 5 - Transport and Rail'
     And I select 'Scotland'
     And I click on 'Continue'
     Then I am on the 'Supplier results' page
