@@ -7,9 +7,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [8.1.0] - 2026-08-20
+
+### Added
+- Added admin capability to generate user reports ([PR 2613](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2613))
+
+### Fixed
+- Fixed download functionality for RM6374 administrators ([PR 2610](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2610))
+
+### Changed
+- Updated RM6374 Lot 5 title from **Transport and Planning** to **Transport and Rail** ([PR 2612](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2612))
+
+## [8.0.0] - 2026-08-12
+
 ### Added
 
 - Add the inital pages for the new Legal Services framework RM6374 ([PR 2519](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2519))
+- Added the full Legal Services framework RM6374 with interim solution for lot 2 
 
 ## [7.0.0] - 2026-06-15
 

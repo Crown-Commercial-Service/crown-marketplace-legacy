@@ -23,6 +23,26 @@ en:
           attributes:
             lot_number:
               blank: Select the lot you need
+        legal_services/rm6374/journey/all_legal_specalisms:
+          attributes:
+            service_numbers:
+              blank: Please select a minimum of one legal service to continue
+        legal_services/rm6374/journey/choose_call_off_mechanism:
+          attributes:
+            call_off_mechanism:
+              blank: Please select an option below
+        legal_services/rm6374/journey/choose_costs_law_professionals:
+          attributes:
+            professions:
+              blank: Please select a minimum of one profession
+        legal_services/rm6374/journey/choose_jurisdiction:
+          attributes:
+            jurisdiction:
+              inclusion: Select the jurisdiction you need
+        legal_services/rm6374/journey/choose_law_professionals:
+          attributes:
+            professions:
+              blank: Please select a minimum of one profession
         legal_services/rm6374/journey/choose_sector:
           attributes:
             sector:
@@ -31,6 +51,10 @@ en:
           attributes:
             specialism:
               inclusion: Select at least one legal service
+        legal_services/rm6374/journey/compare_select_suppliers:
+          attributes:
+            supplier_framework_ids:
+              too_short: Please select a minimum of one supplier for comparison
         legal_services/rm6374/journey/cost_service:
           attributes:
             service_numbers:
@@ -59,7 +83,21 @@ en:
             requirement_start_date:
               blank: Enter the intended start date, including the month and year
               invalid: Enter a real date for the intended start date
+        legal_services/rm6374/journey/recommended_lot:
+          attributes:
+            lot_number:
+              blank: Select an option
+            recommended_or_alternatives:
+              inclusion: Select an option
         legal_services/rm6374/journey/risk_innovation:
+          attributes:
+            service_numbers:
+              blank: Please select a minimum of one legal service to continue
+        legal_services/rm6374/journey/single_or_multiple_suppliers:
+          attributes:
+            single_or_multiple_suppliers:
+              inclusion: Select an option to continue
+        legal_services/rm6374/journey/specific:
           attributes:
             service_numbers:
               blank: Please select a minimum of one legal service to continue
@@ -122,6 +160,7 @@ en:
           a: England and Wales
           b: Scotland
           c: Northern Ireland
+        other_jurisdictions: For other jurisdictions, please contact suppliers directly to confirm coverage
         question: Select the jurisdiction you need
       choose_organisation_type:
         question: Do you work for central government?
@@ -242,6 +281,98 @@ en:
           position: Position
           rates: Rates
     rm6374:
+      admin:
+        uploads:
+          failed:
+            error_details:
+              file_check_failed: Something went wrong when checking the files, please try uploading the files again
+              file_check_failed_html: 'Something went wrong when checking the files, the following error was returned: <br> <strong>%{list}</strong>'
+              file_process_failed: Something went wrong when processing the files, please try uploading the files again
+              file_process_failed_html: 'Something went wrong when processing the files, the following error was returned: <br> <strong>%{list}</strong>'
+              file_publish_failed: Something went wrong when publishing the files, please try uploading the files again
+              file_publish_failed_html: 'Something went wrong when publishing the files, the following error was returned: <br> <strong>%{list}</strong>'
+              supplier_details_has_empty_sheets: Make sure the sheet for 'Supplier details' have been filled in
+              supplier_details_has_incorrect_headers: 'Make sure the sheet for ''Supplier details'' has the following headers: ''Supplier Name'', ''Email address'', ''Phone number'', ''Website URL'', ''Postal address'', ''Is an SME'', ''DUNS Number'', ''Lot 1a: Prospectus Link'', ''Lot 1b: Prospectus Link'', ''Lot 1c: Prospectus Link'', ''Lot 2: Prospectus Link'', ''Lot 3: Prospectus Link'', ''Lot 4: Prospectus Link'', ''Lot 5: Prospectus Link'', ''Lot 6: Prospectus Link'''
+              supplier_details_missing_sheets: The 'Supplier details' file should have 1 sheet named 'All Suppliers'
+              supplier_lot_1a_service_offerings_has_empty_sheets_html: 'The following sheets have no data: %{list} Make sure all sheets for ''Supplier lot 1a service offerings'' have been filled in'
+              supplier_lot_1a_service_offerings_has_incorrect_headers_html: 'The following sheets have incorrect column headers: %{list} Make sure all sheets for ''Supplier lot 1a service offerings'' have the 60 expected services'
+              supplier_lot_1a_service_offerings_missing_sheets: 'The ''Supplier lot 1a service offerings'' file should have 3 sheets with the following names: ''England & Wales'', ''Scotland'', ''Northern Ireland'''
+              supplier_lot_1b_service_offerings_has_empty_sheets_html: 'The following sheets have no data: %{list} Make sure all sheets for ''Supplier lot 1b service offerings'' have been filled in'
+              supplier_lot_1b_service_offerings_has_incorrect_headers_html: 'The following sheets have incorrect column headers: %{list} Make sure all sheets for ''Supplier lot 1b service offerings'' have the 60 expected services'
+              supplier_lot_1b_service_offerings_missing_sheets: 'The ''Supplier lot 1b service offerings'' file should have 3 sheets with the following names: ''England & Wales'', ''Scotland'', ''Northern Ireland'''
+              supplier_lot_1c_service_offerings_has_empty_sheets_html: 'The following sheets have no data: %{list} Make sure all sheets for ''Supplier lot 1c service offerings'' have been filled in'
+              supplier_lot_1c_service_offerings_has_incorrect_headers_html: 'The following sheets have incorrect column headers: %{list} Make sure all sheets for ''Supplier lot 1c service offerings'' have the 60 expected services'
+              supplier_lot_1c_service_offerings_missing_sheets: 'The ''Supplier lot 1c service offerings'' file should have 3 sheets with the following names: ''England & Wales'', ''Scotland'', ''Northern Ireland'''
+              supplier_lot_2_service_offerings_has_empty_sheets_html: 'The following sheets have no data: %{list} Make sure all sheets for ''Supplier lot 2 service offerings'' have been filled in'
+              supplier_lot_2_service_offerings_has_incorrect_headers_html: 'The following sheets have incorrect column headers: %{list} Make sure all sheets for ''Supplier lot 2 service offerings'' have the 69 expected services'
+              supplier_lot_2_service_offerings_missing_sheets: 'The ''Supplier lot 2 service offerings'' file should have 3 sheets with the following names: ''England & Wales'', ''Scotland'', ''Northern Ireland'''
+              supplier_lot_3_service_offerings_has_empty_sheets_html: 'The following sheets have no data: %{list} Make sure all sheets for ''Supplier lot 3 service offerings'' have been filled in'
+              supplier_lot_3_service_offerings_has_incorrect_headers_html: 'The following sheets have incorrect column headers: %{list} Make sure all sheets for ''Supplier lot 3 service offerings'' have the 9 expected services'
+              supplier_lot_3_service_offerings_missing_sheets: 'The ''Supplier lot 3 service offerings'' file should have 3 sheets with the following names: ''England & Wales'', ''Scotland'', ''Northern Ireland'''
+              supplier_lot_4_service_offerings_has_empty_sheets_html: 'The following sheets have no data: %{list} Make sure all sheets for ''Supplier lot 4 service offerings'' have been filled in'
+              supplier_lot_4_service_offerings_has_incorrect_headers_html: 'The following sheets have incorrect column headers: %{list} Make sure all sheets for ''Supplier lot 4 service offerings'' have the 11 expected services'
+              supplier_lot_4_service_offerings_missing_sheets: 'The ''Supplier lot 4 service offerings'' file should have 3 sheets with the following names: ''England & Wales'', ''Scotland'', ''Northern Ireland'''
+              supplier_lot_5_service_offerings_has_empty_sheets_html: 'The following sheets have no data: %{list} Make sure all sheets for ''Supplier lot 5 service offerings'' have been filled in'
+              supplier_lot_5_service_offerings_has_incorrect_headers_html: 'The following sheets have incorrect column headers: %{list} Make sure all sheets for ''Supplier lot 5 service offerings'' have the 13 expected services'
+              supplier_lot_5_service_offerings_missing_sheets: 'The ''Supplier lot 5 service offerings'' file should have 3 sheets with the following names: ''England & Wales'', ''Scotland'', ''Northern Ireland'''
+              supplier_lot_6_service_offerings_has_empty_sheets_html: 'The following sheets have no data: %{list} Make sure all sheets for ''Supplier lot 6 service offerings'' have been filled in'
+              supplier_lot_6_service_offerings_has_incorrect_headers_html: 'The following sheets have incorrect column headers: %{list} Make sure all sheets for ''Supplier lot 6 service offerings'' have the 2 expected services'
+              supplier_lot_6_service_offerings_missing_sheets: The 'Supplier lot 6 service offerings' file should have 1 sheet named 'All regions'
+              supplier_missing_rates_html: 'The following suppliers do not have any rate cards: %{list} Make sure all the suppliers have the correct name and DUNS number'
+              supplier_missing_services_html: 'The following suppliers do not offer any lots: %{list} Make sure all the suppliers have the correct name and DUNS number'
+              supplier_rate_cards_has_empty_sheets_html: 'The following sheets have no data: %{list} Make sure all sheets for ''Supplier rate cards'' have been filled in'
+              supplier_rate_cards_has_incorrect_headers_html: 'The following sheets have incorrect headers: %{list} Make sure all sheets for ''Supplier rate cards'' have the right catagories for the rates'
+              supplier_rate_cards_missing_sheets: 'The ''Supplier rate cards'' file should have 8 sheets with the following names: ''1a'' , ''1b'' , ''1c'' , ''2'' , ''3'' , ''4'' , ''5'' , ''6'''
+              upload_failed: Something went wrong with the file upload, please try uploading the files again
+              upload_failed_html: 'Something went wrong with the file upload, the following error was returned: <br> <strong>%{list}</strong>'
+            error_name:
+              file_check_failed: File check failed
+              file_process_failed: File processing failed
+              file_publish_failed: File publishing failed
+              supplier_details_has_empty_sheets: There are sheets in 'Supplier details' without any data
+              supplier_details_has_incorrect_headers: There are sheets in 'Supplier details' with incorrect headers
+              supplier_details_missing_sheets: The 'Supplier details' file is missing sheets
+              supplier_lot_1a_service_offerings_has_empty_sheets: There are sheets in 'Supplier lot 1a service offerings' without any data
+              supplier_lot_1a_service_offerings_has_incorrect_headers: There are sheets in 'Supplier lot 1a service offerings' with incorrect services
+              supplier_lot_1a_service_offerings_missing_sheets: The 'Supplier lot 1a service offerings' file is missing sheets
+              supplier_lot_1b_service_offerings_has_empty_sheets: There are sheets in 'Supplier lot 1b service offerings' without any data
+              supplier_lot_1b_service_offerings_has_incorrect_headers: There are sheets in 'Supplier lot 1b service offerings' with incorrect services
+              supplier_lot_1b_service_offerings_missing_sheets: The 'Supplier lot 1b service offerings' file is missing sheets
+              supplier_lot_1c_service_offerings_has_empty_sheets: There are sheets in 'Supplier lot 1c service offerings' without any data
+              supplier_lot_1c_service_offerings_has_incorrect_headers: There are sheets in 'Supplier lot 1c service offerings' with incorrect services
+              supplier_lot_1c_service_offerings_missing_sheets: The 'Supplier lot 1c service offerings' file is missing sheets
+              supplier_lot_2_service_offerings_has_empty_sheets: There are sheets in 'Supplier lot 2 service offerings' without any data
+              supplier_lot_2_service_offerings_has_incorrect_headers: There are sheets in 'Supplier lot 2 service offerings' with incorrect services
+              supplier_lot_2_service_offerings_missing_sheets: The 'Supplier lot 2 service offerings' file is missing sheets
+              supplier_lot_3_service_offerings_has_empty_sheets: There are sheets in 'Supplier lot 3 service offerings' without any data
+              supplier_lot_3_service_offerings_has_incorrect_headers: There are sheets in 'Supplier lot 3 service offerings' with incorrect services
+              supplier_lot_3_service_offerings_missing_sheets: The 'Supplier lot 3 service offerings' file is missing sheets
+              supplier_lot_4_service_offerings_has_empty_sheets: There are sheets in 'Supplier lot 4 service offerings' without any data
+              supplier_lot_4_service_offerings_has_incorrect_headers: There are sheets in 'Supplier lot 4 service offerings' with incorrect services
+              supplier_lot_4_service_offerings_missing_sheets: The 'Supplier lot 4 service offerings' file is missing sheets
+              supplier_lot_5_service_offerings_has_empty_sheets: There are sheets in 'Supplier lot 5 service offerings' without any data
+              supplier_lot_5_service_offerings_has_incorrect_headers: There are sheets in 'Supplier lot 5 service offerings' with incorrect services
+              supplier_lot_5_service_offerings_missing_sheets: The 'Supplier lot 5 service offerings' file is missing sheets
+              supplier_lot_6_service_offerings_has_empty_sheets: There are sheets in 'Supplier lot 6 service offerings' without any data
+              supplier_lot_6_service_offerings_has_incorrect_headers: There are sheets in 'Supplier lot 6 service offerings' with incorrect services
+              supplier_lot_6_service_offerings_missing_sheets: The 'Supplier lot 6 service offerings' file is missing sheets
+              supplier_missing_rates: There are suppliers without any rate cards
+              supplier_missing_services: There are suppliers without any services
+              supplier_rate_cards_has_empty_sheets: There are sheets in 'Supplier rate cards' without any data
+              supplier_rate_cards_has_incorrect_headers: There are sheets in 'Supplier rate cards' with incorrect headers
+              supplier_rate_cards_missing_sheets: The 'Supplier rate cards' file is missing sheets
+              upload_failed: Upload failed
+          file_names:
+            supplier_details_file: Supplier details
+            supplier_lot_1a_service_offerings_file: Supplier lot 1a service offerings
+            supplier_lot_1b_service_offerings_file: Supplier lot 1b service offerings
+            supplier_lot_1c_service_offerings_file: Supplier lot 1c service offerings
+            supplier_lot_2_service_offerings_file: Supplier lot 2 service offerings
+            supplier_lot_3_service_offerings_file: Supplier lot 3 service offerings
+            supplier_lot_4_service_offerings_file: Supplier lot 4 service offerings
+            supplier_lot_5_service_offerings_file: Supplier lot 5 service offerings
+            supplier_lot_6_service_offerings_file: Supplier lot 6 service offerings
+            supplier_rate_cards_file: Supplier rate cards
       buyer_details:
         index:
           manage_your_details:
@@ -254,37 +385,90 @@ en:
           view_furth_informtion_html: View further information about the %{url}
           view_furth_informtion_link:
             href: https://www.gca.gov.uk/agreements/RM6374
-            text: Legal Panel for wider public sector RM6374 (opens in a new tab)
+            text: Legal Panel for Public Sector RM6374
       home:
         index:
-          heading: Find legal services for the wider public sector
-          ojeu_link:
-            text: OJEU contract notice
-            url_html: "#"
+          heading: Find legal services for the public sector
           use_this_service:
             before_heading: Before you start
             guidance_heading: Guidance and other useful documents
-            legal_panel_for_government: RM6360 Legal Panel for Government
-            para01: Use this service to download a shortlist of suppliers that provide the legal specialisms you need.
-            para02: Using this service means you're following the public sector procurement procedures.
-            para03_html: Central Government departments can also access legal service services through %{link}.
-            para04_html: You can contact <a href="mailto:info@gca.gov.uk">info@gca.gov.uk</a> for help.
-            para05_html: To use this service you need to be a recognised public sector body listed in the <a href="#">authorised customer list</a>.
+            para01: Use this service to find legal suppliers. Using this tool ensures you follow public sector procurement procedures.
+            para02: The tool will identify the most appropriate lot for your requirements, allow you to download and compare supplier pricing, and support your customer journey to downselect suppliers.
+            para04_html: If you need legal services for a non-UK jurisdiction, contact <a href="mailto:info@gca.gov.uk">info@gca.gov.uk</a>
+            para05_html: To use this service you need to be a recognised public sector body.
           wps_link:
-            text: WPS Legal Services panel specification
+            text: Legal Panel for Public Sector RM6374 webpage
             url: https://www.gca.gov.uk/agreements/RM6374
       journey:
+        all_legal_specalisms:
+          all_legal_specalisms_selected: legal specialisms  selected
+          no_all_legal_specalisms_selected: 0 legal specialisms selected
+          question: Select the legal specialism(s) you require
+          search_all_legal_specalisms: Search legal specialisms
+          specialism_selected: specialism selected
+        choose_call_off_mechanism:
+          hint: Select an option below
+          options:
+            award_with_competition: Award with competition
+            quotation_process: Quote Process
+            rapid_award: Rapid Award
+          question: Please select the call off award mechanism being used
+        choose_costs_law_professionals:
+          hint: If you know the grades required, please select them below. Only rates for the selected grades will be included in the results
+          options:
+            all:
+              label: Select all grades for comparison
+            solicitor_less_than_4_years:
+              hint: Solicitor/Costs Lawyer/Chartered Legal Executive/Law Costs Draftsman/Legal Executives and Fee Earners or Equivalent Experience with more than 4 years experience
+              label: 'Grade C: Individual with more than 4 years cost litigation experience'
+            solicitor_more_than_4_years:
+              hint: Solicitor/Costs Lawyer/Chartered Legal Executive/Law Costs Draftsman/Fellow Costs Lawyer/Legal Executives and Fee Earners or Equivalent Experience with more than 8 years experience
+              label: 'Grade B: Individual with less than 4 years cost litigation experience'
+            solicitor_more_than_8_years:
+              hint: Solicitor/Costs Lawyer/Chartered Legal Executive/Law Costs Draftsman/Fellow Costs Lawyer/Legal Executives and Fee Earners with Equivalent Experience
+              label: 'Grade A: Individual with more than 8 years cost litigation experience'
+            solicitor_paralegal:
+              hint: Paralegal/Legal Assistant/Trainee Solicitor
+              label: Grade D
+          question: Please select the legal roles needed for your requirement
+        choose_law_professionals:
+          hint: If you know the grades required, please select them below. Only rates for the selected grades will be included in the results
+          options:
+            all: Select all grades for comparison
+            junior: NQ Solicitor/Associate, Junior Solicitor/Associate/Legal Executive
+            legal_director: Legal Director/ Counsel or equivalent
+            legal_document_reviewers: Legal Document Reviewers, Document Reviewers
+            legal_project_manager: Legal Project Managers
+            paralegal: Paralegal, Legal Assistant
+            partner: Partner
+            senior: Senior Solicitor, Senior Associate/Senior Legal Executive
+            solicitor: Solicitor, Associate/Legal Executive
+            trainee: Trainee/Legal Apprentice
+          question: Please select the legal roles needed for your requirement
         choose_sector:
           options:
-            culture: Culture, Media & Sport
-            defence: Defence and Security
-            education: Education
-            government_policy: Government Policy
-            health: Health
-            infrastructure: Infrastructure
-            local_community: Local Community & Housing
-            transport: Transport and Rail
-          question: Please select your customer sector
+            culture:
+              hint: DCMS, Libraries, Leisure & Sports Centres, Arts, Galleries, Parks, Museums
+              label: Culture, Media & Sport
+            defence:
+              hint: Armed Forces, Fire & Rescue, MOD, Home Office, Police Services, Prisons and MOJ
+              label: Defence and Security
+            education:
+              hint: Schools, Unis, Colleges, Nursery, DfE and other Educational Centres
+              label: Education
+            government_policy:
+              hint: Agencies & Public Bodies, Ministerial Departments and Non-Ministerial Departments
+              label: Government Policy
+            health:
+              hint: Acute Providers, DHSC, ICBs, ICSs & Health Boards, NHS, Community & Mental Health Providers, Local Providers, Ambulance Services and CSU & Procurement Partnerships
+              label: Health
+            infrastructure:
+              hint: DFT, Energy, Private Sector and Transport
+              label: Infrastructure
+            local_community:
+              hint: County Councils, Housing Associations, Charities and Town/ Parish/ District Councils
+              label: Local Community & Housing
+          question: Select your customer sector or the sector most relevant to your requirements
         choose_specialisms:
           options:
             cost_service: Costs Lawyer Services
@@ -294,23 +478,53 @@ en:
             specific: Focused support for specific legal specialism(s)
             transport_highways: Legal services requiring a deep understanding of the transport, rail, highways, maritime, ports aviation and planning industry
           question: Do you require
+        compare_select_suppliers:
+          no_suppliers_selected: No suppliers selected
+          open_all_supplier_rates: View supplier rates (opens in new tab)
+          question: Select suppliers for comparison
+          supplier_selected: supplier selected
+          suppliers_selected: suppliers selected
+        comparison_rates_table:
+          job_titles:
+            junior: NQ Solicitor/Associate, Junior Solicitor/Associate/Legal Executive
+            legal_director: Legal Director/ Counsel or equivalent
+            legal_document_reviewers: Legal Document Reviewers, Document Reviewers
+            legal_project_manager: Legal Project Managers
+            paralegal: Paralegal, Legal Assistant
+            partner: Partner
+            senior: Senior Solicitor, Senior Associate/Senior Legal Executive
+            solicitor: Solicitor, Associate/Legal Executive
+            solicitor_less_than_4_years: 'Grade C: Individual with less than 4 years cost litigation experience'
+            solicitor_more_than_4_years: 'Grade B: Individual with more than 4 years cost litigation experience'
+            solicitor_more_than_8_years: 'Grade A: Individual with more than 8 years cost litigation experience'
+            solicitor_paralegal: 'Grade D: Individual with paralegal qualifications'
+            trainee: Trainee/Legal Apprentice
+          rates: Rates
+          scroll_to_the_right: Scroll the table to the right to view all job roles and rates.
+          supplier: Supplier
         cost_service:
-          cost_service_selected: Cost service selected
-          no_cost_service_selected: 0 cost services selected
-          question: Select legal services required
-          search_cost_services: Search cost services
+          cost_service_selected: legal specialisms selected
+          no_cost_service_selected: 0 legal specialisms selected
+          question: Select the legal specialism(s) you require
+          search_cost_services: Search legal specialisms
           specialism_selected: specialism selected
         dispute_resolution:
-          dispute_resolution_selected: Dispute resolution selected
-          no_dispute_resolution_selected: 0 dispute resolutions selected
-          question: Select legal services required
-          search_dispute_resolutions: Search dispute resolutions
+          dispute_resolution_selected: legal specialisms selected
+          no_dispute_resolution_selected: 0 legal specialisms selected
+          question: Select the legal specialism(s) you require
+          search_dispute_resolutions: Search legal specialisms
           specialism_selected: specialism selected
+        further_competition:
+          assessment_advice: You may wish to undertake an assessment using the suppliers' prospectus at this stage to help your down selection process. You can do this by using the links provided here or in a downloadable list by clicking "Download the supplier list".
+          can_provide_legal_specialisms_html: "<strong>%{count}</strong> suppliers can provide the legal specialisms that meet your requirements."
+          compare_supplier_rates: Compare the supplier rates
+          download_suppliers_list: Download the supplier list
+          heading: Supplier results
         information_about_your_requirement:
           ccs_can_contact_you:
             hint: Any follow-up activity is intended to deliver ongoing support
             question: Can GCA contact you about this search?
-          description: To help GCA understand your needs, please tell us how long this will take and what it’s worth. If you’re not sure at this stage, an estimate can be provided.
+          description: To help GCA understand your needs, please tell us the length of your requirement and the value. If you’re not sure at this stage, an estimate can be provided.
           heading: Information about your requirements
           replaces_existing_contract:
             question: Will this requirement replace an existing contract that was previously awarded under a GCA legal services framework?
@@ -329,21 +543,71 @@ en:
           requirement_start_date:
             hint: For example, 12 2025
             question: What is the intended start date for your requirement?
+        recommended_lot:
+          alternatives: Select another lot
+          heading_0: Lots that meet your requirements
+          heading_1_html: Based on your selection %{full_lot_name} has been identified as the most appropriate Lot for your requirement.
+          question: Do you want to
+          recommended: Continue with %{full_lot_name}
+          sub_heading: Services are also available through
+        review_prospectus:
+          answer:
+            'no': 'No'
+            'yes': 'Yes'
+          heading: Have you reviewed the supplier prospectuses to support your downselection?
         risk_innovation:
-          no_risk_innovation_selected: 0 risk innovations selected
-          question: Select legal services required
-          risk_innovation_selected: Risk innovation selected
-          search_risk_innovations: Search risk innovations
+          no_risk_innovation_selected: 0 legal specialisms selected
+          question: Select the legal specialism(s) you require
+          risk_innovation_selected: legal specialisms selected
+          search_risk_innovations: Search legal specialisms
           specialism_selected: specialism selected
+        single_or_multiple_suppliers:
+          options:
+            multiple: Multiple suppliers
+            single: A single supplier who can provide all specialisms
+          question: Do you require
+        specific:
+          all_specific_selected: Focused legal specialisms selected
+          no_specific_selected: 0 focused legal specialisms selected
+          question: Select focused legal specialisms required
+          search_specific: Search focused legal support
+          specialism_selected: focused legal specialisms selected
+        suppliers_comparison:
+          can_provide_specialisms: can provide the legal specialisms that meet your requirements.
+          contact_hint_html: If you have any questions, <a class="govuk-link" href="%{contact_link}">contact GCA</a>.
+          disclaimer_award_with_competition: The rates provided are maximum rates and subject to award with competition.
+          disclaimer_quotation_process: The rates provided are maximum rates and subject to requesting quotes from selected suppliers.
+          download: Download the supplier list
+          heading: Supplier results
+          no_suppliers_found:
+            back_to_start: Back to start
+            heading: No suppliers found
+            text: There are no suppliers available for your selection.
+          page_title: Supplier results
+          reselect_suppliers: Reselect suppliers for comparision
+          return_to_result_page: Return to results page
+          supplier: supplier
         transport_highways:
-          no_transport_highways_selected: 0 transport highways selected
-          question: Select legal services required
-          search_transport_highwayss: Search transport highways
+          no_transport_highways_selected: 0 legal specialismsselected
+          question: Select the legal specialism(s) you require
+          search_transport_highwayss: Search legal specialisms
           specialism_selected: specialism selected
-          transport_highways_selected: Transport highways selected
+          transport_highways_selected: legal specialisms selected
       suppliers:
+        lot_2_interim_result_page:
+          back_to_start: Back to start
+          can_provide_legal_specialisms_html: "<span class='govuk-!-font-weight-bold'>%{count} suppliers</span> can provide the legal specialisms that meet your requirements."
+          description: We're resolving a technical issue. Please download the supplier rate card spreadsheet and filter by the matched supplier(s) to continue your journey
+          download_supplier_rate: Download the supplier rate card
+          download_suppliers_list: Download the supplier list
+          no_suppliers_found:
+            heading: No suppliers were found
+            text: There are no suppliers on this panel that can provide the law services you need
+          page_title: Compare supplier rates
         rates_table:
           grade: Grade
+          position: Position
+          rates: Rates
     service_name: Legal Services
     suppliers:
       download:
@@ -352,8 +616,11 @@ en:
         download_supplier_shortlist_link: Download supplier shortlist
         heading: Download the supplier shortlist
       index:
+        assessment_advice: You may wish to undertake an assessment using the suppliers prospectus’ at this stage to help your down selection process if using a rapid award or quote process. You can do this by using the links provided here or in a downloadable list by clicking "Download the supplier list".
         back_to_start: Back to start
         can_provide_legal_services: can provide legal services that meet your requirements.
+        can_provide_legal_specialisms_html: "<span class='govuk-!-font-weight-bold'>%{count} suppliers</span> can provide the legal specialisms that meet your requirements."
+        compare_supplier_rates: Compare the supplier rates
         download_suppliers_list: Download the supplier list
         heading: Supplier results
         no_suppliers_found:

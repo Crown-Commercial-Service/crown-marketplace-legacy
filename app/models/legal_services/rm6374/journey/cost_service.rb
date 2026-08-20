@@ -4,6 +4,7 @@ module LegalServices
       include Steppable
 
       attribute :sector
+      attribute :lot_number, :string, default: '6'
       attribute :service_numbers, :array, default: -> { [] }
       validates :service_numbers, presence: true
 
@@ -12,7 +13,7 @@ module LegalServices
       end
 
       def next_step_class
-        Journey::ChooseJurisdiction
+        Journey::Suppliers
       end
     end
   end
