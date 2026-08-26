@@ -22,6 +22,9 @@ journey_path = ->(slug, params = {}) {
 
 <% else %>
 
+  <% LegalServices::RM6374::Search.log_supplier_rates_comparison(current_user, session.id, params, @journey.current_step.supplier_frameworks) %>
+  <% LegalServices::RM6374::Search.log_call_off_mechanism(current_user, session.id, params) %>
+
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
       <span class="govuk-caption-m">

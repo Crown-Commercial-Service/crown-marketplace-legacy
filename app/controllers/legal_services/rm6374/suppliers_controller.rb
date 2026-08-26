@@ -25,7 +25,7 @@ module LegalServices
 
       def download
         begin
-          Search.log_results_downloaded_to_search(@lot.framework, current_user, session.id, params)
+          Search.log_results_downloaded_to_search(current_user, session.id)
         rescue StandardError => e
           Rails.logger.error e
           Rollbar.log('error', e)
