@@ -72,7 +72,11 @@ journey_path = ->(slug, params = {}) {
             <%= t(".disclaimer_#{params[:call_off_mechanism]}") %>
           </p>
         <% end %>
-        
+
+        <p class="govuk-body">
+          <%= t(".disclaimer") %>
+        </p>
+
         <p class="govuk-body govuk-!-margin-bottom-6">
           <%= t('.contact_hint_html', contact_link: t('common.ccs_contact_url')) %>
         </p>
