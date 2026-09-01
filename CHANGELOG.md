@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [8.1.1] - 2026-09-01
+### Added
+- Added unit tests for the RM6374 upload checker to verify functionality ([PR 2615](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2615))
+
+### Changed
+- Enhanced the Admin User Report data output ([PR 2616](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2616))
+- Updated user registration confirmation message with explicit instructions to check spam folders ([PR 2618](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2618))
+- Updated guidance on RM6360 Legal Panel for Government to direct users to RM6374 (replacing RM6240) ([PR 2617](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2617))
+
 ## [8.1.0] - 2026-08-20
 
 ### Added
