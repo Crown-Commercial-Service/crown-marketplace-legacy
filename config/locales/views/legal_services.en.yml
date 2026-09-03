@@ -479,9 +479,15 @@ en:
             transport_highways: Legal services requiring a deep understanding of the transport, rail, highways, maritime, ports aviation and planning industry
           question: Do you require
         compare_select_suppliers:
+          can_provide_specialisms: can provide the legal specialisms that meet your requirements.
+          contact_hint_html: If you have any questions, <a class="govuk-link" href="%{contact_link}">contact GCA</a>.
+          disclaimer: The rates provided are commercially sensitive and should be used only to inform your requirement.
+          disclaimer_award_with_competition: The rates provided are maximum rates and subject to award with competition.
+          disclaimer_quotation_process: The rates provided are maximum rates and subject to requesting quotes from selected suppliers.
           no_suppliers_selected: No suppliers selected
           open_all_supplier_rates: View supplier rates (opens in new tab)
           question: Select suppliers for comparison
+          scroll_to_the_right: Scroll the table to the right to view all job roles and rates.
           supplier_selected: supplier selected
           suppliers_selected: suppliers selected
         comparison_rates_table:
