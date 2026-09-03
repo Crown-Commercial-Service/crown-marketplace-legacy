@@ -7,11 +7,12 @@ module LegalServices
 
         attribute :lot_number, :string
         attribute :jurisdiction, :string
+        attribute :call_off_mechanism, :string
         attribute :service_numbers, :array, default: -> { [] }
         attribute :professions, :array, default: -> { [] }
         attribute :supplier_framework_ids, :array, default: -> { [] }
 
-        validates :supplier_framework_ids, length: { minimum: 1 }
+        validate :validate_supplier_framework_ids_count
 
         def lot
           Lot.find("RM6374.#{lot_number}")
@@ -42,6 +43,17 @@ module LegalServices
 
         private
 
+        NUM_TO_WORDS = { 1 => 'one', 3 => 'three' }.freeze
+
+        def validate_supplier_framework_ids_count
+          min_required = call_off_mechanism == 'quotation_process' ? 3 : 1
+          actual_count = supplier_framework_ids.compact_blank.length
+
+          return unless actual_count < min_required
+
+          errors.add(:supplier_framework_ids, "Please select a minimum of #{NUM_TO_WORDS[min_required]} supplier#{'s' if min_required > 1} for comparison")
+        end
+
         def supplier_frameworks
           selected_services = get_service_numbers(lot_number)
 
@@ -53,17 +65,16 @@ module LegalServices
         end
 
         def fetch_lot_6_supplier_frameworks(selected_services)
-          scope = ::Supplier::Framework.with_lots(lot.id).with_services(selected_services)
-          scope = scope.where(id: supplier_framework_ids) if supplier_framework_ids.present?
-          scope.sort_by(&:supplier_name)
+          ::Supplier::Framework.with_lots(lot.id)
+                               .with_services(selected_services)
+                               .sort_by(&:supplier_name)
         end
 
         def fetch_standard_supplier_frameworks(selected_services)
           selected_jurisdiction_id = get_jurisdiction(jurisdiction)
-          scope = ::Supplier::Framework.with_lots(lot.id)
-                                       .with_services_and_jurisdiction(selected_services, [selected_jurisdiction_id])
-          scope = scope.where(id: supplier_framework_ids) if supplier_framework_ids.present?
-          scope.sort_by(&:supplier_name)
+          ::Supplier::Framework.with_lots(lot.id)
+                               .with_services_and_jurisdiction(selected_services, [selected_jurisdiction_id])
+                               .sort_by(&:supplier_name)
         end
       end
     end

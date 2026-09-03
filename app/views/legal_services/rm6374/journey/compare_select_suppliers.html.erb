@@ -11,6 +11,7 @@
       <%= hidden_fields_for_previous_steps_and_responses(@journey) %>
       <%= hidden_field_tag(:lot_number, @journey.current_step.lot_number) %>
       <%= hidden_field_tag(:jurisdiction, @journey.current_step.jurisdiction) %>
+      <%= hidden_field_tag(:call_off_mechanism, @journey.current_step.call_off_mechanism) %>
       <% @journey.current_step.service_numbers.each do |service_number| %>
           <%= hidden_field_tag(:'service_numbers[]', service_number) %>
       <% end %>
@@ -18,114 +19,120 @@
           <%= hidden_field_tag(:'professions[]', profession) %>
       <% end %>
 
-      <%= govuk_fieldset(
-        legend: {
-          text: t('.question'),
-          classes: 'govuk-fieldset__legend--m',
-          is_page_heading: true,
-          caption: {
-            text: lot_full_name(@journey.current_step.lot),
-            classes: 'govuk-caption-m'
+      <div class="govuk-form-group <%= 'govuk-form-group--error' if @journey.errors[:supplier_framework_ids].any? %>">
+        <%= govuk_fieldset(
+          legend: {
+            text: t('.question'),
+            classes: 'govuk-fieldset__legend--m',
+            is_page_heading: true,
+            caption: {
+              text: lot_full_name(@journey.current_step.lot),
+              classes: 'govuk-caption-m'
+            }
           }
-        }
-      ) do %>
-        <div class="ccs-suppliers-comparison-container">
-          <p class="govuk-body">
-            <%= t('.scroll_to_the_right') %>
-          </p>
+        ) do %>
 
-          <div class="ccs-suppliers-comparison-overflow-container">
-            <%= govuk_table(
-              # Headers
-              [
-                {
-                  text: t('.supplier'),
-                }
-              ] + @journey.current_step.positions.map do |_position_id, position_name|
-                {
-                  text: t(".job_titles.#{position_name}"),
-                }
-              end,
+          <% if @journey.errors[:supplier_framework_ids].any? %>
+            <p id="supplier_framework_ids-error" class="govuk-error-message">
+              <span class="govuk-visually-hidden">Error:</span> <%= @journey.errors[:supplier_framework_ids].first %>
+            </p>
+          <% end %>
 
-              @journey.current_step.supplier_frameworks_with_rates.map do |supplier_framework, rates|
-                framework_id = supplier_framework.id
+          <div class="ccs-suppliers-comparison-container">
+            <p class="govuk-body">
+              <%= t('.scroll_to_the_right') %>
+            </p>
 
-                supplier_cell_content = content_tag(:div) do
-                  # 1. Standard GOV.UK Checkbox
-                  checkbox_section = content_tag(:div, class: 'govuk-checkboxes govuk-checkboxes--small ccs-checkbox--no-hover', data: { module: 'govuk-checkboxes' }) do
-                    content_tag(:div, class: 'govuk-checkboxes__item') do
-                      checkbox_input = check_box_tag(
-                        'supplier_framework_ids[]',
-                        framework_id,
-                        false,
-                        class: 'govuk-checkboxes__input',
-                        id: "supplier_framework_ids_#{framework_id}"
-                      )
-
-                      supplier_name_wrapper = content_tag(:div, class: 'ccs-results-list__supplier-name') do
-                        supplier_name = content_tag(:span, supplier_framework.supplier_name, class: 'govuk-body-s govuk-!-font-weight-bold')
-
-                        sme_tag = if supplier_framework.supplier&.sme?
-                          ' '.html_safe + govuk_tag(t('sme'), 'grey', classes: 'ccs-tag')
-                        else
-                          ''.html_safe
-                        end
-
-                        supplier_name + sme_tag
-                      end
-
-                      checkbox_label = label_tag("supplier_framework_ids_#{framework_id}", class: 'govuk-label govuk-checkboxes__label') do
-                        supplier_name_wrapper
-                      end
-
-                      checkbox_input + checkbox_label
-                    end
-                  end
-
-                  # 2. Side-by-side links indented under the supplier name
-                  supplier_info_wrapper = content_tag(
-                    :ul, 
-                    class: 'govuk-list govuk-list--inline govuk-!-margin-top-1 govuk-!-margin-bottom-0 govuk-!-font-size-16',
-                    style: 'display: flex; gap: 15px; flex-wrap: nowrap; white-space: nowrap; margin-left: 35px;'
-                  ) do
-                    details_link = content_tag(:li) do
-                      link_to 'View supplier detail', legal_services_rm6374_supplier_path(supplier_framework, **@journey.params), class: 'govuk-link'
-                    end
-
-                    prospectus_link = if supplier_framework.contact_detail&.website.present?
-                      content_tag(:li) do
-                        link_to 'View supplier prospectus', url_formatter(supplier_framework.contact_detail.website), class: 'govuk-link', target: '_blank', rel: 'noopener noreferrer'
-                      end
-                    else
-                      ''.html_safe
-                    end
-
-                    details_link + prospectus_link
-                  end
-
-                  checkbox_section + supplier_info_wrapper
-                end
-
+            <div class="ccs-suppliers-comparison-overflow-container">
+              <%= govuk_table(
                 [
                   {
-                    text: supplier_cell_content
+                    text: t('.supplier'),
                   }
-                ] + @journey.current_step.positions.map  do |position_id, _position_name|
+                ] + @journey.current_step.positions.map do |_position_id, position_name|
                   {
-                    text: display_rate(position_id, rates)
+                    text: t(".job_titles.#{position_name}"),
                   }
-                end
-              end,
-              caption: {
-                text: t('.rates'),
-                classes: 'govuk-visually-hidden'
-              },
-              first_cell_is_header: true,
-              classes: 'ccs-suppliers-comparison-table'
-            ) %>
+                end,
+
+                @journey.current_step.supplier_frameworks_with_rates.map do |supplier_framework, rates|
+                  framework_id = supplier_framework.id
+
+                  supplier_cell_content = content_tag(:div) do
+                    checkbox_section = content_tag(:div, class: 'govuk-checkboxes govuk-checkboxes--small ccs-checkbox--no-hover', data: { module: 'govuk-checkboxes' }) do
+                      content_tag(:div, class: 'govuk-checkboxes__item') do
+                        checkbox_input = check_box_tag(
+                          'supplier_framework_ids[]',
+                          framework_id,
+                          false,
+                          class: 'govuk-checkboxes__input',
+                          id: "supplier_framework_ids_#{framework_id}"
+                        )
+
+                        supplier_name_wrapper = content_tag(:div, class: 'ccs-results-list__supplier-name') do
+                          supplier_name = content_tag(:span, supplier_framework.supplier_name, class: 'govuk-body-s govuk-!-font-weight-bold')
+
+                          sme_tag = if supplier_framework.supplier&.sme?
+                            ' '.html_safe + govuk_tag(t('sme'), 'grey', classes: 'ccs-tag')
+                          else
+                            ''.html_safe
+                          end
+
+                          supplier_name + sme_tag
+                        end
+
+                        checkbox_label = label_tag("supplier_framework_ids_#{framework_id}", class: 'govuk-label govuk-checkboxes__label') do
+                          supplier_name_wrapper
+                        end
+
+                        checkbox_input + checkbox_label
+                      end
+                    end
+
+                    supplier_info_wrapper = content_tag(
+                      :ul, 
+                      class: 'govuk-list govuk-list--inline govuk-!-margin-top-1 govuk-!-margin-bottom-0 govuk-!-font-size-16',
+                      style: 'display: flex; gap: 15px; flex-wrap: nowrap; white-space: nowrap; margin-left: 35px;'
+                    ) do
+                      details_link = content_tag(:li) do
+                        link_to 'View supplier detail', legal_services_rm6374_supplier_path(supplier_framework, **@journey.params), class: 'govuk-link'
+                      end
+
+                      prospectus_link = if supplier_framework.contact_detail&.website.present?
+                        content_tag(:li) do
+                          link_to 'View supplier prospectus', url_formatter(supplier_framework.contact_detail.website), class: 'govuk-link', target: '_blank', rel: 'noopener noreferrer'
+                        end
+                      else
+                        ''.html_safe
+                      end
+
+                      details_link + prospectus_link
+                    end
+
+                    checkbox_section + supplier_info_wrapper
+                  end
+
+                  [
+                    {
+                      text: supplier_cell_content
+                    }
+                  ] + @journey.current_step.positions.map  do |position_id, _position_name|
+                    {
+                      text: display_rate(position_id, rates)
+                    }
+                  end
+                end,
+                caption: {
+                  text: t('.rates'),
+                  classes: 'govuk-visually-hidden'
+                },
+                first_cell_is_header: true,
+                classes: 'ccs-suppliers-comparison-table'
+              ) %>
+            </div>
           </div>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
 
       <p class="govuk-body govuk-!-margin-top-6">
         <%= t(".disclaimer") %>

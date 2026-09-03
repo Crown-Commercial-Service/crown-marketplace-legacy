@@ -51,10 +51,6 @@ en:
           attributes:
             specialism:
               inclusion: Select at least one legal service
-        legal_services/rm6374/journey/compare_select_suppliers:
-          attributes:
-            supplier_framework_ids:
-              too_short: Please select a minimum of one supplier for comparison
         legal_services/rm6374/journey/cost_service:
           attributes:
             service_numbers:
