@@ -94,7 +94,8 @@ RSpec.describe LegalPanelForGovernment::RM6360::SupplierSpreadsheetCreator do
           it 'has the correct data' do
             expect(sheet.row(1)).to eq ['Lot', '4a - Trade and Investment Negotiations']
             expect(sheet.row(2)).to eq ['Specialisms', services.map(&:name).join('; ')]
-            expect(sheet.row(3)).to eq ['Countries', 'United Arab Emirates; Åland Islands']
+            expect(sheet.row(3).first).to eq('Countries')
+            expect(sheet.row(3).last.split('; ')).to contain_exactly('United Arab Emirates', 'Åland Islands')
           end
         end
       end

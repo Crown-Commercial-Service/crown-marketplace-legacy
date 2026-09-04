@@ -1,0 +1,36 @@
+<div class="ccs-suppliers-comparison-container">
+  <p class="govuk-body">
+    <%= t('.scroll_to_the_right') %>
+  </p>
+
+  <div class="ccs-suppliers-comparison-overflow-container">
+    <%= govuk_table(
+      [
+        {
+          text: t('.supplier'),
+        },
+      ] + @journey.current_step.positions.map do |_position_id, position_name|
+        {
+          text: t(".job_titles.#{position_name}"),
+        }
+      end,
+      supplier_frameworks.map do |supplier_framework, rates|
+        [
+          {
+            text: render(partial: 'legal_services/rm6374/journey/supplier_table_head', locals: { supplier_framework: supplier_framework, lot: @lot, include_link: true })
+          }
+        ] + @journey.current_step.positions.map  do |position_id, _position_name|
+          {
+            text: display_rate(position_id, rates)
+          }
+        end
+      end,
+      caption: {
+        text: t('.rates'),
+        classes: 'govuk-visually-hidden'
+      },
+      first_cell_is_header: true,
+      classes: 'ccs-suppliers-comparison-table'
+    ) %>
+  </div>
+</div>

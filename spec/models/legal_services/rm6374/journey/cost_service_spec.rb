@@ -33,20 +33,20 @@ RSpec.describe LegalServices::RM6374::Journey::CostService do
   end
 
   describe '.next_step_class' do
-    it 'returns Journey::ChooseJurisdiction' do
-      expect(step.next_step_class).to eq(LegalServices::RM6374::Journey::ChooseJurisdiction)
+    it 'returns Journey::Suppliers' do
+      expect(step.next_step_class).to eq(LegalServices::RM6374::Journey::Suppliers)
     end
   end
 
   describe '.permit_list' do
     it 'returns a list of the permitted attributes' do
-      expect(described_class.permit_list).to eq([:sector, { service_numbers: [] }])
+      expect(described_class.permit_list).to eq([:sector, :lot_number, { service_numbers: [] }])
     end
   end
 
   describe '.permitted_keys' do
     it 'returns a list of the permitted keys' do
-      expect(described_class.permitted_keys).to eq(%i[sector service_numbers])
+      expect(described_class.permitted_keys).to eq(%i[sector lot_number service_numbers])
     end
   end
 
