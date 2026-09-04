@@ -475,12 +475,12 @@ en:
             transport_highways: Legal services requiring a deep understanding of the transport, rail, highways, maritime, ports aviation and planning industry
           question: Do you require
         compare_select_suppliers:
-          rates: Rates
-          supplier: Supplier
           contact_hint_html: If you have any questions, <a class="govuk-link" href="%{contact_link}">contact GCA</a>.
           disclaimer: The rates provided are commercially sensitive and should be used only to inform your requirement.
           question: Select suppliers for comparison
+          rates: Rates
           scroll_to_the_right: Scroll the table to the right to view all job roles and rates.
+          supplier: Supplier
         comparison_rates_table:
           job_titles:
             junior: NQ Solicitor/Associate, Junior Solicitor/Associate/Legal Executive
