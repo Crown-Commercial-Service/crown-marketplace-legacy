@@ -5,6 +5,7 @@ RSpec.describe LegalServices::RM6374::Journey::CompareSelectSuppliers do
     described_class.new(
       lot_number:,
       jurisdiction:,
+      call_off_mechanism:,
       service_numbers:,
       supplier_framework_ids:
     )
@@ -12,35 +13,71 @@ RSpec.describe LegalServices::RM6374::Journey::CompareSelectSuppliers do
 
   let(:lot_number) { '1' }
   let(:jurisdiction) { 'a' }
+  let(:call_off_mechanism) { 'direct_award' }
   let(:service_numbers) { %w[2 3] }
   let(:supplier_framework_ids) { ['supplier-uuid-1'] }
 
   describe 'attributes' do
     it { is_expected.to respond_to :lot_number }
+    it { is_expected.to respond_to :jurisdiction }
+    it { is_expected.to respond_to :call_off_mechanism }
+    it { is_expected.to respond_to :service_numbers }
+    it { is_expected.to respond_to :professions }
     it { is_expected.to respond_to :supplier_framework_ids }
   end
 
   describe 'validations' do
-    context 'when supplier_framework_ids is empty' do
-      let(:supplier_framework_ids) { [] }
+    context 'when call_off_mechanism is quotation_process' do
+      let(:call_off_mechanism) { 'quotation_process' }
 
-      it 'is not valid' do
-        expect(step).not_to be_valid
+      context 'when fewer than 3 suppliers are selected' do
+        let(:supplier_framework_ids) { ['supplier-uuid-1', 'supplier-uuid-2'] }
+
+        it 'is not valid' do
+          expect(step).not_to be_valid
+        end
+
+        it 'adds a minimum count error message requiring three suppliers' do
+          step.valid?
+          expect(step.errors[:supplier_framework_ids]).to include(
+            'Please select a minimum of three suppliers for comparison'
+          )
+        end
       end
 
-      it 'adds a too_short error to supplier_framework_ids' do
-        step.valid?
-        expect(step.errors[:supplier_framework_ids]).to include(
-          I18n.t('activemodel.errors.models.legal_services/rm6374/journey/compare_select_suppliers.attributes.supplier_framework_ids.too_short')
-        )
+      context 'when 3 or more suppliers are selected' do
+        let(:supplier_framework_ids) { ['supplier-uuid-1', 'supplier-uuid-2', 'supplier-uuid-3'] }
+
+        it 'is valid' do
+          expect(step).to be_valid
+        end
       end
     end
 
-    context 'when at least one supplier_framework_id is provided' do
-      let(:supplier_framework_ids) { ['supplier-uuid-1'] }
+    context 'when call_off_mechanism is not quotation_process' do
+      let(:call_off_mechanism) { 'direct_award' }
 
-      it 'is valid' do
-        expect(step).to be_valid
+      context 'when supplier_framework_ids is empty' do
+        let(:supplier_framework_ids) { [] }
+
+        it 'is not valid' do
+          expect(step).not_to be_valid
+        end
+
+        it 'adds a minimum count error message requiring one supplier' do
+          step.valid?
+          expect(step.errors[:supplier_framework_ids]).to include(
+            'Please select a minimum of one supplier for comparison'
+          )
+        end
+      end
+
+      context 'when at least one supplier_framework_id is provided' do
+        let(:supplier_framework_ids) { ['supplier-uuid-1'] }
+
+        it 'is valid' do
+          expect(step).to be_valid
+        end
       end
     end
   end
@@ -57,7 +94,7 @@ RSpec.describe LegalServices::RM6374::Journey::CompareSelectSuppliers do
     end
   end
 
-  describe '#available_suppliers' do
+  describe '#supplier_frameworks' do
     let(:lot) { instance_double(Lot, id: 'RM6374.1') }
     let(:selected_services) { %w[RM6374.1.2 RM6374.1.3] }
     let(:selected_jurisdiction_id) { 'RM6374.EW' }
@@ -72,37 +109,35 @@ RSpec.describe LegalServices::RM6374::Journey::CompareSelectSuppliers do
 
     before do
       allow(Lot).to receive(:find).with('RM6374.1').and_return(lot)
+      allow(step).to receive(:get_service_numbers).with('1').and_return(selected_services) # rubocop:disable RSpec/SubjectStub
+      allow(step).to receive(:get_jurisdiction).with('a').and_return(selected_jurisdiction_id) # rubocop:disable RSpec/SubjectStub
+
       allow(Supplier::Framework).to receive(:with_lots).with(lot.id).and_return(frameworks_relation)
       allow(frameworks_relation).to receive(:with_services_and_jurisdiction)
         .with(selected_services, [selected_jurisdiction_id])
         .and_return([framework_z, framework_a])
     end
 
-    it 'returns the supplier frameworks sorted by supplier name' do
-      expect(step.available_suppliers).to eq([framework_a, framework_z])
+    it 'returns all matching supplier frameworks sorted by supplier name regardless of supplier_framework_ids' do
+      expect(step.send(:supplier_frameworks)).to eq([framework_a, framework_z])
     end
 
-    context 'when the jurisdiction is not mapped' do
-      let(:jurisdiction) { 'RM6374.GB' }
-      let(:selected_jurisdiction_id) { 'RM6374.GB' }
+    context 'when lot_number is 6' do
+      let(:lot_number) { '6' }
+      let(:lot) { instance_double(Lot, id: 'RM6374.6') }
 
-      it 'passes the jurisdiction through unchanged' do
-        step.available_suppliers
+      before do
+        allow(Lot).to receive(:find).with('RM6374.6').and_return(lot)
+        allow(step).to receive(:get_service_numbers).with('6').and_return(selected_services) # rubocop:disable RSpec/SubjectStub
 
-        expect(frameworks_relation).to have_received(:with_services_and_jurisdiction)
-          .with(selected_services, [selected_jurisdiction_id])
+        allow(Supplier::Framework).to receive(:with_lots).with(lot.id).and_return(frameworks_relation)
+        allow(frameworks_relation).to receive(:with_services)
+          .with(selected_services)
+          .and_return([framework_z, framework_a])
       end
-    end
 
-    context 'when the jurisdiction maps to Scotland' do
-      let(:jurisdiction) { 'b' }
-      let(:selected_jurisdiction_id) { 'RM6374.SC' }
-
-      it 'translates the jurisdiction code using JURISDICTION_MAP' do
-        step.available_suppliers
-
-        expect(frameworks_relation).to have_received(:with_services_and_jurisdiction)
-          .with(selected_services, [selected_jurisdiction_id])
+      it 'fetches Lot 6 supplier frameworks sorted by supplier name' do
+        expect(step.send(:supplier_frameworks)).to eq([framework_a, framework_z])
       end
     end
   end
