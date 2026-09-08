@@ -615,6 +615,7 @@ en:
         heading: Download the supplier shortlist
       index:
         assessment_advice: You may wish to undertake an assessment using the suppliers prospectus’ at this stage to help your down selection process if using a rapid award or quote process. You can do this by using the links provided here or in a downloadable list by clicking "Download the supplier list".
+        prospectus_timeline_advice: "Supplier prospectuses are expected to go live on October 1, 2026. In the meantime, please use award with competition or quote process where possible, or contact suppliers directly to request a draft prospectus."
         back_to_start: Back to start
         can_provide_legal_services: can provide legal services that meet your requirements.
         can_provide_legal_specialisms_html: "<span class='govuk-!-font-weight-bold'>%{count} suppliers</span> can provide the legal specialisms that meet your requirements."
