@@ -630,7 +630,7 @@ en:
           text: There are no suppliers on this panel that can provide the law services you need
           text_central_government_users_html: The %{general_legal_advice_service_link} agreement provides legal services for central government and arms-length bodies.
         page_title: Supplier results
-        prospectus_timeline_advice: Supplier prospectuses are expected to go live on October 1, 2026. In the meantime, please use award with competition or quote process where possible, or contact suppliers directly to request a draft prospectus.
+        prospectus_timeline_advice: Supplier prospectuses are expected to go live on October 1, 2026. In the meantime, use award with competition or quote process where possible, or contact suppliers directly to request a draft prospectus
         supplier: supplier
       show:
         contact_details:
