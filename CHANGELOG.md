@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [8.1.2] - 2026-09-10
+### Changed
+- Added checkboxes to enable direct comparison of supplier results ([PR 2621](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2621))
+- Updated the quote process logic to require a minimum of 3 suppliers ([PR 2621](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2621))
+- Updated copy and content layout on the initial results page (NDF-391) ([PR 2623](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2623))
+
+### Removed
+
+- Pop up tab to view supplier rate before the comparision ([PR 2621](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2621))
+
 ## [8.1.1] - 2026-09-01
 ### Added
 - Added unit tests for the RM6374 upload checker to verify functionality ([PR 2615](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2615))
