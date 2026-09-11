@@ -113,6 +113,37 @@ module Admin::SuppliersHelper
     ],
   }.freeze
 
+  CUSTOMER_SECTOR_SELECTION_SUMMARY_ROWS = {
+    health: [
+      I18n.t('shared.admin.suppliers.show.customer_sector_selection.health'),
+      ->(supplier_framework) { supplier_framework.contact_detail.health ? I18n.t('yes') : I18n.t('no') }
+    ],
+    local_community_and_housing: [
+      I18n.t('shared.admin.suppliers.show.customer_sector_selection.local_community_and_housing'),
+      ->(supplier_framework) { supplier_framework.contact_detail.local_community_and_housing ? I18n.t('yes') : I18n.t('no') }
+    ],
+    government_policy: [
+      I18n.t('shared.admin.suppliers.show.customer_sector_selection.government_policy'),
+      ->(supplier_framework) { supplier_framework.contact_detail.government_policy ? I18n.t('yes') : I18n.t('no') }
+    ],
+    education: [
+      I18n.t('shared.admin.suppliers.show.customer_sector_selection.education'),
+      ->(supplier_framework) { supplier_framework.contact_detail.education ? I18n.t('yes') : I18n.t('no') }
+    ],
+    defence_and_security: [
+      I18n.t('shared.admin.suppliers.show.customer_sector_selection.defence_and_security'),
+      ->(supplier_framework) { supplier_framework.contact_detail.defence_and_security ? I18n.t('yes') : I18n.t('no') }
+    ],
+    infrastructure: [
+      I18n.t('shared.admin.suppliers.show.customer_sector_selection.infrastructure'),
+      ->(supplier_framework) { supplier_framework.contact_detail.infrastructure ? I18n.t('yes') : I18n.t('no') }
+    ],
+    culture_media_and_sport: [
+      I18n.t('shared.admin.suppliers.show.customer_sector_selection.culture_media_and_sport'),
+      ->(supplier_framework) { supplier_framework.contact_detail.culture_media_and_sport ? I18n.t('yes') : I18n.t('no') }
+    ],
+  }.freeze
+
   def basic_supplier_information_summary_rows
     @basic_supplier_information_summary_rows ||= collect_summary_rows(:basic_supplier_information, BASIC_SUPPLIER_INFORMATION_SUMMARY_ROWS)
   end
@@ -123,6 +154,14 @@ module Admin::SuppliersHelper
 
   def additional_supplier_information_summary_rows
     @additional_supplier_information_summary_rows ||= collect_summary_rows(:additional_supplier_information, ADDITIONAL_SUPPLIER_INFORMATION_SUMMARY_ROWS)
+  end
+
+  def customer_sector_selection_summary_rows
+    # Safely checks if this framework has the customer sector section defined in its SECTION_TO_PARAMS
+    attributes = section_attributes(:customer_sector_selection)
+    return [] if attributes.blank?
+
+    @customer_sector_selection_summary_rows ||= collect_summary_rows(:customer_sector_selection, CUSTOMER_SECTOR_SELECTION_SUMMARY_ROWS)
   end
 
   private

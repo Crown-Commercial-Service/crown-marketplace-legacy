@@ -294,6 +294,14 @@ en:
             managed_service_provider_name: Managed service provider contact name
             managed_service_provider_telephone: Managed service provider contact telephone number
             title: Additional information
+          customer_sector_selection:
+            health: Health
+            local_community_and_housing: Local Community & Housing
+            government_policy: Government Policy
+            education: Education
+            defence_and_security: Defence and Security
+            infrastructure: Infrastructure
+            culture_media_and_sport: Culture, Media & Sport
           basic_supplier_information:
             additional_identifier: Additional identifier
             duns: DUNS Number

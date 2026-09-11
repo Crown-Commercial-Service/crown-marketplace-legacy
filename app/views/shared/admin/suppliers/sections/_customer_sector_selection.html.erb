@@ -1,0 +1,36 @@
+<div class="govuk-checkboxes" data-module="govuk-checkboxes">
+  <div class="govuk-checkboxes__item">
+    <%= form.check_box :health, class: "govuk-checkboxes__input" %>
+    <%= form.label :health, t('shared.admin.suppliers.sections.customer_sector_selection.health'), class: "govuk-label govuk-checkboxes__label" %>
+  </div>
+  
+  <div class="govuk-checkboxes__item">
+    <%= form.check_box :local_community_and_housing, class: "govuk-checkboxes__input" %>
+    <%= form.label :local_community_and_housing, t('shared.admin.suppliers.sections.customer_sector_selection.local_community_and_housing'), class: "govuk-label govuk-checkboxes__label" %>
+  </div>
+  
+  <div class="govuk-checkboxes__item">
+    <%= form.check_box :government_policy, class: "govuk-checkboxes__input" %>
+    <%= form.label :government_policy, t('shared.admin.suppliers.sections.customer_sector_selection.government_policy'), class: "govuk-label govuk-checkboxes__label" %>
+  </div>
+  
+  <div class="govuk-checkboxes__item">
+    <%= form.check_box :education, class: "govuk-checkboxes__input" %>
+    <%= form.label :education, t('shared.admin.suppliers.sections.customer_sector_selection.education'), class: "govuk-label govuk-checkboxes__label" %>
+  </div>
+  
+  <div class="govuk-checkboxes__item">
+    <%= form.check_box :defence_and_security, class: "govuk-checkboxes__input" %>
+    <%= form.label :defence_and_security, t('shared.admin.suppliers.sections.customer_sector_selection.defence_and_security'), class: "govuk-label govuk-checkboxes__label" %>
+  </div>
+  
+  <div class="govuk-checkboxes__item">
+    <%= form.check_box :infrastructure, class: "govuk-checkboxes__input" %>
+    <%= form.label :infrastructure, t('shared.admin.suppliers.sections.customer_sector_selection.infrastructure'), class: "govuk-label govuk-checkboxes__label" %>
+  </div>
+  
+  <div class="govuk-checkboxes__item">
+    <%= form.check_box :culture_media_and_sport, class: "govuk-checkboxes__input" %>
+    <%= form.label :culture_media_and_sport, t('shared.admin.suppliers.sections.customer_sector_selection.culture_media_and_sport'), class: "govuk-label govuk-checkboxes__label" %>
+  </div>
+</div>
