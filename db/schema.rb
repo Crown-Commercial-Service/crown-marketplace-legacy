@@ -181,6 +181,13 @@ ActiveRecord::Schema[8.1].define(version: 2026_07_08_120000) do
     t.index ["user_id"], name: "index_searches_on_user_id"
   end
 
+  create_table "sectors", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.text "name", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_sectors_on_name", unique: true
+  end
+
   create_table "services", id: :text, force: :cascade do |t|
     t.text "category"
     t.datetime "created_at", null: false
@@ -280,6 +287,16 @@ ActiveRecord::Schema[8.1].define(version: 2026_07_08_120000) do
     t.index ["supplier_framework_id"], name: "index_supplier_framework_lots_on_supplier_framework_id"
   end
 
+  create_table "supplier_framework_sectors", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.bigint "sector_id", null: false
+    t.uuid "supplier_framework_id", null: false
+    t.datetime "updated_at", null: false
+    t.index ["sector_id"], name: "index_supplier_framework_sectors_on_sector_id"
+    t.index ["supplier_framework_id", "sector_id"], name: "idx_supp_fw_sectors_uniqueness", unique: true
+    t.index ["supplier_framework_id"], name: "idx_supp_fw_sectors_on_fw_id"
+  end
+
   create_table "supplier_frameworks", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.datetime "created_at", null: false
     t.boolean "enabled"
@@ -367,6 +384,8 @@ ActiveRecord::Schema[8.1].define(version: 2026_07_08_120000) do
   add_foreign_key "supplier_framework_lot_services", "supplier_framework_lots"
   add_foreign_key "supplier_framework_lots", "lots"
   add_foreign_key "supplier_framework_lots", "supplier_frameworks"
+  add_foreign_key "supplier_framework_sectors", "sectors"
+  add_foreign_key "supplier_framework_sectors", "supplier_frameworks"
   add_foreign_key "supplier_frameworks", "frameworks"
   add_foreign_key "supplier_frameworks", "suppliers"
   add_foreign_key "uploads", "frameworks"
