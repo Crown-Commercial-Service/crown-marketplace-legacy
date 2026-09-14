@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_09_11_114522) do
+ActiveRecord::Schema[8.1].define(version: 2026_07_08_120000) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
   enable_extension "pgcrypto"
@@ -84,22 +84,6 @@ ActiveRecord::Schema[8.1].define(version: 2026_09_11_114522) do
     t.uuid "user_id", null: false
     t.index ["framework_id"], name: "index_change_logs_on_framework_id"
     t.index ["user_id"], name: "index_change_logs_on_user_id"
-  end
-
-  create_table "customer_sector_mappings", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.uuid "customer_sector_id", null: false
-    t.uuid "supplier_framework_contact_detail_id", null: false
-    t.datetime "updated_at", null: false
-    t.index ["customer_sector_id"], name: "index_customer_sector_mappings_on_customer_sector_id"
-    t.index ["supplier_framework_contact_detail_id"], name: "idx_on_contact_detail_id"
-  end
-
-  create_table "customer_sectors", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.string "code"
-    t.datetime "created_at", null: false
-    t.string "name"
-    t.datetime "updated_at", null: false
   end
 
   create_table "frameworks", id: :text, force: :cascade do |t|
@@ -363,8 +347,6 @@ ActiveRecord::Schema[8.1].define(version: 2026_09_11_114522) do
   add_foreign_key "buyer_details", "users"
   add_foreign_key "change_logs", "frameworks"
   add_foreign_key "change_logs", "users"
-  add_foreign_key "customer_sector_mappings", "customer_sectors"
-  add_foreign_key "customer_sector_mappings", "supplier_framework_contact_details"
   add_foreign_key "jurisdictions", "frameworks"
   add_foreign_key "lots", "frameworks"
   add_foreign_key "positions", "lots"

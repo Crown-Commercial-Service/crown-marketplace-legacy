@@ -157,7 +157,6 @@ module Admin::SuppliersHelper
   end
 
   def customer_sector_selection_summary_rows
-    # Safely checks if this framework has the customer sector section defined in its SECTION_TO_PARAMS
     attributes = section_attributes(:customer_sector_selection)
     return [] if attributes.blank?
 
