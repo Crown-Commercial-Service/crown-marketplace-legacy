@@ -7,6 +7,8 @@ class Supplier < ApplicationRecord
     has_one :address, inverse_of: :supplier_framework, class_name: 'Supplier::Framework::Address', dependent: :destroy
 
     has_many :lots, inverse_of: :supplier_framework, class_name: 'Supplier::Framework::Lot', dependent: :destroy
+    has_many :supplier_framework_sectors, inverse_of: :supplier_framework, class_name: 'Supplier::Framework::Sector', dependent: :destroy, foreign_key: :supplier_framework_id
+    has_many :sectors, through: :supplier_framework_sectors, source: :sector
 
     delegate :name, to: :supplier, prefix: true
 
