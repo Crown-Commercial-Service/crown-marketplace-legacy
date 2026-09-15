@@ -318,10 +318,11 @@ en:
     users:
       confirm_new:
         confirmation_code: Confirmation code
+        contact_gca_html: Still can not find your confirmation email?  <a class="govuk-link" href="https://www.gca.gov.uk/contact">Contact GCA</a>.
         email: Email address
         heading: Activate your account
-        lead_html: An email has been sent to %{email_link} containing your confirmation code.
-        lead_no_email: An email has been sent to the email you provided containing your confirmation code.
+        lead_html: An email has been sent to %{email_link} containing your confirmation code. If you do not see it in your inbox, check your spam or junk folder.
+        lead_no_email: An email has been sent to the email you provided containing your confirmation code. If you do not see it in your inbox, check your spam or junk folder.
         resend_the_confirmation_email: Resend the email
       new_password_required:
         change_password_and_sign_in: Change password and sign in

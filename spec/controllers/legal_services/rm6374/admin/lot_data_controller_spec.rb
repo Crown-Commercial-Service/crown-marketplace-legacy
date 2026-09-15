@@ -82,14 +82,14 @@ RSpec.describe LegalServices::RM6374::Admin::LotDataController do
               sections: %i[services jurisdictions rates]
             },
             {
-              lot: { number: '5', number_as_slug: '5', name: 'Transport and Planning' },
+              lot: { number: '5', number_as_slug: '5', name: 'Transport and Rail' },
               enabled: nil,
               sections: %i[services jurisdictions rates]
             },
             {
               lot: { number: '6', number_as_slug: '6', name: 'Costs Lawyer Services' },
               enabled: nil,
-              sections: %i[services jurisdictions rates]
+              sections: %i[services rates]
             }
           ]
         )

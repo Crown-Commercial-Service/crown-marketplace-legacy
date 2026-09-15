@@ -16,8 +16,16 @@ class SupplyTeachers::SupplierFilter
   end
 
   def filter_suppliers_query
-    query = Supplier::Framework.with_lots(@lot_id)
-                               .where(['lower(name) LIKE ?', "%#{@agency_name&.downcase}%"])
+    query = Supplier::Framework.joins(:supplier).with_lots(@lot_id)
+
+    if agency_name.present?
+      search_term = "%#{agency_name.downcase}%"
+
+      query = query.where(
+        'lower(suppliers.name) LIKE :term OR lower(suppliers.additional_details->>\'trading_name\') LIKE :term',
+        term: search_term
+      )
+    end
 
     if agency_postcode.present? && valid?
       query = query.where(id: Supplier::Framework::Lot::Branch.search(@location.point, lot_id: @lot_id, radius: @radius)

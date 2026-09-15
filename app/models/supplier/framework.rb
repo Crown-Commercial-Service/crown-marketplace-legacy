@@ -96,5 +96,29 @@ class Supplier < ApplicationRecord
         )
       ).distinct
     end
+
+    def self.with_any_services_and_jurisdiction(service_ids, jurisdiction_ids)
+      includes(
+        :supplier, :lots
+      ).joins(
+        :supplier, :lots
+      ).where(
+        enabled: true,
+        lots: {
+          enabled: true,
+          id: Supplier::Framework::Lot::Service.where(service_id: service_ids)
+                                               .select(:supplier_framework_lot_id)
+        }
+      ).and(
+        where(
+          lots: {
+            id: Supplier::Framework::Lot::Jurisdiction.where(jurisdiction_id: jurisdiction_ids)
+                                                      .group(:supplier_framework_lot_id)
+                                                      .having('COUNT(*) = ?', jurisdiction_ids.length)
+                                                      .select(:supplier_framework_lot_id)
+          }
+        )
+      ).distinct
+    end
   end
 end
