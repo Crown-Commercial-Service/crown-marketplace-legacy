@@ -3,6 +3,9 @@ class Supplier < ApplicationRecord
     class ContactDetail < ApplicationRecord
       belongs_to :supplier_framework, inverse_of: :contact_detail, class_name: 'Supplier::Framework'
 
+      has_many :customer_sector_mappings, foreign_key: 'supplier_framework_contact_detail_id', dependent: :destroy
+      has_many :customer_sectors, through: :customer_sector_mappings
+
       MAX_FIELD_LENGTH = 255
       ADDITIONAL_DETAILS_ATTRIBUTES = %i[address description lot_1_prospectus_link lot_1a_prospectus_link lot_1b_prospectus_link lot_1c_prospectus_link lot_2_prospectus_link lot_3_prospectus_link lot_4_prospectus_link lot_4a_prospectus_link lot_4b_prospectus_link lot_4c_prospectus_link lot_5_prospectus_link lot_6_prospectus_link managed_service_provider_name managed_service_provider_telephone managed_service_provider_email].freeze
 

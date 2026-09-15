@@ -78,7 +78,7 @@ module Admin::SupplierActions
     @model = case @section
              when :basic_supplier_information
                service::Admin::Supplier.find(@supplier_framework.supplier_id)
-             when :supplier_contact_information, :additional_supplier_information
+             when :supplier_contact_information, :additional_supplier_information, :customer_sector_selection
                service::Admin::SupplierContactDetail.find_by(supplier_framework_id: @supplier_framework.id)
              end
   end
