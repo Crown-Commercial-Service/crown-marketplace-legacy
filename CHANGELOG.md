@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [8.2.0] - 2026-09-15
+### Added
+- Added trading name to supply teacher search results and enabled searching via trading name ([PR 2627](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2627))
+
+### Fixed
+- Fixed rate rounding issue on supply teachers caused by floating-point truncation ([PR 2625](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2625))
+
 ## [8.1.2] - 2026-09-10
 ### Changed
 - Added checkboxes to enable direct comparison of supplier results ([PR 2621](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2621))
