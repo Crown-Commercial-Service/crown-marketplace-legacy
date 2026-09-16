@@ -74,12 +74,14 @@ module Admin::SupplierActions
     redirect_to action: :show unless self.class::SECTION_TO_PARAMS.include?(@section)
   end
 
-  def set_model
+def set_model
     @model = case @section
              when :basic_supplier_information
                service::Admin::Supplier.find(@supplier_framework.supplier_id)
              when :supplier_contact_information, :additional_supplier_information
                service::Admin::SupplierContactDetail.find_by(supplier_framework_id: @supplier_framework.id)
+             when :customer_sector_selection
+               @supplier_framework
              end
   end
 

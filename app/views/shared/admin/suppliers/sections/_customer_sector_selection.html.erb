@@ -1,0 +1,21 @@
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+          <%= t('shared.admin.suppliers.sections.customer_sector_selection.heading', default: 'Select customer sectors') %>
+        </legend>
+        
+        <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+          <%= form.collection_check_boxes :sector_ids, Sector.order(:id), :id, :name do |b| %>
+            <div class="govuk-checkboxes__item">
+              <%= b.check_box(class: "govuk-checkboxes__input") %>
+              <%= b.label(class: "govuk-label govuk-checkboxes__label") %>
+            </div>
+          <% end %>
+        </div>
+        
+      </fieldset>
+    </div>
+  </div>
+</div>
