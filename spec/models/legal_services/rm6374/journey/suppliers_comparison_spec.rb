@@ -1,9 +1,18 @@
 require 'rails_helper'
 
 RSpec.describe LegalServices::RM6374::Journey::SuppliersComparison do
-  subject(:comparison) { described_class.new(lot_number:, service_numbers:, professions:, jurisdiction:) }
+  subject(:comparison) do
+    described_class.new(
+      lot_number:,
+      sector:,
+      service_numbers:,
+      professions:,
+      jurisdiction:
+    )
+  end
 
   let(:lot_number) { '3' }
+  let(:sector) { 'local_community' }
   let(:service_numbers) { %w[2 3] }
   let(:professions) { %w[partner solicitor] }
   let(:jurisdiction) { 'a' }
@@ -37,6 +46,7 @@ RSpec.describe LegalServices::RM6374::Journey::SuppliersComparison do
   describe '#supplier_frameworks' do
     let(:lot) { instance_double(Lot, id: 'RM6374.3') }
     let(:supplier_frameworks_relation) { double('supplier_frameworks_relation') } # rubocop:disable RSpec/VerifiedDoubles
+    let(:with_services_relation) { double('with_services_relation') } # rubocop:disable RSpec/VerifiedDoubles
     let(:supplier_framework_1) { instance_double(Supplier::Framework, supplier_name: 'Zebra') }
     let(:supplier_framework_2) { instance_double(Supplier::Framework, supplier_name: 'Alpha') }
     let(:expected_services) { %w[RM6374.3.2 RM6374.3.3] }
@@ -44,17 +54,20 @@ RSpec.describe LegalServices::RM6374::Journey::SuppliersComparison do
 
     before do
       allow(Lot).to receive(:find).with('RM6374.3').and_return(lot)
+      allow(comparison).to receive(:sector_id_for).with('local_community').and_return(2) # rubocop:disable RSpec/SubjectStub
       allow(Supplier::Framework).to receive(:with_lots).with(lot.id).and_return(supplier_frameworks_relation)
       allow(supplier_frameworks_relation).to receive(:with_services_and_jurisdiction)
         .with(expected_services, expected_jurisdiction_ids)
-        .and_return([supplier_framework_1, supplier_framework_2])
+        .and_return(with_services_relation)
+      allow(with_services_relation).to receive(:with_sector).with(2).and_return([supplier_framework_1, supplier_framework_2])
     end
 
-    it 'queries supplier frameworks for the selected services and jurisdiction' do
+    it 'queries supplier frameworks for the selected services and jurisdiction' do # rubocop:disable RSpec/MultipleExpectations
       expect(comparison.supplier_frameworks).to eq([supplier_framework_2, supplier_framework_1])
       expect(Supplier::Framework).to have_received(:with_lots).with(lot.id)
       expect(supplier_frameworks_relation).to have_received(:with_services_and_jurisdiction)
         .with(expected_services, expected_jurisdiction_ids)
+      expect(with_services_relation).to have_received(:with_sector).with(2)
     end
 
     context 'when the jurisdiction is not mapped' do
@@ -194,7 +207,7 @@ RSpec.describe LegalServices::RM6374::Journey::SuppliersComparison do
     end
 
     context 'when professions are empty' do
-      subject(:comparison) { described_class.new(lot_number:, service_numbers:, professions:, jurisdiction:) }
+      subject(:comparison) { described_class.new(lot_number:, sector:, service_numbers:, professions:, jurisdiction:) }
 
       let(:professions) { [] }
 

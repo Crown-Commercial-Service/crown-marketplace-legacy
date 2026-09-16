@@ -1,18 +1,11 @@
 class LegalServices::RM6374::Admin::FilesProcessor < FilesProcessor
+  include LegalServices::RM6374::Admin::SuppliersHelper
+
   private
 
   LOT_NUMBERS = ['1a', '1b', '1c', '2', '3', '4', '5', '6'].freeze
   JURISDICTIONS = ['RM6374.EW', 'RM6374.SC', 'RM6374.NI'].freeze
   LOT_1_JURISDICTION_SUFFIXES = ['a', 'b', 'c'].freeze
-  SECTOR_NAME_TO_ID = {
-    health: 1,
-    local_community_housing: 2,
-    government_policy: 3,
-    education: 4,
-    defence_and_security: 5,
-    infrastructure: 6,
-    culture_media_and_sport: 7
-  }.freeze
 
   def add_suppliers(suppliers_workbook) # rubocop:disable Metrics/MethodLength,Metrics/AbcSize
     super(
@@ -34,12 +27,12 @@ class LegalServices::RM6374::Admin::FilesProcessor < FilesProcessor
         lot_5_prospectus_link: 'Lot 5: Prospectus Link',
         lot_6_prospectus_link: 'Lot 6: Prospectus Link',
         health: 'Health',
-        local_community_housing: 'Local community and housing',
+        local_community: 'Local community and housing',
         government_policy: 'Government policy',
         education: 'Education',
-        defence_and_security: 'Defence and security',
+        defence: 'Defence and security',
         infrastructure: 'Infrastructure',
-        culture_media_and_sport: 'Culture, media and sport',
+        culture: 'Culture, media and sport',
         clean: true
       }
     ) do |supplier|
@@ -78,7 +71,7 @@ class LegalServices::RM6374::Admin::FilesProcessor < FilesProcessor
   end
 
   def extract_supplier_sectors(supplier)
-    SECTOR_NAME_TO_ID.filter_map do |column_key, sector_id|
+    sector_name_to_id_map.filter_map do |column_key, sector_id|
       value = supplier[column_key].to_s.upcase.strip
       { sector_id: } if %w[YES Y].include?(value)
     end.uniq

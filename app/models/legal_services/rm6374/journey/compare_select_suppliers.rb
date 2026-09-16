@@ -3,8 +3,10 @@ module LegalServices
     module Journey
       class CompareSelectSuppliers
         include LegalServices::RM6374
+        include LegalServices::RM6374::Admin::SuppliersHelper
         include Steppable
 
+        attribute :sector, :string
         attribute :lot_number, :string
         attribute :jurisdiction, :string
         attribute :call_off_mechanism, :string
@@ -46,12 +48,20 @@ module LegalServices
         NUM_TO_WORDS = { 1 => 'one', 3 => 'three' }.freeze
 
         def validate_supplier_framework_ids_count
-          min_required = call_off_mechanism == 'quotation_process' ? 3 : 1
-          actual_count = supplier_framework_ids.compact_blank.length
+          selected_suppliers = supplier_framework_ids.compact_blank.length
+          base_min = call_off_mechanism == 'quotation_process' ? 3 : 1
 
-          return unless actual_count < min_required
+          if selected_suppliers.zero?
+            errors.add(:supplier_framework_ids, 'Please select a minimum of one supplier for comparison')
+            return
+          end
 
-          errors.add(:supplier_framework_ids, "Please select a minimum of #{NUM_TO_WORDS[min_required]} supplier#{'s' if min_required > 1} for comparison")
+          available_suppliers = @supplier_frameworks&.length || selected_suppliers
+          min_required = [base_min, available_suppliers].min
+
+          return if selected_suppliers >= min_required
+
+          errors.add(:supplier_framework_ids, 'Please select a minimum of three suppliers for comparison')
         end
 
         def supplier_frameworks
@@ -65,15 +75,20 @@ module LegalServices
         end
 
         def fetch_lot_6_supplier_frameworks(selected_services)
+          selected_sector_id = sector_id_for(sector)
+
           ::Supplier::Framework.with_lots(lot.id)
                                .with_services(selected_services)
+                               .with_sector(selected_sector_id)
                                .sort_by(&:supplier_name)
         end
 
         def fetch_standard_supplier_frameworks(selected_services)
+          selected_sector_id = sector_id_for(sector)
           selected_jurisdiction_id = get_jurisdiction(jurisdiction)
           ::Supplier::Framework.with_lots(lot.id)
                                .with_services_and_jurisdiction(selected_services, [selected_jurisdiction_id])
+                               .with_sector(selected_sector_id)
                                .sort_by(&:supplier_name)
         end
       end

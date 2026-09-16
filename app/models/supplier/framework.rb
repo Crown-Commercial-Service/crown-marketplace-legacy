@@ -99,6 +99,19 @@ class Supplier < ApplicationRecord
       ).distinct
     end
 
+    def self.with_sector(sector_ids)
+      includes(
+        :supplier, :supplier_framework_sectors
+      ).joins(
+        :supplier, :supplier_framework_sectors
+      ).where(
+        enabled: true,
+        supplier_framework_sectors: {
+          sector_id: sector_ids
+        }
+      ).distinct
+    end
+
     def self.with_any_services_and_jurisdiction(service_ids, jurisdiction_ids)
       includes(
         :supplier, :lots

@@ -2,8 +2,10 @@ module LegalServices
   module RM6374
     class Journey::SuppliersComparison
       include LegalServices::RM6374
+      include LegalServices::RM6374::Admin::SuppliersHelper
       include Steppable
 
+      attribute :sector, :string
       attribute :lot_number, :string
       attribute :service_numbers, :array, default: -> { [] }
       attribute :supplier_framework_ids, :array, default: -> { [] }
@@ -46,15 +48,22 @@ module LegalServices
       private
 
       def fetch_lot_6_supplier_frameworks(selected_services)
-        scope = ::Supplier::Framework.with_lots(lot.id).with_services(selected_services)
+        selected_sector_id = sector_id_for(sector)
+
+        scope = ::Supplier::Framework.with_lots(lot.id)
+                                     .with_services(selected_services)
+                                     .with_sector(selected_sector_id)
         scope = scope.where(id: supplier_framework_ids) if supplier_framework_ids.present?
         scope.sort_by(&:supplier_name)
       end
 
       def fetch_standard_supplier_frameworks(selected_services)
+        selected_sector_id = sector_id_for(sector)
         selected_jurisdiction_id = get_jurisdiction(jurisdiction)
+
         scope = ::Supplier::Framework.with_lots(lot.id)
                                      .with_services_and_jurisdiction(selected_services, [selected_jurisdiction_id])
+                                     .with_sector(selected_sector_id)
         scope = scope.where(id: supplier_framework_ids) if supplier_framework_ids.present?
         scope.sort_by(&:supplier_name)
       end

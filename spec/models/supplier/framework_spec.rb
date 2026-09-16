@@ -11,6 +11,8 @@ RSpec.describe Supplier::Framework do
     it { is_expected.to have_one(:address) }
 
     it { is_expected.to have_many(:lots) }
+    it { is_expected.to have_many(:supplier_framework_sectors).dependent(:destroy) }
+    it { is_expected.to have_many(:sectors).through(:supplier_framework_sectors) }
 
     it 'has the supplier relationship' do
       expect(supplier_framework.supplier).to be_present
@@ -333,6 +335,42 @@ RSpec.describe Supplier::Framework do
 
       it 'returns an emoty array' do
         expect(result).to be_empty
+      end
+    end
+  end
+
+  describe '.with_sector' do
+    let(:sector_1_id) { 1 }
+    let(:sector_2_id) { 2 }
+
+    let(:supplier_framework_with_sector_1) { create(:supplier_framework, enabled: true) }
+    let(:supplier_framework_with_sector_2) { create(:supplier_framework, enabled: true) }
+    let(:disabled_supplier_framework) { create(:supplier_framework, enabled: false) }
+
+    before do
+      Supplier::Framework::Sector.create!(supplier_framework: supplier_framework_with_sector_1, sector_id: sector_1_id)
+      Supplier::Framework::Sector.create!(supplier_framework: supplier_framework_with_sector_2, sector_id: sector_2_id)
+      Supplier::Framework::Sector.create!(supplier_framework: disabled_supplier_framework, sector_id: sector_1_id)
+    end
+
+    context 'when filtering by a single sector' do
+      it 'returns only enabled supplier frameworks matching that sector' do
+        expect(described_class.with_sector(sector_1_id)).to eq([supplier_framework_with_sector_1])
+      end
+    end
+
+    context 'when filtering by multiple sectors' do
+      it 'returns enabled supplier frameworks matching any of those sectors' do
+        expect(described_class.with_sector([sector_1_id, sector_2_id])).to contain_exactly(
+          supplier_framework_with_sector_1,
+          supplier_framework_with_sector_2
+        )
+      end
+    end
+
+    context 'when no suppliers match the sector' do
+      it 'returns an empty result' do
+        expect(described_class.with_sector(999)).to be_empty
       end
     end
   end
