@@ -15,7 +15,7 @@ RSpec.describe LegalServices::RM6374::Admin::SectionsConcern do
 
       it 'permits an array of sector_ids' do
         params = instance.permitted_section_params(section)
-        
+
         expect(params).to eq([{ sector_ids: [] }])
       end
     end

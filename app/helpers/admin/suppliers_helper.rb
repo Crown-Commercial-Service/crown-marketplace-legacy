@@ -133,15 +133,15 @@ module Admin::SuppliersHelper
     Sector.order(:id).map do |sector|
       {
         key: {
-          text: sector.name 
+          text: sector.name
         },
         value: {
           text: assigned_sector_ids.include?(sector.id) ? I18n.t('yes') : I18n.t('no')
         }
       }
     end
-  end  
-  
+  end
+
   private
 
   def collect_summary_rows(section, summary_rows_hash)

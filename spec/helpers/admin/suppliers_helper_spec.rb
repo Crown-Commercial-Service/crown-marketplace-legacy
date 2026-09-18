@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Admin::SuppliersHelper, type: :helper do
+RSpec.describe Admin::SuppliersHelper do
   describe '#customer_sector_selection_summary_rows' do
     let(:supplier_framework) { create(:supplier_framework) }
     let(:health_sector) { create(:sector, name: 'Health') }
