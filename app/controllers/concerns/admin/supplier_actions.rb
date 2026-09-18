@@ -81,7 +81,7 @@ def set_model
              when :supplier_contact_information, :additional_supplier_information
                service::Admin::SupplierContactDetail.find_by(supplier_framework_id: @supplier_framework.id)
              when :customer_sector_selection
-               @supplier_framework
+               Supplier::Framework.find(@supplier_framework.id)
              end
   end
 

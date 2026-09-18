@@ -125,7 +125,7 @@ module Admin::SuppliersHelper
     @additional_supplier_information_summary_rows ||= collect_summary_rows(:additional_supplier_information, ADDITIONAL_SUPPLIER_INFORMATION_SUMMARY_ROWS)
   end
 
-def customer_sector_selection_summary_rows
+  def customer_sector_selection_summary_rows
     return [] unless @supplier_framework.respond_to?(:sectors)
 
     assigned_sector_ids = @supplier_framework.sector_ids

@@ -4,11 +4,12 @@ class ChangeLog < ApplicationRecord
   belongs_to :framework, inverse_of: :change_logs
   belongs_to :user, inverse_of: :change_logs
 
-  CHANGE_TYPES = {
+CHANGE_TYPES = {
     upload_supplier_data: 'upload_supplier_data',
     update_supplier_information: 'update_supplier_information',
     update_supplier_contact_information: 'update_supplier_contact_information',
     update_supplier_additional_information: 'update_supplier_additional_information',
+    update_supplier_sector_information: 'update_supplier_sector_information',
     update_supplier_framework_lot_status: 'update_supplier_framework_lot_status',
     update_supplier_framework_lot_services: 'update_supplier_framework_lot_services',
     update_supplier_framework_lot_jurisdictions: 'update_supplier_framework_lot_jurisdictions',

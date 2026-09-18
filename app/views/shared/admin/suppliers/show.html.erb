@@ -92,7 +92,7 @@
   </div>
 <% end %>
 
-<% if respond_to?(:customer_sector_selection_summary_rows) && customer_sector_selection_summary_rows.any? %>
+<% if customer_sector_selection_summary_rows.any? %>
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-three-quarters">
       <%= govuk_summary_list(
