@@ -1,11 +1,13 @@
 class LegalServices::RM6374::Admin::FilesProcessor < FilesProcessor
+  include LegalServices::RM6374::Admin::SuppliersHelper
+
   private
 
   LOT_NUMBERS = ['1a', '1b', '1c', '2', '3', '4', '5', '6'].freeze
   JURISDICTIONS = ['RM6374.EW', 'RM6374.SC', 'RM6374.NI'].freeze
   LOT_1_JURISDICTION_SUFFIXES = ['a', 'b', 'c'].freeze
 
-  def add_suppliers(suppliers_workbook) # rubocop:disable Metrics/MethodLength
+  def add_suppliers(suppliers_workbook) # rubocop:disable Metrics/MethodLength,Metrics/AbcSize
     super(
       suppliers_workbook,
       {
@@ -24,6 +26,13 @@ class LegalServices::RM6374::Admin::FilesProcessor < FilesProcessor
         lot_4_prospectus_link: 'Lot 4: Prospectus Link',
         lot_5_prospectus_link: 'Lot 5: Prospectus Link',
         lot_6_prospectus_link: 'Lot 6: Prospectus Link',
+        health: 'Health',
+        local_community: 'Local community and housing',
+        government_policy: 'Government policy',
+        education: 'Education',
+        defence: 'Defence and security',
+        infrastructure: 'Infrastructure',
+        culture: 'Culture, media and sport',
         clean: true
       }
     ) do |supplier|
@@ -31,7 +40,7 @@ class LegalServices::RM6374::Admin::FilesProcessor < FilesProcessor
         id: SecureRandom.uuid,
         name: supplier[:name],
         duns_number: supplier[:duns].to_i.to_s,
-        sme: ['YES', 'Y'].include?(supplier[:sme].to_s.upcase),
+        sme: %w[YES Y].include?(supplier[:sme].to_s.upcase.strip),
         supplier_frameworks: [
           {
             framework_id: 'RM6374',
@@ -53,11 +62,19 @@ class LegalServices::RM6374::Admin::FilesProcessor < FilesProcessor
               }
             },
             supplier_framework_lots_data: Hash.new { |h, k| h[k] = { services: [], rates: [], jurisdictions: [{ jurisdiction_id: 'RM6374.GB' }], branches: [] } },
-            supplier_framework_lots: []
+            supplier_framework_lots: [],
+            supplier_framework_sectors: extract_supplier_sectors(supplier)
           }
         ]
       }
     end
+  end
+
+  def extract_supplier_sectors(supplier)
+    sector_name_to_id_map.filter_map do |column_key, sector_id|
+      value = supplier[column_key].to_s.upcase.strip
+      { sector_id: } if %w[YES Y].include?(value)
+    end.uniq
   end
 
   def add_lot_services_per_supplier(lot_services)

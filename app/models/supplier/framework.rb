@@ -7,6 +7,8 @@ class Supplier < ApplicationRecord
     has_one :address, inverse_of: :supplier_framework, class_name: 'Supplier::Framework::Address', dependent: :destroy
 
     has_many :lots, inverse_of: :supplier_framework, class_name: 'Supplier::Framework::Lot', dependent: :destroy
+    has_many :supplier_framework_sectors, inverse_of: :supplier_framework, class_name: 'Supplier::Framework::Sector', dependent: :destroy, foreign_key: :supplier_framework_id
+    has_many :sectors, through: :supplier_framework_sectors, source: :sector
 
     delegate :name, to: :supplier, prefix: true
 
@@ -94,6 +96,19 @@ class Supplier < ApplicationRecord
                                                       .select(:supplier_framework_lot_id)
           }
         )
+      ).distinct
+    end
+
+    def self.with_sector(sector_ids)
+      includes(
+        :supplier, :supplier_framework_sectors
+      ).joins(
+        :supplier, :supplier_framework_sectors
+      ).where(
+        enabled: true,
+        supplier_framework_sectors: {
+          sector_id: sector_ids
+        }
       ).distinct
     end
 

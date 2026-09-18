@@ -19,6 +19,7 @@ module Admin::SectionsConcern
     basic_supplier_information: ChangeLog::CHANGE_TYPES[:update_supplier_information],
     supplier_contact_information: ChangeLog::CHANGE_TYPES[:update_supplier_contact_information],
     additional_supplier_information: ChangeLog::CHANGE_TYPES[:update_supplier_additional_information],
+    customer_sector_selection: ChangeLog::CHANGE_TYPES[:update_supplier_sector_information]
   }.freeze
 
   CHANGE_TYPE_TO_SECTION = SECTION_TO_CHANGE_TYPE.invert.freeze

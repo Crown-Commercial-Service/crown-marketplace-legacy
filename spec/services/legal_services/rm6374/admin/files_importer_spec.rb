@@ -186,13 +186,13 @@ module LegalServices::RM6374::Admin
     describe 'import_data' do
       let(:expected_supplier_results) do
         {
-          'NOAH LTD': { lots: 3, services: 120, jurisdictions: 9, rates: 81 },
-          'MIO CORP': { lots: 3, services: 120, jurisdictions: 9, rates: 81 },
-          'REKU LTD': { lots: 4, services: 166, jurisdictions: 12, rates: 108 },
-          'GUERNICA EXEC CORP': { lots: 1, services: 46, jurisdictions: 3, rates: 27 },
-          'ETHEL LTD': { lots: 5, services: 76, jurisdictions: 13, rates: 112 },
-          'LANZ CORP': { lots: 4, services: 32, jurisdictions: 10, rates: 85 },
-          'EUNIE CORP': { lots: 4, services: 30, jurisdictions: 10, rates: 85 }
+          'NOAH LTD': { lots: 3, services: 120, jurisdictions: 9, rates: 81, sectors: 2 },
+          'MIO CORP': { lots: 3, services: 120, jurisdictions: 9, rates: 81, sectors: 1 },
+          'REKU LTD': { lots: 4, services: 166, jurisdictions: 12, rates: 108, sectors: 3 },
+          'GUERNICA EXEC CORP': { lots: 1, services: 46, jurisdictions: 3, rates: 27, sectors: 0 },
+          'ETHEL LTD': { lots: 5, services: 76, jurisdictions: 13, rates: 112, sectors: 4 },
+          'LANZ CORP': { lots: 4, services: 32, jurisdictions: 10, rates: 85, sectors: 1 },
+          'EUNIE CORP': { lots: 4, services: 30, jurisdictions: 10, rates: 85, sectors: 2 }
         }
       end
       let(:change_log) { ChangeLog.find_by(user_id: upload.user_id, framework_id: 'RM6374') }
@@ -200,6 +200,10 @@ module LegalServices::RM6374::Admin
       it 'publishes the data and all the suppliers are imported' do
         expect(upload).to have_state(:published)
         expect(Supplier::Framework.where(framework_id: 'RM6374').count).to eq 7
+      end
+
+      it 'imports supplier framework sectors into the database' do
+        expect(Supplier::Framework::Sector.count).to be > 0
       end
 
       it 'creates a change log' do
@@ -217,6 +221,7 @@ module LegalServices::RM6374::Admin
           expect(supplier_framework.lots.sum { |lot| lot.services.count }).to eq expected_results[:services]
           expect(supplier_framework.lots.sum { |lot| lot.jurisdictions.count }).to eq expected_results[:jurisdictions]
           expect(supplier_framework.lots.sum { |lot| lot.rates.count }).to eq expected_results[:rates]
+          expect(supplier_framework.supplier_framework_sectors.count).to eq expected_results[:sectors] if expected_results[:sectors]
         end
       end
       # rubocop:enable RSpec/MultipleExpectations

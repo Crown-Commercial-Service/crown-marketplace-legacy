@@ -4,6 +4,7 @@ RSpec.describe LegalServices::RM6374::Journey::CompareSelectSuppliers do
   subject(:step) do
     described_class.new(
       lot_number:,
+      sector:,
       jurisdiction:,
       call_off_mechanism:,
       service_numbers:,
@@ -12,6 +13,7 @@ RSpec.describe LegalServices::RM6374::Journey::CompareSelectSuppliers do
   end
 
   let(:lot_number) { '1' }
+  let(:sector) { 'local_community' }
   let(:jurisdiction) { 'a' }
   let(:call_off_mechanism) { 'direct_award' }
   let(:service_numbers) { %w[2 3] }
@@ -19,6 +21,7 @@ RSpec.describe LegalServices::RM6374::Journey::CompareSelectSuppliers do
 
   describe 'attributes' do
     it { is_expected.to respond_to :lot_number }
+    it { is_expected.to respond_to :sector }
     it { is_expected.to respond_to :jurisdiction }
     it { is_expected.to respond_to :call_off_mechanism }
     it { is_expected.to respond_to :service_numbers }
@@ -27,37 +30,8 @@ RSpec.describe LegalServices::RM6374::Journey::CompareSelectSuppliers do
   end
 
   describe 'validations' do
-    context 'when call_off_mechanism is quotation_process' do
-      let(:call_off_mechanism) { 'quotation_process' }
-
-      context 'when fewer than 3 suppliers are selected' do
-        let(:supplier_framework_ids) { ['supplier-uuid-1', 'supplier-uuid-2'] }
-
-        it 'is not valid' do
-          expect(step).not_to be_valid
-        end
-
-        it 'adds a minimum count error message requiring three suppliers' do
-          step.valid?
-          expect(step.errors[:supplier_framework_ids]).to include(
-            'Please select a minimum of three suppliers for comparison'
-          )
-        end
-      end
-
-      context 'when 3 or more suppliers are selected' do
-        let(:supplier_framework_ids) { ['supplier-uuid-1', 'supplier-uuid-2', 'supplier-uuid-3'] }
-
-        it 'is valid' do
-          expect(step).to be_valid
-        end
-      end
-    end
-
-    context 'when call_off_mechanism is not quotation_process' do
-      let(:call_off_mechanism) { 'direct_award' }
-
-      context 'when supplier_framework_ids is empty' do
+    describe '#validate_supplier_framework_ids_count' do
+      context 'when no suppliers are selected (empty/blank)' do
         let(:supplier_framework_ids) { [] }
 
         it 'is not valid' do
@@ -72,11 +46,61 @@ RSpec.describe LegalServices::RM6374::Journey::CompareSelectSuppliers do
         end
       end
 
-      context 'when at least one supplier_framework_id is provided' do
-        let(:supplier_framework_ids) { ['supplier-uuid-1'] }
+      context 'when call_off_mechanism is quotation_process' do
+        let(:call_off_mechanism) { 'quotation_process' }
 
-        it 'is valid' do
-          expect(step).to be_valid
+        context 'when fewer than 3 suppliers are selected and 3+ suppliers exist' do # rubocop:disable RSpec/NestedGroups
+          let(:supplier_framework_ids) { ['supplier-uuid-1', 'supplier-uuid-2'] }
+
+          before do
+            step.instance_variable_set(
+              :@supplier_frameworks,
+              [double('SupplierFramework'), double('SupplierFramework'), double('SupplierFramework')] # rubocop:disable RSpec/VerifiedDoubles
+            )
+          end
+
+          it 'is not valid' do
+            expect(step).not_to be_valid
+          end
+
+          it 'adds an error message requiring three suppliers' do
+            step.valid?
+            expect(step.errors[:supplier_framework_ids]).to include(
+              'Please select a minimum of three suppliers for comparison'
+            )
+          end
+        end
+
+        context 'when fewer than 3 suppliers are selected but available frameworks count is capped at 1' do # rubocop:disable RSpec/NestedGroups
+          let(:supplier_framework_ids) { ['supplier-uuid-1'] }
+
+          before do
+            step.instance_variable_set(:@supplier_frameworks, [double('SupplierFramework')]) # rubocop:disable RSpec/VerifiedDoubles
+          end
+
+          it 'is valid because min_required is capped by available_suppliers' do
+            expect(step).to be_valid
+          end
+        end
+
+        context 'when 3 or more suppliers are selected' do # rubocop:disable RSpec/NestedGroups
+          let(:supplier_framework_ids) { %w[supplier-uuid-1 supplier-uuid-2 supplier-uuid-3] }
+
+          it 'is valid' do
+            expect(step).to be_valid
+          end
+        end
+      end
+
+      context 'when call_off_mechanism is not quotation_process' do
+        let(:call_off_mechanism) { 'direct_award' }
+
+        context 'when at least one supplier_framework_id is provided' do # rubocop:disable RSpec/NestedGroups
+          let(:supplier_framework_ids) { ['supplier-uuid-1'] }
+
+          it 'is valid' do
+            expect(step).to be_valid
+          end
         end
       end
     end
@@ -98,6 +122,7 @@ RSpec.describe LegalServices::RM6374::Journey::CompareSelectSuppliers do
     let(:lot) { instance_double(Lot, id: 'RM6374.1') }
     let(:selected_services) { %w[RM6374.1.2 RM6374.1.3] }
     let(:selected_jurisdiction_id) { 'RM6374.EW' }
+    let(:sector_id) { 2 }
 
     let(:supplier_z) { instance_double(Supplier, name: 'Zebra Law') }
     let(:supplier_a) { instance_double(Supplier, name: 'Alpha Legal') }
@@ -106,16 +131,19 @@ RSpec.describe LegalServices::RM6374::Journey::CompareSelectSuppliers do
     let(:framework_a) { instance_double(Supplier::Framework, supplier: supplier_a, supplier_name: 'Alpha Legal') }
 
     let(:frameworks_relation) { double('supplier_frameworks_relation') } # rubocop:disable RSpec/VerifiedDoubles
+    let(:with_services_relation) { double('with_services_relation') } # rubocop:disable RSpec/VerifiedDoubles
 
     before do
       allow(Lot).to receive(:find).with('RM6374.1').and_return(lot)
       allow(step).to receive(:get_service_numbers).with('1').and_return(selected_services) # rubocop:disable RSpec/SubjectStub
       allow(step).to receive(:get_jurisdiction).with('a').and_return(selected_jurisdiction_id) # rubocop:disable RSpec/SubjectStub
+      allow(step).to receive(:sector_id_for).with('local_community').and_return(sector_id) # rubocop:disable RSpec/SubjectStub
 
       allow(Supplier::Framework).to receive(:with_lots).with(lot.id).and_return(frameworks_relation)
       allow(frameworks_relation).to receive(:with_services_and_jurisdiction)
         .with(selected_services, [selected_jurisdiction_id])
-        .and_return([framework_z, framework_a])
+        .and_return(with_services_relation)
+      allow(with_services_relation).to receive(:with_sector).with(sector_id).and_return([framework_z, framework_a])
     end
 
     it 'returns all matching supplier frameworks sorted by supplier name regardless of supplier_framework_ids' do
@@ -133,7 +161,8 @@ RSpec.describe LegalServices::RM6374::Journey::CompareSelectSuppliers do
         allow(Supplier::Framework).to receive(:with_lots).with(lot.id).and_return(frameworks_relation)
         allow(frameworks_relation).to receive(:with_services)
           .with(selected_services)
-          .and_return([framework_z, framework_a])
+          .and_return(with_services_relation)
+        allow(with_services_relation).to receive(:with_sector).with(sector_id).and_return([framework_z, framework_a])
       end
 
       it 'fetches Lot 6 supplier frameworks sorted by supplier name' do
