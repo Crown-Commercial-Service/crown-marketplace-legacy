@@ -9,13 +9,13 @@ RSpec.describe Admin::SuppliersHelper do
     context 'when the supplier has assigned sectors' do
       before do
         supplier_framework.sectors << [health_sector, education_sector]
-        
+
         assign(:supplier_framework, supplier_framework)
       end
 
       it 'returns a formatted list of the assigned sectors' do
         result = helper.customer_sector_selection_summary_rows
-        
+
         expect(result.to_s).to include('Health', 'Education')
       end
     end
