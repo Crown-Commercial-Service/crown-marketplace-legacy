@@ -3,9 +3,9 @@ require 'rails_helper'
 RSpec.describe Admin::SuppliersHelper do
   describe '#customer_sector_selection_summary_rows' do
     let(:supplier_framework) { create(:supplier_framework) }
-    let(:health_sector) { create(:sector, name: 'Health') }
-    let(:education_sector) { create(:sector, name: 'Education') }
-
+    let(:health_sector) { Sector.create!(name: 'Health') }
+    let(:education_sector) { Sector.create!(name: 'Education') }
+    
     context 'when the supplier has assigned sectors' do
       before do
         supplier_framework.sectors << [health_sector, education_sector]

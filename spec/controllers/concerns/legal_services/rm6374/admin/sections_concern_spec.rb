@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe LegalServices::RM6374::Admin::SectionsConcern do
   let(:dummy_class) do
-    Class.new do
+    Class.new(ActionController::Base) do
       include LegalServices::RM6374::Admin::SectionsConcern
     end
   end
