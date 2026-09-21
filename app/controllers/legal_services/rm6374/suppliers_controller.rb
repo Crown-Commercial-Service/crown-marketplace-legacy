@@ -4,6 +4,7 @@ module LegalServices
       include LegalServices::RM6374
 
       helper LegalServices::RM6374::RatesHelper
+      helper LegalServices::RM6374::Admin::SuppliersHelper
       helper_method :fetch_services_from_supplier_framework_for_lot_2
 
       before_action :fetch_supplier_framework, :fetch_rates, only: :show
@@ -77,13 +78,15 @@ module LegalServices
         @rates = @supplier_framework.grouped_rates_for_lot(@lot.id)
       end
 
-      def scoped_supplier_frameworks
+      def scoped_supplier_frameworks # rubocop:disable Metrics/AbcSize
+        selected_sector_id = helpers.sector_id_for(params.expect(:sector).to_sym)
+
         if params[:lot_number] == '6'
-          ::Supplier::Framework.with_lots(@lot.id).with_services(service_codes)
+          ::Supplier::Framework.with_lots(@lot.id).with_services(service_codes).with_sector(selected_sector_id)
         elsif params[:lot_number] == '2' && params[:single_or_multiple_suppliers] == 'multiple'
-          ::Supplier::Framework.with_any_services_and_jurisdiction(service_codes, [selected_jurisdiction_id])
+          ::Supplier::Framework.with_any_services_and_jurisdiction(service_codes, [selected_jurisdiction_id]).with_sector(selected_sector_id)
         else
-          ::Supplier::Framework.with_lots(@lot.id).with_services_and_jurisdiction(service_codes, [selected_jurisdiction_id])
+          ::Supplier::Framework.with_lots(@lot.id).with_services_and_jurisdiction(service_codes, [selected_jurisdiction_id]).with_sector(selected_sector_id)
         end
       end
 

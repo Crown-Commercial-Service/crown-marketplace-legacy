@@ -19,6 +19,10 @@ class ChangeLog
         log_generic_update_supplier_information!(user: user, framework: framework, model: model, supplier_name: model.supplier_framework.supplier_name, change_type: CHANGE_TYPES[:update_supplier_additional_information])
       end
 
+      def log_update_supplier_sector_information!(user:, framework:, model:)
+        log_generic_update_supplier_information!(user: user, framework: framework, model: model, supplier_name: model.supplier_name, change_type: CHANGE_TYPES[:update_supplier_sector_information])
+      end
+
       def log_update_supplier_framework_lot_status!(user:, framework:, model:)
         log_generic_update_supplier_information!(user: user, framework: framework, model: model, supplier_name: model.supplier_framework.supplier_name, change_type: CHANGE_TYPES[:update_supplier_framework_lot_status], lot_id: model.lot_id)
       end

@@ -21,7 +21,7 @@ class LegalServices::RM6374::Admin::FilesChecker
   def check_supplier_details_spreadsheet(suppliers_workbook)
     if suppliers_workbook.sheets != ['All Suppliers']
       @errors << { error: 'supplier_details_missing_sheets' }
-    elsif suppliers_workbook.sheet(0).row(1) != ['Supplier Name', 'Email address', 'Phone number', 'Website URL', 'Postal address', 'Is an SME', 'DUNS Number', 'Lot 1a: Prospectus Link', 'Lot 1b: Prospectus Link', 'Lot 1c: Prospectus Link', 'Lot 2: Prospectus Link', 'Lot 3: Prospectus Link', 'Lot 4: Prospectus Link', 'Lot 5: Prospectus Link', 'Lot 6: Prospectus Link']
+    elsif suppliers_workbook.sheet(0).row(1) != ['Supplier Name', 'Email address', 'Phone number', 'Website URL', 'Postal address', 'Is an SME', 'DUNS Number', 'Lot 1a: Prospectus Link', 'Lot 1b: Prospectus Link', 'Lot 1c: Prospectus Link', 'Lot 2: Prospectus Link', 'Lot 3: Prospectus Link', 'Lot 4: Prospectus Link', 'Lot 5: Prospectus Link', 'Lot 6: Prospectus Link', 'Health', 'Local community and housing', 'Government policy', 'Education', 'Defence and security', 'Infrastructure', 'Culture, media and sport']
       @errors << { error: 'supplier_details_has_incorrect_headers' }
     elsif suppliers_workbook.sheet(0).last_row == 1
       @errors << { error: 'supplier_details_has_empty_sheets' }

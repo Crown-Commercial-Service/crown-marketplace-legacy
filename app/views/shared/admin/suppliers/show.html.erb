@@ -91,3 +91,29 @@
     </div>
   </div>
 <% end %>
+
+<% if customer_sector_selection_summary_rows.any? %>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+      <%= govuk_summary_list(
+        customer_sector_selection_summary_rows,
+        card: {
+          title: {
+            text: t('.customer_sector_selection.title', default: 'Customer Sectors')
+          },
+          actions: {
+            items: [
+              {
+                text: t('.change'),
+                href: supplier_edit_path(@supplier_framework.id, :customer_sector_selection),
+              }
+            ]
+          }
+        },
+        attributes: {
+          id: 'supplier-details--customer-sector-selection'
+        }
+      ) %>    
+    </div>
+  </div>
+<% end %>

@@ -793,6 +793,15 @@ en:
     unit:
       one: result
       other: results
+  shared:
+    admin:
+      suppliers:
+        sections:
+          customer_sector_selection:
+            heading: Select customer sectors
+        show:
+          customer_sector_selection:
+            title: Customer Sectors
   sme: SME
   suppliers:
     unit:

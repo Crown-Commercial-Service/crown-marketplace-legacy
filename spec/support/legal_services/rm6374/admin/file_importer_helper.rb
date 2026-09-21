@@ -19,51 +19,51 @@ module LegalServices
         end
 
         SUPPLIERS_LOT_1A = [
-          ['NOAH LTD', 'noah@xenoblade3.com', '0202 123 4567', 'www.noah.com', 'Keves AA3 1XC', 'Yes', '123456789'],
-          ['MIO CORP', 'mio@xenoblade3.com', '0203 234 5678', 'www.mio.com', 'Agnus AA3 2XC', 'No', '234567891'],
-          ['REKU LTD', 'reku@xenoblade3.com', '0204 345 6789', 'www.reku.com', 'Colony 9 AA3 3XC', 'Yes', '345678912']
+          ['NOAH LTD', 'noah@xenoblade3.com', '0202 123 4567', 'www.noah.com', 'Keves AA3 1XC', 'Yes', '123456789', nil, nil, nil, nil, nil, nil, nil, nil, 'YES', 'YES', 'NO', 'NO', 'NO', 'NO', 'NO'],
+          ['MIO CORP', 'mio@xenoblade3.com', '0203 234 5678', 'www.mio.com', 'Agnus AA3 2XC', 'No', '234567891', nil, nil, nil, nil, nil, nil, nil, nil, 'NO', 'NO', 'YES', 'NO', 'NO', 'NO', 'NO'],
+          ['REKU LTD', 'reku@xenoblade3.com', '0204 345 6789', 'www.reku.com', 'Colony 9 AA3 3XC', 'Yes', '345678912', nil, nil, nil, nil, nil, nil, nil, nil, 'YES', 'NO', 'YES', 'YES', 'NO', 'NO', 'NO']
         ].freeze
 
         SUPPLIERS_LOT_1B = [
-          ['NOAH LTD', 'noah@xenoblade3.com', '0202 123 4567', 'www.noah.com', 'Keves AA3 1XC', 'Yes', '123456789'],
-          ['MIO CORP', 'mio@xenoblade3.com', '0203 234 5678', 'www.mio.com', 'Agnus AA3 2XC', 'No', '234567891'],
-          ['REKU LTD', 'reku@xenoblade3.com', '0204 345 6789', 'www.reku.com', 'Colony 9 AA3 3XC', 'Yes', '345678912']
+          ['NOAH LTD', 'noah@xenoblade3.com', '0202 123 4567', 'www.noah.com', 'Keves AA3 1XC', 'Yes', '123456789', nil, nil, nil, nil, nil, nil, nil, nil, 'YES', 'YES', 'NO', 'NO', 'NO', 'NO', 'NO'],
+          ['MIO CORP', 'mio@xenoblade3.com', '0203 234 5678', 'www.mio.com', 'Agnus AA3 2XC', 'No', '234567891', nil, nil, nil, nil, nil, nil, nil, nil, 'NO', 'NO', 'YES', 'NO', 'NO', 'NO', 'NO'],
+          ['REKU LTD', 'reku@xenoblade3.com', '0204 345 6789', 'www.reku.com', 'Colony 9 AA3 3XC', 'Yes', '345678912', nil, nil, nil, nil, nil, nil, nil, nil, 'YES', 'NO', 'YES', 'YES', 'NO', 'NO', 'NO']
         ].freeze
 
         SUPPLIERS_LOT_1C = [
-          ['NOAH LTD', 'noah@xenoblade3.com', '0202 123 4567', 'www.noah.com', 'Keves AA3 1XC', 'Yes', '123456789'],
-          ['MIO CORP', 'mio@xenoblade3.com', '0203 234 5678', 'www.mio.com', 'Agnus AA3 2XC', 'No', '234567891'],
-          ['REKU LTD', 'reku@xenoblade3.com', '0204 345 6789', 'www.reku.com', 'Colony 9 AA3 3XC', 'Yes', '345678912']
+          ['NOAH LTD', 'noah@xenoblade3.com', '0202 123 4567', 'www.noah.com', 'Keves AA3 1XC', 'Yes', '123456789', nil, nil, nil, nil, nil, nil, nil, nil, 'YES', 'YES', 'NO', 'NO', 'NO', 'NO', 'NO'],
+          ['MIO CORP', 'mio@xenoblade3.com', '0203 234 5678', 'www.mio.com', 'Agnus AA3 2XC', 'No', '234567891', nil, nil, nil, nil, nil, nil, nil, nil, 'NO', 'NO', 'YES', 'NO', 'NO', 'NO', 'NO'],
+          ['REKU LTD', 'reku@xenoblade3.com', '0204 345 6789', 'www.reku.com', 'Colony 9 AA3 3XC', 'Yes', '345678912', nil, nil, nil, nil, nil, nil, nil, nil, 'YES', 'NO', 'YES', 'YES', 'NO', 'NO', 'NO']
         ].freeze
 
         SUPPLIERS_LOT_2 = [
-          ['REKU LTD', 'reku@xenoblade3.com', '0204 345 6789', 'www.reku.com', 'Colony 9 AA3 3XC', 'Yes', '345678912'],
-          ['GUERNICA EXEC CORP', 'guernica@xenoblade3.com', '0205 456 7890', 'www.guernica.com', 'Swordmarch AA3 4XC', 'No', '456789123'],
-          ['ETHEL LTD', 'ethel@xenoblade3.com', '0204 567 8901', 'www.ethel.com', 'Colony 4 AA3 5XC', 'Yes', '567891234']
+          ['REKU LTD', 'reku@xenoblade3.com', '0204 345 6789', 'www.reku.com', 'Colony 9 AA3 3XC', 'Yes', '345678912', nil, nil, nil, nil, nil, nil, nil, nil, 'YES', 'NO', 'YES', 'YES', 'NO', 'NO', 'NO'],
+          ['GUERNICA EXEC CORP', 'guernica@xenoblade3.com', '0205 456 7890', 'www.guernica.com', 'Swordmarch AA3 4XC', 'No', '456789123', nil, nil, nil, nil, nil, nil, nil, nil, 'NO', 'NO', 'NO', 'NO', 'NO', 'NO', 'NO'],
+          ['ETHEL LTD', 'ethel@xenoblade3.com', '0204 567 8901', 'www.ethel.com', 'Colony 4 AA3 5XC', 'Yes', '567891234', nil, nil, nil, nil, nil, nil, nil, nil, 'YES', 'YES', 'YES', 'YES', 'NO', 'NO', 'NO']
         ].freeze
 
         SUPPLIERS_LOT_3 = [
-          ['ETHEL LTD', 'ethel@xenoblade3.com', '0204 567 8901', 'www.ethel.com', 'Colony 4 AA3 5XC', 'Yes', '567891234'],
-          ['LANZ CORP', 'lanz@xenoblade3.com', '0205 678 9012', 'www.lanz.com', 'Colony 30 AA3 6XC', 'No', '678912345'],
-          ['EUNIE CORP', 'eunie@xenoblade3.com', '0206 789 0123', 'www.eunie.com', 'Colony 12 AA3 7XC', 'Yes', '789123456']
+          ['ETHEL LTD', 'ethel@xenoblade3.com', '0204 567 8901', 'www.ethel.com', 'Colony 4 AA3 5XC', 'Yes', '567891234', nil, nil, nil, nil, nil, nil, nil, nil, 'YES', 'YES', 'YES', 'YES', 'NO', 'NO', 'NO'],
+          ['LANZ CORP', 'lanz@xenoblade3.com', '0205 678 9012', 'www.lanz.com', 'Colony 30 AA3 6XC', 'No', '678912345', nil, nil, nil, nil, nil, nil, nil, nil, 'NO', 'NO', 'NO', 'NO', 'YES', 'NO', 'NO'],
+          ['EUNIE CORP', 'eunie@xenoblade3.com', '0206 789 0123', 'www.eunie.com', 'Colony 12 AA3 7XC', 'Yes', '789123456', nil, nil, nil, nil, nil, nil, nil, nil, 'NO', 'NO', 'NO', 'NO', 'NO', 'YES', 'YES']
         ].freeze
 
         SUPPLIERS_LOT_4 = [
-          ['ETHEL LTD', 'ethel@xenoblade3.com', '0204 567 8901', 'www.ethel.com', 'Colony 4 AA3 5XC', 'Yes', '567891234'],
-          ['LANZ CORP', 'lanz@xenoblade3.com', '0205 678 9012', 'www.lanz.com', 'Colony 30 AA3 6XC', 'No', '678912345'],
-          ['EUNIE CORP', 'eunie@xenoblade3.com', '0206 789 0123', 'www.eunie.com', 'Colony 12 AA3 7XC', 'Yes', '789123456']
+          ['ETHEL LTD', 'ethel@xenoblade3.com', '0204 567 8901', 'www.ethel.com', 'Colony 4 AA3 5XC', 'Yes', '567891234', nil, nil, nil, nil, nil, nil, nil, nil, 'YES', 'YES', 'YES', 'YES', 'NO', 'NO', 'NO'],
+          ['LANZ CORP', 'lanz@xenoblade3.com', '0205 678 9012', 'www.lanz.com', 'Colony 30 AA3 6XC', 'No', '678912345', nil, nil, nil, nil, nil, nil, nil, nil, 'NO', 'NO', 'NO', 'NO', 'YES', 'NO', 'NO'],
+          ['EUNIE CORP', 'eunie@xenoblade3.com', '0206 789 0123', 'www.eunie.com', 'Colony 12 AA3 7XC', 'Yes', '789123456', nil, nil, nil, nil, nil, nil, nil, nil, 'NO', 'NO', 'NO', 'NO', 'NO', 'YES', 'YES']
         ].freeze
 
         SUPPLIERS_LOT_5 = [
-          ['ETHEL LTD', 'ethel@xenoblade3.com', '0204 567 8901', 'www.ethel.com', 'Colony 4 AA3 5XC', 'Yes', '567891234'],
-          ['LANZ CORP', 'lanz@xenoblade3.com', '0205 678 9012', 'www.lanz.com', 'Colony 30 AA3 6XC', 'No', '678912345'],
-          ['EUNIE CORP', 'eunie@xenoblade3.com', '0206 789 0123', 'www.eunie.com', 'Colony 12 AA3 7XC', 'Yes', '789123456']
+          ['ETHEL LTD', 'ethel@xenoblade3.com', '0204 567 8901', 'www.ethel.com', 'Colony 4 AA3 5XC', 'Yes', '567891234', nil, nil, nil, nil, nil, nil, nil, nil, 'YES', 'YES', 'YES', 'YES', 'NO', 'NO', 'NO'],
+          ['LANZ CORP', 'lanz@xenoblade3.com', '0205 678 9012', 'www.lanz.com', 'Colony 30 AA3 6XC', 'No', '678912345', nil, nil, nil, nil, nil, nil, nil, nil, 'NO', 'NO', 'NO', 'NO', 'YES', 'NO', 'NO'],
+          ['EUNIE CORP', 'eunie@xenoblade3.com', '0206 789 0123', 'www.eunie.com', 'Colony 12 AA3 7XC', 'Yes', '789123456', nil, nil, nil, nil, nil, nil, nil, nil, 'NO', 'NO', 'NO', 'NO', 'NO', 'YES', 'YES']
         ].freeze
 
         SUPPLIERS_LOT_6 = [
-          ['ETHEL LTD', 'ethel@xenoblade3.com', '0204 567 8901', 'www.ethel.com', 'Colony 4 AA3 5XC', 'Yes', '567891234'],
-          ['LANZ CORP', 'lanz@xenoblade3.com', '0205 678 9012', 'www.lanz.com', 'Colony 30 AA3 6XC', 'No', '678912345'],
-          ['EUNIE CORP', 'eunie@xenoblade3.com', '0206 789 0123', 'www.eunie.com', 'Colony 12 AA3 7XC', 'Yes', '789123456']
+          ['ETHEL LTD', 'ethel@xenoblade3.com', '0204 567 8901', 'www.ethel.com', 'Colony 4 AA3 5XC', 'Yes', '567891234', nil, nil, nil, nil, nil, nil, nil, nil, 'YES', 'YES', 'YES', 'YES', 'NO', 'NO', 'NO'],
+          ['LANZ CORP', 'lanz@xenoblade3.com', '0205 678 9012', 'www.lanz.com', 'Colony 30 AA3 6XC', 'No', '678912345', nil, nil, nil, nil, nil, nil, nil, nil, 'NO', 'NO', 'NO', 'NO', 'YES', 'NO', 'NO'],
+          ['EUNIE CORP', 'eunie@xenoblade3.com', '0206 789 0123', 'www.eunie.com', 'Colony 12 AA3 7XC', 'Yes', '789123456', nil, nil, nil, nil, nil, nil, nil, nil, 'NO', 'NO', 'NO', 'NO', 'NO', 'YES', 'YES']
         ].freeze
       end
 
@@ -84,7 +84,12 @@ module LegalServices
         OUTPUT_PATH = './tmp/test_supplier_details_file.xlsx'.freeze
 
         SHEETS = ['All Suppliers'].freeze
-        HEADERS = ['Supplier Name', 'Email address', 'Phone number', 'Website URL', 'Postal address', 'Is an SME', 'DUNS Number', 'Lot 1a: Prospectus Link', 'Lot 1b: Prospectus Link', 'Lot 1c: Prospectus Link', 'Lot 2: Prospectus Link', 'Lot 3: Prospectus Link', 'Lot 4: Prospectus Link', 'Lot 5: Prospectus Link', 'Lot 6: Prospectus Link'].freeze
+        HEADERS = [
+          'Supplier Name', 'Email address', 'Phone number', 'Website URL', 'Postal address', 'Is an SME', 'DUNS Number',
+          'Lot 1a: Prospectus Link', 'Lot 1b: Prospectus Link', 'Lot 1c: Prospectus Link', 'Lot 2: Prospectus Link',
+          'Lot 3: Prospectus Link', 'Lot 4: Prospectus Link', 'Lot 5: Prospectus Link', 'Lot 6: Prospectus Link',
+          'Health', 'Local community and housing', 'Government policy', 'Education', 'Defence and security', 'Infrastructure', 'Culture, media and sport'
+        ].freeze
 
         def self.sheets_with_extra_headers(sheets_with_extra_headers)
           self::SHEETS.map do |sheet|
