@@ -5,7 +5,7 @@ RSpec.describe Admin::SuppliersHelper do
     let(:supplier_framework) { create(:supplier_framework) }
     let(:health_sector) { Sector.create!(name: 'Health') }
     let(:education_sector) { Sector.create!(name: 'Education') }
-    
+
     context 'when the supplier has assigned sectors' do
       before do
         supplier_framework.sectors << [health_sector, education_sector]
