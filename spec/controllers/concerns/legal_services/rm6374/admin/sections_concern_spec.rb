@@ -9,12 +9,12 @@ RSpec.describe LegalServices::RM6374::Admin::SectionsConcern do
 
   let(:instance) { dummy_class.new }
 
-  describe '#permitted_section_params' do
+  describe '#section_attributes' do
     context 'when the section is customer_sector_selection' do
-      let(:section) { 'customer_sector_selection' }
+      let(:section) { :customer_sector_selection }
 
       it 'permits an array of sector_ids' do
-        params = instance.permitted_section_params(section)
+        params = instance.send(:section_attributes, section)
 
         expect(params).to eq([{ sector_ids: [] }])
       end
