@@ -8,7 +8,6 @@ module LegalServices
         def show
           render 'legal_services/rm6374/admin/suppliers/show'
         end
-
       end
     end
   end
