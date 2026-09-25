@@ -42,10 +42,54 @@
               <%= govuk_button(t('.download_suppliers_list'), href: download_legal_services_rm6374_suppliers_path(format: :xlsx, **@journey.params), classes: 'govuk-button--secondary') %>
             </div>
 
-            <div class=" ccs-search-results">
-              <ul class="ccs-results-list">
-                <%= render partial: 'supplier_framework', collection: @supplier_frameworks %>
-              </ul>
+            <div class="ccs-search-results govuk-!-margin-top-6">
+              <% 
+                raw_numbers = @journey.params[:service_numbers] || params[:service_numbers] || []
+                service_numbers = Array.wrap(raw_numbers).flat_map { |n| n.is_a?(String) ? n.split(',') : n }.map(&:to_s).map(&:strip).reject(&:blank?)
+                
+                specialism_names = {}
+                begin
+                  require 'csv'
+                  csv_path = Rails.root.join('data', 'services.csv')
+                  if File.exist?(csv_path)
+                    CSV.foreach(csv_path, headers: true) do |row|
+                      num = row['number'] || row['code'] || row[0]
+                      name = row['name'] || row['description'] || row[1]
+                      specialism_names[num.to_s] = name if num
+                    end
+                  end
+                rescue => e
+                end
+              %>
+
+              <% service_numbers.each do |service_number| %>
+                <div class="govuk-!-margin-bottom-8">
+                  
+                  <h2 class="govuk-heading-m govuk-!-margin-bottom-2">
+                    <%= specialism_names[service_number.to_s].presence || "Specialism #{service_number}" %>
+                  </h2>
+                  <hr class="govuk-section-break govuk-section-break--visible govuk-!-margin-bottom-4">
+                  
+                  <ul class="govuk-list">
+                    <% @supplier_frameworks.each do |sf| %>
+                      <li class="govuk-!-margin-bottom-3" style="display: flex; align-items: center;">
+                        
+                        <%= link_to sf.supplier.name, 
+                                    legal_services_rm6374_supplier_path(
+                                      sf.supplier.id, 
+                                      **@journey.params.to_h.symbolize_keys.merge(lot_number: @lot&.number || '2')
+                                    ), 
+                                    class: 'govuk-link govuk-!-font-size-16' %>
+                        
+                        <% if sf.supplier.sme? %>
+                          <strong class="govuk-tag govuk-tag--blue" style="font-size: 12px; padding: 2px 6px; margin-left: 10px; letter-spacing: 0.5px;">SME</strong>
+                        <% end %>
+
+                      </li>
+                    <% end %>
+                  </ul>
+                </div>
+              <% end %>
             </div>
 
           <% end %>
