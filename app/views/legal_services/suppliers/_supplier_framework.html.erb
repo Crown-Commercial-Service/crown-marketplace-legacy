@@ -1,8 +1,34 @@
 <li>
   <h2 class="govuk-heading-m">
-    <%= link_to supplier_framework.supplier_name, legal_services_supplier_path(supplier_framework), class: 'govuk-link ccs-no-underline' %>
+    <% if params[:framework] == 'RM6374' %>
+      <%= link_to supplier_framework.supplier_name, legal_services_rm6374_supplier_path(supplier_framework, **@journey.params), class: 'govuk-link govuk-link--no-underline' %>
+    <% else %>
+      <%= link_to supplier_framework.supplier_name, legal_services_supplier_path(supplier_framework), class: 'govuk-link govuk-link--no-underline' %>
+    <% end %>
+    
     <% if supplier_framework.supplier.sme %>
       <%= govuk_tag(t('sme'), 'grey', classes: 'ccs-tag') %>
     <% end %>
+
+    <% if params[:framework] == 'RM6374' %>
+      <% link_url = prospectus_link_for_list_page(supplier_framework) %>
+      
+      <% if link_url.present? %>
+        <div class="ccs-results-list__prospectus">
+          <%= link_to link_url, url_formatter(link_url), class: 'govuk-link ccs-no-underline' %>
+        </div>
+      <% end %>
+
+      <% if params[:lot_number] == '2' && params[:single_or_multiple_suppliers] == "multiple" %>
+        <p class="govuk-body govuk-!-padding-top-2 govuk-!-margin-bottom-1"> Specialism(s) provided by this supplier: </p>
+        <ul class="">
+          <% fetch_services_from_supplier_framework_for_lot_2(supplier_framework).each do |specialism| %>
+            <li class="ccs-results-list__item--temp-solution govuk-body-s govuk-!-margin-bottom-0"> <%= specialism %> </li>
+          <% end %>
+        </ul>
+      <% end %>
+
+    <% end %>
+
   </h2>
 </li>

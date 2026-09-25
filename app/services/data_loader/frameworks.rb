@@ -7,6 +7,7 @@ module DataLoader::Frameworks
     SERVICES_FILE_PATH = Rails.root.join('data', 'services.csv')
     JURISDICTIONS_FILE_PATH = Rails.root.join('data', 'jurisdictions.csv')
     POSITIONS_FILE_PATH = Rails.root.join('data', 'positions.csv')
+    SECTORS_FILE_PATH = Rails.root.join('data', 'sectors.csv')
 
     private
 
@@ -16,7 +17,8 @@ module DataLoader::Frameworks
         [Lot, LOTS_FILE_PATH],
         [Service, SERVICES_FILE_PATH],
         [Jurisdiction, JURISDICTIONS_FILE_PATH],
-        [Position, POSITIONS_FILE_PATH]
+        [Position, POSITIONS_FILE_PATH],
+        [Sector, SECTORS_FILE_PATH]
       ]
     end
 
@@ -48,6 +50,7 @@ module DataLoader::Frameworks
         :services,
         :jurisdictions,
         :positions,
+        :sectors,
         :uploads,
         :searches,
         :reports,
@@ -61,6 +64,7 @@ module DataLoader::Frameworks
         :supplier_framework_lot_jurisdictions,
         :supplier_framework_lot_rates,
         :supplier_framework_lot_branches,
+        :supplier_framework_sectors
       )
     end
 

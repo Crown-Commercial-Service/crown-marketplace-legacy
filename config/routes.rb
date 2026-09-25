@@ -163,6 +163,7 @@ Rails.application.routes.draw do
     resources :suppliers, only: %i[index show] do
       collection do
         get '/download', action: :download
+        get '/download_rm6374_lot_2_rate', action: :download_rm6374_lot_2_rate # interim solution for RM6374 lot 2 rate
       end
     end
   end

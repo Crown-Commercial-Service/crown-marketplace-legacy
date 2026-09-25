@@ -14,4 +14,8 @@ module LegalServices::RM6240::SuppliersHelper
   def legal_services_supplier_path(supplier)
     legal_services_rm6240_supplier_path(supplier, lot_number: params[:lot_number], service_numbers: params[:service_numbers], jurisdiction: params[:jurisdiction])
   end
+
+  def prospectus_link
+    @prospectus_link ||= @supplier_framework.contact_detail.additional_details["lot_#{@lot.number[0]}_prospectus_link"]
+  end
 end
