@@ -96,12 +96,15 @@ module LegalServices
 
       def fetch_services_from_supplier_framework_for_lot_2(supplier_framework)
         framework_lot = supplier_framework.lots.find { |l| l.lot_id == @lot.id }
-
-        selected_codes = service_codes.map { |code| code.start_with?('RM6374.') ? code : "RM6374.#{code}" }
+        return [] unless framework_lot
 
         framework_lot.services
-                     .select { |s| selected_codes.include?(s.service_id) }
+                     .select { |s| formatted_service_codes.include?(s.service_id) }
                      .map { |s| s.service.name }
+      end
+
+      def formatted_service_codes
+        service_codes.map { |code| code.start_with?('RM6374.') ? code : "RM6374.#{code}" }
       end
 
       def selected_jurisdiction_id
