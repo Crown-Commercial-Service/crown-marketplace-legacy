@@ -4,11 +4,9 @@
     slug: @lot.number == '6' ? 'cost-service' : 'choose-jurisdiction'
   )
   @back_path = legal_services_journey_question_path(back_params)
-
 %>
 
 <%= content_for :page_title, t('.page_title')  %>
-
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
@@ -76,7 +74,7 @@
                         
                         <%= link_to sf.supplier.name, 
                                     legal_services_rm6374_supplier_path(
-                                      sf.supplier.id, 
+                                      sf.id, 
                                       **@journey.params.to_h.symbolize_keys.merge(lot_number: @lot&.number || '2')
                                     ), 
                                     class: 'govuk-link govuk-!-font-size-16' %>
