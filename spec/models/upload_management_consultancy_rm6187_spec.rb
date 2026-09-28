@@ -123,7 +123,7 @@ RSpec.describe Upload do
         it 'assigns attributes to the framework lot' do
           result
 
-          expect(supplier_framework.lots.pluck(:lot_id)).to eq(['RM6187.1', 'RM6187.2'])
+          expect(supplier_framework.lots.pluck(:lot_id)).to contain_exactly('RM6187.1', 'RM6187.2')
         end
 
         it 'assigns attributes to the framework lot services' do
