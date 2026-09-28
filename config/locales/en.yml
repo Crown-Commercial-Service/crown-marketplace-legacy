@@ -798,7 +798,7 @@ en:
       suppliers:
         edit:
           heading:
-            customer_sector_selection: "Customer Sector Selection"
+            customer_sector_selection: Customer Sector Selection
         sections:
           customer_sector_selection:
             heading: Select customer sectors
