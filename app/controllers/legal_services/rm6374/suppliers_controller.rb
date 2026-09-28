@@ -21,6 +21,9 @@ module LegalServices
 
         return unless params[:framework].to_s.casecmp?('rm6374') && @lot&.number.to_s == '2'
 
+        # Set up specialism variables for lot 2 view
+        setup_specialisms_data
+
         render 'lot_2_interim_result_page'
       end
 
@@ -69,6 +72,36 @@ module LegalServices
       end
 
       private
+
+      def setup_specialisms_data
+        raw_numbers = @journey.params[:service_numbers] || params[:service_numbers] || []
+        @service_numbers = Array.wrap(raw_numbers)
+                                .flat_map { |n| n.is_a?(String) ? n.split(',') : n }
+                                .map(&:to_s)
+                                .map(&:strip)
+                                .reject(&:blank?)
+
+        @specialism_names = load_specialism_names
+      end
+
+      def load_specialism_names
+        specialism_names = {}
+        csv_path = Rails.root.join('data', 'services.csv')
+
+        if File.exist?(csv_path)
+          require 'csv'
+          CSV.foreach(csv_path, headers: true) do |row|
+            num = row['number'] || row['code'] || row[0]
+            name = row['name'] || row['description'] || row[1]
+            specialism_names[num.to_s] = name if num
+          end
+        end
+
+        specialism_names
+      rescue StandardError => e
+        Rails.logger.error("Failed to load services.csv: #{e.message}")
+        {}
+      end
 
       def fetch_supplier_framework
         @supplier_framework = Supplier::Framework.joins(:supplier).find(params.expect(:id))
