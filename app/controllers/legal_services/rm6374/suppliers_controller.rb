@@ -21,7 +21,6 @@ module LegalServices
 
         return unless params[:framework].to_s.casecmp?('rm6374') && @lot&.number.to_s == '2'
 
-        # Set up specialism variables for lot 2 view
         setup_specialisms_data
 
         render 'lot_2_interim_result_page'
@@ -85,22 +84,28 @@ module LegalServices
       end
 
       def load_specialism_names
-        specialism_names = {}
         csv_path = Rails.root.join('data', 'services.csv')
+        return {} unless File.exist?(csv_path)
 
-        if File.exist?(csv_path)
-          require 'csv'
-          CSV.foreach(csv_path, headers: true) do |row|
-            num = row['number'] || row['code'] || row[0]
-            name = row['name'] || row['description'] || row[1]
-            specialism_names[num.to_s] = name if num
-          end
-        end
-
-        specialism_names
+        parse_services_csv(csv_path)
       rescue StandardError => e
         Rails.logger.error("Failed to load services.csv: #{e.message}")
         {}
+      end
+
+      def parse_services_csv(csv_path)
+        require 'csv'
+
+        CSV.foreach(csv_path, headers: true).each_with_object({}) do |row, names|
+          num, name = extract_service_row(row)
+          names[num.to_s] = name if num
+        end
+      end
+
+      def extract_service_row(row)
+        num = row['number'] || row['code'] || row[0]
+        name = row['name'] || row['description'] || row[1]
+        [num, name]
       end
 
       def fetch_supplier_framework
