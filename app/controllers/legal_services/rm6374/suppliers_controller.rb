@@ -79,7 +79,7 @@ module LegalServices
                                 .flat_map { |n| n.is_a?(String) ? n.split(',') : n }
                                 .map(&:to_s)
                                 .map(&:strip)
-                                .reject(&:blank?)
+                                .compact_blank
 
         @specialism_names = load_specialism_names
       end
