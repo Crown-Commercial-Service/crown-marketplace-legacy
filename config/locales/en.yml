@@ -796,10 +796,14 @@ en:
   shared:
     admin:
       suppliers:
+        edit:
+          heading:
+            customer_sector_selection: "Customer Sector Selection"
         sections:
           customer_sector_selection:
             heading: Select customer sectors
         show:
+          change: "Change"
           customer_sector_selection:
             title: Customer Sectors
   sme: SME
