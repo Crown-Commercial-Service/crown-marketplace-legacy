@@ -142,11 +142,13 @@ class LegalServices::RM6374::Admin::FilesProcessor < FilesProcessor
     end
   end
 
-  def add_rate_cards_to_suppliers(rate_cards_workbook)
+  def add_rate_cards_to_suppliers(rate_cards_workbook) # rubocop:disable Metrics/CyclomaticComplexity,Metrics/PerceivedComplexity
     rate_cards_workbook.sheets.each_with_index do |sheet_name, sheet_index|
       sheet = rate_cards_workbook.sheet(sheet_name)
 
-      (3..sheet.last_row).each do |row_number|
+      start_row = sheet_name == 'Lot 2 Supplier Rate Cards' ? 2 : 3
+
+      (start_row..sheet.last_row).each do |row_number|
         row = sheet.row(row_number)
         supplier_duns = row.second.to_i.to_s
         next if supplier_duns.blank? || supplier_duns == '0'
@@ -154,7 +156,37 @@ class LegalServices::RM6374::Admin::FilesProcessor < FilesProcessor
         supplier = get_supplier(supplier_duns)
         next unless supplier
 
-        add_rates(supplier, row, sheet_index)
+        if sheet_name == 'Lot 2 Supplier Rate Cards'
+          add_lot2_service_rates(supplier, row)
+        else
+          add_rates(supplier, row, sheet_index)
+        end
+      end
+    end
+  end
+
+  def add_lot2_service_rates(supplier, row)
+    supplier_framework_lots_data = supplier[:supplier_frameworks][0][:supplier_framework_lots_data]
+    lot_data = supplier_framework_lots_data['RM6374.2']
+
+    specialism_code = row[3].to_s.strip
+    return if specialism_code.blank?
+
+    service_id = "RM6374.#{specialism_code}"
+
+    applicable_jurisdictions = lot_data[:jurisdictions].pluck(:jurisdiction_id)
+    max_positions = 9
+
+    row[4..].take(max_positions).each.with_index(1) do |rate, position_index|
+      next if rate.nil?
+
+      applicable_jurisdictions.each do |j_id|
+        lot_data[:rates] << {
+          position_id: "RM6374.2.#{position_index}",
+          rate: convert_rate_to_pence(rate),
+          jurisdiction_id: j_id,
+          service_id: service_id
+        }
       end
     end
   end
@@ -195,6 +227,7 @@ class LegalServices::RM6374::Admin::FilesProcessor < FilesProcessor
     supplier_lot_4_service_offerings_file: :add_lot_services_per_supplier,
     supplier_lot_5_service_offerings_file: :add_lot_services_per_supplier,
     supplier_lot_6_service_offerings_file: :add_lot_6_services_per_supplier,
-    supplier_rate_cards_file: :add_rate_cards_to_suppliers
+    supplier_rate_cards_file: :add_rate_cards_to_suppliers,
+    lot_2_supplier_rate_cards_file: :add_rate_cards_to_suppliers
   }.freeze
 end

@@ -10,6 +10,9 @@ module LegalServices::RM6374::Admin
         File.open(supplier_rate_cards_file_path, 'rb') do |file_stream|
           admin_upload.supplier_rate_cards_file.attach(io: file_stream, filename: 'test_supplier_rate_cards_file.xlsx')
         end
+        File.open(lot_2_supplier_rate_cards_file_path, 'rb') do |file_stream|
+          admin_upload.lot_2_supplier_rate_cards_file.attach(io: file_stream, filename: 'test_lot_2_supplier_rate_cards_file.xlsx')
+        end
         File.open(supplier_lot_1a_service_offerings_file_path, 'rb') do |file_stream|
           admin_upload.supplier_lot_1a_service_offerings_file.attach(io: file_stream, filename: 'test_supplier_lot_1a_service_offerings_file.xlsx')
         end
@@ -44,6 +47,10 @@ module LegalServices::RM6374::Admin
     let(:supplier_rate_cards_file) { SupplierRateCardsFile.new(**supplier_rate_cards_file_options) }
     let(:supplier_rate_cards_file_path) { SupplierRateCardsFile::OUTPUT_PATH }
     let(:supplier_rate_cards_file_options) { {} }
+
+    let(:lot_2_supplier_rate_cards_file) { Lot2SupplierRateCardsFile.new(**lot_2_supplier_rate_cards_file_options) }
+    let(:lot_2_supplier_rate_cards_file_path) { Lot2SupplierRateCardsFile::OUTPUT_PATH }
+    let(:lot_2_supplier_rate_cards_file_options) { {} }
 
     let(:supplier_lot_1a_service_offerings_file) { SupplierLot1AFile.new(**supplier_lot_1a_service_offerings_file_options) }
     let(:supplier_lot_1a_service_offerings_file_path) { SupplierLot1AFile::OUTPUT_PATH }
@@ -92,6 +99,7 @@ module LegalServices::RM6374::Admin
       context 'when the files have the wrong sheets' do
         let(:supplier_details_file_options) { { sheets: ['All regions'] } }
         let(:supplier_rate_cards_file_options) { { sheets: ['1a', '1b', '1c', '3', '4', '5', '6'] } }
+        let(:lot_2_supplier_rate_cards_file_options) { { sheets: ['something'] } }
         let(:supplier_lot_1a_service_offerings_file_options) { { sheets: ['Scotland', 'Northern Ireland'] } }
         let(:supplier_lot_1b_service_offerings_file_options) { { sheets: ['England & Wales', 'Northern Ireland'] } }
         let(:supplier_lot_1c_service_offerings_file_options) { { sheets: ['England & Wales', 'Scotland'] } }
@@ -105,6 +113,7 @@ module LegalServices::RM6374::Admin
           expect(upload).to have_state(:failed)
           expect(upload.import_errors).to eq [{ error: 'supplier_details_missing_sheets' },
                                               { error: 'supplier_rate_cards_missing_sheets' },
+                                              { error: 'lot_2_supplier_rate_cards_missing_sheets' },
                                               { error: 'supplier_lot_1a_service_offerings_missing_sheets' },
                                               { error: 'supplier_lot_1b_service_offerings_missing_sheets' },
                                               { error: 'supplier_lot_1c_service_offerings_missing_sheets' },
@@ -118,7 +127,8 @@ module LegalServices::RM6374::Admin
 
       context 'when the files have the wrong headers and columns' do
         let(:supplier_details_file_options) { { headers: SupplierDetailsFile.sheets_with_extra_headers(['All Suppliers']) } }
-        let(:supplier_rate_cards_file_options) { { headers: SupplierRateCardsFile.sheets_with_extra_headers(['1a', '2', '6']) } }
+        let(:supplier_rate_cards_file_options) { { headers: SupplierRateCardsFile.sheets_with_extra_headers(['1a', '6']) } }
+        let(:lot_2_supplier_rate_cards_file_options) { { headers: Lot2SupplierRateCardsFile.sheets_with_extra_headers(['Lot 2 Supplier Rate Cards']) } }
         let(:supplier_lot_1a_service_offerings_file_options) { { headers: SupplierLot1AFile.sheets_with_extra_headers(['England & Wales']) } }
         let(:supplier_lot_1b_service_offerings_file_options) { { headers: SupplierLot1BFile.sheets_with_extra_headers(['England & Wales']) } }
         let(:supplier_lot_1c_service_offerings_file_options) { { headers: SupplierLot1CFile.sheets_with_extra_headers(['Scotland']) } }
@@ -131,7 +141,8 @@ module LegalServices::RM6374::Admin
         it 'changes the state to failed and has the correct errors' do # rubocop:disable RSpec/ExampleLength
           expect(upload).to have_state(:failed)
           expect(upload.import_errors).to eq [{ error: 'supplier_details_has_incorrect_headers' },
-                                              { error: 'supplier_rate_cards_has_incorrect_headers', details: ['1a', '2', '6'] },
+                                              { error: 'supplier_rate_cards_has_incorrect_headers', details: ['1a', '6'] },
+                                              { error: 'lot_2_supplier_rate_cards_has_incorrect_headers', details: ['Lot 2 Supplier Rate Cards'] },
                                               { error: 'supplier_lot_1a_service_offerings_has_incorrect_headers', details: ['England & Wales'] },
                                               { error: 'supplier_lot_1b_service_offerings_has_incorrect_headers', details: ['England & Wales'] },
                                               { error: 'supplier_lot_1c_service_offerings_has_incorrect_headers', details: ['Scotland'] },
@@ -146,6 +157,7 @@ module LegalServices::RM6374::Admin
       context 'when the files are empty' do
         let(:supplier_details_file_options) { { empty: true } }
         let(:supplier_rate_cards_file_options) { { empty: true } }
+        let(:lot_2_supplier_rate_cards_file_options) { { empty: true } }
         let(:supplier_lot_1a_service_offerings_file_options) { { empty: true } }
         let(:supplier_lot_2_service_offerings_file_options) { { empty: true } }
         let(:supplier_lot_3_service_offerings_file_options) { { empty: true } }
@@ -155,6 +167,7 @@ module LegalServices::RM6374::Admin
           expect(upload).to have_state(:failed)
           expect(upload.import_errors).to eq [{ error: 'supplier_details_has_empty_sheets' },
                                               { error: 'supplier_rate_cards_has_empty_sheets', details: ['1a', '1b', '1c', '2', '3', '4', '5', '6'] },
+                                              { error: 'lot_2_supplier_rate_cards_has_empty_sheets', details: ['Lot 2 Supplier Rate Cards'] },
                                               { error: 'supplier_lot_1a_service_offerings_has_empty_sheets', details: ['England & Wales', 'Scotland', 'Northern Ireland'] },
                                               { error: 'supplier_lot_2_service_offerings_has_empty_sheets', details: ['England & Wales', 'Scotland', 'Northern Ireland'] },
                                               { error: 'supplier_lot_3_service_offerings_has_empty_sheets', details: ['England & Wales', 'Scotland', 'Northern Ireland'] },

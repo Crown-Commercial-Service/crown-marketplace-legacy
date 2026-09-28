@@ -42,6 +42,18 @@ class LegalServices::RM6374::Admin::FilesChecker
     end
   end
 
+  def check_lot_2_suppliers_supplier_rate_cards_spreadsheet(lot_2_rate_cards_workbook)
+    check_sheets(lot_2_rate_cards_workbook, LOT_2_RATE_CARD_SHEETS, 'lot_2_supplier_rate_cards') do |sheets_with_errors, empty_sheets, index|
+      current_sheet = LOT_2_RATE_CARD_SHEETS[index]
+
+      if lot_2_rate_cards_workbook.sheet(index).last_column != 13
+        sheets_with_errors << current_sheet
+      elsif lot_2_rate_cards_workbook.sheet(index).last_row == 1
+        empty_sheets << current_sheet
+      end
+    end
+  end
+
   def check_supplier_lot_1a_service_offerings_spreadsheet(lot_1a_worksheet)
     check_supplier_service_offerings_spreadsheet(lot_1a_worksheet, :'1a')
   end
@@ -139,9 +151,12 @@ class LegalServices::RM6374::Admin::FilesChecker
 
   RATE_CARD_SHEETS = ['1a', '1b', '1c', '2', '3', '4', '5', '6'].freeze
 
+  LOT_2_RATE_CARD_SHEETS = ['Lot 2 Supplier Rate Cards'].freeze
+
   CHECK_FILES_AND_METHODS = {
     supplier_details_file: :check_supplier_details_spreadsheet,
     supplier_rate_cards_file: :check_suppliers_supplier_rate_cards_spreadsheet,
+    lot_2_supplier_rate_cards_file: :check_lot_2_suppliers_supplier_rate_cards_spreadsheet,
     supplier_lot_1a_service_offerings_file: :check_supplier_lot_1a_service_offerings_spreadsheet,
     supplier_lot_1b_service_offerings_file: :check_supplier_lot_1b_service_offerings_spreadsheet,
     supplier_lot_1c_service_offerings_file: :check_supplier_lot_1c_service_offerings_spreadsheet,
