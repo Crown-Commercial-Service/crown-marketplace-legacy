@@ -104,6 +104,14 @@ module LegalServices
                      .map { |s| s.service.name }
       end
 
+      def fetch_suppliers_from_service_for_lot_2()
+
+       selected_codes = service_codes.map { |code| code.start_with?('RM6374.') ? code : "RM6374.#{code}" }
+
+       ::Supplier::Framework.with_services_and_jursidcition(selected_codes, [selected_jurisdiction_id]).with_sector(selected_sector_id)
+       
+      end
+
       def selected_jurisdiction_id
         get_jurisdiction(params.expect(:jurisdiction))
       end

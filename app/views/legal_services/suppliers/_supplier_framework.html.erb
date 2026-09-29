@@ -20,12 +20,12 @@
       <% end %>
 
       <% if params[:lot_number] == '2' && params[:single_or_multiple_suppliers] == "multiple" %>
-        <p class="govuk-body govuk-!-padding-top-2 govuk-!-margin-bottom-1"> Specialism(s) provided by this supplier: </p>
-        <ul class="">
-          <% fetch_services_from_supplier_framework_for_lot_2(supplier_framework).each do |specialism| %>
-            <li class="ccs-results-list__item--temp-solution govuk-body-s govuk-!-margin-bottom-0"> <%= specialism %> </li>
-          <% end %>
-        </ul>
+        <% fetch_services_from_supplier_framework_for_lot_2(supplier_framework).each do |specialism| %>
+          <p class="govuk-body govuk-!-font-weight-bold govuk-!-padding-top-2 govuk-!-margin-bottom-1"><%= specialism %></p>
+          <ul class="">
+            <li class="ccs-results-list__item--temp-solution govuk-body-s govuk-!-margin-bottom-0"><%= supplier_framework.supplier.name %></li>
+          </ul>
+        <% end %>
       <% end %>
 
     <% end %>
