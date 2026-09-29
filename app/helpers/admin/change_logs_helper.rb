@@ -170,6 +170,14 @@ module Admin::ChangeLogsHelper
     ],
   }.freeze
 
+  UPDATE_SUPPLIER_SECTOR_TABLE_ROWS = {
+    health: [
+      I18n.t('shared.admin.suppliers.show.supplier_sector_information.health'),
+      ->(change_data) { (change_data['additional_details'] || {}).key?('health') },
+      ->(change_data) { change_data.dig('additional_details', 'health') }
+    ],
+  }.freeze
+
   UPDATE_SUPPLIER_FRAMEWORK_LOT_BRANCH_TABLE_ROWS = {
     name: [
       I18n.t('shared.admin.lot_data.edit.branches.branch_name'),
@@ -225,6 +233,11 @@ module Admin::ChangeLogsHelper
 
   def update_supplier_information_table_rows
     @update_supplier_information_table_rows ||= collect_table_rows_for_change_type(ChangeLog::CHANGE_TYPES[:update_supplier_information], UPDATE_SUPPLIER_INFORMATION_TABLE_ROWS)
+  end
+
+  def update_supplier_sector_table_rows
+    print "DEBUG: @change_log.change_data = #{@change_log.change_data}\n"
+    @update_supplier_sector_table_rows ||= collect_table_rows_for_change_type(ChangeLog::CHANGE_TYPES[:update_supplier_sector], UPDATE_SUPPLIER_SECTOR_TABLE_ROWS)
   end
 
   def update_supplier_contact_information_table_rows

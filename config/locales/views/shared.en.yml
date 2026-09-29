@@ -275,6 +275,15 @@ en:
             telephone_number: Contact telephone number
             website: Website
         show:
+          supplier_sector_information:
+            sector: Sector,
+            health: 'Health'
+            local_community: 'Local community and housing'
+            government_policy: 'Government policy'
+            education: 'Education'
+            defence: 'Defence and security'
+            infrastructure: 'Infrastructure'
+            culture: 'Culture, media and sport'
           additional_supplier_information:
             address: Address
             description: Description

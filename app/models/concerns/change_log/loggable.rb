@@ -19,8 +19,29 @@ class ChangeLog
         log_generic_update_supplier_information!(user: user, framework: framework, model: model, supplier_name: model.supplier_framework.supplier_name, change_type: CHANGE_TYPES[:update_supplier_additional_information])
       end
 
+      # def log_update_supplier_sector_information!(user:, framework:, model:)
+      #   log_generic_update_supplier_information!(user: user, framework: framework, model: model, supplier_name: model.supplier_name, change_type: CHANGE_TYPES[:update_supplier_sector_information])
+      # end
+
       def log_update_supplier_sector_information!(user:, framework:, model:)
-        log_generic_update_supplier_information!(user: user, framework: framework, model: model, supplier_name: model.supplier_name, change_type: CHANGE_TYPES[:update_supplier_sector_information])
+        # 1. Force saving any associated sector records that were assigned to the model
+        model.supplier_framework_sectors.each(&:save!) if model.respond_to?(:supplier_framework_sectors)
+
+        # 2. Collect changes from the model
+        model_changes = collect_changes_from_model(model)
+
+        # 3. Create the log entry
+        create!(
+          user: user,
+          framework_id: framework,
+          change_type: CHANGE_TYPES[:update_supplier_sector_information],
+          change_data: {
+            id: model.id,
+            supplier_name: model.supplier_name,
+            before: model_changes[:before],
+            after: model_changes[:after]
+          }
+        )
       end
 
       def log_update_supplier_framework_lot_status!(user:, framework:, model:)
