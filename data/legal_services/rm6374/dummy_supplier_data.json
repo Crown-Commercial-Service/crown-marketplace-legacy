@@ -25,6 +25,29 @@
             "lot_6_prospectus_link": "http://baumbachandsons.example/mandy.rosenbaum"
           }
         },
+        "supplier_framework_sectors": [
+          {
+            "sector_id": "1"
+          },
+          {
+            "sector_id": "2"
+          },
+          {
+            "sector_id": "3"
+          },
+          {
+            "sector_id": "4"
+          },
+          {
+            "sector_id": "5"
+          },
+          {
+            "sector_id": "6"
+          },
+          {
+            "sector_id": "7"
+          }
+        ],
         "supplier_framework_lots": [
           {
             "lot_id": "RM6374.1a",
@@ -259,6 +282,29 @@
               }
             ],
             "supplier_framework_lot_branches": [],
+            "supplier_framework_sectors": [
+              {
+                "sector_id": "1"
+              },
+              {
+                "sector_id": "2"
+              },
+              {
+                "sector_id": "3"
+              },
+              {
+                "sector_id": "4"
+              },
+              {
+                "sector_id": "5"
+              },
+              {
+                "sector_id": "6"
+              },
+              {
+                "sector_id": "7"
+              }
+            ],
             "supplier_framework_lot_jurisdictions": [
               {
                 "jurisdiction_id": "RM6374.GB"
@@ -304,6 +350,29 @@
             "lot_6_prospectus_link": "http://block-wintheiser.test/faustino_okeefe"
           }
         },
+        "supplier_framework_sectors": [
+          {
+            "sector_id": "1"
+          },
+          {
+            "sector_id": "2"
+          },
+          {
+            "sector_id": "3"
+          },
+          {
+            "sector_id": "4"
+          },
+          {
+            "sector_id": "5"
+          },
+          {
+            "sector_id": "6"
+          },
+          {
+            "sector_id": "7"
+          }
+        ],
         "supplier_framework_lots": [
           {
             "lot_id": "RM6374.1a",
@@ -538,6 +607,29 @@
               }
             ],
             "supplier_framework_lot_branches": [],
+            "supplier_framework_sectors": [
+              {
+                "sector_id": "1"
+              },
+              {
+                "sector_id": "2"
+              },
+              {
+                "sector_id": "3"
+              },
+              {
+                "sector_id": "4"
+              },
+              {
+                "sector_id": "5"
+              },
+              {
+                "sector_id": "6"
+              },
+              {
+                "sector_id": "7"
+              }
+            ],
             "supplier_framework_lot_jurisdictions": [
               {
                 "jurisdiction_id": "RM6374.GB"
@@ -583,6 +675,29 @@
             "lot_6_prospectus_link": "http://watersinc.test/jackeline"
           }
         },
+        "supplier_framework_sectors": [
+          {
+            "sector_id": "1"
+          },
+          {
+            "sector_id": "2"
+          },
+          {
+            "sector_id": "3"
+          },
+          {
+            "sector_id": "4"
+          },
+          {
+            "sector_id": "5"
+          },
+          {
+            "sector_id": "6"
+          },
+          {
+            "sector_id": "7"
+          }
+        ],
         "supplier_framework_lots": [
           {
             "lot_id": "RM6374.1a",
@@ -817,6 +932,29 @@
               }
             ],
             "supplier_framework_lot_branches": [],
+            "supplier_framework_sectors": [
+              {
+                "sector_id": "1"
+              },
+              {
+                "sector_id": "2"
+              },
+              {
+                "sector_id": "3"
+              },
+              {
+                "sector_id": "4"
+              },
+              {
+                "sector_id": "5"
+              },
+              {
+                "sector_id": "6"
+              },
+              {
+                "sector_id": "7"
+              }
+            ],
             "supplier_framework_lot_jurisdictions": [
               {
                 "jurisdiction_id": "RM6374.GB"
@@ -862,6 +1000,29 @@
             "lot_6_prospectus_link": "http://schummandsons.test/norbert"
           }
         },
+        "supplier_framework_sectors": [
+          {
+            "sector_id": "1"
+          },
+          {
+            "sector_id": "2"
+          },
+          {
+            "sector_id": "3"
+          },
+          {
+            "sector_id": "4"
+          },
+          {
+            "sector_id": "5"
+          },
+          {
+            "sector_id": "6"
+          },
+          {
+            "sector_id": "7"
+          }
+        ],
         "supplier_framework_lots": [
           {
             "lot_id": "RM6374.1a",
@@ -1096,6 +1257,29 @@
               }
             ],
             "supplier_framework_lot_branches": [],
+            "supplier_framework_sectors": [
+              {
+                "sector_id": "1"
+              },
+              {
+                "sector_id": "2"
+              },
+              {
+                "sector_id": "3"
+              },
+              {
+                "sector_id": "4"
+              },
+              {
+                "sector_id": "5"
+              },
+              {
+                "sector_id": "6"
+              },
+              {
+                "sector_id": "7"
+              }
+            ],
             "supplier_framework_lot_jurisdictions": [
               {
                 "jurisdiction_id": "RM6374.GB"
@@ -1218,6 +1402,29 @@
               }
             ],
             "supplier_framework_lot_branches": [],
+            "supplier_framework_sectors": [
+              {
+                "sector_id": "1"
+              },
+              {
+                "sector_id": "2"
+              },
+              {
+                "sector_id": "3"
+              },
+              {
+                "sector_id": "4"
+              },
+              {
+                "sector_id": "5"
+              },
+              {
+                "sector_id": "6"
+              },
+              {
+                "sector_id": "7"
+              }
+            ],
             "supplier_framework_lot_jurisdictions": [
               {
                 "jurisdiction_id": "RM6374.GB"
@@ -1260,6 +1467,29 @@
             "lot_6_prospectus_link": "http://boganinc.example/marissa_hartmann"
           }
         },
+        "supplier_framework_sectors": [
+          {
+            "sector_id": "1"
+          },
+          {
+            "sector_id": "2"
+          },
+          {
+            "sector_id": "3"
+          },
+          {
+            "sector_id": "4"
+          },
+          {
+            "sector_id": "5"
+          },
+          {
+            "sector_id": "6"
+          },
+          {
+            "sector_id": "7"
+          }
+        ],
         "supplier_framework_lots": [
           {
             "lot_id": "RM6374.1a",
@@ -1494,6 +1724,29 @@
               }
             ],
             "supplier_framework_lot_branches": [],
+            "supplier_framework_sectors": [
+              {
+                "sector_id": "1"
+              },
+              {
+                "sector_id": "2"
+              },
+              {
+                "sector_id": "3"
+              },
+              {
+                "sector_id": "4"
+              },
+              {
+                "sector_id": "5"
+              },
+              {
+                "sector_id": "6"
+              },
+              {
+                "sector_id": "7"
+              }
+            ],
             "supplier_framework_lot_jurisdictions": [
               {
                 "jurisdiction_id": "RM6374.GB"
@@ -1640,6 +1893,29 @@
               }
             ],
             "supplier_framework_lot_branches": [],
+            "supplier_framework_sectors": [
+              {
+                "sector_id": "1"
+              },
+              {
+                "sector_id": "2"
+              },
+              {
+                "sector_id": "3"
+              },
+              {
+                "sector_id": "4"
+              },
+              {
+                "sector_id": "5"
+              },
+              {
+                "sector_id": "6"
+              },
+              {
+                "sector_id": "7"
+              }
+            ],
             "supplier_framework_lot_jurisdictions": [
               {
                 "jurisdiction_id": "RM6374.GB"
@@ -1679,6 +1955,29 @@
             "lot_6_prospectus_link": "http://ziemanninc.example/rema"
           }
         },
+        "supplier_framework_sectors": [
+          {
+            "sector_id": "1"
+          },
+          {
+            "sector_id": "2"
+          },
+          {
+            "sector_id": "3"
+          },
+          {
+            "sector_id": "4"
+          },
+          {
+            "sector_id": "5"
+          },
+          {
+            "sector_id": "6"
+          },
+          {
+            "sector_id": "7"
+          }
+        ],
         "supplier_framework_lots": [
           {
             "lot_id": "RM6374.1a",
@@ -1913,6 +2212,29 @@
               }
             ],
             "supplier_framework_lot_branches": [],
+            "supplier_framework_sectors": [
+              {
+                "sector_id": "1"
+              },
+              {
+                "sector_id": "2"
+              },
+              {
+                "sector_id": "3"
+              },
+              {
+                "sector_id": "4"
+              },
+              {
+                "sector_id": "5"
+              },
+              {
+                "sector_id": "6"
+              },
+              {
+                "sector_id": "7"
+              }
+            ],
             "supplier_framework_lot_jurisdictions": [
               {
                 "jurisdiction_id": "RM6374.GB"
@@ -2161,6 +2483,29 @@
               }
             ],
             "supplier_framework_lot_branches": [],
+            "supplier_framework_sectors": [
+              {
+                "sector_id": "1"
+              },
+              {
+                "sector_id": "2"
+              },
+              {
+                "sector_id": "3"
+              },
+              {
+                "sector_id": "4"
+              },
+              {
+                "sector_id": "5"
+              },
+              {
+                "sector_id": "6"
+              },
+              {
+                "sector_id": "7"
+              }
+            ],
             "supplier_framework_lot_jurisdictions": [
               {
                 "jurisdiction_id": "RM6374.GB"
@@ -2206,6 +2551,29 @@
             "lot_6_prospectus_link": "http://jacobson-pouros.test/heriberto.heaney"
           }
         },
+        "supplier_framework_sectors": [
+          {
+            "sector_id": "1"
+          },
+          {
+            "sector_id": "2"
+          },
+          {
+            "sector_id": "3"
+          },
+          {
+            "sector_id": "4"
+          },
+          {
+            "sector_id": "5"
+          },
+          {
+            "sector_id": "6"
+          },
+          {
+            "sector_id": "7"
+          }
+        ],
         "supplier_framework_lots": [
           {
             "lot_id": "RM6374.1b",
@@ -2440,6 +2808,29 @@
               }
             ],
             "supplier_framework_lot_branches": [],
+            "supplier_framework_sectors": [
+              {
+                "sector_id": "1"
+              },
+              {
+                "sector_id": "2"
+              },
+              {
+                "sector_id": "3"
+              },
+              {
+                "sector_id": "4"
+              },
+              {
+                "sector_id": "5"
+              },
+              {
+                "sector_id": "6"
+              },
+              {
+                "sector_id": "7"
+              }
+            ],
             "supplier_framework_lot_jurisdictions": [
               {
                 "jurisdiction_id": "RM6374.GB"
@@ -2485,6 +2876,29 @@
             "lot_6_prospectus_link": "http://crookslindandupton.test/bert"
           }
         },
+        "supplier_framework_sectors": [
+          {
+            "sector_id": "1"
+          },
+          {
+            "sector_id": "2"
+          },
+          {
+            "sector_id": "3"
+          },
+          {
+            "sector_id": "4"
+          },
+          {
+            "sector_id": "5"
+          },
+          {
+            "sector_id": "6"
+          },
+          {
+            "sector_id": "7"
+          }
+        ],
         "supplier_framework_lots": [
           {
             "lot_id": "RM6374.1b",
@@ -2719,6 +3133,29 @@
               }
             ],
             "supplier_framework_lot_branches": [],
+            "supplier_framework_sectors": [
+              {
+                "sector_id": "1"
+              },
+              {
+                "sector_id": "2"
+              },
+              {
+                "sector_id": "3"
+              },
+              {
+                "sector_id": "4"
+              },
+              {
+                "sector_id": "5"
+              },
+              {
+                "sector_id": "6"
+              },
+              {
+                "sector_id": "7"
+              }
+            ],
             "supplier_framework_lot_jurisdictions": [
               {
                 "jurisdiction_id": "RM6374.GB"
@@ -2764,6 +3201,29 @@
             "lot_6_prospectus_link": "http://kunderauandebert.test/dane.heathcote"
           }
         },
+        "supplier_framework_sectors": [
+          {
+            "sector_id": "1"
+          },
+          {
+            "sector_id": "2"
+          },
+          {
+            "sector_id": "3"
+          },
+          {
+            "sector_id": "4"
+          },
+          {
+            "sector_id": "5"
+          },
+          {
+            "sector_id": "6"
+          },
+          {
+            "sector_id": "7"
+          }
+        ],
         "supplier_framework_lots": [
           {
             "lot_id": "RM6374.1b",
@@ -2998,6 +3458,29 @@
               }
             ],
             "supplier_framework_lot_branches": [],
+            "supplier_framework_sectors": [
+              {
+                "sector_id": "1"
+              },
+              {
+                "sector_id": "2"
+              },
+              {
+                "sector_id": "3"
+              },
+              {
+                "sector_id": "4"
+              },
+              {
+                "sector_id": "5"
+              },
+              {
+                "sector_id": "6"
+              },
+              {
+                "sector_id": "7"
+              }
+            ],
             "supplier_framework_lot_jurisdictions": [
               {
                 "jurisdiction_id": "RM6374.GB"
@@ -3135,6 +3618,29 @@
               }
             ],
             "supplier_framework_lot_branches": [],
+            "supplier_framework_sectors": [
+              {
+                "sector_id": "1"
+              },
+              {
+                "sector_id": "2"
+              },
+              {
+                "sector_id": "3"
+              },
+              {
+                "sector_id": "4"
+              },
+              {
+                "sector_id": "5"
+              },
+              {
+                "sector_id": "6"
+              },
+              {
+                "sector_id": "7"
+              }
+            ],
             "supplier_framework_lot_jurisdictions": [
               {
                 "jurisdiction_id": "RM6374.GB"
@@ -3174,6 +3680,29 @@
             "lot_6_prospectus_link": "http://hanedibbertandritchie.example/sherita.wiegand"
           }
         },
+        "supplier_framework_sectors": [
+          {
+            "sector_id": "1"
+          },
+          {
+            "sector_id": "2"
+          },
+          {
+            "sector_id": "3"
+          },
+          {
+            "sector_id": "4"
+          },
+          {
+            "sector_id": "5"
+          },
+          {
+            "sector_id": "6"
+          },
+          {
+            "sector_id": "7"
+          }
+        ],
         "supplier_framework_lots": [
           {
             "lot_id": "RM6374.1b",
@@ -3408,6 +3937,29 @@
               }
             ],
             "supplier_framework_lot_branches": [],
+            "supplier_framework_sectors": [
+              {
+                "sector_id": "1"
+              },
+              {
+                "sector_id": "2"
+              },
+              {
+                "sector_id": "3"
+              },
+              {
+                "sector_id": "4"
+              },
+              {
+                "sector_id": "5"
+              },
+              {
+                "sector_id": "6"
+              },
+              {
+                "sector_id": "7"
+              }
+            ],
             "supplier_framework_lot_jurisdictions": [
               {
                 "jurisdiction_id": "RM6374.GB"
@@ -3545,6 +4097,29 @@
               }
             ],
             "supplier_framework_lot_branches": [],
+            "supplier_framework_sectors": [
+              {
+                "sector_id": "1"
+              },
+              {
+                "sector_id": "2"
+              },
+              {
+                "sector_id": "3"
+              },
+              {
+                "sector_id": "4"
+              },
+              {
+                "sector_id": "5"
+              },
+              {
+                "sector_id": "6"
+              },
+              {
+                "sector_id": "7"
+              }
+            ],
             "supplier_framework_lot_jurisdictions": [
               {
                 "jurisdiction_id": "RM6374.GB"
@@ -3584,6 +4159,29 @@
             "lot_6_prospectus_link": "http://witting-kautzer.example/reita_stanton"
           }
         },
+        "supplier_framework_sectors": [
+          {
+            "sector_id": "1"
+          },
+          {
+            "sector_id": "2"
+          },
+          {
+            "sector_id": "3"
+          },
+          {
+            "sector_id": "4"
+          },
+          {
+            "sector_id": "5"
+          },
+          {
+            "sector_id": "6"
+          },
+          {
+            "sector_id": "7"
+          }
+        ],
         "supplier_framework_lots": [
           {
             "lot_id": "RM6374.1b",
@@ -3818,6 +4416,29 @@
               }
             ],
             "supplier_framework_lot_branches": [],
+            "supplier_framework_sectors": [
+              {
+                "sector_id": "1"
+              },
+              {
+                "sector_id": "2"
+              },
+              {
+                "sector_id": "3"
+              },
+              {
+                "sector_id": "4"
+              },
+              {
+                "sector_id": "5"
+              },
+              {
+                "sector_id": "6"
+              },
+              {
+                "sector_id": "7"
+              }
+            ],
             "supplier_framework_lot_jurisdictions": [
               {
                 "jurisdiction_id": "RM6374.GB"
@@ -4066,6 +4687,29 @@
               }
             ],
             "supplier_framework_lot_branches": [],
+            "supplier_framework_sectors": [
+              {
+                "sector_id": "1"
+              },
+              {
+                "sector_id": "2"
+              },
+              {
+                "sector_id": "3"
+              },
+              {
+                "sector_id": "4"
+              },
+              {
+                "sector_id": "5"
+              },
+              {
+                "sector_id": "6"
+              },
+              {
+                "sector_id": "7"
+              }
+            ],
             "supplier_framework_lot_jurisdictions": [
               {
                 "jurisdiction_id": "RM6374.GB"
@@ -4111,6 +4755,29 @@
             "lot_6_prospectus_link": "http://considinegroup.example/sheree"
           }
         },
+        "supplier_framework_sectors": [
+          {
+            "sector_id": "1"
+          },
+          {
+            "sector_id": "2"
+          },
+          {
+            "sector_id": "3"
+          },
+          {
+            "sector_id": "4"
+          },
+          {
+            "sector_id": "5"
+          },
+          {
+            "sector_id": "6"
+          },
+          {
+            "sector_id": "7"
+          }
+        ],
         "supplier_framework_lots": [
           {
             "lot_id": "RM6374.1c",
@@ -4345,6 +5012,29 @@
               }
             ],
             "supplier_framework_lot_branches": [],
+            "supplier_framework_sectors": [
+              {
+                "sector_id": "1"
+              },
+              {
+                "sector_id": "2"
+              },
+              {
+                "sector_id": "3"
+              },
+              {
+                "sector_id": "4"
+              },
+              {
+                "sector_id": "5"
+              },
+              {
+                "sector_id": "6"
+              },
+              {
+                "sector_id": "7"
+              }
+            ],
             "supplier_framework_lot_jurisdictions": [
               {
                 "jurisdiction_id": "RM6374.GB"
@@ -4390,6 +5080,29 @@
             "lot_6_prospectus_link": "http://schillerkerlukeandgoodwin.example/eldridge.littel"
           }
         },
+        "supplier_framework_sectors": [
+          {
+            "sector_id": "1"
+          },
+          {
+            "sector_id": "2"
+          },
+          {
+            "sector_id": "3"
+          },
+          {
+            "sector_id": "4"
+          },
+          {
+            "sector_id": "5"
+          },
+          {
+            "sector_id": "6"
+          },
+          {
+            "sector_id": "7"
+          }
+        ],
         "supplier_framework_lots": [
           {
             "lot_id": "RM6374.1c",
@@ -4624,6 +5337,29 @@
               }
             ],
             "supplier_framework_lot_branches": [],
+            "supplier_framework_sectors": [
+              {
+                "sector_id": "1"
+              },
+              {
+                "sector_id": "2"
+              },
+              {
+                "sector_id": "3"
+              },
+              {
+                "sector_id": "4"
+              },
+              {
+                "sector_id": "5"
+              },
+              {
+                "sector_id": "6"
+              },
+              {
+                "sector_id": "7"
+              }
+            ],
             "supplier_framework_lot_jurisdictions": [
               {
                 "jurisdiction_id": "RM6374.GB"
@@ -4669,6 +5405,29 @@
             "lot_6_prospectus_link": "http://bogan-zieme.example/alishia"
           }
         },
+        "supplier_framework_sectors": [
+          {
+            "sector_id": "1"
+          },
+          {
+            "sector_id": "2"
+          },
+          {
+            "sector_id": "3"
+          },
+          {
+            "sector_id": "4"
+          },
+          {
+            "sector_id": "5"
+          },
+          {
+            "sector_id": "6"
+          },
+          {
+            "sector_id": "7"
+          }
+        ],
         "supplier_framework_lots": [
           {
             "lot_id": "RM6374.1c",
@@ -4903,6 +5662,29 @@
               }
             ],
             "supplier_framework_lot_branches": [],
+            "supplier_framework_sectors": [
+              {
+                "sector_id": "1"
+              },
+              {
+                "sector_id": "2"
+              },
+              {
+                "sector_id": "3"
+              },
+              {
+                "sector_id": "4"
+              },
+              {
+                "sector_id": "5"
+              },
+              {
+                "sector_id": "6"
+              },
+              {
+                "sector_id": "7"
+              }
+            ],
             "supplier_framework_lot_jurisdictions": [
               {
                 "jurisdiction_id": "RM6374.GB"
@@ -5067,6 +5849,29 @@
               }
             ],
             "supplier_framework_lot_branches": [],
+            "supplier_framework_sectors": [
+              {
+                "sector_id": "1"
+              },
+              {
+                "sector_id": "2"
+              },
+              {
+                "sector_id": "3"
+              },
+              {
+                "sector_id": "4"
+              },
+              {
+                "sector_id": "5"
+              },
+              {
+                "sector_id": "6"
+              },
+              {
+                "sector_id": "7"
+              }
+            ],
             "supplier_framework_lot_jurisdictions": [
               {
                 "jurisdiction_id": "RM6374.GB"
@@ -5106,6 +5911,29 @@
             "lot_6_prospectus_link": "http://hayesreichelandquigley.test/dante"
           }
         },
+        "supplier_framework_sectors": [
+          {
+            "sector_id": "1"
+          },
+          {
+            "sector_id": "2"
+          },
+          {
+            "sector_id": "3"
+          },
+          {
+            "sector_id": "4"
+          },
+          {
+            "sector_id": "5"
+          },
+          {
+            "sector_id": "6"
+          },
+          {
+            "sector_id": "7"
+          }
+        ],
         "supplier_framework_lots": [
           {
             "lot_id": "RM6374.1c",
@@ -5340,6 +6168,29 @@
               }
             ],
             "supplier_framework_lot_branches": [],
+            "supplier_framework_sectors": [
+              {
+                "sector_id": "1"
+              },
+              {
+                "sector_id": "2"
+              },
+              {
+                "sector_id": "3"
+              },
+              {
+                "sector_id": "4"
+              },
+              {
+                "sector_id": "5"
+              },
+              {
+                "sector_id": "6"
+              },
+              {
+                "sector_id": "7"
+              }
+            ],
             "supplier_framework_lot_jurisdictions": [
               {
                 "jurisdiction_id": "RM6374.GB"
@@ -5489,6 +6340,29 @@
               }
             ],
             "supplier_framework_lot_branches": [],
+            "supplier_framework_sectors": [
+              {
+                "sector_id": "1"
+              },
+              {
+                "sector_id": "2"
+              },
+              {
+                "sector_id": "3"
+              },
+              {
+                "sector_id": "4"
+              },
+              {
+                "sector_id": "5"
+              },
+              {
+                "sector_id": "6"
+              },
+              {
+                "sector_id": "7"
+              }
+            ],
             "supplier_framework_lot_jurisdictions": [
               {
                 "jurisdiction_id": "RM6374.GB"
@@ -5531,6 +6405,29 @@
             "lot_6_prospectus_link": "http://rolfson-rippin.test/tristan_block"
           }
         },
+        "supplier_framework_sectors": [
+          {
+            "sector_id": "1"
+          },
+          {
+            "sector_id": "2"
+          },
+          {
+            "sector_id": "3"
+          },
+          {
+            "sector_id": "4"
+          },
+          {
+            "sector_id": "5"
+          },
+          {
+            "sector_id": "6"
+          },
+          {
+            "sector_id": "7"
+          }
+        ],
         "supplier_framework_lots": [
           {
             "lot_id": "RM6374.1c",
@@ -5765,6 +6662,7 @@
               }
             ],
             "supplier_framework_lot_branches": [],
+
             "supplier_framework_lot_jurisdictions": [
               {
                 "jurisdiction_id": "RM6374.GB"
@@ -6040,6 +6938,29 @@
               }
             ],
             "supplier_framework_lot_branches": [],
+            "supplier_framework_sectors": [
+              {
+                "sector_id": "1"
+              },
+              {
+                "sector_id": "2"
+              },
+              {
+                "sector_id": "3"
+              },
+              {
+                "sector_id": "4"
+              },
+              {
+                "sector_id": "5"
+              },
+              {
+                "sector_id": "6"
+              },
+              {
+                "sector_id": "7"
+              }
+            ],
             "supplier_framework_lot_jurisdictions": [
               {
                 "jurisdiction_id": "RM6374.GB"
@@ -6085,6 +7006,29 @@
             "lot_6_prospectus_link": "http://jastsauerandvolkman.test/minerva_harvey"
           }
         },
+        "supplier_framework_sectors": [
+          {
+            "sector_id": "1"
+          },
+          {
+            "sector_id": "2"
+          },
+          {
+            "sector_id": "3"
+          },
+          {
+            "sector_id": "4"
+          },
+          {
+            "sector_id": "5"
+          },
+          {
+            "sector_id": "6"
+          },
+          {
+            "sector_id": "7"
+          }
+        ],
         "supplier_framework_lots": [
           {
             "lot_id": "RM6374.2",
@@ -6346,6 +7290,29 @@
               }
             ],
             "supplier_framework_lot_branches": [],
+            "supplier_framework_sectors": [
+              {
+                "sector_id": "1"
+              },
+              {
+                "sector_id": "2"
+              },
+              {
+                "sector_id": "3"
+              },
+              {
+                "sector_id": "4"
+              },
+              {
+                "sector_id": "5"
+              },
+              {
+                "sector_id": "6"
+              },
+              {
+                "sector_id": "7"
+              }
+            ],
             "supplier_framework_lot_jurisdictions": [
               {
                 "jurisdiction_id": "RM6374.GB"
@@ -6391,6 +7358,29 @@
             "lot_6_prospectus_link": "http://beerdickiandmuller.test/tanna.dubuque"
           }
         },
+        "supplier_framework_sectors": [
+          {
+            "sector_id": "1"
+          },
+          {
+            "sector_id": "2"
+          },
+          {
+            "sector_id": "3"
+          },
+          {
+            "sector_id": "4"
+          },
+          {
+            "sector_id": "5"
+          },
+          {
+            "sector_id": "6"
+          },
+          {
+            "sector_id": "7"
+          }
+        ],
         "supplier_framework_lots": [
           {
             "lot_id": "RM6374.2",
@@ -6652,6 +7642,29 @@
               }
             ],
             "supplier_framework_lot_branches": [],
+            "supplier_framework_sectors": [
+              {
+                "sector_id": "1"
+              },
+              {
+                "sector_id": "2"
+              },
+              {
+                "sector_id": "3"
+              },
+              {
+                "sector_id": "4"
+              },
+              {
+                "sector_id": "5"
+              },
+              {
+                "sector_id": "6"
+              },
+              {
+                "sector_id": "7"
+              }
+            ],
             "supplier_framework_lot_jurisdictions": [
               {
                 "jurisdiction_id": "RM6374.GB"
@@ -6697,6 +7710,29 @@
             "lot_6_prospectus_link": "http://fritschlangworthandstiedemann.test/oscar"
           }
         },
+        "supplier_framework_sectors": [
+          {
+            "sector_id": "1"
+          },
+          {
+            "sector_id": "2"
+          },
+          {
+            "sector_id": "3"
+          },
+          {
+            "sector_id": "4"
+          },
+          {
+            "sector_id": "5"
+          },
+          {
+            "sector_id": "6"
+          },
+          {
+            "sector_id": "7"
+          }
+        ],
         "supplier_framework_lots": [
           {
             "lot_id": "RM6374.2",
@@ -6958,6 +7994,29 @@
               }
             ],
             "supplier_framework_lot_branches": [],
+            "supplier_framework_sectors": [
+              {
+                "sector_id": "1"
+              },
+              {
+                "sector_id": "2"
+              },
+              {
+                "sector_id": "3"
+              },
+              {
+                "sector_id": "4"
+              },
+              {
+                "sector_id": "5"
+              },
+              {
+                "sector_id": "6"
+              },
+              {
+                "sector_id": "7"
+              }
+            ],
             "supplier_framework_lot_jurisdictions": [
               {
                 "jurisdiction_id": "RM6374.GB"
@@ -7041,6 +8100,29 @@
               }
             ],
             "supplier_framework_lot_branches": [],
+            "supplier_framework_sectors": [
+              {
+                "sector_id": "1"
+              },
+              {
+                "sector_id": "2"
+              },
+              {
+                "sector_id": "3"
+              },
+              {
+                "sector_id": "4"
+              },
+              {
+                "sector_id": "5"
+              },
+              {
+                "sector_id": "6"
+              },
+              {
+                "sector_id": "7"
+              }
+            ],
             "supplier_framework_lot_jurisdictions": [
               {
                 "jurisdiction_id": "RM6374.GB"
@@ -7086,6 +8168,29 @@
             "lot_6_prospectus_link": "http://kiehnstammandtorp.example/nona"
           }
         },
+        "supplier_framework_sectors": [
+          {
+            "sector_id": "1"
+          },
+          {
+            "sector_id": "2"
+          },
+          {
+            "sector_id": "3"
+          },
+          {
+            "sector_id": "4"
+          },
+          {
+            "sector_id": "5"
+          },
+          {
+            "sector_id": "6"
+          },
+          {
+            "sector_id": "7"
+          }
+        ],
         "supplier_framework_lots": [
           {
             "lot_id": "RM6374.2",
@@ -7347,6 +8452,29 @@
               }
             ],
             "supplier_framework_lot_branches": [],
+            "supplier_framework_sectors": [
+              {
+                "sector_id": "1"
+              },
+              {
+                "sector_id": "2"
+              },
+              {
+                "sector_id": "3"
+              },
+              {
+                "sector_id": "4"
+              },
+              {
+                "sector_id": "5"
+              },
+              {
+                "sector_id": "6"
+              },
+              {
+                "sector_id": "7"
+              }
+            ],
             "supplier_framework_lot_jurisdictions": [
               {
                 "jurisdiction_id": "RM6374.GB"
@@ -7433,6 +8561,29 @@
               }
             ],
             "supplier_framework_lot_branches": [],
+            "supplier_framework_sectors": [
+              {
+                "sector_id": "1"
+              },
+              {
+                "sector_id": "2"
+              },
+              {
+                "sector_id": "3"
+              },
+              {
+                "sector_id": "4"
+              },
+              {
+                "sector_id": "5"
+              },
+              {
+                "sector_id": "6"
+              },
+              {
+                "sector_id": "7"
+              }
+            ],
             "supplier_framework_lot_jurisdictions": [
               {
                 "jurisdiction_id": "RM6374.GB"
@@ -7475,6 +8626,29 @@
             "lot_6_prospectus_link": "http://smithamgroup.example/jimmie"
           }
         },
+        "supplier_framework_sectors": [
+          {
+            "sector_id": "1"
+          },
+          {
+            "sector_id": "2"
+          },
+          {
+            "sector_id": "3"
+          },
+          {
+            "sector_id": "4"
+          },
+          {
+            "sector_id": "5"
+          },
+          {
+            "sector_id": "6"
+          },
+          {
+            "sector_id": "7"
+          }
+        ],
         "supplier_framework_lots": [
           {
             "lot_id": "RM6374.2",
@@ -7736,6 +8910,29 @@
               }
             ],
             "supplier_framework_lot_branches": [],
+            "supplier_framework_sectors": [
+              {
+                "sector_id": "1"
+              },
+              {
+                "sector_id": "2"
+              },
+              {
+                "sector_id": "3"
+              },
+              {
+                "sector_id": "4"
+              },
+              {
+                "sector_id": "5"
+              },
+              {
+                "sector_id": "6"
+              },
+              {
+                "sector_id": "7"
+              }
+            ],
             "supplier_framework_lot_jurisdictions": [
               {
                 "jurisdiction_id": "RM6374.GB"
@@ -7831,6 +9028,29 @@
               }
             ],
             "supplier_framework_lot_branches": [],
+            "supplier_framework_sectors": [
+              {
+                "sector_id": "1"
+              },
+              {
+                "sector_id": "2"
+              },
+              {
+                "sector_id": "3"
+              },
+              {
+                "sector_id": "4"
+              },
+              {
+                "sector_id": "5"
+              },
+              {
+                "sector_id": "6"
+              },
+              {
+                "sector_id": "7"
+              }
+            ],
             "supplier_framework_lot_jurisdictions": [
               {
                 "jurisdiction_id": "RM6374.GB"
@@ -7876,6 +9096,29 @@
             "lot_6_prospectus_link": "http://cristlefflerandwiegand.example/kris"
           }
         },
+        "supplier_framework_sectors": [
+          {
+            "sector_id": "1"
+          },
+          {
+            "sector_id": "2"
+          },
+          {
+            "sector_id": "3"
+          },
+          {
+            "sector_id": "4"
+          },
+          {
+            "sector_id": "5"
+          },
+          {
+            "sector_id": "6"
+          },
+          {
+            "sector_id": "7"
+          }
+        ],
         "supplier_framework_lots": [
           {
             "lot_id": "RM6374.3",
@@ -7957,6 +9200,29 @@
               }
             ],
             "supplier_framework_lot_branches": [],
+            "supplier_framework_sectors": [
+              {
+                "sector_id": "1"
+              },
+              {
+                "sector_id": "2"
+              },
+              {
+                "sector_id": "3"
+              },
+              {
+                "sector_id": "4"
+              },
+              {
+                "sector_id": "5"
+              },
+              {
+                "sector_id": "6"
+              },
+              {
+                "sector_id": "7"
+              }
+            ],
             "supplier_framework_lot_jurisdictions": [
               {
                 "jurisdiction_id": "RM6374.GB"
@@ -8002,6 +9268,29 @@
             "lot_6_prospectus_link": "http://kautzerbotsfordandwiza.test/neomi_kutch"
           }
         },
+        "supplier_framework_sectors": [
+          {
+            "sector_id": "1"
+          },
+          {
+            "sector_id": "2"
+          },
+          {
+            "sector_id": "3"
+          },
+          {
+            "sector_id": "4"
+          },
+          {
+            "sector_id": "5"
+          },
+          {
+            "sector_id": "6"
+          },
+          {
+            "sector_id": "7"
+          }
+        ],
         "supplier_framework_lots": [
           {
             "lot_id": "RM6374.3",
@@ -8083,6 +9372,29 @@
               }
             ],
             "supplier_framework_lot_branches": [],
+            "supplier_framework_sectors": [
+              {
+                "sector_id": "1"
+              },
+              {
+                "sector_id": "2"
+              },
+              {
+                "sector_id": "3"
+              },
+              {
+                "sector_id": "4"
+              },
+              {
+                "sector_id": "5"
+              },
+              {
+                "sector_id": "6"
+              },
+              {
+                "sector_id": "7"
+              }
+            ],
             "supplier_framework_lot_jurisdictions": [
               {
                 "jurisdiction_id": "RM6374.GB"
@@ -8128,6 +9440,29 @@
             "lot_6_prospectus_link": "http://mayerllc.example/samual_rodriguez"
           }
         },
+        "supplier_framework_sectors": [
+          {
+            "sector_id": "1"
+          },
+          {
+            "sector_id": "2"
+          },
+          {
+            "sector_id": "3"
+          },
+          {
+            "sector_id": "4"
+          },
+          {
+            "sector_id": "5"
+          },
+          {
+            "sector_id": "6"
+          },
+          {
+            "sector_id": "7"
+          }
+        ],
         "supplier_framework_lots": [
           {
             "lot_id": "RM6374.3",
@@ -8209,6 +9544,29 @@
               }
             ],
             "supplier_framework_lot_branches": [],
+            "supplier_framework_sectors": [
+              {
+                "sector_id": "1"
+              },
+              {
+                "sector_id": "2"
+              },
+              {
+                "sector_id": "3"
+              },
+              {
+                "sector_id": "4"
+              },
+              {
+                "sector_id": "5"
+              },
+              {
+                "sector_id": "6"
+              },
+              {
+                "sector_id": "7"
+              }
+            ],
             "supplier_framework_lot_jurisdictions": [
               {
                 "jurisdiction_id": "RM6374.GB"
@@ -8295,6 +9653,29 @@
               }
             ],
             "supplier_framework_lot_branches": [],
+            "supplier_framework_sectors": [
+              {
+                "sector_id": "1"
+              },
+              {
+                "sector_id": "2"
+              },
+              {
+                "sector_id": "3"
+              },
+              {
+                "sector_id": "4"
+              },
+              {
+                "sector_id": "5"
+              },
+              {
+                "sector_id": "6"
+              },
+              {
+                "sector_id": "7"
+              }
+            ],
             "supplier_framework_lot_jurisdictions": [
               {
                 "jurisdiction_id": "RM6374.GB"
@@ -8334,6 +9715,29 @@
             "lot_6_prospectus_link": "http://sipesschillerandullrich.test/carmelia"
           }
         },
+        "supplier_framework_sectors": [
+          {
+            "sector_id": "1"
+          },
+          {
+            "sector_id": "2"
+          },
+          {
+            "sector_id": "3"
+          },
+          {
+            "sector_id": "4"
+          },
+          {
+            "sector_id": "5"
+          },
+          {
+            "sector_id": "6"
+          },
+          {
+            "sector_id": "7"
+          }
+        ],
         "supplier_framework_lots": [
           {
             "lot_id": "RM6374.3",
@@ -8415,6 +9819,29 @@
               }
             ],
             "supplier_framework_lot_branches": [],
+            "supplier_framework_sectors": [
+              {
+                "sector_id": "1"
+              },
+              {
+                "sector_id": "2"
+              },
+              {
+                "sector_id": "3"
+              },
+              {
+                "sector_id": "4"
+              },
+              {
+                "sector_id": "5"
+              },
+              {
+                "sector_id": "6"
+              },
+              {
+                "sector_id": "7"
+              }
+            ],
             "supplier_framework_lot_jurisdictions": [
               {
                 "jurisdiction_id": "RM6374.GB"
@@ -8501,6 +9928,29 @@
               }
             ],
             "supplier_framework_lot_branches": [],
+            "supplier_framework_sectors": [
+              {
+                "sector_id": "1"
+              },
+              {
+                "sector_id": "2"
+              },
+              {
+                "sector_id": "3"
+              },
+              {
+                "sector_id": "4"
+              },
+              {
+                "sector_id": "5"
+              },
+              {
+                "sector_id": "6"
+              },
+              {
+                "sector_id": "7"
+              }
+            ],
             "supplier_framework_lot_jurisdictions": [
               {
                 "jurisdiction_id": "RM6374.GB"
@@ -8546,6 +9996,29 @@
             "lot_6_prospectus_link": "http://klein-bechtelar.test/isiah"
           }
         },
+        "supplier_framework_sectors": [
+          {
+            "sector_id": "1"
+          },
+          {
+            "sector_id": "2"
+          },
+          {
+            "sector_id": "3"
+          },
+          {
+            "sector_id": "4"
+          },
+          {
+            "sector_id": "5"
+          },
+          {
+            "sector_id": "6"
+          },
+          {
+            "sector_id": "7"
+          }
+        ],
         "supplier_framework_lots": [
           {
             "lot_id": "RM6374.3",
@@ -8627,6 +10100,29 @@
               }
             ],
             "supplier_framework_lot_branches": [],
+            "supplier_framework_sectors": [
+              {
+                "sector_id": "1"
+              },
+              {
+                "sector_id": "2"
+              },
+              {
+                "sector_id": "3"
+              },
+              {
+                "sector_id": "4"
+              },
+              {
+                "sector_id": "5"
+              },
+              {
+                "sector_id": "6"
+              },
+              {
+                "sector_id": "7"
+              }
+            ],
             "supplier_framework_lot_jurisdictions": [
               {
                 "jurisdiction_id": "RM6374.GB"
@@ -8728,6 +10224,29 @@
               }
             ],
             "supplier_framework_lot_branches": [],
+            "supplier_framework_sectors": [
+              {
+                "sector_id": "1"
+              },
+              {
+                "sector_id": "2"
+              },
+              {
+                "sector_id": "3"
+              },
+              {
+                "sector_id": "4"
+              },
+              {
+                "sector_id": "5"
+              },
+              {
+                "sector_id": "6"
+              },
+              {
+                "sector_id": "7"
+              }
+            ],
             "supplier_framework_lot_jurisdictions": [
               {
                 "jurisdiction_id": "RM6374.GB"
@@ -8773,6 +10292,29 @@
             "lot_6_prospectus_link": "http://kossllc.example/palma"
           }
         },
+        "supplier_framework_sectors": [
+          {
+            "sector_id": "1"
+          },
+          {
+            "sector_id": "2"
+          },
+          {
+            "sector_id": "3"
+          },
+          {
+            "sector_id": "4"
+          },
+          {
+            "sector_id": "5"
+          },
+          {
+            "sector_id": "6"
+          },
+          {
+            "sector_id": "7"
+          }
+        ],
         "supplier_framework_lots": [
           {
             "lot_id": "RM6374.4",
@@ -8860,6 +10402,29 @@
               }
             ],
             "supplier_framework_lot_branches": [],
+            "supplier_framework_sectors": [
+              {
+                "sector_id": "1"
+              },
+              {
+                "sector_id": "2"
+              },
+              {
+                "sector_id": "3"
+              },
+              {
+                "sector_id": "4"
+              },
+              {
+                "sector_id": "5"
+              },
+              {
+                "sector_id": "6"
+              },
+              {
+                "sector_id": "7"
+              }
+            ],
             "supplier_framework_lot_jurisdictions": [
               {
                 "jurisdiction_id": "RM6374.GB"
@@ -8905,6 +10470,29 @@
             "lot_6_prospectus_link": "http://ferry-bins.example/lance_stamm"
           }
         },
+        "supplier_framework_sectors": [
+          {
+            "sector_id": "1"
+          },
+          {
+            "sector_id": "2"
+          },
+          {
+            "sector_id": "3"
+          },
+          {
+            "sector_id": "4"
+          },
+          {
+            "sector_id": "5"
+          },
+          {
+            "sector_id": "6"
+          },
+          {
+            "sector_id": "7"
+          }
+        ],
         "supplier_framework_lots": [
           {
             "lot_id": "RM6374.4",
@@ -8992,6 +10580,29 @@
               }
             ],
             "supplier_framework_lot_branches": [],
+            "supplier_framework_sectors": [
+              {
+                "sector_id": "1"
+              },
+              {
+                "sector_id": "2"
+              },
+              {
+                "sector_id": "3"
+              },
+              {
+                "sector_id": "4"
+              },
+              {
+                "sector_id": "5"
+              },
+              {
+                "sector_id": "6"
+              },
+              {
+                "sector_id": "7"
+              }
+            ],
             "supplier_framework_lot_jurisdictions": [
               {
                 "jurisdiction_id": "RM6374.GB"
@@ -9037,6 +10648,29 @@
             "lot_6_prospectus_link": "http://schneider-bruen.example/brett"
           }
         },
+        "supplier_framework_sectors": [
+          {
+            "sector_id": "1"
+          },
+          {
+            "sector_id": "2"
+          },
+          {
+            "sector_id": "3"
+          },
+          {
+            "sector_id": "4"
+          },
+          {
+            "sector_id": "5"
+          },
+          {
+            "sector_id": "6"
+          },
+          {
+            "sector_id": "7"
+          }
+        ],
         "supplier_framework_lots": [
           {
             "lot_id": "RM6374.4",
@@ -9124,6 +10758,29 @@
               }
             ],
             "supplier_framework_lot_branches": [],
+            "supplier_framework_sectors": [
+              {
+                "sector_id": "1"
+              },
+              {
+                "sector_id": "2"
+              },
+              {
+                "sector_id": "3"
+              },
+              {
+                "sector_id": "4"
+              },
+              {
+                "sector_id": "5"
+              },
+              {
+                "sector_id": "6"
+              },
+              {
+                "sector_id": "7"
+              }
+            ],
             "supplier_framework_lot_jurisdictions": [
               {
                 "jurisdiction_id": "RM6374.GB"
@@ -9234,6 +10891,29 @@
               }
             ],
             "supplier_framework_lot_branches": [],
+            "supplier_framework_sectors": [
+              {
+                "sector_id": "1"
+              },
+              {
+                "sector_id": "2"
+              },
+              {
+                "sector_id": "3"
+              },
+              {
+                "sector_id": "4"
+              },
+              {
+                "sector_id": "5"
+              },
+              {
+                "sector_id": "6"
+              },
+              {
+                "sector_id": "7"
+              }
+            ],
             "supplier_framework_lot_jurisdictions": [
               {
                 "jurisdiction_id": "RM6374.GB"
@@ -9276,6 +10956,29 @@
             "lot_6_prospectus_link": "http://sengermuellerandwiegand.example/christoper_crona"
           }
         },
+        "supplier_framework_sectors": [
+          {
+            "sector_id": "1"
+          },
+          {
+            "sector_id": "2"
+          },
+          {
+            "sector_id": "3"
+          },
+          {
+            "sector_id": "4"
+          },
+          {
+            "sector_id": "5"
+          },
+          {
+            "sector_id": "6"
+          },
+          {
+            "sector_id": "7"
+          }
+        ],
         "supplier_framework_lots": [
           {
             "lot_id": "RM6374.4",
@@ -9363,6 +11066,29 @@
               }
             ],
             "supplier_framework_lot_branches": [],
+            "supplier_framework_sectors": [
+              {
+                "sector_id": "1"
+              },
+              {
+                "sector_id": "2"
+              },
+              {
+                "sector_id": "3"
+              },
+              {
+                "sector_id": "4"
+              },
+              {
+                "sector_id": "5"
+              },
+              {
+                "sector_id": "6"
+              },
+              {
+                "sector_id": "7"
+              }
+            ],
             "supplier_framework_lot_jurisdictions": [
               {
                 "jurisdiction_id": "RM6374.GB"
@@ -9470,6 +11196,29 @@
               }
             ],
             "supplier_framework_lot_branches": [],
+            "supplier_framework_sectors": [
+              {
+                "sector_id": "1"
+              },
+              {
+                "sector_id": "2"
+              },
+              {
+                "sector_id": "3"
+              },
+              {
+                "sector_id": "4"
+              },
+              {
+                "sector_id": "5"
+              },
+              {
+                "sector_id": "6"
+              },
+              {
+                "sector_id": "7"
+              }
+            ],
             "supplier_framework_lot_jurisdictions": [
               {
                 "jurisdiction_id": "RM6374.GB"
@@ -9515,6 +11264,29 @@
             "lot_6_prospectus_link": "http://lemkejohnsandkutch.example/hal"
           }
         },
+        "supplier_framework_sectors": [
+          {
+            "sector_id": "1"
+          },
+          {
+            "sector_id": "2"
+          },
+          {
+            "sector_id": "3"
+          },
+          {
+            "sector_id": "4"
+          },
+          {
+            "sector_id": "5"
+          },
+          {
+            "sector_id": "6"
+          },
+          {
+            "sector_id": "7"
+          }
+        ],
         "supplier_framework_lots": [
           {
             "lot_id": "RM6374.4",
@@ -9602,6 +11374,29 @@
               }
             ],
             "supplier_framework_lot_branches": [],
+            "supplier_framework_sectors": [
+              {
+                "sector_id": "1"
+              },
+              {
+                "sector_id": "2"
+              },
+              {
+                "sector_id": "3"
+              },
+              {
+                "sector_id": "4"
+              },
+              {
+                "sector_id": "5"
+              },
+              {
+                "sector_id": "6"
+              },
+              {
+                "sector_id": "7"
+              }
+            ],
             "supplier_framework_lot_jurisdictions": [
               {
                 "jurisdiction_id": "RM6374.GB"
@@ -9739,6 +11534,29 @@
               }
             ],
             "supplier_framework_lot_branches": [],
+            "supplier_framework_sectors": [
+              {
+                "sector_id": "1"
+              },
+              {
+                "sector_id": "2"
+              },
+              {
+                "sector_id": "3"
+              },
+              {
+                "sector_id": "4"
+              },
+              {
+                "sector_id": "5"
+              },
+              {
+                "sector_id": "6"
+              },
+              {
+                "sector_id": "7"
+              }
+            ],
             "supplier_framework_lot_jurisdictions": [
               {
                 "jurisdiction_id": "RM6374.GB"
@@ -9784,6 +11602,29 @@
             "lot_6_prospectus_link": "http://donnellydickinsonandabbott.test/yong"
           }
         },
+        "supplier_framework_sectors": [
+          {
+            "sector_id": "1"
+          },
+          {
+            "sector_id": "2"
+          },
+          {
+            "sector_id": "3"
+          },
+          {
+            "sector_id": "4"
+          },
+          {
+            "sector_id": "5"
+          },
+          {
+            "sector_id": "6"
+          },
+          {
+            "sector_id": "7"
+          }
+        ],
         "supplier_framework_lots": [
           {
             "lot_id": "RM6374.5",
@@ -9907,6 +11748,29 @@
               }
             ],
             "supplier_framework_lot_branches": [],
+            "supplier_framework_sectors": [
+              {
+                "sector_id": "1"
+              },
+              {
+                "sector_id": "2"
+              },
+              {
+                "sector_id": "3"
+              },
+              {
+                "sector_id": "4"
+              },
+              {
+                "sector_id": "5"
+              },
+              {
+                "sector_id": "6"
+              },
+              {
+                "sector_id": "7"
+              }
+            ],
             "supplier_framework_lot_jurisdictions": [
               {
                 "jurisdiction_id": "RM6374.GB"
@@ -9952,6 +11816,29 @@
             "lot_6_prospectus_link": "http://brownjohnstonandshanahan.test/rikki_abernathy"
           }
         },
+        "supplier_framework_sectors": [
+          {
+            "sector_id": "1"
+          },
+          {
+            "sector_id": "2"
+          },
+          {
+            "sector_id": "3"
+          },
+          {
+            "sector_id": "4"
+          },
+          {
+            "sector_id": "5"
+          },
+          {
+            "sector_id": "6"
+          },
+          {
+            "sector_id": "7"
+          }
+        ],
         "supplier_framework_lots": [
           {
             "lot_id": "RM6374.5",
@@ -10075,6 +11962,29 @@
               }
             ],
             "supplier_framework_lot_branches": [],
+            "supplier_framework_sectors": [
+              {
+                "sector_id": "1"
+              },
+              {
+                "sector_id": "2"
+              },
+              {
+                "sector_id": "3"
+              },
+              {
+                "sector_id": "4"
+              },
+              {
+                "sector_id": "5"
+              },
+              {
+                "sector_id": "6"
+              },
+              {
+                "sector_id": "7"
+              }
+            ],
             "supplier_framework_lot_jurisdictions": [
               {
                 "jurisdiction_id": "RM6374.GB"
@@ -10120,6 +12030,29 @@
             "lot_6_prospectus_link": "http://rodriguezgroup.test/marceline"
           }
         },
+        "supplier_framework_sectors": [
+          {
+            "sector_id": "1"
+          },
+          {
+            "sector_id": "2"
+          },
+          {
+            "sector_id": "3"
+          },
+          {
+            "sector_id": "4"
+          },
+          {
+            "sector_id": "5"
+          },
+          {
+            "sector_id": "6"
+          },
+          {
+            "sector_id": "7"
+          }
+        ],
         "supplier_framework_lots": [
           {
             "lot_id": "RM6374.5",
@@ -10243,6 +12176,29 @@
               }
             ],
             "supplier_framework_lot_branches": [],
+            "supplier_framework_sectors": [
+              {
+                "sector_id": "1"
+              },
+              {
+                "sector_id": "2"
+              },
+              {
+                "sector_id": "3"
+              },
+              {
+                "sector_id": "4"
+              },
+              {
+                "sector_id": "5"
+              },
+              {
+                "sector_id": "6"
+              },
+              {
+                "sector_id": "7"
+              }
+            ],
             "supplier_framework_lot_jurisdictions": [
               {
                 "jurisdiction_id": "RM6374.GB"
@@ -10289,6 +12245,29 @@
               }
             ],
             "supplier_framework_lot_branches": [],
+            "supplier_framework_sectors": [
+              {
+                "sector_id": "1"
+              },
+              {
+                "sector_id": "2"
+              },
+              {
+                "sector_id": "3"
+              },
+              {
+                "sector_id": "4"
+              },
+              {
+                "sector_id": "5"
+              },
+              {
+                "sector_id": "6"
+              },
+              {
+                "sector_id": "7"
+              }
+            ],
             "supplier_framework_lot_jurisdictions": [
               {
                 "jurisdiction_id": "RM6374.GB"
@@ -10331,6 +12310,29 @@
             "lot_6_prospectus_link": "http://stromannolanandlockman.test/arla"
           }
         },
+        "supplier_framework_sectors": [
+          {
+            "sector_id": "1"
+          },
+          {
+            "sector_id": "2"
+          },
+          {
+            "sector_id": "3"
+          },
+          {
+            "sector_id": "4"
+          },
+          {
+            "sector_id": "5"
+          },
+          {
+            "sector_id": "6"
+          },
+          {
+            "sector_id": "7"
+          }
+        ],
         "supplier_framework_lots": [
           {
             "lot_id": "RM6374.5",
@@ -10454,6 +12456,29 @@
               }
             ],
             "supplier_framework_lot_branches": [],
+            "supplier_framework_sectors": [
+              {
+                "sector_id": "1"
+              },
+              {
+                "sector_id": "2"
+              },
+              {
+                "sector_id": "3"
+              },
+              {
+                "sector_id": "4"
+              },
+              {
+                "sector_id": "5"
+              },
+              {
+                "sector_id": "6"
+              },
+              {
+                "sector_id": "7"
+              }
+            ],
             "supplier_framework_lot_jurisdictions": [
               {
                 "jurisdiction_id": "RM6374.GB"
@@ -10500,6 +12525,29 @@
               }
             ],
             "supplier_framework_lot_branches": [],
+            "supplier_framework_sectors": [
+              {
+                "sector_id": "1"
+              },
+              {
+                "sector_id": "2"
+              },
+              {
+                "sector_id": "3"
+              },
+              {
+                "sector_id": "4"
+              },
+              {
+                "sector_id": "5"
+              },
+              {
+                "sector_id": "6"
+              },
+              {
+                "sector_id": "7"
+              }
+            ],
             "supplier_framework_lot_jurisdictions": [
               {
                 "jurisdiction_id": "RM6374.GB"
@@ -10545,6 +12593,29 @@
             "lot_6_prospectus_link": "http://schneiderarmstrongandabernathy.test/christia_greenholt"
           }
         },
+        "supplier_framework_sectors": [
+          {
+            "sector_id": "1"
+          },
+          {
+            "sector_id": "2"
+          },
+          {
+            "sector_id": "3"
+          },
+          {
+            "sector_id": "4"
+          },
+          {
+            "sector_id": "5"
+          },
+          {
+            "sector_id": "6"
+          },
+          {
+            "sector_id": "7"
+          }
+        ],
         "supplier_framework_lots": [
           {
             "lot_id": "RM6374.5",
@@ -10668,6 +12739,29 @@
               }
             ],
             "supplier_framework_lot_branches": [],
+            "supplier_framework_sectors": [
+              {
+                "sector_id": "1"
+              },
+              {
+                "sector_id": "2"
+              },
+              {
+                "sector_id": "3"
+              },
+              {
+                "sector_id": "4"
+              },
+              {
+                "sector_id": "5"
+              },
+              {
+                "sector_id": "6"
+              },
+              {
+                "sector_id": "7"
+              }
+            ],
             "supplier_framework_lot_jurisdictions": [
               {
                 "jurisdiction_id": "RM6374.GB"
@@ -10717,6 +12811,29 @@
               }
             ],
             "supplier_framework_lot_branches": [],
+            "supplier_framework_sectors": [
+              {
+                "sector_id": "1"
+              },
+              {
+                "sector_id": "2"
+              },
+              {
+                "sector_id": "3"
+              },
+              {
+                "sector_id": "4"
+              },
+              {
+                "sector_id": "5"
+              },
+              {
+                "sector_id": "6"
+              },
+              {
+                "sector_id": "7"
+              }
+            ],
             "supplier_framework_lot_jurisdictions": [
               {
                 "jurisdiction_id": "RM6374.GB"
@@ -10762,6 +12879,29 @@
             "lot_6_prospectus_link": "http://stromanlegrosandlynch.test/brendon_legros"
           }
         },
+        "supplier_framework_sectors": [
+          {
+            "sector_id": "1"
+          },
+          {
+            "sector_id": "2"
+          },
+          {
+            "sector_id": "3"
+          },
+          {
+            "sector_id": "4"
+          },
+          {
+            "sector_id": "5"
+          },
+          {
+            "sector_id": "6"
+          },
+          {
+            "sector_id": "7"
+          }
+        ],
         "supplier_framework_lots": [
           {
             "lot_id": "RM6374.6",
@@ -10797,6 +12937,29 @@
               }
             ],
             "supplier_framework_lot_branches": [],
+            "supplier_framework_sectors": [
+              {
+                "sector_id": "1"
+              },
+              {
+                "sector_id": "2"
+              },
+              {
+                "sector_id": "3"
+              },
+              {
+                "sector_id": "4"
+              },
+              {
+                "sector_id": "5"
+              },
+              {
+                "sector_id": "6"
+              },
+              {
+                "sector_id": "7"
+              }
+            ],
             "supplier_framework_lot_jurisdictions": [
               {
                 "jurisdiction_id": "RM6374.GB"
@@ -10842,6 +13005,29 @@
             "lot_6_prospectus_link": "http://kerluke-white.test/kenneth.olson"
           }
         },
+        "supplier_framework_sectors": [
+          {
+            "sector_id": "1"
+          },
+          {
+            "sector_id": "2"
+          },
+          {
+            "sector_id": "3"
+          },
+          {
+            "sector_id": "4"
+          },
+          {
+            "sector_id": "5"
+          },
+          {
+            "sector_id": "6"
+          },
+          {
+            "sector_id": "7"
+          }
+        ],
         "supplier_framework_lots": [
           {
             "lot_id": "RM6374.6",
@@ -10877,6 +13063,29 @@
               }
             ],
             "supplier_framework_lot_branches": [],
+            "supplier_framework_sectors": [
+              {
+                "sector_id": "1"
+              },
+              {
+                "sector_id": "2"
+              },
+              {
+                "sector_id": "3"
+              },
+              {
+                "sector_id": "4"
+              },
+              {
+                "sector_id": "5"
+              },
+              {
+                "sector_id": "6"
+              },
+              {
+                "sector_id": "7"
+              }
+            ],
             "supplier_framework_lot_jurisdictions": [
               {
                 "jurisdiction_id": "RM6374.GB"
@@ -10922,6 +13131,29 @@
             "lot_6_prospectus_link": "http://swaniawski-gulgowski.test/gala_beer"
           }
         },
+        "supplier_framework_sectors": [
+          {
+            "sector_id": "1"
+          },
+          {
+            "sector_id": "2"
+          },
+          {
+            "sector_id": "3"
+          },
+          {
+            "sector_id": "4"
+          },
+          {
+            "sector_id": "5"
+          },
+          {
+            "sector_id": "6"
+          },
+          {
+            "sector_id": "7"
+          }
+        ],
         "supplier_framework_lots": [
           {
             "lot_id": "RM6374.6",
@@ -10957,6 +13189,29 @@
               }
             ],
             "supplier_framework_lot_branches": [],
+            "supplier_framework_sectors": [
+              {
+                "sector_id": "1"
+              },
+              {
+                "sector_id": "2"
+              },
+              {
+                "sector_id": "3"
+              },
+              {
+                "sector_id": "4"
+              },
+              {
+                "sector_id": "5"
+              },
+              {
+                "sector_id": "6"
+              },
+              {
+                "sector_id": "7"
+              }
+            ],
             "supplier_framework_lot_jurisdictions": [
               {
                 "jurisdiction_id": "RM6374.GB"
@@ -11073,6 +13328,29 @@
               }
             ],
             "supplier_framework_lot_branches": [],
+            "supplier_framework_sectors": [
+              {
+                "sector_id": "1"
+              },
+              {
+                "sector_id": "2"
+              },
+              {
+                "sector_id": "3"
+              },
+              {
+                "sector_id": "4"
+              },
+              {
+                "sector_id": "5"
+              },
+              {
+                "sector_id": "6"
+              },
+              {
+                "sector_id": "7"
+              }
+            ],
             "supplier_framework_lot_jurisdictions": [
               {
                 "jurisdiction_id": "RM6374.GB"
@@ -11112,6 +13390,29 @@
             "lot_6_prospectus_link": "http://krisandsons.test/stormy_watsica"
           }
         },
+        "supplier_framework_sectors": [
+          {
+            "sector_id": "1"
+          },
+          {
+            "sector_id": "2"
+          },
+          {
+            "sector_id": "3"
+          },
+          {
+            "sector_id": "4"
+          },
+          {
+            "sector_id": "5"
+          },
+          {
+            "sector_id": "6"
+          },
+          {
+            "sector_id": "7"
+          }
+        ],
         "supplier_framework_lots": [
           {
             "lot_id": "RM6374.6",
@@ -11147,6 +13448,29 @@
               }
             ],
             "supplier_framework_lot_branches": [],
+            "supplier_framework_sectors": [
+              {
+                "sector_id": "1"
+              },
+              {
+                "sector_id": "2"
+              },
+              {
+                "sector_id": "3"
+              },
+              {
+                "sector_id": "4"
+              },
+              {
+                "sector_id": "5"
+              },
+              {
+                "sector_id": "6"
+              },
+              {
+                "sector_id": "7"
+              }
+            ],
             "supplier_framework_lot_jurisdictions": [
               {
                 "jurisdiction_id": "RM6374.GB"
@@ -11263,6 +13587,29 @@
               }
             ],
             "supplier_framework_lot_branches": [],
+            "supplier_framework_sectors": [
+              {
+                "sector_id": "1"
+              },
+              {
+                "sector_id": "2"
+              },
+              {
+                "sector_id": "3"
+              },
+              {
+                "sector_id": "4"
+              },
+              {
+                "sector_id": "5"
+              },
+              {
+                "sector_id": "6"
+              },
+              {
+                "sector_id": "7"
+              }
+            ],
             "supplier_framework_lot_jurisdictions": [
               {
                 "jurisdiction_id": "RM6374.GB"
@@ -11308,6 +13655,29 @@
             "lot_6_prospectus_link": "http://carrollrodriguezandryan.test/jonie"
           }
         },
+        "supplier_framework_sectors": [
+          {
+            "sector_id": "1"
+          },
+          {
+            "sector_id": "2"
+          },
+          {
+            "sector_id": "3"
+          },
+          {
+            "sector_id": "4"
+          },
+          {
+            "sector_id": "5"
+          },
+          {
+            "sector_id": "6"
+          },
+          {
+            "sector_id": "7"
+          }
+        ],
         "supplier_framework_lots": [
           {
             "lot_id": "RM6374.6",
@@ -11343,6 +13713,29 @@
               }
             ],
             "supplier_framework_lot_branches": [],
+            "supplier_framework_sectors": [
+              {
+                "sector_id": "1"
+              },
+              {
+                "sector_id": "2"
+              },
+              {
+                "sector_id": "3"
+              },
+              {
+                "sector_id": "4"
+              },
+              {
+                "sector_id": "5"
+              },
+              {
+                "sector_id": "6"
+              },
+              {
+                "sector_id": "7"
+              }
+            ],
             "supplier_framework_lot_jurisdictions": [
               {
                 "jurisdiction_id": "RM6374.GB"
