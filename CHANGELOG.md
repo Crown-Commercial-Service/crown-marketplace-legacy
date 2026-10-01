@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [8.2.1] - 2026-10-01
+### Added
+- Added customer sector down selection for RM6374 ([PR 2629](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2629))
+
 ## [8.2.0] - 2026-09-15
 ### Added
 - Added trading name to supply teacher search results and enabled searching via trading name ([PR 2627](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2627))
