@@ -9,6 +9,9 @@
     </span>
     <h1 class="govuk-heading-xl">
       <%= @supplier_framework.supplier_name %>
+      <span class="govuk-caption-l"> 
+        <%= "Trading as #{@supplier_framework.supplier.additional_details&.dig('trading_name').presence}" %>
+      </span>
     </h1>
   </div>
 </div>

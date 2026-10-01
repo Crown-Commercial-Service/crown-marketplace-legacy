@@ -93,6 +93,7 @@ class DataLoader::TestData
       ActiveRecord::Base.connection.truncate_tables(
         :suppliers,
         :supplier_frameworks,
+        :supplier_framework_sectors,
         :supplier_framework_lots,
         :supplier_framework_contact_details,
         :supplier_framework_addresses,

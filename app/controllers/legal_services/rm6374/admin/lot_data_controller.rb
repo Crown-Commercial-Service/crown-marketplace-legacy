@@ -20,8 +20,8 @@ module LegalServices
           end
         end
 
-        def lot_sections(_lot)
-          %i[services jurisdictions rates]
+        def lot_sections(lot)
+          lot.number == '6' ? %i[services rates] : %i[services jurisdictions rates]
         end
 
         # We need to mkae sure the GB jurisdiction is not removed as this is the one the rates sit on

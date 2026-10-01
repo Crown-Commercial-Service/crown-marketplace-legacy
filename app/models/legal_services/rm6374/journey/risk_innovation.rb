@@ -4,6 +4,7 @@ module LegalServices
       include Steppable
 
       attribute :sector
+      attribute :lot_number, :string, default: '4'
       attribute :service_numbers, :array, default: -> { [] }
       validates :service_numbers, presence: true
 

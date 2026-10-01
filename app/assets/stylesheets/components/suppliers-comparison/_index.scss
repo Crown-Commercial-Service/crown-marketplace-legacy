@@ -36,3 +36,14 @@
     @include govuk-font-size($size: 16);
   }
 }
+
+.ccs-checkbox--no-hover {
+  .govuk-checkboxes__item {
+    .govuk-checkboxes__input + .govuk-checkboxes__label {
+      &::before,
+      &:hover::before {
+        box-shadow: none !important;
+      }
+    }
+  }
+}

@@ -6,6 +6,7 @@ module Steppable
   included do
     include ActiveModel::Model
     include ActiveModel::Attributes
+    include ActiveModel::Validations::Callbacks
   end
 
   class_methods do
