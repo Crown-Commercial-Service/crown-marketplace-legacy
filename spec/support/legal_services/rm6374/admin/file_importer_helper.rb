@@ -193,15 +193,56 @@ module LegalServices
             SUPPLIERS_LOT_1A
           end
         end
+      end
 
-        def final_rate(index)
-          case index
-          when 0
-            1200
-          when 1
-            nil
-          when 2
-            ''
+      class Lot2SupplierRateCardsFile < FileImporterHelper
+        def initialize(**options)
+          options[:sheets] ||= SHEETS
+          options[:headers] ||= [HEADERS] * options[:sheets].count
+
+          super
+        end
+
+        def build
+          @sheets.zip(@headers).each do |sheet_name, header_row|
+            add_lot2_rate_sheet(sheet_name, header_row)
+          end
+        end
+
+        OUTPUT_PATH = './tmp/test_lot_2_supplier_rate_cards_file.xlsx'.freeze
+
+        SHEETS = ['Lot 2 Supplier Rate Cards'].freeze
+        HEADERS = ['Supplier Legal Name', 'Legal Specialism Name', 'DUNS Number', 'Specialism Code', 'Partner', 'Legal Director/ Counsel or equivalent', 'Senior Solicitor, Senior Associate/Senior Legal Executive', 'Solicitor, Associate/Legal Executive', 'NQ Solicitor/Associate, Junior Solicitor/Associate/Legal Executive', 'Trainee/Legal Apprentice', 'Paralegal, Legal Assistant', 'Legal Project Managers', 'Legal Document Reviewers, Document Reviewers'].freeze
+        SPECIALISMS = [
+          ['Artificial Intelligence and Machine Learning Law', '2.1'],
+          ['Assimilated Law', '2.2'],
+          ['Aviation and Airports', '2.3']
+        ].freeze
+        PRICES = [1330, 1295, 1225, 1120, 700, 450, 300, 250, 100].freeze
+
+        def self.sheets_with_extra_headers(sheets_with_extra_headers)
+          self::SHEETS.map do |sheet|
+            headers = self::HEADERS
+            headers += ['Extra'] if sheets_with_extra_headers.include? sheet
+            headers
+          end
+        end
+
+        private
+
+        def add_lot2_rate_sheet(sheet_name, header_row)
+          @package.workbook.add_worksheet(name: sheet_name) do |sheet|
+            sheet.add_row header_row
+            next if @empty
+
+            SUPPLIERS_LOT_2.each do |supplier_detail|
+              supplier_name = supplier_detail[0]
+              supplier_duns = @supplier_duns[supplier_name.to_sym] || supplier_detail[6]
+
+              SPECIALISMS.each do |spec_name, spec_code|
+                sheet.add_row [supplier_name, spec_name, supplier_duns, spec_code] + PRICES
+              end
+            end
           end
         end
       end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_09_23_102700) do
+ActiveRecord::Schema[8.1].define(version: 2026_09_25_085553) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
   enable_extension "pgcrypto"
@@ -263,8 +263,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_09_23_102700) do
     t.datetime "updated_at", null: false
     t.index ["position_id"], name: "index_supplier_framework_lot_rates_on_position_id"
     t.index ["service_id"], name: "index_supplier_framework_lot_rates_on_service_id"
-    t.index ["supplier_framework_lot_id", "position_id", "service_id"], name: "idx_on_supplier_framework_lot_id_position_id_servic_1a7f12fae2", unique: true
-    t.index ["supplier_framework_lot_id", "position_id", "supplier_framework_lot_jurisdiction_id"], name: "idx_on_supplier_framework_lot_id_position_id_suppli_ed53e87c0a", unique: true
+    t.index ["supplier_framework_lot_id", "position_id", "supplier_framework_lot_jurisdiction_id", "service_id"], name: "idx_supplier_lot_rates_unique_with_service", unique: true
     t.index ["supplier_framework_lot_id"], name: "idx_on_supplier_framework_lot_id_03e2196cfb"
     t.index ["supplier_framework_lot_jurisdiction_id"], name: "idx_on_supplier_framework_lot_jurisdiction_id_e5ffe73c62"
   end
