@@ -95,15 +95,32 @@ class Upload < ApplicationRecord
           ]
         end
 
-        Supplier::Framework::Lot::Rate.import!(
-          supplier_framework_lot_data[:supplier_framework_lot_rates].map do |supplier_framework_lot_rate_data|
-            {
-              supplier_framework_lot_id: supplier_framework_lot.id,
-              supplier_framework_lot_jurisdiction_id: jurisdiction_id_to_supplier_framework_lot_jurisdiction[supplier_framework_lot_rate_data[:jurisdiction_id]],
-              **supplier_framework_lot_rate_data.except(:jurisdiction_id)
-            }
-          end
-        )
+        if supplier_framework_lot.lot_id == 'RM6374.2'
+          service_code_to_id = Service.where(lot_id: supplier_framework_lot.lot_id).pluck(:id, :id).to_h
+
+          Supplier::Framework::Lot::Rate.import!(
+            supplier_framework_lot_data[:supplier_framework_lot_rates].map do |supplier_framework_lot_rate_data|
+              raw_service_code = supplier_framework_lot_rate_data[:service_id]
+
+              {
+                supplier_framework_lot_id: supplier_framework_lot.id,
+                supplier_framework_lot_jurisdiction_id: jurisdiction_id_to_supplier_framework_lot_jurisdiction[supplier_framework_lot_rate_data[:jurisdiction_id]],
+                service_id: service_code_to_id[raw_service_code],
+                **supplier_framework_lot_rate_data.except(:jurisdiction_id, :service_id)
+              }
+            end
+          )
+        else
+          Supplier::Framework::Lot::Rate.import!(
+            supplier_framework_lot_data[:supplier_framework_lot_rates].map do |supplier_framework_lot_rate_data|
+              {
+                supplier_framework_lot_id: supplier_framework_lot.id,
+                supplier_framework_lot_jurisdiction_id: jurisdiction_id_to_supplier_framework_lot_jurisdiction[supplier_framework_lot_rate_data[:jurisdiction_id]],
+                **supplier_framework_lot_rate_data.except(:jurisdiction_id)
+              }
+            end
+          )
+        end
 
         # Because of how slugs are generated, these need to be imported one at a time
         supplier_framework_lot_data[:supplier_framework_lot_branches].map do |supplier_framework_lot_branches_data|
