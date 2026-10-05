@@ -17,35 +17,39 @@
     </span>
 
       <div class="govuk-grid-row">
-        <div class="govuk-grid-column-two-thirds">
-          
           <% if @supplier_frameworks.count.zero? %>
-            <h1 class="govuk-heading-xl"><%= t('.no_suppliers_found.heading') %></h1>
-              <p class="govuk-body govuk-!-font-size-24">
-                <%=t('.no_suppliers_found.text') %>
-              </p>
-            <%= govuk_button(t('.back_to_start'), href: legal_services_index_path, classes: 'govuk-!-margin-top-4 govuk-!-padding-left-4 govuk-!-padding-right-4') %>
-          
-          <% else %>
-            <h1 class="govuk-heading-xl"><%= t('.page_title') %></h1>
-
-            <p class="govuk-body">
-              <%= t('.can_provide_legal_specialisms_html', count: @supplier_frameworks.count) %>
-            </p>
-
-            <p class="govuk-body govuk-!-font-size-24"><strong><u>
-              <%= t('.description') %>
-            </u></strong></p>
-            
-            <div class="govuk-button-group">
-              <%= govuk_button(t('.download_supplier_rate'), href: download_rm6374_lot_2_rate_legal_services_rm6374_suppliers_path(format: :xlsx, **@journey.params)) %>
-              <%= govuk_button(t('.download_suppliers_list'), href: download_legal_services_rm6374_suppliers_path(format: :xlsx, **@journey.params), classes: 'govuk-button--secondary') %>
+            <div class="govuk-grid-column-two-thirds">
+              <h1 class="govuk-heading-xl"><%= t('.no_suppliers_found.heading') %></h1>
+                <p class="govuk-body govuk-!-font-size-24">
+                  <%=t('.no_suppliers_found.text') %>
+                </p>
+              <%= govuk_button(t('.back_to_start'), href: legal_services_index_path, classes: 'govuk-!-margin-top-4 govuk-!-padding-left-4 govuk-!-padding-right-4') %>
             </div>
+          <% else %>
 
-            <div class=" ccs-search-results">
-              <ul class="ccs-results-list">
-                <%= render partial: 'supplier_framework', collection: @supplier_frameworks %>
-              </ul>
+            <div class="govuk-grid-column-full">
+              <h1 class="govuk-heading-xl govuk-!-margin-bottom-4 govuk-!-margin-top-0"><%= t('.heading') %></h1>
+              <p class="govuk-body"> <%= t('.can_provide_legal_specialisms_html', count: @supplier_frameworks.count) %> </p>
+              <p class="govuk-body"> <%= t('.assessment_advice') %> </p>
+              <p class="govuk-body"> <%= t('.prospectus_timeline_advice') %> </p>
+            </div>
+          
+            
+            <div class="govuk-grid-column-two-thirds">
+              <div class="govuk-button-group">
+                <%= govuk_button(t('.download_supplier_rate'), href: download_rm6374_lot_2_rate_legal_services_rm6374_suppliers_path(format: :xlsx, **@journey.params)) %>
+                <%= govuk_button(t('.download_suppliers_list'), href: download_legal_services_rm6374_suppliers_path(format: :xlsx, **@journey.params), classes: 'govuk-button--secondary') %>
+              </div>
+
+              <% if params[:lot_number] == '2' && params[:single_or_multiple_suppliers] == "multiple" %>
+                    <%= render partial: 'supplier_framework_lot_2_multiple' %>
+              <% else %>
+              <div class=" ccs-search-results">
+                <ul class="ccs-results-list">
+                    <%= render partial: 'supplier_framework', collection: @supplier_frameworks %>
+                  <% end %>
+                </ul>
+              </div>
             </div>
 
           <% end %>

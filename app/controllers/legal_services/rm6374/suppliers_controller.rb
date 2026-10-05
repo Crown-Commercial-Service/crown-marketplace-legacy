@@ -5,7 +5,7 @@ module LegalServices
 
       helper LegalServices::RM6374::RatesHelper
       helper LegalServices::RM6374::Admin::SuppliersHelper
-      helper_method :fetch_services_from_supplier_framework_for_lot_2
+      helper_method :fetch_services_with_suppliers_for_lot_2
 
       before_action :fetch_supplier_framework, :fetch_rates, only: :show
 
@@ -68,6 +68,19 @@ module LegalServices
         @supplier_frameworks = scoped_supplier_frameworks.shuffle
       end
 
+      def fetch_services_with_suppliers_for_lot_2
+        selected_codes = service_codes.map { |code| code.start_with?('RM6374.') ? code : "RM6374.#{code}" }
+        services_with_supplier_frameworks = Hash.new { |hash, key| hash[key] = [] }
+
+        scoped_supplier_frameworks.each do |supplier_framework|
+          extract_matching_services(supplier_framework, selected_codes).each do |service|
+            services_with_supplier_frameworks[service.service.name] << supplier_framework
+          end
+        end
+
+        services_with_supplier_frameworks.transform_values { |frameworks| frameworks.uniq(&:id) }
+      end
+
       private
 
       def fetch_supplier_framework
@@ -94,14 +107,11 @@ module LegalServices
         params.expect(service_numbers: []).map { |num| "#{@lot.id}.#{num}" }
       end
 
-      def fetch_services_from_supplier_framework_for_lot_2(supplier_framework)
+      def extract_matching_services(supplier_framework, selected_codes)
         framework_lot = supplier_framework.lots.find { |l| l.lot_id == @lot.id }
+        return [] unless framework_lot
 
-        selected_codes = service_codes.map { |code| code.start_with?('RM6374.') ? code : "RM6374.#{code}" }
-
-        framework_lot.services
-                     .select { |s| selected_codes.include?(s.service_id) }
-                     .map { |s| s.service.name }
+        framework_lot.services.select { |s| selected_codes.include?(s.service_id) }
       end
 
       def selected_jurisdiction_id
