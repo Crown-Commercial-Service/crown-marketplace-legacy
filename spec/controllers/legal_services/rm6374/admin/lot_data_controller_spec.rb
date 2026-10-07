@@ -295,7 +295,7 @@ RSpec.describe LegalServices::RM6374::Admin::LotDataController do
 
         it 'renders section partial template' do
           expect(response).to have_http_status(:ok)
-          expect(response).to render_template(partial: "shared/admin/lot_data/edit/_#{section}")
+          expect(response).to render_template(partial: "legal_services/rm6374/admin/lot_data/edit/_#{section}")
         end
       end
     end
@@ -469,7 +469,7 @@ RSpec.describe LegalServices::RM6374::Admin::LotDataController do
 
           it 'renders section partial template' do
             expect(response).to have_http_status(:ok)
-            expect(response).to render_template(partial: "shared/admin/lot_data/edit/_#{section}")
+            expect(response).to render_template(partial: "legal_services/rm6374/admin/lot_data/edit/_#{section}")
           end
 
           it 'does not create a change log' do
@@ -521,7 +521,7 @@ RSpec.describe LegalServices::RM6374::Admin::LotDataController do
 
           it 'renders section partial template' do
             expect(response).to have_http_status(:ok)
-            expect(response).to render_template(partial: "shared/admin/lot_data/edit/_#{section}")
+            expect(response).to render_template(partial: "legal_services/rm6374/admin/lot_data/edit/_#{section}")
           end
 
           it 'does not create a change log' do
@@ -573,7 +573,7 @@ RSpec.describe LegalServices::RM6374::Admin::LotDataController do
 
           it 'renders section partial template' do
             expect(response).to have_http_status(:ok)
-            expect(response).to render_template(partial: "shared/admin/lot_data/edit/_#{section}")
+            expect(response).to render_template(partial: "legal_services/rm6374/admin/lot_data/edit/_#{section}")
           end
 
           it 'does not create a change log' do
@@ -649,7 +649,7 @@ RSpec.describe LegalServices::RM6374::Admin::LotDataController do
 
           it 'renders section partial template' do
             expect(response).to have_http_status(:ok)
-            expect(response).to render_template(partial: "shared/admin/lot_data/edit/_#{section}")
+            expect(response).to render_template(partial: "legal_services/rm6374/admin/lot_data/edit/_#{section}")
           end
 
           it 'does not create a change log' do
@@ -706,7 +706,7 @@ RSpec.describe LegalServices::RM6374::Admin::LotDataController do
 
           it 'renders section partial template' do
             expect(response).to have_http_status(:ok)
-            expect(response).to render_template(partial: "shared/admin/lot_data/edit/_#{section}")
+            expect(response).to render_template(partial: "legal_services/rm6374/admin/lot_data/edit/_#{section}")
           end
 
           it 'does not create a change log' do
@@ -758,7 +758,7 @@ RSpec.describe LegalServices::RM6374::Admin::LotDataController do
 
           it 'renders section partial template' do
             expect(response).to have_http_status(:ok)
-            expect(response).to render_template(partial: "shared/admin/lot_data/edit/_#{section}")
+            expect(response).to render_template(partial: "legal_services/rm6374/admin/lot_data/edit/_#{section}")
           end
 
           it 'does not create a change log' do
@@ -810,7 +810,7 @@ RSpec.describe LegalServices::RM6374::Admin::LotDataController do
 
           it 'renders section partial template' do
             expect(response).to have_http_status(:ok)
-            expect(response).to render_template(partial: "shared/admin/lot_data/edit/_#{section}")
+            expect(response).to render_template(partial: "legal_services/rm6374/admin/lot_data/edit/_#{section}")
           end
 
           it 'does not create a change log' do
@@ -881,7 +881,7 @@ RSpec.describe LegalServices::RM6374::Admin::LotDataController do
 
           it 'renders section partial template' do
             expect(response).to have_http_status(:ok)
-            expect(response).to render_template(partial: "shared/admin/lot_data/edit/_#{section}")
+            expect(response).to render_template(partial: "legal_services/rm6374/admin/lot_data/edit/_#{section}")
           end
 
           it 'does not create a change log' do

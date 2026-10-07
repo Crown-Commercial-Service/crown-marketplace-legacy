@@ -33,6 +33,7 @@ module LegalServices
         end
 
         def set_supplier_framework_lot_data_for_rates
+          @supplier_framework_lot_jurisdiction = @supplier_framework_lot.jurisdictions.find_by(jurisdiction_id: params.fetch(:jurisdiction_id, "#{@framework.id}.GB"))
           if @lot.number == '2'
             set_lot_2_rates
           else
