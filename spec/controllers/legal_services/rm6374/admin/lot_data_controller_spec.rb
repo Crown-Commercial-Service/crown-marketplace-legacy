@@ -846,7 +846,7 @@ RSpec.describe LegalServices::RM6374::Admin::LotDataController do
         end
       end
 
-      let!(:supplier_framework_lot_rates) do
+      let!(:supplier_framework_lot_rates) do # rubocop:disable RSpec/LetSetup
         supplier_framework_lot_services.flat_map do |service|
           Position.where(lot_id: 'RM6374.2').pluck(:id).map do |position_id|
             create(
