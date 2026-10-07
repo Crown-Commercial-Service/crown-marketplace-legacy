@@ -146,7 +146,12 @@ RSpec.describe LegalServices::RM6374::Admin::LotDataController do
 
         it 'renders section partial template' do
           expect(response).to have_http_status(:ok)
-          expect(response).to render_template(partial: "shared/admin/lot_data/show/_#{section}")
+
+          if section == 'rates'
+            expect(response).to render_template(partial: "legal_services/rm6374/admin/lot_data/show/_#{section}")
+          else
+            expect(response).to render_template(partial: "shared/admin/lot_data/show/_#{section}")
+          end
         end
       end
     end
@@ -212,6 +217,84 @@ RSpec.describe LegalServices::RM6374::Admin::LotDataController do
 
         it 'redirects to the index page' do
           expect(response).to redirect_to(legal_services_rm6374_admin_supplier_lot_data_path)
+        end
+      end
+    end
+
+    context 'when the lot number is 2' do
+      let(:lot_number) { '2' }
+      let(:service_id) { 'RM6374.2.1' }
+
+      let(:supplier_framework_lot_services) do
+        (1..5).map { |service_number| "RM6374.2.#{service_number}" }.map do |s_id|
+          create(:supplier_framework_lot_service, supplier_framework_lot: supplier_framework_lot, service_id: s_id)
+        end
+      end
+
+      let(:supplier_framework_lot_rates) do
+        supplier_framework_lot_services.flat_map do |service|
+          Position.where(lot_id: 'RM6374.2', mandatory: true).pluck(:id).map do |position_id|
+            create(
+              :supplier_framework_lot_rate,
+              supplier_framework_lot: supplier_framework_lot,
+              service_id: service.service_id,
+              jurisdiction: supplier_framework_lot_jurisdiction,
+              position_id: position_id
+            )
+          end
+        end
+      end
+
+      context 'and the section is services' do
+        let(:section) { 'services' }
+
+        include_context 'when testing a section'
+
+        it 'assigns services' do
+          assigns(:services).each do |group, services|
+            expect(group).to be_nil
+            expect(services.length).to eq(69)
+          end
+        end
+
+        it 'assigns supplier_framework_lot_service_ids' do
+          assigned_supplier_framework_lot_service_ids = assigns(:supplier_framework_lot_service_ids)
+
+          expect(assigned_supplier_framework_lot_service_ids.count).to eq(5)
+          expect(assigned_supplier_framework_lot_service_ids).to eq(supplier_framework_lot_services.map(&:service_id))
+        end
+      end
+
+      context 'and the section is jurisdictions' do
+        let(:section) { 'jurisdictions' }
+
+        include_context 'when testing a section'
+
+        it 'assigns jurisdictions' do
+          assigns(:jurisdictions).each do |group, jurisdictions|
+            expect(group).to be_nil
+            expect(jurisdictions.length).to eq(3)
+          end
+        end
+
+        it 'assigns supplier_framework_lot_jurisdiction_ids' do
+          assigned_supplier_framework_lot_jurisdiction_ids = assigns(:supplier_framework_lot_jurisdiction_ids)
+
+          expect(assigned_supplier_framework_lot_jurisdiction_ids.count).to eq(2)
+          expect(assigned_supplier_framework_lot_jurisdiction_ids).to eq(supplier_framework_lot_jurisdictions.map(&:jurisdiction_id))
+        end
+      end
+
+      context 'and the section is rates' do
+        let(:section) { 'rates' }
+
+        include_context 'when testing a section'
+
+        it 'assigns supplier_framework_lot_rates' do
+          assigned_supplier_framework_lot_rates = assigns(:supplier_framework_lot_rates)
+
+          expect(assigned_supplier_framework_lot_rates.count).to eq(supplier_framework_lot_rates.count)
+          expect(assigned_supplier_framework_lot_rates.map(&:id).sort).to eq(supplier_framework_lot_rates.map(&:id).sort)
         end
       end
     end
@@ -295,7 +378,11 @@ RSpec.describe LegalServices::RM6374::Admin::LotDataController do
 
         it 'renders section partial template' do
           expect(response).to have_http_status(:ok)
-          expect(response).to render_template(partial: "legal_services/rm6374/admin/lot_data/edit/_#{section}")
+          if section == 'rates'
+            expect(response).to render_template(partial: "legal_services/rm6374/admin/lot_data/edit/_#{section}")
+          else
+            expect(response).to render_template(partial: "shared/admin/lot_data/edit/_#{section}")
+          end
         end
       end
     end
@@ -348,6 +435,80 @@ RSpec.describe LegalServices::RM6374::Admin::LotDataController do
 
         it 'redirects to the show page' do
           expect(response).to redirect_to(legal_services_rm6374_admin_supplier_lot_datum_path(section:))
+        end
+      end
+    end
+
+    context 'when the lot number is 2' do
+      let(:lot_number) { '2' }
+      let(:service_id) { 'RM6374.2.1' }
+
+      let(:supplier_framework_lot_services) do
+        (1..5).map { |service_number| "RM6374.2.#{service_number}" }.map do |s_id|
+          create(:supplier_framework_lot_service, supplier_framework_lot: supplier_framework_lot, service_id: s_id)
+        end
+      end
+
+      let(:supplier_framework_lot_rates) do
+        supplier_framework_lot_services.flat_map do |service|
+          Position.where(lot_id: 'RM6374.2', mandatory: true).pluck(:id).map do |position_id|
+            create(
+              :supplier_framework_lot_rate,
+              supplier_framework_lot: supplier_framework_lot,
+              service_id: service.service_id,
+              jurisdiction: supplier_framework_lot_jurisdiction,
+              position_id: position_id
+            )
+          end
+        end
+      end
+
+      context 'and the section is lot_status' do
+        let(:section) { 'lot_status' }
+
+        include_context 'when testing a section'
+      end
+
+      context 'and the section is services' do
+        let(:section) { 'services' }
+
+        include_context 'when testing a section'
+
+        it 'assigns supplier_framework_lot_service_ids' do
+          expect(assigns(:supplier_framework_lot_service_ids)).to eq(supplier_framework_lot_services.map(&:service_id))
+        end
+      end
+
+      context 'and the section is jurisdictions' do
+        let(:section) { 'jurisdictions' }
+
+        include_context 'when testing a section'
+
+        it 'assigns supplier_framework_lot_jurisdiction_ids' do
+          expect(assigns(:supplier_framework_lot_jurisdiction_ids)).to eq(supplier_framework_lot_jurisdictions.map(&:jurisdiction_id))
+        end
+      end
+
+      context 'and the section is rates' do
+        let(:section) { 'rates' }
+
+        before do
+          get :edit, params: { lot_number:, section:, service_id: }
+        end
+
+        include_context 'when testing a section'
+
+        it 'assigns service_id' do
+          expect(assigns(:service_id)).to eq(service_id)
+        end
+
+        it 'assigns supplier_framework_lot_rates' do
+          expect(assigns(:supplier_framework_lot_rates)).to be_a(Hash)
+          expect(assigns(:supplier_framework_lot_rates).keys).to match_array(Position.where(lot_id: 'RM6374.2').pluck(:id))
+        end
+
+        it 'does not assign a single supplier_framework_lot_jurisdiction for Lot 2' do
+          expect(assigns(:supplier_framework_lot_jurisdiction)).to eq(supplier_framework_lot_jurisdiction)
         end
       end
     end
