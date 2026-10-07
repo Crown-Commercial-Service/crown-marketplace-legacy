@@ -568,7 +568,8 @@ RSpec.describe LegalServices::RM6374::Admin::LotDataController do
       supplier_framework_lot_jurisdictions
       supplier_framework_lot_rates
 
-      post :update, params: { lot_number: lot_number, section: section, supplier_framework_lot: model_params }
+      additional_params = defined?(extra_params) ? extra_params : {}
+      post :update, params: { lot_number: lot_number, section: section, supplier_framework_lot: model_params }.merge(additional_params)
     end
 
     shared_examples 'when testing a section' do
@@ -827,6 +828,296 @@ RSpec.describe LegalServices::RM6374::Admin::LotDataController do
         it 'redirects to the show page' do
           expect(response).to redirect_to(legal_services_rm6374_admin_supplier_lot_datum_path(section:))
         end
+      end
+    end
+
+    context 'when the lot number is 2' do
+      let(:lot_number) { '2' }
+      let(:service_id) { 'RM6374.2.1' }
+
+      let!(:supplier_framework_lot_jurisdiction) do
+        supplier_framework_lot.jurisdictions.find_by(jurisdiction_id: 'RM6374.GB') ||
+          create(:supplier_framework_lot_jurisdiction, supplier_framework_lot: supplier_framework_lot, jurisdiction_id: 'RM6374.GB')
+      end
+
+      let(:supplier_framework_lot_services) do
+        (1..5).map { |service_number| "RM6374.2.#{service_number}" }.map do |s_id|
+          create(:supplier_framework_lot_service, supplier_framework_lot: supplier_framework_lot, service_id: s_id)
+        end
+      end
+
+      let!(:supplier_framework_lot_rates) do
+        supplier_framework_lot_services.flat_map do |service|
+          Position.where(lot_id: 'RM6374.2').pluck(:id).map do |position_id|
+            create(
+              :supplier_framework_lot_rate,
+              supplier_framework_lot: supplier_framework_lot,
+              supplier_framework_lot_jurisdiction_id: supplier_framework_lot_jurisdiction.id,
+              service_id: service.service_id,
+              position_id: position_id
+            )
+          end
+        end
+      end
+
+      context 'and the section is lot_status' do
+        let(:section) { 'lot_status' }
+        let(:model_params) { { enabled: 'false' } }
+
+        include_context 'when testing a section'
+
+        # rubocop:disable RSpec/NestedGroups
+        context 'when it is valid' do
+          it 'redirects to the index page' do
+            expect(response).to redirect_to(legal_services_rm6374_admin_supplier_lot_data_path)
+          end
+
+          it 'updates the details' do
+            expect(supplier_framework_lot.reload.enabled).to be(false)
+          end
+
+          it 'creates a change log' do
+            expect(change_log.change_type).to eq('update_supplier_framework_lot_status')
+            expect(change_log.change_data['id']).to eq(supplier_framework_lot.id)
+            expect(change_log.change_data['after']).to eq({ 'enabled' => false })
+          end
+        end
+
+        context 'when it is invalid' do
+          let(:model_params) { { enabled: nil } }
+
+          render_views
+
+          it 'has errors on the model' do
+            expect(assigns(:model).errors).to be_present
+          end
+
+          it 'renders section partial template' do
+            expect(response).to have_http_status(:ok)
+            expect(response).to render_template(partial: "shared/admin/lot_data/edit/_#{section}")
+          end
+
+          it 'does not create a change log' do
+            expect(change_log).to be_nil
+          end
+        end
+        # rubocop:enable RSpec/NestedGroups
+      end
+
+      context 'and the section is services' do
+        let(:section) { 'services' }
+        let(:service_ids) { ['RM6374.2.1', 'RM6374.2.3', 'RM6374.2.4'] }
+        let(:model_params) { { service_ids: } }
+
+        include_context 'when testing a section'
+
+        it 'assigns supplier_framework_lot_service_ids' do
+          expect(assigns(:supplier_framework_lot_service_ids)).to eq(supplier_framework_lot_services.map(&:service_id))
+        end
+
+        # rubocop:disable RSpec/NestedGroups
+        context 'when it is valid' do
+          it 'redirects to the show page' do
+            expect(response).to redirect_to(legal_services_rm6374_admin_supplier_lot_datum_path(section:))
+          end
+
+          it 'updates the details' do
+            expect(supplier_framework_lot.reload.services.pluck(:service_id).sort).to eq(service_ids.sort)
+          end
+
+          # rubocop:disable RSpec/MultipleExpectations
+          it 'creates a change log' do
+            expect(change_log.change_type).to eq('update_supplier_framework_lot_services')
+            expect(change_log.change_data['id']).to eq(supplier_framework_lot.id)
+            expect(change_log.change_data['added']).to eq([])
+            expect(change_log.change_data['removed']).to eq(['RM6374.2.2', 'RM6374.2.5'])
+          end
+          # rubocop:enable RSpec/MultipleExpectations
+        end
+
+        context 'when it is invalid' do
+          let(:model_params) { { service_ids: ['Invalid ID'] } }
+
+          render_views
+
+          it 'has errors on the model' do
+            expect(assigns(:model).errors).to be_present
+          end
+
+          it 'renders section partial template' do
+            expect(response).to have_http_status(:ok)
+            expect(response).to render_template(partial: "shared/admin/lot_data/edit/_#{section}")
+          end
+
+          it 'does not create a change log' do
+            expect(change_log).to be_nil
+          end
+        end
+        # rubocop:enable RSpec/NestedGroups
+      end
+
+      context 'and the section is jurisdictions' do
+        let(:section) { 'jurisdictions' }
+        let(:jurisdiction_ids) { %w[EW SC].map { |code| "RM6374.#{code}" } }
+        let(:model_params) { { jurisdiction_ids: } }
+
+        include_context 'when testing a section'
+
+        it 'assigns supplier_framework_lot_jurisdiction_ids' do
+          expect(assigns(:supplier_framework_lot_jurisdiction_ids)).to eq(supplier_framework_lot_jurisdictions.map(&:jurisdiction_id))
+        end
+
+        # rubocop:disable RSpec/NestedGroups
+        context 'when it is valid' do
+          it 'redirects to the show page' do
+            expect(response).to redirect_to(legal_services_rm6374_admin_supplier_lot_datum_path(section:))
+          end
+
+          it 'updates the details' do
+            expect(supplier_framework_lot.reload.jurisdictions.pluck(:jurisdiction_id).sort).to eq((jurisdiction_ids + ['RM6374.GB']).sort)
+          end
+
+          # rubocop:disable RSpec/MultipleExpectations
+          it 'creates a change log' do
+            expect(change_log.change_type).to eq('update_supplier_framework_lot_jurisdictions')
+            expect(change_log.change_data['id']).to eq(supplier_framework_lot.id)
+            expect(change_log.change_data['added']).to eq(['RM6374.SC'])
+            expect(change_log.change_data['removed']).to eq(['RM6374.NI'])
+          end
+          # rubocop:enable RSpec/MultipleExpectations
+        end
+
+        context 'when it is invalid' do
+          let(:model_params) { { jurisdiction_ids: ['Invalid ID'] } }
+
+          render_views
+
+          it 'has errors on the model' do
+            expect(assigns(:model).errors).to be_present
+          end
+
+          it 'renders section partial template' do
+            expect(response).to have_http_status(:ok)
+            expect(response).to render_template(partial: "shared/admin/lot_data/edit/_#{section}")
+          end
+
+          it 'does not create a change log' do
+            expect(change_log).to be_nil
+          end
+        end
+        # rubocop:enable RSpec/NestedGroups
+      end
+
+      context 'and the section is rates' do
+        let(:section) { 'rates' }
+        let(:service_id) { 'RM6374.2.1' }
+        let(:jurisdiction_id) { 'RM6374.GB' }
+
+        # Top-level parameters for controller route and before_action lookups
+        let(:extra_params) { { service_id:, jurisdiction_id: } }
+
+        let(:mandatory_positions) { Position.where(lot_id: 'RM6374.2', mandatory: true) }
+        let(:all_positions) { Position.where(lot_id: 'RM6374.2') }
+
+        let!(:supplier_framework_lot_jurisdiction) do
+          supplier_framework_lot.jurisdictions.find_by(jurisdiction_id:) ||
+            create(
+              :supplier_framework_lot_jurisdiction,
+              supplier_framework_lot:,
+              jurisdiction_id:
+            )
+        end
+
+        let!(:supplier_framework_lot_jurisdictions) do
+          %w[GB EW SC NI].map do |code|
+            supplier_framework_lot.jurisdictions.find_by(jurisdiction_id: "RM6374.#{code}") ||
+              create(
+                :supplier_framework_lot_jurisdiction,
+                supplier_framework_lot: supplier_framework_lot,
+                jurisdiction_id: "RM6374.#{code}"
+              )
+          end
+        end
+
+        let!(:supplier_framework_lot_rates) do
+          supplier_framework_lot_services.flat_map do |service|
+            supplier_framework_lot_jurisdictions.flat_map do |jurisdiction_record|
+              all_positions.pluck(:id).map do |pos_id|
+                create(
+                  :supplier_framework_lot_rate,
+                  supplier_framework_lot: supplier_framework_lot,
+                  jurisdiction: jurisdiction_record,
+                  service_id: service.service_id,
+                  position_id: pos_id
+                )
+              end
+            end
+          end
+        end
+
+        let(:rates) do
+          mandatory_rates = mandatory_positions.pluck(:id).index_with { '250.00' }
+          optional_rates = (all_positions.pluck(:id) - mandatory_positions.pluck(:id)).index_with { '' }
+          mandatory_rates.merge(optional_rates)
+        end
+
+        let(:model_params) { { service_id:, jurisdiction_id:, rates: } }
+
+        include_context 'when testing a section'
+
+        it 'assigns supplier_framework_lot_rates' do
+          expect(assigns(:supplier_framework_lot_rates).keys).to match_array(all_positions.pluck(:id))
+          expect(assigns(:supplier_framework_lot_rates).values).to all(be_a(Supplier::Framework::Lot::Rate))
+        end
+
+        # rubocop:disable RSpec/NestedGroups
+        context 'when it is valid' do
+          it 'redirects to the show page' do
+            expect(response).to redirect_to(legal_services_rm6374_admin_supplier_lot_datum_path(section:))
+          end
+
+          it 'updates the details' do
+            supplier_framework_lot.reload
+
+            updated_rates = supplier_framework_lot.rates.where(service_id:).index_by(&:position_id)
+
+            expect(updated_rates.keys.count).to eq(all_positions.count)
+            mandatory_positions.pluck(:id).each do |position_id|
+              expect(updated_rates[position_id].rate).to eq(25_000)
+            end
+          end
+
+          # rubocop:disable RSpec/MultipleExpectations
+          it 'creates a change log' do
+            expect(change_log).to be_present
+            expect(change_log.change_type).to eq('update_supplier_framework_lot_rates')
+            expect(change_log.change_data['id']).to eq(supplier_framework_lot.id)
+            expect(change_log.change_data['rates']).to be_an(Array)
+          end
+          # rubocop:enable RSpec/MultipleExpectations
+        end
+
+        context 'when it is invalid' do
+          let(:rates) { mandatory_positions.pluck(:id).index_with { '' } }
+
+          render_views
+
+          it 'has errors on the model' do
+            assigns(:supplier_framework_lot_rates).each_value do |rate_record|
+              expect(rate_record.errors).to be_present if rate_record.position&.mandatory?
+            end
+          end
+
+          it 'renders section partial template' do
+            expect(response).to have_http_status(:ok)
+            expect(response).to render_template(partial: "legal_services/rm6374/admin/lot_data/edit/_#{section}")
+          end
+
+          it 'does not create a change log' do
+            expect(change_log).to be_nil
+          end
+        end
+        # rubocop:enable RSpec/NestedGroups
       end
     end
 
