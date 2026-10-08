@@ -44,7 +44,7 @@ class Upload < ApplicationRecord
     raise error if error
   end
 
-  # rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/BlockLength
+  # rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/BlockLength, Metrics/MethodLength
   def self.add_supplier_framework!(supplier, supplier_data)
     supplier_data[:supplier_frameworks].each do |supplier_framework_data|
       supplier_framework = supplier.supplier_frameworks.create!(supplier_framework_data.slice(:framework_id, :enabled))
@@ -64,6 +64,21 @@ class Upload < ApplicationRecord
           end
         )
 
+        if supplier_framework_data[:supplier_framework_sectors].present?
+          supplier_framework.supplier_framework_sectors.delete_all
+
+          sectors_to_save = supplier_framework_data[:supplier_framework_sectors].uniq { |s| s[:sector_id] }
+
+          Supplier::Framework::Sector.import!(
+            sectors_to_save.map do |sector_data|
+              {
+                supplier_framework_id: supplier_framework.id,
+                **sector_data
+              }
+            end
+          )
+        end
+
         supplier_framework_lot_jurisdiction_ids = Supplier::Framework::Lot::Jurisdiction.import!(
           supplier_framework_lot_data[:supplier_framework_lot_jurisdictions].map do |supplier_framework_lot_jurisdiction_data|
             {
@@ -80,15 +95,32 @@ class Upload < ApplicationRecord
           ]
         end
 
-        Supplier::Framework::Lot::Rate.import!(
-          supplier_framework_lot_data[:supplier_framework_lot_rates].map do |supplier_framework_lot_rate_data|
-            {
-              supplier_framework_lot_id: supplier_framework_lot.id,
-              supplier_framework_lot_jurisdiction_id: jurisdiction_id_to_supplier_framework_lot_jurisdiction[supplier_framework_lot_rate_data[:jurisdiction_id]],
-              **supplier_framework_lot_rate_data.except(:jurisdiction_id)
-            }
-          end
-        )
+        if supplier_framework_lot.lot_id == 'RM6374.2'
+          service_code_to_id = Service.where(lot_id: supplier_framework_lot.lot_id).pluck(:id, :id).to_h
+
+          Supplier::Framework::Lot::Rate.import!(
+            supplier_framework_lot_data[:supplier_framework_lot_rates].map do |supplier_framework_lot_rate_data|
+              raw_service_code = supplier_framework_lot_rate_data[:service_id]
+
+              {
+                supplier_framework_lot_id: supplier_framework_lot.id,
+                supplier_framework_lot_jurisdiction_id: jurisdiction_id_to_supplier_framework_lot_jurisdiction[supplier_framework_lot_rate_data[:jurisdiction_id]],
+                service_id: service_code_to_id[raw_service_code],
+                **supplier_framework_lot_rate_data.except(:jurisdiction_id, :service_id)
+              }
+            end
+          )
+        else
+          Supplier::Framework::Lot::Rate.import!(
+            supplier_framework_lot_data[:supplier_framework_lot_rates].map do |supplier_framework_lot_rate_data|
+              {
+                supplier_framework_lot_id: supplier_framework_lot.id,
+                supplier_framework_lot_jurisdiction_id: jurisdiction_id_to_supplier_framework_lot_jurisdiction[supplier_framework_lot_rate_data[:jurisdiction_id]],
+                **supplier_framework_lot_rate_data.except(:jurisdiction_id)
+              }
+            end
+          )
+        end
 
         # Because of how slugs are generated, these need to be imported one at a time
         supplier_framework_lot_data[:supplier_framework_lot_branches].map do |supplier_framework_lot_branches_data|
@@ -105,7 +137,7 @@ class Upload < ApplicationRecord
       end
     end
   end
-  # rubocop:enable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Metrics/BlockLength
+  # rubocop:enable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Metrics/BlockLength, Metrics/MethodLength
 
   def self.all_or_none(framework)
     error = nil

@@ -222,11 +222,16 @@ class SupplyTeachers::RM6376::Admin::FilesProcessor < FilesProcessor
   end
 
   def convert_rate(rate, rate_type)
-    rate&.*(rate_type == :pence ? 100 : 10000).to_i
+    return nil if rate.nil?
+
+    multiplier = rate_type == :pence ? 100 : 10_000
+    (rate.to_f * multiplier).round
   end
 
   def convert_rate_to_percentage(rate)
-    rate&.*(10000).to_i
+    return nil if rate.nil?
+
+    (rate.to_f * 10_000).round
   end
 
   LOT_NUMBERS = ['1', '2'].freeze

@@ -1,0 +1,88 @@
+<% 
+base_params = request.query_parameters.to_h.symbolize_keys.except(:slug, :supplier_framework_ids)
+
+journey_path = ->(slug, params = {}) { 
+  legal_services_journey_question_path(params.merge(framework: 'RM6374', slug: slug)) 
+}
+
+@return_to_suppliers = journey_path.call('suppliers', base_params.except(:professions))
+@reselect_supplier  = journey_path.call('compare-select-suppliers', base_params)
+%>
+<% LegalServices::RM6374::Search.log_call_off_mechanism(current_user, session.id, params) %>
+
+<%= content_for :page_title, t('.page_title')  %>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <span class="govuk-caption-m">
+      <%= lot_full_name(@journey.current_step.lot) %>
+      <h1 class="govuk-heading">
+        <%= @journey.current_step.supplier_frameworks.count.zero? ? t('.no_suppliers_found.heading') : t('.heading') %>
+      </h1>
+    </span>
+  </div>
+</div>
+
+<% if @journey.current_step.supplier_frameworks.count.zero? %>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <p class="govuk-body govuk-!-font-size-24">
+        <%=t('.no_suppliers_found.text') %>
+      </p>
+
+      <%= govuk_button(t('.no_suppliers_found.back_to_start'), href: legal_services_index_path, classes: 'govuk-!-margin-top-4 govuk-!-padding-left-4 govuk-!-padding-right-4') %>
+    </div>
+  </div>
+
+<% else %>
+
+  <p class="govuk-body">
+    <span class="govuk-!-font-weight-bold">
+      <%= @journey.current_step.supplier_frameworks.count %> <%= t('.supplier').pluralize(@journey.current_step.supplier_frameworks.count) %>
+    </span>
+    <%= t('.can_provide_specialisms') %>
+  </p>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full ccs-supplier-comparison">
+      <%= render(partial: 'legal_services/rm6374/journey/comparison_rates_table', locals: { supplier_frameworks: @journey.current_step.supplier_frameworks_with_rates }) %>
+    </div>
+  </div>
+
+  <hr class="govuk-section-break govuk-section-break--m">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+      
+      <% unless params[:call_off_mechanism] == 'rapid_award' %>
+        <p class="govuk-body">
+          <%= t(".disclaimer_#{params[:call_off_mechanism]}") %>
+        </p>
+      <% end %>
+
+      <p class="govuk-body">
+        <%= t(".disclaimer") %>
+      </p>
+
+      <p class="govuk-body govuk-!-margin-bottom-6">
+        <%= t('.contact_hint_html', contact_link: t('common.ccs_contact_url')) %>
+      </p>
+
+      <div class="govuk-button-group">
+        <%= govuk_button(t('.return_to_result_page'), href: @return_to_suppliers) %>
+        <% unless params[:call_off_mechanism] == 'award_with_competition' || params[:review_prospectus] == 'no' %>
+          <% @back_path = @reselect_supplier %>
+          <% LegalServices::RM6374::Search.log_supplier_rates_comparison(current_user, session.id, params, @journey.current_step.supplier_frameworks) %>
+          <%= govuk_button(
+                t('.reselect_suppliers'), 
+                href: @reselect_supplier, 
+                classes: 'govuk-button--secondary'
+              ) %>
+        <% end %>
+        <%= govuk_button(t('.download'), href: download_legal_services_rm6374_suppliers_path(request.query_parameters.merge(format: :xlsx)), classes: 'govuk-button--secondary') %>
+
+      </div>
+    </div>
+
+<% end %>
+

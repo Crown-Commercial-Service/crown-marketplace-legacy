@@ -10,11 +10,12 @@
   <%= form_with url: @form_path, method: :get, html: { specialvalidation: true, novalidate: true } do |f| %>
     <%= hidden_fields_for_previous_steps_and_responses(@journey) %>
     <%= hidden_field_tag(:sector, @journey.current_step.sector) %>
+    <%= hidden_field_tag(:lot_number, @journey.current_step.lot_number) %>
 
     <div class="govuk-grid-column-two-thirds" id="selection-checkboxes">
       <%= govuk_checkboxes(
         :service_numbers,
-        @journey.current_step.dispute_resolution.sort_by { |s| s.name.downcase }.map do |service|
+        @journey.current_step.cost_service.sort_by { |s| s.name.downcase }.map do |service|
 
           {
             value: service.number,

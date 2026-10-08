@@ -1,0 +1,36 @@
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+    <% if @supplier_framework_lot_rates.any? %>
+      <% @supplier_framework_lot_rates.group_by(&:service_id).each do |service_id, service_rates| %>
+        <% service = @services_by_id ? @services_by_id[service_id] : Service.find_by(id: service_id) %>
+
+        <div class="govuk-summary-card govuk-!-margin-bottom-6">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              <%= service&.name || service_id %>
+            </h2>
+            <ul class="govuk-summary-card__actions">
+              <li class="govuk-summary-card__action">
+                <%= link_to(
+                      t("shared.admin.lot_data.show.#{service_rates.any? { |r| r.rate.present? } ? 'change_html' : 'add_html'}", section: service&.name || service_id),
+                      supplier_lot_data_edit_path(@supplier_framework, @lot.number_as_slug, @section, service_id: service_id),
+                      class: 'govuk-link govuk-link--no-visited-state'
+                    ) %>
+              </li>
+            </ul>
+          </div>
+          <div class="govuk-summary-card__content">
+            <div class="section-list-group">
+              <% hashed_service_rates = service_rates.index_by(&:position_id) %>
+              <%= govuk_table(
+                *rates_table_headers_and_rows(hashed_service_rates),
+                first_cell_is_header: true,
+                classes: 'ccs-rates-table'
+              ) %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
