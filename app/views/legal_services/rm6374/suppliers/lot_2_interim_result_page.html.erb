@@ -37,7 +37,8 @@
             
             <div class="govuk-grid-column-two-thirds">
               <div class="govuk-button-group">
-                <%= govuk_button(t('.download_supplier_rate'), href: download_rm6374_lot_2_rate_legal_services_rm6374_suppliers_path(format: :xlsx, **@journey.params)) %>
+                <%= govuk_button(t('.compare_supplier_rates'), href: legal_services_journey_question_path(framework: 'RM6374', slug: "choose-law-professionals", **request.query_parameters.symbolize_keys)) %>
+
                 <%= govuk_button(t('.download_suppliers_list'), href: download_legal_services_rm6374_suppliers_path(format: :xlsx, **@journey.params), classes: 'govuk-button--secondary') %>
               </div>
 

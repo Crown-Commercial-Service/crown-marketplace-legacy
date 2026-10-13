@@ -90,8 +90,8 @@ gem 'cancancan', '~> 3.6.1'
 gem 'role_model', '~> 0.8.2'
 
 # for clamav
-# Because ratonvirus is not Rails 8 compatible, we use this fork
-gem 'ratonvirus', '>= 0.3.2', git: 'https://github.com/MaksJS/ratonvirus.git', ref: '13e4cd2bc2ef066f40634344f756b45cda3ac105'
+# for clamav
+gem 'ratonvirus', '~> 0.6.0'
 gem 'ratonvirus-clamby', '>= 0.1.0'
 # for active storage validation
 gem 'active_storage_validations', '>= 1.0.3'

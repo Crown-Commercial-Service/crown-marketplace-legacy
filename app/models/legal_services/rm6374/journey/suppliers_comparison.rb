@@ -16,11 +16,17 @@ module LegalServices
         @lot ||= Lot.find("RM6374.#{lot_number}")
       end
 
+      def fetch_selected_lot_2_services
+        Service.where(id: service_numbers.map { |num| "RM6374.2.#{num}" })
+      end
+
       def supplier_frameworks
         selected_services = get_service_numbers(lot_number)
 
         @supplier_frameworks ||= if lot_number == '6'
                                    fetch_lot_6_supplier_frameworks(selected_services)
+                                 elsif lot_number == '2'
+                                   fetch_lot_2_supplier_frameworks(selected_services)
                                  else
                                    fetch_standard_supplier_frameworks(selected_services)
                                  end
@@ -30,6 +36,17 @@ module LegalServices
         @supplier_frameworks_with_rates ||= supplier_frameworks.map do |supplier_framework|
           rates = supplier_framework.grouped_rates_for_lot(
             lot.id,
+          ).sort_by { |position_id, _| position_id }.to_h
+          [supplier_framework, rates]
+        end
+      end
+
+      def supplier_frameworks_with_rates_for_lot_2
+        @supplier_frameworks_with_rates_for_lot_2 ||= supplier_frameworks.map do |supplier_framework|
+          rates = supplier_framework.grouped_rates_for_lot_and_jurisdictions_and_services(
+            lot.id,
+            [get_jurisdiction(jurisdiction)],
+            get_service_numbers('2')
           ).sort_by { |position_id, _| position_id }.to_h
           [supplier_framework, rates]
         end
@@ -52,6 +69,17 @@ module LegalServices
 
         scope = ::Supplier::Framework.with_lots(lot.id)
                                      .with_services(selected_services)
+                                     .with_sector(selected_sector_id)
+        scope = scope.where(id: supplier_framework_ids) if supplier_framework_ids.present?
+        scope.sort_by(&:supplier_name)
+      end
+
+      def fetch_lot_2_supplier_frameworks(selected_services)
+        selected_sector_id = sector_id_for(sector)
+        selected_jurisdiction_id = get_jurisdiction(jurisdiction)
+
+        scope = ::Supplier::Framework.with_lots(lot.id)
+                                     .with_any_services_and_jurisdiction(selected_services, [selected_jurisdiction_id])
                                      .with_sector(selected_sector_id)
         scope = scope.where(id: supplier_framework_ids) if supplier_framework_ids.present?
         scope.sort_by(&:supplier_name)
