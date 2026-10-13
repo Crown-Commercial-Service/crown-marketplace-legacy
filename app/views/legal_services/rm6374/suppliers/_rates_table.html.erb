@@ -1,0 +1,12 @@
+<h2 class="govuk-heading-m govuk-!-margin-bottom-1"><%= t('.rates') %></h2>
+
+<%= govuk_table(
+  *rates_table_headers_and_rows(@rates),
+  caption: {
+    text: t('.rates'),
+    classes: 'govuk-visually-hidden'
+  },
+  first_cell_is_header: true,
+  classes: 'ccs-rates-table'
+) %>
+

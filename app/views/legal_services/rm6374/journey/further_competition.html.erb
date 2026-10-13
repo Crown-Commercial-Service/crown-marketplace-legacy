@@ -1,0 +1,40 @@
+<% @back_path = legal_services_journey_question_path(framework: 'RM6374', slug: 'choose-call-off-mechanism', **request.query_parameters.symbolize_keys) %>
+
+<%= content_for :page_title, t('.heading') %>
+
+<% matched_frameworks = @journey.current_step.supplier_frameworks(request.query_parameters) %>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <span class="govuk-caption-xl">
+      <%= lot_full_name(@journey.current_step.lot) %>
+    </span>
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-4 govuk-!-margin-top-0">
+      <%= t('.heading') %>
+    </h1>
+
+    <p class="govuk-body">
+      <%= t('.can_provide_legal_specialisms_html', count: matched_frameworks.count) %>
+    </p>
+
+    <p class="govuk-body">
+      <%= t('.assessment_advice') %>
+    </p>
+
+    <div class="govuk-button-group">
+      <%= govuk_button(t('.compare_supplier_rates'), href: "#") %>
+      <%= govuk_button(t('.download_suppliers_list'), href: "#", classes: 'govuk-button--secondary') %>
+    </div>
+    
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds ccs-search-results">
+        <ul class="ccs-results-list">
+          <%= render partial: 'legal_services/suppliers/supplier_framework', collection: matched_frameworks %>
+        </ul>
+      </div>
+    </div>
+    
+  </div>
+</div>

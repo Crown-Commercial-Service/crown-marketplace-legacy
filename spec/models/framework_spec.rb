@@ -689,5 +689,102 @@ RSpec.describe Framework do
       end
     end
   end
+
+  describe '#grouped_rates_for_lot_and_jurisdictions_and_services' do
+    let(:supplier_framework) { create(:supplier_framework) }
+    let(:lot) { create(:supplier_framework_lot, supplier_framework: supplier_framework, lot_id: 'RM6374.2') }
+    let(:jurisdiction) { create(:supplier_framework_lot_jurisdiction, supplier_framework_lot: lot, jurisdiction_id: 'RM6374.EW') }
+    let(:service1) { create(:supplier_framework_lot_service, supplier_framework_lot: lot, service_id: 'RM6374.2.1') }
+    let(:service2) { create(:supplier_framework_lot_service, supplier_framework_lot: lot, service_id: 'RM6374.2.2') }
+
+    let!(:rate1) do
+      create(
+        :supplier_framework_lot_rate,
+        supplier_framework_lot: lot,
+        jurisdiction: jurisdiction,
+        service: service1,
+        position_id: 'RM6374.2.1',
+        rate: 27000
+      )
+    end
+
+    let!(:rate2) do
+      create(
+        :supplier_framework_lot_rate,
+        supplier_framework_lot: lot,
+        jurisdiction: jurisdiction,
+        service: service2,
+        position_id: 'RM6374.2.1',
+        rate: 35000
+      )
+    end
+
+    let!(:rate3) do
+      create(
+        :supplier_framework_lot_rate,
+        supplier_framework_lot: lot,
+        jurisdiction: jurisdiction,
+        service: service2,
+        position_id: 'RM6374.2.2',
+        rate: 20000
+      )
+    end
+
+    context 'when matching records are found' do
+      it 'groups rates by service_id and position_id' do # rubocop:disable RSpec/ExampleLength
+        result = supplier_framework.grouped_rates_for_lot_and_jurisdictions_and_services(
+          'RM6374.2',
+          ['RM6374.EW'],
+          ['RM6374.2.1', 'RM6374.2.2']
+        )
+
+        expect(result).to eq(
+          'RM6374.2.1' => {
+            'RM6374.2.1' => rate1
+          },
+          'RM6374.2.2' => {
+            'RM6374.2.1' => rate2,
+            'RM6374.2.2' => rate3
+          }
+        )
+      end
+
+      it 'filters out services not included in service_ids' do
+        result = supplier_framework.grouped_rates_for_lot_and_jurisdictions_and_services(
+          'RM6374.2',
+          ['RM6374.EW'],
+          ['RM6374.2.1']
+        )
+
+        expect(result.keys).to contain_exactly('RM6374.2.1')
+        expect(result['RM6374.2.1']).to eq('RM6374.2.1' => rate1)
+        expect(result['RM6374.2.2']).to be_nil
+      end
+    end
+
+    context 'when no lot record matches lot_id' do
+      it 'returns an empty hash' do
+        result = supplier_framework.grouped_rates_for_lot_and_jurisdictions_and_services(
+          'RM6374.99',
+          ['RM6374.EW'],
+          ['RM6374.2.1']
+        )
+
+        expect(result).to eq({})
+      end
+    end
+
+    context 'when no rates match the jurisdiction or service filters' do
+      it 'returns an empty hash' do
+        result = supplier_framework.grouped_rates_for_lot_and_jurisdictions_and_services(
+          'RM6374.2',
+          ['RM6374.SC'],
+          ['RM6374.2.1']
+        )
+
+        expect(result).to eq({})
+      end
+    end
+  end
 end
 # rubocop:enable RSpec/NestedGroups

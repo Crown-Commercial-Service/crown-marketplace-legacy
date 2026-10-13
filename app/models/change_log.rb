@@ -9,6 +9,7 @@ class ChangeLog < ApplicationRecord
     update_supplier_information: 'update_supplier_information',
     update_supplier_contact_information: 'update_supplier_contact_information',
     update_supplier_additional_information: 'update_supplier_additional_information',
+    update_supplier_sector_information: 'update_supplier_sector_information',
     update_supplier_framework_lot_status: 'update_supplier_framework_lot_status',
     update_supplier_framework_lot_services: 'update_supplier_framework_lot_services',
     update_supplier_framework_lot_jurisdictions: 'update_supplier_framework_lot_jurisdictions',

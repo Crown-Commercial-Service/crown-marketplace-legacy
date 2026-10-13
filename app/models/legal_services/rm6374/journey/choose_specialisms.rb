@@ -11,7 +11,7 @@ module LegalServices
       def next_step_class
         case specialism
         when 'full_service'
-          service_name::Journey::FullService
+          service_name::Journey::AllLegalSpecalisms
         when 'specific'
           service_name::Journey::Specific
         when 'dispute_resolution'

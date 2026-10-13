@@ -1,0 +1,12 @@
+<%= govuk_checkboxes(
+  :sector_ids,
+  Sector.order(:id).map do |sector| { value: sector.id, label: { text: sector.name} } end,
+  
+  form: form,
+  fieldset: {
+    legend: {
+      text: t('shared.admin.suppliers.sections.customer_sector_selection.heading', default: 'Select customer sectors'),
+      classes: 'govuk-fieldset__legend--m'
+    }
+  }
+) %>

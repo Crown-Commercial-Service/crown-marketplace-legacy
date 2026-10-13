@@ -446,10 +446,10 @@ en:
           partner: Partner
           senior: Senior Solicitor, Senior Associate/Senior Legal Executive
           solicitor: Solicitor, Associate/Legal Executive
-          solicitor_less_than_4_years: Grade C
-          solicitor_more_than_4_years: Grade B
-          solicitor_more_than_8_years: Grade A
-          solicitor_paralegal: Grade D
+          solicitor_less_than_4_years: 'Grade C: Individual with less than 4 years cost litigation experience'
+          solicitor_more_than_4_years: 'Grade B: Individual with more than 4 years cost litigation experience'
+          solicitor_more_than_8_years: 'Grade A: Individual with more than 8 years cost litigation experience'
+          solicitor_paralegal: 'Grade D: Individual with paralegal qualifications'
           trainee: Trainee/Legal Apprentice
       rm6376:
         categories:
