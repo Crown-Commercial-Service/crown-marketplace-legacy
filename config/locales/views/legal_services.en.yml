@@ -615,6 +615,11 @@ en:
           requirement_start_date:
             hint: For example, 12 2025
             question: What is the intended start date for your requirement?
+        lot_2_comparison_rates_table:
+          no_suppliers_found_html: Contact GCA legal services category team at <a href="mailto:info@gca.gov.uk">info@gca.gov.uk</a> to discuss your needs.
+          rates: Rates
+          scroll_to_the_right: Scroll to the right to view all supplier rates
+          supplier: Supplier
         recommended_lot:
           alternatives: Select another lot
           heading_0: Lots that meet your requirements
@@ -671,7 +676,7 @@ en:
           assessment_advice: You may wish to undertake an assessment using the suppliers prospectus’ at this stage to help your down selection process if using a rapid award or quote process. You can do this by using the links provided here or in a downloadable list by clicking "Download the supplier list".
           back_to_start: Back to start
           can_provide_legal_specialisms_html: "<span class='govuk-!-font-weight-bold'>%{count} suppliers</span> can provide the legal specialisms that meet your requirements."
-          download_supplier_rate: Download the supplier rate card
+          compare_supplier_rates: Compare the supplier rates
           download_suppliers_list: Download the supplier list
           heading: Compare supplier rates
           no_suppliers_found:

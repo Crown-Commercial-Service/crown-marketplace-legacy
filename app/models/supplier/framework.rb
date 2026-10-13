@@ -37,6 +37,22 @@ class Supplier < ApplicationRecord
       end
     end
 
+    def grouped_rates_for_lot_and_jurisdictions_and_services(lot_id, jurisdiction_ids, service_ids)
+      lot_record = lots.find_by(lot_id:)
+      return {} unless lot_record
+
+      lot_record.rates
+                .includes(:jurisdiction, :service)
+                .where(
+                  jurisdiction: { jurisdiction_id: jurisdiction_ids },
+                  service: { service_id: service_ids }
+                )
+                .each_with_object({}) do |rate, grouped_rates|
+                  # Group by service_id first (or position_id first)
+                  (grouped_rates[rate.service.service_id] ||= {})[rate.position_id] = rate
+                end
+    end
+
     def self.with_lots(lot_id)
       includes(
         :supplier, :lots
