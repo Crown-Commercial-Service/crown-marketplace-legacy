@@ -46,7 +46,7 @@ journey_path = ->(slug, params = {}) {
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full ccs-supplier-comparison">
       <% if @journey.current_step.lot_number == '2' %>
-        <%= render(partial: 'legal_services/rm6374/journey/lot_2_suppliers_comparison_tab') %>
+        <%= render partial: 'legal_services/rm6374/journey/lot_2/suppliers_comparison', locals: { checkboxes: false } %>
       <% else %>
         <%= render(partial: 'legal_services/rm6374/journey/comparison_rates_table', locals: { supplier_frameworks: @journey.current_step.supplier_frameworks_with_rates }) %>
       <% end %>

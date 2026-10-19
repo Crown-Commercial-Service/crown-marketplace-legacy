@@ -12,7 +12,7 @@ RSpec.describe LegalServices::RM6374::Journey::CompareSelectSuppliers do
     )
   end
 
-  let(:lot_number) { '1' }
+  let(:lot_number) { '3' }
   let(:sector) { 'local_community' }
   let(:jurisdiction) { 'a' }
   let(:call_off_mechanism) { 'direct_award' }
@@ -110,7 +110,7 @@ RSpec.describe LegalServices::RM6374::Journey::CompareSelectSuppliers do
     let(:lot) { instance_double(Lot) }
 
     before do
-      allow(Lot).to receive(:find).with('RM6374.1').and_return(lot)
+      allow(Lot).to receive(:find).with('RM6374.3').and_return(lot)
     end
 
     it 'finds and returns the correct lot based on the lot_number' do
@@ -118,9 +118,72 @@ RSpec.describe LegalServices::RM6374::Journey::CompareSelectSuppliers do
     end
   end
 
+  describe '#fetch_selected_lot_2_services' do
+    let(:service_numbers) { %w[1 3] }
+    let(:services_relation) { double('services_relation') } # rubocop:disable RSpec/VerifiedDoubles
+
+    before do
+      allow(Service).to receive(:where).with(id: ['RM6374.2.1', 'RM6374.2.3']).and_return(services_relation)
+    end
+
+    it 'queries services using formatted Lot 2 IDs' do
+      expect(step.fetch_selected_lot_2_services).to eq(services_relation)
+      expect(Service).to have_received(:where).with(id: ['RM6374.2.1', 'RM6374.2.3'])
+    end
+  end
+
+  describe '#supplier_frameworks_with_rates_for_lot_2' do
+    let(:lot_number) { '2' }
+    let(:lot) { instance_double(Lot, id: 'RM6374.2') }
+    let(:supplier_framework) { instance_double(Supplier::Framework) }
+    let(:jurisdiction) { 'a' }
+    let(:selected_jurisdiction_id) { 'RM6374.EW' }
+    let(:selected_services) { %w[RM6374.2.1 RM6374.2.3] }
+    let(:rates) do
+      {
+        'RM6374.2.3' => { 'RM6374.2.1' => 'rate-b' },
+        'RM6374.2.1' => { 'RM6374.2.1' => 'rate-a' }
+      }
+    end
+
+    before do
+      allow(Lot).to receive(:find).with('RM6374.2').and_return(lot)
+      allow(step).to receive_messages( # rubocop:disable RSpec/SubjectStub
+        supplier_frameworks: [supplier_framework],
+        get_jurisdiction: selected_jurisdiction_id,
+        get_service_numbers: selected_services
+      )
+      allow(supplier_framework).to receive(:grouped_rates_for_lot_and_jurisdictions_and_services)
+        .with('RM6374.2', ['RM6374.EW'], selected_services)
+        .and_return(rates)
+    end
+
+    it 'fetches Lot 2 rates and returns supplier paired with rates sorted by key' do
+      expect(step.supplier_frameworks_with_rates_for_lot_2).to eq([
+                                                                    [
+                                                                      supplier_framework,
+                                                                      {
+                                                                        'RM6374.2.1' => { 'RM6374.2.1' => 'rate-a' },
+                                                                        'RM6374.2.3' => { 'RM6374.2.1' => 'rate-b' }
+                                                                      }
+                                                                    ]
+                                                                  ])
+    end
+
+    it 'memoizes the result' do
+      expect(step.supplier_frameworks_with_rates_for_lot_2).to equal(step.supplier_frameworks_with_rates_for_lot_2)
+    end
+  end
+
+  describe '#next_step_class' do
+    it 'returns LegalServices::RM6374::Journey::SuppliersComparison' do
+      expect(step.next_step_class).to eq(LegalServices::RM6374::Journey::SuppliersComparison)
+    end
+  end
+
   describe '#supplier_frameworks' do
-    let(:lot) { instance_double(Lot, id: 'RM6374.1') }
-    let(:selected_services) { %w[RM6374.1.2 RM6374.1.3] }
+    let(:lot) { instance_double(Lot, id: 'RM6374.3') }
+    let(:selected_services) { %w[RM6374.3.2 RM6374.3.3] }
     let(:selected_jurisdiction_id) { 'RM6374.EW' }
     let(:sector_id) { 2 }
 
@@ -134,8 +197,8 @@ RSpec.describe LegalServices::RM6374::Journey::CompareSelectSuppliers do
     let(:with_services_relation) { double('with_services_relation') } # rubocop:disable RSpec/VerifiedDoubles
 
     before do
-      allow(Lot).to receive(:find).with('RM6374.1').and_return(lot)
-      allow(step).to receive(:get_service_numbers).with('1').and_return(selected_services) # rubocop:disable RSpec/SubjectStub
+      allow(Lot).to receive(:find).with('RM6374.3').and_return(lot)
+      allow(step).to receive(:get_service_numbers).with('3').and_return(selected_services) # rubocop:disable RSpec/SubjectStub
       allow(step).to receive(:get_jurisdiction).with('a').and_return(selected_jurisdiction_id) # rubocop:disable RSpec/SubjectStub
       allow(step).to receive(:sector_id_for).with('local_community').and_return(sector_id) # rubocop:disable RSpec/SubjectStub
 

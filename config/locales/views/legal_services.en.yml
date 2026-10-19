@@ -553,9 +553,6 @@ en:
           contact_hint_html: If you have any questions, <a class="govuk-link" href="%{contact_link}">contact GCA</a>.
           disclaimer: The rates provided are commercially sensitive and should be used only to inform your requirement.
           question: Select suppliers for comparison
-          rates: Rates
-          scroll_to_the_right: Scroll the table to the right to view all job roles and rates.
-          supplier: Supplier
         comparison_rates_table:
           job_titles:
             junior: NQ Solicitor/Associate, Junior Solicitor/Associate/Legal Executive
@@ -615,11 +612,17 @@ en:
           requirement_start_date:
             hint: For example, 12 2025
             question: What is the intended start date for your requirement?
-        lot_2_comparison_rates_table:
-          no_suppliers_found_html: Contact GCA legal services category team at <a href="mailto:info@gca.gov.uk">info@gca.gov.uk</a> to discuss your needs.
-          rates: Rates
-          scroll_to_the_right: Scroll to the right to view all supplier rates
-          supplier: Supplier
+        lot_2:
+          comparison_with_checkboxes:
+            no_suppliers_found_html: Contact GCA legal services category team at <a href="mailto:info@gca.gov.uk">info@gca.gov.uk</a> to discuss your needs.
+            rates: Rates
+            scroll_to_the_right: Scroll the table to the right to view all job roles and rates.
+            supplier: Supplier
+          comparison_without_checkboxes:
+            no_suppliers_found_html: Contact GCA legal services category team at <a href="mailto:info@gca.gov.uk">info@gca.gov.uk</a> to discuss your needs.
+            rates: Rates
+            scroll_to_the_right: Scroll the table to the right to view all job roles and rates.
+            supplier: Supplier
         recommended_lot:
           alternatives: Select another lot
           heading_0: Lots that meet your requirements
@@ -649,6 +652,10 @@ en:
           question: Select focused legal specialisms required
           search_specific: Search focused legal support
           specialism_selected: focused legal specialisms selected
+        standard_suppliers_comparison_table:
+          rates: Rates
+          scroll_to_the_right: Scroll the table to the right to view all job roles and rates.
+          supplier: Supplier
         suppliers_comparison:
           can_provide_specialisms: can provide the legal specialisms that meet your requirements.
           contact_hint_html: If you have any questions, <a class="govuk-link" href="%{contact_link}">contact GCA</a>.
