@@ -5,6 +5,7 @@ class Supplier < ApplicationRecord
         belongs_to :supplier_framework_lot, inverse_of: :rates, class_name: 'Supplier::Framework::Lot'
         belongs_to :position, inverse_of: :supplier_framework_lot_rates
         belongs_to :jurisdiction, inverse_of: :rates, class_name: 'Supplier::Framework::Lot::Jurisdiction', foreign_key: :supplier_framework_lot_jurisdiction_id
+        belongs_to :service, class_name: 'Supplier::Framework::Lot::Service', primary_key: :service_id, optional: true
 
         with_options on: %i[rates] do
           validates :rate, numericality: { only_integer: true, greater_than_or_equal_to: 0 }

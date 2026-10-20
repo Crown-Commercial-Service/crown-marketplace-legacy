@@ -1,1 +1,5 @@
-<%= render(partial: "shared/admin/lot_data/show/rates", ) %>
+<% if @lot.id != "RM6374.2" %>
+    <%= render(partial: "shared/admin/lot_data/show/rates" ) %>
+<% else %>
+    <%= render(partial: "legal_services/rm6374/admin/lot_data/show/lot_2_rates") %>
+<% end %>

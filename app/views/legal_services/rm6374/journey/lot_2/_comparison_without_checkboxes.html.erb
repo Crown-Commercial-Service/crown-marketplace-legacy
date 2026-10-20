@@ -1,0 +1,57 @@
+<div class="ccs-suppliers-comparison-container">
+  <% 
+    service_supplier_rates = @journey.current_step.supplier_frameworks_with_rates_for_lot_2.select do |_supplier_framework, rates|
+      service_rates = rates[service.id] || {}
+      
+      service_rates.values.any? do |rate_entry|
+        rate_obj = rate_entry.is_a?(Hash) ? rate_entry.values.first : rate_entry
+        rate_obj&.rate.to_f > 0
+      end
+    end
+  %>
+
+  <% if service_supplier_rates.empty? %>
+    <p class="govuk-body">
+      <%= t('.no_suppliers_found_html') %>
+    </p>
+  <% else %>
+    <p class="govuk-body">
+      <%= t('.scroll_to_the_right') %>
+    </p>
+
+    <div class="ccs-suppliers-comparison-overflow-container">
+      <%= govuk_table(
+        [
+          { text: t('.supplier') }
+        ] + @journey.current_step.positions.map do |_position_id, position_name|
+          {
+            text: t("shared.rates_table.rm6374.job_titles.#{position_name}")
+          }
+        end,
+
+        service_supplier_rates.map do |supplier_framework, rates|
+          service_rates = rates[service.id] || {}
+
+          [
+            {
+              text: render(
+                partial: 'legal_services/rm6374/journey/supplier_table_head',
+                locals: { supplier_framework: supplier_framework, lot: @lot, include_link: true }
+              )
+            }
+          ] + @journey.current_step.positions.map do |position_id, _position_name|
+            {
+              text: display_rate(position_id, service_rates)
+            }
+          end
+        end,
+        caption: {
+          text: t('.rates'),
+          classes: 'govuk-visually-hidden'
+        },
+        first_cell_is_header: true,
+        classes: 'ccs-suppliers-comparison-table'
+      ) %>
+    </div>
+  <% end %>
+</div>
