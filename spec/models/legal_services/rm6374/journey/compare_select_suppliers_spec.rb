@@ -33,6 +33,11 @@ RSpec.describe LegalServices::RM6374::Journey::CompareSelectSuppliers do
     describe '#validate_supplier_framework_ids_count' do
       context 'when no suppliers are selected (empty/blank)' do
         let(:supplier_framework_ids) { [] }
+        let(:call_off_mechanism) { 'rapid_award' }
+
+        before do
+          allow(step).to receive(:supplier_frameworks).and_return([double('SupplierFramework')]) # rubocop:disable RSpec/SubjectStub,RSpec/VerifiedDoubles
+        end
 
         it 'is not valid' do
           expect(step).not_to be_valid
