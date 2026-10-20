@@ -1,7 +1,13 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-three-quarters">
     <% if @supplier_framework_lot_rates.any? %>
-      <% @supplier_framework_lot_rates.group_by(&:service_id).each do |service_id, service_rates| %>
+    <% rates_by_service = @supplier_framework_lot_rates
+                         .group_by(&:service_id)
+                         .sort_by do |service_id, _|
+                           name = Service.find_by(id: service_id)&.name || service_id.to_s
+                           name.downcase
+                         end %>
+      <% rates_by_service.each do |service_id, service_rates| %>
         <% service = @services_by_id ? @services_by_id[service_id] : Service.find_by(id: service_id) %>
 
         <div class="govuk-summary-card govuk-!-margin-bottom-6">

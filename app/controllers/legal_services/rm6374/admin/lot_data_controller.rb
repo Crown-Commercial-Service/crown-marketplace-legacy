@@ -55,7 +55,7 @@ module LegalServices
 
         def set_lot_2_rates
           if action_name.to_sym == :show
-            @supplier_framework_lot_rates = @supplier_framework_lot.rates.includes(:position)
+            @supplier_framework_lot_rates = @supplier_framework_lot.rates.includes(:position, :service)
           else
             @service_id = params[:service_id]
             @selected_service_name = Service.find_by(id: @service_id)&.name || @service_id

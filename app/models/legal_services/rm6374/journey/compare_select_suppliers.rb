@@ -65,18 +65,14 @@ module LegalServices
         def validate_supplier_framework_ids_count
           selected_suppliers = supplier_framework_ids.compact_blank.length
           base_min = call_off_mechanism == 'quotation_process' ? 3 : 1
+          available_count = supplier_frameworks&.length || selected_suppliers
 
-          if selected_suppliers.zero?
-            errors.add(:supplier_framework_ids, 'Please select a minimum of one supplier for comparison')
-            return
-          end
-
-          available_suppliers = supplier_frameworks&.length || selected_suppliers
-          min_required = [base_min, available_suppliers].min
-
+          min_required = [base_min, available_count].min
           return if selected_suppliers >= min_required
 
-          errors.add(:supplier_framework_ids, 'Please select a minimum of three suppliers for comparison')
+          supplier_label = min_required == 1 ? 'supplier' : 'suppliers'
+
+          errors.add(:supplier_framework_ids, "Please select a minimum of #{NUM_TO_WORDS[min_required]} #{supplier_label} for comparison")
         end
 
         def supplier_frameworks
