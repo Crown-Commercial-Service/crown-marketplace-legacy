@@ -78,24 +78,35 @@ module LegalServices
             jurisdiction_ids_to_add = jurisdiction_ids - @supplier_framework_lot_jurisdiction_ids
             jurisdiction_ids_to_remove = @supplier_framework_lot_jurisdiction_ids - jurisdiction_ids
 
+            reference_jurisdiction = @model.jurisdictions.joins(:rates).where.not(jurisdiction_id: jurisdiction_ids_to_remove).first ||
+                                     @model.jurisdictions.joins(:rates).first
+
+            rates_to_clone = if reference_jurisdiction
+                               reference_jurisdiction.rates.map do |rate|
+                                 {
+                                   position_id: rate.position_id,
+                                   service_id: rate.service_id,
+                                   rate: rate.rate
+                                 }
+                               end
+                             else
+                               []
+                             end
             ActiveRecord::Base.transaction do
-              reference_jurisdiction = @model.jurisdictions.joins(:rates).where.not(jurisdiction_id: jurisdiction_ids_to_remove).first
               @model.jurisdictions.where(jurisdiction_id: jurisdiction_ids_to_remove).find_each(&:destroy!)
 
               new_jurisdictions = jurisdiction_ids_to_add.map do |jurisdiction_id|
                 @model.jurisdictions.create!(jurisdiction_id:)
               end
 
-              if reference_jurisdiction
-                new_jurisdictions.each do |new_jurisdiction|
-                  reference_jurisdiction.rates.find_each do |rate|
-                    @model.rates.create!(
-                      position_id: rate.position_id,
-                      service_id: rate.service_id,
-                      rate: rate.rate,
-                      supplier_framework_lot_jurisdiction_id: new_jurisdiction.id
-                    )
-                  end
+              new_jurisdictions.each do |new_jurisdiction|
+                rates_to_clone.each do |rate_attributes|
+                  @model.rates.create!(
+                    position_id: rate_attributes[:position_id],
+                    service_id: rate_attributes[:service_id],
+                    rate: rate_attributes[:rate],
+                    supplier_framework_lot_jurisdiction_id: new_jurisdiction.id
+                  )
                 end
               end
 
