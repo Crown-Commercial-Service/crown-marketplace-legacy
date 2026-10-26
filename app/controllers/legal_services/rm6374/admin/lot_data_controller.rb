@@ -71,6 +71,47 @@ module LegalServices
           end
         end
 
+        def update_for_jurisdictions # rubocop:disable Metrics/AbcSize,Metrics/CyclomaticComplexity,Metrics/PerceivedComplexity
+          if @lot.number == '2'
+            jurisdiction_ids = (params[@model.model_name.param_key].present? ? params.expect("#{@model.model_name.param_key}": { jurisdiction_ids: [] }) : {})[:jurisdiction_ids] || []
+
+            jurisdiction_ids_to_add = jurisdiction_ids - @supplier_framework_lot_jurisdiction_ids
+            jurisdiction_ids_to_remove = @supplier_framework_lot_jurisdiction_ids - jurisdiction_ids
+
+            ActiveRecord::Base.transaction do
+              reference_jurisdiction = @model.jurisdictions.joins(:rates).where.not(jurisdiction_id: jurisdiction_ids_to_remove).first
+              @model.jurisdictions.where(jurisdiction_id: jurisdiction_ids_to_remove).find_each(&:destroy!)
+
+              new_jurisdictions = jurisdiction_ids_to_add.map do |jurisdiction_id|
+                @model.jurisdictions.create!(jurisdiction_id:)
+              end
+
+              if reference_jurisdiction
+                new_jurisdictions.each do |new_jurisdiction|
+                  reference_jurisdiction.rates.find_each do |rate|
+                    @model.rates.create!(
+                      position_id: rate.position_id,
+                      service_id: rate.service_id,
+                      rate: rate.rate,
+                      supplier_framework_lot_jurisdiction_id: new_jurisdiction.id
+                    )
+                  end
+                end
+              end
+
+              ChangeLog.log_update_supplier_framework_lot_jurisdictions!(user: current_user, framework: params[:framework], model: @model, added: jurisdiction_ids_to_add, removed: jurisdiction_ids_to_remove)
+            rescue ActiveRecord::RecordInvalid => e
+              Rails.logger.error e
+              Rollbar.log('error', e) if defined?(Rollbar)
+              @model.errors.add(:base, :jurisdiction_update_invalid)
+            end
+
+            @model.errors.none?
+          else
+            super
+          end
+        end
+
         def update_for_rates # rubocop:disable Metrics/AbcSize,Metrics/CyclomaticComplexity,Metrics/MethodLength,Metrics/PerceivedComplexity
           @service_id = params[:service_id] || params.dig(@model.model_name.param_key, :service_id)
           set_lot_2_rates if @lot.number == '2' && @supplier_framework_lot_rates.blank?
@@ -127,7 +168,7 @@ module LegalServices
 
               true
             rescue ActiveRecord::RecordInvalid, ActiveRecord::RecordNotSaved => e
-              Rails.logger.error e
+              print e
               Rollbar.log('error', e) if defined?(Rollbar)
 
               @supplier_framework_lot_rates.each_value do |supplier_framework_lot_rate|
