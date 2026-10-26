@@ -168,7 +168,7 @@ module LegalServices
 
               true
             rescue ActiveRecord::RecordInvalid, ActiveRecord::RecordNotSaved => e
-              print e
+              Rails.logger.error e
               Rollbar.log('error', e) if defined?(Rollbar)
 
               @supplier_framework_lot_rates.each_value do |supplier_framework_lot_rate|
