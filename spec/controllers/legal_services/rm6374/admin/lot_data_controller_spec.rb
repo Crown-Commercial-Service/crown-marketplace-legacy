@@ -846,7 +846,7 @@ RSpec.describe LegalServices::RM6374::Admin::LotDataController do
         end
       end
 
-      let!(:supplier_framework_lot_rates) do # rubocop:disable RSpec/LetSetup
+      let!(:supplier_framework_lot_rates) do
         supplier_framework_lot_services.flat_map do |service|
           Position.where(lot_id: 'RM6374.2').pluck(:id).map do |position_id|
             create(
@@ -969,8 +969,8 @@ RSpec.describe LegalServices::RM6374::Admin::LotDataController do
           supplier_framework_lot_jurisdictions.find { |j| j.jurisdiction_id == 'RM6374.NI' }.id
         end
 
+        # Pre-seed rates on EW and NI before `post :update` runs
         let(:supplier_framework_lot_rates) do
-          # 1. Baseline rates on EW (the existing active jurisdiction to clone from)
           ew_rates = supplier_framework_lot_services.flat_map do |service|
             Position.where(lot_id: 'RM6374.2', mandatory: true).pluck(:id).map do |position_id|
               create(
@@ -984,7 +984,6 @@ RSpec.describe LegalServices::RM6374::Admin::LotDataController do
             end
           end
 
-          # 2. Rates on NI (to test that they are deleted when NI is removed)
           ni_rates = supplier_framework_lot_services.flat_map do |service|
             Position.where(lot_id: 'RM6374.2', mandatory: true).pluck(:id).map do |position_id|
               create(
@@ -1013,7 +1012,7 @@ RSpec.describe LegalServices::RM6374::Admin::LotDataController do
             expect(response).to redirect_to(legal_services_rm6374_admin_supplier_lot_datum_path(section:))
           end
 
-          it 'updates the details' do
+          it 'updates the jurisdictions list' do
             expect(supplier_framework_lot.reload.jurisdictions.pluck(:jurisdiction_id)).to match_array(jurisdiction_ids + ['RM6374.GB'])
           end
 
@@ -1040,6 +1039,41 @@ RSpec.describe LegalServices::RM6374::Admin::LotDataController do
             expect(change_log.change_data['removed']).to eq(['RM6374.NI'])
           end
           # rubocop:enable RSpec/MultipleExpectations
+        end
+
+        context 'when unchecking the only jurisdiction that has rates and adding a new one' do
+          # Simulates having NI with rates, removing it, and selecting ONLY SC
+          let(:jurisdiction_ids) { ['RM6374.SC'] }
+
+          # Only NI has rates here; EW has none
+          let(:supplier_framework_lot_rates) do
+            supplier_framework_lot_services.flat_map do |service|
+              Position.where(lot_id: 'RM6374.2', mandatory: true).pluck(:id).map do |position_id|
+                create(
+                  :supplier_framework_lot_rate,
+                  supplier_framework_lot: supplier_framework_lot,
+                  supplier_framework_lot_jurisdiction_id: ni_jurisdiction_id,
+                  service_id: service.service_id,
+                  position_id: position_id,
+                  rate: 18_000
+                )
+              end
+            end
+          end
+
+          it 'snapshots rates from the removed jurisdiction and clones them to the new jurisdiction' do # rubocop:disable RSpec/MultipleExpectations
+            new_jurisdiction = supplier_framework_lot.reload.jurisdictions.find_by(jurisdiction_id: 'RM6374.SC')
+            sc_rates = new_jurisdiction.rates
+
+            expect(sc_rates.count).to eq(supplier_framework_lot_rates.count)
+            expect(sc_rates.pluck(:service_id)).to match_array(supplier_framework_lot_rates.map(&:service_id))
+            expect(sc_rates.pluck(:position_id)).to match_array(supplier_framework_lot_rates.map(&:position_id))
+            expect(sc_rates.pluck(:rate).uniq).to eq([18_000])
+          end
+
+          it 'deletes rates from the removed jurisdiction' do
+            expect(Supplier::Framework::Lot::Rate.where(supplier_framework_lot_jurisdiction_id: ni_jurisdiction_id)).to be_empty
+          end
         end
 
         context 'when it is invalid' do
