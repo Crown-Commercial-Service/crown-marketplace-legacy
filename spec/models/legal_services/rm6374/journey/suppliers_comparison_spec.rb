@@ -272,6 +272,117 @@ RSpec.describe LegalServices::RM6374::Journey::SuppliersComparison do
     end
   end
 
+  describe '#fetch_lot_2_supplier_frameworks' do
+    let(:lot_number) { '2' }
+    let(:lot) { instance_double(Lot, id: 'RM6374.2') }
+    let(:selected_services) { ['RM6374.2.1', 'RM6374.2.2'] }
+    let(:single_or_multiple_suppliers) { 'single' }
+    let(:supplier_framework_ids) { nil }
+
+    let(:base_relation) { double('base_relation') } # rubocop:disable RSpec/VerifiedDoubles
+    let(:services_relation) { double('services_relation') } # rubocop:disable RSpec/VerifiedDoubles
+    let(:sector_relation) { double('sector_relation') } # rubocop:disable RSpec/VerifiedDoubles
+    let(:id_filtered_relation) { double('id_filtered_relation') } # rubocop:disable RSpec/VerifiedDoubles
+
+    let(:supplier_framework_1) { instance_double(Supplier::Framework, supplier_name: 'Zebra Law') }
+    let(:supplier_framework_2) { instance_double(Supplier::Framework, supplier_name: 'Alpha Legal') }
+
+    before do
+      allow(Lot).to receive(:find).with('RM6374.2').and_return(lot)
+      allow(comparison).to receive_messages( # rubocop:disable RSpec/SubjectStub
+        single_or_multiple_suppliers: single_or_multiple_suppliers,
+        supplier_framework_ids: supplier_framework_ids,
+        sector_id_for: 2,
+        get_jurisdiction: 'RM6374.EW'
+      )
+
+      allow(Supplier::Framework).to receive(:with_lots).with('RM6374.2').and_return(base_relation)
+      allow(services_relation).to receive(:with_sector).with(2).and_return(sector_relation)
+    end
+
+    context 'when single_or_multiple_suppliers is single' do
+      before do
+        allow(base_relation).to receive(:with_services_and_jurisdiction)
+          .with(selected_services, ['RM6374.EW'])
+          .and_return(services_relation)
+        allow(sector_relation).to receive(:sort_by) do |&block|
+          [supplier_framework_1, supplier_framework_2].sort_by(&block)
+        end
+      end
+
+      it 'calls :with_services_and_jurisdiction and sorts by supplier_name' do
+        result = comparison.send(:fetch_lot_2_supplier_frameworks, selected_services)
+
+        expect(result).to eq([supplier_framework_2, supplier_framework_1])
+        expect(base_relation).to have_received(:with_services_and_jurisdiction)
+          .with(selected_services, ['RM6374.EW'])
+        expect(services_relation).to have_received(:with_sector).with(2)
+      end
+    end
+
+    context 'when single_or_multiple_suppliers is multiple' do
+      let(:single_or_multiple_suppliers) { 'multiple' }
+
+      before do
+        allow(base_relation).to receive(:with_any_services_and_jurisdiction)
+          .with(selected_services, ['RM6374.EW'])
+          .and_return(services_relation)
+        allow(sector_relation).to receive(:sort_by) do |&block|
+          [supplier_framework_1, supplier_framework_2].sort_by(&block)
+        end
+      end
+
+      it 'calls :with_any_services_and_jurisdiction and sorts by supplier_name' do
+        result = comparison.send(:fetch_lot_2_supplier_frameworks, selected_services)
+
+        expect(result).to eq([supplier_framework_2, supplier_framework_1])
+        expect(base_relation).to have_received(:with_any_services_and_jurisdiction)
+          .with(selected_services, ['RM6374.EW'])
+        expect(services_relation).to have_received(:with_sector).with(2)
+      end
+    end
+
+    context 'when supplier_framework_ids are present' do
+      let(:supplier_framework_ids) { %w[sf-1 sf-2] }
+
+      before do
+        allow(base_relation).to receive(:with_services_and_jurisdiction)
+          .with(selected_services, ['RM6374.EW'])
+          .and_return(services_relation)
+        allow(sector_relation).to receive(:where).with(id: supplier_framework_ids).and_return(id_filtered_relation)
+        allow(id_filtered_relation).to receive(:sort_by) do |&block|
+          [supplier_framework_1, supplier_framework_2].sort_by(&block)
+        end
+      end
+
+      it 'filters the scope by the given supplier framework IDs' do
+        result = comparison.send(:fetch_lot_2_supplier_frameworks, selected_services)
+
+        expect(result).to eq([supplier_framework_2, supplier_framework_1])
+        expect(sector_relation).to have_received(:where).with(id: supplier_framework_ids)
+      end
+    end
+
+    context 'when supplier_framework_ids is an empty array' do
+      let(:supplier_framework_ids) { [] }
+
+      before do
+        allow(base_relation).to receive(:with_services_and_jurisdiction)
+          .with(selected_services, ['RM6374.EW'])
+          .and_return(services_relation)
+        allow(sector_relation).to receive(:sort_by).and_return([supplier_framework_1])
+      end
+
+      it 'does not call .where(id: ...)' do
+        allow(sector_relation).to receive(:where)
+
+        comparison.send(:fetch_lot_2_supplier_frameworks, selected_services)
+
+        expect(sector_relation).not_to have_received(:where)
+      end
+    end
+  end
+
   describe '#positions' do
     let(:lot) { instance_double(Lot, id: "RM6374.#{lot_number}") }
     let(:positions_relation) { double('positions_relation') } # rubocop:disable RSpec/VerifiedDoubles

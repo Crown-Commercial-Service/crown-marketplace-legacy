@@ -1,21 +1,28 @@
 <% services = @journey.current_step.fetch_selected_lot_2_services %>
 
-<% comparison_partial = if checkboxes
-    'legal_services/rm6374/journey/lot_2/comparison_with_checkboxes'
-else
-    'legal_services/rm6374/journey/lot_2/comparison_without_checkboxes'
-end %>
+<% if @journey.current_step.single_or_multiple_suppliers == "multiple" %>
+    <% comparison_partial = if checkboxes
+        'legal_services/rm6374/journey/lot_2/comparison_with_checkboxes'
+    else
+        'legal_services/rm6374/journey/lot_2/comparison_without_checkboxes'
+    end %>
 
-<%= govuk_tabs(
-    services.map do |service|
-    {
-        label: service.name,
-        panel: {
-        content: render( partial: comparison_partial, locals: { service: service }),
-        attributes: {
-            id: service.id.to_s.gsub('.', '-')
+    <%= govuk_tabs(
+        services.map do |service|
+        {
+            label: service.name,
+            panel: {
+            content: render( partial: comparison_partial, locals: { service: service }),
+            attributes: {
+                id: service.id.to_s.gsub('.', '-')
+            }
+            }
         }
-        }
-    }
-    end
-) %>
+        end
+    ) %>
+
+<% else %>
+    <%= render partial: 'legal_services/rm6374/journey/lot_2/single_supplier_comparison', locals: { services: services } %>
+<% end %>
+
+

@@ -7,6 +7,7 @@ module LegalServices
 
       attribute :sector, :string
       attribute :lot_number, :string
+      attribute :single_or_multiple_suppliers, :string
       attribute :service_numbers, :array, default: -> { [] }
       attribute :supplier_framework_ids, :array, default: -> { [] }
       attribute :professions, :array, default: -> { [] }
@@ -64,22 +65,22 @@ module LegalServices
 
       private
 
+      def fetch_lot_2_supplier_frameworks(selected_services)
+        services_scope_method = single_or_multiple_suppliers == 'single' ? :with_services_and_jurisdiction : :with_any_services_and_jurisdiction
+
+        scope = ::Supplier::Framework.with_lots(lot.id)
+                                     .public_send(services_scope_method, selected_services, [get_jurisdiction(jurisdiction)])
+                                     .with_sector(sector_id_for(sector))
+
+        scope = scope.where(id: supplier_framework_ids) if supplier_framework_ids.present?
+        scope.sort_by(&:supplier_name)
+      end
+
       def fetch_lot_6_supplier_frameworks(selected_services)
         selected_sector_id = sector_id_for(sector)
 
         scope = ::Supplier::Framework.with_lots(lot.id)
                                      .with_services(selected_services)
-                                     .with_sector(selected_sector_id)
-        scope = scope.where(id: supplier_framework_ids) if supplier_framework_ids.present?
-        scope.sort_by(&:supplier_name)
-      end
-
-      def fetch_lot_2_supplier_frameworks(selected_services)
-        selected_sector_id = sector_id_for(sector)
-        selected_jurisdiction_id = get_jurisdiction(jurisdiction)
-
-        scope = ::Supplier::Framework.with_lots(lot.id)
-                                     .with_any_services_and_jurisdiction(selected_services, [selected_jurisdiction_id])
                                      .with_sector(selected_sector_id)
         scope = scope.where(id: supplier_framework_ids) if supplier_framework_ids.present?
         scope.sort_by(&:supplier_name)

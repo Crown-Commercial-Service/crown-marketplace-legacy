@@ -623,6 +623,10 @@ en:
             rates: Rates
             scroll_to_the_right: Scroll the table to the right to view all job roles and rates.
             supplier: Supplier
+          single_supplier_comparison:
+            rates: Rates
+            scroll_to_the_right: Scroll the table to the right to view all job roles and rates.
+            supplier: Supplier
         recommended_lot:
           alternatives: Select another lot
           heading_0: Lots that meet your requirements
