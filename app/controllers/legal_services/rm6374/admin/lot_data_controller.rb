@@ -60,12 +60,18 @@ module LegalServices
             @service_id = params[:service_id]
             @selected_service_name = Service.find_by(id: @service_id)&.name || @service_id
 
-            existing_rates = @supplier_framework_lot.rates.where(service_id: @service_id).index_by(&:position_id)
+            primary_jurisdiction_id = @supplier_framework_lot.jurisdictions.first&.id
+
+            existing_rates = @supplier_framework_lot.rates
+                                                    .where(service_id: @service_id)
+                                                    .where(supplier_framework_lot_jurisdiction_id: primary_jurisdiction_id)
+                                                    .index_by(&:position_id)
 
             @supplier_framework_lot_rates = @lot.positions.pluck(:id).index_with do |position_id|
               existing_rates[position_id] || @supplier_framework_lot.rates.build(
                 position_id: position_id,
-                service_id: @service_id
+                service_id: @service_id,
+                supplier_framework_lot_jurisdiction_id: primary_jurisdiction_id
               )
             end
           end
@@ -168,7 +174,6 @@ module LegalServices
                   end
                 end
 
-                # Log change audit
                 ChangeLog.log_update_supplier_framework_lot_rates!(
                   user: current_user,
                   framework: params[:framework],
