@@ -290,11 +290,12 @@ RSpec.describe LegalServices::RM6374::Admin::LotDataController do
 
         include_context 'when testing a section'
 
-        it 'assigns supplier_framework_lot_rates' do
-          assigned_supplier_framework_lot_rates = assigns(:supplier_framework_lot_rates)
+        it 'assigns supplier_framework_lot_rates including position and service' do
+          assigned_rates = assigns(:supplier_framework_lot_rates)
 
-          expect(assigned_supplier_framework_lot_rates.count).to eq(supplier_framework_lot_rates.count)
-          expect(assigned_supplier_framework_lot_rates.map(&:id).sort).to eq(supplier_framework_lot_rates.map(&:id).sort)
+          expect(assigned_rates.count).to eq(supplier_framework_lot_rates.count)
+          expect(assigned_rates.map(&:id)).to match_array(supplier_framework_lot_rates.map(&:id))
+          expect(assigned_rates).to all(be_a(Supplier::Framework::Lot::Rate))
         end
       end
     end
@@ -491,6 +492,23 @@ RSpec.describe LegalServices::RM6374::Admin::LotDataController do
 
       context 'and the section is rates' do
         let(:section) { 'rates' }
+        let(:mandatory_positions) { Position.where(lot_id: 'RM6374.2', mandatory: true) }
+        let(:optional_positions) { Position.where(lot_id: 'RM6374.2', mandatory: false) }
+        let(:all_positions) { Position.where(lot_id: 'RM6374.2') }
+
+        let(:primary_jurisdiction) { supplier_framework_lot.jurisdictions.first }
+
+        let!(:supplier_framework_lot_rates) do # rubocop:disable RSpec/LetSetup
+          mandatory_positions.pluck(:id).map do |position_id|
+            create(
+              :supplier_framework_lot_rate,
+              supplier_framework_lot: supplier_framework_lot,
+              service_id: service_id,
+              jurisdiction: primary_jurisdiction,
+              position_id: position_id
+            )
+          end
+        end
 
         before do
           get :edit, params: { lot_number:, section:, service_id: }
@@ -502,13 +520,38 @@ RSpec.describe LegalServices::RM6374::Admin::LotDataController do
           expect(assigns(:service_id)).to eq(service_id)
         end
 
-        it 'assigns supplier_framework_lot_rates' do
-          expect(assigns(:supplier_framework_lot_rates)).to be_a(Hash)
-          expect(assigns(:supplier_framework_lot_rates).keys).to match_array(Position.where(lot_id: 'RM6374.2').pluck(:id))
+        it 'assigns selected_service_name' do
+          service = Service.find_by(id: service_id)
+          expected_name = service&.name || service_id
+          expect(assigns(:selected_service_name)).to eq(expected_name)
         end
 
-        it 'does not assign a single supplier_framework_lot_jurisdiction for Lot 2' do
-          expect(assigns(:supplier_framework_lot_jurisdiction)).to eq(supplier_framework_lot_jurisdiction)
+        it 'assigns supplier_framework_lot_rates covering all lot positions' do
+          expect(assigns(:supplier_framework_lot_rates)).to be_a(Hash)
+          expect(assigns(:supplier_framework_lot_rates).keys).to match_array(all_positions.pluck(:id))
+        end
+
+        it 'loads existing persisted records for positions that have rates' do
+          assigned_rates = assigns(:supplier_framework_lot_rates)
+
+          mandatory_positions.pluck(:id).each do |position_id|
+            rate_record = assigned_rates[position_id]
+            expect(rate_record).to be_persisted
+            expect(rate_record.supplier_framework_lot_jurisdiction_id).to eq(primary_jurisdiction.id)
+            expect(rate_record.service_id).to eq(service_id)
+          end
+        end
+
+        it 'builds new unpersisted records with primary jurisdiction for positions without rates' do # rubocop:disable RSpec/MultipleExpectations
+          assigned_rates = assigns(:supplier_framework_lot_rates)
+
+          optional_positions.pluck(:id).each do |position_id|
+            rate_record = assigned_rates[position_id]
+            expect(rate_record).not_to be_persisted
+            expect(rate_record.supplier_framework_lot_jurisdiction_id).to eq(primary_jurisdiction.id)
+            expect(rate_record.service_id).to eq(service_id)
+            expect(rate_record.position_id).to eq(position_id)
+          end
         end
       end
     end
