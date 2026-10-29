@@ -1,6 +1,6 @@
 <div class="ccs-suppliers-comparison-container">
   <% 
-    service_supplier_rates = @journey.current_step.supplier_frameworks_with_rates_for_lot_2.select do |_supplier_framework, rates|
+    service_supplier_rates = supplier_frameworks_with_rates.select do |_supplier_framework, rates|
       service_rates = rates[service.id] || {}
       
       service_rates.values.any? do |rate_entry|
