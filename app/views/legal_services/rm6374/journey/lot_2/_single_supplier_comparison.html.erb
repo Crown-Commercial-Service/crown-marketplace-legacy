@@ -13,7 +13,7 @@
     %>
 
     <%
-      table_rows = @journey.current_step.supplier_frameworks_with_rates_for_lot_2.flat_map do |supplier_framework, all_rates|
+      table_rows = supplier_frameworks_with_rates.flat_map do |supplier_framework, all_rates|
        supplier_row = [
         {
             text: render(

@@ -71,6 +71,7 @@ module LegalServices
           min_required = [base_min, available_count].min
           return if selected_suppliers >= min_required
 
+          min_required = 1 unless [1, 3].include?(min_required)
           supplier_label = min_required == 1 ? 'supplier' : 'suppliers'
 
           errors.add(:supplier_framework_ids, "Please select a minimum of #{NUM_TO_WORDS[min_required]} #{supplier_label} for comparison")
