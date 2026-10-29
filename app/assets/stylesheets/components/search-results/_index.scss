@@ -6,7 +6,7 @@
     padding: 0;
     clear: left;
 
-    li {
+    li:not(.ccs-results-list__item--temp-solution) {
       float: left;
       clear: left;
       width: 100%;

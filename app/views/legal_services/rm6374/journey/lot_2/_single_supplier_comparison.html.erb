@@ -1,0 +1,67 @@
+<div class="ccs-suppliers-comparison-container">
+    <p class="govuk-body">
+      <%= t('.scroll_to_the_right') %>
+    </p>
+    <%
+      headers = [
+        { text: t('.supplier') }
+      ] + @journey.current_step.positions.map do |_position_id, position_name|
+        { text: t("shared.rates_table.rm6374.job_titles.#{position_name}") }
+      end
+
+      total_columns = headers.size
+    %>
+
+    <%
+      table_rows = supplier_frameworks_with_rates.flat_map do |supplier_framework, all_rates|
+       supplier_row = [
+        {
+            text: render(
+            partial: 'legal_services/rm6374/journey/supplier_table_head',
+            locals: { supplier_framework: supplier_framework, lot: @lot, include_link: true }
+            )
+        }
+        ] + @journey.current_step.positions.map do |_pos_id, _pos_name|
+        {
+            text: ''
+        }
+        end
+
+        service_rows = if services.empty?
+          [
+            [{ text: '-' }] + @journey.current_step.positions.map { { text: '-' } }
+          ]
+        else
+          services.map do |service|
+            service_rates = all_rates[service.id] || {}
+
+            [
+              {
+                text: service.name,
+                classes: 'govuk-!-padding-left-4'
+              }
+            ] + @journey.current_step.positions.map do |position_id, _position_name|
+              {
+                text: display_rate(position_id, service_rates)
+              }
+            end
+          end
+        end
+
+        [supplier_row] + service_rows
+      end
+    %>
+
+    <div class="ccs-suppliers-comparison-overflow-container">
+      <%= govuk_table(
+        headers,
+        table_rows,
+        caption: {
+          text: t('.rates'),
+          classes: 'govuk-visually-hidden'
+        },
+        first_cell_is_header: true,
+        classes: 'ccs-suppliers-comparison-table'
+      ) %>
+    </div>
+</div>

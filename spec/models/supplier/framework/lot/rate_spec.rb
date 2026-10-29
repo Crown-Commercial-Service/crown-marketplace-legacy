@@ -25,11 +25,52 @@ RSpec.describe Supplier::Framework::Lot::Rate do
     let(:supplier_framework_lot) { create(:supplier_framework_lot) }
     let(:position) { create(:position) }
     let(:jurisdiction) { create(:supplier_framework_lot_jurisdiction) }
+    let(:service_id) { 'RM6374.2.1' }
 
-    it 'raises an error if a record already exists for a supplier_framework_lot, position and jurisdiction' do
-      create(:supplier_framework_lot_rate, supplier_framework_lot:, position:, jurisdiction:)
+    it 'raises an error if a record already exists for the same supplier_framework_lot, position, jurisdiction, and service_id' do
+      create(:supplier_framework_lot_rate, supplier_framework_lot:, position:, jurisdiction:, service_id:)
 
-      expect { create(:supplier_framework_lot_rate, supplier_framework_lot:, position:, jurisdiction:) }.to raise_error(ActiveRecord::RecordNotUnique)
+      expect do
+        create(:supplier_framework_lot_rate, supplier_framework_lot:, position:, jurisdiction:, service_id:)
+      end.to raise_error(ActiveRecord::RecordNotUnique)
+    end
+
+    it 'allows duplicate positions and jurisdictions if the service_id is different' do
+      create(:supplier_framework_lot_rate, supplier_framework_lot: supplier_framework_lot, position: position, jurisdiction: jurisdiction, service_id: 'RM6374.2.1')
+
+      expect do
+        create(:supplier_framework_lot_rate, supplier_framework_lot: supplier_framework_lot, position: position, jurisdiction: jurisdiction, service_id: 'RM6374.2.2')
+      end.not_to raise_error
+    end
+
+    it 'allows duplicate service_id and position if the jurisdiction is different' do
+      other_jurisdiction = create(:supplier_framework_lot_jurisdiction)
+
+      create(:supplier_framework_lot_rate, supplier_framework_lot:, position:, jurisdiction:, service_id:)
+
+      expect do
+        create(:supplier_framework_lot_rate, supplier_framework_lot: supplier_framework_lot, position: position, jurisdiction: other_jurisdiction, service_id: service_id)
+      end.not_to raise_error
+    end
+
+    it 'allows duplicate service_id and jurisdiction if the position is different' do
+      other_position = create(:position)
+
+      create(:supplier_framework_lot_rate, supplier_framework_lot:, position:, jurisdiction:, service_id:)
+
+      expect do
+        create(:supplier_framework_lot_rate, supplier_framework_lot: supplier_framework_lot, position: other_position, jurisdiction: jurisdiction, service_id: service_id)
+      end.not_to raise_error
+    end
+
+    it 'allows duplicate position, jurisdiction, and service_id across different supplier_framework_lots' do
+      other_supplier_framework_lot = create(:supplier_framework_lot)
+
+      create(:supplier_framework_lot_rate, supplier_framework_lot:, position:, jurisdiction:, service_id:)
+
+      expect do
+        create(:supplier_framework_lot_rate, supplier_framework_lot: other_supplier_framework_lot, position: position, jurisdiction: jurisdiction, service_id: service_id)
+      end.not_to raise_error
     end
   end
 

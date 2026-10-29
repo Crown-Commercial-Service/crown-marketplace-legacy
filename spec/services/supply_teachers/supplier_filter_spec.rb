@@ -160,5 +160,45 @@ RSpec.describe SupplyTeachers::SupplierFilter do
         end
       end
     end
+
+    context 'when searching by trading name' do
+      before do
+        supplier_framework_trading = create(
+          :supplier_framework,
+          framework_id: 'RM6238',
+          supplier: create(:supplier, name: 'Unique Legal Name', additional_details: { trading_name: 'Special Trading Name' })
+        )
+        supplier_framework_lot_trading = create(:supplier_framework_lot, supplier_framework: supplier_framework_trading, lot_id: lot_id)
+        create(:supplier_framework_lot_rate, supplier_framework_lot: supplier_framework_lot_trading, position_id: 'RM6238.1')
+        create(:supplier_framework_lot_branch, supplier_framework_lot: supplier_framework_lot_trading, location: Geocoding.point(latitude: 51.5201, longitude: -0.0759))
+      end
+
+      context 'when searching by exact trading name' do
+        let(:agency_name) { 'Special Trading Name' }
+        let(:agency_postcode) { nil }
+
+        it 'finds the supplier via trading name' do
+          expect(result).to contain_exactly('Unique Legal Name')
+        end
+      end
+
+      context 'when searching by partial trading name' do
+        let(:agency_name) { 'Special' }
+        let(:agency_postcode) { nil }
+
+        it 'finds the supplier matching partial trading name' do
+          expect(result).to contain_exactly('Unique Legal Name')
+        end
+      end
+
+      context 'when trading name search is case-insensitive' do
+        let(:agency_name) { 'special trading name' }
+        let(:agency_postcode) { nil }
+
+        it 'finds the supplier regardless of case' do
+          expect(result).to contain_exactly('Unique Legal Name')
+        end
+      end
+    end
   end
 end
