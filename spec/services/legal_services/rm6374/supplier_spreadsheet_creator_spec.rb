@@ -167,6 +167,187 @@ RSpec.describe LegalServices::RM6374::SupplierSpreadsheetCreator do
         expect(sheet.row(2).compact).to be_empty
       end
     end
+
+    context 'when the lot is Lot 2' do
+      let(:lot_number) { '2' }
+      let(:lot) do
+        instance_double(
+          Lot,
+          id: 'RM6374.2',
+          number: '2',
+          name: 'Focused Legal Support',
+          positions: positions_relation
+        )
+      end
+
+      let(:service_records) do
+        [
+          ['RM6374.2.1', 'Artificial Intelligence and Machine Learning Law'],
+          ['RM6374.2.2', 'Assimilated Law']
+        ]
+      end
+
+      let(:service_relation) do
+        instance_double(ActiveRecord::Relation).tap do |relation|
+          allow(relation).to receive(:order).with(:id).and_return(relation)
+          allow(relation).to receive(:pluck).with(:name).and_return(service_records.map(&:last))
+          allow(relation).to receive(:pluck).with(:id, :name).and_return(service_records)
+        end
+      end
+
+      let(:framework_lot_1) { instance_double(Supplier::Framework::Lot) }
+      let(:framework_lot_2) { instance_double(Supplier::Framework::Lot) }
+      let(:rates_relation_1) { double('rates_relation_1') } # rubocop:disable RSpec/VerifiedDoubles
+      let(:rates_relation_2) { double('rates_relation_2') } # rubocop:disable RSpec/VerifiedDoubles
+
+      before do
+        allow(Lot).to receive(:find).with('RM6374.2').and_return(lot)
+        allow(supplier_frameworks[0].lots).to receive(:find_by).with(lot_id: 'RM6374.2').and_return(framework_lot_1)
+        allow(supplier_frameworks[1].lots).to receive(:find_by).with(lot_id: 'RM6374.2').and_return(framework_lot_2)
+
+        allow(framework_lot_1).to receive(:rates).and_return(rates_relation_1)
+        allow(framework_lot_2).to receive(:rates).and_return(rates_relation_2)
+      end
+
+      context 'when single_or_multiple_suppliers is single' do
+        let(:params) { super().merge('single_or_multiple_suppliers' => 'single') }
+
+        let(:rates_service_1) do
+          [
+            Struct.new(:position_id, :rate, :normalized_rate).new('RM6374.1.1', 200.0, 200.0),
+            Struct.new(:position_id, :rate, :normalized_rate).new('RM6374.1.2', 150.0, 150.0)
+          ]
+        end
+
+        let(:rates_service_2) do
+          [
+            Struct.new(:position_id, :rate, :normalized_rate).new('RM6374.1.1', 250.0, 250.0),
+            Struct.new(:position_id, :rate, :normalized_rate).new('RM6374.1.2', 180.0, 180.0)
+          ]
+        end
+
+        before do
+          allow(rates_relation_1).to receive(:where).with(service_id: 'RM6374.2.1').and_return(rates_service_1)
+          allow(rates_relation_1).to receive(:where).with(service_id: 'RM6374.2.2').and_return(rates_service_2)
+          allow(rates_relation_2).to receive(:where).with(service_id: 'RM6374.2.1').and_return([])
+          allow(rates_relation_2).to receive(:where).with(service_id: 'RM6374.2.2').and_return([])
+        end
+
+        it 'renders the supplier row, updated headers starting with Selected service, and service rate rows' do # rubocop:disable RSpec/MultipleExpectations
+          expect(sheet.row(1).first(2)).to eq(['COLONY 4 CORP', 'https://example.com/colony'])
+          expect(sheet.row(2).first(3)).to eq(['Selected service', 'Prospectus', 'Partner'])
+          expect(sheet.row(3).first(3)).to eq(['Artificial Intelligence and Machine Learning Law', '£200.00', '£150.00'])
+          expect(sheet.row(4).first(3)).to eq(['Assimilated Law', '£250.00', '£180.00'])
+        end
+      end
+
+      context 'when single_or_multiple_suppliers is multiple' do
+        let(:params) { super().merge('single_or_multiple_suppliers' => 'multiple') }
+
+        context 'when suppliers have rates for the services' do # rubocop:disable RSpec/NestedGroups
+          let(:rates_s1_f1) do
+            [
+              Struct.new(:position_id, :rate, :normalized_rate).new('RM6374.1.1', 300.0, 300.0),
+              Struct.new(:position_id, :rate, :normalized_rate).new('RM6374.1.2', 200.0, 200.0)
+            ]
+          end
+
+          let(:rates_s1_f2) do
+            [
+              Struct.new(:position_id, :rate, :normalized_rate).new('RM6374.1.1', 280.0, 280.0),
+              Struct.new(:position_id, :rate, :normalized_rate).new('RM6374.1.2', 190.0, 190.0)
+            ]
+          end
+
+          before do
+            allow(rates_relation_1).to receive(:where).with(service_id: 'RM6374.2.1').and_return(rates_s1_f1)
+            allow(rates_relation_1).to receive(:where).with(service_id: 'RM6374.2.2').and_return([])
+
+            allow(rates_relation_2).to receive(:where).with(service_id: 'RM6374.2.1').and_return(rates_s1_f2)
+            allow(rates_relation_2).to receive(:where).with(service_id: 'RM6374.2.2').and_return([])
+          end
+
+          it 'groups by service, shows headers, and sorts suppliers alphabetically' do # rubocop:disable RSpec/MultipleExpectations
+            expect(sheet.row(1).first(1)).to eq(['Artificial Intelligence and Machine Learning Law'])
+            expect(sheet.row(2).first(3)).to eq(['Supplier name', 'Prospectus', 'Partner'])
+            expect(sheet.row(3).first(4)).to eq(['COLONY 4 CORP', 'https://example.com/colony', '£300.00', '£200.00'])
+            expect(sheet.row(4).first(4)).to eq(['MAKTHA AGENCY', 'https://example.com/maktha', '£280.00', '£190.00'])
+          end
+
+          it 'shows fallback message and omits position header when no suppliers have rates' do
+            # Row 5 is empty separator row between services
+            expect(sheet.row(6).first(1)).to eq(['Assimilated Law'])
+            expect(sheet.row(7).first(1)).to eq(['Contact GCA legal services category team at info@gca.gov.uk to discuss your needs.'])
+            expect(sheet.row(7)).not_to include('Supplier name')
+          end
+        end
+
+        context 'when a supplier has no rates for a service' do # rubocop:disable RSpec/NestedGroups
+          let(:rates_s1_f1) do
+            [
+              Struct.new(:position_id, :rate, :normalized_rate).new('RM6374.1.1', 300.0, 300.0),
+              Struct.new(:position_id, :rate, :normalized_rate).new('RM6374.1.2', 200.0, 200.0)
+            ]
+          end
+
+          before do
+            allow(rates_relation_1).to receive(:where).with(service_id: 'RM6374.2.1').and_return(rates_s1_f1)
+            allow(rates_relation_1).to receive(:where).with(service_id: 'RM6374.2.2').and_return([])
+
+            # Supplier 2 has zero/blank rates
+            allow(rates_relation_2).to receive(:where).with(service_id: 'RM6374.2.1').and_return([])
+            allow(rates_relation_2).to receive(:where).with(service_id: 'RM6374.2.2').and_return([])
+          end
+
+          it 'excludes the supplier with no rates from that service section' do # rubocop:disable RSpec/MultipleExpectations
+            # Service 1 only lists COLONY 4 CORP; MAKTHA AGENCY is omitted
+            expect(sheet.row(1).first(1)).to eq(['Artificial Intelligence and Machine Learning Law'])
+            expect(sheet.row(2).first(2)).to eq(['Supplier name', 'Prospectus'])
+            expect(sheet.row(3).first(1)).to eq(['COLONY 4 CORP'])
+            expect(sheet.row(4).compact).to be_empty
+          end
+        end
+      end
+    end
+
+    describe '#selected_supplier_frameworks' do
+      let(:call_off_mechanism) { 'further_competition' }
+
+      before do
+        allow(supplier_frameworks[0]).to receive(:id).and_return('sf-id-1')
+        allow(supplier_frameworks[1]).to receive(:id).and_return('sf-id-2')
+
+        framework_lot = instance_double(
+          Supplier::Framework::Lot,
+          rates: [
+            Struct.new(:position_id, :rate, :normalized_rate).new('RM6374.1.1', 100.00, 100.00),
+            Struct.new(:position_id, :rate, :normalized_rate).new('RM6374.1.2', 150.00, 150.00)
+          ]
+        )
+
+        supplier_frameworks.each do |sf|
+          allow(sf.lots).to receive(:find_by).with(lot_id: lot.id).and_return(framework_lot)
+        end
+      end
+
+      context 'when supplier_framework_ids parameter is present' do
+        let(:params) { super().merge('supplier_framework_ids' => ['sf-id-2']) }
+
+        it 'only exports rates for the selected supplier frameworks' do
+          expect(sheet.row(2).first(1)).to eq(['MAKTHA AGENCY'])
+          expect(sheet.row(3).compact).to be_empty
+        end
+      end
+
+      context 'when supplier_framework_ids parameter is empty or blank' do
+        let(:params) { super().merge('supplier_framework_ids' => ['']) }
+
+        it 'exports all supplier frameworks' do
+          expect(sheet.row(2).first(1)).to eq(['COLONY 4 CORP'])
+          expect(sheet.row(3).first(1)).to eq(['MAKTHA AGENCY'])
+        end
+      end
+    end
   end
 
   describe '#get_filtered_positions' do
