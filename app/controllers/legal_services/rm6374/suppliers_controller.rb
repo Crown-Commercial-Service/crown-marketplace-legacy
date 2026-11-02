@@ -18,10 +18,6 @@ module LegalServices
         rescue StandardError => e
           Rollbar.log('error', e)
         end
-
-        return unless params[:framework].to_s.casecmp?('rm6374') && @lot&.number.to_s == '2'
-
-        render 'lot_2_interim_result_page'
       end
 
       def download
@@ -39,29 +35,6 @@ module LegalServices
             send_data spreadsheet.to_stream.read, filename: params[:call_off_mechanism].nil? ? 'Shortlist of Legal Services Suppliers.xlsx.xlsx' : 'Rates of Legal Services Suppliers.xlsx', type: :xlsx
           end
         end
-      end
-
-      def download_rm6374_lot_2_rate
-        filename = 'lot_2_rate.xlsx'
-
-        file_path = if Rails.env.local?
-                      Rails.root.join('app', 'controllers', 'legal_services', 'rm6374', filename)
-                    else
-                      temp_path = Rails.root.join('tmp', filename)
-                      s3_client.get_object(
-                        bucket: ENV.fetch('LOT2_RATE_BUCKET', nil),
-                        key: filename,
-                        response_target: temp_path.to_s
-                      )
-                      temp_path
-                    end
-
-        send_file(
-          file_path,
-          filename: filename,
-          type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
-          disposition: 'attachment'
-        )
       end
 
       def fetch_supplier_frameworks
@@ -120,10 +93,6 @@ module LegalServices
 
       def fetch_lot
         @lot = Lot.find("RM6374.#{params.expect(:lot_number)}")
-      end
-
-      def s3_client
-        @s3_client ||= Aws::S3::Client.new(region: 'eu-west-2')
       end
     end
   end

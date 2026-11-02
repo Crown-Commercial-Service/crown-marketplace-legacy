@@ -99,9 +99,13 @@
 
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds ccs-search-results">
-          <ul class="ccs-results-list">
-            <%= render partial: 'supplier_framework', collection: @supplier_frameworks %>
-          </ul>
+          <% if params[:lot_number] == '2' && params[:single_or_multiple_suppliers] == "multiple" %>
+            <%= render partial: 'supplier_framework_lot_2_multiple' %>
+          <% else %>
+            <ul class="ccs-results-list">
+              <%= render partial: 'supplier_framework', collection: @supplier_frameworks %>
+            </ul>
+          <% end %>
         </div>
       </div>
     <% end %>
