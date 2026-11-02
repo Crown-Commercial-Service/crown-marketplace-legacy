@@ -31,11 +31,82 @@ class LegalServices::RM6374::SupplierSpreadsheetCreator < LegalServices::Supplie
 
   def add_supplier_rates(sheet)
     positions = read_positions
-
     headers = ['Supplier name', 'Prospectus'] + positions.map { |_, name| translate_job_title(name) }
+
+    if @lot.number == '2'
+      service_ids = Array(@params['service_numbers']).map { |num| "RM6374.#{@params['lot_number']}.#{num}" }
+      services = Service.where(id: service_ids).order(:id).pluck(:id, :name)
+
+      if @params['single_or_multiple_suppliers'] == 'single'
+        add_lot_2_single_supplier_rates(sheet, positions, services, headers)
+      else
+        add_lot_2_multiple_supplier_rates(sheet, positions, services, headers)
+      end
+
+    else
+      add_normal_supplier_rates(sheet, positions, headers)
+    end
+  end
+
+  def add_lot_2_single_supplier_rates(sheet, positions, services, headers) # rubocop:disable Metrics/AbcSize
+    headers[0] = 'Selected service'
+
+    selected_supplier_frameworks.sort_by { |f| f.supplier_name.to_s.downcase }.each do |framework|
+      framework_lot = framework.lots.find_by(lot_id: @lot.id)
+      next if framework_lot.nil?
+
+      sheet.add_row [framework.supplier_name, prospectus_link(framework)]
+      sheet.add_row headers
+      services.each do |service_id, service_name|
+        rates = framework_lot.rates
+                             .where(service_id:)
+                             .index_by(&:position_id)
+
+        rates_row = positions.map { |pos_id, _| display_rate(pos_id, rates) }
+        sheet.add_row [service_name] + rates_row
+      end
+      sheet.add_row []
+    end
+  end
+
+  def add_lot_2_multiple_supplier_rates(sheet, positions, services, headers) # rubocop:disable Metrics/AbcSize,Metrics/CyclomaticComplexity,Metrics/PerceivedComplexity
+    services.each do |service_id, service_name|
+      sheet.add_row [service_name]
+
+      supplier_rows = []
+
+      selected_supplier_frameworks.each do |framework|
+        framework_lot = framework.lots.find_by(lot_id: @lot.id)
+        next if framework_lot.nil?
+
+        rates = framework_lot.rates
+                             .where(service_id:)
+                             .index_by(&:position_id)
+
+        rates_row = positions.map { |pos_id, _| display_rate(pos_id, rates) }
+
+        has_rates = rates_row.any? { |rate| rate.present? && rate != '-' }
+        next unless has_rates
+
+        supplier_rows << ([framework.supplier_name, prospectus_link(framework)] + rates_row)
+      end
+
+      if supplier_rows.any?
+        sheet.add_row headers
+
+        supplier_rows.sort_by { |row| row.first.downcase }.each { |row| sheet.add_row row }
+      else
+        sheet.add_row ['Contact GCA legal services category team at info@gca.gov.uk to discuss your needs.']
+      end
+
+      sheet.add_row []
+    end
+  end
+
+  def add_normal_supplier_rates(sheet, positions, headers)
     sheet.add_row headers
 
-    selected_supplier_frameworks.each do |framework|
+    selected_supplier_frameworks.sort_by { |f| f.supplier_name.to_s.downcase }.each do |framework|
       framework_lot = framework.lots.find_by(lot_id: @lot.id)
       next if framework_lot.nil?
 
