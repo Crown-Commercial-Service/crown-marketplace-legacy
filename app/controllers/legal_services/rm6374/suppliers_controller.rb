@@ -47,7 +47,8 @@ module LegalServices
 
         scoped_supplier_frameworks.each do |supplier_framework|
           extract_matching_services(supplier_framework, selected_codes).each do |service|
-            services_with_supplier_frameworks[service.service.name] << supplier_framework
+            key = [service.service.id, service.service.name]
+            services_with_supplier_frameworks[key] << supplier_framework
           end
         end
 
@@ -61,7 +62,13 @@ module LegalServices
       end
 
       def fetch_rates
-        @rates = @supplier_framework.grouped_rates_for_lot(@lot.id)
+        @rates = if params[:lot_number] == '2' && params[:single_or_multiple_suppliers] == 'single'
+                   @supplier_framework.grouped_rates_for_lot_and_jurisdictions_and_services(@lot.id, [selected_jurisdiction_id], service_codes)
+                 elsif params[:lot_number] == '2' && params[:single_or_multiple_suppliers] == 'multiple'
+                   @supplier_framework.grouped_rates_for_lot_and_jurisdictions_and_services(@lot.id, [selected_jurisdiction_id], params.expect(:service_id)).values.first
+                 else
+                   @supplier_framework.grouped_rates_for_lot(@lot.id)
+                 end
       end
 
       def scoped_supplier_frameworks # rubocop:disable Metrics/AbcSize

@@ -70,7 +70,7 @@
               style: 'display: flex; gap: 15px; flex-wrap: nowrap; white-space: nowrap; margin-left: 35px;'
             ) do
               details_link = content_tag(:li) do
-                link_to 'View supplier detail', legal_services_rm6374_supplier_path(supplier_framework, **@journey.params), class: 'govuk-link'
+                link_to 'View supplier detail', legal_services_rm6374_supplier_path(supplier_framework, **@journey.params.merge(service_id: service.id)), class: 'govuk-link'
               end
 
               prospectus_link = if supplier_framework.contact_detail&.website.present?
