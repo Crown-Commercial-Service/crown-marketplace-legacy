@@ -36,7 +36,7 @@
             {
               text: render(
                 partial: 'legal_services/rm6374/journey/supplier_table_head',
-                locals: { supplier_framework: supplier_framework, lot: @lot, include_link: true }
+                locals: { supplier_framework: supplier_framework, lot: @lot, include_link: true, service_id: service.id }
               )
             }
           ] + @journey.current_step.positions.map do |position_id, _position_name|

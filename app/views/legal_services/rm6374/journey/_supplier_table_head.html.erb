@@ -1,5 +1,6 @@
 <div class="ccs-results-list__supplier-name">
-  <%= include_link ? link_to(supplier_framework.supplier_name, legal_services_rm6374_supplier_path(supplier_framework, **@journey.params), class: 'govuk-link ccs-no-underline') : supplier_framework.supplier_name %>
+  <% extra_params = local_assigns[:service_id].present? ? { service_id: service_id } : {} %>
+  <%= include_link ? link_to(supplier_framework.supplier_name, legal_services_rm6374_supplier_path(supplier_framework, **@journey.params.merge(extra_params)), class: 'govuk-link ccs-no-underline') : supplier_framework.supplier_name %>
   <% if supplier_framework.supplier&.sme? %>
     <%= govuk_tag(t('sme'), 'grey', classes: 'ccs-tag') %>
   <% end %>
