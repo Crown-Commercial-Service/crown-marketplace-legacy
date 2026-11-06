@@ -7,6 +7,8 @@ class Supplier < ApplicationRecord
     has_one :address, inverse_of: :supplier_framework, class_name: 'Supplier::Framework::Address', dependent: :destroy
 
     has_many :lots, inverse_of: :supplier_framework, class_name: 'Supplier::Framework::Lot', dependent: :destroy
+    has_many :supplier_framework_sectors, inverse_of: :supplier_framework, class_name: 'Supplier::Framework::Sector', dependent: :destroy, foreign_key: :supplier_framework_id
+    has_many :sectors, through: :supplier_framework_sectors, source: :sector
 
     delegate :name, to: :supplier, prefix: true
 
@@ -33,6 +35,22 @@ class Supplier < ApplicationRecord
       ).each_with_object({}) do |rate, grouped_rates|
         (grouped_rates[rate.position_id] ||= {})[rate.jurisdiction.jurisdiction_id] = rate
       end
+    end
+
+    def grouped_rates_for_lot_and_jurisdictions_and_services(lot_id, jurisdiction_ids, service_ids)
+      lot_record = lots.find_by(lot_id:)
+      return {} unless lot_record
+
+      lot_record.rates
+                .includes(:jurisdiction, :service)
+                .where(
+                  jurisdiction: { jurisdiction_id: jurisdiction_ids },
+                  service: { service_id: service_ids }
+                )
+                .each_with_object({}) do |rate, grouped_rates|
+                  # Group by service_id first (or position_id first)
+                  (grouped_rates[rate.service.service_id] ||= {})[rate.position_id] = rate
+                end
     end
 
     def self.with_lots(lot_id)
@@ -85,6 +103,43 @@ class Supplier < ApplicationRecord
                                                  .select(:supplier_framework_lot_id)
           }
         )
+      ).and(
+        where(
+          lots: {
+            id: Supplier::Framework::Lot::Jurisdiction.where(jurisdiction_id: jurisdiction_ids)
+                                                      .group(:supplier_framework_lot_id)
+                                                      .having('COUNT(*) = ?', jurisdiction_ids.length)
+                                                      .select(:supplier_framework_lot_id)
+          }
+        )
+      ).distinct
+    end
+
+    def self.with_sector(sector_ids)
+      includes(
+        :supplier, :supplier_framework_sectors
+      ).joins(
+        :supplier, :supplier_framework_sectors
+      ).where(
+        enabled: true,
+        supplier_framework_sectors: {
+          sector_id: sector_ids
+        }
+      ).distinct
+    end
+
+    def self.with_any_services_and_jurisdiction(service_ids, jurisdiction_ids)
+      includes(
+        :supplier, :lots
+      ).joins(
+        :supplier, :lots
+      ).where(
+        enabled: true,
+        lots: {
+          enabled: true,
+          id: Supplier::Framework::Lot::Service.where(service_id: service_ids)
+                                               .select(:supplier_framework_lot_id)
+        }
       ).and(
         where(
           lots: {

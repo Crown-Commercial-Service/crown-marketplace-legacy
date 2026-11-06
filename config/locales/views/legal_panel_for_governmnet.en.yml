@@ -242,7 +242,7 @@ en:
             guidance_heading: Guidance and other useful documents
             para01: Use this service to download a shortlist of suppliers that provide the legal specialisms you need.
             para02: Using this service means you're following the public sector procurement procedures.
-            para03_html: This tool is for the exclusive use of Central Government departments and Arms Length Bodies only. For wider public sector buyers please refer to our other agreement, <a href="https://www.gca.gov.uk/agreements/RM6240" class="govuk-link govuk-link--no-visited-state">Public Sector Legal Services</a> (RM6240).
+            para03_html: This tool is for the exclusive use of Central Government departments and Arms Length Bodies only. For wider public sector buyers please refer to our other agreement, <a href="https://www.gca.gov.uk/agreements/RM6374" class="govuk-link govuk-link--no-visited-state">Legal Panel for Public Sector</a> (RM6374).
             para04_html: You can contact <a href="mailto:info@gca.gov.uk" class="govuk-link govuk-link--no-visited-state">info@gca.gov.uk</a> for help.
             para05_html: To use this service you need to be a recognised public sector body listed in the <a href="https://assets.gca.gov.uk/wp-content/uploads/RM6240-Authorised-Customer-List.docx.odt">authorised customer list</a>.
       journey:
@@ -319,8 +319,8 @@ en:
           heading: Sorry, this panel isn't suitable for you
           lead_1: This panel is the default route to market offering a range of legal services to Central Government Departments, their executive agencies and arms length bodies.
           lead_2_html: Wider public sector organisations and departments granted an exception from GLD should consider using %{link}.
-          lead_2_link_text: RM6240 Public sector legal services
-          lead_2_link_url: https://www.gca.gov.uk/agreements/RM6240
+          lead_2_link_text: RM6374 Legal Panel for Public Sector
+          lead_2_link_url: https://www.gca.gov.uk/agreements/RM6374
         supplier_results:
           can_provide_legal_specialisms: can provide the legal specialisms that meet your requirements.
           compare_supplier_rates: Compare the supplier rates

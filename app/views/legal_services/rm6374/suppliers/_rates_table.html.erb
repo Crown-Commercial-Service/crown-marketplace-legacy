@@ -1,0 +1,29 @@
+<h2 class="govuk-heading-m govuk-!-margin-bottom-1"><%= t('.rates') %></h2>
+
+<% if params[:lot_number] == '2' && params[:single_or_multiple_suppliers] == 'single' %>
+
+  <% @rates.each do |service_id, service_rates| %>
+    <% service_name = Service.find_by(id: service_id)&.name %>
+    <h3 class="govuk-heading-m govuk-!-margin-top-8 govuk-!-margin-bottom-2 service-title"> <u> <%= service_name %> </u> </h3>
+    <%= govuk_table(
+      *rates_table_headers_and_rows(service_rates),
+      caption: {
+        text: service_name + ' ' + t('.rates'),
+        classes: 'govuk-visually-hidden'
+      },
+      first_cell_is_header: true,
+      classes: 'ccs-rates-table'
+    ) %>
+  <% end %>
+<% else %>
+  <%= govuk_table(
+    *rates_table_headers_and_rows(@rates),
+    caption: {
+      text: t('.rates'),
+      classes: 'govuk-visually-hidden'
+    },
+    first_cell_is_header: true,
+    classes: 'ccs-rates-table'
+  ) %>
+<% end %>
+
