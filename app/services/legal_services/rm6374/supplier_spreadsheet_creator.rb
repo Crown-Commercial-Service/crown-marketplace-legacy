@@ -50,6 +50,7 @@ class LegalServices::RM6374::SupplierSpreadsheetCreator < LegalServices::Supplie
 
   def add_lot_2_single_supplier_rates(sheet, positions, services, headers) # rubocop:disable Metrics/AbcSize
     headers[0] = 'Selected service'
+    headers.delete_at(1)
 
     selected_supplier_frameworks.sort_by { |f| f.supplier_name.to_s.downcase }.each do |framework|
       framework_lot = framework.lots.find_by(lot_id: @lot.id)

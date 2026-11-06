@@ -235,7 +235,7 @@ RSpec.describe LegalServices::RM6374::SupplierSpreadsheetCreator do
 
         it 'renders the supplier row, updated headers starting with Selected service, and service rate rows' do # rubocop:disable RSpec/MultipleExpectations
           expect(sheet.row(1).first(2)).to eq(['COLONY 4 CORP', 'https://example.com/colony'])
-          expect(sheet.row(2).first(3)).to eq(['Selected service', 'Prospectus', 'Partner'])
+          expect(sheet.row(2).first(3)).to eq(['Selected service', 'Partner', 'Senior Solicitor, Senior Associate/Senior Legal Executive'])
           expect(sheet.row(3).first(3)).to eq(['Artificial Intelligence and Machine Learning Law', '£200.00', '£150.00'])
           expect(sheet.row(4).first(3)).to eq(['Assimilated Law', '£250.00', '£180.00'])
         end
