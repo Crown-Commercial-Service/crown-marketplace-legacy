@@ -38,7 +38,7 @@
               content_tag(:div, class: 'govuk-checkboxes__item') do
                 checkbox_input = check_box_tag(
                   'supplier_framework_ids[]',
-                  framework_id,
+                  "#{service.id}:#{framework_id}",
                   false,
                   class: 'govuk-checkboxes__input',
                   id: "supplier_framework_ids_#{service.id.to_s.gsub('.', '_')}_#{framework_id}"
