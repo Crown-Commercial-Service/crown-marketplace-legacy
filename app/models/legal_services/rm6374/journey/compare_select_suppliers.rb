@@ -63,9 +63,10 @@ module LegalServices
 
         NUM_TO_WORDS = { 1 => 'one', 3 => 'three' }.freeze
 
-        def validate_supplier_framework_ids_count
+        def validate_supplier_framework_ids_count # rubocop:disable Metrics/CyclomaticComplexity
           selected_suppliers = supplier_framework_ids.compact_blank.length
           base_min = call_off_mechanism == 'quotation_process' ? 3 : 1
+          base_min = 1 if lot_number == '2'
           available_count = supplier_frameworks&.length || selected_suppliers
 
           min_required = [base_min, available_count].min

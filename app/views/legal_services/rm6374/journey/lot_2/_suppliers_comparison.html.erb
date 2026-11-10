@@ -13,7 +13,13 @@
         {
             label: service.name,
             panel: {
-            content: render( partial: comparison_partial, locals: { service: service, supplier_frameworks_with_rates: supplier_frameworks_with_rates }),
+            content: render(
+                partial: comparison_partial,
+                locals: {
+                    service: service,
+                    supplier_frameworks_with_rates: ( checkboxes ?  supplier_frameworks_with_rates : supplier_frameworks_with_rates[service] ),
+                }
+            ),
             attributes: {
                 id: service.id.to_s.gsub('.', '-')
             }
