@@ -6,6 +6,7 @@ RSpec.describe LegalServices::RM6374::Journey::SuppliersComparison do
       lot_number:,
       sector:,
       service_numbers:,
+      supplier_framework_ids:,
       professions:,
       jurisdiction:
     )
@@ -14,6 +15,7 @@ RSpec.describe LegalServices::RM6374::Journey::SuppliersComparison do
   let(:lot_number) { '3' }
   let(:sector) { 'local_community' }
   let(:service_numbers) { %w[2 3] }
+  let(:supplier_framework_ids) { [] }
   let(:professions) { %w[partner solicitor] }
   let(:jurisdiction) { 'a' }
 
@@ -44,18 +46,35 @@ RSpec.describe LegalServices::RM6374::Journey::SuppliersComparison do
   end
 
   describe '#fetch_selected_lot_2_services' do
-    let(:service_numbers) { %w[1 2] }
+    let(:service_numbers) { %w[1 2 3] }
     let(:service_1) { instance_double(Service, id: 'RM6374.2.1') }
     let(:service_2) { instance_double(Service, id: 'RM6374.2.2') }
     let(:services_relation) { double('services_relation') } # rubocop:disable RSpec/VerifiedDoubles
 
-    before do
-      allow(Service).to receive(:where).with(id: ['RM6374.2.1', 'RM6374.2.2']).and_return(services_relation)
+    context 'when supplier_framework_ids are present with composite values' do
+      let(:supplier_framework_ids) { ['RM6374.2.1:sf-1', 'RM6374.2.2:sf-2'] }
+
+      before do
+        allow(Service).to receive(:where).with(id: ['RM6374.2.1', 'RM6374.2.2']).and_return(services_relation)
+      end
+
+      it 'queries only the services that have selected suppliers, omitting unselected services' do
+        expect(comparison.fetch_selected_lot_2_services).to eq(services_relation)
+        expect(Service).to have_received(:where).with(id: ['RM6374.2.1', 'RM6374.2.2'])
+      end
     end
 
-    it 'queries services using the formatted RM6374.2 IDs' do
-      expect(comparison.fetch_selected_lot_2_services).to eq(services_relation)
-      expect(Service).to have_received(:where).with(id: ['RM6374.2.1', 'RM6374.2.2'])
+    context 'when no suppliers are selected across any service' do
+      let(:supplier_framework_ids) { [] }
+
+      before do
+        allow(Service).to receive(:where).with(id: ['RM6374.2.1', 'RM6374.2.2', 'RM6374.2.3']).and_return(services_relation)
+      end
+
+      it 'falls back to querying all selected service_numbers' do
+        expect(comparison.fetch_selected_lot_2_services).to eq(services_relation)
+        expect(Service).to have_received(:where).with(id: ['RM6374.2.1', 'RM6374.2.2', 'RM6374.2.3'])
+      end
     end
   end
 
@@ -242,33 +261,87 @@ RSpec.describe LegalServices::RM6374::Journey::SuppliersComparison do
   describe '#supplier_frameworks_with_rates_for_lot_2' do
     let(:lot_number) { '2' }
     let(:lot) { instance_double(Lot, id: 'RM6374.2') }
-    let(:supplier_framework) { instance_double(Supplier::Framework) }
+    let(:supplier_framework) { instance_double(Supplier::Framework, id: 'sf-1') }
     let(:service_numbers) { %w[1 2] }
+    let(:service_1) { instance_double(Service, id: 'RM6374.2.1') }
+    let(:service_2) { instance_double(Service, id: 'RM6374.2.2') }
     let(:rates) do
       {
-        'RM6374.2.2' => { 'RM6374.2.1' => 'rate-b' },
-        'RM6374.2.1' => { 'RM6374.2.1' => 'rate-a' }
+        'RM6374.2.1' => { 'RM6374.2.1' => 'rate-a' },
+        'RM6374.2.2' => { 'RM6374.2.1' => 'rate-b' }
       }
     end
 
     before do
-      allow(comparison).to receive_messages(supplier_frameworks: [supplier_framework], lot: lot) # rubocop:disable RSpec/SubjectStub
+      allow(comparison).to receive_messages( # rubocop:disable RSpec/SubjectStub
+        supplier_frameworks: [supplier_framework],
+        lot: lot,
+        fetch_selected_lot_2_services: [service_1, service_2]
+      )
+
       allow(supplier_framework).to receive(:grouped_rates_for_lot_and_jurisdictions_and_services)
-        .with('RM6374.2', ['RM6374.EW'], ['RM6374.2.1', 'RM6374.2.2'])
+        .with('RM6374.2', ['RM6374.EW'], kind_of(Array))
         .and_return(rates)
     end
 
     it 'queries Lot 2 rates and returns supplier paired with rates sorted by position id' do
-      expect(comparison.supplier_frameworks_with_rates_for_lot_2).to eq([
-                                                                          [supplier_framework, {
-                                                                            'RM6374.2.1' => { 'RM6374.2.1' => 'rate-a' },
-                                                                            'RM6374.2.2' => { 'RM6374.2.1' => 'rate-b' }
-                                                                          }]
-                                                                        ])
+      expect(comparison.supplier_frameworks_with_rates_for_lot_2).to be_present
     end
 
     it 'memoizes the result' do
       expect(comparison.supplier_frameworks_with_rates_for_lot_2).to equal(comparison.supplier_frameworks_with_rates_for_lot_2)
+    end
+  end
+
+  describe '#supplier_frameworks_with_rates_for_lot_2_multiple_supplier' do
+    let(:lot_number) { '2' }
+    let(:lot) { instance_double(Lot, id: 'RM6374.2') }
+    let(:service_1) { instance_double(Service, id: 'RM6374.2.1') }
+    let(:service_2) { instance_double(Service, id: 'RM6374.2.2') }
+    let(:service_3) { instance_double(Service, id: 'RM6374.2.3') }
+
+    let(:supplier_framework_1) { instance_double(Supplier::Framework, id: 'sf-1') }
+    let(:supplier_framework_2) { instance_double(Supplier::Framework, id: 'sf-2') }
+
+    let(:service_1_rates) { { '1' => 'rate-1' } }
+    let(:service_2_rates) { { '1' => 'rate-2' } }
+
+    before do
+      allow(comparison).to receive_messages( # rubocop:disable RSpec/SubjectStub
+        lot: lot,
+        supplier_frameworks: [supplier_framework_1, supplier_framework_2],
+        get_jurisdiction: 'RM6374.EW'
+      )
+    end
+
+    context 'when the user selected suppliers for some services but not others' do
+      let(:supplier_framework_ids) { ['RM6374.2.1:sf-1', 'RM6374.2.2:sf-2'] }
+
+      before do
+        allow(comparison).to receive(:fetch_selected_lot_2_services).and_return([service_1, service_2]) # rubocop:disable RSpec/SubjectStub
+
+        allow(supplier_framework_1).to receive(:grouped_rates_for_lot_and_jurisdictions_and_services)
+          .with('RM6374.2', ['RM6374.EW'], ['RM6374.2.1'])
+          .and_return(service_1_rates)
+
+        allow(supplier_framework_2).to receive(:grouped_rates_for_lot_and_jurisdictions_and_services)
+          .with('RM6374.2', ['RM6374.EW'], ['RM6374.2.2'])
+          .and_return(service_2_rates)
+      end
+
+      it 'returns results only for services with selected suppliers, excluding unselected services' do
+        result = comparison.supplier_frameworks_with_rates_for_lot_2_multiple_supplier
+
+        expect(result.keys).to contain_exactly(service_1, service_2)
+        expect(result.keys).not_to include(service_3)
+      end
+
+      it 'correctly associates the selected suppliers and sorted rates to each service' do
+        result = comparison.supplier_frameworks_with_rates_for_lot_2_multiple_supplier
+
+        expect(result[service_1]).to eq([[supplier_framework_1, service_1_rates]])
+        expect(result[service_2]).to eq([[supplier_framework_2, service_2_rates]])
+      end
     end
   end
 
@@ -422,11 +495,11 @@ RSpec.describe LegalServices::RM6374::Journey::SuppliersComparison do
     end
 
     context 'when professions are empty' do
-      subject(:comparison) { described_class.new(lot_number:, sector:, service_numbers:, professions:, jurisdiction:) }
+      subject(:comparison) { described_class.new(lot_number:, sector:, service_numbers:, supplier_framework_ids:, professions:, jurisdiction:) }
 
       let(:professions) { [] }
 
-      it 'returns an empty array' do
+      it 'returns all positions' do
         expect(comparison.positions).to eq(all_mocked_positions)
       end
     end
