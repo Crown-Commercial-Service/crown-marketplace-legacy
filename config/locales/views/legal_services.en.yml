@@ -691,6 +691,16 @@ en:
           grade: Grade
           position: Position
           rates: Rates
+        show:
+          contact_details:
+            address: Address
+            email: Email
+            heading: Contact details
+            phone_number: Phone number
+            website: Website
+          fee_advice: You are also able to use alternative fee arrangements such as fixed or capped fees, which may deliver greater value.
+          is_an_sme: This supplier is a small or medium-sized enterprise
+          supplier_prospectus_headline: Supplier prospectus
     service_name: Legal Services
     suppliers:
       download:

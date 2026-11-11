@@ -18,6 +18,7 @@ class LegalServices::RM6374::Admin::FilesProcessor < FilesProcessor
         address: 'Postal address',
         sme: 'Is an SME',
         duns: 'DUNS Number',
+        description: 'Description (only visible in lot 2 )',
         lot_1a_prospectus_link: 'Lot 1a: Prospectus Link',
         lot_1b_prospectus_link: 'Lot 1b: Prospectus Link',
         lot_1c_prospectus_link: 'Lot 1c: Prospectus Link',
@@ -51,6 +52,7 @@ class LegalServices::RM6374::Admin::FilesProcessor < FilesProcessor
               website: supplier[:website],
               additional_details: {
                 address: supplier[:address],
+                description: supplier[:description],
                 lot_1a_prospectus_link: supplier[:lot_1a_prospectus_link],
                 lot_1b_prospectus_link: supplier[:lot_1b_prospectus_link],
                 lot_1c_prospectus_link: supplier[:lot_1c_prospectus_link],

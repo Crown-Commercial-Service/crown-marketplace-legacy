@@ -10,6 +10,12 @@
       <%= govuk_tag(t('sme'), 'grey', classes: 'ccs-tag') %>
     <% end %>
 
+    <% if params[:framework] == 'RM6374' && params[:lot_number] == '2' %>
+      <span class="govuk-caption-m govuk-!-margin-bottom-2">
+        <%= supplier_framework.contact_detail.additional_details['description'] %>
+      </span>
+    <% end %>
+
     <% if params[:framework] == 'RM6374' %>
       <% link_url = prospectus_link_for_list_page(supplier_framework) %>
       
