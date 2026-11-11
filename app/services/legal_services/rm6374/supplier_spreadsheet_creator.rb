@@ -76,6 +76,12 @@ class LegalServices::RM6374::SupplierSpreadsheetCreator < LegalServices::Supplie
 
       supplier_rows = []
 
+      selected_supplier_frameworks = if @params['supplier_framework_ids'].present?
+                                       selected_supplier_frameworks_for_multiple_suppliers_path[service_id]
+                                     else
+                                       @supplier_frameworks
+                                     end
+
       selected_supplier_frameworks.each do |framework|
         framework_lot = framework.lots.find_by(lot_id: @lot.id)
         next if framework_lot.nil?
@@ -118,14 +124,42 @@ class LegalServices::RM6374::SupplierSpreadsheetCreator < LegalServices::Supplie
     end
   end
 
+  def selected_supplier_frameworks_for_multiple_suppliers_path # rubocop:disable Metrics/CyclomaticComplexity
+    raw_supplier_ids = Array(@params['supplier_framework_ids']).compact_blank
+    return false if raw_supplier_ids.empty?
+
+    service_to_supplier_ids = raw_supplier_ids
+                              .select { |item| item.include?(':') }
+                              .map { |item| item.split(':', 2) }
+                              .group_by(&:first)
+                              .transform_values { |pairs| pairs.map(&:last) }
+
+    all_selected_supplier_ids = service_to_supplier_ids.values.flatten.uniq
+
+    frameworks_by_id = ::Supplier::Framework.joins(:supplier)
+                                            .where(id: all_selected_supplier_ids)
+                                            .index_by(&:id)
+
+    service_to_supplier_ids.transform_values do |supplier_ids|
+      frameworks_by_id.values_at(*supplier_ids).compact
+    end
+  end
+
   def add_supplier_details(sheet)
     sheet.add_row ['Supplier name', 'Phone number', 'Email', 'Prospectus']
+
+    # edge case: lot 2 with multiple suppliers and no supplier framework ids selected
+    selected_supplier_frameworks = if @params['supplier_framework_ids'].present? && @lot.number == '2' && @params['single_or_multiple_suppliers'] == 'multiple'
+                                     selected_supplier_frameworks_for_multiple_suppliers_path.values.flatten.uniq
+                                   else
+                                     @supplier_frameworks
+                                   end
 
     selected_supplier_frameworks.each do |framework|
       contact = framework.contact_detail
       sheet.add_row [
         framework.supplier_name,
-        contact.telephone_number,
+        contact.telephone_number.to_s,
         contact.email,
         prospectus_link(framework)
       ]
