@@ -14,6 +14,10 @@
                 <%= govuk_tag(t('sme'), 'grey', classes: 'ccs-tag govuk-!-font-size-14') %>
             <% end %>
 
+            <span class="govuk-caption-m govuk-!-margin-bottom-2">
+                <%= supplier_framework.contact_detail.additional_details['description'] %>
+            </span>
+
             <% if (prospectus_url = prospectus_link_for_list_page(supplier_framework)).present? %>
                 <div class="ccs-results-list__prospectus govuk-!-margin-top-1">
                 <%= link_to prospectus_url, url_formatter(prospectus_url), class: 'govuk-link ccs-no-underline' %>
