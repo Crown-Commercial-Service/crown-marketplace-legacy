@@ -551,7 +551,9 @@ en:
           question: Do you require
         compare_select_suppliers:
           contact_hint_html: If you have any questions, <a class="govuk-link" href="%{contact_link}">contact GCA</a>.
+          description: Framework Schedule 7 requires inviting a minimum of three suppliers to provide a quote. If fewer than three are available, please select all eligible suppliers to compare rates.
           disclaimer: The rates provided are commercially sensitive and should be used only to inform your requirement.
+          hint_text_for_lot_2_multiple: Select suppliers to compare within each legal specialism. Specialisms without a selection will not be included in your results.
           question: Select suppliers for comparison
         comparison_rates_table:
           job_titles:
