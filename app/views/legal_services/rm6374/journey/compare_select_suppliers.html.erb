@@ -34,6 +34,14 @@
           }
         ) do %>
 
+          <p class="govuk-body"> <%= t(".description") %> </p>
+
+          <% if @journey.current_step.lot_number == '2' and @journey.current_step.single_or_multiple_suppliers == "multiple" %>
+            <div class="govuk-inset-text govuk-!-font-weight-bold">
+              <%= t(".hint_text_for_lot_2_multiple") %>
+            </div>
+          <% end %>
+
           <% if @journey.errors[:supplier_framework_ids].any? %>
             <p id="supplier_framework_ids-error" class="govuk-error-message">
               <span class="govuk-visually-hidden">Error:</span> <%= @journey.errors[:supplier_framework_ids].first %>
