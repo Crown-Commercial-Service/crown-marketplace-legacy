@@ -1,7 +1,7 @@
 <%= content_for :page_title, t('.heading')  %>
 
 <div class="govuk-grid-row">
-  <div class=" govuk-grid-column-two-thirds">
+  <div class="govuk-grid-column-two-thirds">
 
     <h1 class="govuk-heading-xl govuk-!-margin-bottom-4">
       <%= t('.heading') %>
@@ -12,7 +12,11 @@
     </p>
 
     <p class="govuk-body">
-      <%= link_to_generated_file_for_download(download_legal_services_suppliers_path, :xlsx, t('.download_supplier_shortlist_link'), true) %>
+      <% if params[:framework] == 'RM6374' %>
+        <%= link_to_generated_file_for_download(download_legal_services_rm6374_suppliers_path, :xlsx, t('.download_supplier_shortlist_link'), true) %>
+      <% else %>
+        <%= link_to_generated_file_for_download(download_legal_services_suppliers_path, :xlsx, t('.download_supplier_shortlist_link'), true) %>
+      <% end %>
     </p>
 
     <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">

@@ -16,11 +16,18 @@
     ]
   else
     supplier_frameworks.map do |supplier_framework|
+      supplier_name = supplier_framework.supplier_name
+      trading_name = supplier_framework.supplier.additional_details&.dig('trading_name').presence
       [
         {
-          text: tag.h2(class: 'govuk-heading-m govuk-!-margin-bottom-0') do
-            link_to(supplier_framework.supplier_name, show_path(supplier_framework), class: 'govuk-link ccs-no-underline')
-          end,
+          text: safe_join([
+            tag.h2(class: 'govuk-heading-m govuk-!-margin-bottom-1') do
+              link_to(supplier_name, show_path(supplier_framework), class: 'govuk-link ccs-no-underline')
+            end,
+            if trading_name.present? && trading_name != supplier_name
+              tag.span("Trading as #{trading_name}", class: 'govuk-body govuk-!-margin-bottom-0')
+            end
+          ].compact),
           classes: 'agency-row'
         }
       ]

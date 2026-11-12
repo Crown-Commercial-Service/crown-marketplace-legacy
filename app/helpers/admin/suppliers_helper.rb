@@ -125,6 +125,23 @@ module Admin::SuppliersHelper
     @additional_supplier_information_summary_rows ||= collect_summary_rows(:additional_supplier_information, ADDITIONAL_SUPPLIER_INFORMATION_SUMMARY_ROWS)
   end
 
+  def customer_sector_selection_summary_rows
+    return [] unless @supplier_framework.respond_to?(:sectors)
+
+    assigned_sector_ids = @supplier_framework.sector_ids
+
+    Sector.order(:id).map do |sector|
+      {
+        key: {
+          text: sector.name
+        },
+        value: {
+          text: assigned_sector_ids.include?(sector.id) ? I18n.t('yes') : I18n.t('no')
+        }
+      }
+    end
+  end
+
   private
 
   def collect_summary_rows(section, summary_rows_hash)
