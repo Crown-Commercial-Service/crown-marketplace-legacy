@@ -71,13 +71,16 @@ class LegalServices::RM6374::SupplierSpreadsheetCreator < LegalServices::Supplie
   end
 
   def add_lot_2_multiple_supplier_rates(sheet, positions, services, headers) # rubocop:disable Metrics/AbcSize,Metrics/CyclomaticComplexity,Metrics/PerceivedComplexity
+    lot_2_multiple_suppliers = selected_supplier_frameworks_for_multiple_suppliers_path
+
+    services = lot_2_multiple_suppliers.keys.sort_by { |service_id| Service.find(service_id).name } if @params['supplier_framework_ids'].present?
     services.each do |service_id, service_name|
       sheet.add_row [service_name]
 
       supplier_rows = []
 
       selected_supplier_frameworks = if @params['supplier_framework_ids'].present?
-                                       selected_supplier_frameworks_for_multiple_suppliers_path[service_id]
+                                       lot_2_multiple_suppliers[service_id]
                                      else
                                        @supplier_frameworks
                                      end
