@@ -34,7 +34,9 @@
           }
         ) do %>
 
-          <p class="govuk-body"> <%= t(".description") %> </p>
+          <% if @journey.current_step.call_off_mechanism == 'quotation_process' %>
+            <p class="govuk-body"> <%= t(".description") %> </p>
+          <% end %>
 
           <% if @journey.current_step.lot_number == '2' and @journey.current_step.single_or_multiple_suppliers == "multiple" %>
             <div class="govuk-inset-text govuk-!-font-weight-bold">
