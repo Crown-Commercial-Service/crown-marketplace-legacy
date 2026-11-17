@@ -49,7 +49,7 @@ gem 'holidays'
 gem 'rollbar', '~> 3.8.0'
 
 # for dfe sign in
-gem 'omniauth', '~> 2.1.4'
+gem 'omniauth', '~> 2.2.0'
 gem 'omniauth-oauth2', '~> 1.9.0'
 gem 'omniauth-rails_csrf_protection', '>= 1.0.1'
 gem 'omniauth_openid_connect', '~> 0.8.0'
