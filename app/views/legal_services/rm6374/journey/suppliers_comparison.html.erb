@@ -73,7 +73,7 @@ journey_path = ->(slug, params = {}) {
       </p>
 
       <div class="govuk-button-group">
-        <%= govuk_button(t('.return_to_result_page'), href: @return_to_suppliers) %>
+        <%= govuk_button(t('.download'), href: download_legal_services_rm6374_suppliers_path(request.query_parameters.merge(format: :xlsx))) %>
         <% unless params[:call_off_mechanism] == 'award_with_competition' || params[:review_prospectus] == 'no' %>
           <% @back_path = @reselect_supplier %>
           <% LegalServices::RM6374::Search.log_supplier_rates_comparison(current_user, session.id, params, @journey.current_step.supplier_frameworks) %>
@@ -83,7 +83,7 @@ journey_path = ->(slug, params = {}) {
                 classes: 'govuk-button--secondary'
               ) %>
         <% end %>
-        <%= govuk_button(t('.download'), href: download_legal_services_rm6374_suppliers_path(request.query_parameters.merge(format: :xlsx)), classes: 'govuk-button--secondary') %>
+        <%= govuk_button(t('.return_to_result_page'), href: @return_to_suppliers, classes: 'govuk-button--secondary') %>
 
       </div>
     </div>
