@@ -80,6 +80,8 @@ module Admin::SupplierActions
                service::Admin::Supplier.find(@supplier_framework.supplier_id)
              when :supplier_contact_information, :additional_supplier_information
                service::Admin::SupplierContactDetail.find_by(supplier_framework_id: @supplier_framework.id)
+             when :customer_sector_selection
+               Supplier::Framework.find(@supplier_framework.id)
              end
   end
 

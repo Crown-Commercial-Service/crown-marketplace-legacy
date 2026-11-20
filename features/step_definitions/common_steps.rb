@@ -208,3 +208,7 @@ Then('I pause') do
   # binding.pry
   pending 'This step is used for debugging features'
 end
+
+When('I click on {string} in the row for {string}') do |link_text, row_text|
+  page.find('tr', text: row_text).click_on(link_text)
+end

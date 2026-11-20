@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '4.0.2'
+ruby '4.0.10'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 8.1.3'
@@ -49,7 +49,7 @@ gem 'holidays'
 gem 'rollbar', '~> 3.8.0'
 
 # for dfe sign in
-gem 'omniauth', '~> 2.1.4'
+gem 'omniauth', '~> 2.2.0'
 gem 'omniauth-oauth2', '~> 1.9.0'
 gem 'omniauth-rails_csrf_protection', '>= 1.0.1'
 gem 'omniauth_openid_connect', '~> 0.8.0'
@@ -59,7 +59,7 @@ gem 'json-jwt', '>= 1.11.0'
 gem 'devise', '~> 5.0.4'
 
 # for cognito
-gem 'aws-sdk-cognitoidentityprovider', '~> 1.144.0'
+gem 'aws-sdk-cognitoidentityprovider', '~> 1.149.0'
 
 # for pagination
 gem 'kaminari', '~> 1.2.2'
@@ -90,8 +90,7 @@ gem 'cancancan', '~> 3.6.1'
 gem 'role_model', '~> 0.8.2'
 
 # for clamav
-# Because ratonvirus is not Rails 8 compatible, we use this fork
-gem 'ratonvirus', '>= 0.3.2', git: 'https://github.com/MaksJS/ratonvirus.git', ref: '13e4cd2bc2ef066f40634344f756b45cda3ac105'
+gem 'ratonvirus', '~> 0.6.0'
 gem 'ratonvirus-clamby', '>= 0.1.0'
 # for active storage validation
 gem 'active_storage_validations', '>= 1.0.3'
@@ -143,6 +142,7 @@ group :development do
   gem 'pry-byebug'
   gem 'pry-rescue'
   gem 'pry-stack_explorer'
+  gem 'debug'
 end
 
 group :test do
