@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [8.3.0] - 2026-11-20
+### Added
+- Added tag line/description for RM6374 supplier ([PR 2662](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2662))
+- Long-Term Solution Lot 2
+    - Upload 
+    - Inital result page update
+    - View and edit rate on admin side (individual rate per service)
+    - Frontend -without checkout 
+    - Frontend -with checkbox
+
+### Removed
+- removed Legal Services RM6374 interim solution for lot 2 ([PR 2656](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2656))
+
+
 ## [8.2.1] - 2026-10-01
 ### Added
 - Added customer sector down selection for RM6374 ([PR 2629](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2629))
