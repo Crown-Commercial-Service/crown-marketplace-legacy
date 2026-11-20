@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [8.3.1] - 2026-11-20
+### Changed
+- Upgrade ALPINE version to v3.24
+
 ## [8.3.0] - 2026-11-20
 ### Added
 - Added tag line/description for RM6374 supplier ([PR 2662](https://github.com/Crown-Commercial-Service/crown-marketplace-legacy/pull/2662))
