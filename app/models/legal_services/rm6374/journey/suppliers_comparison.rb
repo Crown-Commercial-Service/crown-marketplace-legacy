@@ -7,7 +7,7 @@ module LegalServices
 
       attribute :sector, :string
       attribute :lot_number, :string
-      attribute :single_or_multiple_suppliers, :string
+      attribute :single_or_multiple_suppliers, :string, default: -> { 'single' }
       attribute :service_numbers, :array, default: -> { [] }
       attribute :supplier_framework_ids, :array, default: -> { [] }
       attribute :professions, :array, default: -> { [] }
