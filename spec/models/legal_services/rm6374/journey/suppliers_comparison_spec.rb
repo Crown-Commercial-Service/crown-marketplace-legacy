@@ -47,33 +47,27 @@ RSpec.describe LegalServices::RM6374::Journey::SuppliersComparison do
 
   describe '#fetch_selected_lot_2_services' do
     let(:service_numbers) { %w[1 2 3] }
-    let(:service_1) { instance_double(Service, id: 'RM6374.2.1') }
-    let(:service_2) { instance_double(Service, id: 'RM6374.2.2') }
     let(:services_relation) { double('services_relation') } # rubocop:disable RSpec/VerifiedDoubles
 
-    context 'when supplier_framework_ids are present with composite values' do
-      let(:supplier_framework_ids) { ['RM6374.2.1:sf-1', 'RM6374.2.2:sf-2'] }
-
-      before do
-        allow(Service).to receive(:where).with(id: ['RM6374.2.1', 'RM6374.2.2']).and_return(services_relation)
-      end
-
-      it 'queries only the services that have selected suppliers, omitting unselected services' do
-        expect(comparison.fetch_selected_lot_2_services).to eq(services_relation)
-        expect(Service).to have_received(:where).with(id: ['RM6374.2.1', 'RM6374.2.2'])
-      end
+    before do
+      allow(Service).to receive(:where).with(id: ['RM6374.2.1', 'RM6374.2.2', 'RM6374.2.3']).and_return(services_relation)
     end
 
-    context 'when no suppliers are selected across any service' do
-      let(:supplier_framework_ids) { [] }
+    it 'queries services matching the selected service_numbers for Lot 2' do
+      expect(comparison.fetch_selected_lot_2_services).to eq(services_relation)
+      expect(Service).to have_received(:where).with(id: ['RM6374.2.1', 'RM6374.2.2', 'RM6374.2.3'])
+    end
+
+    context 'when service_numbers is empty' do
+      let(:service_numbers) { [] }
 
       before do
-        allow(Service).to receive(:where).with(id: ['RM6374.2.1', 'RM6374.2.2', 'RM6374.2.3']).and_return(services_relation)
+        allow(Service).to receive(:where).with(id: []).and_return(services_relation)
       end
 
-      it 'falls back to querying all selected service_numbers' do
+      it 'queries with an empty id array' do
         expect(comparison.fetch_selected_lot_2_services).to eq(services_relation)
-        expect(Service).to have_received(:where).with(id: ['RM6374.2.1', 'RM6374.2.2', 'RM6374.2.3'])
+        expect(Service).to have_received(:where).with(id: [])
       end
     end
   end
@@ -113,17 +107,36 @@ RSpec.describe LegalServices::RM6374::Journey::SuppliersComparison do
     context 'when querying Lot 2' do
       let(:lot_number) { '2' }
 
-      before do
-        allow(supplier_frameworks_relation).to receive(:with_any_services_and_jurisdiction)
-          .with(expected_services, expected_jurisdiction_ids)
-          .and_return(with_services_relation)
-        allow(with_services_relation).to receive(:with_sector).with(2).and_return([supplier_framework_1, supplier_framework_2])
+      context 'when multiple suppliers are selected' do
+        before do
+          allow(comparison).to receive(:single_or_multiple_suppliers).and_return('multiple') # rubocop:disable RSpec/SubjectStub
+          allow(supplier_frameworks_relation).to receive(:with_any_services_and_jurisdiction)
+            .with(expected_services, expected_jurisdiction_ids)
+            .and_return(with_services_relation)
+          allow(with_services_relation).to receive(:with_sector).with(2).and_return([supplier_framework_1, supplier_framework_2])
+        end
+
+        it 'queries supplier frameworks using with_any_services_and_jurisdiction' do
+          expect(comparison.supplier_frameworks).to eq([supplier_framework_2, supplier_framework_1])
+          expect(supplier_frameworks_relation).to have_received(:with_any_services_and_jurisdiction)
+            .with(expected_services, expected_jurisdiction_ids)
+        end
       end
 
-      it 'queries supplier frameworks using with_any_services_and_jurisdiction' do
-        expect(comparison.supplier_frameworks).to eq([supplier_framework_2, supplier_framework_1])
-        expect(supplier_frameworks_relation).to have_received(:with_any_services_and_jurisdiction)
-          .with(expected_services, expected_jurisdiction_ids)
+      context 'when a single supplier is selected' do
+        before do
+          allow(comparison).to receive(:single_or_multiple_suppliers).and_return('single') # rubocop:disable RSpec/SubjectStub
+          allow(supplier_frameworks_relation).to receive(:with_services_and_jurisdiction)
+            .with(expected_services, expected_jurisdiction_ids)
+            .and_return(with_services_relation)
+          allow(with_services_relation).to receive(:with_sector).with(2).and_return([supplier_framework_1, supplier_framework_2])
+        end
+
+        it 'queries supplier frameworks using with_services_and_jurisdiction' do
+          expect(comparison.supplier_frameworks).to eq([supplier_framework_2, supplier_framework_1])
+          expect(supplier_frameworks_relation).to have_received(:with_services_and_jurisdiction)
+            .with(expected_services, expected_jurisdiction_ids)
+        end
       end
     end
 
