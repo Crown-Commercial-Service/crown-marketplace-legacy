@@ -162,10 +162,10 @@ class LegalServices::RM6374::SupplierSpreadsheetCreator < LegalServices::Supplie
       contact = framework.contact_detail
       sheet.add_row [
         framework.supplier_name,
-        contact.telephone_number.to_s,
+        contact.telephone_number,
         contact.email,
         prospectus_link(framework)
-      ]
+      ], types: [nil, :string, nil, nil]
     end
   end
 
