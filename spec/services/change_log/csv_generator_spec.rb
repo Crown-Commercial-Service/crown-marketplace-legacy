@@ -10,6 +10,10 @@ RSpec.describe ChangeLog::CsvGenerator, type: :helper do
     let(:framework) { Framework.find('RM6376') }
     let(:user_1) { create(:user, email: 'reiner.braun@attackontitn.pa') }
     let(:user_2) { create(:user, email: 'bertholdt.hoover@attackontitn.pa') }
+    let(:sector_1) { Sector.find_by(name: 'Health') }
+    let(:sector_2) { Sector.find_by(name: 'Education') }
+    let(:sector_3) { Sector.find_by(name: 'Government policy') }
+    let(:sector_4) { Sector.find_by(name: 'Infrastructure') }
     let(:generated_csv) { CSV.parse(described_class.new(framework.id, view).generate_csv) }
 
     def get_time(n_of_days)
@@ -202,6 +206,21 @@ RSpec.describe ChangeLog::CsvGenerator, type: :helper do
           'after' => { 'address_line_2' => 'Abandoned Forest Log Cabin Hideout' }
         }
       )
+      create(
+        :change_log,
+        :with_update_supplier_sector_information_change_type,
+        framework: framework,
+        user: user_1,
+        created_at: get_time(12),
+        id: '9a1b2c3d-4e5f-6789-abcd-ef0123456789',
+        change_data: {
+          'id' => '11223344-5566-7788-99aa-bbccddeeff00',
+          'supplier_name' => 'Historia Reiss',
+          'lot_id' => nil,
+          'added' => [sector_1.id, sector_2.id],
+          'removed' => [sector_3.id, sector_4.id]
+        }
+      )
     end
 
     it 'has the right headers' do
@@ -239,7 +258,7 @@ RSpec.describe ChangeLog::CsvGenerator, type: :helper do
     end
 
     it 'has the correct data in rows for update_supplier_framework_lot_jurisdictions' do
-      expect(generated_csv[2]).to eq(['#7d623ebf', 'Jurisdictions update', 'bertholdt.hoover@attackontitn.pa', '7 June 2026, 5:00pm', 'Armin Arlert', 'Lot 1 - Core Legal Services', nil, 'Jurisdictions', nil, nil, "non-core:\nCambodia;\nHong Kong;\nMontenegro;", "non-core:\nBrazil;\nChina;\nJapan;"])
+      expect(generated_csv[2]).to eq(['#7d623ebf', 'Jurisdictions update', 'bertholdt.hoover@attackontitn.pa', '7 June 2026, 5:00pm', 'Armin Arlert', 'Lot 1 - Core Legal Services', nil, 'Jurisdictions', nil, nil, "non-core:\nHong Kong;\nCambodia;\nMontenegro;", "non-core:\nBrazil;\nChina;\nJapan;"])
     end
 
     it 'has the correct data in rows for update_supplier_framework_lot_rates' do
@@ -263,6 +282,10 @@ RSpec.describe ChangeLog::CsvGenerator, type: :helper do
     it 'has the correct data in rows for update_supplier_framework_lot_branch' do
       expect(generated_csv[12]).to eq(['#d7a64810', 'Branch update', 'bertholdt.hoover@attackontitn.pa', '3 June 2026, 5:00pm', 'Scout Regiment Command Base', 'Lot 1 - Direct provision', nil, 'Address line 1', nil, nil, 'Shiganshina Headquarters Castle', nil])
       expect(generated_csv[13]).to eq(['#d7a64810', 'Branch update', 'bertholdt.hoover@attackontitn.pa', '3 June 2026, 5:00pm', 'Scout Regiment Command Base', 'Lot 1 - Direct provision', nil, 'Address line 2', nil, nil, nil, 'Abandoned Forest Log Cabin Hideout'])
+    end
+
+    it 'has the correct data in rows for update_supplier_sector_information' do
+      expect(generated_csv[24]).to eq(['#9a1b2c3d', 'Sector information update', 'reiner.braun@attackontitn.pa', '28 May 2026, 5:00pm', 'Historia Reiss', nil, nil, 'Sectors', nil, nil, "Government policy;\nInfrastructure;", "Health;\nEducation;"])
     end
     # rubocop:enable RSpec/MultipleExpectations
   end

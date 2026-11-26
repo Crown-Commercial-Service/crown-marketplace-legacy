@@ -89,6 +89,16 @@ class ChangeLog::CsvGenerator
     end
   end
 
+  def change_log_row_for_update_supplier_sector_information(change_log, &)
+    yield [
+      I18n.t('shared.admin.change_logs.change_log_csv.change_log_attributes.sectors'),
+      nil,
+      nil,
+      formatted_items(change_log.change_data['removed'], Sector),
+      formatted_items(change_log.change_data['added'], Sector),
+    ]
+  end
+
   def change_log_row_for_update_supplier_framework_lot_status(change_log, &)
     yield [
       I18n.t('shared.admin.change_logs.change_types.update_supplier_framework_lot_status'),
