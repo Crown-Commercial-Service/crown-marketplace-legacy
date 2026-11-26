@@ -1,4 +1,4 @@
-module Admin::SupplierActions
+module Admin::SupplierActions # rubocop:disable Metrics/ModuleLength
   extend ActiveSupport::Concern
 
   include Admin::SupplierPathsConcern
