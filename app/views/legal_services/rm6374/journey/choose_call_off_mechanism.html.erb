@@ -22,6 +22,9 @@
             value: option,
             label: {
               text: t(".options.#{option}")
+            },
+            hint: {
+              text: t(".options.#{option}_hint")
             }
           }
         end,
@@ -32,12 +35,10 @@
             classes: 'govuk-fieldset__legend--m',
             is_page_heading: true
           }
-        },
-        hint: {
-          text: t('.hint')
         }
       ) %>
 
+      <p class="govuk-body"> <%= t('.description_html') %> </p>
       <%= govuk_button(t('common.continue', default: 'Continue'), form: f, classes: 'govuk-!-padding-left-7 govuk-!-padding-right-7', attributes: { id: 'submit', name: t('common.continue', default: 'Continue') }) %>
     <% end %>
   </div>
