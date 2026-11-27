@@ -478,12 +478,15 @@ en:
           search_all_legal_specalisms: Search legal specialisms
           specialism_selected: specialism selected
         choose_call_off_mechanism:
-          hint: Select an option below
+          description_html: 'For further information about the call-off award process, you can refer to <b>Framework schedule 7: call-off award procedure</b> or the <b>RM6374 Buyer''s Guide</b>, available on the  <a class="govuk-link" href="https://www.gca.gov.uk/agreements/RM6374#documents">RM6374 framework page</a>.'
           options:
             award_with_competition: Award with competition
+            award_with_competition_hint: Enables you to invite suppliers to submit competitive tenders evaluated on price and quality
             quotation_process: Quote Process
+            quotation_process_hint: For requirements below the Light Touch threshold (£663,540 including VAT). Request quotes from at least three shortlisted suppliers using your Statement of Requirements and award to the lowest priced compliant quote
             rapid_award: Rapid Award
-          question: Please select the call off award mechanism being used
+            rapid_award_hint: Award to a single supplier under standard framework terms and pricing by assessing supplier prospectus documents and maximum framework rates against your requirements
+          question: Select your call off award mechnism
         choose_costs_law_professionals:
           hint: If you know the grades required, please select them below. Only rates for the selected grades will be included in the results
           options:
@@ -727,7 +730,6 @@ en:
           text: There are no suppliers on this panel that can provide the law services you need
           text_central_government_users_html: The %{general_legal_advice_service_link} agreement provides legal services for central government and arms-length bodies.
         page_title: Supplier results
-        prospectus_timeline_advice: Supplier prospectuses are expected to go live on October 1, 2026. In the meantime, use award with competition or quote process where possible, or contact suppliers directly to request a draft prospectus
         supplier: supplier
       show:
         contact_details:
