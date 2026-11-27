@@ -1,8 +1,8 @@
 # Set the alpine version so they match for both images
-ARG ALPINE_VERSION=3.23
+ARG ALPINE_VERSION=3.24
 
 # Set the Ruby version
-ARG RUBY_VERSION=4.0.2
+ARG RUBY_VERSION=4.0.10
 
 # Pull in the Ruby image
 FROM ruby:${RUBY_VERSION}-alpine${ALPINE_VERSION} AS base

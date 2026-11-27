@@ -242,9 +242,13 @@ module Admin::ChangeLogsHelper
   def update_supplier_framework_lot_item_list(item_ids, model, &)
     items = model.where(id: item_ids)
 
-    category_names = items.pluck(:category)
+    grouped_items = if model.column_names.include?('category')
+                      items.group_by(&:category)
+                    else
+                      { nil => items }
+                    end
 
-    items.order(:name).group_by(&:category).sort_by { |category_name, _item| category_names.index(category_name) }.each(&)
+    grouped_items.each(&)
   end
 
   def update_supplier_framework_lot_rates_table_rows

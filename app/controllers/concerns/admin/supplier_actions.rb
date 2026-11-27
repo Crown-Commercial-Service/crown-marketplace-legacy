@@ -1,4 +1,4 @@
-module Admin::SupplierActions
+module Admin::SupplierActions # rubocop:disable Metrics/ModuleLength
   extend ActiveSupport::Concern
 
   include Admin::SupplierPathsConcern
@@ -25,9 +25,25 @@ module Admin::SupplierActions
   end
 
   def update
+    model_saved = if @section == :customer_sector_selection
+                    update_for_sectors
+                  else
+                    update_standard_section
+                  end
+
+    if model_saved
+      redirect_to action: :show
+    else
+      render template: 'shared/admin/suppliers/edit'
+    end
+  end
+
+  private
+
+  def update_standard_section
     @model.assign_attributes(model_params)
 
-    model_saved = ActiveRecord::Base.transaction do
+    ActiveRecord::Base.transaction do
       @model.save!(context: @section)
       ChangeLog.public_send(:"log_#{self.class::SECTION_TO_CHANGE_TYPE[@section]}!", user: current_user, framework: params[:framework], model: @model)
 
@@ -42,15 +58,34 @@ module Admin::SupplierActions
 
       false
     end
-
-    if model_saved
-      redirect_to action: :show
-    else
-      render template: 'shared/admin/suppliers/edit'
-    end
   end
 
-  private
+  def update_for_sectors # rubocop:disable Metrics/AbcSize,Naming/PredicateMethod
+    raw_ids = (params[@model.model_name.param_key].present? ? params.expect("#{@model.model_name.param_key}": { sector_ids: [] }) : {})[:sector_ids] || []
+    sector_ids = raw_ids.compact_blank.map(&:to_i)
+
+    current_sector_ids = @model.supplier_framework_sectors.pluck(:sector_id)
+    sector_ids_to_add = sector_ids - current_sector_ids
+    sector_ids_to_remove = current_sector_ids - sector_ids
+
+    ActiveRecord::Base.transaction do
+      @model.supplier_framework_sectors.where(sector_id: sector_ids_to_remove).find_each(&:destroy!)
+      @model.supplier_framework_sectors.build(sector_ids_to_add.map { |sector_id| { sector_id: } }).each(&:save!)
+      ChangeLog.log_update_supplier_sector_information!(
+        user: current_user,
+        framework: params[:framework],
+        model: @model,
+        added: sector_ids_to_add,
+        removed: sector_ids_to_remove
+      )
+    rescue ActiveRecord::RecordInvalid => e
+      Rails.logger.error e
+      Rollbar.log('error', e)
+      @model.errors.add(:base, :sector_update_invalid)
+    end
+
+    @model.errors.none?
+  end
 
   def authorize_user
     authorize! :manage, service.module_parent::Admin
@@ -80,6 +115,8 @@ module Admin::SupplierActions
                service::Admin::Supplier.find(@supplier_framework.supplier_id)
              when :supplier_contact_information, :additional_supplier_information
                service::Admin::SupplierContactDetail.find_by(supplier_framework_id: @supplier_framework.id)
+             when :customer_sector_selection
+               Supplier::Framework.find(@supplier_framework.id)
              end
   end
 

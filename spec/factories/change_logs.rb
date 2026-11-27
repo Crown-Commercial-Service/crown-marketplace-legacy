@@ -28,6 +28,10 @@ FactoryBot.define do
       change_data { { 'id' => SecureRandom.uuid, 'supplier_name' => Faker::Name.unique.name, 'before' => { 'additional_details' => { 'managed_service_provider_name' => Faker::Name.unique.name, 'managed_service_provider_email' => Faker::Internet.unique.email, 'managed_service_provider_telephone' => Faker::PhoneNumber.unique.cell_phone_in_e164[1..] } }, 'after' => { 'additional_details' => { 'managed_service_provider_name' => Faker::Name.unique.name, 'managed_service_provider_email' => Faker::Internet.unique.email, 'managed_service_provider_telephone' => Faker::PhoneNumber.unique.cell_phone_in_e164[1..] } } } }
     end
 
+    trait :with_update_supplier_sector_information_change_type do
+      change_type { ChangeLog::CHANGE_TYPES[:update_supplier_sector_information] }
+    end
+
     trait :with_update_supplier_framework_lot_status_change_type do
       change_type { 'update_supplier_framework_lot_status' }
       change_data { { 'id' => SecureRandom.uuid, 'supplier_name' => Faker::Name.unique.name, 'lot_id' => 'RM6360.1', 'before' => { 'enabled' => true }, 'after' => { 'enabled' => false } } }

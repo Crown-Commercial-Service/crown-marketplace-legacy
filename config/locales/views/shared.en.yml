@@ -7,6 +7,7 @@ en:
           change_log_attributes:
             jurisdictions: Jurisdictions
             rate: Rate
+            sectors: Sectors
             services: Services
           headings:
             added: Added
@@ -22,6 +23,7 @@ en:
           update_supplier_framework_lot_services: Services update
           update_supplier_framework_lot_status: Lot status update
           update_supplier_information: Supplier information update
+          update_supplier_sector_information: Sector information update
           upload_supplier_data: Upload
         index:
           below_is_a_table: The table shows a list of all the changes made to the supplier data. You can view a specific change that was made by clicking on a log item.
@@ -59,6 +61,9 @@ en:
           update_supplier_framework_lot_services:
             added: 'The following services were added:'
             removed: 'The following services were removed:'
+          update_supplier_sector_information:
+            added: 'The following sectors were added:'
+            removed: 'The following sectors were removed:'
           upload_supplier_data:
             you_can_view_html: You can view the upload in the '%{link}' section of the portal.
       dashboard:
@@ -446,10 +451,10 @@ en:
           partner: Partner
           senior: Senior Solicitor, Senior Associate/Senior Legal Executive
           solicitor: Solicitor, Associate/Legal Executive
-          solicitor_less_than_4_years: Grade C
-          solicitor_more_than_4_years: Grade B
-          solicitor_more_than_8_years: Grade A
-          solicitor_paralegal: Grade D
+          solicitor_less_than_4_years: 'Grade C: Individual with less than 4 years cost litigation experience'
+          solicitor_more_than_4_years: 'Grade B: Individual with more than 4 years cost litigation experience'
+          solicitor_more_than_8_years: 'Grade A: Individual with more than 8 years cost litigation experience'
+          solicitor_paralegal: 'Grade D: Individual with paralegal qualifications'
           trainee: Trainee/Legal Apprentice
       rm6376:
         categories:
